@@ -279,7 +279,8 @@ def wiki_next(wiki_url, wiki_fmt):
     if not tsdb_id:
         return [],None
 
-    url=f"{API_TSDB}/eventsnextleague.php?id={tsdb_id}"
+    season=datetime.datetime.now(TZ_COL).year
+    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
     headers_req={"User-Agent":"Mozilla/5.0"}
     try:
         r=requests.get(url,headers=headers_req,timeout=15)
@@ -287,6 +288,8 @@ def wiki_next(wiki_url, wiki_fmt):
         out=[]; ahora=datetime.datetime.now(TZ_COL)
         lim=(ahora+datetime.timedelta(days=7)).date()
         for e in eventos:
+            # Solo partidos futuros (sin resultado)
+            if e.get("intHomeScore") is not None: continue
             fs=e.get("dateEvent",""); hs=e.get("strTime","00:00:00") or "00:00:00"
             if not fs: continue
             try:
