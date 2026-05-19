@@ -107,6 +107,7 @@ div[data-testid="stSelectbox"] > div { background:#1a2540 !important; color:#e8e
 # ─────────────────────────────────────────────
 API_FD   = "https://api.football-data.org/v4"
 API_RF   = "https://v3.football.api-sports.io"
+API_TSDB = "https://www.thesportsdb.com/api/v1/json/3"
 TZ_COL   = ZoneInfo("America/Bogota")
 FL       = 1.15
 MG       = 8
@@ -122,13 +123,13 @@ LIGAS = {
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1",  "rf_id":61,  "avg":1.35},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL",  "rf_id":94,  "avg":1.30},
     "🏆 Champions League":     {"src":"fd","code":"CL",   "rf_id":2,   "avg":1.45},
-    "🇨🇴 Liga BetPlay":        {"src":"rf","code":None,   "rf_id":239, "avg":1.20},
-    "🇨🇴 Torneo BetPlay":      {"src":"rf","code":None,   "rf_id":240, "avg":1.10},
-    "🏆 Copa Libertadores":    {"src":"rf","code":None,   "rf_id":13,  "avg":1.25},
-    "🏆 Copa Sudamericana":    {"src":"rf","code":None,   "rf_id":11,  "avg":1.20},
-    "🇦🇷 Liga Argentina":      {"src":"rf","code":None,   "rf_id":128, "avg":1.30},
-    "🇧🇷 Brasileirao":         {"src":"rf","code":None,   "rf_id":71,  "avg":1.35},
-    "🇲🇽 Liga MX":             {"src":"rf","code":None,   "rf_id":262, "avg":1.25},
+    "🇨🇴 Liga BetPlay":        {"src":"tsdb","code":None, "rf_id":239, "tsdb_id":"4497", "avg":1.20},
+    "🇨🇴 Torneo BetPlay":      {"src":"tsdb","code":None, "rf_id":240, "tsdb_id":"4951", "avg":1.10},
+    "🏆 Copa Libertadores":    {"src":"tsdb","code":None, "rf_id":13,  "tsdb_id":"4351", "avg":1.25},
+    "🏆 Copa Sudamericana":    {"src":"tsdb","code":None, "rf_id":11,  "tsdb_id":"4352", "avg":1.20},
+    "🇦🇷 Liga Argentina":      {"src":"tsdb","code":None, "rf_id":128, "tsdb_id":"4406", "avg":1.30},
+    "🇧🇷 Brasileirao":         {"src":"tsdb","code":None, "rf_id":71,  "tsdb_id":"4351", "avg":1.35},
+    "🇲🇽 Liga MX":             {"src":"tsdb","code":None, "rf_id":262, "tsdb_id":"4406", "avg":1.25},
 }
 
 # ─────────────────────────────────────────────
@@ -232,6 +233,51 @@ def fd_next(code, key):
 # API — API-Football (RapidAPI) para Suramérica
 # ─────────────────────────────────────────────
 @st.cache_data(ttl=3600)
+
+@st.cache_data(ttl=900)
+def tsdb_hist(tsdb_id):
+    """Historial via TheSportsDB (gratuito, sin key)."""
+    season=datetime.datetime.now(TZ_COL).year
+    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
+    try:
+        r=requests.get(url,timeout=15); r.raise_for_status()
+        eventos=r.json().get("events") or []
+        out=[]
+        for e in eventos:
+            if e.get("strStatus")!="Match Finished": continue
+            gh=e.get("intHomeScore"); ga=e.get("intAwayScore")
+            if gh is None or ga is None: continue
+            out.append((e["strHomeTeam"],e["strAwayTeam"],int(gh),int(ga)))
+        return out,None
+    except Exception as ex: return [],str(ex)
+
+@st.cache_data(ttl=900)
+def tsdb_next(tsdb_id):
+    """Proximos partidos via TheSportsDB."""
+    season=datetime.datetime.now(TZ_COL).year
+    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
+    try:
+        r=requests.get(url,timeout=15); r.raise_for_status()
+        eventos=r.json().get("events") or []
+        out=[]; ahora=datetime.datetime.now(TZ_COL)
+        for e in eventos:
+            if e.get("strStatus")=="Match Finished": continue
+            fs=e.get("dateEvent",""); hs=e.get("strTime","00:00:00")
+            if not fs: continue
+            try:
+                dt_utc=datetime.datetime.strptime(f"{fs} {hs[:5]}","%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("UTC"))
+                dt=dt_utc.astimezone(TZ_COL)
+            except: continue
+            if dt<ahora: continue
+            lim=(ahora+datetime.timedelta(days=3)).date()
+            if dt.date()>lim: continue
+            out.append({"id":e.get("idEvent","?"),"dt":dt,"fecha":dt.strftime("%Y-%m-%d"),
+                        "hora":dt.strftime("%I:%M %p"),"local":e["strHomeTeam"],"visit":e["strAwayTeam"],
+                        "jornada":e.get("intRound","?"),"hoy":es_hoy(dt),"manana":es_manana(dt)})
+        out.sort(key=lambda x:x["dt"])
+        return out,None
+    except Exception as ex: return [],str(ex)
+
 def rf_hist(league_id, rf_key):
     """Historial de partidos via API-Football."""
     season=datetime.datetime.now(TZ_COL).year
@@ -300,10 +346,15 @@ with st.sidebar:
     st.divider()
 
     st.markdown("### ⚙️ Fuentes de datos")
-    fd_key=st.text_input("API Key — football-data.org",type="password",
-                          placeholder="Ligas europeas",
-                          help="Gratis en football-data.org/client/register")
-    rf_key=st.text_input("API Key — API-Football (RapidAPI)",type="password",
+    _fd_secret = st.secrets.get("FOOTBALL_DATA_KEY", "")
+    if _fd_secret:
+        fd_key = _fd_secret
+        st.success("✓ API key europea cargada automáticamente")
+    else:
+        fd_key = st.text_input("API Key — football-data.org",type="password",
+                               placeholder="Ligas europeas",
+                               help="Gratis en football-data.org/client/register")
+    rf_key=st.text_input("API Key — API-Football",type="password",
                           placeholder="Ligas de Suramérica y Colombia",
                           help="Gratis en api-football.com")
 
@@ -443,6 +494,14 @@ with tab1:
             prox,e2=fd_next(li["code"],fd_key)
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
+        cargado=True
+
+    elif li["src"]=="tsdb":
+        with st.spinner("Cargando datos de Suramérica y Colombia..."):
+            hist,e1=tsdb_hist(li["tsdb_id"])
+            prox,e2=tsdb_next(li["tsdb_id"])
+        if e1: st.warning(f"Error historial: {e1}")
+        if e2: st.warning(f"Error proximos: {e2}")
         cargado=True
 
     elif li["src"]=="rf" and tiene_rf:
