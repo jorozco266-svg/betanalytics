@@ -304,7 +304,7 @@ def wiki_next(wiki_url, wiki_fmt):
                 if dt.date()>lim: continue
                 uid=hashlib.md5(f"{loc}{vis}{dt.date()}".encode()).hexdigest()[:8]
                 out.append({"id":uid,"dt":dt,
-                            "fecha":dt.strftime("%Y-%m-%d"),"hora":dt.strftime("%I:%M %p"),
+                            "fecha":dt.strftime("%Y-%m-%d"),"hora":"Ver en RushBet",
                             "local":loc,"visit":vis,"jornada":"?",
                             "hoy":es_hoy(dt),"manana":es_manana(dt)})
         out.sort(key=lambda x:x["dt"])
