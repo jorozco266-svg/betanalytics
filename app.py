@@ -263,47 +263,57 @@ def wiki_hist(wiki_url, wiki_fmt):
 @st.cache_data(ttl=900)
 @st.cache_data(ttl=900)
 def wiki_next(wiki_url, wiki_fmt):
-    """Proximos partidos via TheSportsDB con fechas correctas."""
-    # Mapa de URL Wikipedia a ID de TheSportsDB
-    TSDB_IDS = {
-        "Torneo_Apertura_2026_(Colombia)": "4497",
-        "Copa_Libertadores_2026":          "4501",
-        "Copa_Sudamericana_2026":          "4353",
-        "Torneo_Clausura_2026_(Argentina)": "4406",
-    }
-    tsdb_id = None
-    for k,v in TSDB_IDS.items():
-        if k in wiki_url:
-            tsdb_id = v
-            break
-    if not tsdb_id:
-        return [],None
-
-    season=datetime.datetime.now(TZ_COL).year
-    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
+    """Extrae proximos partidos desde Wikipedia con fechas reales."""
+    MESES = {"enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
+             "julio":7,"agosto":8,"septiembre":9,"octubre":10,"noviembre":11,"diciembre":12}
     headers_req={"User-Agent":"Mozilla/5.0"}
     try:
-        r=requests.get(url,headers=headers_req,timeout=15)
-        eventos=r.json().get("events") or []
+        import re, hashlib
+        r=requests.get(wiki_url,headers=headers_req,timeout=15)
+        soup=BeautifulSoup(r.text,"html.parser")
         out=[]; ahora=datetime.datetime.now(TZ_COL)
         lim=(ahora+datetime.timedelta(days=7)).date()
-        for e in eventos:
-            # Solo partidos futuros (sin resultado)
-            if e.get("intHomeScore") is not None: continue
-            fs=e.get("dateEvent",""); hs=e.get("strTime","00:00:00") or "00:00:00"
-            if not fs: continue
-            try:
-                dt_utc=datetime.datetime.strptime(f"{fs} {hs[:5]}","%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("UTC"))
-                dt=dt_utc.astimezone(TZ_COL)
-            except: continue
-            if dt.date()>lim: continue
-            out.append({"id":e.get("idEvent","?"),"dt":dt,
-                        "fecha":dt.strftime("%Y-%m-%d"),"hora":dt.strftime("%I:%M %p"),
-                        "local":e["strHomeTeam"],"visit":e["strAwayTeam"],
-                        "jornada":e.get("intRound","?"),
-                        "hoy":es_hoy(dt),"manana":es_manana(dt)})
+        anio=ahora.year
+        for tabla in soup.find_all("table",class_="wikitable"):
+            for fila in tabla.find_all("tr"):
+                celdas=[td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                if wiki_fmt=="conmebol":
+                    if len(celdas)<5: continue
+                    if celdas[3].strip() != "-": continue
+                    loc,vis,fecha_str=celdas[2].strip(),celdas[4].strip(),celdas[0].strip()
+                else:
+                    if len(celdas)<3: continue
+                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
+                    if m: continue
+                    if not re.search(r"-"," ".join(celdas)): continue
+                    loc,vis=celdas[0].strip(),celdas[2].strip()
+                    fecha_str=celdas[3] if len(celdas)>3 else ""
+                if not loc or not vis or len(loc)<3: continue
+                # Parsear fecha tipo "19 de mayo"
+                dt=None
+                m_fecha=re.search(r"(\d+)\s+de\s+(\w+)",fecha_str.lower())
+                if m_fecha:
+                    dia=int(m_fecha.group(1))
+                    mes=MESES.get(m_fecha.group(2))
+                    if mes:
+                        try:
+                            dt=datetime.datetime(anio,mes,dia,12,0,tzinfo=TZ_COL)
+                        except: dt=None
+                if dt is None:
+                    dt=ahora
+                if dt.date()>lim: continue
+                uid=hashlib.md5(f"{loc}{vis}{dt.date()}".encode()).hexdigest()[:8]
+                out.append({"id":uid,"dt":dt,
+                            "fecha":dt.strftime("%Y-%m-%d"),"hora":dt.strftime("%I:%M %p"),
+                            "local":loc,"visit":vis,"jornada":"?",
+                            "hoy":es_hoy(dt),"manana":es_manana(dt)})
         out.sort(key=lambda x:x["dt"])
-        return out,None
+        # Deduplicar
+        seen=set(); final=[]
+        for p in out:
+            k=f"{p['local']}{p['visit']}"
+            if k not in seen: seen.add(k); final.append(p)
+        return final,None
     except Exception as ex: return [],str(ex)
 
 def rf_hist(league_id, rf_key):
