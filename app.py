@@ -123,13 +123,12 @@ LIGAS = {
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1",  "rf_id":61,  "avg":1.35},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL",  "rf_id":94,  "avg":1.30},
     "🏆 Champions League":     {"src":"fd","code":"CL",   "rf_id":2,   "avg":1.45},
-    "🇨🇴 Liga BetPlay":        {"src":"tsdb","code":None, "rf_id":239, "tsdb_id":"4497", "avg":1.20},
-    "🇨🇴 Torneo BetPlay":      {"src":"tsdb","code":None, "rf_id":240, "tsdb_id":"4951", "avg":1.10},
-    "🏆 Copa Libertadores":    {"src":"tsdb","code":None, "rf_id":13,  "tsdb_id":"4351", "avg":1.25},
-    "🏆 Copa Sudamericana":    {"src":"tsdb","code":None, "rf_id":11,  "tsdb_id":"4352", "avg":1.20},
-    "🇦🇷 Liga Argentina":      {"src":"tsdb","code":None, "rf_id":128, "tsdb_id":"4406", "avg":1.30},
-    "🇧🇷 Brasileirao":         {"src":"tsdb","code":None, "rf_id":71,  "tsdb_id":"4351", "avg":1.35},
-    "🇲🇽 Liga MX":             {"src":"tsdb","code":None, "rf_id":262, "tsdb_id":"4406", "avg":1.25},
+    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20},
+    "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25},
+    "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20},
+    "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30},
+    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35},
+    "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Apertura_2026_(M%C3%A9xico)",               "wiki_fmt":"betplay",  "avg":1.25},
 }
 
 # ─────────────────────────────────────────────
@@ -230,50 +229,67 @@ def fd_next(code, key):
     except Exception as e: return [],str(e)
 
 # ─────────────────────────────────────────────
-# API — API-Football (RapidAPI) para Suramérica
+# SCRAPER WIKIPEDIA — Suramérica (sin API key)
 # ─────────────────────────────────────────────
+from bs4 import BeautifulSoup
+
 @st.cache_data(ttl=3600)
-def tsdb_hist(tsdb_id):
-    """Historial via TheSportsDB (gratuito, sin key)."""
-    season=datetime.datetime.now(TZ_COL).year
-    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
+def wiki_hist(wiki_url, wiki_fmt):
+    """Extrae historial de resultados desde Wikipedia."""
+    headers={"User-Agent":"Mozilla/5.0"}
     try:
-        r=requests.get(url,timeout=15); r.raise_for_status()
-        eventos=r.json().get("events") or []
-        out=[]
-        for e in eventos:
-            if e.get("strStatus")!="Match Finished": continue
-            gh=e.get("intHomeScore"); ga=e.get("intAwayScore")
-            if gh is None or ga is None: continue
-            out.append((e["strHomeTeam"],e["strAwayTeam"],int(gh),int(ga)))
-        return out,None
+        r=requests.get(wiki_url,headers=headers,timeout=15)
+        soup=BeautifulSoup(r.text,"html.parser")
+        partidos=[]
+        import re
+        for tabla in soup.find_all("table",class_="wikitable"):
+            for fila in tabla.find_all("tr"):
+                celdas=[td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                if wiki_fmt=="conmebol":
+                    if len(celdas)<5: continue
+                    m=re.search(r"(\d+)\s*[:\-]\s*(\d+)",celdas[3])
+                    if not m: continue
+                    loc,vis=celdas[2].strip(),celdas[4].strip()
+                else:
+                    if len(celdas)<3: continue
+                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
+                    if not m: continue
+                    loc,vis=celdas[0].strip(),celdas[2].strip()
+                if loc and vis and len(loc)>2 and len(vis)>2:
+                    partidos.append((loc,vis,int(m.group(1)),int(m.group(2))))
+        return partidos,None
     except Exception as ex: return [],str(ex)
 
 @st.cache_data(ttl=900)
-def tsdb_next(tsdb_id):
-    """Proximos partidos via TheSportsDB."""
-    season=datetime.datetime.now(TZ_COL).year
-    url=f"{API_TSDB}/eventsseason.php?id={tsdb_id}&s={season}"
+def wiki_next(wiki_url, wiki_fmt):
+    """Extrae proximos partidos desde Wikipedia (marcador '-')."""
+    headers={"User-Agent":"Mozilla/5.0"}
     try:
-        r=requests.get(url,timeout=15); r.raise_for_status()
-        eventos=r.json().get("events") or []
-        out=[]; ahora=datetime.datetime.now(TZ_COL)
-        for e in eventos:
-            if e.get("strStatus")=="Match Finished": continue
-            fs=e.get("dateEvent",""); hs=e.get("strTime","00:00:00")
-            if not fs: continue
-            try:
-                dt_utc=datetime.datetime.strptime(f"{fs} {hs[:5]}","%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("UTC"))
-                dt=dt_utc.astimezone(TZ_COL)
-            except: continue
-            if dt<ahora: continue
-            lim=(ahora+datetime.timedelta(days=3)).date()
-            if dt.date()>lim: continue
-            out.append({"id":e.get("idEvent","?"),"dt":dt,"fecha":dt.strftime("%Y-%m-%d"),
-                        "hora":dt.strftime("%I:%M %p"),"local":e["strHomeTeam"],"visit":e["strAwayTeam"],
-                        "jornada":e.get("intRound","?"),"hoy":es_hoy(dt),"manana":es_manana(dt)})
-        out.sort(key=lambda x:x["dt"])
-        return out,None
+        r=requests.get(wiki_url,headers=headers,timeout=15)
+        soup=BeautifulSoup(r.text,"html.parser")
+        proximos=[]; ahora=datetime.datetime.now(TZ_COL)
+        import re,hashlib
+        for tabla in soup.find_all("table",class_="wikitable"):
+            for fila in tabla.find_all("tr"):
+                celdas=[td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                if wiki_fmt=="conmebol":
+                    if len(celdas)<5: continue
+                    if not re.match(r"^-$",celdas[3].strip()): continue
+                    loc,vis=celdas[2].strip(),celdas[4].strip()
+                    fecha_str=celdas[0].strip()
+                else:
+                    if len(celdas)<3: continue
+                    if not re.search(r"-",celdas[1]): continue
+                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
+                    if m: continue  # ya jugado
+                    loc,vis=celdas[0].strip(),celdas[2].strip()
+                    fecha_str=celdas[3] if len(celdas)>3 else ""
+                if not loc or not vis or len(loc)<3: continue
+                uid=hashlib.md5(f"{loc}{vis}".encode()).hexdigest()[:8]
+                proximos.append({"id":uid,"dt":ahora,"fecha":ahora.strftime("%Y-%m-%d"),
+                                 "hora":"TBD","local":loc,"visit":vis,
+                                 "jornada":"?","hoy":False,"manana":True})
+        return proximos[:20],None
     except Exception as ex: return [],str(ex)
 
 def rf_hist(league_id, rf_key):
@@ -494,12 +510,12 @@ with tab1:
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
-    elif li["src"]=="tsdb":
-        with st.spinner("Cargando datos de Suramérica y Colombia..."):
-            hist,e1=tsdb_hist(li["tsdb_id"])
-            prox,e2=tsdb_next(li["tsdb_id"])
+    elif li["src"]=="wiki":
+        with st.spinner("Cargando datos desde Wikipedia..."):
+            hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"])
+            prox,e2=wiki_next(li["wiki_url"],li["wiki_fmt"])
         if e1: st.warning(f"Error historial: {e1}")
-        if e2: st.warning(f"Error proximos: {e2}")
+        if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
     elif li["src"]=="rf" and tiene_rf:
