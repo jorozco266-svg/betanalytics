@@ -110,7 +110,7 @@ API_RF   = "https://v3.football.api-sports.io"
 TZ_COL   = ZoneInfo("America/Bogota")
 FL       = 1.15
 MG       = 8
-BK_INIT  = 62359
+BK_INIT  = 35000
 
 # Liga: source indica de dónde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
@@ -236,7 +236,7 @@ def rf_hist(league_id, rf_key):
     """Historial de partidos via API-Football."""
     season=datetime.datetime.now(TZ_COL).year
     url=f"{API_RF}/fixtures?league={league_id}&season={season}&status=FT"
-    headers={"x-rapidapi-key":rf_key,"x-rapidapi-host":"v3.football.api-sports.io"}
+    headers={"x-apisports-key":rf_key}
     try:
         r=requests.get(url,headers=headers,timeout=15)
         r.raise_for_status()
@@ -254,7 +254,7 @@ def rf_next(league_id, rf_key):
     """Próximos partidos via API-Football."""
     season=datetime.datetime.now(TZ_COL).year
     url=f"{API_RF}/fixtures?league={league_id}&season={season}&status=NS"
-    headers={"x-rapidapi-key":rf_key,"x-rapidapi-host":"v3.football.api-sports.io"}
+    headers={"x-apisports-key":rf_key}
     try:
         r=requests.get(url,headers=headers,timeout=15)
         r.raise_for_status()
@@ -277,7 +277,7 @@ def rf_next(league_id, rf_key):
 # SESSION STATE
 # ─────────────────────────────────────────────
 def init():
-    if "bankroll" not in st.session_state: st.session_state.bankroll=62359
+    if "bankroll" not in st.session_state: st.session_state.bankroll=51982
     if "wins"     not in st.session_state: st.session_state.wins=5
     if "losses"   not in st.session_state: st.session_state.losses=0
     if "apuestas" not in st.session_state:
@@ -305,7 +305,7 @@ with st.sidebar:
                           help="Gratis en football-data.org/client/register")
     rf_key=st.text_input("API Key — API-Football (RapidAPI)",type="password",
                           placeholder="Ligas de Suramérica y Colombia",
-                          help="Gratis en rapidapi.com/api-sports/api/api-football")
+                          help="Gratis en api-football.com")
 
     st.divider()
     liga_n=st.selectbox("🏟️ Liga",list(LIGAS.keys()),index=0)
