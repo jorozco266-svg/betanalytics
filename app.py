@@ -233,8 +233,6 @@ def fd_next(code, key):
 # API — API-Football (RapidAPI) para Suramérica
 # ─────────────────────────────────────────────
 @st.cache_data(ttl=3600)
-
-@st.cache_data(ttl=900)
 def tsdb_hist(tsdb_id):
     """Historial via TheSportsDB (gratuito, sin key)."""
     season=datetime.datetime.now(TZ_COL).year
