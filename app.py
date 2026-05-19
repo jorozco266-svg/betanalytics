@@ -46,7 +46,7 @@ API_BASE      = "https://api.football-data.org/v4"
 TZ_COL        = ZoneInfo("America/Bogota")
 FACTOR_LOCAL  = 1.15
 MAX_GOLES     = 8
-BANKROLL_INIT = 35000
+BANKROLL_INIT = 62359
 
 LIGAS = {
     "🇪🇸 La Liga":         {"code":"PD",  "avg_goles":1.35},
@@ -154,7 +154,7 @@ def get_next(code, key):
 
 # ── Session state ────────────────────────────
 def init():
-    if "bankroll" not in st.session_state: st.session_state.bankroll=51982
+    if "bankroll" not in st.session_state: st.session_state.bankroll=62359
     if "wins"     not in st.session_state: st.session_state.wins=5
     if "losses"   not in st.session_state: st.session_state.losses=0
     if "apuestas" not in st.session_state:
