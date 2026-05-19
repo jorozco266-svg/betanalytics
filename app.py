@@ -261,35 +261,46 @@ def wiki_hist(wiki_url, wiki_fmt):
     except Exception as ex: return [],str(ex)
 
 @st.cache_data(ttl=900)
+@st.cache_data(ttl=900)
 def wiki_next(wiki_url, wiki_fmt):
-    """Extrae proximos partidos desde Wikipedia (marcador '-')."""
-    headers={"User-Agent":"Mozilla/5.0"}
+    """Proximos partidos via TheSportsDB con fechas correctas."""
+    # Mapa de URL Wikipedia a ID de TheSportsDB
+    TSDB_IDS = {
+        "Torneo_Apertura_2026_(Colombia)": "4497",
+        "Copa_Libertadores_2026":          "4501",
+        "Copa_Sudamericana_2026":          "4353",
+        "Torneo_Clausura_2026_(Argentina)": "4406",
+    }
+    tsdb_id = None
+    for k,v in TSDB_IDS.items():
+        if k in wiki_url:
+            tsdb_id = v
+            break
+    if not tsdb_id:
+        return [],None
+
+    url=f"{API_TSDB}/eventsnextleague.php?id={tsdb_id}"
+    headers_req={"User-Agent":"Mozilla/5.0"}
     try:
-        r=requests.get(wiki_url,headers=headers,timeout=15)
-        soup=BeautifulSoup(r.text,"html.parser")
-        proximos=[]; ahora=datetime.datetime.now(TZ_COL)
-        import re,hashlib
-        for tabla in soup.find_all("table",class_="wikitable"):
-            for fila in tabla.find_all("tr"):
-                celdas=[td.get_text(strip=True) for td in fila.find_all(["td","th"])]
-                if wiki_fmt=="conmebol":
-                    if len(celdas)<5: continue
-                    if not re.match(r"^-$",celdas[3].strip()): continue
-                    loc,vis=celdas[2].strip(),celdas[4].strip()
-                    fecha_str=celdas[0].strip()
-                else:
-                    if len(celdas)<3: continue
-                    if not re.search(r"-",celdas[1]): continue
-                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
-                    if m: continue  # ya jugado
-                    loc,vis=celdas[0].strip(),celdas[2].strip()
-                    fecha_str=celdas[3] if len(celdas)>3 else ""
-                if not loc or not vis or len(loc)<3: continue
-                uid=hashlib.md5(f"{loc}{vis}".encode()).hexdigest()[:8]
-                proximos.append({"id":uid,"dt":ahora,"fecha":ahora.strftime("%Y-%m-%d"),
-                                 "hora":"TBD","local":loc,"visit":vis,
-                                 "jornada":"?","hoy":False,"manana":True})
-        return proximos[:20],None
+        r=requests.get(url,headers=headers_req,timeout=15)
+        eventos=r.json().get("events") or []
+        out=[]; ahora=datetime.datetime.now(TZ_COL)
+        lim=(ahora+datetime.timedelta(days=7)).date()
+        for e in eventos:
+            fs=e.get("dateEvent",""); hs=e.get("strTime","00:00:00") or "00:00:00"
+            if not fs: continue
+            try:
+                dt_utc=datetime.datetime.strptime(f"{fs} {hs[:5]}","%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("UTC"))
+                dt=dt_utc.astimezone(TZ_COL)
+            except: continue
+            if dt.date()>lim: continue
+            out.append({"id":e.get("idEvent","?"),"dt":dt,
+                        "fecha":dt.strftime("%Y-%m-%d"),"hora":dt.strftime("%I:%M %p"),
+                        "local":e["strHomeTeam"],"visit":e["strAwayTeam"],
+                        "jornada":e.get("intRound","?"),
+                        "hoy":es_hoy(dt),"manana":es_manana(dt)})
+        out.sort(key=lambda x:x["dt"])
+        return out,None
     except Exception as ex: return [],str(ex)
 
 def rf_hist(league_id, rf_key):
