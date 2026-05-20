@@ -124,7 +124,7 @@ LIGAS = {
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
-    "🏆 Europa League":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Liga_Europa_de_la_UEFA_2025-26", "wiki_fmt":"conmebol", "avg":1.35, "odds_key":"soccer_uefa_europa_league"},
+    "🏆 Europa League":        {"src":"fd","code":"EL",  "avg":1.35, "odds_key":"soccer_uefa_europa_league"},
     "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
                                 "equipos_excluir":["Llaneros","Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla"]},
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Categor%C3%ADa_Primera_B_2026",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
