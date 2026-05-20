@@ -285,7 +285,7 @@ def fd_next(code, key):
 from bs4 import BeautifulSoup
 
 @st.cache_data(ttl=3600)
-def wiki_hist(wiki_url, wiki_fmt):
+def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
     """Extrae historial de resultados desde Wikipedia."""
     headers={"User-Agent":"Mozilla/5.0"}
     try:
