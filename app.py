@@ -1,9 +1,9 @@
 """
 BetAnalytics v3
 - Paleta mejorada para PC: dark mode legible con buen contraste
-- Ligas de Suramérica via API-Football (RapidAPI)
+- Ligas de SuramÃ©rica via API-Football (RapidAPI)
 - Ligas europeas via football-data.org
-- Bankroll dinámico: se descuenta al apostar, se acredita al ganar
+- Bankroll dinÃ¡mico: se descuenta al apostar, se acredita al ganar
 """
 
 import math, datetime
@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="BetAnalytics", page_icon="⚽", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="BetAnalytics", page_icon="âš½", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -20,18 +20,18 @@ st.markdown("""
 
 html, body, [class*="css"] { font-family: 'Outfit', sans-serif; }
 
-/* Fondo y texto base — más claros para mejor contraste en PC */
+/* Fondo y texto base â€” mÃ¡s claros para mejor contraste en PC */
 .stApp { background: #0f1623; color: #dde3f0; }
 section[data-testid="stSidebar"] { background: #0b1018 !important; border-right: 1px solid #1f2d42; }
 
-/* Títulos */
+/* TÃ­tulos */
 .brand { font-family:'Outfit',sans-serif; font-weight:800; font-size:2rem;
     background:linear-gradient(120deg,#38bdf8,#818cf8); -webkit-background-clip:text;
     -webkit-text-fill-color:transparent; line-height:1.1; margin:0; }
 .eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:#64748b;
     letter-spacing:0.14em; text-transform:uppercase; margin-top:3px; }
 
-/* Cards — fondo más visible */
+/* Cards â€” fondo mÃ¡s visible */
 .card { background:#1a2540; border:1px solid #253352; border-radius:14px; padding:16px 20px; margin-bottom:10px; }
 .card-label { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:#7a8aaa;
     text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px; }
@@ -41,7 +41,7 @@ section[data-testid="stSidebar"] { background: #0b1018 !important; border-right:
 .prob-wrap { background:#1a2540; border:1px solid #253352; border-radius:12px; padding:14px 16px; margin-bottom:8px; }
 .prob-bar { background:#253352; border-radius:6px; height:10px; margin-top:8px; overflow:hidden; }
 
-/* VALUE BET — verde brillante legible */
+/* VALUE BET â€” verde brillante legible */
 .vbet { background:#0d2a1a; border:1.5px solid #22c55e; border-radius:14px; padding:18px 22px; margin-bottom:10px; }
 .vbet-badge { background:#22c55e; color:#021a0c; font-size:0.7rem; font-weight:700;
     padding:3px 12px; border-radius:20px; font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; }
@@ -102,9 +102,9 @@ div[data-testid="stSelectbox"] > div { background:#1a2540 !important; color:#e8e
 </style>
 """, unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # CONSTANTES
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 API_FD   = "https://api.football-data.org/v4"
 API_ODDS = "https://api.the-odds-api.com/v4"
 API_RF   = "https://v3.football.api-sports.io"
@@ -114,30 +114,30 @@ FL       = 1.15
 MG       = 8
 BK_INIT  = 35000
 
-# Liga: source indica de dónde se obtienen los datos
+# Liga: source indica de dÃ³nde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
 LIGAS = {
-    "🇪🇸 La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
-    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
-    "🇩🇪 Bundesliga":          {"src":"fd","code":"BL1", "avg":1.55, "odds_key":"soccer_germany_bundesliga"},
-    "🇮🇹 Serie A":             {"src":"fd","code":"SA",  "avg":1.30, "odds_key":"soccer_italy_serie_a"},
-    "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
-    "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
-    "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
-    "🏆 Europa League":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Liga_Europa_de_la_UEFA_2025-26","wiki_fmt":"conmebol","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
+    "ðŸ‡ªðŸ‡¸ La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
+    "ðŸ´ó §ó ¢ó ¥ó ®ó §ó ¿ Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
+    "ðŸ‡©ðŸ‡ª Bundesliga":          {"src":"fd","code":"BL1", "avg":1.55, "odds_key":"soccer_germany_bundesliga"},
+    "ðŸ‡®ðŸ‡¹ Serie A":             {"src":"fd","code":"SA",  "avg":1.30, "odds_key":"soccer_italy_serie_a"},
+    "ðŸ‡«ðŸ‡· Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
+    "ðŸ‡µðŸ‡¹ Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
+    "ðŸ† Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
+    "ðŸ† Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
+    "ðŸ‡¨ðŸ‡´ Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
                                 "equipos_excluir":["Llaneros","Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla"]},
-    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Categor%C3%ADa_Primera_B_2026",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
-    "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
-    "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
-    "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
-    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35, "odds_key":"soccer_brazil_campeonato"},
-    "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(M%C3%A9xico)",       "wiki_fmt":"betplay",  "avg":1.25, "odds_key":"soccer_mexico_ligamx"},
+    "ðŸ‡¨ðŸ‡´ Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Categor%C3%ADa_Primera_B_2026",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
+    "ðŸ† Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
+    "ðŸ† Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
+    "ðŸ‡¦ðŸ‡· Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
+    "ðŸ‡§ðŸ‡· Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35, "odds_key":"soccer_brazil_campeonato"},
+    "ðŸ‡²ðŸ‡½ Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(M%C3%A9xico)",       "wiki_fmt":"betplay",  "avg":1.25, "odds_key":"soccer_mexico_ligamx"},
 }
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # TIEMPO
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def to_col(s):
     try: return datetime.datetime.fromisoformat(s.replace("Z","+00:00")).astimezone(TZ_COL)
     except: return None
@@ -145,9 +145,9 @@ def to_col(s):
 def es_hoy(dt):    return dt.date()==datetime.datetime.now(TZ_COL).date()
 def es_manana(dt): return dt.date()==(datetime.datetime.now(TZ_COL)+datetime.timedelta(days=1)).date()
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # MODELO POISSON
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def fact(n):
     r=1
     for i in range(2,n+1): r*=i
@@ -197,9 +197,9 @@ def kelly_calc(p,cuota,frac,bank,umbral):
             "ev":round(p*b-q,4),"value":fc>umbral,"edge":round((p-1/cuota)*100,2)}
 
 
-# ─────────────────────────────────────────────
-# THE ODDS API — cuotas automaticas
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# THE ODDS API â€” cuotas automaticas
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @st.cache_data(ttl=300)
 def get_cuotas_automaticas(odds_key, odds_api_key):
     if not odds_key or not odds_api_key:
@@ -243,9 +243,9 @@ def buscar_cuotas(local, visit, cuotas_map):
             return v
     return None
 
-# ─────────────────────────────────────────────
-# API — football-data.org
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# API â€” football-data.org
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @st.cache_data(ttl=3600)
 def fd_hist(code, key):
     try:
@@ -279,9 +279,9 @@ def fd_next(code, key):
         return [p for p in out if p["dt"].date()<=lim],None
     except Exception as e: return [],str(e)
 
-# ─────────────────────────────────────────────
-# SCRAPER WIKIPEDIA — Suramérica (sin API key)
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# SCRAPER WIKIPEDIA â€” SuramÃ©rica (sin API key)
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 from bs4 import BeautifulSoup
 
 
@@ -310,6 +310,51 @@ def odds_fixtures(odds_key, odds_api_key):
         return out, None
     except Exception as ex:
         return [], str(ex)
+
+
+@st.cache_data(ttl=3600)
+def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
+    """Extrae historial combinando multiples paginas de Wikipedia."""
+    import re
+    headers_req = {"User-Agent": "Mozilla/5.0"}
+    excluir = equipos_excluir or []
+    partidos = []
+    for url in wiki_urls:
+        try:
+            r = requests.get(url, headers=headers_req, timeout=15)
+            soup = BeautifulSoup(r.text, "html.parser")
+            for tabla in soup.find_all("table", class_="wikitable"):
+                for fila in tabla.find_all("tr"):
+                    celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                    if wiki_fmt == "uel":
+                        # Formato Wikipedia ingles: buscar X-Y entre equipos
+                        for i, celda in enumerate(celdas):
+                            m = re.search(r"^(\d+)\s*[â€“\-]\s*(\d+)$", celda.strip())
+                            if m and i > 0 and i < len(celdas)-1:
+                                loc = celdas[i-1].strip()
+                                vis = celdas[i+1].strip()
+                                if len(loc)>2 and len(vis)>2:
+                                    if not any(e in loc or e in vis for e in excluir):
+                                        partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+                    elif wiki_fmt == "conmebol":
+                        if len(celdas)<5: continue
+                        m = re.search(r"(\d+)\s*[:\-]\s*(\d+)", celdas[3])
+                        if not m: continue
+                        loc, vis = celdas[2].strip(), celdas[4].strip()
+                        if loc and vis and len(loc)>2 and len(vis)>2:
+                            if not any(e in loc or e in vis for e in excluir):
+                                partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+                    else:
+                        if len(celdas)<3: continue
+                        m = re.search(r"(\d+)\s*:\s*(\d+)", " ".join(celdas))
+                        if not m: continue
+                        loc, vis = celdas[0].strip(), celdas[2].strip()
+                        if loc and vis and len(loc)>2 and len(vis)>2:
+                            if not any(e in loc or e in vis for e in excluir):
+                                partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+        except:
+            continue
+    return partidos, None
 
 @st.cache_data(ttl=3600)
 def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
@@ -414,7 +459,7 @@ def rf_hist(league_id, rf_key):
 
 @st.cache_data(ttl=900)
 def rf_next(league_id, rf_key):
-    """Próximos partidos via API-Football."""
+    """PrÃ³ximos partidos via API-Football."""
     season=datetime.datetime.now(TZ_COL).year
     url=f"{API_RF}/fixtures?league={league_id}&season={season}&status=NS"
     headers={"x-apisports-key":rf_key}
@@ -436,17 +481,17 @@ def rf_next(league_id, rf_key):
         return [p for p in out if p["dt"].date()<=lim],None
     except Exception as e: return [],str(e)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # SESSION STATE
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def init():
     if "bankroll" not in st.session_state: st.session_state.bankroll=51982
     if "wins"     not in st.session_state: st.session_state.wins=5
     if "losses"   not in st.session_state: st.session_state.losses=0
     if "apuestas" not in st.session_state:
         st.session_state.apuestas=[
-            {"partido":"Nacional vs Inter Bogotá","apuesta":"Local","cuota":2.85,"stake":6754,"resultado":"won","ganancia":13195},
-            {"partido":"Santa Fe vs América",      "apuesta":"Local","cuota":2.23,"stake":2405,"resultado":"won","ganancia":2958},
+            {"partido":"Nacional vs Inter BogotÃ¡","apuesta":"Local","cuota":2.85,"stake":6754,"resultado":"won","ganancia":13195},
+            {"partido":"Santa Fe vs AmÃ©rica",      "apuesta":"Local","cuota":2.23,"stake":2405,"resultado":"won","ganancia":2958},
             {"partido":"Valencia vs Rayo",         "apuesta":"Empate","cuota":3.05,"stake":1060,"resultado":"won","ganancia":2183},
             {"partido":"Girona vs Real Sociedad",  "apuesta":"Empate","cuota":3.65,"stake":1142,"resultado":"won","ganancia":3026},
             {"partido":"Real Madrid vs Oviedo",    "apuesta":"Local","cuota":1.24,"stake":3336,"resultado":"won","ganancia":801},
@@ -454,51 +499,51 @@ def init():
         ]
 init()
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # SIDEBAR
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 with st.sidebar:
     st.markdown('<p class="brand">BetAnalytics</p>',unsafe_allow_html=True)
     st.markdown('<p class="eyebrow">Sistema de apuestas basado en datos</p>',unsafe_allow_html=True)
     st.divider()
 
-    st.markdown("### ⚙️ Fuentes de datos")
+    st.markdown("### âš™ï¸ Fuentes de datos")
     _fd_secret = st.secrets.get("FOOTBALL_DATA_KEY", "")
     if _fd_secret:
         fd_key = _fd_secret
-        st.success("✓ API key europea cargada automáticamente")
+        st.success("âœ“ API key europea cargada automÃ¡ticamente")
     else:
-        fd_key = st.text_input("API Key — football-data.org",type="password",
+        fd_key = st.text_input("API Key â€” football-data.org",type="password",
                                placeholder="Ligas europeas",
                                help="Gratis en football-data.org/client/register")
-    rf_key=st.text_input("API Key — API-Football",type="password",
-                          placeholder="Ligas de Suramérica y Colombia",
+    rf_key=st.text_input("API Key â€” API-Football",type="password",
+                          placeholder="Ligas de SuramÃ©rica y Colombia",
                           help="Gratis en api-football.com")
     # Cuotas automaticas via The Odds API
     _odds_secret = st.secrets.get("ODDS_API_KEY", "")
     if _odds_secret:
         odds_api_key = _odds_secret
-        st.success("✓ Cuotas automaticas activadas")
+        st.success("âœ“ Cuotas automaticas activadas")
     else:
-        odds_api_key = st.text_input("API Key — The Odds API",type="password",
+        odds_api_key = st.text_input("API Key â€” The Odds API",type="password",
                                      placeholder="Cuotas automaticas",
                                      help="Gratis en the-odds-api.com")
 
     st.divider()
-    liga_n=st.selectbox("🏟️ Liga",list(LIGAS.keys()),index=0)
+    liga_n=st.selectbox("ðŸŸï¸ Liga",list(LIGAS.keys()),index=0)
     li=LIGAS[liga_n]
 
     st.divider()
-    st.markdown("### 💰 Capital")
+    st.markdown("### ðŸ’° Capital")
     bi=st.number_input("Bankroll disponible (COP)",1000,10000000,
                         st.session_state.bankroll,500,format="%d",
                         help="Se descuenta al registrar apuesta, se acredita al ganar")
     if bi!=st.session_state.bankroll: st.session_state.bankroll=bi
     bank=st.session_state.bankroll
 
-    kf=st.select_slider("Fracción Kelly",[0.25,0.5,0.75,1.0],value=0.5,
-        format_func=lambda x:{0.25:"¼ Kelly",0.5:"½ Kelly",0.75:"¾ Kelly",1.0:"Kelly completo"}[x])
-    ue=st.slider("Edge mínimo (%)",1,10,3)/100
+    kf=st.select_slider("FracciÃ³n Kelly",[0.25,0.5,0.75,1.0],value=0.5,
+        format_func=lambda x:{0.25:"Â¼ Kelly",0.5:"Â½ Kelly",0.75:"Â¾ Kelly",1.0:"Kelly completo"}[x])
+    ue=st.slider("Edge mÃ­nimo (%)",1,10,3)/100
 
     st.divider()
     rend=round((bank/BK_INIT-1)*100,1)
@@ -510,36 +555,36 @@ with st.sidebar:
     <div class="card"><div class="card-label">Record</div><div class="card-value" style="font-size:1.1rem">{st.session_state.wins}W / {st.session_state.losses}L</div></div>
     """,unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # HEADER
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ahora=datetime.datetime.now(TZ_COL)
-st.markdown(f'<p class="eyebrow">{liga_n} · {ahora.strftime("%A %d %b %Y · %I:%M %p")} hora Colombia</p>',unsafe_allow_html=True)
+st.markdown(f'<p class="eyebrow">{liga_n} Â· {ahora.strftime("%A %d %b %Y Â· %I:%M %p")} hora Colombia</p>',unsafe_allow_html=True)
 st.markdown('<p class="brand" style="font-size:2.4rem">BetAnalytics</p>',unsafe_allow_html=True)
 st.markdown("")
 
-# Validación de keys según liga
+# ValidaciÃ³n de keys segÃºn liga
 necesita_fd = li["src"]=="fd"
 necesita_rf = li["src"]=="rf"
 tiene_fd = bool(fd_key)
 tiene_rf = bool(rf_key)
 
 if necesita_fd and not tiene_fd:
-    st.info("👈 Ingresa tu API key de **football-data.org** para cargar esta liga.")
+    st.info("ðŸ‘ˆ Ingresa tu API key de **football-data.org** para cargar esta liga.")
 if necesita_rf and not tiene_rf:
-    st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
+    st.info("ðŸ‘ˆ Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de SuramÃ©rica y Colombia.")
 
-tab1,tab2,tab3,tab4=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio"])
+tab1,tab2,tab3,tab4=st.tabs(["âš½ Partidos","ðŸ“ˆ Equipos","ðŸ’° Mis apuestas","ðŸ“‹ Casos de estudio"])
 
-# ─────────────────────────────────────────────
-# FUNCIÓN AUXILIAR: RENDER DE PARTIDO
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# FUNCIÃ“N AUXILIAR: RENDER DE PARTIDO
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
     loc,vis,hora=p["local"],p["visit"],p["hora"]
     ll,lv=lams(loc,vis,M,avg)
     pr=poisson(ll,lv)
 
-    with st.expander(f"⚽  {loc}  vs  {vis}   ·   {hora} Col", expanded=p["hoy"]):
+    with st.expander(f"âš½  {loc}  vs  {vis}   Â·   {hora} Col", expanded=p["hoy"]):
         # Probabilidades
         c1,c2,c3=st.columns(3)
         for col,lbl,val,clr in [
@@ -556,24 +601,24 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
                 </div>""",unsafe_allow_html=True)
 
         # Marcadores
-        st.markdown("**Marcadores más probables:**")
+        st.markdown("**Marcadores mÃ¡s probables:**")
         cols=st.columns(5)
         for i,s in enumerate(pr["top"]):
             with cols[i]:
                 st.markdown(f'<div class="score-card"><div class="score-num">{s["m"]}</div><div class="score-pct">{s["p"]}%</div></div>',unsafe_allow_html=True)
 
         st.markdown("")
-        # Cuotas — automáticas si disponibles, manual si no
+        # Cuotas â€” automÃ¡ticas si disponibles, manual si no
         cuotas_encontradas = buscar_cuotas(loc, vis, cuotas_auto) if cuotas_auto else None
         if cuotas_encontradas:
             ql_def = cuotas_encontradas["local"]
             qe_def = cuotas_encontradas["empate"]
             qv_def = cuotas_encontradas["visit"]
             n_casas = cuotas_encontradas.get("n_casas", 1)
-            st.markdown(f"**Cuotas automáticas** (promedio de {n_casas} casas de apuestas):")
+            st.markdown(f"**Cuotas automÃ¡ticas** (promedio de {n_casas} casas de apuestas):")
         else:
             ql_def, qe_def, qv_def = 2.00, 3.30, 3.80
-            st.markdown("**Cuotas — actualiza con las de tu casa de apuestas:**")
+            st.markdown("**Cuotas â€” actualiza con las de tu casa de apuestas:**")
         c1,c2,c3=st.columns(3)
         with c1: ql=st.number_input("Local",   1.01,50.0,float(ql_def),0.05,key=f"ql_{p['id']}",format="%.2f")
         with c2: qe=st.number_input("Empate",  1.01,50.0,float(qe_def),0.05,key=f"qe_{p['id']}",format="%.2f")
@@ -581,9 +626,9 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
 
         im=impl({"local":ql,"empate":qe,"visit":qv})
         vig=im["vig"]
-        if vig<=7:    st.markdown(f'<div class="vig-ok">✓ Vig: {vig}% — mercado limpio</div>',unsafe_allow_html=True)
-        elif vig<=12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig}% — margen alto, precaución</div>',unsafe_allow_html=True)
-        else:         st.markdown(f'<div class="vig-bad">✗ Vig: {vig}% — margen muy alto, evitar</div>',unsafe_allow_html=True)
+        if vig<=7:    st.markdown(f'<div class="vig-ok">âœ“ Vig: {vig}% â€” mercado limpio</div>',unsafe_allow_html=True)
+        elif vig<=12: st.markdown(f'<div class="vig-warn">âš ï¸ Vig: {vig}% â€” margen alto, precauciÃ³n</div>',unsafe_allow_html=True)
+        else:         st.markdown(f'<div class="vig-bad">âœ— Vig: {vig}% â€” margen muy alto, evitar</div>',unsafe_allow_html=True)
 
         st.markdown("**Veredicto del modelo:**")
         hay=False
@@ -594,11 +639,11 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
                 hay=True
                 st.markdown(f"""
                 <div class="vbet">
-                    <span class="vbet-badge">✓ VALUE BET</span>
-                    <div class="vbet-title">{et} · cuota {cu}</div>
+                    <span class="vbet-badge">âœ“ VALUE BET</span>
+                    <div class="vbet-title">{et} Â· cuota {cu}</div>
                     <div class="vbet-grid">
                         <div class="vbet-item"><label>P MODELO</label><span>{pm*100:.1f}%</span></div>
-                        <div class="vbet-item"><label>P IMPLÍCITA</label><span>{pi*100:.1f}%</span></div>
+                        <div class="vbet-item"><label>P IMPLÃCITA</label><span>{pi*100:.1f}%</span></div>
                         <div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k['edge']:.1f}%</span></div>
                         <div class="vbet-item"><label>KELLY</label><span>{k['ku']:.1f}%</span></div>
                         <div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k['s']:,}</span></div>
@@ -609,16 +654,16 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
             else:
                 st.markdown(f"""
                 <div class="nobet">
-                    <span class="nobet-badge">✗ SIN VALUE</span>
-                    <span class="nobet-text">{et} · cuota {cu} · edge {k['edge']:+.1f}%</span>
+                    <span class="nobet-badge">âœ— SIN VALUE</span>
+                    <span class="nobet-text">{et} Â· cuota {cu} Â· edge {k['edge']:+.1f}%</span>
                 </div>""",unsafe_allow_html=True)
 
         if not hay:
-            st.markdown('<div style="background:#131e30;border:1px solid #1f2d42;border-radius:8px;padding:12px 16px;color:#64748b;font-size:0.88rem;margin-top:4px;">🔇 Sin value bets con estas cuotas. No apostar este partido.</div>',unsafe_allow_html=True)
+            st.markdown('<div style="background:#131e30;border:1px solid #1f2d42;border-radius:8px;padding:12px 16px;color:#64748b;font-size:0.88rem;margin-top:4px;">ðŸ”‡ Sin value bets con estas cuotas. No apostar este partido.</div>',unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # TAB 1: PARTIDOS
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 with tab1:
     hist,prox=[],[]
     cargado=False
@@ -628,31 +673,36 @@ with tab1:
             hist,e1=fd_hist(li["code"],fd_key)
             prox,e2=fd_next(li["code"],fd_key)
         if e1: st.warning(f"Error historial: {e1}")
-        if e2: st.warning(f"Error próximos: {e2}")
+        if e2: st.warning(f"Error prÃ³ximos: {e2}")
         cargado=True
 
-    elif li["src"]=="wiki":
+    elif li["src"] in ("wiki", "wiki_multi"):
         with st.spinner("Cargando datos..."):
-            hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            # Si use_odds_fixtures=True, usar Odds API para próximos partidos
+            if li["src"]=="wiki_multi":
+                hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            else:
+                hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            # Si use_odds_fixtures=True usar Odds API para prÃ³ximos
             if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
                 prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
-            else:
+            elif li["src"]=="wiki":
                 prox,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            else:
+                prox,e2=[],None
         if e1: st.warning(f"Error historial: {e1}")
-        if e2: st.warning(f"Error próximos: {e2}")
+        if e2: st.warning(f"Error prÃ³ximos: {e2}")
         cargado=True
 
     elif li["src"]=="rf" and tiene_rf:
-        with st.spinner("Cargando datos de Suramérica..."):
+        with st.spinner("Cargando datos de SuramÃ©rica..."):
             hist,e1=rf_hist(li["rf_id"],rf_key)
             prox,e2=rf_next(li["rf_id"],rf_key)
         if e1: st.warning(f"Error historial: {e1}")
-        if e2: st.warning(f"Error próximos: {e2}")
+        if e2: st.warning(f"Error prÃ³ximos: {e2}")
         cargado=True
 
     if cargado and hist:
-        st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
+        st.success(f"âœ“ {len(hist)} partidos histÃ³ricos Â· {len(prox)} prÃ³ximos (prÃ³ximos 3 dÃ­as Â· hora Colombia)")
         M=build_model(hist,li["avg"])
         # Cargar cuotas automaticas si hay odds_key configurado
         cuotas_auto = {}
@@ -660,29 +710,29 @@ with tab1:
             with st.spinner("Cargando cuotas automaticas..."):
                 cuotas_auto = get_cuotas_automaticas(li["odds_key"], odds_api_key)
             if cuotas_auto:
-                st.success(f"✓ Cuotas automaticas cargadas: {len(cuotas_auto)} partidos")
+                st.success(f"âœ“ Cuotas automaticas cargadas: {len(cuotas_auto)} partidos")
         fechas=sorted(set(p["fecha"] for p in prox))
         if not fechas:
-            st.info("No hay partidos en los próximos 3 días para esta liga.")
+            st.info("No hay partidos en los prÃ³ximos 3 dÃ­as para esta liga.")
         for fecha in fechas:
             pf=[p for p in prox if p["fecha"]==fecha]
             if not pf: continue
             dt0=pf[0]["dt"]
-            if es_hoy(dt0):    lbl=f"HOY · {dt0.strftime('%A %d de %B').upper()}"; badge='<span class="hoy-pill">HOY</span>'
-            elif es_manana(dt0): lbl=f"MAÑANA · {dt0.strftime('%A %d de %B').upper()}"; badge=""
+            if es_hoy(dt0):    lbl=f"HOY Â· {dt0.strftime('%A %d de %B').upper()}"; badge='<span class="hoy-pill">HOY</span>'
+            elif es_manana(dt0): lbl=f"MAÃ‘ANA Â· {dt0.strftime('%A %d de %B').upper()}"; badge=""
             else:               lbl=dt0.strftime('%A %d de %B').upper(); badge=""
             st.markdown(f'<div class="day-hdr">{lbl}{badge}</div>',unsafe_allow_html=True)
             for p in pf:
                 render_partido(p,M,li["avg"],bank,kf,ue,cuotas_auto)
 
     elif cargado:
-        st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
+        st.info("No se encontraron partidos histÃ³ricos suficientes para construir el modelo.")
     else:
         # Modo manual
-        st.markdown("### 🖊️ Análisis manual de partido")
-        st.caption("Conecta una API key para carga automática, o ingresa los datos manualmente.")
+        st.markdown("### ðŸ–Šï¸ AnÃ¡lisis manual de partido")
+        st.caption("Conecta una API key para carga automÃ¡tica, o ingresa los datos manualmente.")
         c1,c2=st.columns(2)
-        with c1: eql=st.text_input("Equipo local",   placeholder="Ej: Atlético Nacional")
+        with c1: eql=st.text_input("Equipo local",   placeholder="Ej: AtlÃ©tico Nacional")
         with c2: eqv=st.text_input("Equipo visitante",placeholder="Ej: Millonarios")
         c1,c2,c3=st.columns(3)
         with c1: ql=st.number_input("Cuota local",   1.01,50.0,2.00,0.05,format="%.2f",key="m_ql")
@@ -695,19 +745,19 @@ with tab1:
         if eql and eqv:
             im=impl({"local":ql,"empate":qe,"visit":qv})
             vig=im["vig"]
-            if vig<=7:    st.markdown(f'<div class="vig-ok">✓ Vig: {vig}%</div>',unsafe_allow_html=True)
-            elif vig<=12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig}%</div>',unsafe_allow_html=True)
-            else:         st.markdown(f'<div class="vig-bad">✗ Vig: {vig}%</div>',unsafe_allow_html=True)
+            if vig<=7:    st.markdown(f'<div class="vig-ok">âœ“ Vig: {vig}%</div>',unsafe_allow_html=True)
+            elif vig<=12: st.markdown(f'<div class="vig-warn">âš ï¸ Vig: {vig}%</div>',unsafe_allow_html=True)
+            else:         st.markdown(f'<div class="vig-bad">âœ— Vig: {vig}%</div>',unsafe_allow_html=True)
             for nm,pm,cu,et in [("local",pl,ql,eql),("empate",pe,qe,"Empate"),("visit",pv,qv,eqv)]:
                 pi=im["p"].get(nm,0); k=kelly_calc(pm,cu,kf,bank,ue)
-                if k["value"]: st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>',unsafe_allow_html=True)
-                else: st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · edge {k["edge"]:+.1f}%</span></div>',unsafe_allow_html=True)
+                if k["value"]: st.markdown(f'<div class="vbet"><span class="vbet-badge">âœ“ VALUE BET</span><div class="vbet-title">{et} Â· cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>',unsafe_allow_html=True)
+                else: st.markdown(f'<div class="nobet"><span class="nobet-badge">âœ— SIN VALUE</span><span class="nobet-text">{et} Â· edge {k["edge"]:+.1f}%</span></div>',unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # TAB 2: EQUIPOS
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 with tab2:
-    st.markdown("### 📈 Fuerza relativa de equipos")
+    st.markdown("### ðŸ“ˆ Fuerza relativa de equipos")
     if hist:
         M=build_model(hist,li["avg"])
         data=sorted([(e,v) for e,v in M.items() if v["n"]>=3],key=lambda x:-x[1]["atk"])
@@ -717,18 +767,18 @@ with tab2:
             with c2: st.markdown(f'<span style="color:{"#22c55e" if v["atk"]>1 else "#f87171"}">Ataque: {v["atk"]:.3f}</span>',unsafe_allow_html=True)
             with c3: st.markdown(f'<span style="color:{"#22c55e" if v["def"]<1 else "#f87171"}">Defensa: {v["def"]:.3f}</span>',unsafe_allow_html=True)
             with c4: st.markdown(f'<span style="color:#64748b">{v["n"]}p</span>',unsafe_allow_html=True)
-        st.caption("Ataque > 1.0 = mejor que la media · Defensa < 1.0 = mejor que la media")
+        st.caption("Ataque > 1.0 = mejor que la media Â· Defensa < 1.0 = mejor que la media")
     else:
         st.info("Conecta tu API key y selecciona una liga para ver el modelo de equipos.")
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # TAB 3: MIS APUESTAS
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 with tab3:
-    st.markdown("### 💰 Tracker de apuestas")
+    st.markdown("### ðŸ’° Tracker de apuestas")
     st.caption("El stake se descuenta del bankroll al registrar. Al ganar se acredita el retorno completo.")
 
-    with st.expander("➕ Registrar nueva apuesta",expanded=False):
+    with st.expander("âž• Registrar nueva apuesta",expanded=False):
         r1,r2=st.columns(2)
         with r1:
             np=st.text_input("Partido",placeholder="Ej: Nacional vs Millonarios",key="np")
@@ -737,7 +787,7 @@ with tab3:
             nc=st.number_input("Cuota",1.01,50.0,2.00,0.05,format="%.2f",key="nc")
             ns=st.number_input("Stake (COP)",100,1000000,1000,100,key="ns")
         nr=st.selectbox("Resultado",["pending","won","lost"],key="nr",
-            format_func=lambda x:{"pending":"⏳ Pendiente","won":"✓ Ganó","lost":"✗ Perdió"}[x])
+            format_func=lambda x:{"pending":"â³ Pendiente","won":"âœ“ GanÃ³","lost":"âœ— PerdiÃ³"}[x])
         if st.button("Registrar apuesta",type="primary"):
             if np and na:
                 # Stake sale del bankroll al apostar
@@ -748,72 +798,72 @@ with tab3:
                 elif nr=="lost":
                     st.session_state.losses+=1; ganancia=-ns
                 else:
-                    ganancia=0  # pendiente — retorno por confirmar
+                    ganancia=0  # pendiente â€” retorno por confirmar
                 st.session_state.apuestas.append({"partido":np,"apuesta":na,"cuota":nc,"stake":ns,"resultado":nr,"ganancia":ganancia})
-                st.success(f"✓ Registrada. Bankroll disponible: ${st.session_state.bankroll:,} COP")
+                st.success(f"âœ“ Registrada. Bankroll disponible: ${st.session_state.bankroll:,} COP")
                 st.rerun()
 
     # Pendientes
     pend=[(i,a) for i,a in enumerate(st.session_state.apuestas) if a["resultado"]=="pending"]
     if pend:
         st.divider()
-        st.markdown("**⏳ Pendientes — confirma el resultado:**")
+        st.markdown("**â³ Pendientes â€” confirma el resultado:**")
         for i,ap in pend:
             c1,c2,c3=st.columns([4,1,1])
             with c1:
                 ret_pot=round(ap["stake"]*ap["cuota"])
-                st.markdown(f'<div class="bet-row bet-pend"><b>{ap["partido"]}</b> · {ap["apuesta"]} · cuota {ap["cuota"]}<br><span style="color:#94a3b8;font-size:0.8rem">Stake descontado: ${ap["stake"]:,} · Retorno si gana: ${ret_pot:,}</span></div>',unsafe_allow_html=True)
+                st.markdown(f'<div class="bet-row bet-pend"><b>{ap["partido"]}</b> Â· {ap["apuesta"]} Â· cuota {ap["cuota"]}<br><span style="color:#94a3b8;font-size:0.8rem">Stake descontado: ${ap["stake"]:,} Â· Retorno si gana: ${ret_pot:,}</span></div>',unsafe_allow_html=True)
             with c2:
-                if st.button("✓ Ganó",key=f"w_{i}",type="primary"):
+                if st.button("âœ“ GanÃ³",key=f"w_{i}",type="primary"):
                     ret=round(ap["stake"]*ap["cuota"]); g=ret-ap["stake"]
                     st.session_state.apuestas[i].update({"resultado":"won","ganancia":g})
                     st.session_state.bankroll+=ret; st.session_state.wins+=1; st.rerun()
             with c3:
-                if st.button("✗ Perdió",key=f"l_{i}"):
+                if st.button("âœ— PerdiÃ³",key=f"l_{i}"):
                     # Stake ya descontado al registrar
                     st.session_state.apuestas[i].update({"resultado":"lost","ganancia":-ap["stake"]})
                     st.session_state.losses+=1; st.rerun()
 
     st.divider()
-    st.markdown("**📋 Historial:**")
+    st.markdown("**ðŸ“‹ Historial:**")
     tw=sum(a["ganancia"] for a in st.session_state.apuestas if a["resultado"]=="won")
     tl=sum(a["stake"] for a in st.session_state.apuestas if a["resultado"]=="lost")
     ta=sum(a["stake"] for a in st.session_state.apuestas)
     for ap in reversed(st.session_state.apuestas):
         cl={"won":"bet-won","lost":"bet-lost","pending":"bet-pend"}.get(ap["resultado"],"")
-        ic={"won":"✓","lost":"✗","pending":"⏳"}.get(ap["resultado"],"")
+        ic={"won":"âœ“","lost":"âœ—","pending":"â³"}.get(ap["resultado"],"")
         co={"won":"#22c55e","lost":"#f87171","pending":"#f59e0b"}.get(ap["resultado"],"")
         gs=f'+${ap["ganancia"]:,}' if ap["resultado"]=="won" else (f'-${ap["stake"]:,}' if ap["resultado"]=="lost" else "pendiente")
-        st.markdown(f'<div class="bet-row {cl}"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;"><div><b>{ap["partido"]}</b> · {ap["apuesta"]} · cuota {ap["cuota"]}</div><span style="color:{co};font-weight:700">{ic} {gs}</span></div><div style="color:#64748b;font-size:0.8rem;margin-top:4px">Stake: ${ap["stake"]:,}</div></div>',unsafe_allow_html=True)
+        st.markdown(f'<div class="bet-row {cl}"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;"><div><b>{ap["partido"]}</b> Â· {ap["apuesta"]} Â· cuota {ap["cuota"]}</div><span style="color:{co};font-weight:700">{ic} {gs}</span></div><div style="color:#64748b;font-size:0.8rem;margin-top:4px">Stake: ${ap["stake"]:,}</div></div>',unsafe_allow_html=True)
 
     roi=round((tw-tl)/max(ta,1)*100,1)
     st.markdown(f'<div class="card" style="margin-top:16px"><div style="display:flex;gap:28px;flex-wrap:wrap;"><div><div class="card-label">Total apostado</div><div class="card-value" style="font-size:1rem">${ta:,}</div></div><div><div class="card-label">Total ganado</div><div class="card-value" style="font-size:1rem;color:#22c55e">+${tw:,}</div></div><div><div class="card-label">Total perdido</div><div class="card-value" style="font-size:1rem;color:#f87171">-${tl:,}</div></div><div><div class="card-label">ROI</div><div class="card-value" style="font-size:1rem;color:#38bdf8">{roi}%</div></div></div></div>',unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # TAB 4: CASOS DE ESTUDIO
-# ─────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 with tab4:
-    st.markdown("### 📋 Registro de casos de estudio")
+    st.markdown("### ðŸ“‹ Registro de casos de estudio")
     casos=[
-        {"n":1,"partido":"Atlético Nacional 5-1 Inter Bogotá","fecha":"12 mayo 2026","liga":"Liga BetPlay","ap":"Local","cuota":2.85,"edge":"+29.1%","stake":"$6,754","res":"✓ GANÓ","gan":"+$13,195","lec":"El 0-1 al min 15 era ruido estadístico. El modelo mantuvo su señal y acertó. No dejarse llevar por el marcador en vivo."},
-        {"n":2,"partido":"Santa Fe 2-1 América de Cali","fecha":"12 mayo 2026","liga":"Liga BetPlay","ap":"Local","cuota":2.23,"edge":"+8.1%","stake":"$2,405","res":"✓ GANÓ","gan":"+$2,958","lec":"Edge moderado con muestra confiable y vig bajo (4.56%) es más sólido que edge alto con poca muestra."},
-        {"n":3,"partido":"Valencia 0-0 Rayo Vallecano","fecha":"14 mayo 2026","liga":"La Liga","ap":"Empate","cuota":3.05,"edge":"+5.1%","stake":"$1,060","res":"✓ GANÓ","gan":"+$2,183","lec":"Partido cerrado. El 0-0 fue el marcador más probable del modelo (22.1%)."},
-        {"n":4,"partido":"Girona 1-1 Real Sociedad","fecha":"14 mayo 2026","liga":"La Liga","ap":"Empate","cuota":3.65,"edge":"+8.9%","stake":"$1,142","res":"✓ GANÓ","gan":"+$3,026","lec":"Se rechazó cash out de $2,000 con marcador 0-1. El empate llegó y se cobró $4,168. No hacer cash out cuando el modelo sigue siendo válido."},
-        {"n":5,"partido":"Real Madrid vs Real Oviedo","fecha":"14 mayo 2026","liga":"La Liga","ap":"Local","cuota":1.24,"edge":"+10.7%","stake":"$3,336","res":"✓ GANÓ","gan":"+$801","lec":"¼ Kelly fue la decisión correcta para no inmovilizar capital en cuota baja con poco retorno por dólar."},
-        {"n":6,"partido":"Aston Villa vs Liverpool","fecha":"15 mayo 2026","liga":"Premier League","ap":"Visitante","cuota":2.40,"edge":"-3.7% modelo / +H2H","stake":"$1,000","res":"⏳ PENDIENTE","gan":"pendiente","lec":"Primera apuesta basada en H2H (Liverpool 34-11 sobre Villa históricamente) por encima del modelo. Caso de estudio: modelo vs contexto."},
+        {"n":1,"partido":"AtlÃ©tico Nacional 5-1 Inter BogotÃ¡","fecha":"12 mayo 2026","liga":"Liga BetPlay","ap":"Local","cuota":2.85,"edge":"+29.1%","stake":"$6,754","res":"âœ“ GANÃ“","gan":"+$13,195","lec":"El 0-1 al min 15 era ruido estadÃ­stico. El modelo mantuvo su seÃ±al y acertÃ³. No dejarse llevar por el marcador en vivo."},
+        {"n":2,"partido":"Santa Fe 2-1 AmÃ©rica de Cali","fecha":"12 mayo 2026","liga":"Liga BetPlay","ap":"Local","cuota":2.23,"edge":"+8.1%","stake":"$2,405","res":"âœ“ GANÃ“","gan":"+$2,958","lec":"Edge moderado con muestra confiable y vig bajo (4.56%) es mÃ¡s sÃ³lido que edge alto con poca muestra."},
+        {"n":3,"partido":"Valencia 0-0 Rayo Vallecano","fecha":"14 mayo 2026","liga":"La Liga","ap":"Empate","cuota":3.05,"edge":"+5.1%","stake":"$1,060","res":"âœ“ GANÃ“","gan":"+$2,183","lec":"Partido cerrado. El 0-0 fue el marcador mÃ¡s probable del modelo (22.1%)."},
+        {"n":4,"partido":"Girona 1-1 Real Sociedad","fecha":"14 mayo 2026","liga":"La Liga","ap":"Empate","cuota":3.65,"edge":"+8.9%","stake":"$1,142","res":"âœ“ GANÃ“","gan":"+$3,026","lec":"Se rechazÃ³ cash out de $2,000 con marcador 0-1. El empate llegÃ³ y se cobrÃ³ $4,168. No hacer cash out cuando el modelo sigue siendo vÃ¡lido."},
+        {"n":5,"partido":"Real Madrid vs Real Oviedo","fecha":"14 mayo 2026","liga":"La Liga","ap":"Local","cuota":1.24,"edge":"+10.7%","stake":"$3,336","res":"âœ“ GANÃ“","gan":"+$801","lec":"Â¼ Kelly fue la decisiÃ³n correcta para no inmovilizar capital en cuota baja con poco retorno por dÃ³lar."},
+        {"n":6,"partido":"Aston Villa vs Liverpool","fecha":"15 mayo 2026","liga":"Premier League","ap":"Visitante","cuota":2.40,"edge":"-3.7% modelo / +H2H","stake":"$1,000","res":"â³ PENDIENTE","gan":"pendiente","lec":"Primera apuesta basada en H2H (Liverpool 34-11 sobre Villa histÃ³ricamente) por encima del modelo. Caso de estudio: modelo vs contexto."},
     ]
     for c in casos:
-        co="#22c55e" if "GANÓ" in c["res"] else ("#f59e0b" if "PENDIENTE" in c["res"] else "#f87171")
+        co="#22c55e" if "GANÃ“" in c["res"] else ("#f59e0b" if "PENDIENTE" in c["res"] else "#f87171")
         st.markdown(f"""
         <div class="caso">
-            <div class="caso-meta">CASO #{c['n']} · {c['fecha']} · {c['liga']}</div>
+            <div class="caso-meta">CASO #{c['n']} Â· {c['fecha']} Â· {c['liga']}</div>
             <div class="caso-title">{c['partido']}</div>
             <div class="caso-chips">
-                <span>🎯 {c['ap']}</span>
-                <span>📊 Cuota {c['cuota']}</span>
-                <span>📈 Edge {c['edge']}</span>
-                <span>💰 Stake {c['stake']}</span>
-                <span style="color:{co};font-weight:700">{c['res']} · {c['gan']}</span>
+                <span>ðŸŽ¯ {c['ap']}</span>
+                <span>ðŸ“Š Cuota {c['cuota']}</span>
+                <span>ðŸ“ˆ Edge {c['edge']}</span>
+                <span>ðŸ’° Stake {c['stake']}</span>
+                <span style="color:{co};font-weight:700">{c['res']} Â· {c['gan']}</span>
             </div>
-            <div class="caso-lesson">💡 {c['lec']}</div>
+            <div class="caso-lesson">ðŸ’¡ {c['lec']}</div>
         </div>""",unsafe_allow_html=True)
