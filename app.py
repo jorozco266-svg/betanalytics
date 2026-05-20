@@ -124,7 +124,7 @@ LIGAS = {
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
-    "🏆 Europa League":        {"src":"fd","code":"EL",  "avg":1.35, "odds_key":"soccer_uefa_europa_league"},
+    "🏆 Europa League":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Liga_Europa_de_la_UEFA_2025-26","wiki_fmt":"conmebol","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
     "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
                                 "equipos_excluir":["Llaneros","Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla"]},
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Categor%C3%ADa_Primera_B_2026",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
@@ -283,6 +283,33 @@ def fd_next(code, key):
 # SCRAPER WIKIPEDIA — Suramérica (sin API key)
 # ─────────────────────────────────────────────
 from bs4 import BeautifulSoup
+
+
+@st.cache_data(ttl=900)
+def odds_fixtures(odds_key, odds_api_key):
+    """Obtiene proximos partidos con hora real desde The Odds API."""
+    url = f"{API_ODDS}/sports/{odds_key}/odds/"
+    params = {"apiKey":odds_api_key,"regions":"eu","markets":"h2h","oddsFormat":"decimal"}
+    try:
+        r = requests.get(url, params=params, timeout=10)
+        r.raise_for_status()
+        out = []
+        ahora = datetime.datetime.now(TZ_COL)
+        lim = (ahora + datetime.timedelta(days=7)).date()
+        import hashlib
+        for p in r.json():
+            dt_utc = datetime.datetime.fromisoformat(p["commence_time"].replace("Z","+00:00"))
+            dt = dt_utc.astimezone(TZ_COL)
+            if dt < ahora or dt.date() > lim: continue
+            uid = hashlib.md5(f"{p['home_team']}{p['away_team']}".encode()).hexdigest()[:8]
+            out.append({"id":uid,"dt":dt,
+                        "fecha":dt.strftime("%Y-%m-%d"),"hora":dt.strftime("%I:%M %p"),
+                        "local":p["home_team"],"visit":p["away_team"],
+                        "jornada":"Final","hoy":es_hoy(dt),"manana":es_manana(dt)})
+        out.sort(key=lambda x:x["dt"])
+        return out, None
+    except Exception as ex:
+        return [], str(ex)
 
 @st.cache_data(ttl=3600)
 def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
@@ -605,9 +632,13 @@ with tab1:
         cargado=True
 
     elif li["src"]=="wiki":
-        with st.spinner("Cargando datos desde Wikipedia..."):
+        with st.spinner("Cargando datos..."):
             hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            prox,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            # Si use_odds_fixtures=True, usar Odds API para próximos partidos
+            if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+                prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+            else:
+                prox,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
