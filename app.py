@@ -106,6 +106,7 @@ div[data-testid="stSelectbox"] > div { background:#1a2540 !important; color:#e8e
 # CONSTANTES
 # ─────────────────────────────────────────────
 API_FD   = "https://api.football-data.org/v4"
+API_ODDS = "https://api.the-odds-api.com/v4"
 API_RF   = "https://v3.football.api-sports.io"
 API_TSDB = "https://www.thesportsdb.com/api/v1/json/3"
 TZ_COL   = ZoneInfo("America/Bogota")
@@ -116,19 +117,20 @@ BK_INIT  = 35000
 # Liga: source indica de dónde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
 LIGAS = {
-    "🇪🇸 La Liga":            {"src":"fd","code":"PD",   "rf_id":140, "avg":1.35},
-    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",   "rf_id":39,  "avg":1.40},
-    "🇩🇪 Bundesliga":          {"src":"fd","code":"BL1",  "rf_id":78,  "avg":1.55},
-    "🇮🇹 Serie A":             {"src":"fd","code":"SA",   "rf_id":135, "avg":1.30},
-    "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1",  "rf_id":61,  "avg":1.35},
-    "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL",  "rf_id":94,  "avg":1.30},
-    "🏆 Champions League":     {"src":"fd","code":"CL",   "rf_id":2,   "avg":1.45},
-    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20},
-    "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25},
-    "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20},
-    "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30},
-    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35},
-    "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Apertura_2026_(M%C3%A9xico)",               "wiki_fmt":"betplay",  "avg":1.25},
+    "🇪🇸 La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
+    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
+    "🇩🇪 Bundesliga":          {"src":"fd","code":"BL1", "avg":1.55, "odds_key":"soccer_germany_bundesliga"},
+    "🇮🇹 Serie A":             {"src":"fd","code":"SA",  "avg":1.30, "odds_key":"soccer_italy_serie_a"},
+    "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
+    "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
+    "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
+    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None},
+    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",                "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
+    "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
+    "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
+    "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
+    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35, "odds_key":"soccer_brazil_campeonato"},
+    "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Apertura_2026_(M%C3%A9xico)",               "wiki_fmt":"betplay",  "avg":1.25, "odds_key":"soccer_mexico_ligamx"},
 }
 
 # ─────────────────────────────────────────────
@@ -191,6 +193,53 @@ def kelly_calc(p,cuota,frac,bank,umbral):
     s=round(bank*fu)
     return {"ku":round(fu*100,2),"s":s,"r":round(s*cuota),"g":round(s*cuota-s),
             "ev":round(p*b-q,4),"value":fc>umbral,"edge":round((p-1/cuota)*100,2)}
+
+
+# ─────────────────────────────────────────────
+# THE ODDS API — cuotas automaticas
+# ─────────────────────────────────────────────
+@st.cache_data(ttl=300)
+def get_cuotas_automaticas(odds_key, odds_api_key):
+    if not odds_key or not odds_api_key:
+        return {}
+    url = f"{API_ODDS}/sports/{odds_key}/odds/"
+    params = {"apiKey":odds_api_key,"regions":"eu","markets":"h2h","oddsFormat":"decimal"}
+    try:
+        r = requests.get(url, params=params, timeout=10)
+        r.raise_for_status()
+        cuotas_map = {}
+        for p in r.json():
+            home = p.get("home_team","")
+            away = p.get("away_team","")
+            totales = {"home":[],"draw":[],"away":[]}
+            for bm in p.get("bookmakers",[]):
+                for mkt in bm.get("markets",[]):
+                    if mkt["key"] != "h2h": continue
+                    for o in mkt.get("outcomes",[]):
+                        if o["name"] == home:       totales["home"].append(o["price"])
+                        elif o["name"] == "Draw":   totales["draw"].append(o["price"])
+                        elif o["name"] == away:     totales["away"].append(o["price"])
+            if totales["home"] and totales["draw"] and totales["away"]:
+                avg = lambda lst: round(sum(lst)/len(lst),2)
+                cuotas_map[f"{home}|{away}"] = {
+                    "local":  avg(totales["home"]),
+                    "empate": avg(totales["draw"]),
+                    "visit":  avg(totales["away"]),
+                    "n_casas": len(totales["home"]),
+                }
+        return cuotas_map
+    except:
+        return {}
+
+def buscar_cuotas(local, visit, cuotas_map):
+    key = f"{local}|{visit}"
+    if key in cuotas_map:
+        return cuotas_map[key]
+    for k, v in cuotas_map.items():
+        h, a = k.split("|")
+        if (local.split()[0].lower() in h.lower() or h.split()[0].lower() in local.lower()) and            (visit.split()[0].lower() in a.lower() or a.split()[0].lower() in visit.lower()):
+            return v
+    return None
 
 # ─────────────────────────────────────────────
 # API — football-data.org
@@ -289,6 +338,7 @@ def wiki_next(wiki_url, wiki_fmt):
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
                 if not loc or not vis or len(loc)<3: continue
+
                 # Parsear fecha tipo "19 de mayo"
                 dt=None
                 m_fecha=re.search(r"(\d+)\s+de\s+(\w+)",fecha_str.lower())
@@ -395,6 +445,15 @@ with st.sidebar:
     rf_key=st.text_input("API Key — API-Football",type="password",
                           placeholder="Ligas de Suramérica y Colombia",
                           help="Gratis en api-football.com")
+    # Cuotas automaticas via The Odds API
+    _odds_secret = st.secrets.get("ODDS_API_KEY", "")
+    if _odds_secret:
+        odds_api_key = _odds_secret
+        st.success("✓ Cuotas automaticas activadas")
+    else:
+        odds_api_key = st.text_input("API Key — The Odds API",type="password",
+                                     placeholder="Cuotas automaticas",
+                                     help="Gratis en the-odds-api.com")
 
     st.divider()
     liga_n=st.selectbox("🏟️ Liga",list(LIGAS.keys()),index=0)
@@ -446,7 +505,7 @@ tab1,tab2,tab3,tab4=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
 # ─────────────────────────────────────────────
-def render_partido(p, M, avg, bank, kf, ue):
+def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
     loc,vis,hora=p["local"],p["visit"],p["hora"]
     ll,lv=lams(loc,vis,M,avg)
     pr=poisson(ll,lv)
@@ -475,12 +534,21 @@ def render_partido(p, M, avg, bank, kf, ue):
                 st.markdown(f'<div class="score-card"><div class="score-num">{s["m"]}</div><div class="score-pct">{s["p"]}%</div></div>',unsafe_allow_html=True)
 
         st.markdown("")
-        # Cuotas
-        st.markdown("**Cuotas — actualiza con las de tu casa de apuestas:**")
+        # Cuotas — automáticas si disponibles, manual si no
+        cuotas_encontradas = buscar_cuotas(loc, vis, cuotas_auto) if cuotas_auto else None
+        if cuotas_encontradas:
+            ql_def = cuotas_encontradas["local"]
+            qe_def = cuotas_encontradas["empate"]
+            qv_def = cuotas_encontradas["visit"]
+            n_casas = cuotas_encontradas.get("n_casas", 1)
+            st.markdown(f"**Cuotas automáticas** (promedio de {n_casas} casas de apuestas):")
+        else:
+            ql_def, qe_def, qv_def = 2.00, 3.30, 3.80
+            st.markdown("**Cuotas — actualiza con las de tu casa de apuestas:**")
         c1,c2,c3=st.columns(3)
-        with c1: ql=st.number_input("Local",   1.01,50.0,2.00,0.05,key=f"ql_{p['id']}",format="%.2f")
-        with c2: qe=st.number_input("Empate",  1.01,50.0,3.30,0.05,key=f"qe_{p['id']}",format="%.2f")
-        with c3: qv=st.number_input("Visit",   1.01,50.0,3.80,0.05,key=f"qv_{p['id']}",format="%.2f")
+        with c1: ql=st.number_input("Local",   1.01,50.0,float(ql_def),0.05,key=f"ql_{p['id']}",format="%.2f")
+        with c2: qe=st.number_input("Empate",  1.01,50.0,float(qe_def),0.05,key=f"qe_{p['id']}",format="%.2f")
+        with c3: qv=st.number_input("Visit",   1.01,50.0,float(qv_def),0.05,key=f"qv_{p['id']}",format="%.2f")
 
         im=impl({"local":ql,"empate":qe,"visit":qv})
         vig=im["vig"]
@@ -553,6 +621,13 @@ with tab1:
     if cargado and hist:
         st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
         M=build_model(hist,li["avg"])
+        # Cargar cuotas automaticas si hay odds_key configurado
+        cuotas_auto = {}
+        if li.get("odds_key") and odds_api_key:
+            with st.spinner("Cargando cuotas automaticas..."):
+                cuotas_auto = get_cuotas_automaticas(li["odds_key"], odds_api_key)
+            if cuotas_auto:
+                st.success(f"✓ Cuotas automaticas cargadas: {len(cuotas_auto)} partidos")
         fechas=sorted(set(p["fecha"] for p in prox))
         if not fechas:
             st.info("No hay partidos en los próximos 3 días para esta liga.")
@@ -565,7 +640,7 @@ with tab1:
             else:               lbl=dt0.strftime('%A %d de %B').upper(); badge=""
             st.markdown(f'<div class="day-hdr">{lbl}{badge}</div>',unsafe_allow_html=True)
             for p in pf:
-                render_partido(p,M,li["avg"],bank,kf,ue)
+                render_partido(p,M,li["avg"],bank,kf,ue,cuotas_auto)
 
     elif cargado:
         st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
