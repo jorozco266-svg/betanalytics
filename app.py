@@ -126,8 +126,8 @@ LIGAS = {
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
     "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
-                                "equipos_excluir":["Llaneros","Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla"]},
-    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Categor%C3%ADa_Primera_B_2026",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
+                                "equipos_excluir":["Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla","Leones","Orsomarso","Real Santander","Universitario de Popayan"]},
+    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
@@ -405,10 +405,12 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     if celdas[3].strip() != "-": continue
                     loc,vis,fecha_str=celdas[2].strip(),celdas[4].strip(),celdas[0].strip()
                 else:
-                    if len(celdas)<3: continue
+                    if len(celdas)<4: continue
+                    col1=celdas[1].strip()
+                    # col1 debe ser marcador - o contener fecha; si es nombre/ciudad es tabla de clubes
+                    if not re.match(r"^[-–]$", col1) and not re.search(r"\d+\s+de\s+\w+", col1): continue
                     m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
                     if m: continue
-                    if not re.search(r"-"," ".join(celdas)): continue
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
                 if not loc or not vis or len(loc)<3: continue
@@ -620,9 +622,9 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
             ql_def, qe_def, qv_def = 2.00, 3.30, 3.80
             st.markdown("**Cuotas — actualiza con las de tu casa de apuestas:**")
         c1,c2,c3=st.columns(3)
-        with c1: ql=st.number_input("Local",   1.01,50.0,float(ql_def),0.05,key=f"ql_{p['id']}",format="%.2f")
-        with c2: qe=st.number_input("Empate",  1.01,50.0,float(qe_def),0.05,key=f"qe_{p['id']}",format="%.2f")
-        with c3: qv=st.number_input("Visit",   1.01,50.0,float(qv_def),0.05,key=f"qv_{p['id']}",format="%.2f")
+        with c1: ql=st.number_input("Local",   1.01,200.0,float(min(ql_def,199.0)),0.05,key=f"ql_{p['id']}",format="%.2f")
+        with c2: qe=st.number_input("Empate",  1.01,200.0,float(min(qe_def,199.0)),0.05,key=f"qe_{p['id']}",format="%.2f")
+        with c3: qv=st.number_input("Visit",   1.01,200.0,float(min(qv_def,199.0)),0.05,key=f"qv_{p['id']}",format="%.2f")
 
         im=impl({"local":ql,"empate":qe,"visit":qv})
         vig=im["vig"]
