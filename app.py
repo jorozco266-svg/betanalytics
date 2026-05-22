@@ -410,18 +410,24 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     if m: continue  # ya jugado
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
-                    # Lista exacta de equipos Liga BetPlay 2026
-                    EQUIPOS_EXACTOS = [
-                        "Atletico Nacional","Atletico Bucaramanga","Santa Fe",
-                        "Millonarios","Junior","America de Cali","Deportes Tolima",
-                        "Deportivo Pereira","Once Caldas","Deportivo Pasto",
-                        "Deportivo Cali","Independiente Medellin","Jaguares",
-                        "Cucuta Deportivo","Boyaca Chico","Aguilas Doradas",
-                        "Fortaleza","Alianza FC","Alianza Valledupar",
-                        "Internacional de Bogota","Llaneros"
-                    ]
-                    if not any(e.lower() in loc.lower() for e in EQUIPOS_EXACTOS): continue
-                    if not any(e.lower() in vis.lower() for e in EQUIPOS_EXACTOS): continue
+                    # Normalizar texto (quitar tildes) para comparar equipos
+                    import unicodedata
+                    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+                    EQUIPOS_NORM = ["nacional","santa fe","millonarios","junior",
+                                    "america","tolima","bucaramanga","pereira",
+                                    "once caldas","pasto","deportivo cali","medellin",
+                                    "jaguares","cucuta","boyaca","aguilas",
+                                    "fortaleza","alianza","internacional","llaneros"]
+                    loc_n,vis_n=norm(loc),norm(vis)
+                    # Ambos deben ser equipos y no ciudades solas
+                    if not any(e in loc_n for e in EQUIPOS_NORM): continue
+                    if not any(e in vis_n for e in EQUIPOS_NORM): continue
+                    # Excluir filas donde visitante es solo una ciudad (sin nombre de club)
+                    CIUDADES = ["medellin","bogota","cali","barranquilla","bucaramanga",
+                                "manizales","armenia","pereira","pasto","ibague",
+                                "monteria","cucuta","tunja","valledupar","villavicencio"]
+                    if vis_n.strip() in CIUDADES: continue
+                    if loc_n.strip() in CIUDADES: continue
                 if not loc or not vis or len(loc)<3: continue
 
                 # Parsear fecha tipo "19 de mayo"
