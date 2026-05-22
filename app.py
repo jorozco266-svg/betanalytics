@@ -171,16 +171,72 @@ def poisson(ll,lv):
 def build_model(partidos, avg):
     eq=set()
     for l,v,_,_ in partidos: eq.add(l);eq.add(v)
-    S={e:{"gf":[],"gc":[]} for e in eq}
+    S={e:{"gf":[],"gc":[],"partidos":[]} for e in eq}
     for l,v,gl,gv in partidos:
         S[l]["gf"].append(gl);S[l]["gc"].append(gv)
+        S[l]["partidos"].append((l,v,gl,gv))
         S[v]["gf"].append(gv);S[v]["gc"].append(gl)
-    return {e:{"atk":round((sum(d["gf"])/max(len(d["gf"]),1))/avg,3),
-               "def":round((sum(d["gc"])/max(len(d["gc"]),1))/avg,3),
-               "n":len(d["gf"])} for e,d in S.items()}
+        S[v]["partidos"].append((l,v,gl,gv))
+    modelo = {}
+    for e,d in S.items():
+        n = max(len(d["gf"]),1)
+        gf_avg = sum(d["gf"])/n
+        gc_avg = sum(d["gc"])/n
+        modelo[e] = {
+            "atk":   round(gf_avg/avg, 3),
+            "def":   round(gc_avg/avg, 3),
+            "n":     len(d["gf"]),
+            "gf_avg": round(gf_avg, 2),
+            "gc_avg": round(gc_avg, 2),
+            "partidos": d["partidos"],
+        }
+    modelo["_avg"] = avg
+    return modelo
+
+def buscar_equipo_info(nombre, M):
+    """Retorna info completa del equipo incluyendo partidos para la memoria de calculo."""
+    import unicodedata
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    nombre_n = norm(nombre)
+    # Buscar equipo en el modelo
+    equipo_key = None
+    if nombre in M:
+        equipo_key = nombre
+    else:
+        for k in M:
+            if norm(k) == nombre_n:
+                equipo_key = k; break
+        if not equipo_key:
+            for k in M:
+                if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
+                    equipo_key = k; break
+    if not equipo_key:
+        return {"atk":1.0,"def":1.0,"n":0,"gf_avg":0,"gc_avg":0,"partidos":[]}
+    v = M[equipo_key]
+    return {
+        "atk": v["atk"],
+        "def": v["def"],
+        "n": v["n"],
+        "gf_avg": round(v.get("gf_avg", v["atk"] * M.get("_avg", 1.20)), 2),
+        "gc_avg": round(v.get("gc_avg", v["def"] * M.get("_avg", 1.20)), 2),
+        "partidos": v.get("partidos", []),
+    }
 
 def lams(loc,vis,M,avg):
-    ml=M.get(loc,{"atk":1.0,"def":1.0}); mv=M.get(vis,{"atk":1.0,"def":1.0})
+    import unicodedata
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    # Buscar por nombre exacto primero, luego por nombre normalizado
+    def buscar(nombre):
+        if nombre in M: return M[nombre]
+        nombre_n = norm(nombre)
+        for k,v in M.items():
+            if norm(k) == nombre_n: return v
+        # Busqueda parcial por primera palabra significativa
+        for k,v in M.items():
+            if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
+                return v
+        return {"atk":1.0,"def":1.0}
+    ml=buscar(loc); mv=buscar(vis)
     return round(ml["atk"]*mv["def"]*avg*FL,3), round(mv["atk"]*ml["def"]*avg,3)
 
 def impl(cuotas):
@@ -630,6 +686,46 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
                 st.markdown(f'<div class="score-card"><div class="score-num">{s["m"]}</div><div class="score-pct">{s["p"]}%</div></div>',unsafe_allow_html=True)
 
         st.markdown("")
+        # ── Memoria de cálculo ──────────────────
+        with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
+            ml_info = buscar_equipo_info(loc, M)
+            mv_info = buscar_equipo_info(vis, M)
+            ll_show, lv_show = lams(loc, vis, M, avg)
+
+            # Partidos del equipo local
+            st.markdown(f"**{loc} (local) — {ml_info['n']} partidos**")
+            st.markdown(f"Ataque: `{ml_info['atk']:.3f}` · Defensa: `{ml_info['def']:.3f}` · Goles/partido: `{ml_info['gf_avg']:.2f}` a favor, `{ml_info['gc_avg']:.2f}` en contra")
+            if ml_info['partidos']:
+                for l2,v2,gl2,gv2 in ml_info['partidos']:
+                    icono = "✓" if (l2==loc and gl2>gv2) or (v2==loc and gv2>gl2) else ("=" if gl2==gv2 else "✗")
+                    st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
+
+            st.divider()
+
+            # Partidos del equipo visitante
+            st.markdown(f"**{vis} (visitante) — {mv_info['n']} partidos**")
+            st.markdown(f"Ataque: `{mv_info['atk']:.3f}` · Defensa: `{mv_info['def']:.3f}` · Goles/partido: `{mv_info['gf_avg']:.2f}` a favor, `{mv_info['gc_avg']:.2f}` en contra")
+            if mv_info['partidos']:
+                for l2,v2,gl2,gv2 in mv_info['partidos']:
+                    icono = "✓" if (l2==vis and gl2>gv2) or (v2==vis and gv2>gl2) else ("=" if gl2==gv2 else "✗")
+                    st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
+
+            st.divider()
+
+            # Proyección
+            st.markdown("**Proyección de goles (Poisson)**")
+            st.markdown(f"Goles esperados **{loc}** (local): `{ll_show}`")
+            st.markdown(f"&nbsp;&nbsp;= Ataque({ml_info['atk']:.3f}) × Defensa_visit({mv_info['def']:.3f}) × Liga({avg}) × Factor_local(1.15)", unsafe_allow_html=True)
+            st.markdown(f"Goles esperados **{vis}** (visit): `{lv_show}`")
+            st.markdown(f"&nbsp;&nbsp;= Ataque({mv_info['atk']:.3f}) × Defensa_local({ml_info['def']:.3f}) × Liga({avg})", unsafe_allow_html=True)
+
+            st.divider()
+            st.markdown("**Distribución de probabilidades (Poisson)**")
+            st.markdown(f"Para cada marcador (0-0, 1-0, 0-1, 1-1, 2-0...): `P = Poisson(gl, {ll_show}) × Poisson(gv, {lv_show})`")
+            st.markdown(f"**{loc} gana** (gl > gv): suma de P donde local marca más = **{pr['pl']*100:.1f}%**")
+            st.markdown(f"**Empate** (gl = gv): suma de P donde marcan igual = **{pr['pe']*100:.1f}%**")
+            st.markdown(f"**{vis} gana** (gl < gv): suma de P donde visitante marca más = **{pr['pv']*100:.1f}%**")
+
         # Cuotas — automáticas si disponibles, manual si no
         cuotas_encontradas = buscar_cuotas(loc, vis, cuotas_auto) if cuotas_auto else None
         if cuotas_encontradas:
