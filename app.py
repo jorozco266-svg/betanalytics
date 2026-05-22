@@ -428,6 +428,11 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                                 "monteria","cucuta","tunja","valledupar","villavicencio"]
                     if vis_n.strip() in CIUDADES: continue
                     if loc_n.strip() in CIUDADES: continue
+                    # Evitar duplicados tipo "Boyaca vs Boyaca Chico" o "Tolima vs Deportes Tolima"
+                    palabras_loc = set(loc_n.split())
+                    palabras_vis = set(vis_n.split())
+                    # Si todas las palabras del local estan en el visitante o viceversa, es duplicado
+                    if palabras_loc.issubset(palabras_vis) or palabras_vis.issubset(palabras_loc): continue
                 if not loc or not vis or len(loc)<3: continue
 
                 # Parsear fecha tipo "19 de mayo"
