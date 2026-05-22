@@ -405,14 +405,19 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     if celdas[3].strip() != "-": continue
                     loc,vis,fecha_str=celdas[2].strip(),celdas[4].strip(),celdas[0].strip()
                 else:
-                    if len(celdas)<4: continue
-                    col1=celdas[1].strip()
-                    # col1 debe ser marcador - o contener fecha; si es nombre/ciudad es tabla de clubes
-                    if not re.match(r"^[-–]$", col1) and not re.search(r"\d+\s+de\s+\w+", col1): continue
+                    if len(celdas)<3: continue
                     m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
-                    if m: continue
+                    if m: continue  # ya jugado
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
+                    # Validar que local y visitante son equipos reales (lista blanca)
+                    EQUIPOS_COL = ["Nacional","Atletico","Santa Fe","Millonarios","Junior",
+                                   "America","Tolima","Bucaramanga","Pereira","Once Caldas",
+                                   "Pasto","Cali","Medellin","Jaguares","Cucuta","Boyaca",
+                                   "Aguilas","Fortaleza","Alianza","Internacional","Llaneros",
+                                   "Deportivo","Deportes","Independiente","Atletico"]
+                    if not any(e in loc for e in EQUIPOS_COL): continue
+                    if not any(e in vis for e in EQUIPOS_COL): continue
                 if not loc or not vis or len(loc)<3: continue
 
                 # Parsear fecha tipo "19 de mayo"
