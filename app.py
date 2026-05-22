@@ -410,14 +410,18 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     if m: continue  # ya jugado
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
-                    # Validar que local y visitante son equipos reales (lista blanca)
-                    EQUIPOS_COL = ["Nacional","Atletico","Santa Fe","Millonarios","Junior",
-                                   "America","Tolima","Bucaramanga","Pereira","Once Caldas",
-                                   "Pasto","Cali","Medellin","Jaguares","Cucuta","Boyaca",
-                                   "Aguilas","Fortaleza","Alianza","Internacional","Llaneros",
-                                   "Deportivo","Deportes","Independiente","Atletico"]
-                    if not any(e in loc for e in EQUIPOS_COL): continue
-                    if not any(e in vis for e in EQUIPOS_COL): continue
+                    # Lista exacta de equipos Liga BetPlay 2026
+                    EQUIPOS_EXACTOS = [
+                        "Atletico Nacional","Atletico Bucaramanga","Santa Fe",
+                        "Millonarios","Junior","America de Cali","Deportes Tolima",
+                        "Deportivo Pereira","Once Caldas","Deportivo Pasto",
+                        "Deportivo Cali","Independiente Medellin","Jaguares",
+                        "Cucuta Deportivo","Boyaca Chico","Aguilas Doradas",
+                        "Fortaleza","Alianza FC","Alianza Valledupar",
+                        "Internacional de Bogota","Llaneros"
+                    ]
+                    if not any(e.lower() in loc.lower() for e in EQUIPOS_EXACTOS): continue
+                    if not any(e.lower() in vis.lower() for e in EQUIPOS_EXACTOS): continue
                 if not loc or not vis or len(loc)<3: continue
 
                 # Parsear fecha tipo "19 de mayo"
