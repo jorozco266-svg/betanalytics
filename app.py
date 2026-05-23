@@ -810,7 +810,7 @@ with tab1:
                     import hashlib, datetime as dt2
                     semis = [
                         ("Atletico Nacional","Deportes Tolima","2026-05-23","07:30 PM"),
-                        ("Independiente Santa Fe","Junior","2026-05-23","07:30 PM"),
+                        ("Junior","Independiente Santa Fe","2026-05-23","07:30 PM"),
                     ]
                     prox_wiki = []
                     for loc,vis,fecha,hora in semis:
