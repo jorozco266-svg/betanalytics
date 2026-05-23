@@ -319,7 +319,7 @@ def fd_hist(code, key):
 @st.cache_data(ttl=900)
 def fd_next(code, key):
     try:
-        r=requests.get(f"{API_FD}/competitions/{code}/matches?status=SCHEDULED,IN_PLAY,PAUSED,HALFTIME",
+        r=requests.get(f"{API_FD}/competitions/{code}/matches?status=SCHEDULED,TIMED",
                        headers={"X-Auth-Token":key},timeout=10)
         r.raise_for_status()
         out=[]
