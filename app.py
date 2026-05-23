@@ -319,7 +319,7 @@ def fd_hist(code, key):
 @st.cache_data(ttl=900)
 def fd_next(code, key):
     try:
-        r=requests.get(f"{API_FD}/competitions/{code}/matches?status=SCHEDULED",
+        r=requests.get(f"{API_FD}/competitions/{code}/matches?status=SCHEDULED,IN_PLAY,PAUSED,HALFTIME",
                        headers={"X-Auth-Token":key},timeout=10)
         r.raise_for_status()
         out=[]
@@ -559,6 +559,62 @@ def rf_next(league_id, rf_key):
         return [p for p in out if p["dt"].date()<=lim],None
     except Exception as e: return [],str(e)
 
+
+# ─────────────────────────────────────────────
+# MÓDULO TENIS — Elo por superficie
+# ─────────────────────────────────────────────
+import csv, io
+
+@st.cache_data(ttl=86400)
+def cargar_partidos_tenis(tour="atp"):
+    """Descarga partidos ATP o WTA desde GitHub (Jeff Sackmann)."""
+    anio = datetime.datetime.now(TZ_COL).year
+    base = "tennis_atp" if tour=="atp" else "tennis_wta"
+    prefix = "atp" if tour=="atp" else "wta"
+    url = f"https://raw.githubusercontent.com/JeffSackmann/{base}/master/{prefix}_matches_{anio}.csv"
+    try:
+        r = requests.get(url, headers={"User-Agent":"Mozilla/5.0"}, timeout=15)
+        r.raise_for_status()
+        return list(csv.DictReader(io.StringIO(r.text))), None
+    except Exception as e:
+        return [], str(e)
+
+@st.cache_data(ttl=86400)
+def calcular_elo_tenis(tour="atp", k=32):
+    """Calcula Elo general y por superficie para todos los jugadores."""
+    partidos, err = cargar_partidos_tenis(tour)
+    if not partidos: return {}, {}, err
+    elo_g = {}
+    elo_s = {}
+    def prob(a,b): return 1/(1+10**((b-a)/400))
+    for p in partidos:
+        gan = p.get("winner_name","")
+        per = p.get("loser_name","")
+        sup = p.get("surface","Hard")
+        if not gan or not per: continue
+        for j in [gan,per]:
+            if j not in elo_g: elo_g[j]=1500
+            if j not in elo_s: elo_s[j]={"Hard":1500,"Clay":1500,"Grass":1500}
+        ea = prob(elo_g[gan],elo_g[per])
+        elo_g[gan] += k*(1-ea); elo_g[per] += k*(0-(1-ea))
+        if sup in ["Hard","Clay","Grass"]:
+            ea_s = prob(elo_s[gan][sup],elo_s[per][sup])
+            elo_s[gan][sup] += k*(1-ea_s)
+            elo_s[per][sup] += k*(0-(1-ea_s))
+    return elo_g, elo_s, None
+
+def prob_elo(elo_a, elo_b):
+    return round(1/(1+10**((elo_b-elo_a)/400)), 4)
+
+def buscar_jugador(nombre, elo_g):
+    """Busca jugador en el modelo por nombre parcial."""
+    nombre_l = nombre.lower()
+    exacto = [j for j in elo_g if nombre_l == j.lower()]
+    if exacto: return exacto[0]
+    parcial = [j for j in elo_g if nombre_l in j.lower()]
+    if parcial: return sorted(parcial, key=lambda x:-elo_g[x])[0]
+    return None
+
 # ─────────────────────────────────────────────
 # SESSION STATE
 # ─────────────────────────────────────────────
@@ -652,7 +708,7 @@ if necesita_fd and not tiene_fd:
 if necesita_rf and not tiene_rf:
     st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
 
-tab1,tab2,tab3,tab4=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio"])
+tab1,tab2,tab3,tab4,tab5=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis"])
 
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
@@ -1000,3 +1056,133 @@ with tab4:
             </div>
             <div class="caso-lesson">💡 {c['lec']}</div>
         </div>""",unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────
+# TAB 5: TENIS
+# ─────────────────────────────────────────────
+with tab5:
+    st.markdown("### 🎾 Análisis de tenis — Modelo Elo por superficie")
+
+    t1, t2 = st.columns(2)
+    with t1:
+        tour = st.selectbox("Tour", ["ATP (masculino)", "WTA (femenino)"], key="tour_sel")
+        tour_key = "atp" if "ATP" in tour else "wta"
+    with t2:
+        superficie = st.selectbox("Superficie", ["Hard", "Clay", "Grass"], key="sup_sel",
+                                   format_func=lambda x:{"Hard":"Pista dura","Clay":"Arcilla","Grass":"Hierba"}[x])
+
+    with st.spinner(f"Cargando datos {tour} 2026 desde GitHub..."):
+        elo_g, elo_s, err_elo = calcular_elo_tenis(tour_key)
+
+    if err_elo:
+        st.warning(f"Error cargando datos: {err_elo}")
+    elif elo_g:
+        st.success(f"✓ {len(elo_g)} jugadores cargados · Elo calculado con partidos 2026")
+
+        st.markdown("---")
+        st.markdown("#### Ingresa los dos jugadores a analizar")
+        c1, c2 = st.columns(2)
+        with c1:
+            j1_input = st.text_input("Jugador 1 (local/favorito)", placeholder="Ej: Sinner", key="j1")
+        with c2:
+            j2_input = st.text_input("Jugador 2 (visitante)", placeholder="Ej: Alcaraz", key="j2")
+
+        st.markdown("#### Cuotas de tu casa de apuestas")
+        c1, c2 = st.columns(2)
+        with c1:
+            q1 = st.number_input("Cuota jugador 1", 1.01, 50.0, 2.00, 0.05, format="%.2f", key="tq1")
+        with c2:
+            q2 = st.number_input("Cuota jugador 2", 1.01, 50.0, 2.00, 0.05, format="%.2f", key="tq2")
+
+        if j1_input and j2_input:
+            j1 = buscar_jugador(j1_input, elo_g)
+            j2 = buscar_jugador(j2_input, elo_g)
+
+            if not j1:
+                st.error(f"No se encontró '{j1_input}' en los datos 2026. Verifica el nombre.")
+            elif not j2:
+                st.error(f"No se encontró '{j2_input}' en los datos 2026. Verifica el nombre.")
+            else:
+                e1 = elo_s.get(j1,{}).get(superficie, elo_g.get(j1,1500))
+                e2 = elo_s.get(j2,{}).get(superficie, elo_g.get(j2,1500))
+                p1 = prob_elo(e1, e2)
+                p2 = 1 - p1
+
+                # Probabilidades
+                st.markdown("---")
+                st.markdown(f"#### {j1} vs {j2} — {{'Hard':'Pista dura','Clay':'Arcilla','Grass':'Hierba'}}[superficie]")
+                ca, cb = st.columns(2)
+                with ca:
+                    st.markdown(f"""<div class="prob-wrap">
+                        <div class="card-label">{j1}</div>
+                        <div class="card-value">{p1*100:.1f}%</div>
+                        <div class="prob-bar"><div style="width:{p1*100}%;height:10px;background:#38bdf8;border-radius:6px;"></div></div>
+                    </div>""", unsafe_allow_html=True)
+                with cb:
+                    st.markdown(f"""<div class="prob-wrap">
+                        <div class="card-label">{j2}</div>
+                        <div class="card-value">{p2*100:.1f}%</div>
+                        <div class="prob-bar"><div style="width:{p2*100}%;height:10px;background:#818cf8;border-radius:6px;"></div></div>
+                    </div>""", unsafe_allow_html=True)
+
+                # Memoria de calculo
+                with st.expander("📊 Memoria de cálculo Elo", expanded=False):
+                    st.markdown(f"**Elo {j1}** — General: `{elo_g[j1]:.0f}` | {superficie}: `{e1:.0f}`")
+                    st.markdown(f"**Elo {j2}** — General: `{elo_g[j2]:.0f}` | {superficie}: `{e2:.0f}`")
+                    st.markdown("---")
+                    st.markdown(f"**Fórmula:** `P({j1}) = 1 / (1 + 10^((Elo_{j2} - Elo_{j1}) / 400))`")
+                    st.markdown(f"**Cálculo:** `1 / (1 + 10^(({e2:.0f} - {e1:.0f}) / 400))` = **{p1*100:.1f}%**")
+                    st.markdown("---")
+                    st.markdown("**Todos los ratings por superficie:**")
+                    for j,e in [(j1,elo_s.get(j1,{})),(j2,elo_s.get(j2,{}))]:
+                        st.markdown(f"  {j}: Pista dura `{e.get('Hard',1500):.0f}` · Arcilla `{e.get('Clay',1500):.0f}` · Hierba `{e.get('Grass',1500):.0f}`")
+
+                # Veredicto Kelly
+                st.markdown("#### Veredicto del modelo")
+                vig = round(((1/q1 + 1/q2) - 1)*100, 2)
+                if vig <= 7:
+                    st.markdown(f'<div class="vig-ok">✓ Vig: {vig}% — mercado limpio</div>', unsafe_allow_html=True)
+                elif vig <= 12:
+                    st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig}% — margen alto</div>', unsafe_allow_html=True)
+                else:
+                    st.markdown(f'<div class="vig-bad">✗ Vig: {vig}% — evitar</div>', unsafe_allow_html=True)
+
+                for nombre, prob, cuota in [(j1,p1,q1),(j2,p2,q2)]:
+                    b = cuota-1; fc = (prob*b-(1-prob))/b
+                    fu = fc*kf if fc>0 else 0
+                    s = round(bank*fu)
+                    edge = round((prob - 1/cuota)*100, 2)
+                    ev = round(prob*b-(1-prob), 4)
+                    if fc > ue:
+                        st.markdown(f"""<div class="vbet">
+                            <span class="vbet-badge">✓ VALUE BET</span>
+                            <div class="vbet-title">{nombre} · cuota {cuota}</div>
+                            <div class="vbet-grid">
+                                <div class="vbet-item"><label>P ELO</label><span>{prob*100:.1f}%</span></div>
+                                <div class="vbet-item"><label>P IMPLÍCITA</label><span>{round(1/cuota*100,1)}%</span></div>
+                                <div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{edge:.1f}%</span></div>
+                                <div class="vbet-item"><label>KELLY</label><span>{round(fu*100,2):.1f}%</span></div>
+                                <div class="vbet-item"><label>APOSTAR</label><span class="highlight">${s:,}</span></div>
+                                <div class="vbet-item"><label>RETORNO</label><span>${round(s*cuota):,}</span></div>
+                                <div class="vbet-item"><label>EV/$1</label><span>+{ev:.3f}</span></div>
+                            </div>
+                        </div>""", unsafe_allow_html=True)
+                    else:
+                        st.markdown(f"""<div class="nobet">
+                            <span class="nobet-badge">✗ SIN VALUE</span>
+                            <span class="nobet-text">{nombre} · cuota {cuota} · edge {edge:+.1f}%</span>
+                        </div>""", unsafe_allow_html=True)
+
+        st.markdown("---")
+        st.markdown("#### Top 15 jugadores por Elo 2026")
+        top15 = sorted([(j,v) for j,v in elo_g.items()], key=lambda x:-x[1])[:15]
+        for i,(j,eg) in enumerate(top15,1):
+            hard = elo_s.get(j,{}).get("Hard",1500)
+            clay = elo_s.get(j,{}).get("Clay",1500)
+            grass = elo_s.get(j,{}).get("Grass",1500)
+            c1,c2,c3,c4,c5 = st.columns([3,2,2,2,1])
+            with c1: st.markdown(f"**{i}. {j}**")
+            with c2: st.markdown(f'<span style="color:#e8eeff">General: {eg:.0f}</span>', unsafe_allow_html=True)
+            with c3: st.markdown(f'<span style="color:#f59e0b">Arcilla: {clay:.0f}</span>', unsafe_allow_html=True)
+            with c4: st.markdown(f'<span style="color:#38bdf8">Dura: {hard:.0f}</span>', unsafe_allow_html=True)
+            with c5: st.markdown(f'<span style="color:#86efac">H: {grass:.0f}</span>', unsafe_allow_html=True)
