@@ -131,7 +131,7 @@ LIGAS = {
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
-    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasileiro_S%C3%A9rie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35, "odds_key":"soccer_brazil_campeonato"},
+    "🇧🇷 Brasileirao":         {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Campeonato_Brasile%C3%B1o_de_F%C3%BAtbol_Serie_A_2026",  "wiki_fmt":"betplay",  "avg":1.35, "odds_key":"soccer_brazil_campeonato"},
     "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(M%C3%A9xico)",       "wiki_fmt":"betplay",  "avg":1.25, "odds_key":"soccer_mexico_ligamx"},
 }
 
