@@ -1,5 +1,10 @@
 """
-BetAnalytics v3
+BetAnalytics v3.1
+- Fix: @st.cache_data duplicado en wiki_next eliminado
+- Fix: BK_INIT y bankroll inicial sincronizados a $70,213 COP
+- Fix: Horas semifinales Liga BetPlay corregidas (6PM / 8:30PM)
+- Fix: wiki_next ahora muestra partidos del Brasileirao, Liga Argentina y Liga MX
+  (filtro EQUIPOS_NORM solo aplica para ligas colombianas)
 - Paleta mejorada para PC: dark mode legible con buen contraste
 - Ligas de Suramérica via API-Football (RapidAPI)
 - Ligas europeas via football-data.org
@@ -112,7 +117,7 @@ API_TSDB = "https://www.thesportsdb.com/api/v1/json/3"
 TZ_COL   = ZoneInfo("America/Bogota")
 FL       = 1.15
 MG       = 8
-BK_INIT  = 35000
+BK_INIT  = 70213
 
 # Liga: source indica de dónde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
@@ -440,7 +445,6 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
     except Exception as ex: return [],str(ex)
 
 @st.cache_data(ttl=900)
-@st.cache_data(ttl=900)
 def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
     """Extrae proximos partidos desde Wikipedia con fechas reales."""
     MESES = {"enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
@@ -466,29 +470,34 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     if m: continue  # ya jugado
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
-                    # Normalizar texto (quitar tildes) para comparar equipos
                     import unicodedata
                     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-                    EQUIPOS_NORM = ["nacional","santa fe","millonarios","junior",
-                                    "america","tolima","bucaramanga","pereira",
-                                    "once caldas","pasto","deportivo cali","medellin",
-                                    "jaguares","cucuta","boyaca","aguilas",
-                                    "fortaleza","alianza","internacional","llaneros"]
-                    loc_n,vis_n=norm(loc),norm(vis)
-                    # Ambos deben ser equipos y no ciudades solas
-                    if not any(e in loc_n for e in EQUIPOS_NORM): continue
-                    if not any(e in vis_n for e in EQUIPOS_NORM): continue
-                    # Excluir filas donde visitante es solo una ciudad (sin nombre de club)
-                    CIUDADES = ["medellin","bogota","cali","barranquilla","bucaramanga",
-                                "manizales","armenia","pereira","pasto","ibague",
-                                "monteria","cucuta","tunja","valledupar","villavicencio"]
-                    if vis_n.strip() in CIUDADES: continue
-                    if loc_n.strip() in CIUDADES: continue
-                    # Evitar duplicados tipo "Boyaca vs Boyaca Chico" o "Tolima vs Deportes Tolima"
-                    palabras_loc = set(loc_n.split())
-                    palabras_vis = set(vis_n.split())
-                    # Si todas las palabras del local estan en el visitante o viceversa, es duplicado
-                    if palabras_loc.issubset(palabras_vis) or palabras_vis.issubset(palabras_loc): continue
+                    # Filtro de equipos colombianos solo si la URL es de Colombia
+                    es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower()
+                    if es_colombia:
+                        EQUIPOS_NORM = ["nacional","santa fe","millonarios","junior",
+                                        "america","tolima","bucaramanga","pereira",
+                                        "once caldas","pasto","deportivo cali","medellin",
+                                        "jaguares","cucuta","boyaca","aguilas",
+                                        "fortaleza","alianza","internacional","llaneros"]
+                        loc_n,vis_n=norm(loc),norm(vis)
+                        if not any(e in loc_n for e in EQUIPOS_NORM): continue
+                        if not any(e in vis_n for e in EQUIPOS_NORM): continue
+                        CIUDADES = ["medellin","bogota","cali","barranquilla","bucaramanga",
+                                    "manizales","armenia","pereira","pasto","ibague",
+                                    "monteria","cucuta","tunja","valledupar","villavicencio"]
+                        loc_n,vis_n=norm(loc),norm(vis)
+                        if vis_n.strip() in CIUDADES: continue
+                        if loc_n.strip() in CIUDADES: continue
+                        palabras_loc = set(loc_n.split())
+                        palabras_vis = set(vis_n.split())
+                        if palabras_loc.issubset(palabras_vis) or palabras_vis.issubset(palabras_loc): continue
+                    else:
+                        # Para Brasileirao, Argentina, Mexico, etc: filtro genérico mínimo
+                        loc_n,vis_n=norm(loc),norm(vis)
+                        if len(loc)<3 or len(vis)<3: continue
+                        # Evitar filas de encabezado o datos no-equipo
+                        if loc_n in ["local","home","equipo","club","team"]: continue
                 if not loc or not vis or len(loc)<3: continue
 
                 # Parsear fecha tipo "19 de mayo"
@@ -619,7 +628,7 @@ def buscar_jugador(nombre, elo_g):
 # SESSION STATE
 # ─────────────────────────────────────────────
 def init():
-    if "bankroll" not in st.session_state: st.session_state.bankroll=51982
+    if "bankroll" not in st.session_state: st.session_state.bankroll=70213
     if "wins"     not in st.session_state: st.session_state.wins=5
     if "losses"   not in st.session_state: st.session_state.losses=0
     if "apuestas" not in st.session_state:
@@ -865,8 +874,8 @@ with tab1:
                 if "Liga BetPlay" in liga_n and not prox_wiki:
                     import hashlib, datetime as dt2
                     semis = [
-                        ("Atletico Nacional","Deportes Tolima","2026-05-23","07:30 PM"),
-                        ("Junior","Independiente Santa Fe","2026-05-23","07:30 PM"),
+                        ("Atletico Nacional","Deportes Tolima","2026-05-23","06:00 PM"),
+                        ("Junior","Independiente Santa Fe","2026-05-23","08:30 PM"),
                     ]
                     prox_wiki = []
                     for loc,vis,fecha,hora in semis:
