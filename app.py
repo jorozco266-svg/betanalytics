@@ -439,7 +439,7 @@ def odds_fixtures(odds_key, odds_api_key):
         return [], str(ex)
 
 
-@st.cache_data(ttl=60)
+@st.cache_data(ttl=1)
 def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
     """Extrae historial combinando multiples paginas de Wikipedia."""
     import re
@@ -927,15 +927,19 @@ with tab1:
 
     elif li["src"] in ("wiki", "wiki_multi"):
         e1, e2, prox = None, None, []
-        with st.spinner("Cargando datos..."):
-            if li["src"]=="wiki_multi":
-                hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            else:
-                hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            # Fallback historial estático para ligas con tabla de posiciones conocida
-            if not isinstance(hist, dict) and len(hist) < 10:
-                if "Argentina" in liga_n:
-                    hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
+        # Para Liga Argentina: usar modelo estático directo, no depender del scraper
+        if "Argentina" in liga_n:
+            hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
+            e1 = None
+        else:
+            with st.spinner("Cargando datos..."):
+                if li["src"]=="wiki_multi":
+                    hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+                else:
+                    hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+                # Fallback si el scraper retorna vacío
+                if not isinstance(hist, dict) and len(hist) < 10:
+                    hist = []
         # Mostrar info fuera del spinner
         if isinstance(hist, dict) and "Argentina" in liga_n:
             st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
