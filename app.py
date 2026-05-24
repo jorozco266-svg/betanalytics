@@ -136,7 +136,7 @@ LIGAS = {
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
-    "🇲🇽 Liga MX":             {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_MX_season"],"wiki_fmt":"uel","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
+    "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
 }
 
 # ─────────────────────────────────────────────
@@ -229,6 +229,29 @@ HIST_ARGENTINA_2026 = [
     ("Estudiantes (RC)",     11, 36, 18),
     ("Gimnasia y Esgrima (M)", 13, 34, 18),
     ("Independiente Rivadavia", 14, 33, 18),
+]
+
+# Tabla de posiciones Liga MX Clausura 2026 (fase regular completa — 17 jornadas)
+# Fuente: Wikipedia / El Universal. Formato: (equipo, GF, GC, PJ)
+HIST_LIGAMX_2026 = [
+    ("UNAM",              32, 14, 17),  # Pumas — 1ro 36 pts
+    ("Guadalajara",       28, 15, 17),  # Chivas — 2do 36 pts
+    ("Cruz Azul",         27, 18, 17),  # 3ro 33 pts
+    ("Pachuca",           29, 19, 17),  # 4to 31 pts
+    ("Toluca",            26, 18, 17),  # 5to 30 pts
+    ("Atlas",             22, 20, 17),  # 6to 26 pts
+    ("UANL",              24, 21, 17),  # Tigres — 7mo 25 pts
+    ("America",           21, 22, 17),  # 8vo 25 pts
+    ("Leon",              20, 23, 17),
+    ("Queretaro",         18, 22, 17),
+    ("Monterrey",         19, 24, 17),
+    ("Atletico San Luis", 17, 23, 17),
+    ("Necaxa",            16, 22, 17),
+    ("Juarez",            15, 25, 17),
+    ("Mazatlan",          14, 26, 17),
+    ("Puebla",            13, 27, 17),
+    ("Santos Laguna",     12, 26, 17),
+    ("Tijuana",           13, 28, 17),
 ]
 
 
@@ -1001,6 +1024,9 @@ with tab1:
             elif "Brasileirao" in liga_n or "Brasil" in liga_n:
                 hist = build_model_desde_tabla(HIST_BRASILEIRAO_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
+            elif "Liga MX" in liga_n or "Mexico" in liga_n:
+                hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
+                st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio (Apertura 2026).")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         if e1: st.warning(f"Error historial TheSportsDB: {e1}")
