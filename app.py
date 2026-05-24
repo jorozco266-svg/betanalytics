@@ -234,14 +234,14 @@ HIST_ARGENTINA_2026 = [
 # Tabla de posiciones Liga MX Clausura 2026 (fase regular completa — 17 jornadas)
 # Fuente: Wikipedia / El Universal. Formato: (equipo, GF, GC, PJ)
 HIST_LIGAMX_2026 = [
-    ("UNAM",              32, 14, 17),  # Pumas — 1ro 36 pts
+    ("Pumas UNAM",        32, 14, 17),  # Pumas — 1ro 36 pts
     ("Guadalajara",       28, 15, 17),  # Chivas — 2do 36 pts
     ("Cruz Azul",         27, 18, 17),  # 3ro 33 pts
     ("Pachuca",           29, 19, 17),  # 4to 31 pts
     ("Toluca",            26, 18, 17),  # 5to 30 pts
     ("Atlas",             22, 20, 17),  # 6to 26 pts
-    ("UANL",              24, 21, 17),  # Tigres — 7mo 25 pts
-    ("America",           21, 22, 17),  # 8vo 25 pts
+    ("Tigres UANL",       24, 21, 17),  # Tigres — 7mo 25 pts
+    ("Club America",      21, 22, 17),  # América — 8vo 25 pts
     ("Leon",              20, 23, 17),
     ("Queretaro",         18, 22, 17),
     ("Monterrey",         19, 24, 17),
@@ -332,9 +332,30 @@ def buscar_equipo_info(nombre, M):
 def lams(loc,vis,M,avg):
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    # Aliases conocidos: nombre API → nombre en modelo
+    ALIASES = {
+        "pumas": "pumas unam", "unam": "pumas unam",
+        "tigres": "tigres uanl", "uanl": "tigres uanl",
+        "america": "club america", "club america": "club america",
+        "chivas": "guadalajara",
+        "atletico mineiro": "atletico mineiro", "atletico-mg": "atletico mineiro",
+        "atletico paranaense": "athletico paranaense", "athletico-pr": "athletico paranaense",
+        "red bull bragantino": "red bull bragantino", "bragantino": "red bull bragantino",
+        "estudiantes": "estudiantes (lp)", "estudiantes lp": "estudiantes (lp)",
+        "racing club": "racing", "racing de avellaneda": "racing",
+        "belgrano": "belgrano", "belgrano cordoba": "belgrano",
+        "san martin": "san martin (t)",
+    }
     def buscar(nombre):
         if nombre in M: return M[nombre]
         nombre_n = norm(nombre)
+        # Chequear aliases
+        for alias, target in ALIASES.items():
+            if alias in nombre_n:
+                target_n = norm(target)
+                for k,v in M.items():
+                    if k == "_avg": continue
+                    if norm(k) == target_n: return v
         # Exacto normalizado
         for k,v in M.items():
             if k == "_avg": continue
