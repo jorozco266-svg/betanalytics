@@ -135,7 +135,7 @@ LIGAS = {
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
-    "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
+    "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇲🇽 Liga MX":             {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_MX_season"],"wiki_fmt":"uel","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
 }
 
@@ -173,7 +173,30 @@ def build_model_desde_tabla(tabla_goles, avg):
     modelo["_avg"] = avg
     return modelo
 
-# Tabla de posiciones Liga Argentina Apertura 2026 (al 23-mayo-2026)
+# Tabla de posiciones Brasileirao Serie A 2026 (al 24-mayo-2026, jornada 16-17)
+# Fuente: Wikipedia. Formato: (equipo, GF, GC, PJ)
+HIST_BRASILEIRAO_2026 = [
+    ("Palmeiras",            23, 10, 13),
+    ("Flamengo",             24, 10, 12),
+    ("Fluminense",           23, 16, 13),
+    ("Sao Paulo",            17, 11, 13),
+    ("Athletico Paranaense", 20, 15, 13),
+    ("Bahia",                17, 14, 12),
+    ("Coritiba",             15, 13, 13),
+    ("Botafogo",             24, 24, 12),
+    ("Red Bull Bragantino",  15, 15, 13),
+    ("Vasco da Gama",        18, 19, 13),
+    ("Gremio",               15, 16, 13),
+    ("Cruzeiro",             17, 21, 13),
+    ("Vitoria",              12, 17, 12),
+    ("Corinthians",           9, 11, 13),
+    ("Atletico Mineiro",     14, 19, 13),
+    ("Internacional",        12, 14, 13),
+    ("Santos",               18, 21, 13),
+    ("Mirassol",             13, 18, 12),
+    ("Remo",                 13, 23, 13),
+    ("Chapecoense",          12, 24, 12),
+]
 # Fuente: Wikipedia / ESPN. Formato: (equipo, GF, GC, PJ)
 HIST_ARGENTINA_2026 = [
     ("River Plate",          38, 18, 18),
@@ -970,6 +993,14 @@ with tab1:
         e1, e2, prox = None, None, []
         with st.spinner("Cargando resultados desde TheSportsDB..."):
             hist,e1=sportsdb_hist(li["sportsdb_id"], li.get("sportsdb_season","2026"))
+        # Fallback con tabla estática si TheSportsDB retorna pocos partidos
+        if len(hist) < 30:
+            if "Argentina" in liga_n:
+                hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
+                st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
+            elif "Brasileirao" in liga_n or "Brasil" in liga_n:
+                hist = build_model_desde_tabla(HIST_BRASILEIRAO_2026, li["avg"])
+                st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         if e1: st.warning(f"Error historial TheSportsDB: {e1}")
