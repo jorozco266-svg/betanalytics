@@ -916,40 +916,39 @@ with tab1:
         cargado=True
 
     elif li["src"] in ("wiki", "wiki_multi"):
+        e1, e2, prox = None, None, []
         with st.spinner("Cargando datos..."):
             if li["src"]=="wiki_multi":
                 hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
             else:
                 hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
             # Fallback historial estático para ligas con tabla de posiciones conocida
-            if len(hist) < 10:
+            if not isinstance(hist, dict) and len(hist) < 10:
                 if "Argentina" in liga_n:
                     hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
-        # Mostrar info fuera del spinner para evitar conflicto Streamlit
+        # Mostrar info fuera del spinner
         if isinstance(hist, dict) and "Argentina" in liga_n:
             st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
-            # Si use_odds_fixtures=True usar Odds API para próximos
-            if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
-                prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
-            elif li["src"]=="wiki":
-                prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-                # Semifinales Liga BetPlay hardcoded (Wikipedia no las tiene en formato scrapeble)
-                if "Liga BetPlay" in liga_n and not prox_wiki:
-                    import hashlib, datetime as dt2
-                    semis = [
-                        ("Atletico Nacional","Deportes Tolima","2026-05-23","06:00 PM"),
-                        ("Junior","Independiente Santa Fe","2026-05-23","08:30 PM"),
-                    ]
-                    prox_wiki = []
-                    for loc,vis,fecha,hora in semis:
-                        uid=hashlib.md5(f"{loc}{vis}".encode()).hexdigest()[:8]
-                        fecha_dt=datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_COL)
-                        prox_wiki.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
-                                          "local":loc,"visit":vis,"jornada":"Semifinal",
-                                          "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
-                prox=prox_wiki
-            else:
-                prox,e2=[],None
+        # Cargar próximos partidos
+        if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+            prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        elif li["src"]=="wiki":
+            prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            # Semifinales Liga BetPlay hardcoded
+            if "Liga BetPlay" in liga_n and not prox_wiki:
+                import hashlib
+                semis = [
+                    ("Atletico Nacional","Deportes Tolima","2026-05-23","06:00 PM"),
+                    ("Junior","Independiente Santa Fe","2026-05-23","08:30 PM"),
+                ]
+                prox_wiki = []
+                for loc,vis,fecha,hora in semis:
+                    uid=hashlib.md5(f"{loc}{vis}".encode()).hexdigest()[:8]
+                    fecha_dt=datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_COL)
+                    prox_wiki.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
+                                      "local":loc,"visit":vis,"jornada":"Semifinal",
+                                      "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
+            prox=prox_wiki
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
