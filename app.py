@@ -154,19 +154,24 @@ def es_manana(dt): return dt.date()==(datetime.datetime.now(TZ_COL)+datetime.tim
 # ─────────────────────────────────────────────
 def build_model_desde_tabla(tabla_goles, avg):
     """
-    Construye modelo Poisson desde tabla de posiciones (GF, GC, PJ por equipo).
-    Útil para ligas donde el scraper de Wikipedia no puede extraer resultados partido a partido.
-    tabla_goles: lista de (equipo, gf_total, gc_total, partidos_jugados)
+    Construye modelo Poisson directamente desde tabla de posiciones (GF, GC, PJ).
+    Evita partidos sintéticos que contaminan el modelo con un equipo ficticio.
     """
-    partidos_sinteticos = []
+    modelo = {}
     for equipo, gf, gc, pj in tabla_goles:
         if pj == 0: continue
         gf_avg = gf / pj
         gc_avg = gc / pj
-        # Generar partidos sintéticos: el equipo "juega contra un rival promedio"
-        for _ in range(min(pj, 16)):  # máximo 16 para no inflar
-            partidos_sinteticos.append((equipo, "_avg_rival_", round(gf_avg), round(gc_avg)))
-    return build_model(partidos_sinteticos, avg)
+        modelo[equipo] = {
+            "atk":    round(gf_avg / avg, 3),
+            "def":    round(gc_avg / avg, 3),
+            "n":      pj,
+            "gf_avg": round(gf_avg, 2),
+            "gc_avg": round(gc_avg, 2),
+            "partidos": [],
+        }
+    modelo["_avg"] = avg
+    return modelo
 
 # Tabla de posiciones Liga Argentina Apertura 2026 (al 23-mayo-2026)
 # Fuente: Wikipedia / ESPN. Formato: (equipo, GF, GC, PJ)
@@ -920,8 +925,9 @@ with tab1:
             if len(hist) < 10:
                 if "Argentina" in liga_n:
                     hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
-                    # build_model_desde_tabla ya retorna el modelo directamente — marcar para no re-buildear
-                    st.info("📊 Usando estadísticas de la tabla de posiciones del Apertura 2026 como base del modelo.")
+        # Mostrar info fuera del spinner para evitar conflicto Streamlit
+        if isinstance(hist, dict) and "Argentina" in liga_n:
+            st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
             # Si use_odds_fixtures=True usar Odds API para próximos
             if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
                 prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
