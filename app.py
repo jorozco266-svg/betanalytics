@@ -134,8 +134,8 @@ LIGAS = {
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
-    "🇦🇷 Liga Argentina":      {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2026_AFA_Liga_Profesional_de_F%C3%BAtbol"],"wiki_fmt":"uel","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
-    "🇧🇷 Brasileirao":         {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
+    "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
+    "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇲🇽 Liga MX":             {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_MX_season"],"wiki_fmt":"uel","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
 }
 
@@ -369,6 +369,39 @@ def buscar_cuotas(local, visit, cuotas_map):
         if (local.split()[0].lower() in h.lower() or h.split()[0].lower() in local.lower()) and            (visit.split()[0].lower() in a.lower() or a.split()[0].lower() in visit.lower()):
             return v
     return None
+
+# ─────────────────────────────────────────────
+# TheSportsDB — API gratuita (key=123), resultados partido a partido
+# Documentación: https://www.thesportsdb.com/documentation
+# Liga Argentina id=4406 · Brasileirao id=4351 · Liga MX id=4350
+# ─────────────────────────────────────────────
+@st.cache_data(ttl=3600)
+def sportsdb_hist(league_id, season="2026"):
+    """
+    Obtiene resultados partido a partido desde TheSportsDB (gratuito, sin registro).
+    Retorna lista de (local, visitante, goles_local, goles_visit) como build_model espera.
+    """
+    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id={league_id}&s={season}"
+    try:
+        r = requests.get(url, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        eventos = data.get("events") or []
+        partidos = []
+        for e in eventos:
+            gl = e.get("intHomeScore")
+            gv = e.get("intAwayScore")
+            loc = e.get("strHomeTeam","").strip()
+            vis = e.get("strAwayTeam","").strip()
+            if gl is None or gv is None: continue  # partido no jugado aún
+            if not loc or not vis: continue
+            try:
+                partidos.append((loc, vis, int(gl), int(gv)))
+            except (ValueError, TypeError):
+                continue
+        return partidos, None
+    except Exception as ex:
+        return [], str(ex)
 
 # ─────────────────────────────────────────────
 # API — football-data.org
@@ -830,6 +863,10 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
                 for l2,v2,gl2,gv2 in ml_info['partidos']:
                     icono = "✓" if (l2==loc and gl2>gv2) or (v2==loc and gv2>gl2) else ("=" if gl2==gv2 else "✗")
                     st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
+            else:
+                gf_tot = round(ml_info['gf_avg'] * ml_info['n'])
+                gc_tot = round(ml_info['gc_avg'] * ml_info['n'])
+                st.markdown(f"&nbsp;&nbsp;📊 *Modelo basado en totales de temporada: {gf_tot} GF · {gc_tot} GC en {ml_info['n']} partidos. Resultados individuales no disponibles.*")
 
             st.divider()
 
@@ -840,6 +877,10 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
                 for l2,v2,gl2,gv2 in mv_info['partidos']:
                     icono = "✓" if (l2==vis and gl2>gv2) or (v2==vis and gv2>gl2) else ("=" if gl2==gv2 else "✗")
                     st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
+            else:
+                gf_tot = round(mv_info['gf_avg'] * mv_info['n'])
+                gc_tot = round(mv_info['gc_avg'] * mv_info['n'])
+                st.markdown(f"&nbsp;&nbsp;📊 *Modelo basado en totales de temporada: {gf_tot} GF · {gc_tot} GC en {mv_info['n']} partidos. Resultados individuales no disponibles.*")
 
             st.divider()
 
@@ -922,6 +963,16 @@ with tab1:
             hist,e1=fd_hist(li["code"],fd_key)
             prox,e2=fd_next(li["code"],fd_key)
         if e1: st.warning(f"Error historial: {e1}")
+        if e2: st.warning(f"Error próximos: {e2}")
+        cargado=True
+
+    elif li["src"]=="sportsdb":
+        e1, e2, prox = None, None, []
+        with st.spinner("Cargando resultados desde TheSportsDB..."):
+            hist,e1=sportsdb_hist(li["sportsdb_id"], li.get("sportsdb_season","2026"))
+        if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+            prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        if e1: st.warning(f"Error historial TheSportsDB: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
