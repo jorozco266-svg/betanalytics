@@ -3,7 +3,7 @@ BetAnalytics v3.1
 - Fix: @st.cache_data duplicado en wiki_next eliminado
 - Fix: BK_INIT y bankroll inicial sincronizados a $70,213 COP
 - Fix: Horas semifinales Liga BetPlay corregidas (6PM / 8:30PM)
-- Fix: Brasileirao usa The Odds API para próximos partidos (wiki_next daba técnicos como equipos)
+- Fix: Liga Argentina y Liga MX migradas a Wikipedia inglés + use_odds_fixtures (mismo fix que Brasileirao)
 - Paleta mejorada para PC: dark mode legible con buen contraste
 - Ligas de Suramérica via API-Football (RapidAPI)
 - Ligas europeas via football-data.org
@@ -134,9 +134,9 @@ LIGAS = {
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
-    "🇦🇷 Liga Argentina":      {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(Argentina)",         "wiki_fmt":"betplay",  "avg":1.30, "odds_key":"soccer_argentina_primera_division"},
+    "🇦🇷 Liga Argentina":      {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2026_AFA_Liga_Profesional_de_F%C3%BAtbol"],"wiki_fmt":"uel","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
-    "🇲🇽 Liga MX":             {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Clausura_2026_(M%C3%A9xico)",       "wiki_fmt":"betplay",  "avg":1.25, "odds_key":"soccer_mexico_ligamx"},
+    "🇲🇽 Liga MX":             {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_Liga_MX_season"],"wiki_fmt":"uel","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
 }
 
 # ─────────────────────────────────────────────
