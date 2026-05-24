@@ -1147,8 +1147,8 @@ with tab1:
 with tab2:
     st.markdown("### 📈 Fuerza relativa de equipos")
     if hist:
-        M=build_model(hist,li["avg"])
-        data=sorted([(e,v) for e,v in M.items() if e!="_avg" and isinstance(v,dict) and v.get("n",0)>=3],key=lambda x:-x[1]["atk"])
+        M2 = hist if isinstance(hist, dict) else build_model(hist, li["avg"])
+        data=sorted([(e,v) for e,v in M2.items() if e!="_avg" and isinstance(v,dict) and v.get("n",0)>=1],key=lambda x:-x[1]["atk"])
         for eq,v in data:
             c1,c2,c3,c4=st.columns([3,2,2,1])
             with c1: st.markdown(f"**{eq}**")
