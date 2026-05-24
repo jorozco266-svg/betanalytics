@@ -286,16 +286,26 @@ def buscar_equipo_info(nombre, M):
 def lams(loc,vis,M,avg):
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-    # Buscar por nombre exacto primero, luego por nombre normalizado
     def buscar(nombre):
         if nombre in M: return M[nombre]
         nombre_n = norm(nombre)
+        # Exacto normalizado
         for k,v in M.items():
+            if k == "_avg": continue
             if norm(k) == nombre_n: return v
-        # Busqueda parcial por primera palabra significativa
+        # Quitar sufijos de ciudad "de Córdoba", "de Buenos Aires", etc.
+        nombre_base = nombre_n.split(" de ")[0].split(" fc")[0].strip()
         for k,v in M.items():
-            if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
-                return v
+            if k == "_avg": continue
+            k_n = norm(k)
+            k_base = k_n.split(" de ")[0].strip()
+            if nombre_base == k_base: return v
+        # Parcial por primera palabra
+        primera = nombre_base.split()[0] if nombre_base.split() else nombre_base
+        for k,v in M.items():
+            if k == "_avg": continue
+            k_n = norm(k)
+            if primera in k_n or k_n.split()[0] in nombre_base: return v
         return {"atk":1.0,"def":1.0}
     ml=buscar(loc); mv=buscar(vis)
     return round(ml["atk"]*mv["def"]*avg*FL,3), round(mv["atk"]*ml["def"]*avg,3)
@@ -429,7 +439,7 @@ def odds_fixtures(odds_key, odds_api_key):
         return [], str(ex)
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=60)
 def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
     """Extrae historial combinando multiples paginas de Wikipedia."""
     import re
