@@ -1365,6 +1365,9 @@ with tab5:
             elif not rg_partidos:
                 st.info("No hay partidos programados para hoy/mañana en Roland Garros o la API no tiene datos aún.")
             else:
+                # Aviso superficie
+                if superficie != "Clay":
+                    st.warning("⚠️ Roland Garros se juega en **Arcilla (Clay)**. Cambia la superficie arriba para resultados correctos.")
                 TZ_COL = ZoneInfo("America/Bogota")
                 ahora = datetime.datetime.now(TZ_COL)
                 for p in rg_partidos:
@@ -1372,7 +1375,7 @@ with tab5:
                     color = "#22c55e" if p["hoy"] else "#f59e0b"
                     q1_str = f"{p['q1']:.2f}" if p.get("q1") else "—"
                     q2_str = f"{p['q2']:.2f}" if p.get("q2") else "—"
-                    # Buscar Elo de ambos jugadores
+                    # Buscar Elo de ambos jugadores SIEMPRE en arcilla
                     j1_elo = buscar_jugador(p["j1"], elo_g)
                     j2_elo = buscar_jugador(p["j2"], elo_g)
                     if j1_elo and j2_elo:
@@ -1380,26 +1383,27 @@ with tab5:
                         e2 = elo_s.get(j2_elo,{}).get("Clay", elo_g.get(j2_elo,1500))
                         pr1 = prob_elo(e1, e2)
                         pr2 = 1 - pr1
-                        elo_badge = f"Elo arcilla: {pr1*100:.0f}% / {pr2*100:.0f}%"
+                        elo_badge = f"🎯 Elo arcilla: **{p['j1'].split()[-1]} {pr1*100:.0f}%** / **{p['j2'].split()[-1]} {pr2*100:.0f}%**"
                     else:
                         elo_badge = "Jugadores no encontrados en base Elo"
-                    with st.expander(f"🎾 {p['j1']} vs {p['j2']} · {p['hora']} COT · {etiqueta}", expanded=p["hoy"]):
+                    with st.expander(f"🎾 {p['j1']} vs {p['j2']} · {p['hora']} COT · {etiqueta}", expanded=False):
                         col1, col2, col3 = st.columns(3)
                         with col1:
                             st.markdown(f"**{p['j1']}**")
                             st.markdown(f"Cuota: `{q1_str}`")
                         with col2:
                             st.markdown(f"<span style='color:{color};font-weight:700'>{etiqueta}</span>", unsafe_allow_html=True)
-                            st.markdown(f"🏷️ {elo_badge}")
+                            st.markdown(elo_badge)
                         with col3:
                             st.markdown(f"**{p['j2']}**")
                             st.markdown(f"Cuota: `{q2_str}`")
-                        # Botón para cargar en el analizador
+                        # Botón para cargar en el analizador — fuerza Clay
                         if st.button(f"Analizar con modelo Elo →", key=f"rg_{p['j1']}_{p['j2']}"):
                             st.session_state["j1"] = p["j1"].split()[-1]
                             st.session_state["j2"] = p["j2"].split()[-1]
                             if p.get("q1"): st.session_state["tq1"] = p["q1"]
                             if p.get("q2"): st.session_state["tq2"] = p["q2"]
+                            st.session_state["sup_sel"] = "Clay"  # Forzar arcilla
                             st.rerun()
         else:
             st.info("Configura tu The Odds API key en el sidebar para ver los partidos de Roland Garros.")
