@@ -1278,8 +1278,63 @@ with tab4:
         </div>""",unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# TAB 5: TENIS
+# TENIS — Fixtures Roland Garros desde The Odds API
 # ─────────────────────────────────────────────
+@st.cache_data(ttl=1800)
+def roland_garros_fixtures(odds_api_key, tour="atp"):
+    """
+    Obtiene partidos de Roland Garros desde The Odds API.
+    odds_key: tennis_atp_french_open | tennis_wta_french_open
+    """
+    odds_key = f"tennis_{tour}_french_open"
+    url = f"https://api.the-odds-api.com/v4/sports/{odds_key}/odds/"
+    params = {
+        "apiKey": odds_api_key,
+        "regions": "eu",
+        "markets": "h2h",
+        "oddsFormat": "decimal",
+        "dateFormat": "iso",
+    }
+    try:
+        r = requests.get(url, params=params, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        TZ_COL = ZoneInfo("America/Bogota")
+        ahora = datetime.datetime.now(TZ_COL)
+        partidos = []
+        for evento in data:
+            dt_utc = datetime.datetime.fromisoformat(evento["commence_time"].replace("Z","+00:00"))
+            dt_col = dt_utc.astimezone(TZ_COL)
+            # Mostrar partidos de hoy y mañana
+            dias_diff = (dt_col.date() - ahora.date()).days
+            if dias_diff < 0 or dias_diff > 1: continue
+            j1 = evento.get("home_team","")
+            j2 = evento.get("away_team","")
+            # Extraer cuotas
+            q1, q2 = None, None
+            for bm in evento.get("bookmakers",[]):
+                for mkt in bm.get("markets",[]):
+                    if mkt["key"]=="h2h":
+                        outs = {o["name"]:o["price"] for o in mkt.get("outcomes",[])}
+                        q1 = outs.get(j1)
+                        q2 = outs.get(j2)
+                        break
+                if q1: break
+            hoy = dias_diff == 0
+            partidos.append({
+                "j1": j1, "j2": j2,
+                "dt": dt_col,
+                "hora": dt_col.strftime("%I:%M %p"),
+                "q1": q1, "q2": q2,
+                "hoy": hoy,
+                "tour": tour.upper(),
+            })
+        partidos.sort(key=lambda x: x["dt"])
+        return partidos, None
+    except Exception as ex:
+        return [], str(ex)
+
+
 with tab5:
     st.markdown("### 🎾 Análisis de tenis — Modelo Elo por superficie")
 
@@ -1299,6 +1354,57 @@ with tab5:
     elif elo_g:
         st.success(f"✓ {len(elo_g)} jugadores cargados · Elo calculado con partidos 2026")
 
+        # ── Fixtures Roland Garros ──────────────────────────────
+        st.markdown("---")
+        st.markdown("#### 🇫🇷 Roland Garros 2026 — Partidos hoy y mañana")
+        if odds_api_key:
+            with st.spinner("Cargando partidos Roland Garros..."):
+                rg_partidos, rg_err = roland_garros_fixtures(odds_api_key, tour_key)
+            if rg_err:
+                st.warning(f"Error cargando fixtures: {rg_err}")
+            elif not rg_partidos:
+                st.info("No hay partidos programados para hoy/mañana en Roland Garros o la API no tiene datos aún.")
+            else:
+                TZ_COL = ZoneInfo("America/Bogota")
+                ahora = datetime.datetime.now(TZ_COL)
+                for p in rg_partidos:
+                    etiqueta = "HOY" if p["hoy"] else "MAÑANA"
+                    color = "#22c55e" if p["hoy"] else "#f59e0b"
+                    q1_str = f"{p['q1']:.2f}" if p.get("q1") else "—"
+                    q2_str = f"{p['q2']:.2f}" if p.get("q2") else "—"
+                    # Buscar Elo de ambos jugadores
+                    j1_elo = buscar_jugador(p["j1"], elo_g)
+                    j2_elo = buscar_jugador(p["j2"], elo_g)
+                    if j1_elo and j2_elo:
+                        e1 = elo_s.get(j1_elo,{}).get("Clay", elo_g.get(j1_elo,1500))
+                        e2 = elo_s.get(j2_elo,{}).get("Clay", elo_g.get(j2_elo,1500))
+                        pr1 = prob_elo(e1, e2)
+                        pr2 = 1 - pr1
+                        elo_badge = f"Elo arcilla: {pr1*100:.0f}% / {pr2*100:.0f}%"
+                    else:
+                        elo_badge = "Jugadores no encontrados en base Elo"
+                    with st.expander(f"🎾 {p['j1']} vs {p['j2']} · {p['hora']} COT · {etiqueta}", expanded=p["hoy"]):
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.markdown(f"**{p['j1']}**")
+                            st.markdown(f"Cuota: `{q1_str}`")
+                        with col2:
+                            st.markdown(f"<span style='color:{color};font-weight:700'>{etiqueta}</span>", unsafe_allow_html=True)
+                            st.markdown(f"🏷️ {elo_badge}")
+                        with col3:
+                            st.markdown(f"**{p['j2']}**")
+                            st.markdown(f"Cuota: `{q2_str}`")
+                        # Botón para cargar en el analizador
+                        if st.button(f"Analizar con modelo Elo →", key=f"rg_{p['j1']}_{p['j2']}"):
+                            st.session_state["j1"] = p["j1"].split()[-1]
+                            st.session_state["j2"] = p["j2"].split()[-1]
+                            if p.get("q1"): st.session_state["tq1"] = p["q1"]
+                            if p.get("q2"): st.session_state["tq2"] = p["q2"]
+                            st.rerun()
+        else:
+            st.info("Configura tu The Odds API key en el sidebar para ver los partidos de Roland Garros.")
+
+        # ── Analizador manual ──────────────────────────────────
         st.markdown("---")
         st.markdown("#### Ingresa los dos jugadores a analizar")
         c1, c2 = st.columns(2)
