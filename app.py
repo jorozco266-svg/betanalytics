@@ -1343,7 +1343,10 @@ with tab5:
         tour = st.selectbox("Tour", ["ATP (masculino)", "WTA (femenino)"], key="tour_sel")
         tour_key = "atp" if "ATP" in tour else "wta"
     with t2:
-        superficie = st.selectbox("Superficie", ["Hard", "Clay", "Grass"], key="sup_sel",
+        sup_index = ["Hard","Clay","Grass"].index(st.session_state.pop("forzar_clay_val","Hard")) if "forzar_clay_val" in st.session_state else 0
+        if st.session_state.pop("forzar_clay", False):
+            sup_index = 1  # Clay
+        superficie = st.selectbox("Superficie", ["Hard", "Clay", "Grass"], index=sup_index, key="sup_sel",
                                    format_func=lambda x:{"Hard":"Pista dura","Clay":"Arcilla","Grass":"Hierba"}[x])
 
     with st.spinner(f"Cargando datos {tour} 2026 desde GitHub..."):
@@ -1403,7 +1406,7 @@ with tab5:
                             st.session_state["j2"] = p["j2"].split()[-1]
                             if p.get("q1"): st.session_state["tq1"] = p["q1"]
                             if p.get("q2"): st.session_state["tq2"] = p["q2"]
-                            st.session_state["sup_sel"] = "Clay"  # Forzar arcilla
+                            st.session_state["forzar_clay"] = True
                             st.rerun()
         else:
             st.info("Configura tu The Odds API key en el sidebar para ver los partidos de Roland Garros.")
