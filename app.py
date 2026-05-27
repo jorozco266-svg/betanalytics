@@ -290,9 +290,14 @@ def build_model(partidos, avg):
         n = max(len(d["gf"]),1)
         gf_avg = sum(d["gf"])/n
         gc_avg = sum(d["gc"])/n
+        # Floor mínimo en defensa: ningún equipo tiene GC=0 sostenible
+        # Con pocos partidos (≤6), aplicar regresión hacia la media
+        if n <= 6:
+            gc_avg = (gc_avg * n + avg * 2) / (n + 2)  # Bayesian smoothing hacia avg
+        def_coef = max(round(gc_avg/avg, 3), 0.30)  # nunca menor a 0.30
         modelo[e] = {
             "atk":   round(gf_avg/avg, 3),
-            "def":   round(gc_avg/avg, 3),
+            "def":   def_coef,
             "n":     len(d["gf"]),
             "gf_avg": round(gf_avg, 2),
             "gc_avg": round(gc_avg, 2),
