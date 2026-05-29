@@ -138,7 +138,7 @@ LIGAS = {
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
-    "🇮🇪 Irlanda 1ª División": {"src":"sportsdb","sportsdb_id":4757,"sportsdb_season":"2026","avg":1.35,"odds_key":"soccer_ireland_first_division","use_odds_fixtures":True},
+    "🇮🇪 Irlanda 1ª División": {"src":"sportsdb","sportsdb_id":4757,"sportsdb_season":"2026","avg":1.35,"odds_key":None,"use_odds_fixtures":False},
 }
 
 # ─────────────────────────────────────────────
@@ -546,8 +546,54 @@ def odds_fixtures(odds_key, odds_api_key):
         return [], str(ex)
 
 
-@st.cache_data(ttl=1)
-def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
+@st.cache_data(ttl=1800)
+def sportsdb_next(league_id, season="2026"):
+    """
+    Obtiene próximos partidos desde TheSportsDB para ligas sin The Odds API.
+    """
+    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id={league_id}&s={season}"
+    try:
+        r = requests.get(url, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        eventos = data.get("events") or []
+        TZ_COL = ZoneInfo("America/Bogota")
+        ahora = datetime.datetime.now(TZ_COL)
+        proximos = []
+        for e in eventos:
+            fecha_str = e.get("dateEvent","")
+            hora_str  = e.get("strTime","00:00:00") or "00:00:00"
+            if not fecha_str: continue
+            try:
+                dt = datetime.datetime.strptime(f"{fecha_str} {hora_str[:5]}", "%Y-%m-%d %H:%M")
+                dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
+            except:
+                continue
+            dias_diff = (dt.date() - ahora.date()).days
+            if dias_diff < 0 or dias_diff > 3: continue
+            gl = e.get("intHomeScore")
+            gv = e.get("intAwayScore")
+            if gl is not None and gv is not None: continue  # ya jugado
+            loc = e.get("strHomeTeam","").strip()
+            vis = e.get("strAwayTeam","").strip()
+            if not loc or not vis: continue
+            import hashlib
+            uid = hashlib.md5(f"{loc}{vis}{fecha_str}".encode()).hexdigest()[:8]
+            proximos.append({
+                "id": uid, "dt": dt,
+                "fecha": fecha_str,
+                "hora": dt.strftime("%I:%M %p"),
+                "local": loc, "visit": vis,
+                "jornada": e.get("intRound",""),
+                "hoy": dias_diff == 0,
+                "manana": dias_diff == 1,
+            })
+        proximos.sort(key=lambda x: x["dt"])
+        return proximos, None
+    except Exception as ex:
+        return [], str(ex)
+
+
     """Extrae historial combinando multiples paginas de Wikipedia."""
     import re
     headers_req = {"User-Agent": "Mozilla/5.0"}
@@ -1057,6 +1103,8 @@ with tab1:
                 st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio (Apertura 2026).")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        else:
+            prox,e2=sportsdb_next(li["sportsdb_id"], li.get("sportsdb_season","2026"))
         if e1: st.warning(f"Error historial TheSportsDB: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
