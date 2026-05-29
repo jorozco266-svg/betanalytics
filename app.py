@@ -549,9 +549,10 @@ def odds_fixtures(odds_key, odds_api_key):
 @st.cache_data(ttl=1800)
 def sportsdb_next(league_id, season="2026"):
     """
-    Obtiene próximos partidos desde TheSportsDB para ligas sin The Odds API.
+    Obtiene próximos partidos desde TheSportsDB usando el endpoint de next events.
     """
-    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id={league_id}&s={season}"
+    # Endpoint específico para próximos partidos de una liga
+    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
     try:
         r = requests.get(url, timeout=15)
         r.raise_for_status()
@@ -570,10 +571,7 @@ def sportsdb_next(league_id, season="2026"):
             except:
                 continue
             dias_diff = (dt.date() - ahora.date()).days
-            if dias_diff < 0 or dias_diff > 3: continue
-            gl = e.get("intHomeScore")
-            gv = e.get("intAwayScore")
-            if gl is not None and gv is not None: continue  # ya jugado
+            if dias_diff < 0 or dias_diff > 4: continue
             loc = e.get("strHomeTeam","").strip()
             vis = e.get("strAwayTeam","").strip()
             if not loc or not vis: continue
