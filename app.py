@@ -138,7 +138,7 @@ LIGAS = {
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
-    "🇮🇪 Irlanda 1ª División": {"src":"sportsdb","sportsdb_id":4757,"sportsdb_season":"2026","avg":1.35,"odds_key":None,"use_odds_fixtures":False},
+    "🇮🇪 Irlanda 1ª División": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4757},
 }
 
 # ─────────────────────────────────────────────
@@ -545,6 +545,51 @@ def odds_fixtures(odds_key, odds_api_key):
     except Exception as ex:
         return [], str(ex)
 
+
+@st.cache_data(ttl=3600)
+def wiki_tabla_hist(wiki_url, avg):
+    """
+    Extrae modelo desde la tabla de posiciones de Wikipedia.
+    Busca columnas: Equipo, PJ, GF, GC — funciona para cualquier liga con tabla estándar.
+    Dinámico: se actualiza solo cuando Wikipedia actualiza la tabla (ttl=1h).
+    """
+    import re
+    headers_req = {"User-Agent": "Mozilla/5.0"}
+    try:
+        r = requests.get(wiki_url, headers=headers_req, timeout=15)
+        soup = BeautifulSoup(r.text, "html.parser")
+        equipos = []
+        for tabla in soup.find_all("table", class_=re.compile("wikitable")):
+            filas = tabla.find_all("tr")
+            if len(filas) < 3: continue
+            cabecera = [th.get_text(strip=True).upper() for th in filas[0].find_all(["th","td"])]
+            def idx(opciones):
+                for op in opciones:
+                    for i,c in enumerate(cabecera):
+                        if op in c: return i
+                return None
+            i_eq = idx(["TEAM","CLUB","EQUIPO"])
+            i_pj = idx(["PLD","PJ","MP","PLAYED"])
+            i_gf = idx(["GF","GS","FOR"])
+            i_gc = idx(["GA","GC","AGAINST"])
+            if any(x is None for x in [i_eq, i_pj, i_gf, i_gc]): continue
+            for fila in filas[1:]:
+                celdas = fila.find_all(["td","th"])
+                if len(celdas) <= max(i_eq, i_pj, i_gf, i_gc): continue
+                try:
+                    equipo = celdas[i_eq].get_text(strip=True)
+                    pj = int(re.sub(r'\D','', celdas[i_pj].get_text(strip=True)) or 0)
+                    gf = int(re.sub(r'\D','', celdas[i_gf].get_text(strip=True)) or 0)
+                    gc = int(re.sub(r'\D','', celdas[i_gc].get_text(strip=True)) or 0)
+                    if pj > 0 and len(equipo) > 2:
+                        equipos.append((equipo, gf, gc, pj))
+                except: continue
+            if len(equipos) >= 5: break
+        if not equipos:
+            return [], "No se encontró tabla de posiciones en Wikipedia"
+        return build_model_desde_tabla(equipos, avg), None
+    except Exception as ex:
+        return [], str(ex)
 
 @st.cache_data(ttl=1800)
 def sportsdb_next(league_id, season="2026"):
@@ -1081,6 +1126,18 @@ with tab1:
             hist,e1=fd_hist(li["code"],fd_key)
             prox,e2=fd_next(li["code"],fd_key)
         if e1: st.warning(f"Error historial: {e1}")
+        if e2: st.warning(f"Error próximos: {e2}")
+        cargado=True
+
+    elif li["src"]=="wiki_tabla":
+        e1, e2, prox = None, None, []
+        with st.spinner("Cargando tabla de posiciones desde Wikipedia..."):
+            hist,e1=wiki_tabla_hist(li["wiki_url"], li["avg"])
+        if isinstance(hist, dict) and len(hist) > 2:
+            st.success(f"✓ Modelo cargado ({len([k for k in hist if k!='_avg'])} equipos desde tabla Wikipedia)")
+        if e1: st.warning(f"Error Wikipedia: {e1}")
+        # Próximos desde TheSportsDB
+        prox,e2=sportsdb_next(li["sportsdb_id"])
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
