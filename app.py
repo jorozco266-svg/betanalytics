@@ -138,6 +138,7 @@ LIGAS = {
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
+    "🇮🇪 Irlanda 1ª División": {"src":"sportsdb","sportsdb_id":4757,"sportsdb_season":"2026","avg":1.35,"odds_key":"soccer_ireland_first_division","use_odds_fixtures":True},
 }
 
 # ─────────────────────────────────────────────
