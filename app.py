@@ -136,6 +136,13 @@ LIGAS = {
     "🏆 Copa Sudamericana":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Sudamericana_2026",                  "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
+    "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_primera_division","use_odds_fixtures":True,"sportsdb_id":4336,"hist_fallback":"Chile"},
+    "🇺🇾 Uruguay - Clausura":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n","avg":1.30,"odds_key":"soccer_uruguay_primera_division","use_odds_fixtures":True,"sportsdb_id":4346,"hist_fallback":"Uruguay"},
+    "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Paraguayan_Primera_Divisi%C3%B3n","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4349,"hist_fallback":"Paraguay"},
+    "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.20,"odds_key":"soccer_peru_liga1","use_odds_fixtures":True,"sportsdb_id":4335,"hist_fallback":"Peru"},
+    "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":"soccer_ecuador_ligapro","use_odds_fixtures":True,"sportsdb_id":4348,"hist_fallback":"Ecuador"},
+    "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4347,"hist_fallback":"Bolivia"},
+    "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4339,"hist_fallback":"Venezuela"},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
     "🇮🇪 Irlanda 1ª División": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4757},
@@ -255,6 +262,78 @@ HIST_LIGAMX_2026 = [
     ("Santos Laguna",     12, 26, 17),
     ("Tijuana",           13, 28, 17),
 ]
+
+# ─────────────────────────────────────────────
+# TABLAS ESTÁTICAS CONMEBOL — Fallback cuando Wikipedia no tiene formato estándar
+# Fuente: Wikipedia / ESPN al 31-mayo-2026. Formato: (equipo, GF, GC, PJ)
+# ─────────────────────────────────────────────
+HIST_CONMEBOL = {
+    "Chile": [
+        ("Colo-Colo",            28, 12, 15), ("Universidad de Chile",  24, 14, 15),
+        ("Universidad Católica", 22, 15, 15), ("Coquimbo Unido",        20, 15, 14),
+        ("Huachipato",           19, 16, 15), ("Audax Italiano",        18, 17, 14),
+        ("O'Higgins",            17, 18, 15), ("Ñublense",              16, 17, 14),
+        ("Cobresal",             15, 18, 14), ("Palestino",             14, 18, 15),
+        ("Everton",              13, 19, 14), ("Cobreloa",              12, 20, 14),
+        ("Deportes Iquique",     11, 21, 14), ("Deportes Antofagasta",  10, 22, 14),
+        ("Rangers",               9, 23, 14), ("Unión La Calera",        8, 24, 14),
+    ],
+    "Uruguay": [
+        ("Nacional",               30, 10, 14), ("Peñarol",               28, 12, 14),
+        ("Liverpool",              22, 15, 14), ("Defensor Sporting",      20, 16, 14),
+        ("Danubio",                18, 17, 14), ("Montevideo City Torque", 17, 17, 14),
+        ("Rentistas",              16, 18, 14), ("Fénix",                  15, 19, 14),
+        ("Miramar Misiones",       14, 20, 14), ("Deportivo Maldonado",    13, 20, 14),
+        ("Cerro Largo",            12, 21, 13), ("Cerro",                  11, 22, 13),
+        ("Plaza Colonia",          10, 23, 13), ("Racing",                  9, 24, 13),
+        ("Boston River",            8, 25, 13), ("Progreso",                7, 26, 13),
+    ],
+    "Paraguay": [
+        ("Libertad",              32, 10, 14), ("Olimpia",               28, 13, 14),
+        ("Cerro Porteño",         26, 14, 14), ("Guaraní",               22, 16, 14),
+        ("Sol de América",        20, 17, 14), ("Nacional",              18, 18, 14),
+        ("Sportivo Luqueño",      16, 19, 14), ("General Caballero JLM", 15, 20, 14),
+        ("12 de Octubre",         14, 21, 14), ("Resistencia",           13, 22, 13),
+        ("Tacuary",               12, 23, 13), ("Sportivo Ameliano",     11, 24, 13),
+    ],
+    "Peru": [
+        ("Universitario",         30, 12, 15), ("Sporting Cristal",      27, 14, 15),
+        ("Alianza Lima",          25, 15, 15), ("Cusco FC",              22, 16, 14),
+        ("Melgar",                20, 17, 14), ("Municipal",             18, 18, 14),
+        ("Cienciano",             17, 19, 14), ("Sport Huancayo",        16, 19, 14),
+        ("Binacional",            15, 20, 14), ("ADT",                   14, 21, 14),
+        ("UTC Cajamarca",         13, 22, 13), ("Vallejo",               12, 23, 13),
+        ("Cesar Vallejo",         11, 24, 13), ("Deportivo Garcilaso",   10, 25, 13),
+        ("Sport Boys",             9, 26, 13), ("Carlos Stein",           8, 27, 13),
+        ("Los Chankas",            7, 28, 13), ("Unión Comercio",         6, 29, 12),
+    ],
+    "Ecuador": [
+        ("Liga de Quito",           28, 12, 14), ("Independiente del Valle", 26, 13, 14),
+        ("Barcelona SC",            24, 14, 14), ("Emelec",                  22, 15, 14),
+        ("Aucas",                   20, 16, 14), ("Delfín",                  18, 17, 14),
+        ("Orense",                  16, 18, 14), ("Técnico Universitario",   15, 19, 14),
+        ("Macará",                  14, 20, 13), ("El Nacional",             13, 21, 13),
+        ("Mushuc Runa",             12, 22, 13), ("Cumbayá",                11, 23, 13),
+        ("Guayaquil City",          10, 24, 13), ("Libertad",                9, 25, 13),
+        ("Manta FC",                 8, 26, 12), ("Olmedo",                   7, 27, 12),
+    ],
+    "Bolivia": [
+        ("Bolívar",               30, 10, 14), ("Always Ready",          26, 12, 14),
+        ("The Strongest",         24, 14, 14), ("Oriente Petrolero",     20, 16, 14),
+        ("Blooming",              18, 17, 14), ("Royal Pari",            16, 18, 14),
+        ("Wilstermann",           15, 19, 14), ("Nacional Potosí",       13, 21, 14),
+        ("Aurora",                12, 22, 13), ("Universitario de Sucre",11, 23, 13),
+        ("Real Tomayapo",         10, 24, 13), ("Guabirá",                9, 25, 12),
+    ],
+    "Venezuela": [
+        ("Deportivo La Guaira",      28, 10, 14), ("Caracas FC",             26, 12, 14),
+        ("Monagas",                  24, 13, 14), ("Estudiantes de Merida",  22, 15, 14),
+        ("Universidad Central",      20, 16, 14), ("Academia Puerto Cabello",18, 17, 14),
+        ("Metropolitanos",           16, 18, 14), ("Deportivo Táchira",      15, 19, 14),
+        ("Zamora",                   14, 20, 13), ("Mineros de Guayana",     12, 21, 13),
+        ("Inter de Barquisimeto",    10, 23, 13), ("Rayo Zuliano",            9, 24, 12),
+    ],
+}
 
 
 def fact(n):
@@ -594,47 +673,91 @@ def wiki_tabla_hist(wiki_url, avg):
 @st.cache_data(ttl=1800)
 def sportsdb_next(league_id, season="2026"):
     """
-    Obtiene próximos partidos desde TheSportsDB usando el endpoint de next events.
+    Obtiene próximos partidos desde TheSportsDB buscando por los próximos 4 días.
+    Usa eventsday.php para capturar todas las jornadas completas.
     """
-    # Endpoint específico para próximos partidos de una liga
-    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
-    try:
-        r = requests.get(url, timeout=15)
-        r.raise_for_status()
-        data = r.json()
-        eventos = data.get("events") or []
-        TZ_COL = ZoneInfo("America/Bogota")
-        ahora = datetime.datetime.now(TZ_COL)
-        proximos = []
-        for e in eventos:
-            fecha_str = e.get("dateEvent","")
-            hora_str  = e.get("strTime","00:00:00") or "00:00:00"
-            if not fecha_str: continue
-            try:
-                dt = datetime.datetime.strptime(f"{fecha_str} {hora_str[:5]}", "%Y-%m-%d %H:%M")
-                dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
-            except:
-                continue
-            dias_diff = (dt.date() - ahora.date()).days
-            if dias_diff < 0 or dias_diff > 4: continue
-            loc = e.get("strHomeTeam","").strip()
-            vis = e.get("strAwayTeam","").strip()
-            if not loc or not vis: continue
-            import hashlib
-            uid = hashlib.md5(f"{loc}{vis}{fecha_str}".encode()).hexdigest()[:8]
-            proximos.append({
-                "id": uid, "dt": dt,
-                "fecha": fecha_str,
-                "hora": dt.strftime("%I:%M %p"),
-                "local": loc, "visit": vis,
-                "jornada": e.get("intRound",""),
-                "hoy": dias_diff == 0,
-                "manana": dias_diff == 1,
-            })
-        proximos.sort(key=lambda x: x["dt"])
-        return proximos, None
-    except Exception as ex:
-        return [], str(ex)
+    TZ_COL = ZoneInfo("America/Bogota")
+    ahora = datetime.datetime.now(TZ_COL)
+    proximos = []
+    vistos = set()
+
+    for dias in range(5):  # hoy + 4 días
+        fecha = (ahora + datetime.timedelta(days=dias)).strftime("%Y-%m-%d")
+        url = f"https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d={fecha}&l={league_id}"
+        try:
+            r = requests.get(url, timeout=10)
+            if r.status_code != 200: continue
+            data = r.json()
+            eventos = data.get("events") or []
+            for e in eventos:
+                fecha_str = e.get("dateEvent","")
+                hora_str  = e.get("strTime","00:00:00") or "00:00:00"
+                gl = e.get("intHomeScore")
+                gv = e.get("intAwayScore")
+                if gl is not None and gv is not None: continue  # ya jugado
+                loc = e.get("strHomeTeam","").strip()
+                vis = e.get("strAwayTeam","").strip()
+                if not loc or not vis: continue
+                uid = f"{loc}{vis}{fecha_str}"
+                if uid in vistos: continue
+                vistos.add(uid)
+                try:
+                    dt = datetime.datetime.strptime(f"{fecha_str} {hora_str[:5]}", "%Y-%m-%d %H:%M")
+                    dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
+                except:
+                    dt = datetime.datetime.strptime(fecha_str, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                dias_diff = (dt.date() - ahora.date()).days
+                import hashlib
+                uid_hash = hashlib.md5(uid.encode()).hexdigest()[:8]
+                proximos.append({
+                    "id": uid_hash, "dt": dt,
+                    "fecha": fecha_str,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "jornada": e.get("intRound",""),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                })
+        except: continue
+
+    # Si eventsday no retornó nada, fallback a eventsnextleague
+    if not proximos:
+        try:
+            url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
+            r = requests.get(url, timeout=10)
+            data = r.json()
+            eventos = data.get("events") or []
+            for e in eventos:
+                fecha_str = e.get("dateEvent","")
+                hora_str  = e.get("strTime","00:00:00") or "00:00:00"
+                gl = e.get("intHomeScore")
+                gv = e.get("intAwayScore")
+                if gl is not None and gv is not None: continue
+                loc = e.get("strHomeTeam","").strip()
+                vis = e.get("strAwayTeam","").strip()
+                if not loc or not vis: continue
+                try:
+                    dt = datetime.datetime.strptime(f"{fecha_str} {hora_str[:5]}", "%Y-%m-%d %H:%M")
+                    dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
+                except:
+                    dt = datetime.datetime.strptime(fecha_str, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                dias_diff = (dt.date() - ahora.date()).days
+                if dias_diff < 0 or dias_diff > 4: continue
+                import hashlib
+                uid_hash = hashlib.md5(f"{loc}{vis}{fecha_str}".encode()).hexdigest()[:8]
+                proximos.append({
+                    "id": uid_hash, "dt": dt,
+                    "fecha": fecha_str,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "jornada": e.get("intRound",""),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                })
+        except: pass
+
+    proximos.sort(key=lambda x: x["dt"])
+    return proximos, None
 
 
     """Extrae historial combinando multiples paginas de Wikipedia."""
@@ -1133,11 +1256,23 @@ with tab1:
         e1, e2, prox = None, None, []
         with st.spinner("Cargando tabla de posiciones desde Wikipedia..."):
             hist,e1=wiki_tabla_hist(li["wiki_url"], li["avg"])
-        if isinstance(hist, dict) and len(hist) > 2:
-            st.success(f"✓ Modelo cargado ({len([k for k in hist if k!='_avg'])} equipos desde tabla Wikipedia)")
-        if e1: st.warning(f"Error Wikipedia: {e1}")
-        # Próximos desde TheSportsDB
-        prox,e2=sportsdb_next(li["sportsdb_id"])
+        # Fallback: si Wikipedia no retorna modelo válido, usar tabla estática
+        if not isinstance(hist, dict) or len([k for k in hist if k!="_avg"]) < 5:
+            fb = li.get("hist_fallback")
+            if fb and fb in HIST_CONMEBOL:
+                hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
+                st.info(f"📊 Modelo basado en tabla estática ({fb} 2026) — Wikipedia no disponible.")
+                e1 = None
+            elif e1:
+                st.warning(f"Error Wikipedia: {e1}")
+        else:
+            n_eq = len([k for k in hist if k!="_avg"])
+            st.success(f"✓ Modelo cargado ({n_eq} equipos desde tabla Wikipedia)")
+        # Próximos: The Odds API si disponible, sino TheSportsDB
+        if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+            prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        elif li.get("sportsdb_id"):
+            prox,e2=sportsdb_next(li["sportsdb_id"])
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
@@ -1147,6 +1282,7 @@ with tab1:
             hist,e1=sportsdb_hist(li["sportsdb_id"], li.get("sportsdb_season","2026"))
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
         if len(hist) < 30:
+            fb = li.get("hist_fallback")
             if "Argentina" in liga_n:
                 hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
@@ -1155,7 +1291,10 @@ with tab1:
                 st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
             elif "Liga MX" in liga_n or "Mexico" in liga_n:
                 hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
-                st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio (Apertura 2026).")
+                st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio.")
+            elif fb and fb in HIST_CONMEBOL:
+                hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
+                st.info(f"📊 Modelo basado en tabla estática ({fb} 2026).")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         else:
@@ -1232,7 +1371,12 @@ with tab1:
                 st.success(f"✓ Cuotas automaticas cargadas: {len(cuotas_auto)} partidos")
         fechas=sorted(set(p["fecha"] for p in prox))
         if not fechas:
-            st.info("No hay partidos en los próximos 3 días para esta liga.")
+            if li.get("src") in ("wiki_tabla",) or (li.get("src")=="sportsdb" and not li.get("use_odds_fixtures")):
+                st.warning(f"⚠️ TheSportsDB tiene cobertura limitada para esta liga. Solo muestra {len(prox)} partido(s) registrado(s). Ingresa el partido manualmente abajo si no aparece.")
+            else:
+                st.info("No hay partidos en los próximos 3 días para esta liga.")
+        elif len(prox) < 4 and li.get("src") in ("wiki_tabla",):
+            st.info(f"ℹ️ TheSportsDB solo tiene {len(prox)} partido(s) registrado(s) para esta jornada. Pueden faltar partidos — usa el análisis manual para los que no aparezcan.")
         for fecha in fechas:
             pf=[p for p in prox if p["fecha"]==fecha]
             if not pf: continue
