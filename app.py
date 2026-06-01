@@ -138,11 +138,11 @@ LIGAS = {
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
     "🇺🇾 Uruguay - Clausura":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4432,"hist_fallback":"Uruguay"},
-    "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Paraguayan_Primera_Divisi%C3%B3n","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4687,"hist_fallback":"Paraguay"},
-    "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru"},
-    "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4686,"hist_fallback":"Ecuador"},
-    "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
-    "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
+    "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Copa_de_Primera","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4687,"hist_fallback":"Paraguay","apif_id":239,"apif_season":2026},
+    "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru","apif_id":268,"apif_season":2026},
+    "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4686,"hist_fallback":"Ecuador","apif_id":258,"apif_season":2026},
+    "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia","apif_id":1218,"apif_season":2026},
+    "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela","apif_id":105,"apif_season":2026},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
@@ -671,7 +671,67 @@ def wiki_tabla_hist(wiki_url, avg):
         return [], str(ex)
 
 @st.cache_data(ttl=1800)
-def sportsdb_next(league_id, season="2026"):
+def apifootball_next(league_id, season, api_key):
+    """
+    Obtiene próximos partidos desde API-Football (api-sports.io).
+    Cubre Venezuela, Bolivia, Paraguay y otras ligas menores.
+    """
+    url = "https://v3.football.api-sports.io/fixtures"
+    TZ_COL = ZoneInfo("America/Bogota")
+    ahora = datetime.datetime.now(TZ_COL)
+    fecha_ini = ahora.strftime("%Y-%m-%d")
+    fecha_fin = (ahora + datetime.timedelta(days=4)).strftime("%Y-%m-%d")
+    headers = {
+        "x-apisports-key": api_key,
+        "x-rapidapi-host": "v3.football.api-sports.io",
+    }
+    params = {
+        "league": league_id,
+        "season": season,
+        "from": fecha_ini,
+        "to": fecha_fin,
+        "status": "NS",  # Not Started
+        "timezone": "America/Bogota",
+    }
+    try:
+        r = requests.get(url, headers=headers, params=params, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        if data.get("errors"):
+            return [], str(data["errors"])
+        fixtures = data.get("response", [])
+        proximos = []
+        import hashlib
+        for f in fixtures:
+            fixture = f.get("fixture", {})
+            teams   = f.get("teams", {})
+            loc = teams.get("home", {}).get("name", "")
+            vis = teams.get("away", {}).get("name", "")
+            if not loc or not vis: continue
+            fecha_str = fixture.get("date","")[:10]
+            try:
+                dt = datetime.datetime.fromisoformat(fixture.get("date","").replace("Z","+00:00"))
+                dt = dt.astimezone(TZ_COL)
+            except:
+                continue
+            dias_diff = (dt.date() - ahora.date()).days
+            if dias_diff < 0 or dias_diff > 4: continue
+            uid = hashlib.md5(f"{loc}{vis}{fecha_str}".encode()).hexdigest()[:8]
+            proximos.append({
+                "id": uid, "dt": dt,
+                "fecha": fecha_str,
+                "hora": dt.strftime("%I:%M %p"),
+                "local": loc, "visit": vis,
+                "jornada": f.get("league",{}).get("round",""),
+                "hoy": dias_diff == 0,
+                "manana": dias_diff == 1,
+            })
+        proximos.sort(key=lambda x: x["dt"])
+        return proximos, None
+    except Exception as ex:
+        return [], str(ex)
+
+
     """
     Obtiene próximos partidos desde TheSportsDB buscando por los próximos 4 días.
     Usa eventsday.php para capturar todas las jornadas completas.
@@ -1044,9 +1104,13 @@ with st.sidebar:
         fd_key = st.text_input("API Key — football-data.org",type="password",
                                placeholder="Ligas europeas",
                                help="Gratis en football-data.org/client/register")
-    rf_key=st.text_input("API Key — API-Football",type="password",
-                          placeholder="Ligas de Suramérica y Colombia",
-                          help="Gratis en api-football.com")
+    rf_key = st.secrets.get("API_FOOTBALL_KEY", "")
+    if rf_key:
+        st.success("✓ API-Football activada (Venezuela, Bolivia, Paraguay)")
+    else:
+        rf_key = st.text_input("API Key — API-Football", type="password",
+                               placeholder="Venezuela, Bolivia, Paraguay",
+                               help="Gratis en api-football.com")
     # Cuotas automaticas via The Odds API
     _odds_secret = st.secrets.get("ODDS_API_KEY", "")
     if _odds_secret:
@@ -1267,11 +1331,13 @@ with tab1:
             else:
                 n_eq = len([k for k in hist if k!="_avg"])
                 st.success(f"✓ Modelo cargado ({n_eq} equipos desde tabla Wikipedia)")
-        # Próximos: The Odds API si disponible, sino TheSportsDB
-        if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
-            prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        # Próximos: API-Football primero si disponible, sino The Odds API, sino TheSportsDB
+        if li.get("apif_id") and rf_key:
+            prox,e2 = apifootball_next(li["apif_id"], li.get("apif_season",2026), rf_key)
+        elif li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+            prox,e2 = odds_fixtures(li["odds_key"], odds_api_key)
         elif li.get("sportsdb_id"):
-            prox,e2=sportsdb_next(li["sportsdb_id"])
+            prox,e2 = sportsdb_next(li["sportsdb_id"])
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
