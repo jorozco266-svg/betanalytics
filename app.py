@@ -625,7 +625,7 @@ def odds_fixtures(odds_key, odds_api_key):
         return [], str(ex)
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=60)
 def wiki_tabla_hist(wiki_url, avg):
     """
     Extrae modelo desde la tabla de posiciones de Wikipedia.
