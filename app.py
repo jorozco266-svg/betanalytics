@@ -671,6 +671,90 @@ def wiki_tabla_hist(wiki_url, avg):
         return [], str(ex)
 
 @st.cache_data(ttl=1800)
+def sportsdb_next(league_id, season="2026"):
+    """
+    Obtiene próximos partidos desde TheSportsDB usando eventsday por fecha.
+    Fallback a eventsnextleague si eventsday no retorna resultados.
+    """
+    TZ_COL = ZoneInfo("America/Bogota")
+    ahora = datetime.datetime.now(TZ_COL)
+    proximos = []
+    vistos = set()
+    import hashlib
+
+    for dias in range(5):
+        fecha = (ahora + datetime.timedelta(days=dias)).strftime("%Y-%m-%d")
+        url = f"https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d={fecha}&l={league_id}"
+        try:
+            r = requests.get(url, timeout=10)
+            if r.status_code != 200: continue
+            data = r.json()
+            for e in (data.get("events") or []):
+                gl = e.get("intHomeScore")
+                gv = e.get("intAwayScore")
+                if gl is not None and gv is not None: continue
+                loc = e.get("strHomeTeam","").strip()
+                vis = e.get("strAwayTeam","").strip()
+                if not loc or not vis: continue
+                uid_raw = f"{loc}{vis}{fecha}"
+                if uid_raw in vistos: continue
+                vistos.add(uid_raw)
+                hora_str = e.get("strTime","00:00:00") or "00:00:00"
+                try:
+                    dt = datetime.datetime.strptime(f"{fecha} {hora_str[:5]}", "%Y-%m-%d %H:%M")
+                    dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
+                except:
+                    dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                dias_diff = (dt.date() - ahora.date()).days
+                proximos.append({
+                    "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                    "dt": dt, "fecha": fecha,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "jornada": e.get("intRound",""),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                })
+        except: continue
+
+    # Fallback a eventsnextleague si no hay resultados
+    if not proximos:
+        try:
+            url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
+            r = requests.get(url, timeout=10)
+            data = r.json()
+            for e in (data.get("events") or []):
+                gl = e.get("intHomeScore")
+                gv = e.get("intAwayScore")
+                if gl is not None and gv is not None: continue
+                loc = e.get("strHomeTeam","").strip()
+                vis = e.get("strAwayTeam","").strip()
+                if not loc or not vis: continue
+                fecha_str = e.get("dateEvent","")
+                hora_str  = e.get("strTime","00:00:00") or "00:00:00"
+                try:
+                    dt = datetime.datetime.strptime(f"{fecha_str} {hora_str[:5]}", "%Y-%m-%d %H:%M")
+                    dt = dt.replace(tzinfo=ZoneInfo("UTC")).astimezone(TZ_COL)
+                except:
+                    continue
+                dias_diff = (dt.date() - ahora.date()).days
+                if dias_diff < 0 or dias_diff > 4: continue
+                uid_raw = f"{loc}{vis}{fecha_str}"
+                proximos.append({
+                    "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                    "dt": dt, "fecha": fecha_str,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "jornada": e.get("intRound",""),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                })
+        except: pass
+
+    proximos.sort(key=lambda x: x["dt"])
+    return proximos, None
+
+@st.cache_data(ttl=1800)
 def apifootball_next(league_id, season, api_key):
     """
     Obtiene próximos partidos desde API-Football.
