@@ -1254,20 +1254,19 @@ with tab1:
 
     elif li["src"]=="wiki_tabla":
         e1, e2, prox = None, None, []
-        with st.spinner("Cargando tabla de posiciones desde Wikipedia..."):
-            hist,e1=wiki_tabla_hist(li["wiki_url"], li["avg"])
-        # Fallback: si Wikipedia no retorna modelo válido, usar tabla estática
-        if not isinstance(hist, dict) or len([k for k in hist if k!="_avg"]) < 5:
-            fb = li.get("hist_fallback")
-            if fb and fb in HIST_CONMEBOL:
-                hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
-                st.info(f"📊 Modelo basado en tabla estática ({fb} 2026) — Wikipedia no disponible.")
-                e1 = None
-            elif e1:
-                st.warning(f"Error Wikipedia: {e1}")
+        fb = li.get("hist_fallback")
+        # Para ligas con tabla estática actualizada, usarla directamente
+        if fb and fb in HIST_CONMEBOL:
+            hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
+            st.info(f"📊 Modelo basado en tabla de posiciones actualizada ({fb} 2026).")
         else:
-            n_eq = len([k for k in hist if k!="_avg"])
-            st.success(f"✓ Modelo cargado ({n_eq} equipos desde tabla Wikipedia)")
+            with st.spinner("Cargando tabla de posiciones desde Wikipedia..."):
+                hist,e1=wiki_tabla_hist(li["wiki_url"], li["avg"])
+            if not isinstance(hist, dict) or len([k for k in hist if k!="_avg"]) < 5:
+                st.warning(f"Error Wikipedia: {e1}")
+            else:
+                n_eq = len([k for k in hist if k!="_avg"])
+                st.success(f"✓ Modelo cargado ({n_eq} equipos desde tabla Wikipedia)")
         # Próximos: The Odds API si disponible, sino TheSportsDB
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
