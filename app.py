@@ -673,63 +673,63 @@ def wiki_tabla_hist(wiki_url, avg):
 @st.cache_data(ttl=1800)
 def apifootball_next(league_id, season, api_key):
     """
-    Obtiene próximos partidos desde API-Football (api-sports.io).
-    Cubre Venezuela, Bolivia, Paraguay y otras ligas menores.
+    Obtiene próximos partidos desde API-Football.
+    Usa búsqueda por fecha para evitar restricción de temporada en plan gratuito.
     """
-    url = "https://v3.football.api-sports.io/fixtures"
     TZ_COL = ZoneInfo("America/Bogota")
     ahora = datetime.datetime.now(TZ_COL)
-    fecha_ini = ahora.strftime("%Y-%m-%d")
-    fecha_fin = (ahora + datetime.timedelta(days=4)).strftime("%Y-%m-%d")
-    headers = {
-        "x-apisports-key": api_key,
-        "x-rapidapi-host": "v3.football.api-sports.io",
-    }
-    params = {
-        "league": league_id,
-        "season": season,
-        "from": fecha_ini,
-        "to": fecha_fin,
-        "status": "NS",  # Not Started
-        "timezone": "America/Bogota",
-    }
-    try:
-        r = requests.get(url, headers=headers, params=params, timeout=15)
-        r.raise_for_status()
-        data = r.json()
-        if data.get("errors"):
-            return [], str(data["errors"])
-        fixtures = data.get("response", [])
-        proximos = []
-        import hashlib
-        for f in fixtures:
-            fixture = f.get("fixture", {})
-            teams   = f.get("teams", {})
-            loc = teams.get("home", {}).get("name", "")
-            vis = teams.get("away", {}).get("name", "")
-            if not loc or not vis: continue
-            fecha_str = fixture.get("date","")[:10]
-            try:
-                dt = datetime.datetime.fromisoformat(fixture.get("date","").replace("Z","+00:00"))
-                dt = dt.astimezone(TZ_COL)
-            except:
-                continue
-            dias_diff = (dt.date() - ahora.date()).days
-            if dias_diff < 0 or dias_diff > 4: continue
-            uid = hashlib.md5(f"{loc}{vis}{fecha_str}".encode()).hexdigest()[:8]
-            proximos.append({
-                "id": uid, "dt": dt,
-                "fecha": fecha_str,
-                "hora": dt.strftime("%I:%M %p"),
-                "local": loc, "visit": vis,
-                "jornada": f.get("league",{}).get("round",""),
-                "hoy": dias_diff == 0,
-                "manana": dias_diff == 1,
-            })
-        proximos.sort(key=lambda x: x["dt"])
-        return proximos, None
-    except Exception as ex:
-        return [], str(ex)
+    headers = {"x-apisports-key": api_key}
+    proximos = []
+    vistos = set()
+    import hashlib
+
+    for dias in range(5):
+        fecha = (ahora + datetime.timedelta(days=dias)).strftime("%Y-%m-%d")
+        url = "https://v3.football.api-sports.io/fixtures"
+        params = {
+            "league": league_id,
+            "date": fecha,
+            "timezone": "America/Bogota",
+        }
+        try:
+            r = requests.get(url, headers=headers, params=params, timeout=15)
+            r.raise_for_status()
+            data = r.json()
+            errs = data.get("errors", {})
+            if errs and errs != []:
+                return [], str(errs)
+            for f in data.get("response", []):
+                fixture = f.get("fixture", {})
+                teams   = f.get("teams", {})
+                status  = fixture.get("status", {}).get("short","")
+                if status not in ("NS", "TBD"): continue  # solo no iniciados
+                loc = teams.get("home", {}).get("name", "")
+                vis = teams.get("away", {}).get("name", "")
+                if not loc or not vis: continue
+                uid_raw = f"{loc}{vis}{fecha}"
+                if uid_raw in vistos: continue
+                vistos.add(uid_raw)
+                try:
+                    dt = datetime.datetime.fromisoformat(
+                        fixture.get("date","").replace("Z","+00:00")
+                    ).astimezone(TZ_COL)
+                except:
+                    dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                dias_diff = (dt.date() - ahora.date()).days
+                proximos.append({
+                    "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                    "dt": dt, "fecha": fecha,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "jornada": f.get("league",{}).get("round",""),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                })
+        except Exception as ex:
+            return proximos, str(ex)
+
+    proximos.sort(key=lambda x: x["dt"])
+    return proximos, None
 
 
     """
