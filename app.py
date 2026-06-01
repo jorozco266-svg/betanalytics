@@ -1456,30 +1456,107 @@ with tab1:
     elif cargado:
         st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
     else:
-        # Modo manual
-        st.markdown("### 🖊️ Análisis manual de partido")
-        st.caption("Conecta una API key para carga automática, o ingresa los datos manualmente.")
-        c1,c2=st.columns(2)
-        with c1: eql=st.text_input("Equipo local",   placeholder="Ej: Atlético Nacional")
-        with c2: eqv=st.text_input("Equipo visitante",placeholder="Ej: Millonarios")
-        c1,c2,c3=st.columns(3)
-        with c1: ql=st.number_input("Cuota local",   1.01,50.0,2.00,0.05,format="%.2f",key="m_ql")
-        with c2: qe=st.number_input("Cuota empate",  1.01,50.0,3.30,0.05,format="%.2f",key="m_qe")
-        with c3: qv=st.number_input("Cuota visit",   1.01,50.0,3.80,0.05,format="%.2f",key="m_qv")
-        c1,c2,c3=st.columns(3)
-        with c1: pl=st.number_input("P(local) %",  1.0,99.0,45.0,0.5)/100
-        with c2: pe=st.number_input("P(empate) %", 1.0,99.0,28.0,0.5)/100
-        with c3: pv=st.number_input("P(visit) %",  1.0,99.0,27.0,0.5)/100
-        if eql and eqv:
-            im=impl({"local":ql,"empate":qe,"visit":qv})
-            vig=im["vig"]
-            if vig<=7:    st.markdown(f'<div class="vig-ok">✓ Vig: {vig}%</div>',unsafe_allow_html=True)
-            elif vig<=12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig}%</div>',unsafe_allow_html=True)
-            else:         st.markdown(f'<div class="vig-bad">✗ Vig: {vig}%</div>',unsafe_allow_html=True)
-            for nm,pm,cu,et in [("local",pl,ql,eql),("empate",pe,qe,"Empate"),("visit",pv,qv,eqv)]:
-                pi=im["p"].get(nm,0); k=kelly_calc(pm,cu,kf,bank,ue)
-                if k["value"]: st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>',unsafe_allow_html=True)
-                else: st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · edge {k["edge"]:+.1f}%</span></div>',unsafe_allow_html=True)
+        # Modo manual mejorado
+        st.markdown("### 🖊️ Análisis de partido")
+        st.caption("Selecciona equipos del modelo o escribe cualquier nombre.")
+
+        # Obtener lista de equipos del modelo actual
+        equipos_modelo = []
+        if hist and isinstance(hist, dict):
+            equipos_modelo = sorted([k for k in hist.keys() if k != "_avg" and isinstance(hist[k], dict)])
+        elif hist and isinstance(hist, list):
+            M_tmp = build_model(hist, li["avg"])
+            equipos_modelo = sorted([k for k in M_tmp.keys() if k != "_avg" and isinstance(M_tmp[k], dict)])
+
+        c1, c2 = st.columns(2)
+        with c1:
+            if equipos_modelo:
+                opciones_l = ["✏️ Escribir nombre..."] + equipos_modelo
+                sel_l = st.selectbox("Equipo local", opciones_l, key="sel_local")
+                if sel_l == "✏️ Escribir nombre...":
+                    eql = st.text_input("Nombre local", placeholder="Ej: Deportivo La Guaira", key="txt_local")
+                else:
+                    eql = sel_l
+            else:
+                eql = st.text_input("Equipo local", placeholder="Ej: Deportivo La Guaira", key="txt_local_only")
+
+        with c2:
+            if equipos_modelo:
+                opciones_v = ["✏️ Escribir nombre..."] + equipos_modelo
+                sel_v = st.selectbox("Equipo visitante", opciones_v, key="sel_visit")
+                if sel_v == "✏️ Escribir nombre...":
+                    eqv = st.text_input("Nombre visitante", placeholder="Ej: Caracas FC", key="txt_visit")
+                else:
+                    eqv = sel_v
+            else:
+                eqv = st.text_input("Equipo visitante", placeholder="Ej: Caracas FC", key="txt_visit_only")
+
+        # Cuotas
+        c1, c2, c3 = st.columns(3)
+        with c1: ql = st.number_input("Cuota local",  1.01, 50.0, 2.00, 0.05, format="%.2f", key="m_ql")
+        with c2: qe = st.number_input("Cuota empate", 1.01, 50.0, 3.30, 0.05, format="%.2f", key="m_qe")
+        with c3: qv = st.number_input("Cuota visit",  1.01, 50.0, 3.80, 0.05, format="%.2f", key="m_qv")
+
+        if eql and eqv and eql != eqv:
+            # Calcular probabilidades desde el modelo Poisson si hay datos
+            M_actual = hist if isinstance(hist, dict) else (build_model(hist, li["avg"]) if hist else None)
+            usa_modelo = False
+            pl, pe, pv = 0.45, 0.28, 0.27  # defaults
+
+            if M_actual:
+                ll, lv = lams(eql, eqv, M_actual, li["avg"])
+                if ll > 0 and lv > 0:
+                    pl_m, pe_m, pv_m = poisson(ll, lv)
+                    pl, pe, pv = pl_m, pe_m, pv_m
+                    usa_modelo = True
+                    st.success(f"✓ Modelo Poisson aplicado — λ local: {ll:.2f} · λ visit: {lv:.2f}")
+                    # Mostrar memoria de cálculo compacta
+                    with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
+                        ml_info = M_actual.get(eql) or {}
+                        mv_info = M_actual.get(eqv) or {}
+                        # Buscar con matching
+                        if not ml_info:
+                            import unicodedata
+                            def norm2(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+                            for k,v in M_actual.items():
+                                if k != "_avg" and isinstance(v, dict) and norm2(k) == norm2(eql):
+                                    ml_info = v; break
+                        if not mv_info:
+                            import unicodedata
+                            def norm2(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+                            for k,v in M_actual.items():
+                                if k != "_avg" and isinstance(v, dict) and norm2(k) == norm2(eqv):
+                                    mv_info = v; break
+                        if ml_info:
+                            st.markdown(f"**{eql} (local) — {ml_info.get('n',0)} partidos**")
+                            st.markdown(f"Ataque: `{ml_info.get('atk',1):.3f}` · Defensa: `{ml_info.get('def',1):.3f}` · GF/partido: `{ml_info.get('gf_avg',0):.2f}` · GC/partido: `{ml_info.get('gc_avg',0):.2f}`")
+                        if mv_info:
+                            st.markdown(f"**{eqv} (visitante) — {mv_info.get('n',0)} partidos**")
+                            st.markdown(f"Ataque: `{mv_info.get('atk',1):.3f}` · Defensa: `{mv_info.get('def',1):.3f}` · GF/partido: `{mv_info.get('gf_avg',0):.2f}` · GC/partido: `{mv_info.get('gc_avg',0):.2f}`")
+                        st.markdown(f"**Proyección:** λ_local = Atk({ml_info.get('atk',1):.3f}) × Def_visit({mv_info.get('def',1):.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll:.3f}**")
+                        st.markdown(f"**Proyección:** λ_visit = Atk({mv_info.get('atk',1):.3f}) × Def_local({ml_info.get('def',1):.3f}) × Liga({li['avg']}) = **{lv:.3f}**")
+
+            if not usa_modelo:
+                st.info("⚠️ Equipos no encontrados en el modelo — ingresa las probabilidades manualmente.")
+                c1, c2, c3 = st.columns(3)
+                with c1: pl = st.number_input("P(local) %",  1.0, 99.0, 45.0, 0.5, key="m_pl") / 100
+                with c2: pe = st.number_input("P(empate) %", 1.0, 99.0, 28.0, 0.5, key="m_pe") / 100
+                with c3: pv = st.number_input("P(visit) %",  1.0, 99.0, 27.0, 0.5, key="m_pv") / 100
+
+            # Veredicto
+            im = impl({"local": ql, "empate": qe, "visit": qv})
+            vig = im["vig"]
+            if vig <= 7:    st.markdown(f'<div class="vig-ok">✓ Vig: {vig}% — mercado limpio</div>', unsafe_allow_html=True)
+            elif vig <= 12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig}%</div>', unsafe_allow_html=True)
+            else:           st.markdown(f'<div class="vig-bad">✗ Vig: {vig}% — mercado caro</div>', unsafe_allow_html=True)
+
+            st.markdown("**Veredicto del modelo:**")
+            for nm, pm, cu, et in [("local", pl, ql, eql), ("empate", pe, qe, "Empate"), ("visit", pv, qv, eqv)]:
+                k = kelly_calc(pm, cu, kf, bank, ue)
+                if k["value"]:
+                    st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>P MODELO</label><span>{pm*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k["kelly"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>', unsafe_allow_html=True)
+                else:
+                    st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · cuota {cu} · edge {k["edge"]:+.1f}%</span></div>', unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # TAB 2: EQUIPOS
