@@ -1539,8 +1539,10 @@ with tab1:
 
     elif cargado:
         st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
-    else:
-        # Modo manual mejorado
+
+    # ── Análisis manual — siempre visible cuando hay modelo cargado ──
+    if cargado and hist:
+        st.markdown("---")
         st.markdown("### 🖊️ Análisis de partido")
         st.caption("Selecciona equipos del modelo o escribe cualquier nombre.")
 
