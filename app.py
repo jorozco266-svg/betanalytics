@@ -1477,19 +1477,19 @@ with tab1:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         elif li["src"]=="wiki":
             prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            # Semifinales Liga BetPlay hardcoded
+            # Final Liga BetPlay I-2026 hardcoded
             if "Liga BetPlay" in liga_n and not prox_wiki:
                 import hashlib
-                semis = [
-                    ("Atletico Nacional","Deportes Tolima","2026-05-23","06:00 PM"),
-                    ("Junior","Independiente Santa Fe","2026-05-23","08:30 PM"),
+                final = [
+                    ("Junior","Atletico Nacional","2026-06-02","07:30 PM"),
+                    ("Atletico Nacional","Junior","2026-06-08","05:00 PM"),
                 ]
                 prox_wiki = []
-                for loc,vis,fecha,hora in semis:
-                    uid=hashlib.md5(f"{loc}{vis}".encode()).hexdigest()[:8]
+                for loc,vis,fecha,hora in final:
+                    uid=hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
                     fecha_dt=datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_COL)
                     prox_wiki.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
-                                      "local":loc,"visit":vis,"jornada":"Semifinal",
+                                      "local":loc,"visit":vis,"jornada":"Final",
                                       "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
             prox=prox_wiki
         if e1: st.warning(f"Error historial: {e1}")
