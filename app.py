@@ -1176,8 +1176,8 @@ def prob_elo_selecciones(elo_local, elo_visit, es_neutral=True):
 @st.cache_data(ttl=1800)
 def get_amistosos_hoy(api_key, dias=3):
     """
-    Obtiene amistosos internacionales de los próximos días desde API-Football.
-    League ID 9 = International Friendlies en API-Football.
+    Obtiene amistosos internacionales desde API-Football.
+    Prueba múltiples league IDs conocidos para amistosos internacionales.
     """
     TZ_COL = ZoneInfo("America/Bogota")
     ahora = datetime.datetime.now(TZ_COL)
@@ -1186,50 +1186,105 @@ def get_amistosos_hoy(api_key, dias=3):
     vistos = set()
     import hashlib
 
+    # IDs conocidos de amistosos internacionales en API-Football
+    # 9 = Friendlies International, 667 = World Cup Friendlies
+    LEAGUE_IDS = [9, 667, 1, 848]
+
     for d in range(dias + 1):
         fecha = (ahora + datetime.timedelta(days=d)).strftime("%Y-%m-%d")
-        url = "https://v3.football.api-sports.io/fixtures"
-        params = {"league": 9, "date": fecha, "timezone": "America/Bogota"}
-        try:
-            r = requests.get(url, headers=headers, params=params, timeout=15)
-            if r.status_code != 200: continue
-            data = r.json()
-            errs = data.get("errors", {})
-            if errs and errs != [] and errs != {}: continue
-            for f in data.get("response", []):
-                fixture  = f.get("fixture", {})
-                teams    = f.get("teams", {})
-                status   = fixture.get("status", {}).get("short", "")
-                loc = teams.get("home", {}).get("name", "")
-                vis = teams.get("away", {}).get("name", "")
-                if not loc or not vis: continue
-                uid_raw = f"{loc}{vis}{fecha}"
-                if uid_raw in vistos: continue
-                vistos.add(uid_raw)
-                ya_jugado = status in ("FT","AET","PEN","AWD","WO")
-                try:
-                    dt = datetime.datetime.fromisoformat(
-                        fixture.get("date","").replace("Z","+00:00")
-                    ).astimezone(TZ_COL)
-                except:
-                    dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
-                dias_diff = (dt.date() - ahora.date()).days
-                goles = f.get("goals", {})
-                partidos.append({
-                    "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
-                    "dt": dt, "fecha": fecha,
-                    "hora": dt.strftime("%I:%M %p"),
-                    "local": loc, "visit": vis,
-                    "status": status,
-                    "ya_jugado": ya_jugado,
-                    "gol_loc": goles.get("home"),
-                    "gol_vis": goles.get("away"),
-                    "hoy": dias_diff == 0,
-                    "manana": dias_diff == 1,
-                    "venue": fixture.get("venue", {}).get("name",""),
-                    "city": fixture.get("venue", {}).get("city",""),
-                })
-        except: continue
+        for league_id in LEAGUE_IDS:
+            url = "https://v3.football.api-sports.io/fixtures"
+            params = {"league": league_id, "date": fecha, "timezone": "America/Bogota"}
+            try:
+                r = requests.get(url, headers=headers, params=params, timeout=15)
+                if r.status_code != 200: continue
+                data = r.json()
+                errs = data.get("errors", {})
+                if errs and errs != [] and errs != {}: continue
+                for f in data.get("response", []):
+                    fixture  = f.get("fixture", {})
+                    teams    = f.get("teams", {})
+                    status   = fixture.get("status", {}).get("short", "")
+                    loc = teams.get("home", {}).get("name", "")
+                    vis = teams.get("away", {}).get("name", "")
+                    if not loc or not vis: continue
+                    uid_raw = f"{loc}{vis}{fecha}"
+                    if uid_raw in vistos: continue
+                    vistos.add(uid_raw)
+                    ya_jugado = status in ("FT","AET","PEN","AWD","WO")
+                    try:
+                        dt = datetime.datetime.fromisoformat(
+                            fixture.get("date","").replace("Z","+00:00")
+                        ).astimezone(TZ_COL)
+                    except:
+                        dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                    dias_diff = (dt.date() - ahora.date()).days
+                    goles = f.get("goals", {})
+                    partidos.append({
+                        "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                        "dt": dt, "fecha": fecha,
+                        "hora": dt.strftime("%I:%M %p"),
+                        "local": loc, "visit": vis,
+                        "status": status,
+                        "ya_jugado": ya_jugado,
+                        "gol_loc": goles.get("home"),
+                        "gol_vis": goles.get("away"),
+                        "hoy": dias_diff == 0,
+                        "manana": dias_diff == 1,
+                        "venue": fixture.get("venue", {}).get("name",""),
+                        "city": fixture.get("venue", {}).get("city",""),
+                        "league_id": league_id,
+                    })
+            except: continue
+
+    # Si no hay nada, intentar sin league_id filtrando por tipo de competición
+    if not partidos:
+        for d in range(dias + 1):
+            fecha = (ahora + datetime.timedelta(days=d)).strftime("%Y-%m-%d")
+            url = "https://v3.football.api-sports.io/fixtures"
+            params = {"date": fecha, "timezone": "America/Bogota", "type": "Friendly"}
+            try:
+                r = requests.get(url, headers=headers, params=params, timeout=15)
+                if r.status_code != 200: continue
+                data = r.json()
+                for f in data.get("response", []):
+                    league = f.get("league", {})
+                    # Solo amistosos de selecciones nacionales
+                    if "friend" not in league.get("name","").lower(): continue
+                    teams = f.get("teams", {})
+                    fixture = f.get("fixture", {})
+                    status = fixture.get("status", {}).get("short", "")
+                    loc = teams.get("home", {}).get("name", "")
+                    vis = teams.get("away", {}).get("name", "")
+                    if not loc or not vis: continue
+                    uid_raw = f"{loc}{vis}{fecha}"
+                    if uid_raw in vistos: continue
+                    vistos.add(uid_raw)
+                    ya_jugado = status in ("FT","AET","PEN","AWD","WO")
+                    try:
+                        dt = datetime.datetime.fromisoformat(
+                            fixture.get("date","").replace("Z","+00:00")
+                        ).astimezone(TZ_COL)
+                    except:
+                        dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                    dias_diff = (dt.date() - ahora.date()).days
+                    goles = f.get("goals", {})
+                    partidos.append({
+                        "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                        "dt": dt, "fecha": fecha,
+                        "hora": dt.strftime("%I:%M %p"),
+                        "local": loc, "visit": vis,
+                        "status": status,
+                        "ya_jugado": ya_jugado,
+                        "gol_loc": goles.get("home"),
+                        "gol_vis": goles.get("away"),
+                        "hoy": dias_diff == 0,
+                        "manana": dias_diff == 1,
+                        "venue": fixture.get("venue", {}).get("name",""),
+                        "city": fixture.get("venue", {}).get("city",""),
+                    })
+            except: continue
+
     partidos.sort(key=lambda x: x["dt"])
     return partidos, None
 
