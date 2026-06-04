@@ -1101,8 +1101,239 @@ def rf_next(league_id, rf_key):
 
 
 # ─────────────────────────────────────────────
-# MÓDULO TENIS — Elo por superficie
+# MÓDULO AMISTOSOS — Elo selecciones + Poisson + API-Football
 # ─────────────────────────────────────────────
+
+@st.cache_data(ttl=3600)
+def cargar_elo_selecciones():
+    """
+    Carga ratings Elo de selecciones desde eloratings.net.
+    Retorna dict: {nombre_seleccion: elo_rating}
+    """
+    import re
+    try:
+        headers = {"User-Agent": "Mozilla/5.0"}
+        r = requests.get("http://www.eloratings.net/World.tsv", headers=headers, timeout=15)
+        if r.status_code == 200 and "\t" in r.text:
+            elo = {}
+            for linea in r.text.strip().split("\n"):
+                partes = linea.strip().split("\t")
+                if len(partes) >= 3:
+                    nombre = partes[1].strip()
+                    try:
+                        rating = int(partes[2].strip())
+                        elo[nombre] = rating
+                    except: continue
+            if len(elo) > 50:
+                return elo, None
+    except: pass
+
+    # Fallback: ratings hardcodeados actualizados al 3-junio-2026
+    # Fuente: eloratings.net top 50 + selecciones relevantes
+    ELO_2026 = {
+        "Spain": 2171, "Argentina": 2113, "France": 2063, "England": 2042,
+        "Colombia": 1998, "Brazil": 1979, "Portugal": 1976, "Netherlands": 1959,
+        "Croatia": 1933, "Ecuador": 1933, "Norway": 1922, "Germany": 1910,
+        "Switzerland": 1897, "Uruguay": 1890, "Turkey": 1880, "Japan": 1879,
+        "Senegal": 1869, "Denmark": 1864, "Italy": 1859, "Belgium": 1849,
+        "Morocco": 1845, "Mexico": 1832, "USA": 1821, "Australia": 1812,
+        "Serbia": 1808, "Poland": 1803, "Ukraine": 1798, "Austria": 1795,
+        "South Korea": 1789, "Ghana": 1776, "Ivory Coast": 1771, "Nigeria": 1768,
+        "Hungary": 1754, "Czech Republic": 1748, "Romania": 1742, "Algeria": 1738,
+        "Chile": 1731, "Peru": 1724, "Venezuela": 1718, "Paraguay": 1712,
+        "Costa Rica": 1706, "Panama": 1699, "Jamaica": 1688, "Bolivia": 1672,
+        "Georgia": 1668, "Albania": 1652, "Israel": 1641, "Scotland": 1638,
+        "Wales": 1629, "Finland": 1618, "Slovakia": 1612, "Greece": 1608,
+        "Slovenia": 1598, "Montenegro": 1587, "North Macedonia": 1576,
+        "Bosnia": 1571, "Sweden": 1565, "Ireland": 1558, "Northern Ireland": 1547,
+        "Cyprus": 1489, "Luxembourg": 1467, "Haiti": 1458, "New Zealand": 1441,
+        "DR Congo": 1438, "Congo DR": 1438, "Senegal": 1869,
+        "Uzbekistan": 1412, "Iran": 1428, "Iraq": 1398, "Saudi Arabia": 1389,
+        "Pakistan": 1102, "Bangladesh": 1089,
+        "Gibraltar": 902, "British Virgin Islands": 847,
+    }
+    return ELO_2026, "Usando ratings fallback (eloratings.net no disponible)"
+
+def prob_elo_selecciones(elo_local, elo_visit, es_neutral=True):
+    """
+    Calcula probabilidades usando Elo de selecciones.
+    Incluye ventaja de local si no es cancha neutral.
+    Retorna (p_local, p_empate, p_visit)
+    """
+    ventaja_local = 0 if es_neutral else 100
+    diff = elo_local - elo_visit + ventaja_local
+    # Probabilidad de no perder (win + draw) para local
+    p_no_pierde = 1 / (1 + 10 ** (-diff / 400))
+    # Distribución aproximada usando método de Maher/Dixon-Coles
+    # p_empate es función del diff — menor diferencia = más empates
+    p_empate = max(0.22 - abs(diff) * 0.0003, 0.08)
+    p_local = p_no_pierde * (1 - p_empate)
+    p_visit = (1 - p_no_pierde) * (1 - p_empate)
+    # Normalizar
+    total = p_local + p_empate + p_visit
+    return round(p_local/total, 4), round(p_empate/total, 4), round(p_visit/total, 4)
+
+@st.cache_data(ttl=1800)
+def get_amistosos_hoy(api_key, dias=3):
+    """
+    Obtiene amistosos internacionales de los próximos días desde API-Football.
+    League ID 9 = International Friendlies en API-Football.
+    """
+    TZ_COL = ZoneInfo("America/Bogota")
+    ahora = datetime.datetime.now(TZ_COL)
+    headers = {"x-apisports-key": api_key}
+    partidos = []
+    vistos = set()
+    import hashlib
+
+    for d in range(dias + 1):
+        fecha = (ahora + datetime.timedelta(days=d)).strftime("%Y-%m-%d")
+        url = "https://v3.football.api-sports.io/fixtures"
+        params = {"league": 9, "date": fecha, "timezone": "America/Bogota"}
+        try:
+            r = requests.get(url, headers=headers, params=params, timeout=15)
+            if r.status_code != 200: continue
+            data = r.json()
+            errs = data.get("errors", {})
+            if errs and errs != [] and errs != {}: continue
+            for f in data.get("response", []):
+                fixture  = f.get("fixture", {})
+                teams    = f.get("teams", {})
+                status   = fixture.get("status", {}).get("short", "")
+                loc = teams.get("home", {}).get("name", "")
+                vis = teams.get("away", {}).get("name", "")
+                if not loc or not vis: continue
+                uid_raw = f"{loc}{vis}{fecha}"
+                if uid_raw in vistos: continue
+                vistos.add(uid_raw)
+                ya_jugado = status in ("FT","AET","PEN","AWD","WO")
+                try:
+                    dt = datetime.datetime.fromisoformat(
+                        fixture.get("date","").replace("Z","+00:00")
+                    ).astimezone(TZ_COL)
+                except:
+                    dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                dias_diff = (dt.date() - ahora.date()).days
+                goles = f.get("goals", {})
+                partidos.append({
+                    "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                    "dt": dt, "fecha": fecha,
+                    "hora": dt.strftime("%I:%M %p"),
+                    "local": loc, "visit": vis,
+                    "status": status,
+                    "ya_jugado": ya_jugado,
+                    "gol_loc": goles.get("home"),
+                    "gol_vis": goles.get("away"),
+                    "hoy": dias_diff == 0,
+                    "manana": dias_diff == 1,
+                    "venue": fixture.get("venue", {}).get("name",""),
+                    "city": fixture.get("venue", {}).get("city",""),
+                })
+        except: continue
+    partidos.sort(key=lambda x: x["dt"])
+    return partidos, None
+
+@st.cache_data(ttl=3600)
+def get_historial_seleccion(team_id, api_key, n=10):
+    """
+    Obtiene últimos N partidos de una selección desde API-Football.
+    Retorna lista de (rival, gf, gc, resultado, fecha, importancia)
+    """
+    headers = {"x-apisports-key": api_key}
+    url = "https://v3.football.api-sports.io/fixtures"
+    params = {
+        "team": team_id,
+        "last": n,
+        "status": "FT",
+    }
+    try:
+        r = requests.get(url, headers=headers, params=params, timeout=15)
+        data = r.json()
+        partidos = []
+        for f in data.get("response", []):
+            teams = f.get("teams", {})
+            goals = f.get("goals", {})
+            league = f.get("league", {})
+            es_local = teams.get("home", {}).get("id") == team_id
+            rival = teams.get("away" if es_local else "home", {}).get("name","")
+            gf = goals.get("home" if es_local else "away", 0) or 0
+            gc = goals.get("away" if es_local else "home", 0) or 0
+            resultado = "W" if gf > gc else ("D" if gf == gc else "L")
+            partidos.append({
+                "rival": rival, "gf": gf, "gc": gc,
+                "resultado": resultado,
+                "fecha": f.get("fixture",{}).get("date","")[:10],
+                "liga": league.get("name",""),
+                "es_local": es_local,
+            })
+        return partidos, None
+    except Exception as ex:
+        return [], str(ex)
+
+@st.cache_data(ttl=3600)
+def get_team_id_seleccion(nombre, api_key):
+    """Busca el ID de una selección en API-Football."""
+    headers = {"x-apisports-key": api_key}
+    url = "https://v3.football.api-sports.io/teams"
+    params = {"name": nombre, "type": "national"}
+    try:
+        r = requests.get(url, headers=headers, params=params, timeout=10)
+        data = r.json()
+        resp = data.get("response", [])
+        if resp:
+            return resp[0].get("team", {}).get("id"), None
+        return None, f"No encontrado: {nombre}"
+    except Exception as ex:
+        return None, str(ex)
+
+def buscar_elo(nombre, elo_dict):
+    """Busca el Elo de una selección con matching flexible."""
+    import unicodedata
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    # Aliases comunes
+    ALIASES = {
+        "dr congo": ["dr congo", "congo dr", "democratic republic of congo", "rd congo", "rdc"],
+        "ivory coast": ["ivory coast", "cote d ivoire", "côte d'ivoire"],
+        "south korea": ["south korea", "korea republic", "korea"],
+        "usa": ["usa", "united states", "united states of america"],
+        "northern ireland": ["northern ireland"],
+        "new zealand": ["new zealand", "nueva zelanda"],
+        "iran": ["iran", "ir iran"],
+    }
+    nombre_n = norm(nombre)
+    # Búsqueda directa
+    if nombre in elo_dict: return elo_dict[nombre]
+    # Búsqueda normalizada
+    for k, v in elo_dict.items():
+        if norm(k) == nombre_n: return v
+    # Aliases
+    for canonical, variantes in ALIASES.items():
+        if any(v in nombre_n for v in variantes):
+            for k, val in elo_dict.items():
+                if norm(k) == canonical: return val
+    # Parcial
+    for k, v in elo_dict.items():
+        k_n = norm(k)
+        if nombre_n in k_n or k_n in nombre_n: return v
+    return None
+
+def poisson_seleccion(gf_avg_loc, gc_avg_loc, gf_avg_vis, gc_avg_vis, avg_goles=2.5):
+    """Calcula probabilidades Poisson para selecciones."""
+    if gf_avg_loc <= 0 or gf_avg_vis <= 0:
+        return None, None, None
+    ll = round((gf_avg_loc / avg_goles) * (gc_avg_vis / avg_goles) * avg_goles * 1.1, 3)
+    lv = round((gf_avg_vis / avg_goles) * (gc_avg_loc / avg_goles) * avg_goles, 3)
+    ll = max(ll, 0.3); lv = max(lv, 0.3)
+    pl = pe = pv = 0
+    for gl in range(9):
+        for gv in range(9):
+            p = pmf(gl, ll) * pmf(gv, lv)
+            if gl > gv: pl += p
+            elif gl == gv: pe += p
+            else: pv += p
+    return round(pl,4), round(pe,4), round(pv,4)
+
+
 import csv, io
 
 @st.cache_data(ttl=86400)
@@ -1252,7 +1483,7 @@ if necesita_fd and not tiene_fd:
 if necesita_rf and not tiene_rf:
     st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
 
-tab1,tab2,tab3,tab4,tab5=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis"])
+tab1,tab2,tab3,tab4,tab5,tab6=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos"])
 
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
@@ -2003,3 +2234,193 @@ with tab5:
             with c3: st.markdown(f'<span style="color:#f59e0b">Arcilla: {clay:.0f}</span>', unsafe_allow_html=True)
             with c4: st.markdown(f'<span style="color:#38bdf8">Dura: {hard:.0f}</span>', unsafe_allow_html=True)
             with c5: st.markdown(f'<span style="color:#86efac">H: {grass:.0f}</span>', unsafe_allow_html=True)
+
+# ════════════════════════════════════════════
+# TAB 6 — AMISTOSOS INTERNACIONALES FIFA
+# ════════════════════════════════════════════
+with tab6:
+    st.markdown("### 🌍 Amistosos Internacionales FIFA")
+    st.caption("Modelo Elo de selecciones + Modelo Poisson histórico. Tú decides cuál usar.")
+
+    if not rf_key:
+        st.warning("⚠️ Configura tu API-Football key en Streamlit Secrets para ver los partidos automáticamente.")
+    else:
+        # Cargar Elo de selecciones
+        with st.spinner("Cargando ratings Elo de selecciones..."):
+            elo_sel, err_elo_sel = cargar_elo_selecciones()
+
+        if err_elo_sel:
+            st.info(f"ℹ️ {err_elo_sel}")
+
+        col_e1, col_e2 = st.columns(2)
+        with col_e1:
+            st.metric("Selecciones en base Elo", len(elo_sel))
+        with col_e2:
+            st.metric("Fuente", "eloratings.net")
+
+        # Cargar partidos del día
+        st.markdown("---")
+        dias_vista = st.slider("Días hacia adelante", 1, 5, 3, key="ami_dias")
+
+        with st.spinner("Cargando amistosos desde API-Football..."):
+            amistosos, err_ami = get_amistosos_hoy(rf_key, dias_vista)
+
+        if err_ami:
+            st.warning(f"Error cargando amistosos: {err_ami}")
+
+        if not amistosos:
+            st.info("No hay amistosos internacionales programados en los próximos días.")
+        else:
+            # Separar por día
+            TZ_COL = ZoneInfo("America/Bogota")
+            ahora_ami = datetime.datetime.now(TZ_COL)
+            fechas_ami = sorted(set(p["fecha"] for p in amistosos))
+
+            st.success(f"✓ {len(amistosos)} amistosos encontrados")
+
+            for fecha_ami in fechas_ami:
+                partidos_dia = [p for p in amistosos if p["fecha"] == fecha_ami]
+                dias_diff_ami = (datetime.datetime.strptime(fecha_ami, "%Y-%m-%d").date() - ahora_ami.date()).days
+                if dias_diff_ami == 0:
+                    label_ami = f"🔴 HOY · {fecha_ami}"
+                elif dias_diff_ami == 1:
+                    label_ami = f"🟡 MAÑANA · {fecha_ami}"
+                else:
+                    label_ami = f"📅 {fecha_ami}"
+
+                st.markdown(f'<div style="font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin:1.5rem 0 0.5rem;border-bottom:1px solid var(--border);padding-bottom:6px;">{label_ami}</div>', unsafe_allow_html=True)
+
+                for p in partidos_dia:
+                    loc_name = p["local"]
+                    vis_name = p["visit"]
+
+                    # Buscar Elo de cada selección
+                    elo_loc = buscar_elo(loc_name, elo_sel)
+                    elo_vis = buscar_elo(vis_name, elo_sel)
+
+                    # Calcular probabilidades Elo
+                    if elo_loc and elo_vis:
+                        pl_elo, pe_elo, pv_elo = prob_elo_selecciones(elo_loc, elo_vis, es_neutral=True)
+                        elo_ok = True
+                    else:
+                        pl_elo = pe_elo = pv_elo = None
+                        elo_ok = False
+
+                    titulo = f"⚽ {loc_name} vs {vis_name} · {p['hora']} COT"
+                    if p.get("ya_jugado") and p.get("gol_loc") is not None:
+                        titulo += f" · {p['gol_loc']}-{p['gol_vis']}"
+
+                    with st.expander(titulo, expanded=p["hoy"]):
+                        # Info del partido
+                        if p.get("venue"):
+                            st.caption(f"📍 {p['venue']}, {p['city']}")
+
+                        # Cuotas manuales
+                        st.markdown("**Cuotas de tu casa de apuestas:**")
+                        cq1, cq2, cq3 = st.columns(3)
+                        with cq1: ql_ami = st.number_input(f"Local ({loc_name[:12]})", 1.01, 50.0, 2.00, 0.05, format="%.2f", key=f"ami_ql_{p['id']}")
+                        with cq2: qe_ami = st.number_input("Empate", 1.01, 50.0, 3.20, 0.05, format="%.2f", key=f"ami_qe_{p['id']}")
+                        with cq3: qv_ami = st.number_input(f"Visit ({vis_name[:12]})", 1.01, 50.0, 3.80, 0.05, format="%.2f", key=f"ami_qv_{p['id']}")
+
+                        st.markdown("---")
+
+                        # ── MODELO ELO ──────────────────────────────
+                        st.markdown("#### 🎯 Modelo Elo (eloratings.net)")
+                        if elo_ok:
+                            ce1, ce2, ce3, ce4 = st.columns(4)
+                            with ce1:
+                                st.markdown(f"**{loc_name[:15]}**")
+                                st.markdown(f"Elo: `{elo_loc}`")
+                            with ce2:
+                                color_l = "#22c55e" if pl_elo > 0.45 else "#94a3b8"
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL GANA</div><div style="font-size:28px;font-weight:700;color:{color_l};">{pl_elo*100:.1f}%</div></div>', unsafe_allow_html=True)
+                            with ce3:
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:28px;font-weight:700;color:#f59e0b;">{pe_elo*100:.1f}%</div></div>', unsafe_allow_html=True)
+                            with ce4:
+                                color_v = "#22c55e" if pv_elo > 0.45 else "#94a3b8"
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT GANA</div><div style="font-size:28px;font-weight:700;color:{color_v};">{pv_elo*100:.1f}%</div></div>', unsafe_allow_html=True)
+
+                            st.markdown(f"**{vis_name[:15]}**")
+                            st.markdown(f"Elo: `{elo_vis}`")
+
+                            # Diferencia de Elo
+                            diff_elo = elo_loc - elo_vis
+                            ventaja = loc_name if diff_elo > 0 else vis_name
+                            st.caption(f"Diferencia Elo: {abs(diff_elo)} pts → {ventaja} es más fuerte históricamente")
+                        else:
+                            st.info(f"⚠️ Elo no disponible para: {'' if elo_loc else loc_name} {'' if elo_vis else vis_name}")
+
+                        # ── MODELO POISSON ──────────────────────────
+                        st.markdown("#### 📊 Modelo Poisson (últimos partidos)")
+
+                        # Inputs manuales de estadísticas si no hay API
+                        cp1, cp2 = st.columns(2)
+                        with cp1:
+                            st.markdown(f"**{loc_name[:20]}**")
+                            gf_loc_p = st.number_input("Goles/partido (ataque)", 0.1, 5.0, 1.5, 0.1, key=f"gf_loc_{p['id']}", help="Promedio goles a favor últimos 10 partidos")
+                            gc_loc_p = st.number_input("Goles recibidos/partido", 0.1, 5.0, 1.2, 0.1, key=f"gc_loc_{p['id']}", help="Promedio goles en contra últimos 10 partidos")
+                        with cp2:
+                            st.markdown(f"**{vis_name[:20]}**")
+                            gf_vis_p = st.number_input("Goles/partido (ataque)", 0.1, 5.0, 1.3, 0.1, key=f"gf_vis_{p['id']}", help="Promedio goles a favor últimos 10 partidos")
+                            gc_vis_p = st.number_input("Goles recibidos/partido", 0.1, 5.0, 1.3, 0.1, key=f"gc_vis_{p['id']}", help="Promedio goles en contra últimos 10 partidos")
+
+                        pl_poi, pe_poi, pv_poi = poisson_seleccion(gf_loc_p, gc_loc_p, gf_vis_p, gc_vis_p)
+
+                        if pl_poi:
+                            cp1b, cp2b, cp3b = st.columns(3)
+                            with cp1b:
+                                color_lp = "#22c55e" if pl_poi > 0.45 else "#94a3b8"
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:24px;font-weight:700;color:{color_lp};">{pl_poi*100:.1f}%</div></div>', unsafe_allow_html=True)
+                            with cp2b:
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:24px;font-weight:700;color:#f59e0b;">{pe_poi*100:.1f}%</div></div>', unsafe_allow_html=True)
+                            with cp3b:
+                                color_vp = "#22c55e" if pv_poi > 0.45 else "#94a3b8"
+                                st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISITANTE</div><div style="font-size:24px;font-weight:700;color:{color_vp};">{pv_poi*100:.1f}%</div></div>', unsafe_allow_html=True)
+
+                        # ── VEREDICTO COMBINADO ─────────────────────
+                        st.markdown("---")
+                        st.markdown("#### ⚖️ Tu decisión")
+
+                        modelo_usar = st.radio(
+                            "¿Con qué modelo quieres calcular el value?",
+                            ["Elo", "Poisson", "Promedio de ambos"],
+                            horizontal=True,
+                            key=f"modelo_{p['id']}"
+                        )
+
+                        if modelo_usar == "Elo" and elo_ok:
+                            pl_f, pe_f, pv_f = pl_elo, pe_elo, pv_elo
+                        elif modelo_usar == "Poisson" and pl_poi:
+                            pl_f, pe_f, pv_f = pl_poi, pe_poi, pv_poi
+                        elif elo_ok and pl_poi:
+                            pl_f = round((pl_elo + pl_poi)/2, 4)
+                            pe_f = round((pe_elo + pe_poi)/2, 4)
+                            pv_f = round((pv_elo + pv_poi)/2, 4)
+                        elif elo_ok:
+                            pl_f, pe_f, pv_f = pl_elo, pe_elo, pv_elo
+                        elif pl_poi:
+                            pl_f, pe_f, pv_f = pl_poi, pe_poi, pv_poi
+                        else:
+                            pl_f = pe_f = pv_f = None
+
+                        if pl_f:
+                            im_ami = impl({"local": ql_ami, "empate": qe_ami, "visit": qv_ami})
+                            vig_ami = im_ami["vig"]
+                            if vig_ami <= 7:
+                                st.markdown(f'<div class="vig-ok">✓ Vig: {vig_ami}% — mercado limpio</div>', unsafe_allow_html=True)
+                            elif vig_ami <= 12:
+                                st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig_ami}%</div>', unsafe_allow_html=True)
+                            else:
+                                st.markdown(f'<div class="vig-bad">✗ Vig: {vig_ami}% — mercado caro</div>', unsafe_allow_html=True)
+
+                            st.markdown("**Veredicto:**")
+                            for nm, pm_f, cu, et in [
+                                ("local", pl_f, ql_ami, loc_name),
+                                ("empate", pe_f, qe_ami, "Empate"),
+                                ("visit", pv_f, qv_ami, vis_name)
+                            ]:
+                                k = kelly_calc(pm_f, cu, kf, bank, ue)
+                                if k["value"]:
+                                    st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>P MODELO</label><span>{pm_f*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im_ami["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k["kelly"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>', unsafe_allow_html=True)
+                                else:
+                                    st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · cuota {cu} · edge {k["edge"]:+.1f}%</span></div>', unsafe_allow_html=True)
