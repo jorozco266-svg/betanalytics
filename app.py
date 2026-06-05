@@ -116,7 +116,7 @@ API_TSDB = "https://www.thesportsdb.com/api/v1/json/3"
 TZ_COL   = ZoneInfo("America/Bogota")
 FL       = 1.15
 MG       = 8
-BK_INIT  = 70213
+BK_INIT  = 119613
 
 # Liga: source indica de dónde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
@@ -1623,7 +1623,7 @@ def buscar_jugador(nombre, elo_g):
 # SESSION STATE
 # ─────────────────────────────────────────────
 def init():
-    if "bankroll" not in st.session_state: st.session_state.bankroll=70213
+    if "bankroll" not in st.session_state: st.session_state.bankroll=119613
     if "wins"     not in st.session_state: st.session_state.wins=5
     if "losses"   not in st.session_state: st.session_state.losses=0
     if "apuestas" not in st.session_state:
