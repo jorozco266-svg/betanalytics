@@ -2458,3 +2458,82 @@ with tab6:
                                     st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>P MODELO</label><span>{pm_f*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im_ami["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k["ku"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>', unsafe_allow_html=True)
                                 else:
                                     st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · cuota {cu} · edge {k["edge"]:+.1f}%</span></div>', unsafe_allow_html=True)
+
+        # ── Analizador manual de selecciones ────────────────────
+        st.markdown("---")
+        st.markdown("### 🔍 Analizar cualquier partido manualmente")
+        st.caption("Escribe las selecciones y obtén el análisis Elo instantáneo.")
+
+        # Mostrar selecciones disponibles en el Elo
+        with st.expander("📋 Ver selecciones disponibles en base Elo"):
+            sel_lista = sorted(elo_sel.keys())
+            cols_sel = st.columns(4)
+            for i, s in enumerate(sel_lista):
+                with cols_sel[i % 4]:
+                    st.markdown(f"`{s}` — {elo_sel[s]}")
+
+        cm1, cm2 = st.columns(2)
+        with cm1:
+            sel_local_m = st.text_input("Selección local", placeholder="Ej: Slovakia", key="man_loc")
+        with cm2:
+            sel_visit_m = st.text_input("Selección visitante", placeholder="Ej: Montenegro", key="man_vis")
+
+        es_neutral_m = st.checkbox("Cancha neutral", value=True, key="man_neutral")
+
+        cqm1, cqm2, cqm3 = st.columns(3)
+        with cqm1: ql_m = st.number_input("Cuota local",  1.01, 50.0, 2.00, 0.05, format="%.2f", key="man_ql")
+        with cqm2: qe_m = st.number_input("Cuota empate", 1.01, 50.0, 3.20, 0.05, format="%.2f", key="man_qe")
+        with cqm3: qv_m = st.number_input("Cuota visit",  1.01, 50.0, 3.80, 0.05, format="%.2f", key="man_qv")
+
+        if sel_local_m and sel_visit_m:
+            elo_loc_m = buscar_elo(sel_local_m, elo_sel)
+            elo_vis_m = buscar_elo(sel_visit_m, elo_sel)
+
+            if elo_loc_m and elo_vis_m:
+                pl_m, pe_m, pv_m = prob_elo_selecciones(elo_loc_m, elo_vis_m, es_neutral=es_neutral_m)
+                diff_m = elo_loc_m - elo_vis_m
+
+                st.markdown("---")
+                # Ratings
+                c1m, c2m = st.columns(2)
+                with c1m:
+                    st.metric(f"Elo {sel_local_m}", elo_loc_m)
+                with c2m:
+                    st.metric(f"Elo {sel_visit_m}", elo_vis_m,
+                              delta=f"{abs(diff_m)} pts {'favor local' if diff_m>0 else 'favor visit'}")
+
+                # Probabilidades Elo
+                ca, cb, cc = st.columns(3)
+                with ca:
+                    color = "#22c55e" if pl_m > 0.45 else "#94a3b8"
+                    st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL GANA</div><div style="font-size:32px;font-weight:700;color:{color};">{pl_m*100:.1f}%</div><div style="font-size:11px;color:var(--text3);">Elo</div></div>', unsafe_allow_html=True)
+                with cb:
+                    st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:32px;font-weight:700;color:#f59e0b;">{pe_m*100:.1f}%</div><div style="font-size:11px;color:var(--text3);">Elo</div></div>', unsafe_allow_html=True)
+                with cc:
+                    color = "#22c55e" if pv_m > 0.45 else "#94a3b8"
+                    st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT GANA</div><div style="font-size:32px;font-weight:700;color:{color};">{pv_m*100:.1f}%</div><div style="font-size:11px;color:var(--text3);">Elo</div></div>', unsafe_allow_html=True)
+
+                # Veredicto Kelly
+                st.markdown("**Veredicto:**")
+                im_m = impl({"local": ql_m, "empate": qe_m, "visit": qv_m})
+                vig_m = im_m["vig"]
+                if vig_m <= 7:    st.markdown(f'<div class="vig-ok">✓ Vig: {vig_m}%</div>', unsafe_allow_html=True)
+                elif vig_m <= 12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig_m}%</div>', unsafe_allow_html=True)
+                else:             st.markdown(f'<div class="vig-bad">✗ Vig: {vig_m}% — mercado caro</div>', unsafe_allow_html=True)
+
+                for nm, pm_v, cu, et in [
+                    ("local", pl_m, ql_m, sel_local_m),
+                    ("empate", pe_m, qe_m, "Empate"),
+                    ("visit", pv_m, qv_m, sel_visit_m)
+                ]:
+                    k = kelly_calc(pm_v, cu, kf, bank, ue)
+                    if k["value"]:
+                        st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et} · cuota {cu}</div><div class="vbet-grid"><div class="vbet-item"><label>P ELO</label><span>{pm_v*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im_m["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k["ku"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k["r"]:,}</span></div></div></div>', unsafe_allow_html=True)
+                    else:
+                        st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et} · cuota {cu} · edge {k["edge"]:+.1f}%</span></div>', unsafe_allow_html=True)
+
+            else:
+                if not elo_loc_m:
+                    st.warning(f"⚠️ '{sel_local_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
+                if not elo_vis_m:
+                    st.warning(f"⚠️ '{sel_visit_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
