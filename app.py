@@ -1151,6 +1151,27 @@ def cargar_elo_selecciones():
         "Uzbekistan": 1412, "Iran": 1428, "Iraq": 1398, "Saudi Arabia": 1389,
         "Pakistan": 1102, "Bangladesh": 1089,
         "Gibraltar": 902, "British Virgin Islands": 847,
+        "Azerbaijan": 1382, "Armenia": 1398, "Belarus": 1412,
+        "Moldova": 1321, "Kosovo": 1489, "Estonia": 1398,
+        "Latvia": 1412, "Lithuania": 1387, "Faroe Islands": 1356,
+        "Malta": 1298, "Andorra": 1089, "Liechtenstein": 1023,
+        "San Marino": 876, "Montenegro": 1521, "Slovakia": 1598,
+        "North Macedonia": 1534, "Bosnia": 1571,
+        "Bahrain": 1312, "Saudi Arabia": 1389, "Jordan": 1356,
+        "UAE": 1334, "Kuwait": 1289, "Oman": 1298,
+        "Egypt": 1612, "Tunisia": 1589, "Algeria": 1738,
+        "Morocco": 1845, "Senegal": 1869, "Ivory Coast": 1771,
+        "Ghana": 1776, "Nigeria": 1768, "Cameroon": 1698,
+        "DR Congo": 1438, "Congo DR": 1438,
+        "Zambia": 1398, "Zimbabwe": 1312, "Kenya": 1298,
+        "Haiti": 1458, "Jamaica": 1521, "Panama": 1612,
+        "Costa Rica": 1638, "Honduras": 1489, "El Salvador": 1423,
+        "Guatemala": 1398, "Cuba": 1312, "Trinidad and Tobago": 1445,
+        "Peru": 1698, "Bolivia": 1612, "Ecuador": 1798,
+        "Venezuela": 1634, "Paraguay": 1656,
+        "New Zealand": 1441, "Australia": 1756,
+        "Japan": 1834, "South Korea": 1756, "Iran": 1698,
+        "Uzbekistan": 1534, "Saudi Arabia": 1456,
     }
     return ELO_2026, "Usando ratings fallback (eloratings.net no disponible)"
 
@@ -1321,34 +1342,212 @@ def get_team_id_seleccion(nombre, api_key):
         return None, str(ex)
 
 def buscar_elo(nombre, elo_dict):
-    """Busca el Elo de una selección con matching flexible."""
+    """Busca el Elo de una selección con matching flexible — soporta español e inglés."""
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-    # Aliases comunes
+
+    # Aliases: nombre en español/variante → nombre en diccionario Elo
     ALIASES = {
-        "dr congo": ["dr congo", "congo dr", "democratic republic of congo", "rd congo", "rdc"],
-        "ivory coast": ["ivory coast", "cote d ivoire", "côte d'ivoire"],
-        "south korea": ["south korea", "korea republic", "korea"],
-        "usa": ["usa", "united states", "united states of america"],
-        "northern ireland": ["northern ireland"],
-        "new zealand": ["new zealand", "nueva zelanda"],
-        "iran": ["iran", "ir iran"],
+        # Español → Inglés
+        "azerbaiyan": "Azerbaijan", "azerbaiyán": "Azerbaijan",
+        "belgica": "Belgium", "bélgica": "Belgium",
+        "dinamarca": "Denmark",
+        "escocia": "Scotland",
+        "eslovakia": "Slovakia", "eslovaquia": "Slovakia",
+        "eslovenia": "Slovenia",
+        "espana": "Spain", "españa": "Spain",
+        "finlandia": "Finland",
+        "francia": "France",
+        "gales": "Wales",
+        "georgia": "Georgia",
+        "grecia": "Greece",
+        "hungria": "Hungary", "hungría": "Hungary",
+        "irlanda": "Republic of Ireland", "republica de irlanda": "Republic of Ireland",
+        "irlanda del norte": "Northern Ireland",
+        "islandia": "Iceland",
+        "italia": "Italy",
+        "noruega": "Norway",
+        "paises bajos": "Netherlands", "países bajos": "Netherlands",
+        "polonia": "Poland",
+        "portugal": "Portugal",
+        "rumania": "Romania", "rumanía": "Romania",
+        "rusia": "Russia",
+        "serbia": "Serbia",
+        "suecia": "Sweden",
+        "suiza": "Switzerland",
+        "turquia": "Turkey", "turquía": "Turkey",
+        "ucrania": "Ukraine",
+        "alemania": "Germany",
+        "austria": "Austria",
+        "croacia": "Croatia",
+        "chipre": "Cyprus",
+        "luxemburgo": "Luxembourg",
+        "armenia": "Armenia",
+        "bielorrusia": "Belarus",
+        "estonia": "Estonia",
+        "letonia": "Latvia",
+        "lituania": "Lithuania",
+        "moldavia": "Moldova",
+        "islas feroe": "Faroe Islands",
+        "andorra": "Andorra",
+        "san marino": "San Marino",
+        "gibraltar": "Gibraltar",
+        "malta": "Malta",
+        "kosovo": "Kosovo",
+        "albania": "Albania",
+        "israel": "Israel",
+        "macedonia del norte": "North Macedonia",
+        "bosnia": "Bosnia and Herzegovina",
+        "montenegro": "Montenegro",
+        # América
+        "estados unidos": "USA", "eeuu": "USA",
+        "canada": "Canada", "canadá": "Canada",
+        "mexico": "Mexico", "méxico": "Mexico",
+        "brasil": "Brazil",
+        "argentina": "Argentina",
+        "colombia": "Colombia",
+        "chile": "Chile",
+        "peru": "Peru", "perú": "Peru",
+        "uruguay": "Uruguay",
+        "ecuador": "Ecuador",
+        "venezuela": "Venezuela",
+        "paraguay": "Paraguay",
+        "bolivia": "Bolivia",
+        "costa rica": "Costa Rica",
+        "panama": "Panama", "panamá": "Panama",
+        "jamaica": "Jamaica",
+        "haiti": "Haiti", "haití": "Haiti",
+        "honduras": "Honduras",
+        "el salvador": "El Salvador",
+        "guatemala": "Guatemala",
+        "cuba": "Cuba",
+        "nicaragua": "Nicaragua",
+        "trinidad y tobago": "Trinidad and Tobago",
+        "republica dominicana": "Dominican Republic",
+        "república dominicana": "Dominican Republic",
+        "puerto rico": "Puerto Rico",
+        "curazao": "Curacao",
+        "islas virgenes britanicas": "British Virgin Islands",
+        "islas vírgenes británicas": "British Virgin Islands",
+        # África
+        "marruecos": "Morocco",
+        "argelia": "Algeria",
+        "egipto": "Egypt",
+        "tunez": "Tunisia", "túnez": "Tunisia",
+        "nigeria": "Nigeria",
+        "ghana": "Ghana",
+        "costa de marfil": "Ivory Coast",
+        "camerun": "Cameroon", "camerún": "Cameroon",
+        "senegal": "Senegal",
+        "mali": "Mali", "malí": "Mali",
+        "burkina faso": "Burkina Faso",
+        "rd congo": "DR Congo", "rep dem congo": "DR Congo",
+        "congo dr": "DR Congo",
+        "angola": "Angola",
+        "benin": "Benin", "benín": "Benin",
+        "niger": "Niger", "níger": "Niger",
+        "mauritania": "Mauritania",
+        "cabo verde": "Cape Verde",
+        "zimbabue": "Zimbabwe",
+        "zambia": "Zambia",
+        "uganda": "Uganda",
+        "kenia": "Kenya",
+        "etiopia": "Ethiopia", "etiopía": "Ethiopia",
+        "guinea": "Guinea",
+        "guinea bissau": "Guinea-Bissau",
+        "guinea ecuatorial": "Equatorial Guinea",
+        "gabon": "Gabon", "gabón": "Gabon",
+        "mozambique": "Mozambique",
+        "tanzania": "Tanzania",
+        "ruanda": "Rwanda",
+        "namibia": "Namibia",
+        "botswana": "Botswana",
+        "liberia": "Liberia",
+        "togo": "Togo",
+        "sierra leona": "Sierra Leone",
+        "gambia": "Gambia",
+        "sudan": "Sudan", "sudán": "Sudan",
+        "libia": "Libya",
+        "madagascar": "Madagascar",
+        "comoras": "Comoros",
+        "mauricio": "Mauritius",
+        "seychelles": "Seychelles",
+        "suazilandia": "Eswatini",
+        "lesoto": "Lesotho",
+        "somalia": "Somalia",
+        "yibuti": "Djibouti",
+        "eritrea": "Eritrea",
+        "republica centroafricana": "Central African Republic",
+        "chad": "Chad",
+        "burundi": "Burundi",
+        "sudan del sur": "South Sudan",
+        "sudafrica": "South Africa", "sudáfrica": "South Africa",
+        # Asia
+        "japon": "Japan", "japón": "Japan",
+        "corea del sur": "South Korea",
+        "iran": "Iran", "irán": "Iran",
+        "arabia saudi": "Saudi Arabia", "arabia saudita": "Saudi Arabia",
+        "uzbekistan": "Uzbekistan",
+        "irak": "Iraq",
+        "jordania": "Jordan",
+        "barein": "Bahrain", "baréin": "Bahrain",
+        "emiratos arabes unidos": "UAE",
+        "catar": "Qatar",
+        "oman": "Oman", "omán": "Oman",
+        "kuwait": "Kuwait",
+        "siria": "Syria",
+        "libano": "Lebanon", "líbano": "Lebanon",
+        "palestina": "Palestine",
+        "afganistan": "Afghanistan", "afganistán": "Afghanistan",
+        "filipinas": "Philippines",
+        "vietnam": "Vietnam",
+        "tailandia": "Thailand",
+        "indonesia": "Indonesia",
+        "malasia": "Malaysia",
+        "singapur": "Singapore",
+        "india": "India",
+        "pakistan": "Pakistan", "pakistán": "Pakistan",
+        "bangladesh": "Bangladesh",
+        "myanmar": "Myanmar",
+        "camboya": "Cambodia",
+        "china": "China",
+        "corea del norte": "North Korea",
+        # Oceanía
+        "australia": "Australia",
+        "nueva zelanda": "New Zealand",
+        "fiyi": "Fiji",
+        "papua nueva guinea": "Papua New Guinea",
+        "islas salomon": "Solomon Islands", "islas salomón": "Solomon Islands",
+        "vanuatu": "Vanuatu",
+        "tahiti": "Tahiti", "tahití": "Tahiti",
+        # Otros alias comunes
+        "dr congo": "DR Congo",
+        "ivory coast": "Ivory Coast",
+        "cote d ivoire": "Ivory Coast",
+        "korea republic": "South Korea",
+        "united states": "USA",
+        "republic of ireland": "Republic of Ireland",
     }
-    nombre_n = norm(nombre)
-    # Búsqueda directa
+
     if nombre in elo_dict: return elo_dict[nombre]
-    # Búsqueda normalizada
+    nombre_n = norm(nombre)
+
+    # Chequear aliases
+    if nombre_n in ALIASES:
+        target = ALIASES[nombre_n]
+        if target in elo_dict: return elo_dict[target]
+
+    # Exacto normalizado
     for k, v in elo_dict.items():
         if norm(k) == nombre_n: return v
-    # Aliases
-    for canonical, variantes in ALIASES.items():
-        if any(v in nombre_n for v in variantes):
-            for k, val in elo_dict.items():
-                if norm(k) == canonical: return val
-    # Parcial
-    for k, v in elo_dict.items():
-        k_n = norm(k)
-        if nombre_n in k_n or k_n in nombre_n: return v
+
+    # Parcial — primera palabra
+    primera = nombre_n.split()[0] if nombre_n.split() else nombre_n
+    if len(primera) > 3:
+        for k, v in elo_dict.items():
+            if primera in norm(k) or norm(k).split()[0] == primera:
+                return v
+
     return None
 
 def poisson_seleccion(gf_avg_loc, gc_avg_loc, gf_avg_vis, gc_avg_vis, avg_goles=2.5):
