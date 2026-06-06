@@ -426,6 +426,7 @@ def resolver_nombre(nombre, liga, modelo):
     return nombre if nombre in modelo else None
 
 
+def fact(n):
     r=1
     for i in range(2,n+1): r*=i
     return r
