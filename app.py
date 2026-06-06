@@ -283,9 +283,9 @@ HIST_CONMEBOL = {
         ("Liverpool",              22, 15, 14), ("Defensor Sporting",      20, 16, 14),
         ("Danubio",                18, 17, 14), ("Montevideo City Torque", 17, 17, 14),
         ("Rentistas",              16, 18, 14), ("Fénix",                  15, 19, 14),
-        ("Miramar Misiones",       14, 20, 14), ("Deportivo Maldonado",    13, 20, 14),
+        ("Central Español",        14, 20, 14), ("Deportivo Maldonado",    13, 20, 14),
         ("Cerro Largo",            12, 21, 13), ("Cerro",                  11, 22, 13),
-        ("Plaza Colonia",          10, 23, 13), ("Racing",                  9, 24, 13),
+        ("Plaza Colonia",          10, 23, 13), ("Racing Montevideo",        9, 24, 13),
         ("Boston River",            8, 25, 13), ("Progreso",                7, 26, 13),
     ],
     "Paraguay": [
