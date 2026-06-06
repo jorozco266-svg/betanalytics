@@ -2661,21 +2661,33 @@ with tab6:
         # ── Analizador manual de selecciones ────────────────────
         st.markdown("---")
         st.markdown("### 🔍 Analizar cualquier partido manualmente")
-        st.caption("Escribe las selecciones y obtén el análisis Elo instantáneo.")
+        st.caption("Busca la selección escribiendo su nombre — el desplegable filtra automáticamente.")
 
-        # Mostrar selecciones disponibles en el Elo
-        with st.expander("📋 Ver selecciones disponibles en base Elo"):
-            sel_lista = sorted(elo_sel.keys())
-            cols_sel = st.columns(4)
-            for i, s in enumerate(sel_lista):
-                with cols_sel[i % 4]:
-                    st.markdown(f"`{s}` — {elo_sel[s]}")
+        # Lista completa de selecciones ordenadas por nombre
+        sel_lista = sorted(elo_sel.keys())
+        opciones = ["— Selecciona —"] + sel_lista
 
         cm1, cm2 = st.columns(2)
         with cm1:
-            sel_local_m = st.text_input("Selección local", placeholder="Ej: Slovakia", key="man_loc")
+            sel_local_m = st.selectbox(
+                "🏠 Selección local",
+                opciones,
+                index=0,
+                key="man_loc",
+                help="Escribe para filtrar"
+            )
+            if sel_local_m == "— Selecciona —":
+                sel_local_m = ""
         with cm2:
-            sel_visit_m = st.text_input("Selección visitante", placeholder="Ej: Montenegro", key="man_vis")
+            sel_visit_m = st.selectbox(
+                "✈️ Selección visitante",
+                opciones,
+                index=0,
+                key="man_vis",
+                help="Escribe para filtrar"
+            )
+            if sel_visit_m == "— Selecciona —":
+                sel_visit_m = ""
 
         es_neutral_m = st.checkbox("Cancha neutral", value=True, key="man_neutral")
 
