@@ -279,14 +279,15 @@ HIST_CONMEBOL = {
         ("Rangers",               9, 23, 14), ("Unión La Calera",        8, 24, 14),
     ],
     "Uruguay": [
-        ("Nacional",               30, 10, 14), ("Peñarol",               28, 12, 14),
-        ("Liverpool",              22, 15, 14), ("Defensor Sporting",      20, 16, 14),
-        ("Danubio",                18, 17, 14), ("Montevideo City Torque", 17, 17, 14),
-        ("Rentistas",              16, 18, 14), ("Fénix",                  15, 19, 14),
-        ("Central Español",        14, 20, 14), ("Deportivo Maldonado",    13, 20, 14),
-        ("Cerro Largo",            12, 21, 13), ("Cerro",                  11, 22, 13),
-        ("Plaza Colonia",          10, 23, 13), ("Racing Montevideo",        9, 24, 13),
-        ("Boston River",            8, 25, 13), ("Progreso",                7, 26, 13),
+        # Fuente: Tabla Apertura 2026 — 15 jornadas completas (datos verificados)
+        ("Racing Montevideo",      23, 14, 15), ("Deportivo Maldonado",    24, 16, 15),
+        ("Albion",                 26, 16, 15), ("Peñarol",                23, 16, 15),
+        ("Central Español",        23, 22, 15), ("Montevideo City Torque", 22, 16, 15),
+        ("Nacional",               26, 21, 15), ("Defensor Sporting",      13, 11, 15),
+        ("Liverpool Montevideo",   20, 18, 15), ("Montevideo Wanderers",   16, 21, 15),
+        ("Danubio",                17, 21, 15), ("Cerro Largo",            16, 19, 15),
+        ("Boston River",           14, 20, 15), ("Juventud",               17, 22, 15),
+        ("Progreso",               12, 23, 15), ("Cerro",                   8, 24, 15),
     ],
     "Paraguay": [
         ("Libertad",              32, 10, 14), ("Olimpia",               28, 13, 14),
@@ -338,7 +339,93 @@ HIST_CONMEBOL = {
 }
 
 
-def fact(n):
+# ─────────────────────────────────────────────
+# EQUIVALENCIAS DE NOMBRES entre fuentes
+# Wikipedia / AUF → nombre en HIST_CONMEBOL (que coincide con TheSportsDB)
+# Estable durante la temporada — solo cambia entre temporadas
+# ─────────────────────────────────────────────
+NOMBRES_EQUIV = {
+    "Uruguay": {
+        # Código AUF → nombre en modelo
+        "RAC": "Racing Montevideo", "Racing": "Racing Montevideo",
+        "Racing Club": "Racing Montevideo",
+        "CDM": "Deportivo Maldonado",
+        "ALB": "Albion",
+        "PEÑ": "Peñarol", "Peñarol": "Peñarol",
+        "CES": "Central Español", "Central": "Central Español",
+        "MCT": "Montevideo City Torque", "Torque": "Montevideo City Torque",
+        "City Torque": "Montevideo City Torque",
+        "NAC": "Nacional", "Nacional": "Nacional",
+        "DEF": "Defensor Sporting", "Defensor": "Defensor Sporting",
+        "LIV": "Liverpool Montevideo", "Liverpool": "Liverpool Montevideo",
+        "WAN": "Montevideo Wanderers", "Wanderers": "Montevideo Wanderers",
+        "DAN": "Danubio",
+        "CRL": "Cerro Largo",
+        "BRI": "Boston River",
+        "JUV": "Juventud", "Juventud": "Juventud",
+        "PRO": "Progreso",
+        "CRR": "Cerro", "Cerro": "Cerro",
+        "Miramar Misiones": "Central Español",  # nombre anterior incorrecto
+    },
+    "Chile": {
+        "U. de Chile": "Universidad de Chile",
+        "U. Católica": "Universidad Católica",
+        "Univ. de Chile": "Universidad de Chile",
+        "Univ. Católica": "Universidad Católica",
+        "O'Higgins": "O'Higgins",
+        "Iquique": "Deportes Iquique",
+        "Antofagasta": "Deportes Antofagasta",
+        "La Calera": "Unión La Calera",
+    },
+    "Ecuador": {
+        "LDU": "Liga de Quito", "Liga de Quito": "Liga de Quito",
+        "IDV": "Independiente del Valle",
+        "Barcelona": "Barcelona SC",
+        "Técnico": "Técnico Universitario",
+        "U. Católica": "Universidad Católica",
+    },
+    "Paraguay": {
+        "Olimpia": "Olimpia",
+        "Cerro": "Cerro Porteño",
+        "Sol": "Sol de América",
+        "Luqueño": "Sportivo Luqueño",
+        "Ameliano": "Sportivo Ameliano",
+        "Gral. Caballero": "General Caballero JLM",
+    },
+    "Bolivia": {
+        "The Strongest": "The Strongest",
+        "Always Ready": "Always Ready",
+        "Bolívar": "Bolívar",
+        "Oriente": "Oriente Petrolero",
+        "San José": "GV San José",
+        "Nacional Potosí": "Nacional Potosí",
+        "Tomayapo": "Real Tomayapo",
+        "Vinto": "Universitario de Vinto",
+    },
+}
+
+def resolver_nombre(nombre, liga, modelo):
+    """
+    Resuelve el nombre de un equipo usando el diccionario de equivalencias.
+    Si no hay equivalencia, usa el matcher flexible existente.
+    """
+    equiv = NOMBRES_EQUIV.get(liga, {})
+    # Buscar equivalencia directa
+    if nombre in equiv:
+        nombre_equiv = equiv[nombre]
+        if nombre_equiv in modelo:
+            return nombre_equiv
+    # Búsqueda parcial en equivalencias
+    import unicodedata
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    nombre_n = norm(nombre)
+    for k, v in equiv.items():
+        if norm(k) == nombre_n:
+            if v in modelo: return v
+    # Fallback al matcher normal
+    return nombre if nombre in modelo else None
+
+
     r=1
     for i in range(2,n+1): r*=i
     return r
