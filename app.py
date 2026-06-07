@@ -2584,8 +2584,71 @@ with tab6:
         st.markdown("---")
         dias_vista = st.slider("Días hacia adelante", 1, 5, 3, key="ami_dias")
 
-        with st.spinner("Cargando amistosos desde API-Football..."):
+        with st.spinner("Cargando amistosos desde TheSportsDB..."):
             amistosos, err_ami = get_amistosos_hoy(rf_key, dias_vista)
+
+        # Partidos hardcodeados fecha FIFA 7-9 junio 2026
+        # Fuente: marcadoresonline.com / bolavip verificado 7-jun-2026
+        import hashlib
+        TZ_COL_AMI = ZoneInfo("America/Bogota")
+        ahora_ami2 = datetime.datetime.now(TZ_COL_AMI)
+
+        PARTIDOS_FIFA = [
+            # 7 junio
+            ("Turkey",      "Venezuela",    "2026-06-07", "00:00"),
+            ("Brazil",      "Egypt",        "2026-06-07", "00:00"),
+            ("Argentina",   "Honduras",     "2026-06-07", "02:00"),
+            ("Curacao",     "Aruba",        "2026-06-07", "02:00"),
+            ("Oman",        "Mozambique",   "2026-06-07", "12:00"),
+            ("Afghanistan", "Pakistan",     "2026-06-07", "13:00"),
+            ("Liechtenstein","Cyprus",      "2026-06-07", "15:00"),
+            ("Kenya",       "Lesotho",      "2026-06-07", "15:00"),
+            ("Denmark",     "Ukraine",      "2026-06-07", "18:30"),
+            ("Kosovo",      "Andorra",      "2026-06-07", "20:00"),
+            ("Croatia",     "Slovenia",     "2026-06-07", "20:45"),
+            ("Greece",      "Italy",        "2026-06-07", "21:00"),
+            ("Morocco",     "Norway",       "2026-06-07", "21:00"),
+            ("Ecuador",     "Guatemala",    "2026-06-07", "22:00"),
+            ("Colombia",    "Jordan",       "2026-06-07", "19:00"),
+            # 8 junio
+            ("Netherlands", "Uzbekistan",   "2026-06-08", "20:45"),
+            ("France",      "Northern Ireland","2026-06-08","21:10"),
+            ("Peru",        "Spain",        "2026-06-08", "22:00"),
+            # 9 junio
+            ("Argentina",   "Iceland",      "2026-06-09", "20:00"),
+            ("DR Congo",    "Chile",        "2026-06-09", "16:00"),
+            ("Angola",      "Central African Republic","2026-06-09","14:00"),
+            ("Ethiopia",    "Malawi",       "2026-06-09", "14:00"),
+            ("Philippines", "Myanmar",      "2026-06-09", "13:30"),
+            ("Indonesia",   "Mozambique",   "2026-06-09", "15:00"),
+            ("China",       "Thailand",     "2026-06-09", "13:35"),
+            ("Armenia",     "Moldova",      "2026-06-09", "18:00"),
+        ]
+
+        vistos_ami = set(f"{p['local']}{p['visit']}{p['fecha']}" for p in amistosos)
+        for loc, vis, fecha, hora in PARTIDOS_FIFA:
+            uid_raw = f"{loc}{vis}{fecha}"
+            if uid_raw in vistos_ami: continue
+            try:
+                dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+                dt = dt.replace(tzinfo=TZ_COL_AMI)
+            except:
+                continue
+            dias_diff = (dt.date() - ahora_ami2.date()).days
+            if dias_diff < 0 or dias_diff > dias_vista: continue
+            amistosos.append({
+                "id": hashlib.md5(uid_raw.encode()).hexdigest()[:8],
+                "dt": dt, "fecha": fecha,
+                "hora": dt.strftime("%I:%M %p"),
+                "local": loc, "visit": vis,
+                "ya_jugado": False,
+                "gol_loc": None, "gol_vis": None,
+                "hoy": dias_diff == 0,
+                "manana": dias_diff == 1,
+                "venue": "", "city": "",
+                "liga": "International Friendlies",
+            })
+        amistosos.sort(key=lambda x: x["dt"])
 
         if err_ami:
             st.warning(f"Error cargando amistosos: {err_ami}")
@@ -2752,31 +2815,114 @@ with tab6:
         st.markdown("### 🔍 Analizar cualquier partido manualmente")
         st.caption("Busca la selección escribiendo su nombre — el desplegable filtra automáticamente.")
 
-        # Lista completa de selecciones ordenadas por nombre
-        sel_lista = sorted(elo_sel.keys())
-        opciones = ["— Selecciona —"] + sel_lista
+        # Lista completa con nombres en español para el selectbox
+        NOMBRES_ES = {
+            "Afghanistan": "🇦🇫 Afganistán", "Albania": "🇦🇱 Albania",
+            "Algeria": "🇩🇿 Argelia", "Andorra": "🇦🇩 Andorra",
+            "Angola": "🇦🇴 Angola", "Argentina": "🇦🇷 Argentina",
+            "Armenia": "🇦🇲 Armenia", "Australia": "🇦🇺 Australia",
+            "Austria": "🇦🇹 Austria", "Azerbaijan": "🇦🇿 Azerbaiyán",
+            "Bahrain": "🇧🇭 Baréin", "Bangladesh": "🇧🇩 Bangladesh",
+            "Belgium": "🇧🇪 Bélgica", "Benin": "🇧🇯 Benín",
+            "Bolivia": "🇧🇴 Bolivia", "Bosnia and Herzegovina": "🇧🇦 Bosnia",
+            "Boston River": "Boston River", "Botswana": "🇧🇼 Botsuana",
+            "Brazil": "🇧🇷 Brasil", "British Virgin Islands": "🇻🇬 Islas Vírgenes Brit.",
+            "Burkina Faso": "🇧🇫 Burkina Faso", "Burundi": "🇧🇮 Burundi",
+            "Cambodia": "🇰🇭 Camboya", "Cameroon": "🇨🇲 Camerún",
+            "Canada": "🇨🇦 Canadá", "Cape Verde": "🇨🇻 Cabo Verde",
+            "Central African Republic": "🇨🇫 Rep. Centroafricana",
+            "Chad": "🇹🇩 Chad", "Chile": "🇨🇱 Chile",
+            "China": "🇨🇳 China", "Colombia": "🇨🇴 Colombia",
+            "Comoros": "🇰🇲 Comoras", "Congo": "🇨🇬 Congo",
+            "Costa Rica": "🇨🇷 Costa Rica", "Cote d'Ivoire": "🇨🇮 Costa de Marfil",
+            "Croatia": "🇭🇷 Croacia", "Cuba": "🇨🇺 Cuba",
+            "Curacao": "🇨🇼 Curazao", "Cyprus": "🇨🇾 Chipre",
+            "Czech Republic": "🇨🇿 Rep. Checa", "Denmark": "🇩🇰 Dinamarca",
+            "Djibouti": "🇩🇯 Yibuti", "Dominican Republic": "🇩🇴 Rep. Dominicana",
+            "DR Congo": "🇨🇩 RD Congo", "Ecuador": "🇪🇨 Ecuador",
+            "Egypt": "🇪🇬 Egipto", "El Salvador": "🇸🇻 El Salvador",
+            "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra", "Eritrea": "🇪🇷 Eritrea",
+            "Estonia": "🇪🇪 Estonia", "Eswatini": "🇸🇿 Suazilandia",
+            "Ethiopia": "🇪🇹 Etiopía", "Faroe Islands": "🇫🇴 Islas Feroe",
+            "Fiji": "🇫🇯 Fiyi", "Finland": "🇫🇮 Finlandia",
+            "France": "🇫🇷 Francia", "Gabon": "🇬🇦 Gabón",
+            "Gambia": "🇬🇲 Gambia", "Georgia": "🇬🇪 Georgia",
+            "Germany": "🇩🇪 Alemania", "Ghana": "🇬🇭 Ghana",
+            "Gibraltar": "🇬🇮 Gibraltar", "Greece": "🇬🇷 Grecia",
+            "Guatemala": "🇬🇹 Guatemala", "Guinea": "🇬🇳 Guinea",
+            "Guinea-Bissau": "🇬🇼 Guinea-Bisáu", "Haiti": "🇭🇹 Haití",
+            "Honduras": "🇭🇳 Honduras", "Hungary": "🇭🇺 Hungría",
+            "Iceland": "🇮🇸 Islandia", "India": "🇮🇳 India",
+            "Indonesia": "🇮🇩 Indonesia", "Iran": "🇮🇷 Irán",
+            "Iraq": "🇮🇶 Irak", "Ireland": "🇮🇪 Irlanda",
+            "Republic of Ireland": "🇮🇪 Irlanda", "Israel": "🇮🇱 Israel",
+            "Italy": "🇮🇹 Italia", "Ivory Coast": "🇨🇮 Costa de Marfil",
+            "Jamaica": "🇯🇲 Jamaica", "Japan": "🇯🇵 Japón",
+            "Jordan": "🇯🇴 Jordania", "Kazakhstan": "🇰🇿 Kazajistán",
+            "Kenya": "🇰🇪 Kenia", "Korea Republic": "🇰🇷 Corea del Sur",
+            "Kosovo": "🇽🇰 Kosovo", "Kuwait": "🇰🇼 Kuwait",
+            "Kyrgyzstan": "🇰🇬 Kirguistán", "Latvia": "🇱🇻 Letonia",
+            "Lebanon": "🇱🇧 Líbano", "Lesotho": "🇱🇸 Lesoto",
+            "Liberia": "🇱🇷 Liberia", "Libya": "🇱🇾 Libia",
+            "Liechtenstein": "🇱🇮 Liechtenstein", "Lithuania": "🇱🇹 Lituania",
+            "Luxembourg": "🇱🇺 Luxemburgo", "Madagascar": "🇲🇬 Madagascar",
+            "Malawi": "🇲🇼 Malaui", "Malaysia": "🇲🇾 Malasia",
+            "Mali": "🇲🇱 Mali", "Malta": "🇲🇹 Malta",
+            "Mauritania": "🇲🇷 Mauritania", "Mauritius": "🇲🇺 Mauricio",
+            "Mexico": "🇲🇽 México", "Moldova": "🇲🇩 Moldavia",
+            "Mongolia": "🇲🇳 Mongolia", "Montenegro": "🇲🇪 Montenegro",
+            "Morocco": "🇲🇦 Marruecos", "Mozambique": "🇲🇿 Mozambique",
+            "Myanmar": "🇲🇲 Birmania", "Namibia": "🇳🇦 Namibia",
+            "Nepal": "🇳🇵 Nepal", "Netherlands": "🇳🇱 Países Bajos",
+            "New Zealand": "🇳🇿 Nueva Zelanda", "Nicaragua": "🇳🇮 Nicaragua",
+            "Niger": "🇳🇪 Níger", "Nigeria": "🇳🇬 Nigeria",
+            "North Korea": "🇰🇵 Corea del Norte", "North Macedonia": "🇲🇰 Macedonia del Norte",
+            "Northern Ireland": "🏴󠁧󠁢󠁮󠁩󠁲󠁿 Irlanda del Norte",
+            "Norway": "🇳🇴 Noruega", "Oman": "🇴🇲 Omán",
+            "Pakistan": "🇵🇰 Pakistán", "Palestine": "🇵🇸 Palestina",
+            "Panama": "🇵🇦 Panamá", "Papua New Guinea": "🇵🇬 Papúa Nueva Guinea",
+            "Paraguay": "🇵🇾 Paraguay", "Peru": "🇵🇪 Perú",
+            "Philippines": "🇵🇭 Filipinas", "Poland": "🇵🇱 Polonia",
+            "Portugal": "🇵🇹 Portugal", "Puerto Rico": "🇵🇷 Puerto Rico",
+            "Qatar": "🇶🇦 Catar", "Republic of Ireland": "🇮🇪 Rep. de Irlanda",
+            "Romania": "🇷🇴 Rumania", "Rwanda": "🇷🇼 Ruanda",
+            "Saudi Arabia": "🇸🇦 Arabia Saudita", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia",
+            "Senegal": "🇸🇳 Senegal", "Serbia": "🇷🇸 Serbia",
+            "Seychelles": "🇸🇨 Seychelles", "Sierra Leone": "🇸🇱 Sierra Leona",
+            "Singapore": "🇸🇬 Singapur", "Slovakia": "🇸🇰 Eslovaquia",
+            "Slovenia": "🇸🇮 Eslovenia", "Solomon Islands": "🇸🇧 Islas Salomón",
+            "Somalia": "🇸🇴 Somalia", "South Africa": "🇿🇦 Sudáfrica",
+            "South Korea": "🇰🇷 Corea del Sur", "South Sudan": "🇸🇸 Sudán del Sur",
+            "Spain": "🇪🇸 España", "Sri Lanka": "🇱🇰 Sri Lanka",
+            "Sudan": "🇸🇩 Sudán", "Sweden": "🇸🇪 Suecia",
+            "Switzerland": "🇨🇭 Suiza", "Syria": "🇸🇾 Siria",
+            "Tahiti": "🇵🇫 Tahití", "Tajikistan": "🇹🇯 Tayikistán",
+            "Tanzania": "🇹🇿 Tanzania", "Thailand": "🇹🇭 Tailandia",
+            "Togo": "🇹🇬 Togo", "Trinidad and Tobago": "🇹🇹 Trinidad y Tobago",
+            "Tunisia": "🇹🇳 Túnez", "Turkey": "🇹🇷 Turquía",
+            "Turkmenistan": "🇹🇲 Turkmenistán", "UAE": "🇦🇪 Emiratos Árabes",
+            "Uganda": "🇺🇬 Uganda", "Ukraine": "🇺🇦 Ucrania",
+            "Uruguay": "🇺🇾 Uruguay", "USA": "🇺🇸 Estados Unidos",
+            "Uzbekistan": "🇺🇿 Uzbekistán", "Vanuatu": "🇻🇺 Vanuatu",
+            "Venezuela": "🇻🇪 Venezuela", "Vietnam": "🇻🇳 Vietnam",
+            "Wales": "🏴󠁧󠁢󠁷󠁬󠁳󠁿 Gales", "Yemen": "🇾🇪 Yemen",
+            "Zambia": "🇿🇲 Zambia", "Zimbabwe": "🇿🇼 Zimbabue",
+            "Afghanistan": "🇦🇫 Afganistán",
+        }
+
+        # Selectbox con nombre en español + bandera
+        sel_lista = sorted(elo_sel.keys(), key=lambda x: NOMBRES_ES.get(x, x))
+        opciones_es = ["— Selecciona —"] + [NOMBRES_ES.get(s, s) for s in sel_lista]
+        # Mapa inverso: nombre español → nombre en inglés (clave del Elo)
+        es_a_en = {"— Selecciona —": ""} | {NOMBRES_ES.get(s, s): s for s in sel_lista}
 
         cm1, cm2 = st.columns(2)
         with cm1:
-            sel_local_m = st.selectbox(
-                "🏠 Selección local",
-                opciones,
-                index=0,
-                key="man_loc",
-                help="Escribe para filtrar"
-            )
-            if sel_local_m == "— Selecciona —":
-                sel_local_m = ""
+            sel_local_es = st.selectbox("🏠 Selección local", opciones_es, index=0, key="man_loc")
+            sel_local_m = es_a_en.get(sel_local_es, "")
         with cm2:
-            sel_visit_m = st.selectbox(
-                "✈️ Selección visitante",
-                opciones,
-                index=0,
-                key="man_vis",
-                help="Escribe para filtrar"
-            )
-            if sel_visit_m == "— Selecciona —":
-                sel_visit_m = ""
+            sel_visit_es = st.selectbox("✈️ Selección visitante", opciones_es, index=0, key="man_vis")
+            sel_visit_m = es_a_en.get(sel_visit_es, "")
 
         es_neutral_m = st.checkbox("Cancha neutral", value=True, key="man_neutral")
 
