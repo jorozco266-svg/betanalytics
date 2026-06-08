@@ -3053,15 +3053,28 @@ with tab6:
                         stats_vis_alt = POISSON_STATS.get(vis_name) or POISSON_STATS.get(p["visit"])
 
                         if stats_loc_alt and stats_vis_alt:
-                            # Probabilidades calculadas con Poisson
+                            # Selector de método de cálculo
+                            metodo_lambda = st.radio(
+                                "⚙️ Método de cálculo λ:",
+                                ["Poisson estándar (GF × GC)", "Promedio ponderado (GF + GC) / 2"],
+                                horizontal=True,
+                                key=f"metodo_{p['id']}",
+                                help="Estándar: multiplica ataque × defensa rival. Promedio: más conservador, evita extremos."
+                            )
+
                             gf_l = stats_loc_alt.get("gf", 1.5)
                             gc_l = stats_loc_alt.get("gc", 1.2)
                             gf_v = stats_vis_alt.get("gf", 1.3)
                             gc_v = stats_vis_alt.get("gc", 1.3)
                             fl = 1.0 if es_neutral_p else 1.15
                             avg_g = 2.5
-                            ll_a = max(round((gf_l/avg_g)*(gc_v/avg_g)*avg_g*fl, 3), 0.1)
-                            lv_a = max(round((gf_v/avg_g)*(gc_l/avg_g)*avg_g,    3), 0.1)
+
+                            if "Promedio" in metodo_lambda:
+                                ll_a = max(round((gf_l + gc_v) / 2 * fl, 3), 0.1)
+                                lv_a = max(round((gf_v + gc_l) / 2, 3), 0.1)
+                            else:
+                                ll_a = max(round((gf_l/avg_g)*(gc_v/avg_g)*avg_g*fl, 3), 0.1)
+                                lv_a = max(round((gf_v/avg_g)*(gc_l/avg_g)*avg_g, 3), 0.1)
 
                             # Calcular con Poisson
                             import math as _m
