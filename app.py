@@ -2828,8 +2828,10 @@ with tab6:
         st.markdown("---")
         dias_vista = st.slider("Días hacia adelante", 1, 5, 3, key="ami_dias")
 
-        with st.spinner("Cargando amistosos desde TheSportsDB..."):
-            amistosos, err_ami = get_amistosos_hoy(rf_key, dias_vista)
+        # Usar solo partidos hardcodeados — TheSportsDB es inconsistente
+        # con nombres y horarios de selecciones nacionales
+        amistosos = []
+        err_ami = None
 
         # ── Partidos FIFA hardcodeados (ventana junio 2026) ──────────────
         import hashlib as _hlib
