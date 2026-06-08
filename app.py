@@ -3053,43 +3053,54 @@ with tab6:
                         stats_vis_alt = POISSON_STATS.get(vis_name) or POISSON_STATS.get(p["visit"])
 
                         if stats_loc_alt and stats_vis_alt:
-                            # Calcular probabilidades de mercados
-                            # Over 2.5 goles — promedio ponderado de ambos equipos
-                            over25_p = round((stats_loc_alt.get("over25",0.5) + stats_vis_alt.get("over25",0.5)) / 2, 3)
-                            btts_p   = round((stats_loc_alt.get("btts",0.5)   + stats_vis_alt.get("btts",0.5))   / 2, 3)
-                            corners_total = round(stats_loc_alt.get("corners_avg",5.0) + stats_vis_alt.get("corners_avg",5.0), 1)
-                            cards_total   = round(stats_loc_alt.get("cards_avg",2.5)   + stats_vis_alt.get("cards_avg",2.5), 1)
+                            # Probabilidades calculadas con Poisson
+                            gf_l = stats_loc_alt.get("gf", 1.5)
+                            gc_l = stats_loc_alt.get("gc", 1.2)
+                            gf_v = stats_vis_alt.get("gf", 1.3)
+                            gc_v = stats_vis_alt.get("gc", 1.3)
+                            fl = 1.0 if es_neutral_p else 1.15
+                            avg_g = 2.5
+                            ll_a = max(round((gf_l/avg_g)*(gc_v/avg_g)*avg_g*fl, 3), 0.1)
+                            lv_a = max(round((gf_v/avg_g)*(gc_l/avg_g)*avg_g,    3), 0.1)
 
-                            # Umbrales más comunes
-                            over35_p = max(over25_p - 0.20, 0.05)
-                            under25_p = 1 - over25_p
-                            over95c_p = 0.55 if corners_total > 9.5 else 0.35
-                            under45t_p = 0.65 if cards_total < 4.5 else 0.40
+                            # Calcular con Poisson
+                            import math as _m
+                            def _pmf2(k,lam): return _m.exp(-lam)*(lam**k)/_m.factorial(k)
+                            over25=over35=btts_si=0.0
+                            for gl in range(12):
+                                for gv in range(12):
+                                    pp = _pmf2(gl,ll_a)*_pmf2(gv,lv_a)
+                                    total = gl+gv
+                                    if total > 2.5: over25 += pp
+                                    if total > 3.5: over35 += pp
+                                    if gl > 0 and gv > 0: btts_si += pp
+                            under25 = 1 - over25
+                            under35 = 1 - over35
+                            btts_no = 1 - btts_si
 
                             mercados = [
-                                ("⚽ Más de 2.5 goles",   over25_p,   "over25"),
-                                ("⚽ Menos de 2.5 goles", under25_p,  "under25"),
-                                ("⚽ Más de 3.5 goles",   over35_p,   "over35"),
-                                ("🤝 Ambos marcan (Sí)",  btts_p,     "btts_si"),
-                                ("🤝 Ambos marcan (No)",  1-btts_p,   "btts_no"),
-                                (f"🚩 Más de {corners_total-1:.0f}.5 córners", over95c_p, "corners_o"),
-                                (f"🟨 Menos de {cards_total:.0f}.5 tarjetas",  under45t_p, "cards_u"),
+                                ("⚽ Más de 2.5 goles",    round(over25,3),  "over25"),
+                                ("⚽ Menos de 2.5 goles",  round(under25,3), "under25"),
+                                ("⚽ Más de 3.5 goles",    round(over35,3),  "over35"),
+                                ("⚽ Menos de 3.5 goles",  round(under35,3), "under35"),
+                                ("🤝 Ambos marcan (Sí)",   round(btts_si,3), "btts_si"),
+                                ("🤝 Ambos marcan (No)",   round(btts_no,3), "btts_no"),
                             ]
 
-                            st.caption(f"Córners totales estimados: **{corners_total}** | Tarjetas totales estimadas: **{cards_total}**")
+                            st.caption(f"λ local: **{ll_a}** · λ visitante: **{lv_a}** · goles esperados totales: **{round(ll_a+lv_a,2)}**")
 
-                            # Tabla de mercados con input de cuota al frente
                             for m_nom, m_prob, m_key in mercados:
+                                if m_prob <= 0: continue
                                 col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns([3, 1.2, 1.2, 1.2, 1.5])
                                 with col_m1:
                                     st.markdown(f"**{m_nom}**")
                                 with col_m2:
                                     st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">P.modelo<br><b style="color:#e8eeff">{m_prob*100:.1f}%</b></div>', unsafe_allow_html=True)
                                 with col_m3:
-                                    cuota_justa = round(1/m_prob, 2) if m_prob > 0 else 99.0
+                                    cuota_justa = round(1/m_prob, 2) if m_prob > 0.01 else 99.0
                                     st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">C.justa<br><b style="color:#f59e0b">{cuota_justa}</b></div>', unsafe_allow_html=True)
                                 with col_m4:
-                                    cuota_casa = st.number_input("Tu cuota", 1.01, 50.0, cuota_justa, 0.05,
+                                    cuota_casa = st.number_input("Tu cuota", 1.01, 50.0, float(min(cuota_justa, 49.0)), 0.05,
                                                                   format="%.2f",
                                                                   key=f"malt_{m_key}_{p['id']}",
                                                                   label_visibility="collapsed")
