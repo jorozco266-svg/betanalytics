@@ -2782,6 +2782,21 @@ with tab6:
                         if p.get("venue"):
                             st.caption(f"📍 {p['venue']}, {p['city']}")
 
+                        # Cancha neutral
+                        col_neu, col_inf = st.columns([1, 3])
+                        with col_neu:
+                            es_neutral_p = st.checkbox(
+                                "🌐 Cancha neutral",
+                                value=True,
+                                key=f"neutral_{p['id']}",
+                                help="Desactiva si hay ventaja de local real (ej: partido en casa del equipo local)"
+                            )
+                        with col_inf:
+                            if es_neutral_p:
+                                st.caption("Sin ventaja de local — factor 1.0x en Poisson, +0 pts en Elo")
+                            else:
+                                st.caption("Local con ventaja — factor 1.15x en Poisson, +100 pts en Elo")
+
                         # Cuotas manuales
                         st.markdown("**Cuotas de tu casa de apuestas:**")
                         cq1, cq2, cq3 = st.columns(3)
@@ -2792,6 +2807,10 @@ with tab6:
                         st.markdown("---")
 
                         # ── MODELO ELO ──────────────────────────────
+                        # Recalcular con factor de cancha neutral seleccionado
+                        if elo_loc and elo_vis:
+                            pl_elo, pe_elo, pv_elo = prob_elo_selecciones(elo_loc, elo_vis, es_neutral=es_neutral_p)
+                            elo_ok = True
                         st.markdown("#### 🎯 Modelo Elo (eloratings.net)")
                         if elo_ok:
                             ce1, ce2, ce3, ce4 = st.columns(4)
@@ -2845,6 +2864,23 @@ with tab6:
                         pl_poi, pe_poi, pv_poi = poisson_seleccion(gf_loc_p, gc_loc_p, gf_vis_p, gc_vis_p)
 
                         if pl_poi:
+                            # Factor local en Poisson según cancha neutral
+                            fl_poi = 1.0 if es_neutral_p else 1.15
+                            ll_poi = round((gf_loc_p / 2.5) * (gc_vis_p / 2.5) * 2.5 * fl_poi, 3)
+                            lv_poi = round((gf_vis_p / 2.5) * (gc_loc_p / 2.5) * 2.5, 3)
+                            pl_poi, pe_poi, pv_poi = poisson_seleccion(gf_loc_p, gc_loc_p, gf_vis_p, gc_vis_p, avg_goles=2.5)
+                            if not es_neutral_p:
+                                # Recalcular con factor local
+                                import math as _math
+                                def _pmf(k,lam): return _math.exp(-lam)*(lam**k)/(_math.factorial(k))
+                                pl2=pe2=pv2=0
+                                for gl in range(9):
+                                    for gv in range(9):
+                                        pp=_pmf(gl,ll_poi)*_pmf(gv,lv_poi)
+                                        if gl>gv: pl2+=pp
+                                        elif gl==gv: pe2+=pp
+                                        else: pv2+=pp
+                                pl_poi,pe_poi,pv_poi = round(pl2,4),round(pe2,4),round(pv2,4)
                             cp1b, cp2b, cp3b = st.columns(3)
                             with cp1b:
                                 color_lp = "#22c55e" if pl_poi > 0.45 else "#94a3b8"
