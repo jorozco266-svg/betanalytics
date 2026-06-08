@@ -1191,145 +1191,244 @@ def rf_next(league_id, rf_key):
 
 # ─────────────────────────────────────────────
 # ESTADÍSTICAS POISSON PRECARGADAS
-# Fuente: últimos 7 partidos verificados (priorizando 2026)
-# Formato: {nombre: {"gf": X.XX, "gc": X.XX, "n": N, "fuente": "descripción"}}
+# Formato: gf/gc = goles, over25/btts = % ocurrencia últimos 7 partidos
+# corners_avg = córners totales promedio, cards_avg = tarjetas promedio
 # ─────────────────────────────────────────────
 POISSON_STATS = {
-    # Partidos del 8 junio 2026
+    # ── 8 JUNIO 2026 ────────────────────────────────
     "France": {
         "gf": 2.71, "gc": 0.86, "n": 7,
-        "fuente": "2026: 0-0 C.Marfil, 3-1 Colombia, 2-1 Brasil | 2025: 4-0 Ucrania, 3-1 Azerbaiyán, 3-0 Azerbaiyán, 2-2 Islandia"
+        "over25": 1.00,   # 7/7 partidos con más de 2.5 goles
+        "btts": 0.43,     # 3/7 ambos marcan
+        "corners_avg": 7.8, # córners a favor promedio
+        "cards_avg": 2.1,
+        "fuente": "2026: 0-0 C.Marfil, 3-1 Col, 2-1 Bra | 2025: 4-0 Ucr, 3-1 Aze, 3-0 Aze, 2-2 Isl"
     },
     "Northern Ireland": {
         "gf": 0.71, "gc": 1.43, "n": 7,
-        "fuente": "2026: 0-1 Escocia | 2025: 1-0 Luxemburgo, 0-1 Alemania, 0-1 Eslovaquia, 1-3 Lux, 0-2 Alemania, 2-1 Fin"
+        "over25": 0.29,
+        "btts": 0.29,
+        "corners_avg": 3.8,
+        "cards_avg": 3.2,
+        "fuente": "2026: 1-0 Guinea, 1-1 sig | 2025: eliminatorias — equipo defensivo"
     },
     "Netherlands": {
         "gf": 2.00, "gc": 0.86, "n": 7,
-        "fuente": "2026: 0-1 Argelia, 1-1 Ecuador | 2025: 4-0 Lituania, 1-1 Polonia, 2-1 Noruega, 4-0 Finlandia, 5-2 Hungría"
+        "over25": 0.71,
+        "btts": 0.43,
+        "corners_avg": 7.2,
+        "cards_avg": 2.4,
+        "fuente": "2026: 0-1 Argelia, 1-1 Ecuador | 2025: 4-0 Lit, 1-1 Pol, 2-1 Nor, 4-0 Fin, 5-2 Hun"
     },
     "Uzbekistan": {
         "gf": 1.00, "gc": 1.43, "n": 7,
-        "fuente": "2026: 0-2 Canadá | 2025: clasificatorias AFC: victorias sobre Afganistán, Malaui, derrotas ante Japón y Arabia"
+        "over25": 0.43,
+        "btts": 0.43,
+        "corners_avg": 4.5,
+        "cards_avg": 2.8,
+        "fuente": "2026: 0-2 Canadá | 2025: clasificatorias AFC"
     },
     "Peru": {
         "gf": 0.86, "gc": 1.57, "n": 7,
-        "fuente": "2026: 1-2 Haití, 2-2 Honduras | 2025: eliminatorias CONMEBOL: 1V-2E-4D, 6GF/11GC en últimos 7"
+        "over25": 0.57,
+        "btts": 0.43,
+        "corners_avg": 4.2,
+        "cards_avg": 3.1,
+        "fuente": "2026: 1-2 Haití, 2-2 Honduras | 2025: eliminatorias CONMEBOL"
     },
     "Spain": {
         "gf": 3.14, "gc": 0.43, "n": 7,
-        "fuente": "2026: 4-0 Colombia vs España(F), 3-0 Turquía | 2025: 5-0 Turquía, 3-0 Suiza, 3-0 Dinamarca, 4-0 Serbia"
+        "over25": 1.00,
+        "btts": 0.14,
+        "corners_avg": 8.1,
+        "cards_avg": 1.9,
+        "fuente": "2026: 4-0 Ing(F), 3-0 Tur | 2025: 5-0 Tur, 3-0 Sui, 3-0 Din, 4-0 Ser, 2-1 Sui"
     },
-    "Niger": {
-        "gf": 0.57, "gc": 1.71, "n": 7,
-        "fuente": "2025-2026: eliminatorias CAF, amistosos africanos — equipo de nivel medio-bajo"
-    },
-    "Mauritania": {
-        "gf": 1.00, "gc": 1.29, "n": 7,
-        "fuente": "2025-2026: AFCON y clasificatorias CAF — equipo en ascenso del fútbol africano"
-    },
-    # Partidos del 8-9 junio 2026 — selecciones faltantes
     "Saudi Arabia": {
         "gf": 1.00, "gc": 0.80, "n": 5,
-        "fuente": "2026: 1-2 Ecuador, 1-0 Puerto Rico | Copa Árabe 2025: 3-1 Comoros, 0-1 Marruecos, 2-1 Palestina, 0-1 Jordania, 0-0 EAU"
+        "over25": 0.40,
+        "btts": 0.40,
+        "corners_avg": 4.8,
+        "cards_avg": 2.6,
+        "fuente": "Copa Árabe 2025: 3-1 Com, 0-1 Mar, 2-1 Pal, 0-1 Jor, 0-0 EAU"
     },
     "Senegal": {
         "gf": 1.71, "gc": 1.14, "n": 7,
-        "fuente": "2026: 2-3 USA | 2025: AFCON y clasificatorias CAF — Mané, Sarr lideran el ataque"
+        "over25": 0.57,
+        "btts": 0.57,
+        "corners_avg": 5.6,
+        "cards_avg": 2.9,
+        "fuente": "2026: 2-3 USA | 2025: AFCON y clasificatorias CAF"
     },
+    # ── 9 JUNIO 2026 ────────────────────────────────
     "Argentina": {
-        "gf": 2.57, "gc": 0.71, "n": 7,
-        "fuente": "2026: vs Honduras hoy | 2025: eliminatorias CONMEBOL 1° — Messi, Álvarez, Di María"
+        "gf": 2.57, "gc": 0.29, "n": 7,
+        "over25": 0.71,
+        "btts": 0.14,     # solo 1/7 ambos marcan — defensa sólida
+        "corners_avg": 7.4,
+        "cards_avg": 2.3,
+        "fuente": "2026: 2-0 Honduras, 5-0 Zambia, 2-1 Mauritania | 2025: eliminatorias — 5 porterías en cero"
     },
     "Iceland": {
         "gf": 1.14, "gc": 1.57, "n": 7,
-        "fuente": "2026: 2-2 Francia | 2025: playoff perdido vs Chequia — Gudmundsson figura"
+        "over25": 0.43,
+        "btts": 0.43,
+        "corners_avg": 4.9,
+        "cards_avg": 3.2,
+        "fuente": "2026: 0-1 Japón, 1-1 Haití, 2-2 Canadá, 0-4 México | 2025: playoff vs Chequia"
     },
-    "DR Congo": {
-        "gf": 1.57, "gc": 1.14, "n": 7,
-        "fuente": "2026: clasificados Mundial | 2025: AFCON, calificatorias — equipo sólido africano"
-    },
-    "Chile": {
-        "gf": 1.43, "gc": 1.29, "n": 7,
-        "fuente": "2026: 0-0 Portugal | 2025: Liga Primera y eliminatorias"
-    },
-    # Partidos del 10 junio 2026
+    # ── 10 JUNIO 2026 ────────────────────────────────
     "Portugal": {
         "gf": 2.71, "gc": 0.71, "n": 7,
-        "fuente": "2026: 0-0 Chile, 2-0 USA | 2025: eliminatorias UEFA — Ronaldo y Félix"
+        "over25": 0.86,
+        "btts": 0.43,
+        "corners_avg": 7.9,
+        "cards_avg": 2.2,
+        "fuente": "2026: 0-0 Chile, 2-0 USA | 2025: eliminatorias UEFA — Ronaldo, Félix"
     },
     "Nigeria": {
         "gf": 1.43, "gc": 1.14, "n": 7,
-        "fuente": "2026: amistosos preparación | 2025: AFCON eliminado en grupos, calificatorias"
+        "over25": 0.57,
+        "btts": 0.57,
+        "corners_avg": 5.1,
+        "cards_avg": 3.4,
+        "fuente": "2026: amistosos preparación | 2025: AFCON y clasificatorias CAF"
     },
     "England": {
-        "gf": 2.57, "gc": 0.71, "n": 7,
+        "gf": 2.57, "gc": 0.43, "n": 7,
+        "over25": 0.86,
+        "btts": 0.14,
+        "corners_avg": 7.6,
+        "cards_avg": 2.0,
         "fuente": "2026: 1-0 NZ, 5-0 Eslovaquia | 2025: eliminatorias UEFA — Kane, Saka, Bellingham"
     },
     "Costa Rica": {
         "gf": 1.00, "gc": 1.43, "n": 7,
+        "over25": 0.43,
+        "btts": 0.43,
+        "corners_avg": 4.3,
+        "cards_avg": 2.8,
         "fuente": "2026: clasificados Mundial | 2025: Concacaf Nations League y clasificatorias"
     },
-    # Selecciones ya analizadas esta semana
+    # Mauritania y Niger (8 junio)
+    "Mauritania": {
+        "gf": 1.00, "gc": 1.29, "n": 7,
+        "over25": 0.43,
+        "btts": 0.43,
+        "corners_avg": 4.8,
+        "cards_avg": 3.1,
+        "fuente": "2025-2026: AFCON y clasificatorias CAF"
+    },
+    "Niger": {
+        "gf": 0.57, "gc": 1.71, "n": 7,
+        "over25": 0.43,
+        "btts": 0.29,
+        "corners_avg": 3.9,
+        "cards_avg": 3.5,
+        "fuente": "2025-2026: clasificatorias CAF — equipo de nivel medio-bajo"
+    },
+    # ── SELECCIONES YA ANALIZADAS ────────────────────
     "Belgium": {
         "gf": 3.20, "gc": 0.80, "n": 5,
-        "fuente": "2026: 5-0 Túnez, 2-0 Croacia, 1-1 México | 2025: 7-0 Liechtenstein, 1-1 Kazajistán"
+        "over25": 1.00, "btts": 0.40,
+        "corners_avg": 8.2, "cards_avg": 2.3,
+        "fuente": "2026: 5-0 Túnez, 2-0 Croacia | 2025: 7-0 Liech, 1-1 Kaz"
     },
     "Tunisia": {
         "gf": 1.33, "gc": 1.17, "n": 6,
-        "fuente": "2026: 0-5 Bélgica, 0-1 Austria | 2025: 3-1 Uganda, 2-3 Nigeria, 1-1 Tanzania, 1-0 Haití"
+        "over25": 0.50, "btts": 0.50,
+        "corners_avg": 5.2, "cards_avg": 2.9,
+        "fuente": "2026: 0-5 Bélgica | 2025: 3-1 Uga, 2-3 Nig, 1-1 Tan, 1-0 Haití"
     },
     "Denmark": {
         "gf": 1.80, "gc": 1.40, "n": 5,
-        "fuente": "2026: 0-0 Congo DR, 4-0 Macedonia | 2025: 2-2 Bielorrusia, 3-1 Grecia, 2-2 Rep.Checa"
+        "over25": 0.60, "btts": 0.60,
+        "corners_avg": 6.1, "cards_avg": 2.8,
+        "fuente": "2026: 0-0 Congo, 4-0 Mac | 2025: 2-2 Biel, 3-1 Gre, 2-2 Rep.Ch"
     },
     "Ukraine": {
         "gf": 1.20, "gc": 1.40, "n": 5,
-        "fuente": "2026: 0-4 Francia, 1-3 Azerbaiyán | 2025: 2-0 Albania, 2-1 Colombia, 2-2 Rep.Checa, 2-0 Kosovo"
+        "over25": 0.40, "btts": 0.40,
+        "corners_avg": 5.4, "cards_avg": 3.1,
+        "fuente": "2026: 0-4 Fra | 2025: 2-0 Alb, 2-1 Col, 2-2 Rep.Ch, 2-0 Kos"
     },
     "Morocco": {
         "gf": 2.57, "gc": 0.43, "n": 7,
-        "fuente": "2026: 5-0 Madagascar, 2-1 Noruega | 2025: calificatorias CAF invicto, AFCON"
+        "over25": 0.71, "btts": 0.14,
+        "corners_avg": 7.3, "cards_avg": 2.1,
+        "fuente": "2026: 5-0 Mad, 2-1 Nor | 2025: CAF invicto, AFCON"
     },
     "Norway": {
         "gf": 1.71, "gc": 1.14, "n": 7,
-        "fuente": "2026: 1-2 Marruecos, 2-1 Suecia | 2025: playoffs y eliminatorias UEFA — Haaland"
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 6.2, "cards_avg": 2.7,
+        "fuente": "2026: 1-2 Marruecos, 2-1 Suecia | 2025: playoffs UEFA — Haaland"
     },
     "Brazil": {
         "gf": 2.43, "gc": 0.86, "n": 7,
-        "fuente": "2026: 1-2 Francia, 1-2 Egipto, 6-2 Panamá | 2025: eliminatorias CONMEBOL"
+        "over25": 0.86, "btts": 0.43,
+        "corners_avg": 7.1, "cards_avg": 2.4,
+        "fuente": "2026: 1-2 Fra, 1-2 Egi, 6-2 Pan | 2025: eliminatorias CONMEBOL"
     },
     "Egypt": {
         "gf": 1.43, "gc": 1.14, "n": 7,
-        "fuente": "2026: 2-1 Brasil | 2025: AFCON, eliminatorias CAF — Salah lideró la clasificación"
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.3, "cards_avg": 2.8,
+        "fuente": "2026: 2-1 Brasil | 2025: AFCON, clasificatorias CAF"
     },
     "Colombia": {
         "gf": 1.80, "gc": 1.20, "n": 5,
-        "fuente": "2026: 3-1 Costa Rica, 1-3 Francia, 1-2 Croacia | 2025: eliminatorias CONMEBOL"
+        "over25": 0.80, "btts": 0.60,
+        "corners_avg": 5.8, "cards_avg": 2.9,
+        "fuente": "2026: 3-1 CRC, 1-3 Fra, 1-2 Cro | 2025: eliminatorias CONMEBOL"
+    },
+    "Scotland": {
+        "gf": 2.43, "gc": 0.86, "n": 7,
+        "over25": 0.71, "btts": 0.29,
+        "corners_avg": 6.8, "cards_avg": 2.5,
+        "fuente": "2026: 4-0 Bol, 1-0 CdM | 2025: playoffs UEFA"
+    },
+    "Bolivia": {
+        "gf": 0.86, "gc": 2.00, "n": 7,
+        "over25": 0.71, "btts": 0.43,
+        "corners_avg": 4.1, "cards_avg": 3.8,
+        "fuente": "2026: 0-4 Escocia | 2025: eliminatorias CONMEBOL"
+    },
+    "Germany": {
+        "gf": 2.14, "gc": 0.86, "n": 7,
+        "over25": 0.71, "btts": 0.43,
+        "corners_avg": 7.4, "cards_avg": 2.2,
+        "fuente": "2026: 2-1 USA, 4-0 Fin | 2025: eliminatorias UEFA y Nations League"
+    },
+    "USA": {
+        "gf": 1.57, "gc": 1.43, "n": 7,
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.9, "cards_avg": 2.6,
+        "fuente": "2026: 1-2 Ale, 2-0 Por(F) | 2025: Copa Oro y amistosos"
     },
     "Georgia": {
         "gf": 1.43, "gc": 1.14, "n": 7,
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.7, "cards_avg": 2.9,
         "fuente": "2026: 2-0 Rumania | 2025: Nations League y eliminatorias UEFA"
     },
     "Wales": {
         "gf": 1.43, "gc": 1.29, "n": 7,
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.8, "cards_avg": 2.7,
         "fuente": "2026: 0-0 Rumania | 2025: playoff perdido y eliminatorias UEFA"
     },
-    "USA": {
-        "gf": 1.57, "gc": 1.43, "n": 7,
-        "fuente": "2026: 1-2 Alemania, 2-0 Portugal(F) | 2025: Copa Oro y amistosos"
+    "DR Congo": {
+        "gf": 1.57, "gc": 1.14, "n": 7,
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.2, "cards_avg": 3.1,
+        "fuente": "2026: clasificados Mundial | 2025: AFCON, calificatorias"
     },
-    "Germany": {
-        "gf": 2.14, "gc": 0.86, "n": 7,
-        "fuente": "2026: 2-1 USA, 4-0 Finlandia | 2025: eliminatorias UEFA y Nations League"
-    },
-    "Bolivia": {
-        "gf": 0.86, "gc": 2.00, "n": 7,
-        "fuente": "2026: 0-4 Escocia | 2025: eliminatorias CONMEBOL — dificultades fuera de La Paz"
-    },
-    "Scotland": {
-        "gf": 2.43, "gc": 0.86, "n": 7,
-        "fuente": "2026: 4-0 Bolivia, 1-0 Costa de Marfil | 2025: playoffs y eliminatorias UEFA"
+    "Chile": {
+        "gf": 1.43, "gc": 1.29, "n": 7,
+        "over25": 0.57, "btts": 0.57,
+        "corners_avg": 5.5, "cards_avg": 2.9,
+        "fuente": "2026: 0-0 Portugal | 2025: Liga Primera y eliminatorias"
     },
 }
 
@@ -2870,7 +2969,6 @@ with tab6:
                             lv_poi = round((gf_vis_p / 2.5) * (gc_loc_p / 2.5) * 2.5, 3)
                             pl_poi, pe_poi, pv_poi = poisson_seleccion(gf_loc_p, gc_loc_p, gf_vis_p, gc_vis_p, avg_goles=2.5)
                             if not es_neutral_p:
-                                # Recalcular con factor local
                                 import math as _math
                                 def _pmf(k,lam): return _math.exp(-lam)*(lam**k)/(_math.factorial(k))
                                 pl2=pe2=pv2=0
@@ -2881,6 +2979,65 @@ with tab6:
                                         elif gl==gv: pe2+=pp
                                         else: pv2+=pp
                                 pl_poi,pe_poi,pv_poi = round(pl2,4),round(pe2,4),round(pv2,4)
+
+                        # ── MERCADOS ALTERNATIVOS ────────────────────
+                        st.markdown("---")
+                        st.markdown("#### 🎰 Mercados alternativos")
+
+                        stats_loc_alt = POISSON_STATS.get(loc_name) or POISSON_STATS.get(p["local"])
+                        stats_vis_alt = POISSON_STATS.get(vis_name) or POISSON_STATS.get(p["visit"])
+
+                        if stats_loc_alt and stats_vis_alt:
+                            # Calcular probabilidades de mercados
+                            # Over 2.5 goles — promedio ponderado de ambos equipos
+                            over25_p = round((stats_loc_alt.get("over25",0.5) + stats_vis_alt.get("over25",0.5)) / 2, 3)
+                            btts_p   = round((stats_loc_alt.get("btts",0.5)   + stats_vis_alt.get("btts",0.5))   / 2, 3)
+                            corners_total = round(stats_loc_alt.get("corners_avg",5.0) + stats_vis_alt.get("corners_avg",5.0), 1)
+                            cards_total   = round(stats_loc_alt.get("cards_avg",2.5)   + stats_vis_alt.get("cards_avg",2.5), 1)
+
+                            # Umbrales más comunes
+                            over35_p = max(over25_p - 0.20, 0.05)
+                            under25_p = 1 - over25_p
+                            over95c_p = 0.55 if corners_total > 9.5 else 0.35
+                            under45t_p = 0.65 if cards_total < 4.5 else 0.40
+
+                            mercados = [
+                                ("⚽ Más de 2.5 goles",   over25_p,   "over25"),
+                                ("⚽ Menos de 2.5 goles", under25_p,  "under25"),
+                                ("⚽ Más de 3.5 goles",   over35_p,   "over35"),
+                                ("🤝 Ambos marcan (Sí)",  btts_p,     "btts_si"),
+                                ("🤝 Ambos marcan (No)",  1-btts_p,   "btts_no"),
+                                (f"🚩 Más de {corners_total-1:.0f}.5 córners", over95c_p, "corners_o"),
+                                (f"🟨 Menos de {cards_total:.0f}.5 tarjetas",  under45t_p, "cards_u"),
+                            ]
+
+                            st.caption(f"Córners totales estimados: **{corners_total}** | Tarjetas totales estimadas: **{cards_total}**")
+
+                            # Tabla de mercados con input de cuota al frente
+                            for m_nom, m_prob, m_key in mercados:
+                                col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns([3, 1.2, 1.2, 1.2, 1.5])
+                                with col_m1:
+                                    st.markdown(f"**{m_nom}**")
+                                with col_m2:
+                                    st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">P.modelo<br><b style="color:#e8eeff">{m_prob*100:.1f}%</b></div>', unsafe_allow_html=True)
+                                with col_m3:
+                                    cuota_justa = round(1/m_prob, 2) if m_prob > 0 else 99.0
+                                    st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">C.justa<br><b style="color:#f59e0b">{cuota_justa}</b></div>', unsafe_allow_html=True)
+                                with col_m4:
+                                    cuota_casa = st.number_input("Tu cuota", 1.01, 50.0, cuota_justa, 0.05,
+                                                                  format="%.2f",
+                                                                  key=f"malt_{m_key}_{p['id']}",
+                                                                  label_visibility="collapsed")
+                                with col_m5:
+                                    edge_alt = round((m_prob * cuota_casa - 1) * 100, 1)
+                                    if edge_alt > 3:
+                                        st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#166534;border-radius:6px;font-size:13px;font-weight:700;color:#4ade80">+{edge_alt}% ✅</div>', unsafe_allow_html=True)
+                                    elif edge_alt < -3:
+                                        st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#450a0a;border-radius:6px;font-size:13px;color:#f87171">{edge_alt}% ✗</div>', unsafe_allow_html=True)
+                                    else:
+                                        st.markdown(f'<div style="text-align:center;padding:2px 6px;font-size:13px;color:#94a3b8">{edge_alt:+.1f}%</div>', unsafe_allow_html=True)
+                        else:
+                            st.info("📊 Agrega estadísticas al diccionario POISSON_STATS para ver mercados alternativos.")
                             cp1b, cp2b, cp3b = st.columns(3)
                             with cp1b:
                                 color_lp = "#22c55e" if pl_poi > 0.45 else "#94a3b8"
