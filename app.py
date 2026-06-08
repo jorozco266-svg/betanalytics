@@ -2828,8 +2828,73 @@ with tab6:
         st.markdown("---")
         dias_vista = st.slider("Días hacia adelante", 1, 5, 3, key="ami_dias")
 
-        with st.spinner("Cargando amistosos desde API-Football..."):
+        with st.spinner("Cargando amistosos desde TheSportsDB..."):
             amistosos, err_ami = get_amistosos_hoy(rf_key, dias_vista)
+
+        # ── Partidos FIFA hardcodeados (ventana junio 2026) ──────────────
+        import hashlib as _hlib
+        TZ_COL_H = ZoneInfo("America/Bogota")
+        ahora_h = datetime.datetime.now(TZ_COL_H)
+        vistos_h = set(f"{p['local']}{p['visit']}{p['fecha']}" for p in amistosos)
+
+        PARTIDOS_FIFA = [
+            # 7 junio
+            ("Turkey","Venezuela","2026-06-07","00:00"),
+            ("Brazil","Egypt","2026-06-07","00:00"),
+            ("Argentina","Honduras","2026-06-07","02:00"),
+            ("Curacao","Aruba","2026-06-07","02:00"),
+            ("Oman","Mozambique","2026-06-07","12:00"),
+            ("Afghanistan","Pakistan","2026-06-07","13:00"),
+            ("Liechtenstein","Cyprus","2026-06-07","15:00"),
+            ("Kenya","Lesotho","2026-06-07","15:00"),
+            ("Denmark","Ukraine","2026-06-07","18:30"),
+            ("Kosovo","Andorra","2026-06-07","20:00"),
+            ("Croatia","Slovenia","2026-06-07","20:45"),
+            ("Greece","Italy","2026-06-07","21:00"),
+            ("Morocco","Norway","2026-06-07","21:00"),
+            ("Ecuador","Guatemala","2026-06-07","22:00"),
+            ("Colombia","Jordan","2026-06-07","19:00"),
+            # 8 junio
+            ("Netherlands","Uzbekistan","2026-06-08","14:45"),
+            ("Mauritania","Niger","2026-06-08","15:00"),
+            ("France","Northern Ireland","2026-06-08","15:10"),
+            ("Saudi Arabia","Senegal","2026-06-08","23:00"),
+            # 9 junio
+            ("Argentina","Iceland","2026-06-09","20:00"),
+            ("DR Congo","Chile","2026-06-09","16:00"),
+            ("Angola","Central African Republic","2026-06-09","14:00"),
+            ("Ethiopia","Malawi","2026-06-09","14:00"),
+            ("Philippines","Myanmar","2026-06-09","13:30"),
+            ("Indonesia","Mozambique","2026-06-09","15:00"),
+            ("China","Thailand","2026-06-09","13:35"),
+            ("Armenia","Moldova","2026-06-09","18:00"),
+            # 10 junio
+            ("Portugal","Nigeria","2026-06-10","14:45"),
+            ("England","Costa Rica","2026-06-10","15:00"),
+            ("Peru","Spain","2026-06-10","22:00"),
+        ]
+
+        for loc, vis, fecha, hora in PARTIDOS_FIFA:
+            uid_raw = f"{loc}{vis}{fecha}"
+            if uid_raw in vistos_h: continue
+            try:
+                dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+                dt = dt.replace(tzinfo=TZ_COL_H)
+            except: continue
+            dias_diff = (dt.date() - ahora_h.date()).days
+            if dias_diff < 0 or dias_diff > dias_vista: continue
+            amistosos.append({
+                "id": _hlib.md5(uid_raw.encode()).hexdigest()[:8],
+                "dt": dt, "fecha": fecha,
+                "hora": dt.strftime("%I:%M %p"),
+                "local": loc, "visit": vis,
+                "ya_jugado": False,
+                "gol_loc": None, "gol_vis": None,
+                "hoy": dias_diff == 0,
+                "manana": dias_diff == 1,
+                "venue": "", "city": "",
+            })
+        amistosos.sort(key=lambda x: x["dt"])
 
         if err_ami:
             st.warning(f"Error cargando amistosos: {err_ami}")
