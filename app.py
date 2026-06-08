@@ -2839,7 +2839,7 @@ with tab6:
         ahora_h = datetime.datetime.now(TZ_COL_H)
         vistos_h = set(f"{p['local']}{p['visit']}{p['fecha']}" for p in amistosos)
 
-        # Horas en COT (hora Colombia) — verificadas con Sky Sports y ESPN
+        # Horas en COT (UTC-5) — verificadas con Sky Sports, Yahoo Sports y Football365
         PARTIDOS_FIFA = [
             # 7 junio COT
             ("Turkey","Venezuela","2026-06-07","19:00"),
@@ -2857,14 +2857,15 @@ with tab6:
             ("Morocco","Norway","2026-06-07","21:00"),
             ("Ecuador","Guatemala","2026-06-07","22:00"),
             ("Colombia","Jordan","2026-06-07","19:00"),
-            # 8 junio COT
+            # 8 junio COT — Netherlands 7:45pm BST, France 8:10pm BST = COT -6hrs
             ("Netherlands","Uzbekistan","2026-06-08","13:45"),
             ("Mauritania","Niger","2026-06-08","14:00"),
             ("France","Northern Ireland","2026-06-08","14:10"),
-            ("Saudi Arabia","Senegal","2026-06-08","18:00"),
+            ("Peru","Spain","2026-06-08","21:00"),
             # 9 junio COT
-            ("Argentina","Iceland","2026-06-09","15:00"),
-            ("DR Congo","Chile","2026-06-09","11:00"),
+            ("Saudi Arabia","Senegal","2026-06-09","18:00"),
+            ("Argentina","Iceland","2026-06-09","19:30"),
+            ("DR Congo","Chile","2026-06-09","10:00"),
             ("Angola","Central African Republic","2026-06-09","09:00"),
             ("Ethiopia","Malawi","2026-06-09","09:00"),
             ("Philippines","Myanmar","2026-06-09","08:30"),
@@ -2872,9 +2873,8 @@ with tab6:
             ("China","Thailand","2026-06-09","08:35"),
             ("Armenia","Moldova","2026-06-09","13:00"),
             # 10 junio COT
-            ("Portugal","Nigeria","2026-06-10","09:45"),
-            ("England","Costa Rica","2026-06-10","10:00"),
-            ("Peru","Spain","2026-06-10","17:00"),
+            ("Portugal","Nigeria","2026-06-10","14:45"),
+            ("England","Costa Rica","2026-06-10","15:00"),
         ]
 
         for loc, vis, fecha, hora in PARTIDOS_FIFA:
