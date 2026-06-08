@@ -2859,6 +2859,7 @@ with tab6:
             ("Mauritania","Niger","2026-06-08","15:00"),
             ("France","Northern Ireland","2026-06-08","15:10"),
             ("Saudi Arabia","Senegal","2026-06-08","23:00"),
+            ("Saudi Arabia","Senegal","2026-06-08","23:00"),
             # 9 junio
             ("Argentina","Iceland","2026-06-09","20:00"),
             ("DR Congo","Chile","2026-06-09","16:00"),
@@ -2877,15 +2878,25 @@ with tab6:
         for loc, vis, fecha, hora in PARTIDOS_FIFA:
             uid_raw = f"{loc}{vis}{fecha}"
             if uid_raw in vistos_h: continue
+            # Verificar duplicados por nombre parcial
+            es_dup = False
+            for p_exist in amistosos:
+                import unicodedata as _ud
+                def _n(s): return _ud.normalize("NFKD",s).encode("ascii","ignore").decode().lower()[:6]
+                if p_exist["fecha"] == fecha and _n(p_exist["local"]) == _n(loc) and _n(p_exist["visit"]) == _n(vis):
+                    es_dup = True; break
+            if es_dup: continue
             try:
-                dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
-                dt = dt.replace(tzinfo=TZ_COL_H)
+                # Horas en PARTIDOS_FIFA están en UTC — convertir a COT (UTC-5)
+                dt_utc = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+                dt_utc = dt_utc.replace(tzinfo=ZoneInfo("UTC"))
+                dt = dt_utc.astimezone(TZ_COL_H)
             except: continue
             dias_diff = (dt.date() - ahora_h.date()).days
             if dias_diff < 0 or dias_diff > dias_vista: continue
             amistosos.append({
                 "id": _hlib.md5(uid_raw.encode()).hexdigest()[:8],
-                "dt": dt, "fecha": fecha,
+                "dt": dt, "fecha": dt.strftime("%Y-%m-%d"),
                 "hora": dt.strftime("%I:%M %p"),
                 "local": loc, "visit": vis,
                 "ya_jugado": False,
