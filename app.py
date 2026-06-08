@@ -2839,14 +2839,15 @@ with tab6:
         ahora_h = datetime.datetime.now(TZ_COL_H)
         vistos_h = set(f"{p['local']}{p['visit']}{p['fecha']}" for p in amistosos)
 
+        # Horas en COT (hora Colombia) — verificadas con Sky Sports y ESPN
         PARTIDOS_FIFA = [
-            # 7 junio
-            ("Turkey","Venezuela","2026-06-07","00:00"),
-            ("Brazil","Egypt","2026-06-07","00:00"),
-            ("Argentina","Honduras","2026-06-07","02:00"),
-            ("Curacao","Aruba","2026-06-07","02:00"),
-            ("Oman","Mozambique","2026-06-07","12:00"),
-            ("Afghanistan","Pakistan","2026-06-07","13:00"),
+            # 7 junio COT
+            ("Turkey","Venezuela","2026-06-07","19:00"),
+            ("Brazil","Egypt","2026-06-07","19:00"),
+            ("Argentina","Honduras","2026-06-07","21:00"),
+            ("Curacao","Aruba","2026-06-07","14:00"),
+            ("Oman","Mozambique","2026-06-07","11:00"),
+            ("Afghanistan","Pakistan","2026-06-07","12:00"),
             ("Liechtenstein","Cyprus","2026-06-07","15:00"),
             ("Kenya","Lesotho","2026-06-07","15:00"),
             ("Denmark","Ukraine","2026-06-07","18:30"),
@@ -2856,25 +2857,24 @@ with tab6:
             ("Morocco","Norway","2026-06-07","21:00"),
             ("Ecuador","Guatemala","2026-06-07","22:00"),
             ("Colombia","Jordan","2026-06-07","19:00"),
-            # 8 junio
-            ("Netherlands","Uzbekistan","2026-06-08","14:45"),
-            ("Mauritania","Niger","2026-06-08","15:00"),
-            ("France","Northern Ireland","2026-06-08","15:10"),
-            ("Saudi Arabia","Senegal","2026-06-08","23:00"),
-            ("Saudi Arabia","Senegal","2026-06-08","23:00"),
-            # 9 junio
-            ("Argentina","Iceland","2026-06-09","20:00"),
-            ("DR Congo","Chile","2026-06-09","16:00"),
-            ("Angola","Central African Republic","2026-06-09","14:00"),
-            ("Ethiopia","Malawi","2026-06-09","14:00"),
-            ("Philippines","Myanmar","2026-06-09","13:30"),
-            ("Indonesia","Mozambique","2026-06-09","15:00"),
-            ("China","Thailand","2026-06-09","13:35"),
-            ("Armenia","Moldova","2026-06-09","18:00"),
-            # 10 junio
-            ("Portugal","Nigeria","2026-06-10","14:45"),
-            ("England","Costa Rica","2026-06-10","15:00"),
-            ("Peru","Spain","2026-06-10","22:00"),
+            # 8 junio COT
+            ("Netherlands","Uzbekistan","2026-06-08","13:45"),
+            ("Mauritania","Niger","2026-06-08","14:00"),
+            ("France","Northern Ireland","2026-06-08","14:10"),
+            ("Saudi Arabia","Senegal","2026-06-08","18:00"),
+            # 9 junio COT
+            ("Argentina","Iceland","2026-06-09","15:00"),
+            ("DR Congo","Chile","2026-06-09","11:00"),
+            ("Angola","Central African Republic","2026-06-09","09:00"),
+            ("Ethiopia","Malawi","2026-06-09","09:00"),
+            ("Philippines","Myanmar","2026-06-09","08:30"),
+            ("Indonesia","Mozambique","2026-06-09","10:00"),
+            ("China","Thailand","2026-06-09","08:35"),
+            ("Armenia","Moldova","2026-06-09","13:00"),
+            # 10 junio COT
+            ("Portugal","Nigeria","2026-06-10","09:45"),
+            ("England","Costa Rica","2026-06-10","10:00"),
+            ("Peru","Spain","2026-06-10","17:00"),
         ]
 
         for loc, vis, fecha, hora in PARTIDOS_FIFA:
@@ -2889,10 +2889,9 @@ with tab6:
                     es_dup = True; break
             if es_dup: continue
             try:
-                # Horas en PARTIDOS_FIFA están en UTC — convertir a COT (UTC-5)
-                dt_utc = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
-                dt_utc = dt_utc.replace(tzinfo=ZoneInfo("UTC"))
-                dt = dt_utc.astimezone(TZ_COL_H)
+                # Horas ya en COT — asignar zona horaria directamente
+                dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+                dt = dt.replace(tzinfo=TZ_COL_H)
             except: continue
             dias_diff = (dt.date() - ahora_h.date()).days
             if dias_diff < 0 or dias_diff > dias_vista: continue
