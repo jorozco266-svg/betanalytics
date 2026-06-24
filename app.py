@@ -1807,7 +1807,7 @@ if necesita_fd and not tiene_fd:
 if necesita_rf and not tiene_rf:
     st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
 
-tab1,tab2,tab3,tab4,tab5,tab6=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos"])
+tab1,tab2,tab3,tab4,tab5,tab6,tab7=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos","🏆 Mundial 2026"])
 
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
@@ -2839,3 +2839,237 @@ with tab6:
                     st.warning(f"⚠️ '{sel_local_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
                 if not elo_vis_m:
                     st.warning(f"⚠️ '{sel_visit_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
+
+# ════════════════════════════════════════════════════════════
+# TAB 7 — MUNDIAL 2026
+# ════════════════════════════════════════════════════════════
+with tab7:
+    import sys as _sys
+    _sys.path.insert(0, '/home/claude')
+    try:
+        from mundial2026 import (GRUPOS_MUNDIAL, BANDERAS_MUNDIAL, FIXTURE_GRUPOS,
+                                  WC_STATS, calcular_tabla, get_resultados_wc_hoy)
+    except ImportError:
+        st.error("⚠️ No se encontró mundial2026.py — asegúrate de que está en el repositorio.")
+        st.stop()
+
+    st.markdown("### 🏆 Copa del Mundo 2026")
+    st.caption("🇺🇸🇲🇽🇨🇦 · 48 equipos · 104 partidos · 11 jun – 19 jul 2026")
+
+    vista_wc = st.radio("Vista:", ["📅 Fixture","📊 Grupos","🔍 Analizar partido"],
+                         horizontal=True, key="vista_wc")
+
+    with st.spinner("Consultando resultados..."):
+        resultados_auto = get_resultados_wc_hoy()
+
+    if "wc_resultados" not in st.session_state:
+        st.session_state.wc_resultados = {}
+    resultados_wc = {**resultados_auto, **st.session_state.wc_resultados}
+
+    # ── FIXTURE ──────────────────────────────────────────────
+    if "Fixture" in vista_wc:
+        TZ_WC = ZoneInfo("America/Bogota")
+        ahora_wc = datetime.datetime.now(TZ_WC)
+        col_f1, col_f2 = st.columns(2)
+        with col_f1:
+            grupo_filtro = st.selectbox("Filtrar por grupo:",
+                ["Todos"]+[f"Grupo {g}" for g in sorted(GRUPOS_MUNDIAL.keys())],
+                key="wc_gf")
+        with col_f2:
+            jornada_filtro = st.selectbox("Jornada:",
+                ["Todas","Jornada 1","Jornada 2","Jornada 3"], key="wc_jf")
+
+        partidos_m = FIXTURE_GRUPOS
+        if grupo_filtro != "Todos":
+            partidos_m = [p for p in partidos_m if p[0]==grupo_filtro.split()[-1]]
+
+        fechas_wc = sorted(set(p[3] for p in partidos_m))
+        for fecha in fechas_wc:
+            ps = [p for p in partidos_m if p[3]==fecha]
+            if not ps: continue
+            try:
+                dt_f = datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_WC)
+                dd = (dt_f.date()-ahora_wc.date()).days
+                if dd==0: lbl=f"🔴 HOY · {fecha}"
+                elif dd==1: lbl=f"🟡 MAÑANA · {fecha}"
+                elif dd<0: lbl=f"✅ {fecha}"
+                else: lbl=f"📅 {fecha}"
+            except: lbl=f"📅 {fecha}"
+            st.markdown(f'<div style="font-family:var(--mono);font-size:11px;color:var(--text3);'
+                        f'letter-spacing:0.1em;text-transform:uppercase;margin:1.2rem 0 0.4rem;'
+                        f'border-bottom:1px solid var(--border);padding-bottom:4px;">{lbl}</div>',
+                        unsafe_allow_html=True)
+            for grupo,loc,vis,fecha_p,hora,sede in ps:
+                fl=BANDERAS_MUNDIAL.get(loc,"🏳️"); fv=BANDERAS_MUNDIAL.get(vis,"🏳️")
+                res=resultados_wc.get((loc,vis))
+                c1,c2,c3=st.columns([4,1,1])
+                with c1:
+                    if res:
+                        st.markdown(f"**{fl} {loc} {res[0]}–{res[1]} {vis} {fv}** ✅")
+                    else:
+                        st.markdown(f"**{fl} {loc} vs {vis} {fv}** · {hora} COT")
+                    st.caption(f"Grupo {grupo} · {sede}")
+                with c2:
+                    if not res:
+                        if st.button("+ Res", key=f"wce_{loc[:3]}{vis[:3]}{fecha_p}"):
+                            st.session_state[f"wced_{loc}{vis}"]=True
+                with c3: st.caption("")
+                if st.session_state.get(f"wced_{loc}{vis}"):
+                    ce1,ce2,ce3=st.columns(3)
+                    with ce1: g1=st.number_input(f"Goles {loc[:8]}",0,20,0,key=f"wgl_{loc[:4]}{vis[:4]}")
+                    with ce2: g2=st.number_input(f"Goles {vis[:8]}",0,20,0,key=f"wgv_{loc[:4]}{vis[:4]}")
+                    with ce3:
+                        if st.button("💾",key=f"wcs_{loc[:4]}{vis[:4]}"):
+                            st.session_state.wc_resultados[(loc,vis)]=(g1,g2)
+                            st.session_state[f"wced_{loc}{vis}"]=False
+                            st.rerun()
+
+    # ── GRUPOS ───────────────────────────────────────────────
+    elif "Grupos" in vista_wc:
+        cols_g=st.columns(2)
+        for idx,grupo in enumerate(sorted(GRUPOS_MUNDIAL.keys())):
+            with cols_g[idx%2]:
+                st.markdown(f"#### Grupo {grupo}")
+                tabla=calcular_tabla(grupo,resultados_wc)
+                for pos,(eq,stats) in enumerate(tabla,1):
+                    flag=BANDERAS_MUNDIAL.get(eq,"🏳️")
+                    cl="🟢" if pos<=2 else "⚪"
+                    st.markdown(f"{cl} **{pos}. {flag} {eq}** — "
+                                f"{stats['pts']}pts · {stats['pj']}PJ · "
+                                f"{stats['gf']}:{stats['gc']} ({stats['dif']:+d})")
+                st.markdown("---")
+
+    # ── ANALIZAR PARTIDO ─────────────────────────────────────
+    else:
+        st.markdown("#### 🔍 Analizar partido del Mundial")
+        equipos_wc=sorted(BANDERAS_MUNDIAL.keys())
+        opciones_wc=["— Selecciona —"]+[f"{BANDERAS_MUNDIAL.get(e,'🏳️')} {e}" for e in equipos_wc]
+        mapa_wc={f"{BANDERAS_MUNDIAL.get(e,'🏳️')} {e}":e for e in equipos_wc}
+
+        cwa,cwb=st.columns(2)
+        with cwa: sel_wc_loc=st.selectbox("🏠 Local",opciones_wc,key="wc_local")
+        with cwb: sel_wc_vis=st.selectbox("✈️ Visitante",opciones_wc,key="wc_visit")
+        es_neutral_wc=st.checkbox("🌐 Cancha neutral",value=True,key="wc_neutral")
+
+        if sel_wc_loc!="— Selecciona —" and sel_wc_vis!="— Selecciona —":
+            eq_loc=mapa_wc.get(sel_wc_loc,""); eq_vis=mapa_wc.get(sel_wc_vis,"")
+            if eq_loc and eq_vis and eq_loc!=eq_vis:
+                fl=BANDERAS_MUNDIAL.get(eq_loc,"🏳️"); fv=BANDERAS_MUNDIAL.get(eq_vis,"🏳️")
+
+                # Cuotas
+                st.markdown("**Cuotas:**")
+                cq1,cq2,cq3=st.columns(3)
+                with cq1: ql_wc=st.number_input(f"Local ({eq_loc[:10]})",1.01,50.0,2.0,0.05,format="%.2f",key="wc_ql")
+                with cq2: qe_wc=st.number_input("Empate",1.01,50.0,3.2,0.05,format="%.2f",key="wc_qe")
+                with cq3: qv_wc=st.number_input(f"Visit ({eq_vis[:10]})",1.01,50.0,3.8,0.05,format="%.2f",key="wc_qv")
+
+                st.markdown("---")
+
+                # ELO
+                st.markdown("#### 🎯 Modelo Elo")
+                elo_loc_wc=WC_STATS.get(eq_loc,{}).get("elo") or buscar_elo(eq_loc,elo_sel)
+                elo_vis_wc=WC_STATS.get(eq_vis,{}).get("elo") or buscar_elo(eq_vis,elo_sel)
+                if elo_loc_wc and elo_vis_wc:
+                    pl_elo_wc,pe_elo_wc,pv_elo_wc=prob_elo_selecciones(elo_loc_wc,elo_vis_wc,es_neutral=es_neutral_wc)
+                    ce1,ce2,ce3,ce4=st.columns(4)
+                    with ce1: st.metric(f"Elo {eq_loc[:12]}",elo_loc_wc)
+                    with ce2: st.metric(f"Elo {eq_vis[:12]}",elo_vis_wc,delta=f"{abs(elo_loc_wc-elo_vis_wc)} pts")
+                    with ce3: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:28px;font-weight:700;color:#22c55e;">{pl_elo_wc*100:.1f}%</div></div>',unsafe_allow_html=True)
+                    with ce4: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT</div><div style="font-size:28px;font-weight:700;color:#94a3b8;">{pv_elo_wc*100:.1f}%</div></div>',unsafe_allow_html=True)
+                    st.caption(f"Empate: {pe_elo_wc*100:.1f}%")
+
+                # POISSON
+                st.markdown("#### 📊 Modelo Poisson")
+                sw=WC_STATS.get(eq_loc,{}); vw=WC_STATS.get(eq_vis,{})
+                cp1,cp2=st.columns(2)
+                with cp1:
+                    st.markdown(f"**{eq_loc}**")
+                    gfl=st.number_input("GF/partido",0.1,5.0,float(round(sw.get("gf",1.5),2)),0.1,key="wc_gfl")
+                    gcl=st.number_input("GC/partido",0.1,5.0,float(round(sw.get("gc",1.2),2)),0.1,key="wc_gcl")
+                with cp2:
+                    st.markdown(f"**{eq_vis}**")
+                    gfv=st.number_input("GF/partido",0.1,5.0,float(round(vw.get("gf",1.3),2)),0.1,key="wc_gfv")
+                    gcv=st.number_input("GC/partido",0.1,5.0,float(round(vw.get("gc",1.3),2)),0.1,key="wc_gcv")
+
+                metodo_wc=st.radio("⚙️ Método λ:",["Poisson estándar (GF × GC)","Promedio ponderado (GF + GC) / 2"],horizontal=True,key="wc_met")
+                fl_wc=1.0 if es_neutral_wc else 1.15
+                avg_din_wc=max((gfl+gcl+gfv+gcv)/4,0.8)
+                if "Promedio" in metodo_wc:
+                    ll_wc=max(round((gfl+gcv)/2*fl_wc,3),0.1)
+                    lv_wc=max(round((gfv+gcl)/2,3),0.1)
+                else:
+                    ll_wc=max(round((gfl/avg_din_wc)*(gcv/avg_din_wc)*avg_din_wc*fl_wc,3),0.1)
+                    lv_wc=max(round((gfv/avg_din_wc)*(gcl/avg_din_wc)*avg_din_wc,3),0.1)
+
+                import math as _mwc
+                def _pmf_wc(k,lam): return _mwc.exp(-lam)*(lam**k)/_mwc.factorial(k)
+                pl_pw=pe_pw=pv_pw=o25w=o35w=bsiw=0.0
+                for gl in range(12):
+                    for gv2 in range(12):
+                        pp=_pmf_wc(gl,ll_wc)*_pmf_wc(gv2,lv_wc)
+                        if gl>gv2: pl_pw+=pp
+                        elif gl==gv2: pe_pw+=pp
+                        else: pv_pw+=pp
+                        if gl+gv2>2.5: o25w+=pp
+                        if gl+gv2>3.5: o35w+=pp
+                        if gl>0 and gv2>0: bsiw+=pp
+
+                st.caption(f"λ {eq_loc}: **{ll_wc}** · λ {eq_vis}: **{lv_wc}** · Goles esperados: **{round(ll_wc+lv_wc,2)}**")
+                cp1b,cp2b,cp3b=st.columns(3)
+                with cp1b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:24px;font-weight:700;color:#22c55e;">{pl_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
+                with cp2b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:24px;font-weight:700;color:#f59e0b;">{pe_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
+                with cp3b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT</div><div style="font-size:24px;font-weight:700;color:#94a3b8;">{pv_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
+
+                # VEREDICTO
+                st.markdown("---")
+                st.markdown("#### ⚖️ Veredicto")
+                mod_wc=st.radio("Modelo:",["Elo","Poisson","Promedio"],horizontal=True,key="wc_mod")
+                if mod_wc=="Elo" and elo_loc_wc and elo_vis_wc:
+                    plf,pef,pvf=pl_elo_wc,pe_elo_wc,pv_elo_wc
+                elif mod_wc=="Poisson":
+                    plf,pef,pvf=pl_pw,pe_pw,pv_pw
+                else:
+                    if elo_loc_wc and elo_vis_wc:
+                        plf=(pl_elo_wc+pl_pw)/2; pef=(pe_elo_wc+pe_pw)/2; pvf=(pv_elo_wc+pv_pw)/2
+                    else:
+                        plf,pef,pvf=pl_pw,pe_pw,pv_pw
+
+                im_wc=impl({"local":ql_wc,"empate":qe_wc,"visit":qv_wc})
+                vig_wc=im_wc["vig"]
+                if vig_wc<=7: st.markdown(f'<div class="vig-ok">✓ Vig: {vig_wc}%</div>',unsafe_allow_html=True)
+                elif vig_wc<=12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig_wc}%</div>',unsafe_allow_html=True)
+                else: st.markdown(f'<div class="vig-bad">✗ Vig: {vig_wc}% — mercado caro</div>',unsafe_allow_html=True)
+
+                for nm,pm_wc,cu_wc,et_wc in [("local",plf,ql_wc,f"{fl} {eq_loc}"),("empate",pef,qe_wc,"Empate"),("visit",pvf,qv_wc,f"{fv} {eq_vis}")]:
+                    k_wc=kelly_calc(pm_wc,cu_wc,kf,bank,ue)
+                    if k_wc["value"]:
+                        st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et_wc} · cuota {cu_wc}</div><div class="vbet-grid"><div class="vbet-item"><label>P MODELO</label><span>{pm_wc*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im_wc["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k_wc["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k_wc["ku"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k_wc["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k_wc["r"]:,}</span></div></div></div>',unsafe_allow_html=True)
+                    else:
+                        st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et_wc} · cuota {cu_wc} · edge {k_wc["edge"]:+.1f}%</span></div>',unsafe_allow_html=True)
+
+                # MERCADOS ALTERNATIVOS
+                st.markdown("---")
+                st.markdown("#### 🎰 Mercados alternativos")
+                mercados_wc=[
+                    ("⚽ Más de 2.5 goles",  round(o25w,3),"wc_o25"),
+                    ("⚽ Menos de 2.5 goles",round(1-o25w,3),"wc_u25"),
+                    ("⚽ Más de 3.5 goles",  round(o35w,3),"wc_o35"),
+                    ("⚽ Menos de 3.5 goles",round(1-o35w,3),"wc_u35"),
+                    ("🤝 Ambos marcan (Sí)", round(bsiw,3),"wc_bsi"),
+                    ("🤝 Ambos marcan (No)", round(1-bsiw,3),"wc_bno"),
+                ]
+                for m_nom_wc,m_prob_wc,m_key_wc in mercados_wc:
+                    if m_prob_wc<=0: continue
+                    cm1,cm2,cm3,cm4,cm5=st.columns([3,1.2,1.2,1.2,1.5])
+                    with cm1: st.markdown(f"**{m_nom_wc}**")
+                    with cm2: st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">P.modelo<br><b style="color:#e8eeff">{m_prob_wc*100:.1f}%</b></div>',unsafe_allow_html=True)
+                    with cm3:
+                        cj_wc=round(1/m_prob_wc,2) if m_prob_wc>0.01 else 99.0
+                        st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">C.justa<br><b style="color:#f59e0b">{cj_wc}</b></div>',unsafe_allow_html=True)
+                    with cm4:
+                        cc_wc=st.number_input("Tu cuota",1.01,50.0,float(min(cj_wc,49.0)),0.05,format="%.2f",key=f"{m_key_wc}_inp",label_visibility="collapsed")
+                    with cm5:
+                        edge_wc=round((m_prob_wc*cc_wc-1)*100,1)
+                        if edge_wc>3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#166534;border-radius:6px;font-size:13px;font-weight:700;color:#4ade80">+{edge_wc}% ✅</div>',unsafe_allow_html=True)
+                        elif edge_wc<-3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#450a0a;border-radius:6px;font-size:13px;color:#f87171">{edge_wc}% ✗</div>',unsafe_allow_html=True)
+                        else: st.markdown(f'<div style="text-align:center;padding:2px 6px;font-size:13px;color:#94a3b8">{edge_wc:+.1f}%</div>',unsafe_allow_html=True)
