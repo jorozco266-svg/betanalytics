@@ -279,15 +279,17 @@ HIST_CONMEBOL = {
         ("Rangers",               9, 23, 14), ("Unión La Calera",        8, 24, 14),
     ],
     "Uruguay": [
-        # Fuente: Tabla Apertura 2026 — 15 jornadas completas (datos verificados)
-        ("Racing Montevideo",      23, 14, 15), ("Deportivo Maldonado",    24, 16, 15),
-        ("Albion",                 26, 16, 15), ("Peñarol",                23, 16, 15),
-        ("Central Español",        23, 22, 15), ("Montevideo City Torque", 22, 16, 15),
-        ("Nacional",               26, 21, 15), ("Defensor Sporting",      13, 11, 15),
-        ("Liverpool Montevideo",   20, 18, 15), ("Montevideo Wanderers",   16, 21, 15),
-        ("Danubio",                17, 21, 15), ("Cerro Largo",            16, 19, 15),
-        ("Boston River",           14, 20, 15), ("Juventud",               17, 22, 15),
-        ("Progreso",               12, 23, 15), ("Cerro",                   8, 24, 15),
+        # Fuente: TABLA ANUAL 2026 = Apertura (15 fechas) + Intermedio (4 fechas)
+        # Actualizada al 8-jun-2026 (última fecha antes del receso por el Mundial)
+        # Liga se reanuda 11-jul con la fecha 5 del Intermedio
+        ("Deportivo Maldonado",    35, 20, 19), ("Racing Montevideo",      25, 15, 19),
+        ("Peñarol",                29, 19, 19), ("Albion",                 29, 20, 19),
+        ("Nacional",               31, 26, 19), ("Central Español",        28, 26, 19),
+        ("Montevideo City Torque", 29, 24, 19), ("Montevideo Wanderers",   22, 24, 19),
+        ("Liverpool Montevideo",   22, 20, 19), ("Cerro Largo",            21, 20, 19),
+        ("Defensor Sporting",      15, 16, 19), ("Boston River",           19, 26, 19),
+        ("Danubio",                20, 27, 19), ("Juventud",               23, 30, 19),
+        ("Progreso",               16, 30, 19), ("Cerro",                  10, 31, 19),
     ],
     "Paraguay": [
         ("Libertad",              32, 10, 14), ("Olimpia",               28, 13, 14),
@@ -2000,7 +2002,10 @@ with tab1:
                 st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
-                st.info(f"📊 Modelo basado en tabla estática ({fb} 2026).")
+                if fb == "Uruguay":
+                    st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4, actualizada al 8-jun). La liga se reanuda el 11-jul.")
+                else:
+                    st.info(f"📊 Modelo basado en tabla estática ({fb} 2026).")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         else:
