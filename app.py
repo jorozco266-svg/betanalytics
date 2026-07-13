@@ -2179,7 +2179,8 @@ with tab1:
             if M_actual:
                 ll, lv = lams(eql, eqv, M_actual, li["avg"])
                 if ll > 0 and lv > 0:
-                    pl_m, pe_m, pv_m = poisson(ll, lv)
+                    _pres = poisson(ll, lv)
+                    pl_m, pe_m, pv_m = _pres["pl"], _pres["pe"], _pres["pv"]
                     pl, pe, pv = pl_m, pe_m, pv_m
                     usa_modelo = True
                     st.success(f"✓ Modelo Poisson aplicado — λ local: {ll:.2f} · λ visit: {lv:.2f}")
