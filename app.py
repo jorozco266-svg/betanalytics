@@ -144,7 +144,8 @@ LIGAS = {
     "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
-    "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":"soccer_spain_la_liga_women","use_odds_fixtures":True},
+    "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
 }
 
@@ -337,6 +338,18 @@ HIST_CONMEBOL = {
         ("Metropolitanos",           16, 18, 14), ("Deportivo Táchira",      15, 19, 14),
         ("Zamora",                   14, 20, 13), ("Mineros de Guayana",     12, 21, 13),
         ("Inter de Barquisimeto",    10, 23, 13), ("Rayo Zuliano",            9, 24, 12),
+    ],
+    "ArgFem": [
+        # Fuente: Tabla Apertura 2026 femenino (El Femenino) — actualizada 13-jul
+        # Formato: (equipo, GF, GC, PJ) · Promedio liga ~2.18 goles/partido
+        ("Racing",         31,  8, 13), ("San Lorenzo",    26,  5, 13),
+        ("River",          25, 13, 13), ("Talleres CBA",   20,  9, 14),
+        ("Boca",           13,  9, 13), ("Belgrano",        8,  8, 13),
+        ("Ferro",          11,  9, 13), ("SAT",            15, 13, 13),
+        ("Gimnasia",       22, 23, 13), ("Banfield",       14, 18, 13),
+        ("San Luis FC",    15, 12, 13), ("Huracán",         7, 12, 13),
+        ("Independiente",  10, 23, 14), ("Lanús",           8, 22, 14),
+        ("Newell's",        3, 22, 14), ("Unión",           8, 30, 13),
     ],
 }
 
@@ -1965,7 +1978,12 @@ with tab1:
         # Para ligas con tabla estática actualizada, usarla directamente
         if fb and fb in HIST_CONMEBOL:
             hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
-            st.info(f"📊 Modelo basado en tabla de posiciones actualizada ({fb} 2026).")
+            if fb == "ArgFem":
+                st.info("📊 Modelo basado en la tabla del Torneo Apertura 2026 femenino (El Femenino). Liga ofensiva (~2.18 goles/partido). Ingresa los partidos manualmente.")
+            elif fb == "Uruguay":
+                st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4). La liga se reanuda el 11-jul.")
+            else:
+                st.info(f"📊 Modelo basado en tabla de posiciones actualizada ({fb} 2026).")
         else:
             with st.spinner("Cargando tabla de posiciones desde Wikipedia..."):
                 hist,e1=wiki_tabla_hist(li["wiki_url"], li["avg"])
@@ -1981,7 +1999,7 @@ with tab1:
             prox,e2 = odds_fixtures(li["odds_key"], odds_api_key)
         elif li.get("sportsdb_id"):
             prox,e2 = sportsdb_next(li["sportsdb_id"])
-        if e2: st.warning(f"Error próximos: {e2}")
+        if e2 and li.get("sportsdb_id"): st.warning(f"Error próximos: {e2}")
         cargado=True
 
     elif li["src"]=="sportsdb":
@@ -2004,14 +2022,21 @@ with tab1:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
                 if fb == "Uruguay":
                     st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4, actualizada al 8-jun). La liga se reanuda el 11-jul.")
+                elif fb == "ArgFem":
+                    st.info("📊 Modelo basado en la tabla del Torneo Apertura 2026 femenino (El Femenino). Promedio de liga ~2.18 goles/partido — liga ofensiva.")
                 else:
                     st.info(f"📊 Modelo basado en tabla estática ({fb} 2026).")
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
-        else:
+            # Si las cuotas fallan (404 u otro), caer a TheSportsDB sin alarmar
+            if e2 and li.get("sportsdb_id"):
+                prox,e2=sportsdb_next(li["sportsdb_id"], li.get("sportsdb_season","2026"))
+        elif li.get("sportsdb_id"):
             prox,e2=sportsdb_next(li["sportsdb_id"], li.get("sportsdb_season","2026"))
+        else:
+            prox,e2=[],None
         if e1: st.warning(f"Error historial TheSportsDB: {e1}")
-        if e2: st.warning(f"Error próximos: {e2}")
+        if e2: st.caption("ℹ️ Fixtures automáticos no disponibles ahora. Ingresa el partido manualmente.")
         cargado=True
 
     elif li["src"] in ("wiki", "wiki_multi"):
