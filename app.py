@@ -518,6 +518,34 @@ def build_model(partidos, avg):
     modelo["_avg"] = avg
     return modelo
 
+# ─────────────────────────────────────────────
+# ALIASES DE EQUIPOS — compartido por lams() y buscar_equipo_info()
+# ─────────────────────────────────────────────
+ALIASES_EQUIPOS = {
+    "pumas": "pumas unam", "unam": "pumas unam",
+    "tigres": "tigres uanl", "uanl": "tigres uanl",
+    "america": "club america", "club america": "club america",
+    "chivas": "guadalajara",
+    "atletico mineiro": "atletico mineiro", "atletico-mg": "atletico mineiro",
+    "atletico paranaense": "athletico paranaense", "athletico-pr": "athletico paranaense",
+    "red bull bragantino": "red bull bragantino", "bragantino": "red bull bragantino",
+    "estudiantes": "estudiantes (lp)", "estudiantes lp": "estudiantes (lp)",
+    "racing club": "racing", "racing de avellaneda": "racing",
+    "belgrano": "belgrano", "belgrano cordoba": "belgrano",
+    "san martin": "san martin (t)",
+    # Ecuador
+    "ldu": "ldu quito", "ldu quito": "ldu quito", "liga de quito": "ldu quito",
+    "liga deportiva universitaria": "ldu quito", "liga dep universitaria": "ldu quito",
+    "idv": "independiente del valle", "independiente valle": "independiente del valle",
+    "catolica": "universidad catolica", "u. catolica": "universidad catolica",
+    "u catolica": "universidad catolica", "universidad catolica del ecuador": "universidad catolica",
+    "barcelona sc": "barcelona sc", "barcelona guayaquil": "barcelona sc",
+    "tecnico": "tecnico universitario", "tecnico u": "tecnico universitario",
+    "dep. cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
+    "manta fc": "manta", "guayaquil city fc": "guayaquil city",
+    "leones fc": "leones", "libertad fc": "libertad",
+}
+
 def mostrar_memoria_equipo(nombre, info, rol="local"):
     """
     Muestra la memoria de cálculo de un equipo: promedios, partidos individuales
@@ -560,16 +588,27 @@ def buscar_equipo_info(nombre, M):
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
     nombre_n = norm(nombre)
-    # Buscar equipo en el modelo
+    # Solo claves de equipos reales, nunca metadatos (_avg, _fuente)
+    equipos = [k for k in M if isinstance(M.get(k), dict)]
     equipo_key = None
-    if nombre in M:
+    if nombre in equipos:
         equipo_key = nombre
     else:
-        for k in M:
+        # Exacto normalizado
+        for k in equipos:
             if norm(k) == nombre_n:
                 equipo_key = k; break
+        # Aliases conocidos (LDU → LDU Quito, etc.)
         if not equipo_key:
-            for k in M:
+            for alias, target in ALIASES_EQUIPOS.items():
+                if alias in nombre_n:
+                    for k in equipos:
+                        if norm(k) == norm(target):
+                            equipo_key = k; break
+                    if equipo_key: break
+        # Parcial por primera palabra
+        if not equipo_key:
+            for k in equipos:
                 if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
                     equipo_key = k; break
     if not equipo_key:
@@ -591,31 +630,7 @@ def buscar_equipo_info(nombre, M):
 def lams(loc,vis,M,avg):
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-    # Aliases conocidos: nombre API → nombre en modelo
-    ALIASES = {
-        "pumas": "pumas unam", "unam": "pumas unam",
-        "tigres": "tigres uanl", "uanl": "tigres uanl",
-        "america": "club america", "club america": "club america",
-        "chivas": "guadalajara",
-        "atletico mineiro": "atletico mineiro", "atletico-mg": "atletico mineiro",
-        "atletico paranaense": "athletico paranaense", "athletico-pr": "athletico paranaense",
-        "red bull bragantino": "red bull bragantino", "bragantino": "red bull bragantino",
-        "estudiantes": "estudiantes (lp)", "estudiantes lp": "estudiantes (lp)",
-        "racing club": "racing", "racing de avellaneda": "racing",
-        "belgrano": "belgrano", "belgrano cordoba": "belgrano",
-        "san martin": "san martin (t)",
-        # Ecuador
-        "ldu": "ldu quito", "ldu quito": "ldu quito", "liga de quito": "ldu quito",
-        "liga deportiva universitaria": "ldu quito", "liga dep universitaria": "ldu quito",
-        "idv": "independiente del valle", "independiente valle": "independiente del valle",
-        "catolica": "universidad catolica", "u. catolica": "universidad catolica",
-        "u catolica": "universidad catolica", "universidad catolica del ecuador": "universidad catolica",
-        "barcelona sc": "barcelona sc", "barcelona guayaquil": "barcelona sc",
-        "tecnico": "tecnico universitario", "tecnico u": "tecnico universitario",
-        "dep. cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
-        "manta fc": "manta", "guayaquil city fc": "guayaquil city",
-        "leones fc": "leones", "libertad fc": "libertad",
-    }
+    ALIASES = ALIASES_EQUIPOS
     def buscar(nombre):
         if nombre in M: return M[nombre]
         nombre_n = norm(nombre)
@@ -624,23 +639,23 @@ def lams(loc,vis,M,avg):
             if alias in nombre_n:
                 target_n = norm(target)
                 for k,v in M.items():
-                    if k == "_avg": continue
+                    if not isinstance(v, dict): continue
                     if norm(k) == target_n: return v
         # Exacto normalizado
         for k,v in M.items():
-            if k == "_avg": continue
+            if not isinstance(v, dict): continue
             if norm(k) == nombre_n: return v
         # Quitar sufijos de ciudad "de Córdoba", "de Buenos Aires", etc.
         nombre_base = nombre_n.split(" de ")[0].split(" fc")[0].strip()
         for k,v in M.items():
-            if k == "_avg": continue
+            if not isinstance(v, dict): continue
             k_n = norm(k)
             k_base = k_n.split(" de ")[0].strip()
             if nombre_base == k_base: return v
         # Parcial por primera palabra
         primera = nombre_base.split()[0] if nombre_base.split() else nombre_base
         for k,v in M.items():
-            if k == "_avg": continue
+            if not isinstance(v, dict): continue
             k_n = norm(k)
             if primera in k_n or k_n.split()[0] in nombre_base: return v
         return {"atk":1.0,"def":1.0}
@@ -2152,7 +2167,7 @@ with tab1:
         # hist puede ser lista de partidos o modelo pre-construido (dict) según el fallback
         if isinstance(hist, dict):
             M = hist  # ya es modelo (ej: build_model_desde_tabla)
-            n_partidos = sum(v.get("n",0) for k,v in hist.items() if k != "_avg") // 2
+            n_partidos = sum(v.get("n",0) for k,v in hist.items() if isinstance(v, dict)) // 2
             st.success(f"✓ Modelo cargado ({len([k for k in hist if k!='_avg'])} equipos) · {len(prox)} próximos")
         else:
             st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
