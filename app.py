@@ -144,6 +144,8 @@ LIGAS = {
     "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
+    "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.40,"odds_key":"soccer_usa_mls","use_odds_fixtures":True},
+    "🇺🇸 MLS Next Pro":        {"src":"sportsdb","sportsdb_id":5279,"sportsdb_season":"2026","avg":1.50,"odds_key":None,"use_odds_fixtures":False},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
@@ -476,6 +478,66 @@ def fact(n):
 def pmf(k,lam):
     if lam<=0: return 1.0 if k==0 else 0.0
     return (math.exp(-lam)*(lam**k))/fact(k)
+
+# ─────────────────────────────────────────────
+# FACTOR POR BAJAS EN LA TITULAR
+# Escala FIJA — el usuario solo selecciona, no inventa el número.
+# Esto evita ajustar el modelo hasta que el edge salga positivo.
+# ─────────────────────────────────────────────
+BAJAS_CANTIDAD = {
+    "Sin bajas":                    {"atk": 1.00, "def": 1.00},
+    "1-2 titulares fuera":          {"atk": 0.93, "def": 1.07},
+    "3-4 titulares fuera":          {"atk": 0.85, "def": 1.15},
+    "5+ (rotación masiva)":         {"atk": 0.75, "def": 1.25},
+}
+
+BAJAS_CLAVE = {
+    "Goleador principal":  {"atk": 0.88, "def": 1.00},
+    "Portero titular":     {"atk": 1.00, "def": 1.10},
+    "Central titular":     {"atk": 1.00, "def": 1.06},
+}
+
+def factor_bajas(cantidad, claves):
+    """
+    Calcula el factor de ajuste por bajas.
+    cantidad: clave de BAJAS_CANTIDAD
+    claves: lista de claves de BAJAS_CLAVE
+    Retorna (factor_ataque, factor_defensa) — def >1 significa que concede más.
+    """
+    base = BAJAS_CANTIDAD.get(cantidad, {"atk": 1.00, "def": 1.00})
+    f_atk, f_def = base["atk"], base["def"]
+    for c in (claves or []):
+        extra = BAJAS_CLAVE.get(c)
+        if extra:
+            f_atk *= extra["atk"]
+            f_def *= extra["def"]
+    return round(f_atk, 3), round(f_def, 3)
+
+def selector_bajas(equipo, key_prefix):
+    """
+    Widget reutilizable: selector de bajas para un equipo.
+    Retorna (factor_atk, factor_def, descripcion).
+    """
+    with st.expander(f"🚑 Bajas — {equipo}", expanded=False):
+        cant = st.selectbox(
+            "Titulares ausentes",
+            list(BAJAS_CANTIDAD.keys()),
+            key=f"{key_prefix}_cant"
+        )
+        claves = st.multiselect(
+            "¿Alguno de estos falta?",
+            list(BAJAS_CLAVE.keys()),
+            key=f"{key_prefix}_clave",
+            help="Se suma al factor por cantidad. Solo marca los que realmente están descartados."
+        )
+        f_atk, f_def = factor_bajas(cant, claves)
+        if f_atk != 1.0 or f_def != 1.0:
+            st.caption(
+                f"Factor aplicado: ataque **×{f_atk}** · defensa **×{f_def}** "
+                f"(concede {'más' if f_def > 1 else 'igual'})"
+            )
+        desc = cant if not claves else f"{cant} + {', '.join(claves)}"
+        return f_atk, f_def, desc
 
 def poisson(ll,lv):
     pl=pe=pv=0.0; M={}
@@ -2078,6 +2140,19 @@ with tab1:
 
     elif li["src"]=="sportsdb":
         e1, e2, prox = None, None, []
+
+        # Aviso específico para ligas de desarrollo
+        if "Next Pro" in liga_n:
+            st.warning(
+                "⚠️ **Liga de desarrollo — el modelo es menos confiable aquí.**\n\n"
+                "Las plantillas rotan constantemente: los clubes MLS asignan y retiran jugadores según "
+                "las necesidades de su primer equipo. Edad promedio 20.6 años. Hay ventana de movimientos "
+                "abierta en julio.\n\n"
+                "Además, la liga usa tanda de penales tras empates con punto de bonificación — la tabla "
+                "no refleja exactamente el rendimiento en los 90 minutos, que es lo que calcula el modelo.\n\n"
+                "📊 Promedia 2.5–3.5 goles/partido. Los mercados over/under suelen ser más informativos que el 1X2."
+            )
+
         with st.spinner("Cargando resultados desde TheSportsDB..."):
             hist,e1=sportsdb_hist(li["sportsdb_id"], li.get("sportsdb_season","2026"))
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
@@ -2251,13 +2326,32 @@ with tab1:
             pl, pe, pv = 0.45, 0.28, 0.27  # defaults
 
             if M_actual:
-                ll, lv = lams(eql, eqv, M_actual, li["avg"])
+                ll_base, lv_base = lams(eql, eqv, M_actual, li["avg"])
+
+                # Factor por bajas — escala fija, el usuario solo selecciona
+                cb1, cb2 = st.columns(2)
+                with cb1:
+                    fa_loc, fd_loc, desc_loc = selector_bajas(eql, "bajas_loc")
+                with cb2:
+                    fa_vis, fd_vis, desc_vis = selector_bajas(eqv, "bajas_vis")
+
+                # λ local sube si el visitante concede más (fd_vis) y baja si el local ataca peor (fa_loc)
+                ll = round(ll_base * fa_loc * fd_vis, 3)
+                lv = round(lv_base * fa_vis * fd_loc, 3)
+                hay_bajas = (fa_loc, fd_loc, fa_vis, fd_vis) != (1.0, 1.0, 1.0, 1.0)
+
                 if ll > 0 and lv > 0:
                     _pres = poisson(ll, lv)
                     pl_m, pe_m, pv_m = _pres["pl"], _pres["pe"], _pres["pv"]
                     pl, pe, pv = pl_m, pe_m, pv_m
                     usa_modelo = True
-                    st.success(f"✓ Modelo Poisson aplicado — λ local: {ll:.2f} · λ visit: {lv:.2f}")
+                    if hay_bajas:
+                        st.success(
+                            f"✓ Modelo Poisson + bajas — λ local: {ll:.2f} · λ visit: {lv:.2f} "
+                            f"(sin bajas era {ll_base:.2f} / {lv_base:.2f})"
+                        )
+                    else:
+                        st.success(f"✓ Modelo Poisson aplicado — λ local: {ll:.2f} · λ visit: {lv:.2f}")
                     # Mostrar memoria de cálculo completa
                     with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
                         ml_info = buscar_equipo_info(eql, M_actual)
@@ -2269,8 +2363,16 @@ with tab1:
                         st.divider()
                         mostrar_memoria_equipo(eqv, mv_info, "visitante")
                         st.divider()
-                        st.markdown(f"**Proyección:** λ_local = Atk({ml_info['atk']:.3f}) × Def_visit({mv_info['def']:.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll:.3f}**")
-                        st.markdown(f"**Proyección:** λ_visit = Atk({mv_info['atk']:.3f}) × Def_local({ml_info['def']:.3f}) × Liga({li['avg']}) = **{lv:.3f}**")
+                        st.markdown(f"**Proyección base:** λ_local = Atk({ml_info['atk']:.3f}) × Def_visit({mv_info['def']:.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll_base:.3f}**")
+                        st.markdown(f"**Proyección base:** λ_visit = Atk({mv_info['atk']:.3f}) × Def_local({ml_info['def']:.3f}) × Liga({li['avg']}) = **{lv_base:.3f}**")
+                        if hay_bajas:
+                            st.divider()
+                            st.markdown("**🚑 Ajuste por bajas:**")
+                            st.markdown(f"&nbsp;&nbsp;{eql}: {desc_loc} → atk ×{fa_loc} · def ×{fd_loc}", unsafe_allow_html=True)
+                            st.markdown(f"&nbsp;&nbsp;{eqv}: {desc_vis} → atk ×{fa_vis} · def ×{fd_vis}", unsafe_allow_html=True)
+                            st.markdown(f"λ_local ajustado = {ll_base:.3f} × {fa_loc} (ataque {eql}) × {fd_vis} (defensa {eqv}) = **{ll:.3f}**")
+                            st.markdown(f"λ_visit ajustado = {lv_base:.3f} × {fa_vis} (ataque {eqv}) × {fd_loc} (defensa {eql}) = **{lv:.3f}**")
+                            st.caption("⚠️ Los factores son fijos por diseño. Si te ves girando esta perilla hasta que el edge salga positivo, el problema no es el modelo.")
 
             if not usa_modelo:
                 st.info("⚠️ Equipos no encontrados en el modelo — ingresa las probabilidades manualmente.")
@@ -3097,14 +3199,27 @@ with tab7:
                         st.caption(f"📋 {vw['fuente']}")
 
                 metodo_wc=st.radio("⚙️ Método λ:",["Poisson estándar (GF × GC)","Promedio ponderado (GF + GC) / 2"],horizontal=True,key="wc_met")
+
+                # Factor por bajas
+                cbw1, cbw2 = st.columns(2)
+                with cbw1:
+                    fa_l_wc, fd_l_wc, desc_l_wc = selector_bajas(eq_loc, "wc_bajas_loc")
+                with cbw2:
+                    fa_v_wc, fd_v_wc, desc_v_wc = selector_bajas(eq_vis, "wc_bajas_vis")
+                hay_bajas_wc = (fa_l_wc, fd_l_wc, fa_v_wc, fd_v_wc) != (1.0, 1.0, 1.0, 1.0)
+
                 fl_wc=1.0 if es_neutral_wc else 1.15
                 avg_din_wc=max((gfl+gcl+gfv+gcv)/4,0.8)
                 if "Promedio" in metodo_wc:
-                    ll_wc=max(round((gfl+gcv)/2*fl_wc,3),0.1)
-                    lv_wc=max(round((gfv+gcl)/2,3),0.1)
+                    ll_base_wc=max(round((gfl+gcv)/2*fl_wc,3),0.1)
+                    lv_base_wc=max(round((gfv+gcl)/2,3),0.1)
                 else:
-                    ll_wc=max(round((gfl/avg_din_wc)*(gcv/avg_din_wc)*avg_din_wc*fl_wc,3),0.1)
-                    lv_wc=max(round((gfv/avg_din_wc)*(gcl/avg_din_wc)*avg_din_wc,3),0.1)
+                    ll_base_wc=max(round((gfl/avg_din_wc)*(gcv/avg_din_wc)*avg_din_wc*fl_wc,3),0.1)
+                    lv_base_wc=max(round((gfv/avg_din_wc)*(gcl/avg_din_wc)*avg_din_wc,3),0.1)
+
+                # Aplicar bajas
+                ll_wc = max(round(ll_base_wc * fa_l_wc * fd_v_wc, 3), 0.1)
+                lv_wc = max(round(lv_base_wc * fa_v_wc * fd_l_wc, 3), 0.1)
 
                 import math as _mwc
                 def _pmf_wc(k,lam): return _mwc.exp(-lam)*(lam**k)/_mwc.factorial(k)
@@ -3155,21 +3270,28 @@ with tab7:
                     if "Promedio" in metodo_wc:
                         st.markdown(
                             f"λ_{eq_loc} = (GF_{eq_loc}({gfl:.2f}) + GC_{eq_vis}({gcv:.2f})) / 2 "
-                            f"× Factor_local({fl_wc}) = **{ll_wc}**"
+                            f"× Factor_local({fl_wc}) = **{ll_base_wc}**"
                         )
                         st.markdown(
-                            f"λ_{eq_vis} = (GF_{eq_vis}({gfv:.2f}) + GC_{eq_loc}({gcl:.2f})) / 2 = **{lv_wc}**"
+                            f"λ_{eq_vis} = (GF_{eq_vis}({gfv:.2f}) + GC_{eq_loc}({gcl:.2f})) / 2 = **{lv_base_wc}**"
                         )
                     else:
                         st.markdown(f"Referencia dinámica = (GF_loc + GC_loc + GF_vis + GC_vis) / 4 = **{avg_din_wc:.3f}**")
                         st.markdown(
                             f"λ_{eq_loc} = (GF({gfl:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcv:.2f})/{avg_din_wc:.2f}) "
-                            f"× {avg_din_wc:.2f} × Factor_local({fl_wc}) = **{ll_wc}**"
+                            f"× {avg_din_wc:.2f} × Factor_local({fl_wc}) = **{ll_base_wc}**"
                         )
                         st.markdown(
                             f"λ_{eq_vis} = (GF({gfv:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcl:.2f})/{avg_din_wc:.2f}) "
-                            f"× {avg_din_wc:.2f} = **{lv_wc}**"
+                            f"× {avg_din_wc:.2f} = **{lv_base_wc}**"
                         )
+                    if hay_bajas_wc:
+                        st.divider()
+                        st.markdown("**🚑 Ajuste por bajas:**")
+                        st.markdown(f"&nbsp;&nbsp;{eq_loc}: {desc_l_wc} → atk ×{fa_l_wc} · def ×{fd_l_wc}", unsafe_allow_html=True)
+                        st.markdown(f"&nbsp;&nbsp;{eq_vis}: {desc_v_wc} → atk ×{fa_v_wc} · def ×{fd_v_wc}", unsafe_allow_html=True)
+                        st.markdown(f"λ_{eq_loc} ajustado = {ll_base_wc} × {fa_l_wc} × {fd_v_wc} = **{ll_wc}**")
+                        st.markdown(f"λ_{eq_vis} ajustado = {lv_base_wc} × {fa_v_wc} × {fd_l_wc} = **{lv_wc}**")
                     st.caption("⚠️ La referencia dinámica evita que un promedio fijo (2.5) aplaste los λ de selecciones con pocos goles.")
 
                 cp1b,cp2b,cp3b=st.columns(3)
