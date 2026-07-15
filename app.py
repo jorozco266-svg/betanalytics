@@ -2934,6 +2934,14 @@ with tab7:
     st.markdown("### 🏆 Copa del Mundo 2026")
     st.caption("🇺🇸🇲🇽🇨🇦 · 48 equipos · 104 partidos · 11 jun – 19 jul 2026")
 
+    # Estado actual del torneo
+    st.success(
+        "**🏁 FINAL: 🇪🇸 España vs 🇦🇷 Argentina** — domingo 19 de julio, 14:00 COT · MetLife Stadium\n\n"
+        "🥉 Tercer puesto: 🇫🇷 Francia vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra — sábado 18 de julio\n\n"
+        "Semifinales: Francia 0-2 España · Inglaterra 1-2 Argentina"
+    )
+    st.caption("📊 Las estadísticas de España, Argentina, Francia e Inglaterra ya reflejan sus 7 partidos del Mundial. El resto de selecciones conserva datos previos al torneo.")
+
     vista_wc = st.radio("Vista:", ["📅 Fixture","📊 Grupos","🔍 Analizar partido"],
                          horizontal=True, key="vista_wc")
 
@@ -3064,10 +3072,14 @@ with tab7:
                     st.markdown(f"**{eq_loc}**")
                     gfl=st.number_input("GF/partido",0.1,5.0,float(round(sw.get("gf",1.5),2)),0.1,key="wc_gfl")
                     gcl=st.number_input("GC/partido",0.1,5.0,float(round(sw.get("gc",1.2),2)),0.1,key="wc_gcl")
+                    if sw.get("fuente"):
+                        st.caption(f"📋 {sw['fuente']}")
                 with cp2:
                     st.markdown(f"**{eq_vis}**")
                     gfv=st.number_input("GF/partido",0.1,5.0,float(round(vw.get("gf",1.3),2)),0.1,key="wc_gfv")
                     gcv=st.number_input("GC/partido",0.1,5.0,float(round(vw.get("gc",1.3),2)),0.1,key="wc_gcv")
+                    if vw.get("fuente"):
+                        st.caption(f"📋 {vw['fuente']}")
 
                 metodo_wc=st.radio("⚙️ Método λ:",["Poisson estándar (GF × GC)","Promedio ponderado (GF + GC) / 2"],horizontal=True,key="wc_met")
                 fl_wc=1.0 if es_neutral_wc else 1.15
@@ -3093,6 +3105,58 @@ with tab7:
                         if gl>0 and gv2>0: bsiw+=pp
 
                 st.caption(f"λ {eq_loc}: **{ll_wc}** · λ {eq_vis}: **{lv_wc}** · Goles esperados: **{round(ll_wc+lv_wc,2)}**")
+
+                # ── Memoria de cálculo del Mundial ──────────────
+                with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
+                    st.caption("📁 **Fuente:** partidos verificados de cada selección (2025–2026) · **Datos al:** inicio del Mundial 2026")
+                    st.divider()
+
+                    # Local
+                    st.markdown(f"**{fl} {eq_loc} — {sw.get('n', 7)} partidos**")
+                    st.markdown(
+                        f"Goles/partido: `{sw.get('gf',0):.2f}` a favor, `{sw.get('gc',0):.2f}` en contra · "
+                        f"Elo: `{elo_loc_wc or 'n/d'}`"
+                    )
+                    if sw.get("fuente"):
+                        st.markdown(f"&nbsp;&nbsp;⚽ {sw['fuente']}", unsafe_allow_html=True)
+                    st.caption(f"Over 2.5 histórico: {sw.get('over25',0)*100:.0f}% · BTTS histórico: {sw.get('btts',0)*100:.0f}%")
+
+                    st.divider()
+
+                    # Visitante
+                    st.markdown(f"**{fv} {eq_vis} — {vw.get('n', 7)} partidos**")
+                    st.markdown(
+                        f"Goles/partido: `{vw.get('gf',0):.2f}` a favor, `{vw.get('gc',0):.2f}` en contra · "
+                        f"Elo: `{elo_vis_wc or 'n/d'}`"
+                    )
+                    if vw.get("fuente"):
+                        st.markdown(f"&nbsp;&nbsp;⚽ {vw['fuente']}", unsafe_allow_html=True)
+                    st.caption(f"Over 2.5 histórico: {vw.get('over25',0)*100:.0f}% · BTTS histórico: {vw.get('btts',0)*100:.0f}%")
+
+                    st.divider()
+
+                    # Cómo se calculó lambda
+                    st.markdown("**Cálculo de λ:**")
+                    if "Promedio" in metodo_wc:
+                        st.markdown(
+                            f"λ_{eq_loc} = (GF_{eq_loc}({gfl:.2f}) + GC_{eq_vis}({gcv:.2f})) / 2 "
+                            f"× Factor_local({fl_wc}) = **{ll_wc}**"
+                        )
+                        st.markdown(
+                            f"λ_{eq_vis} = (GF_{eq_vis}({gfv:.2f}) + GC_{eq_loc}({gcl:.2f})) / 2 = **{lv_wc}**"
+                        )
+                    else:
+                        st.markdown(f"Referencia dinámica = (GF_loc + GC_loc + GF_vis + GC_vis) / 4 = **{avg_din_wc:.3f}**")
+                        st.markdown(
+                            f"λ_{eq_loc} = (GF({gfl:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcv:.2f})/{avg_din_wc:.2f}) "
+                            f"× {avg_din_wc:.2f} × Factor_local({fl_wc}) = **{ll_wc}**"
+                        )
+                        st.markdown(
+                            f"λ_{eq_vis} = (GF({gfv:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcl:.2f})/{avg_din_wc:.2f}) "
+                            f"× {avg_din_wc:.2f} = **{lv_wc}**"
+                        )
+                    st.caption("⚠️ La referencia dinámica evita que un promedio fijo (2.5) aplaste los λ de selecciones con pocos goles.")
+
                 cp1b,cp2b,cp3b=st.columns(3)
                 with cp1b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:24px;font-weight:700;color:#22c55e;">{pl_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
                 with cp2b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:24px;font-weight:700;color:#f59e0b;">{pe_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
