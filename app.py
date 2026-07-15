@@ -162,10 +162,11 @@ def es_manana(dt): return dt.date()==(datetime.datetime.now(TZ_COL)+datetime.tim
 # ─────────────────────────────────────────────
 # MODELO POISSON
 # ─────────────────────────────────────────────
-def build_model_desde_tabla(tabla_goles, avg):
+def build_model_desde_tabla(tabla_goles, avg, fuente_key=None):
     """
     Construye modelo Poisson directamente desde tabla de posiciones (GF, GC, PJ).
     Evita partidos sintéticos que contaminan el modelo con un equipo ficticio.
+    fuente_key: clave de FUENTE_TABLAS para mostrar procedencia en la memoria de cálculo.
     """
     modelo = {}
     for equipo, gf, gc, pj in tabla_goles:
@@ -178,9 +179,12 @@ def build_model_desde_tabla(tabla_goles, avg):
             "n":      pj,
             "gf_avg": round(gf_avg, 2),
             "gc_avg": round(gc_avg, 2),
+            "gf_tot": gf,   # totales exactos de la tabla, sin redondeo
+            "gc_tot": gc,
             "partidos": [],
         }
     modelo["_avg"] = avg
+    modelo["_fuente"] = fuente_key
     return modelo
 
 # Tabla de posiciones Brasileirao Serie A 2026 (al 24-mayo-2026, jornada 16-17)
@@ -312,14 +316,17 @@ HIST_CONMEBOL = {
         ("Los Chankas",            7, 28, 13), ("Unión Comercio",         6, 29, 12),
     ],
     "Ecuador": [
-        ("Liga de Quito",           28, 14, 15), ("Independiente del Valle", 26, 17, 15),
-        ("Barcelona SC",            24, 16, 15), ("Emelec",                  22, 14, 15),
-        ("Universidad Católica",    21, 15, 15), ("Aucas",                   20, 18, 15),
-        ("Delfín",                  19, 19, 15), ("Orense",                  17, 20, 15),
-        ("Técnico Universitario",   16, 21, 15), ("Macará",                  14, 20, 15),
-        ("Mushuc Runa",             13, 22, 15), ("Deportivo Cuenca",        12, 21, 15),
-        ("Guayaquil City",          11, 24, 15), ("Libertad",                10, 25, 15),
-        ("Manta FC",                 9, 26, 15), ("Leones",                   8, 27, 15),
+        # Fuente: Wikipedia 2026 LigaPro Serie A — actualizada al 30-may-2026 (fechas 15-16)
+        # ⚠️ La liga va por fecha 18 (12-jul). Datos de GF/GC no disponibles públicamente
+        #    en formato scrapeable para las fechas 16-18.
+        ("Independiente del Valle", 28, 16, 15), ("Deportivo Cuenca",        18, 17, 16),
+        ("Universidad Católica",    26, 13, 15), ("Barcelona SC",            18, 12, 15),
+        ("Aucas",                   19, 16, 15), ("LDU Quito",               16, 13, 15),
+        ("Orense",                  21, 19, 15), ("Macará",                  14, 17, 15),
+        ("Guayaquil City",          12, 15, 15), ("Emelec",                  12, 16, 15),
+        ("Técnico Universitario",   16, 16, 15), ("Mushuc Runa",             19, 21, 15),
+        ("Libertad",                16, 22, 16), ("Leones",                  14, 17, 15),
+        ("Delfín",                   8, 15, 16), ("Manta",                    7, 19, 16),
     ],
     "Bolivia": [
         ("Bolívar",                30, 10, 14), ("Always Ready",           26, 12, 14),
@@ -351,6 +358,26 @@ HIST_CONMEBOL = {
         ("Independiente",  10, 23, 14), ("Lanús",           8, 22, 14),
         ("Newell's",        3, 22, 14), ("Unión",           8, 30, 13),
     ],
+}
+
+# ─────────────────────────────────────────────
+# PROCEDENCIA DE LOS DATOS de cada tabla estática
+# Se muestra en la memoria de cálculo para saber qué tan frescos son
+# ─────────────────────────────────────────────
+FUENTE_TABLAS = {
+    "Ecuador":   {"fuente":"Wikipedia · 2026 LigaPro Serie A", "corte":"30-may-2026",
+                  "nota":"La liga va por fecha 18. GF/GC de fechas 16-18 no disponibles."},
+    "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
+                  "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
+    "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"13-jul-2026",
+                  "nota":"Liga ofensiva (~2.18 goles/partido). El Clausura arranca ahora."},
+    "Brasil":    {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Bolivia":   {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Venezuela": {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Peru":      {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Chile":     {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Colombia":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Paraguay":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
 }
 
 
@@ -491,6 +518,43 @@ def build_model(partidos, avg):
     modelo["_avg"] = avg
     return modelo
 
+def mostrar_memoria_equipo(nombre, info, rol="local"):
+    """
+    Muestra la memoria de cálculo de un equipo: promedios, partidos individuales
+    (si están disponibles) o los totales exactos de la tabla, y la procedencia.
+    """
+    st.markdown(f"**{nombre} ({rol}) — {info['n']} partidos**")
+    st.markdown(
+        f"Ataque: `{info['atk']:.3f}` · Defensa: `{info['def']:.3f}` · "
+        f"Goles/partido: `{info['gf_avg']:.2f}` a favor, `{info['gc_avg']:.2f}` en contra"
+    )
+    if info.get('partidos'):
+        st.caption(f"Partidos usados en el cálculo (últimos {len(info['partidos'])}):")
+        for l2, v2, gl2, gv2 in info['partidos']:
+            gano = (l2 == nombre and gl2 > gv2) or (v2 == nombre and gv2 > gl2)
+            icono = "✓" if gano else ("=" if gl2 == gv2 else "✗")
+            st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
+    else:
+        # Modelo desde tabla: mostrar los totales exactos, no reconstruidos
+        gf_t = info.get('gf_tot')
+        gc_t = info.get('gc_tot')
+        if gf_t is None: gf_t = round(info['gf_avg'] * info['n'])
+        if gc_t is None: gc_t = round(info['gc_avg'] * info['n'])
+        st.markdown(
+            f"&nbsp;&nbsp;📊 **{gf_t} GF · {gc_t} GC en {info['n']} partidos** → "
+            f"{gf_t}/{info['n']} = `{info['gf_avg']:.2f}` · {gc_t}/{info['n']} = `{info['gc_avg']:.2f}`",
+            unsafe_allow_html=True
+        )
+        st.caption("Modelo construido desde la tabla de posiciones — los resultados partido a partido no están disponibles en esta fuente.")
+
+def mostrar_fuente_datos(fuente_key):
+    """Muestra la procedencia y fecha de corte de los datos del modelo."""
+    if not fuente_key or fuente_key not in FUENTE_TABLAS: return
+    f = FUENTE_TABLAS[fuente_key]
+    txt = f"📁 **Fuente:** {f['fuente']} · **Datos al:** {f['corte']}"
+    if f.get('nota'): txt += f"\n\n⚠️ {f['nota']}"
+    st.caption(txt)
+
 def buscar_equipo_info(nombre, M):
     """Retorna info completa del equipo incluyendo partidos para la memoria de calculo."""
     import unicodedata
@@ -509,7 +573,8 @@ def buscar_equipo_info(nombre, M):
                 if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
                     equipo_key = k; break
     if not equipo_key:
-        return {"atk":1.0,"def":1.0,"n":0,"gf_avg":0,"gc_avg":0,"partidos":[]}
+        return {"atk":1.0,"def":1.0,"n":0,"gf_avg":0,"gc_avg":0,"partidos":[],
+                "gf_tot":None,"gc_tot":None,"fuente":None}
     v = M[equipo_key]
     return {
         "atk": v["atk"],
@@ -518,6 +583,9 @@ def buscar_equipo_info(nombre, M):
         "gf_avg": round(v.get("gf_avg", v["atk"] * M.get("_avg", 1.20)), 2),
         "gc_avg": round(v.get("gc_avg", v["def"] * M.get("_avg", 1.20)), 2),
         "partidos": v.get("partidos", []),
+        "gf_tot": v.get("gf_tot"),
+        "gc_tot": v.get("gc_tot"),
+        "fuente": M.get("_fuente"),
     }
 
 def lams(loc,vis,M,avg):
@@ -536,6 +604,17 @@ def lams(loc,vis,M,avg):
         "racing club": "racing", "racing de avellaneda": "racing",
         "belgrano": "belgrano", "belgrano cordoba": "belgrano",
         "san martin": "san martin (t)",
+        # Ecuador
+        "ldu": "ldu quito", "ldu quito": "ldu quito", "liga de quito": "ldu quito",
+        "liga deportiva universitaria": "ldu quito", "liga dep universitaria": "ldu quito",
+        "idv": "independiente del valle", "independiente valle": "independiente del valle",
+        "catolica": "universidad catolica", "u. catolica": "universidad catolica",
+        "u catolica": "universidad catolica", "universidad catolica del ecuador": "universidad catolica",
+        "barcelona sc": "barcelona sc", "barcelona guayaquil": "barcelona sc",
+        "tecnico": "tecnico universitario", "tecnico u": "tecnico universitario",
+        "dep. cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
+        "manta fc": "manta", "guayaquil city fc": "guayaquil city",
+        "leones fc": "leones", "libertad fc": "libertad",
     }
     def buscar(nombre):
         if nombre in M: return M[nombre]
@@ -1862,31 +1941,11 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
             mv_info = buscar_equipo_info(vis, M)
             ll_show, lv_show = lams(loc, vis, M, avg)
 
-            # Partidos del equipo local
-            st.markdown(f"**{loc} (local) — {ml_info['n']} partidos**")
-            st.markdown(f"Ataque: `{ml_info['atk']:.3f}` · Defensa: `{ml_info['def']:.3f}` · Goles/partido: `{ml_info['gf_avg']:.2f}` a favor, `{ml_info['gc_avg']:.2f}` en contra")
-            if ml_info['partidos']:
-                for l2,v2,gl2,gv2 in ml_info['partidos']:
-                    icono = "✓" if (l2==loc and gl2>gv2) or (v2==loc and gv2>gl2) else ("=" if gl2==gv2 else "✗")
-                    st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
-            else:
-                gf_tot = round(ml_info['gf_avg'] * ml_info['n'])
-                gc_tot = round(ml_info['gc_avg'] * ml_info['n'])
-                st.markdown(f"&nbsp;&nbsp;📊 *Modelo basado en totales de temporada: {gf_tot} GF · {gc_tot} GC en {ml_info['n']} partidos. Resultados individuales no disponibles.*")
-
+            mostrar_fuente_datos(ml_info.get("fuente"))
             st.divider()
-
-            # Partidos del equipo visitante
-            st.markdown(f"**{vis} (visitante) — {mv_info['n']} partidos**")
-            st.markdown(f"Ataque: `{mv_info['atk']:.3f}` · Defensa: `{mv_info['def']:.3f}` · Goles/partido: `{mv_info['gf_avg']:.2f}` a favor, `{mv_info['gc_avg']:.2f}` en contra")
-            if mv_info['partidos']:
-                for l2,v2,gl2,gv2 in mv_info['partidos']:
-                    icono = "✓" if (l2==vis and gl2>gv2) or (v2==vis and gv2>gl2) else ("=" if gl2==gv2 else "✗")
-                    st.markdown(f"&nbsp;&nbsp;{icono} {l2} **{gl2}-{gv2}** {v2}", unsafe_allow_html=True)
-            else:
-                gf_tot = round(mv_info['gf_avg'] * mv_info['n'])
-                gc_tot = round(mv_info['gc_avg'] * mv_info['n'])
-                st.markdown(f"&nbsp;&nbsp;📊 *Modelo basado en totales de temporada: {gf_tot} GF · {gc_tot} GC en {mv_info['n']} partidos. Resultados individuales no disponibles.*")
+            mostrar_memoria_equipo(loc, ml_info, "local")
+            st.divider()
+            mostrar_memoria_equipo(vis, mv_info, "visitante")
 
             st.divider()
 
@@ -1977,7 +2036,7 @@ with tab1:
         fb = li.get("hist_fallback")
         # Para ligas con tabla estática actualizada, usarla directamente
         if fb and fb in HIST_CONMEBOL:
-            hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
+            hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
             if fb == "ArgFem":
                 st.info("📊 Modelo basado en la tabla del Torneo Apertura 2026 femenino (El Femenino). Liga ofensiva (~2.18 goles/partido). Ingresa los partidos manualmente.")
             elif fb == "Uruguay":
@@ -2019,7 +2078,7 @@ with tab1:
                 hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio.")
             elif fb and fb in HIST_CONMEBOL:
-                hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"])
+                hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
                 if fb == "Uruguay":
                     st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4, actualizada al 8-jun). La liga se reanuda el 11-jul.")
                 elif fb == "ArgFem":
@@ -2184,31 +2243,19 @@ with tab1:
                     pl, pe, pv = pl_m, pe_m, pv_m
                     usa_modelo = True
                     st.success(f"✓ Modelo Poisson aplicado — λ local: {ll:.2f} · λ visit: {lv:.2f}")
-                    # Mostrar memoria de cálculo compacta
+                    # Mostrar memoria de cálculo completa
                     with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
-                        ml_info = M_actual.get(eql) or {}
-                        mv_info = M_actual.get(eqv) or {}
-                        # Buscar con matching
-                        if not ml_info:
-                            import unicodedata
-                            def norm2(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-                            for k,v in M_actual.items():
-                                if k != "_avg" and isinstance(v, dict) and norm2(k) == norm2(eql):
-                                    ml_info = v; break
-                        if not mv_info:
-                            import unicodedata
-                            def norm2(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-                            for k,v in M_actual.items():
-                                if k != "_avg" and isinstance(v, dict) and norm2(k) == norm2(eqv):
-                                    mv_info = v; break
-                        if ml_info:
-                            st.markdown(f"**{eql} (local) — {ml_info.get('n',0)} partidos**")
-                            st.markdown(f"Ataque: `{ml_info.get('atk',1):.3f}` · Defensa: `{ml_info.get('def',1):.3f}` · GF/partido: `{ml_info.get('gf_avg',0):.2f}` · GC/partido: `{ml_info.get('gc_avg',0):.2f}`")
-                        if mv_info:
-                            st.markdown(f"**{eqv} (visitante) — {mv_info.get('n',0)} partidos**")
-                            st.markdown(f"Ataque: `{mv_info.get('atk',1):.3f}` · Defensa: `{mv_info.get('def',1):.3f}` · GF/partido: `{mv_info.get('gf_avg',0):.2f}` · GC/partido: `{mv_info.get('gc_avg',0):.2f}`")
-                        st.markdown(f"**Proyección:** λ_local = Atk({ml_info.get('atk',1):.3f}) × Def_visit({mv_info.get('def',1):.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll:.3f}**")
-                        st.markdown(f"**Proyección:** λ_visit = Atk({mv_info.get('atk',1):.3f}) × Def_local({ml_info.get('def',1):.3f}) × Liga({li['avg']}) = **{lv:.3f}**")
+                        ml_info = buscar_equipo_info(eql, M_actual)
+                        mv_info = buscar_equipo_info(eqv, M_actual)
+
+                        mostrar_fuente_datos(ml_info.get("fuente"))
+                        st.divider()
+                        mostrar_memoria_equipo(eql, ml_info, "local")
+                        st.divider()
+                        mostrar_memoria_equipo(eqv, mv_info, "visitante")
+                        st.divider()
+                        st.markdown(f"**Proyección:** λ_local = Atk({ml_info['atk']:.3f}) × Def_visit({mv_info['def']:.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll:.3f}**")
+                        st.markdown(f"**Proyección:** λ_visit = Atk({mv_info['atk']:.3f}) × Def_local({ml_info['def']:.3f}) × Liga({li['avg']}) = **{lv:.3f}**")
 
             if not usa_modelo:
                 st.info("⚠️ Equipos no encontrados en el modelo — ingresa las probabilidades manualmente.")
