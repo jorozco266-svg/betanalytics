@@ -331,14 +331,16 @@ HIST_CONMEBOL = {
         ("Delfín",                   8, 15, 16), ("Manta",                    7, 19, 16),
     ],
     "Bolivia": [
-        ("Bolívar",                30, 10, 14), ("Always Ready",           26, 12, 14),
-        ("The Strongest",          24, 14, 14), ("Oriente Petrolero",      20, 16, 14),
-        ("Blooming",               18, 17, 14), ("Nacional Potosí",        17, 18, 14),
-        ("San Antonio Bulo Bulo",  16, 18, 14), ("Independence",           15, 19, 14),
-        ("GV San José",            14, 19, 14), ("Royal Pari",             13, 20, 14),
-        ("Wilstermann",            13, 20, 14), ("Real Oruro",             12, 22, 13),
-        ("Real Tomayapo",          10, 24, 13), ("Aurora",                 12, 22, 13),
-        ("Universitario de Vinto", 11, 23, 13), ("Guabirá",                 9, 25, 12),
+        # Fuente: División Profesional 2026 — actualizada al 16-jul-2026
+        # Formato: (equipo, GF, GC, PJ) · 16 equipos
+        ("The Strongest",                15,  8, 9), ("Always Ready",           20,  5, 9),
+        ("Aurora",                       14,  9, 9), ("Bolívar",                20, 10, 9),
+        ("Real Potosí",                  14,  7, 9), ("Blooming",               15, 11, 9),
+        ("Nacional Potosí",              12, 10, 9), ("Independiente Petrolero",12, 12, 8),
+        ("Real Oruro",                   17, 22, 9), ("Guabirá",                14, 20, 9),
+        ("Universitario de Vinto",       15, 16, 9), ("Oriente Petrolero",      11, 13, 9),
+        ("ABB",                          13, 20, 8), ("Real Tomayapo",           7, 20, 9),
+        ("San Antonio Bulo Bulo",        10, 19, 9), ("Gualberto Villarroel San José", 10, 17, 9),
     ],
     "Venezuela": [
         ("Deportivo La Guaira",      28, 10, 14), ("Caracas FC",             26, 12, 14),
@@ -374,7 +376,8 @@ FUENTE_TABLAS = {
     "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"13-jul-2026",
                   "nota":"Liga ofensiva (~2.18 goles/partido). El Clausura arranca ahora."},
     "Brasil":    {"fuente":"Tabla estática", "corte":"2026", "nota":""},
-    "Bolivia":   {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Bolivia":   {"fuente":"División Profesional 2026 (FBF)", "corte":"16-jul-2026",
+                  "nota":"Temporada 2026, ~9 fechas jugadas. Muestra pequeña — el modelo es menos estable con pocos partidos."},
     "Venezuela": {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Peru":      {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Chile":     {"fuente":"Tabla estática", "corte":"2026", "nota":""},
@@ -606,6 +609,16 @@ ALIASES_EQUIPOS = {
     "dep. cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
     "manta fc": "manta", "guayaquil city fc": "guayaquil city",
     "leones fc": "leones", "libertad fc": "libertad",
+    # Bolivia
+    "abb": "abb", "academia": "abb", "academia del balompie": "abb",
+    "academia del balompie boliviano": "abb", "balompie boliviano": "abb",
+    "independence": "independiente petrolero", "independiente sucre": "independiente petrolero",
+    "gv san jose": "gualberto villarroel san jose", "san jose": "gualberto villarroel san jose",
+    "gualberto villarroel": "gualberto villarroel san jose",
+    "universitario vinto": "universitario de vinto",
+    "club universitario de vinto": "universitario de vinto", "vinto": "universitario de vinto",
+    "tomayapo": "real tomayapo", "bulo bulo": "san antonio bulo bulo",
+    "san antonio": "san antonio bulo bulo", "strongest": "the strongest",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
