@@ -585,13 +585,17 @@ def build_model(partidos, avg):
         n = max(len(d["gf"]),1)
         gf_avg = sum(d["gf"])/n
         gc_avg = sum(d["gc"])/n
-        # Floor mínimo en defensa: ningún equipo tiene GC=0 sostenible
-        # Con pocos partidos (≤6), aplicar regresión hacia la media
+        # Con pocos partidos (≤6), regresión bayesiana hacia la media de la liga.
+        # Sin esto, un equipo que perdió 0-2 su único partido queda con atk=0.000
+        # y el modelo le asigna 0% de marcar — un artefacto, no una predicción.
         if n <= 6:
-            gc_avg = (gc_avg * n + avg * 2) / (n + 2)  # Bayesian smoothing hacia avg
-        def_coef = max(round(gc_avg/avg, 3), 0.30)  # nunca menor a 0.30
+            gf_avg = (gf_avg * n + avg * 2) / (n + 2)
+            gc_avg = (gc_avg * n + avg * 2) / (n + 2)
+        # Pisos mínimos: ningún equipo real tiene ataque nulo ni defensa perfecta
+        atk_coef = max(round(gf_avg/avg, 3), 0.30)
+        def_coef = max(round(gc_avg/avg, 3), 0.30)
         modelo[e] = {
-            "atk":   round(gf_avg/avg, 3),
+            "atk":   atk_coef,
             "def":   def_coef,
             "n":     len(d["gf"]),
             "gf_avg": round(gf_avg, 2),
@@ -657,7 +661,16 @@ def mostrar_memoria_equipo(nombre, info, rol="local"):
     Muestra la memoria de cálculo de un equipo: promedios, partidos individuales
     (si están disponibles) o los totales exactos de la tabla, y la procedencia.
     """
-    st.markdown(f"**{nombre} ({rol}) — {info['n']} partidos**")
+    n = info.get('n', 0)
+    st.markdown(f"**{nombre} ({rol}) — {n} partidos**")
+    if n < 4:
+        st.error(
+            f"🚨 **Muestra insuficiente: solo {n} partido(s).** "
+            f"El modelo Poisson necesita al menos 6-8 para dar algo confiable. "
+            f"Con esta muestra los coeficientes son casi ruido — **no uses este análisis para apostar.**"
+        )
+    elif n < 8:
+        st.warning(f"⚠️ Muestra pequeña ({n} partidos). Los coeficientes están suavizados hacia la media de la liga, pero el modelo sigue siendo poco estable.")
     st.markdown(
         f"Ataque: `{info['atk']:.3f}` · Defensa: `{info['def']:.3f}` · "
         f"Goles/partido: `{info['gf_avg']:.2f}` a favor, `{info['gc_avg']:.2f}` en contra"
@@ -2307,6 +2320,16 @@ with tab1:
         else:
             st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
             M=build_model(hist,li["avg"])
+            # Aviso si la cobertura es tan pobre que el modelo no es confiable
+            _n_eq = len([k for k in M if isinstance(M[k], dict)])
+            _prom = (len(hist)*2/_n_eq) if _n_eq else 0
+            if _prom < 4:
+                st.error(
+                    f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
+                    f"(~{_prom:.1f} por equipo).** TheSportsDB no tiene el historial completo de esta liga. "
+                    f"El modelo Poisson necesita 6-8 partidos por equipo como mínimo — con esta muestra, "
+                    f"los coeficientes son ruido. **No uses estos análisis para apostar.**"
+                )
         # Cargar cuotas automaticas si hay odds_key configurado
         cuotas_auto = {}
         if li.get("odds_key") and odds_api_key:
