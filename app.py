@@ -146,8 +146,10 @@ LIGAS = {
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.40,"odds_key":"soccer_usa_mls","use_odds_fixtures":True},
     "🇺🇸 MLS Next Pro":        {"src":"sportsdb","sportsdb_id":5279,"sportsdb_season":"2026","avg":1.50,"odds_key":None,"use_odds_fixtures":False},
+    "🇦🇺 NSW League One":      {"src":"wiki_tabla","wiki_url":None,"avg":1.55,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"NSWL1"},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
+    "🇦🇷 Copa Argentina":      {"src":"copa_arg","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
 }
 
@@ -362,6 +364,18 @@ HIST_CONMEBOL = {
         ("Independiente",  10, 23, 14), ("Lanús",           8, 22, 14),
         ("Newell's",        3, 22, 14), ("Unión",           8, 30, 13),
     ],
+    "NSWL1": [
+        # Fuente: NSW League One 2026 — actualizada al 17-jul-2026 · 23 fechas jugadas
+        # Formato: (equipo, GF, GC, PJ) · Liga muy ofensiva: ~3.09 goles/partido
+        ("Blacktown Spartans",         58, 30, 23), ("Northern Tigers",       41, 21, 23),
+        ("Canterbury Bankstown",       56, 37, 23), ("Bankstown City Lions",  40, 37, 23),
+        ("Macarthur Rams",             30, 24, 23), ("Rydalmere Lions",       33, 34, 23),
+        ("Bulls FC Academy",           44, 34, 23), ("Hills United",          40, 38, 23),
+        ("Hakoah Sydney",              40, 38, 23), ("Hurstville Zagreb",     34, 38, 23),
+        ("Central Coast Mariners U23", 39, 45, 23), ("Inter Lions",           29, 42, 23),
+        ("Newcastle Jets U23",         43, 52, 23), ("Dulwich Hill",          26, 44, 23),
+        ("Prospect United",            22, 41, 23), ("Western City Rangers",  26, 46, 23),
+    ],
 }
 
 # ─────────────────────────────────────────────
@@ -373,6 +387,10 @@ FUENTE_TABLAS = {
                   "nota":"La liga va por fecha 18. GF/GC de fechas 16-18 no disponibles."},
     "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
                   "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
+    "NSWL1":     {"fuente":"NSW League One 2026 (Australia)", "corte":"17-jul-2026",
+                  "nota":"23 fechas jugadas — muestra sólida. Liga muy ofensiva (~3.09 goles/partido)."},
+    "CopaArg":   {"fuente":"Tabla Liga Profesional 2026 (aplicada a la Copa)", "corte":"2026",
+                  "nota":"Eliminación directa en cancha neutral. Solo fiable si ambos equipos son de Liga Profesional."},
     "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"13-jul-2026",
                   "nota":"Liga ofensiva (~2.18 goles/partido). El Clausura arranca ahora."},
     "Brasil":    {"fuente":"Tabla estática", "corte":"2026", "nota":""},
@@ -619,6 +637,19 @@ ALIASES_EQUIPOS = {
     "club universitario de vinto": "universitario de vinto", "vinto": "universitario de vinto",
     "tomayapo": "real tomayapo", "bulo bulo": "san antonio bulo bulo",
     "san antonio": "san antonio bulo bulo", "strongest": "the strongest",
+    # Australia — NSW League One
+    "blacktown": "blacktown spartans", "spartans": "blacktown spartans",
+    "northern tigers fc": "northern tigers", "canterbury bankstown fc": "canterbury bankstown",
+    "canterbury": "canterbury bankstown", "bankstown city": "bankstown city lions",
+    "macarthur rams fc": "macarthur rams", "rydalmere": "rydalmere lions",
+    "bulls fc": "bulls fc academy", "bulls academy": "bulls fc academy",
+    "hills united fc": "hills united", "hakoah": "hakoah sydney",
+    "hurstville": "hurstville zagreb", "central coast": "central coast mariners u23",
+    "central coast mariners": "central coast mariners u23", "ccm u23": "central coast mariners u23",
+    "inter lions fc": "inter lions", "newcastle jets": "newcastle jets u23",
+    "jets u23": "newcastle jets u23", "dulwich": "dulwich hill",
+    "prospect": "prospect united", "western city": "western city rangers",
+    "rangers": "western city rangers",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
@@ -702,7 +733,7 @@ def buscar_equipo_info(nombre, M):
         "fuente": M.get("_fuente"),
     }
 
-def lams(loc,vis,M,avg):
+def lams(loc,vis,M,avg,fl=None):
     import unicodedata
     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
     ALIASES = ALIASES_EQUIPOS
@@ -735,7 +766,8 @@ def lams(loc,vis,M,avg):
             if primera in k_n or k_n.split()[0] in nombre_base: return v
         return {"atk":1.0,"def":1.0}
     ml=buscar(loc); mv=buscar(vis)
-    return round(ml["atk"]*mv["def"]*avg*FL,3), round(mv["atk"]*ml["def"]*avg,3)
+    _fl = FL if fl is None else fl
+    return round(ml["atk"]*mv["def"]*avg*_fl,3), round(mv["atk"]*ml["def"]*avg,3)
 
 def impl(cuotas):
     raw={k:1/v for k,v in cuotas.items() if v>1}
@@ -1998,7 +2030,8 @@ tab1,tab2,tab3,tab4,tab5,tab6,tab7=st.tabs(["⚽ Partidos","📈 Equipos","💰 
 # ─────────────────────────────────────────────
 def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
     loc,vis,hora=p["local"],p["visit"],p["hora"]
-    ll,lv=lams(loc,vis,M,avg)
+    _fl_liga = 1.0 if li.get("src") == "copa_arg" else None
+    ll,lv=lams(loc,vis,M,avg,_fl_liga)
     pr=poisson(ll,lv)
 
     with st.expander(f"⚽  {loc}  vs  {vis}   ·   {hora} Col", expanded=p["hoy"]):
@@ -2029,7 +2062,7 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
         with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
             ml_info = buscar_equipo_info(loc, M)
             mv_info = buscar_equipo_info(vis, M)
-            ll_show, lv_show = lams(loc, vis, M, avg)
+            ll_show, lv_show = lams(loc, vis, M, avg, 1.0 if li.get("src")=="copa_arg" else None)
 
             mostrar_fuente_datos(ml_info.get("fuente"))
             st.divider()
@@ -2131,6 +2164,8 @@ with tab1:
                 st.info("📊 Modelo basado en la tabla del Torneo Apertura 2026 femenino (El Femenino). Liga ofensiva (~2.18 goles/partido). Ingresa los partidos manualmente.")
             elif fb == "Uruguay":
                 st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4). La liga se reanuda el 11-jul.")
+            elif fb == "NSWL1":
+                st.info("📊 Modelo basado en la tabla de NSW League One 2026 (23 fechas). Liga muy ofensiva: **~3.09 goles/partido** — los mercados over suelen tener más recorrido que el 1X2. Ingresa los partidos manualmente.")
             else:
                 st.info(f"📊 Modelo basado en tabla de posiciones actualizada ({fb} 2026).")
         else:
@@ -2149,6 +2184,18 @@ with tab1:
         elif li.get("sportsdb_id"):
             prox,e2 = sportsdb_next(li["sportsdb_id"])
         if e2 and li.get("sportsdb_id"): st.warning(f"Error próximos: {e2}")
+        cargado=True
+
+    elif li["src"]=="copa_arg":
+        e1, e2, prox = None, None, []
+        hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"], "CopaArg")
+        st.info(
+            "🏆 **Copa Argentina — eliminación directa en cancha neutral.**\n\n"
+            "El modelo usa la tabla de la **Liga Profesional 2026**, así que solo es fiable "
+            "cuando **ambos equipos** son de primera división. Si uno viene de Primera Nacional, "
+            "Federal A, Primera B o C, no tendrá datos y el análisis no valdrá."
+        )
+        st.caption("⚖️ Cancha neutral: no se aplica factor de localía. El 'local' del fixture es solo nominal.")
         cargado=True
 
     elif li["src"]=="sportsdb":
@@ -2339,7 +2386,8 @@ with tab1:
             pl, pe, pv = 0.45, 0.28, 0.27  # defaults
 
             if M_actual:
-                ll_base, lv_base = lams(eql, eqv, M_actual, li["avg"])
+                _fl_m = 1.0 if li.get("src") == "copa_arg" else None
+                ll_base, lv_base = lams(eql, eqv, M_actual, li["avg"], _fl_m)
 
                 # Factor por bajas — escala fija, el usuario solo selecciona
                 cb1, cb2 = st.columns(2)
@@ -2376,7 +2424,8 @@ with tab1:
                         st.divider()
                         mostrar_memoria_equipo(eqv, mv_info, "visitante")
                         st.divider()
-                        st.markdown(f"**Proyección base:** λ_local = Atk({ml_info['atk']:.3f}) × Def_visit({mv_info['def']:.3f}) × Liga({li['avg']}) × Factor_local(1.15) = **{ll_base:.3f}**")
+                        _fl_txt = "1.0 (cancha neutral)" if _fl_m == 1.0 else "1.15"
+                        st.markdown(f"**Proyección base:** λ_local = Atk({ml_info['atk']:.3f}) × Def_visit({mv_info['def']:.3f}) × Liga({li['avg']}) × Factor_local({_fl_txt}) = **{ll_base:.3f}**")
                         st.markdown(f"**Proyección base:** λ_visit = Atk({mv_info['atk']:.3f}) × Def_local({ml_info['def']:.3f}) × Liga({li['avg']}) = **{lv_base:.3f}**")
                         if hay_bajas:
                             st.divider()
