@@ -139,7 +139,7 @@ LIGAS = {
     "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
     "🇺🇾 Uruguay - Clausura":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4432,"hist_fallback":"Uruguay"},
     "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Copa_de_Primera","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4687,"hist_fallback":"Paraguay"},
-    "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru"},
+    "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.32,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru"},
     "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4686,"hist_fallback":"Ecuador"},
     "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
@@ -309,15 +309,19 @@ HIST_CONMEBOL = {
         ("Tacuary",               12, 23, 13), ("Sportivo Ameliano",     11, 24, 13),
     ],
     "Peru": [
-        ("Universitario",         30, 12, 15), ("Sporting Cristal",      27, 14, 15),
-        ("Alianza Lima",          25, 15, 15), ("Cusco FC",              22, 16, 14),
-        ("Melgar",                20, 17, 14), ("Municipal",             18, 18, 14),
-        ("Cienciano",             17, 19, 14), ("Sport Huancayo",        16, 19, 14),
-        ("Binacional",            15, 20, 14), ("ADT",                   14, 21, 14),
-        ("UTC Cajamarca",         13, 22, 13), ("Vallejo",               12, 23, 13),
-        ("Cesar Vallejo",         11, 24, 13), ("Deportivo Garcilaso",   10, 25, 13),
-        ("Sport Boys",             9, 26, 13), ("Carlos Stein",           8, 27, 13),
-        ("Los Chankas",            7, 28, 13), ("Unión Comercio",         6, 29, 12),
+        # Fuente: Liga 1 Perú 2026 — Tabla ACUMULADA (Apertura + Clausura) · al 17-jul-2026
+        # Formato: (equipo, GF, GC, PJ) · 18 equipos · 17 fechas
+        # Nota: los puntos de la tabla incluyen descuentos administrativos
+        # (Sport Boys -2, ADT -1, FC Cajamarca -1), pero GF/GC no se ven afectados.
+        ("Alianza Lima",          30,  8, 17), ("Chankas CYC",           25, 21, 17),
+        ("Cienciano",             34, 22, 17), ("Universitario",         24, 15, 17),
+        ("Melgar",                29, 20, 17), ("Cusco",                 21, 24, 17),
+        ("Deportivo Garcilaso",   21, 18, 17), ("Alianza Atlético",      20, 18, 17),
+        ("Comerciantes Unidos",   18, 20, 17), ("ADT",                   22, 21, 17),
+        ("Sport Boys",            15, 19, 17), ("Sporting Cristal",      28, 30, 17),
+        ("CD Moquegua",           17, 24, 17), ("FC Cajamarca",          23, 28, 17),
+        ("Atlético Grau",         12, 18, 17), ("Sport Huancayo",        21, 31, 17),
+        ("Juan Pablo II College", 22, 40, 17), ("UTC Cajamarca",         21, 26, 17),
     ],
     "Ecuador": [
         # Fuente: Wikipedia 2026 LigaPro Serie A — actualizada al 30-may-2026 (fechas 15-16)
@@ -409,6 +413,8 @@ FUENTE_TABLAS = {
                   "nota":"La liga va por fecha 18. GF/GC de fechas 16-18 no disponibles."},
     "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
                   "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
+    "Peru":      {"fuente":"Liga 1 Perú 2026 — Tabla acumulada (Apertura + Clausura)", "corte":"17-jul-2026",
+                  "nota":"17 fechas por equipo. El Clausura arranca hoy 17-jul: hubo receso, fichajes (Barcos a Cristal, Cueva a Sport Boys) y descuentos de puntos administrativos."},
     "MLS":       {"fuente":"MLS 2026 — Este + Oeste (30 equipos)", "corte":"17-jul-2026",
                   "nota":"14-15 fechas por equipo — muestra sólida. Liga ofensiva (~3.2 goles/partido)."},
     "NSWL1":     {"fuente":"NSW League One 2026 (Australia)", "corte":"17-jul-2026",
@@ -712,6 +718,19 @@ ALIASES_EQUIPOS = {
     "colorado rapids": "colorado", "rapids": "colorado",
     "austin": "austin fc",
     "sporting kansas city": "sporting kc", "kansas city": "sporting kc", "skc": "sporting kc",
+    # Perú — Liga 1
+    "los chankas": "chankas cyc", "chankas": "chankas cyc",
+    "cusco fc": "cusco", "cristal": "sporting cristal",
+    "garcilaso": "deportivo garcilaso", "d. garcilaso": "deportivo garcilaso",
+    "moquegua": "cd moquegua", "d. moquegua": "cd moquegua", "deportivo moquegua": "cd moquegua",
+    "cajamarca": "fc cajamarca",
+    "utc": "utc cajamarca",
+    "juan pablo ii": "juan pablo ii college", "jp ii": "juan pablo ii college",
+    "grau": "atletico grau", "atletico grau": "atletico grau",
+    "comerciantes": "comerciantes unidos",
+    "fbc melgar": "melgar",
+    "huancayo": "sport huancayo",
+    "universitario de deportes": "universitario",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
