@@ -144,7 +144,7 @@ LIGAS = {
     "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
-    "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.40,"odds_key":"soccer_usa_mls","use_odds_fixtures":True},
+    "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.67,"odds_key":"soccer_usa_mls","use_odds_fixtures":True,"hist_fallback":"MLS"},
     "🇺🇸 MLS Next Pro":        {"src":"sportsdb","sportsdb_id":5279,"sportsdb_season":"2026","avg":1.50,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇺 NSW League One":      {"src":"wiki_tabla","wiki_url":None,"avg":1.55,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"NSWL1"},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
@@ -364,6 +364,28 @@ HIST_CONMEBOL = {
         ("Independiente",  10, 23, 14), ("Lanús",           8, 22, 14),
         ("Newell's",        3, 22, 14), ("Unión",           8, 30, 13),
     ],
+    "MLS": [
+        # Fuente: MLS 2026 — ambas conferencias · actualizada al 17-jul-2026
+        # Formato: (equipo, GF, GC, PJ) · 30 equipos · ~3.2 goles/partido
+        # ── Conferencia Este ──
+        ("Nashville SC",       31, 11, 14), ("Inter Miami",        39, 28, 15),
+        ("Chicago Fire",       27, 16, 14), ("New England",        22, 18, 14),
+        ("New York RB",        25, 32, 15), ("Charlotte FC",       24, 23, 15),
+        ("Cincinnati",         36, 37, 15), ("NYC FC",             25, 21, 15),
+        ("DC United",          21, 25, 15), ("Columbus Crew",      21, 23, 15),
+        ("Montréal",           22, 31, 15), ("Toronto",            22, 29, 15),
+        ("Orlando City",       23, 44, 15), ("Atlanta United",     14, 23, 14),
+        ("Philadelphia",       18, 30, 15),
+        # ── Conferencia Oeste ──
+        ("Whitecaps",          34, 12, 14), ("SJ Earthquakes",     34, 15, 15),
+        ("Real Salt Lake",     26, 19, 14), ("FC Dallas",          30, 22, 15),
+        ("LAFC",               24, 17, 15), ("Seattle Sounders",   18, 16, 14),
+        ("Dynamo",             19, 23, 14), ("Minnesota",          18, 22, 15),
+        ("LA Galaxy",          22, 22, 15), ("St. Louis City SC",  19, 22, 15),
+        ("Timbers",            27, 29, 15), ("San Diego FC",       30, 27, 15),
+        ("Colorado",           25, 24, 15), ("Austin FC",          19, 31, 15),
+        ("Sporting KC",        16, 39, 15),
+    ],
     "NSWL1": [
         # Fuente: NSW League One 2026 — actualizada al 17-jul-2026 · 23 fechas jugadas
         # Formato: (equipo, GF, GC, PJ) · Liga muy ofensiva: ~3.09 goles/partido
@@ -387,6 +409,8 @@ FUENTE_TABLAS = {
                   "nota":"La liga va por fecha 18. GF/GC de fechas 16-18 no disponibles."},
     "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
                   "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
+    "MLS":       {"fuente":"MLS 2026 — Este + Oeste (30 equipos)", "corte":"17-jul-2026",
+                  "nota":"14-15 fechas por equipo — muestra sólida. Liga ofensiva (~3.2 goles/partido)."},
     "NSWL1":     {"fuente":"NSW League One 2026 (Australia)", "corte":"17-jul-2026",
                   "nota":"23 fechas jugadas — muestra sólida. Liga muy ofensiva (~3.09 goles/partido)."},
     "CopaArg":   {"fuente":"Tabla Liga Profesional 2026 (aplicada a la Copa)", "corte":"2026",
@@ -654,6 +678,40 @@ ALIASES_EQUIPOS = {
     "jets u23": "newcastle jets u23", "dulwich": "dulwich hill",
     "prospect": "prospect united", "western city": "western city rangers",
     "rangers": "western city rangers",
+    # MLS — Conferencia Este
+    "nashville": "nashville sc", "nashville sc": "nashville sc",
+    "inter miami cf": "inter miami", "miami": "inter miami",
+    "chicago fire fc": "chicago fire", "chicago": "chicago fire",
+    "new england revolution": "new england", "revolution": "new england",
+    "new york red bulls": "new york rb", "red bulls": "new york rb", "ny rb": "new york rb",
+    "charlotte": "charlotte fc",
+    "fc cincinnati": "cincinnati",
+    "new york city fc": "nyc fc", "new york city": "nyc fc", "nycfc": "nyc fc",
+    "d.c. united": "dc united", "dc": "dc united",
+    "columbus": "columbus crew", "crew": "columbus crew",
+    "cf montreal": "montréal", "montreal": "montréal", "cf montréal": "montréal",
+    "toronto fc": "toronto",
+    "orlando": "orlando city", "orlando city sc": "orlando city",
+    "atlanta": "atlanta united", "atlanta utd": "atlanta united", "atlanta united fc": "atlanta united",
+    "philadelphia union": "philadelphia", "union": "philadelphia",
+    # MLS — Conferencia Oeste
+    "vancouver whitecaps": "whitecaps", "vancouver": "whitecaps", "whitecaps fc": "whitecaps",
+    "san jose earthquakes": "sj earthquakes", "san jose": "sj earthquakes",
+    "earthquakes": "sj earthquakes", "sj quakes": "sj earthquakes",
+    "rsl": "real salt lake", "salt lake": "real salt lake",
+    "dallas": "fc dallas",
+    "los angeles fc": "lafc", "la fc": "lafc",
+    "seattle": "seattle sounders", "sounders": "seattle sounders",
+    "houston dynamo": "dynamo", "houston": "dynamo",
+    "minnesota united": "minnesota", "mn united": "minnesota",
+    "la galaxy": "la galaxy", "los angeles galaxy": "la galaxy", "galaxy": "la galaxy",
+    "st louis city": "st. louis city sc", "st. louis": "st. louis city sc",
+    "st louis": "st. louis city sc", "stl city": "st. louis city sc",
+    "portland timbers": "timbers", "portland": "timbers",
+    "san diego": "san diego fc",
+    "colorado rapids": "colorado", "rapids": "colorado",
+    "austin": "austin fc",
+    "sporting kansas city": "sporting kc", "kansas city": "sporting kc", "skc": "sporting kc",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
@@ -2242,7 +2300,9 @@ with tab1:
                 st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
-                if fb == "Uruguay":
+                if fb == "MLS":
+                    st.info("📊 Modelo basado en la tabla MLS 2026 — **ambas conferencias, 30 equipos** (14-15 fechas cada uno). TheSportsDB no tiene el historial completo, así que se usa la tabla.")
+                elif fb == "Uruguay":
                     st.info("📊 Modelo basado en la Tabla Anual 2026 (Apertura + Intermedio hasta fecha 4, actualizada al 8-jun). La liga se reanuda el 11-jul.")
                 elif fb == "ArgFem":
                     st.info("📊 Modelo basado en la tabla del Torneo Apertura 2026 femenino (El Femenino). Promedio de liga ~2.18 goles/partido — liga ofensiva.")
