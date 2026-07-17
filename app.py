@@ -2303,7 +2303,7 @@ with tab1:
         if isinstance(hist, dict):
             M = hist  # ya es modelo (ej: build_model_desde_tabla)
             n_partidos = sum(v.get("n",0) for k,v in hist.items() if isinstance(v, dict)) // 2
-            st.success(f"✓ Modelo cargado ({len([k for k in hist if k!='_avg'])} equipos) · {len(prox)} próximos")
+            st.success(f"✓ Modelo cargado ({len([k for k in hist if isinstance(hist[k], dict)])} equipos) · {len(prox)} próximos")
         else:
             st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
             M=build_model(hist,li["avg"])
@@ -2316,7 +2316,10 @@ with tab1:
                 st.success(f"✓ Cuotas automaticas cargadas: {len(cuotas_auto)} partidos")
         fechas=sorted(set(p["fecha"] for p in prox))
         if not fechas:
-            if li.get("src") in ("wiki_tabla",) or (li.get("src")=="sportsdb" and not li.get("use_odds_fixtures")):
+            tiene_fuente_fixtures = bool(li.get("sportsdb_id") or li.get("odds_key") or li.get("apif_id"))
+            if not tiene_fuente_fixtures:
+                st.info("ℹ️ Esta liga no tiene fixtures automáticos — no hay API pública que la cubra. Ingresa el partido manualmente abajo.")
+            elif li.get("src") in ("wiki_tabla",) or (li.get("src")=="sportsdb" and not li.get("use_odds_fixtures")):
                 st.warning(f"⚠️ TheSportsDB tiene cobertura limitada para esta liga. Solo muestra {len(prox)} partido(s) registrado(s). Ingresa el partido manualmente abajo si no aparece.")
             else:
                 st.info("No hay partidos en los próximos 3 días para esta liga.")
