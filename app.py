@@ -324,17 +324,16 @@ HIST_CONMEBOL = {
         ("Juan Pablo II College", 22, 40, 17), ("UTC Cajamarca",         21, 26, 17),
     ],
     "Ecuador": [
-        # Fuente: Wikipedia 2026 LigaPro Serie A — actualizada al 30-may-2026 (fechas 15-16)
-        # ⚠️ La liga va por fecha 18 (12-jul). Datos de GF/GC no disponibles públicamente
-        #    en formato scrapeable para las fechas 16-18.
-        ("Independiente del Valle", 28, 16, 15), ("Deportivo Cuenca",        18, 17, 16),
-        ("Universidad Católica",    26, 13, 15), ("Barcelona SC",            18, 12, 15),
-        ("Aucas",                   19, 16, 15), ("LDU Quito",               16, 13, 15),
-        ("Orense",                  21, 19, 15), ("Macará",                  14, 17, 15),
-        ("Guayaquil City",          12, 15, 15), ("Emelec",                  12, 16, 15),
-        ("Técnico Universitario",   16, 16, 15), ("Mushuc Runa",             19, 21, 15),
-        ("Libertad",                16, 22, 16), ("Leones",                  14, 17, 15),
-        ("Delfín",                   8, 15, 16), ("Manta",                    7, 19, 16),
+        # Fuente: LigaPro Serie A 2026 — actualizada al 18-jul-2026 (fecha 19-20)
+        # Formato: (equipo, GF, GC, PJ) · 16 equipos · ~2.1 goles/partido
+        ("Independiente del Valle", 43, 19, 19), ("Aucas",                   21, 19, 19),
+        ("Barcelona SC",            21, 14, 19), ("U. Católica",             29, 18, 19),
+        ("Macará",                  21, 21, 20), ("LDU Quito",               19, 15, 19),
+        ("Deportivo Cuenca",        19, 21, 19), ("Emelec",                  16, 17, 19),
+        ("Leones del Norte",        20, 20, 19), ("Técnico Universitario",   19, 20, 19),
+        ("Orense",                  22, 26, 19), ("Guayaquil City",          17, 22, 19),
+        ("Delfín",                  13, 19, 20), ("Mushuc Runa",             24, 29, 19),
+        ("Libertad FC",             18, 25, 19), ("Manta",                    7, 24, 19),
     ],
     "Bolivia": [
         # Fuente: División Profesional 2026 — actualizada al 16-jul-2026
@@ -409,8 +408,8 @@ HIST_CONMEBOL = {
 # Se muestra en la memoria de cálculo para saber qué tan frescos son
 # ─────────────────────────────────────────────
 FUENTE_TABLAS = {
-    "Ecuador":   {"fuente":"Wikipedia · 2026 LigaPro Serie A", "corte":"30-may-2026",
-                  "nota":"La liga va por fecha 18. GF/GC de fechas 16-18 no disponibles."},
+    "Ecuador":   {"fuente":"LigaPro Serie A 2026", "corte":"18-jul-2026",
+                  "nota":"19-20 fechas por equipo. IDV líder destacado (43 GF). ~2.1 goles/partido."},
     "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
                   "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
     "Peru":      {"fuente":"Liga 1 Perú 2026 — Tabla acumulada (Apertura + Clausura)", "corte":"17-jul-2026",
@@ -473,11 +472,14 @@ NOMBRES_EQUIV = {
         "La Calera": "Unión La Calera",
     },
     "Ecuador": {
-        "LDU": "Liga de Quito", "Liga de Quito": "Liga de Quito",
+        "LDU": "LDU Quito", "Liga de Quito": "LDU Quito",
         "IDV": "Independiente del Valle",
         "Barcelona": "Barcelona SC",
         "Técnico": "Técnico Universitario",
-        "U. Católica": "Universidad Católica",
+        "U. Católica": "U. Católica", "Universidad Católica": "U. Católica",
+        "Católica": "U. Católica",
+        "Leones": "Leones del Norte",
+        "Libertad": "Libertad FC",
     },
     "Paraguay": {
         "Olimpia": "Olimpia",
@@ -654,13 +656,14 @@ ALIASES_EQUIPOS = {
     "ldu": "ldu quito", "ldu quito": "ldu quito", "liga de quito": "ldu quito",
     "liga deportiva universitaria": "ldu quito", "liga dep universitaria": "ldu quito",
     "idv": "independiente del valle", "independiente valle": "independiente del valle",
-    "catolica": "universidad catolica", "u. catolica": "universidad catolica",
-    "u catolica": "universidad catolica", "universidad catolica del ecuador": "universidad catolica",
+    "catolica": "u. catolica", "u catolica": "u. catolica", "universidad catolica": "u. catolica",
+    "universidad catolica del ecuador": "u. catolica",
     "barcelona sc": "barcelona sc", "barcelona guayaquil": "barcelona sc",
     "tecnico": "tecnico universitario", "tecnico u": "tecnico universitario",
     "dep. cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
     "manta fc": "manta", "guayaquil city fc": "guayaquil city",
-    "leones fc": "leones", "libertad fc": "libertad",
+    "leones": "leones del norte", "leones fc": "leones del norte",
+    "libertad": "libertad fc",
     # Bolivia
     "abb": "abb", "academia": "abb", "academia del balompie": "abb",
     "academia del balompie boliviano": "abb", "balompie boliviano": "abb",
