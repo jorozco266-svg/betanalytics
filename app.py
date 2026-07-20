@@ -191,6 +191,76 @@ def build_model_desde_tabla(tabla_goles, avg, fuente_key=None):
     modelo["_fuente"] = fuente_key
     return modelo
 
+
+def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
+    """
+    Mezcla dos modelos Poisson con peso dinámico.
+    modelo_base: modelo anterior (ej. Apertura) — recibe factor decay
+    modelo_reciente: modelo actual (ej. Finalización) — peso completo
+    decay_base: factor de descuento para modelo_base (0.5 = pesa la mitad)
+    
+    Fórmula por equipo:
+      w_base = n_base × decay_base
+      w_rec  = n_reciente × 1.0
+      atk_blend = (atk_base × w_base + atk_rec × w_rec) / (w_base + w_rec)
+    
+    Transición natural: a medida que n_reciente crece, domina el modelo reciente.
+    """
+    avg = modelo_reciente.get("_avg", modelo_base.get("_avg", 1.20))
+    blended = {"_avg": avg, "_fuente": modelo_base.get("_fuente")}
+    
+    # Equipos de ambos modelos
+    equipos_base = {k for k in modelo_base if not k.startswith("_")}
+    equipos_rec  = {k for k in modelo_reciente if not k.startswith("_")}
+    todos = equipos_base | equipos_rec
+    
+    for eq in todos:
+        b = modelo_base.get(eq)
+        r = modelo_reciente.get(eq)
+        
+        if r and not b:
+            # Equipo solo en reciente (nuevo ascenso) — usar directo
+            blended[eq] = dict(r)
+            blended[eq]["_blend"] = "100% Finalización"
+        elif b and not r:
+            # Equipo solo en base (descendió o no ha jugado aún) — aplicar decay
+            blended[eq] = dict(b)
+            blended[eq]["atk"] = round(b["atk"] * (1 + (1 - decay_base) * 0.1), 3)  # regresión leve a media
+            blended[eq]["def"] = round(b["def"] * (1 + (1 - decay_base) * 0.1), 3)
+            blended[eq]["_blend"] = "100% Apertura (decay)"
+        else:
+            # Equipo en ambos — mezcla ponderada
+            n_b = b.get("n", 19)
+            n_r = r.get("n", 0)
+            w_b = n_b * decay_base
+            w_r = n_r * 1.0
+            w_total = w_b + w_r
+            
+            atk = round((b["atk"] * w_b + r["atk"] * w_r) / w_total, 3)
+            def_ = round((b["def"] * w_b + r["def"] * w_r) / w_total, 3)
+            gf_avg = round((b["gf_avg"] * w_b + r["gf_avg"] * w_r) / w_total, 2)
+            gc_avg = round((b["gc_avg"] * w_b + r["gc_avg"] * w_r) / w_total, 2)
+            
+            pct_rec = round(w_r / w_total * 100)
+            blended[eq] = {
+                "atk": atk,
+                "def": def_,
+                "n": n_b + n_r,
+                "gf_avg": gf_avg,
+                "gc_avg": gc_avg,
+                "partidos": r.get("partidos", []),  # mostrar solo partidos recientes en memoria
+                "_blend": f"{pct_rec}% Finalización · {100-pct_rec}% Apertura",
+                "_n_apertura": n_b,
+                "_n_finalizacion": n_r,
+            }
+    
+    blended["_blend_info"] = {
+        "decay": decay_base,
+        "n_base": max((b.get("n", 0) for k, b in modelo_base.items() if not k.startswith("_")), default=0),
+        "n_reciente": max((r.get("n", 0) for k, r in modelo_reciente.items() if not k.startswith("_")), default=0),
+    }
+    return blended
+
 # Tabla de posiciones Brasileirao Serie A 2026 (al 24-mayo-2026, jornada 16-17)
 # Fuente: Wikipedia. Formato: (equipo, GF, GC, PJ)
 HIST_BRASILEIRAO_2026 = [
@@ -247,6 +317,33 @@ HIST_ARGENTINA_2026 = [
     ("Estudiantes (RC)",     11, 36, 18),
     ("Gimnasia y Esgrima (M)", 13, 34, 18),
     ("Independiente Rivadavia", 14, 33, 18),
+]
+
+# ── Liga BetPlay Apertura 2026 — Tabla final (19 fechas todos contra todos) ──
+# Fuente: Dimayor / datos oficiales · GF/GC confirmados
+# Junior bicampeón — derrotó a Nacional 3-1 global en la final
+HIST_BETPLAY_APERTURA_2026 = [
+    # (equipo, GF, GC, PJ) — 20 equipos · 19 PJ cada uno
+    ("Atlético Nacional",       35, 15, 19),
+    ("Junior",                  31, 24, 19),
+    ("Deportivo Pasto",         29, 25, 19),
+    ("América de Cali",         25, 15, 19),
+    ("Once Caldas",             31, 22, 19),
+    ("Deportes Tolima",         27, 17, 19),
+    ("Independiente Santa Fe",  29, 22, 19),
+    ("Internacional de Bogotá", 26, 26, 19),
+    ("Deportivo Cali",          20, 16, 19),
+    ("Millonarios",             31, 23, 19),
+    ("Independiente Medellín",  26, 24, 19),
+    ("Águilas Doradas",         20, 25, 19),
+    ("Atlético Bucaramanga",    26, 20, 19),
+    ("Llaneros",                17, 20, 19),
+    ("Fortaleza",               22, 27, 19),
+    ("Jaguares",                20, 33, 19),
+    ("Alianza Valledupar",      13, 27, 19),
+    ("Boyacá Chicó",            15, 32, 19),
+    ("Cúcuta Deportivo",        22, 35, 19),
+    ("Deportivo Pereira",       15, 32, 19),
 ]
 
 # Tabla de posiciones Liga MX Apertura 2026-27 (vía TheSportsDB)
@@ -428,7 +525,8 @@ FUENTE_TABLAS = {
     "Venezuela": {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Peru":      {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Chile":     {"fuente":"Tabla estática", "corte":"2026", "nota":""},
-    "Colombia":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Colombia":  {"fuente":"Liga BetPlay Apertura 2026-I (datos oficiales)", "corte":"3-may-2026",
+                  "nota":"Tabla final del Apertura (19 fechas, 190 partidos, 2.53 goles/partido). Se blendea con Finalización automáticamente."},
     "Paraguay":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
 }
 
@@ -755,6 +853,9 @@ def mostrar_memoria_equipo(nombre, info, rol="local"):
         f"Ataque: `{info['atk']:.3f}` · Defensa: `{info['def']:.3f}` · "
         f"Goles/partido: `{info['gf_avg']:.2f}` a favor, `{info['gc_avg']:.2f}` en contra"
     )
+    # Mostrar ponderación del blend si existe
+    if info.get('_blend'):
+        st.caption(f"🔀 Ponderación: {info['_blend']}")
     if info.get('partidos'):
         st.caption(f"Partidos usados en el cálculo (últimos {len(info['partidos'])}):")
         for l2, v2, gl2, gv2 in info['partidos']:
@@ -1324,23 +1425,29 @@ def apifootball_next(league_id, season, api_key):
                                 vis = celdas[i+1].strip()
                                 if len(loc)>2 and len(vis)>2:
                                     if not any(e in loc or e in vis for e in excluir):
-                                        partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+                                        g1,g2=int(m.group(1)),int(m.group(2))
+                                        if g1<=15 and g2<=15:
+                                            partidos.append((loc, vis, g1, g2))
                     elif wiki_fmt == "conmebol":
                         if len(celdas)<5: continue
                         m = re.search(r"(\d+)\s*[:\-]\s*(\d+)", celdas[3])
                         if not m: continue
+                        g1,g2=int(m.group(1)),int(m.group(2))
+                        if g1>15 or g2>15: continue
                         loc, vis = celdas[2].strip(), celdas[4].strip()
                         if loc and vis and len(loc)>2 and len(vis)>2:
                             if not any(e in loc or e in vis for e in excluir):
-                                partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+                                partidos.append((loc, vis, g1, g2))
                     else:
                         if len(celdas)<3: continue
                         m = re.search(r"(\d+)\s*:\s*(\d+)", " ".join(celdas))
                         if not m: continue
+                        g1,g2=int(m.group(1)),int(m.group(2))
+                        if g1>15 or g2>15: continue
                         loc, vis = celdas[0].strip(), celdas[2].strip()
                         if loc and vis and len(loc)>2 and len(vis)>2:
                             if not any(e in loc or e in vis for e in excluir):
-                                partidos.append((loc, vis, int(m.group(1)), int(m.group(2))))
+                                partidos.append((loc, vis, g1, g2))
         except:
             continue
     return partidos, None
@@ -1361,14 +1468,18 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
                     if len(celdas)<5: continue
                     m=re.search(r"(\d+)\s*[:\-]\s*(\d+)",celdas[3])
                     if not m: continue
+                    g1,g2=int(m.group(1)),int(m.group(2))
+                    if g1>15 or g2>15: continue  # filtrar horarios/datos espurios
                     loc,vis=celdas[2].strip(),celdas[4].strip()
                 else:
                     if len(celdas)<3: continue
                     m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
                     if not m: continue
+                    g1,g2=int(m.group(1)),int(m.group(2))
+                    if g1>15 or g2>15: continue  # filtrar horarios (18:10, 20:15, etc.)
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                 if loc and vis and len(loc)>2 and len(vis)>2:
-                    partidos.append((loc,vis,int(m.group(1)),int(m.group(2))))
+                    partidos.append((loc,vis,g1,g2))
         return partidos,None
     except Exception as ex: return [],str(ex)
 
@@ -1401,7 +1512,7 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     import unicodedata
                     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
                     # Filtro de equipos colombianos solo si la URL es de Colombia
-                    es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower()
+                    es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower() or "finalizaci" in wiki_url.lower()
                     if es_colombia:
                         EQUIPOS_NORM = ["nacional","santa fe","millonarios","junior",
                                         "america","tolima","bucaramanga","pereira",
@@ -2349,6 +2460,29 @@ with tab1:
         if "Argentina" in liga_n:
             hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
             e1 = None
+        elif "Liga BetPlay" in liga_n:
+            # Modelo híbrido: Apertura 2026-I (base) + Finalización 2026-II (reciente)
+            modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+            with st.spinner("Cargando resultados Finalización 2026..."):
+                hist_fin,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            # Determinar si hay suficientes resultados del Finalización
+            n_fin = len(hist_fin) if not isinstance(hist_fin, dict) else 0
+            if n_fin >= 10:
+                # Hay resultados reales → construir modelo Finalización y mezclar
+                modelo_fin = build_model(hist_fin, li["avg"])
+                hist = blend_models(modelo_apertura, modelo_fin, decay_base=0.5)
+                e1 = None
+                n_max_fin = max((v.get("_n_finalizacion", 0) for k, v in hist.items() if not k.startswith("_")), default=0)
+                pct = round(n_max_fin / (n_max_fin + 19 * 0.5) * 100)
+                st.info(f"📊 Modelo híbrido: ~{pct}% Finalización ({n_max_fin} fechas) · ~{100-pct}% Apertura (decay ×0.5). El peso se actualiza automáticamente.")
+            else:
+                # Sin resultados o muy pocos → solo Apertura
+                hist = modelo_apertura
+                e1 = None
+                if n_fin > 0:
+                    st.info(f"📊 Modelo basado en Apertura 2026-I + {n_fin} resultados parciales del Finalización. Se actualizará con más fechas.")
+                else:
+                    st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas). Se actualizará automáticamente cuando el Finalización genere resultados en Wikipedia.")
         else:
             with st.spinner("Cargando datos..."):
                 if li["src"]=="wiki_multi":
