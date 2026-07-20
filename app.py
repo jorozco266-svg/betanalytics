@@ -129,7 +129,7 @@ LIGAS = {
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
+    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Finalizaci%C3%B3n_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None,
                                 "equipos_excluir":["Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla","Leones","Orsomarso","Real Santander","Universitario de Popayan"]},
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
     "🏆 Copa Libertadores":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Libertadores_2026",                  "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
@@ -143,11 +143,11 @@ LIGAS = {
     "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4686,"hist_fallback":"Ecuador"},
     "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
-    "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2025-2026","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
+    "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2026-2027","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.67,"odds_key":"soccer_usa_mls","use_odds_fixtures":True,"hist_fallback":"MLS"},
     "🇺🇸 MLS Next Pro":        {"src":"sportsdb","sportsdb_id":5279,"sportsdb_season":"2026","avg":1.50,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇺 NSW League One":      {"src":"wiki_tabla","wiki_url":None,"avg":1.55,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"NSWL1"},
-    "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2025-2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2026-2027","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
     "🇦🇷 Copa Argentina":      {"src":"copa_arg","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
@@ -249,7 +249,7 @@ HIST_ARGENTINA_2026 = [
     ("Independiente Rivadavia", 14, 33, 18),
 ]
 
-# Tabla de posiciones Liga MX Clausura 2026 (fase regular completa — 17 jornadas)
+# Tabla de posiciones Liga MX Apertura 2026-27 (vía TheSportsDB)
 # Fuente: Wikipedia / El Universal. Formato: (equipo, GF, GC, PJ)
 HIST_LIGAMX_2026 = [
     ("Pumas UNAM",        32, 14, 17),  # Pumas — 1ro 36 pts
@@ -2319,7 +2319,7 @@ with tab1:
                 st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
             elif "Liga MX" in liga_n or "Mexico" in liga_n:
                 hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
-                st.info("📊 Modelo basado en tabla del Clausura 2026. Liga MX en receso hasta julio.")
+                st.info("📊 Modelo basado en tabla del Apertura 2026-27. Liga MX inició el 16-jul.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
                 if fb == "MLS":
