@@ -1525,6 +1525,62 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
         return partidos,None
     except Exception as ex: return [],str(ex)
 
+
+def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
+    """Extrae historial de resultados desde múltiples páginas de Wikipedia."""
+    import re
+    headers={"User-Agent":"Mozilla/5.0"}
+    excluir = [e.lower() for e in (equipos_excluir or [])]
+    partidos = []
+    for url in wiki_urls:
+        try:
+            r = requests.get(url, headers=headers, timeout=15)
+            soup = BeautifulSoup(r.text, "html.parser")
+            for tabla in soup.find_all("table", class_="wikitable"):
+                for fila in tabla.find_all("tr"):
+                    celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                    if wiki_fmt == "uel":
+                        for i, celda in enumerate(celdas):
+                            m = re.search(r"^(\d+)\s*[–\-]\s*(\d+)$", celda.strip())
+                            if m and i > 0 and i < len(celdas)-1:
+                                g1,g2=int(m.group(1)),int(m.group(2))
+                                if g1>9 or g2>9: continue
+                                loc = celdas[i-1].strip()
+                                vis = celdas[i+1].strip()
+                                if len(loc)>2 and len(vis)>2:
+                                    if not any(e in loc.lower() or e in vis.lower() for e in excluir):
+                                        partidos.append((loc, vis, g1, g2))
+                    elif wiki_fmt == "conmebol":
+                        if len(celdas)<5: continue
+                        m = re.search(r"(\d+)\s*[:\-]\s*(\d+)", celdas[3])
+                        if not m: continue
+                        g1,g2=int(m.group(1)),int(m.group(2))
+                        if g1>9 or g2>9: continue
+                        if g1+g2 > 12: continue
+                        loc, vis = celdas[2].strip(), celdas[4].strip()
+                        if loc and vis and len(loc)>2 and len(vis)>2:
+                            if not any(e in loc.lower() or e in vis.lower() for e in excluir):
+                                partidos.append((loc, vis, g1, g2))
+                    else:
+                        if len(celdas)<3: continue
+                        m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[1])
+                        if not m:
+                            if len(celdas) >= 5:
+                                m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[3])
+                            if not m: continue
+                        g1,g2=int(m.group(1)),int(m.group(2))
+                        es_horario = (g1 >= 10 and g2 % 5 == 0)
+                        if es_horario: continue
+                        if g1 > 9 or g2 > 9: continue
+                        loc, vis = celdas[0].strip(), celdas[2].strip()
+                        if loc and vis and len(loc)>2 and len(vis)>2:
+                            if not any(e in loc.lower() or e in vis.lower() for e in excluir):
+                                partidos.append((loc, vis, g1, g2))
+        except:
+            continue
+    return partidos, None
+
+
 @st.cache_data(ttl=900)
 def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
     """Extrae proximos partidos desde Wikipedia con fechas reales."""
