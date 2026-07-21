@@ -137,13 +137,13 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_final_stages",
                                 ],
-                                "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
+                                "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores","use_odds_fixtures":True},
     "🏆 Copa Sudamericana":    {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_group_stage",
                                     "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_final_stages",
                                 ],
-                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
+                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
@@ -2638,6 +2638,20 @@ with tab1:
         # Cargar próximos partidos
         if li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
+        elif li["src"]=="wiki_multi":
+            # Buscar próximos en cada URL del wiki_multi
+            prox_wiki = []
+            for wurl in li.get("wiki_urls",[]):
+                pw, ew = wiki_next(wurl, li["wiki_fmt"], li.get("equipos_excluir",[]))
+                if pw: prox_wiki.extend(pw)
+            # Deduplicar por id
+            seen = set()
+            prox_dedup = []
+            for p in prox_wiki:
+                if p["id"] not in seen:
+                    seen.add(p["id"])
+                    prox_dedup.append(p)
+            prox = prox_dedup
         elif li["src"]=="wiki":
             prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
             # Final Liga BetPlay I-2026 hardcoded
