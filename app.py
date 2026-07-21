@@ -2713,22 +2713,24 @@ with tab1:
         if "Copa BetPlay" in liga_n and not prox:
             import hashlib
             copa_fase1b = [
-                ("Internacional de Bogotá","Inter Palmira","2026-07-21","07:00 PM"),
-                ("Deportes Tolima","Deportes Quindío","2026-07-21","07:00 PM"),
-                ("América de Cali","Real Cartagena","2026-07-22","07:30 PM"),
+                # IDA — Martes 21 de julio
+                ("Atlético Nacional","Tigres","2026-07-21","04:00 PM"),
+                ("Internacional de Bogotá","Inter Palmira","2026-07-21","05:00 PM"),
+                ("Deportes Tolima","Deportes Quindío","2026-07-21","06:00 PM"),
+                ("Once Caldas","Envigado","2026-07-21","07:00 PM"),
+                ("Deportivo Pasto","Bogotá","2026-07-21","07:00 PM"),
+                ("América de Cali","Real Cartagena","2026-07-21","07:30 PM"),
+                # IDA — Miércoles 22 de julio
                 ("Junior","Barranquilla","2026-07-22","07:30 PM"),
-                ("Atlético Nacional","Tigres","2026-07-23","07:30 PM"),
-                ("Deportivo Pasto","Bogotá","2026-07-23","07:30 PM"),
-                ("Once Caldas","Envigado","2026-07-23","05:00 PM"),
-                ("Santa Fe","Unión Magdalena","2026-07-23","07:30 PM"),
+                # Santa Fe vs Unión Magdalena — pendiente (torneos internacionales)
                 # Vuelta (28-30 jul) — localía invertida (equipo B cierra)
                 ("Inter Palmira","Internacional de Bogotá","2026-07-28","07:00 PM"),
                 ("Deportes Quindío","Deportes Tolima","2026-07-28","07:00 PM"),
+                ("Tigres","Atlético Nacional","2026-07-28","07:00 PM"),
                 ("Real Cartagena","América de Cali","2026-07-29","07:30 PM"),
                 ("Barranquilla","Junior","2026-07-29","07:30 PM"),
-                ("Tigres","Atlético Nacional","2026-07-30","07:30 PM"),
-                ("Bogotá","Deportivo Pasto","2026-07-30","07:30 PM"),
-                ("Envigado","Once Caldas","2026-07-30","05:00 PM"),
+                ("Bogotá","Deportivo Pasto","2026-07-30","07:00 PM"),
+                ("Envigado","Once Caldas","2026-07-30","03:30 PM"),
                 ("Unión Magdalena","Santa Fe","2026-07-30","07:30 PM"),
             ]
             ahora_copa = datetime.datetime.now(TZ_COL)
