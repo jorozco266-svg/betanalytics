@@ -1433,17 +1433,22 @@ def apifootball_next(league_id, season, api_key):
                         m = re.search(r"(\d+)\s*[:\-]\s*(\d+)", celdas[3])
                         if not m: continue
                         g1,g2=int(m.group(1)),int(m.group(2))
-                        if g1>15 or g2>15: continue
+                        if g1>9 or g2>9: continue
                         loc, vis = celdas[2].strip(), celdas[4].strip()
                         if loc and vis and len(loc)>2 and len(vis)>2:
                             if not any(e in loc or e in vis for e in excluir):
                                 partidos.append((loc, vis, g1, g2))
                     else:
                         if len(celdas)<3: continue
-                        m = re.search(r"(\d+)\s*:\s*(\d+)", " ".join(celdas))
-                        if not m: continue
+                        m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[1])
+                        if not m:
+                            if len(celdas) >= 5:
+                                m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[3])
+                            if not m: continue
                         g1,g2=int(m.group(1)),int(m.group(2))
-                        if g1>15 or g2>15: continue
+                        es_horario = (g1 >= 10 and g2 % 5 == 0)
+                        if es_horario: continue
+                        if g1 > 9 or g2 > 9: continue
                         loc, vis = celdas[0].strip(), celdas[2].strip()
                         if loc and vis and len(loc)>2 and len(vis)>2:
                             if not any(e in loc or e in vis for e in excluir):
@@ -1469,15 +1474,27 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
                     m=re.search(r"(\d+)\s*[:\-]\s*(\d+)",celdas[3])
                     if not m: continue
                     g1,g2=int(m.group(1)),int(m.group(2))
-                    if g1>15 or g2>15: continue  # filtrar horarios/datos espurios
+                    if g1>9 or g2>9: continue  # filtrar horarios/datos espurios
+                    if g1+g2 > 12: continue   # ningún partido real tiene 13+ goles combinados
                     loc,vis=celdas[2].strip(),celdas[4].strip()
                 else:
                     if len(celdas)<3: continue
-                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
-                    if not m: continue
-                    g1,g2=int(m.group(1)),int(m.group(2))
-                    if g1>15 or g2>15: continue  # filtrar horarios (18:10, 20:15, etc.)
-                    loc,vis=celdas[0].strip(),celdas[2].strip()
+                    # Buscar marcador SOLO en celdas[1] (celda central entre los dos equipos)
+                    # Formato Wikipedia: | Local | 2:1 | Visitante |
+                    m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[1])
+                    if not m:
+                        # Fallback: algunos formatos tienen más columnas
+                        if len(celdas) >= 5:
+                            m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[3])
+                        if not m: continue
+                    g1, g2 = int(m.group(1)), int(m.group(2))
+                    # Distinguir horario vs marcador:
+                    # - Horarios: hora >= 10 y minutos en {00,05,10,15,20,25,30,35,40,45,50,55}
+                    # - Marcadores: ambos dígitos típicamente 0-9
+                    es_horario = (g1 >= 10 and g2 % 5 == 0)  # 14:00, 16:05, 20:15, etc.
+                    if es_horario: continue
+                    if g1 > 9 or g2 > 9: continue  # seguro adicional
+                    loc, vis = celdas[0].strip(), celdas[2].strip()
                 if loc and vis and len(loc)>2 and len(vis)>2:
                     partidos.append((loc,vis,g1,g2))
         return partidos,None
@@ -1505,8 +1522,14 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     loc,vis,fecha_str=celdas[2].strip(),celdas[4].strip(),celdas[0].strip()
                 else:
                     if len(celdas)<3: continue
-                    m=re.search(r"(\d+)\s*:\s*(\d+)"," ".join(celdas))
-                    if m: continue  # ya jugado
+                    # Verificar si ya se jugó: buscar marcador real en celdas[1]
+                    m=re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[1])
+                    if m:
+                        g1,g2=int(m.group(1)),int(m.group(2))
+                        es_horario = (g1 >= 10 and g2 % 5 == 0)
+                        if not es_horario and g1 <= 9 and g2 <= 9:
+                            continue  # marcador real → ya jugado, skip
+                    # Si llegamos aquí, es un partido pendiente (horario o sin resultado)
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
                     import unicodedata
