@@ -1513,62 +1513,105 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
 
 def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
     """Extrae historial de resultados desde múltiples páginas de Wikipedia.
-    Maneja formatos: conmebol (es.wiki), uel (en.wiki), cross-table (en.wiki groups)."""
+    Soporta: cross-tables (en.wiki groups CONMEBOL), match rows, UEL format."""
     import re
     headers={"User-Agent":"Mozilla/5.0"}
     excluir = [e.lower() for e in (equipos_excluir or [])]
     partidos = []
-    # Regex que captura marcadores con : - – (en-dash)
+    # Regex para scores con : - – (en-dash). Acepta penales (3–2 p)
     SCORE_RE = re.compile(r"^\s*(\d{1,2})\s*[\:\-\u2013]\s*(\d{1,2})\s*(?:\([^)]*\))?\s*$")
+
+    def parse_cross_table(tabla):
+        """Extrae partidos de una tabla cruzada de posiciones (cross-reference table).
+        Formato: cada fila tiene un equipo, las últimas N columnas son resultados vs otros equipos.
+        '—' marca la diagonal (equipo vs sí mismo)."""
+        filas = tabla.find_all("tr")
+        if len(filas) < 3: return []  # necesita header + al menos 2 equipos
+
+        # Paso 1: encontrar las filas con '—' (marca de la diagonal)
+        equipo_filas = []
+        for fila in filas:
+            celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+            if "\u2014" in celdas or "—" in celdas or "\u2015" in celdas:
+                # El nombre del equipo está en celdas[1] (columna "Team")
+                equipo = celdas[1].strip() if len(celdas) > 1 else None
+                dash_pos = None
+                for i, c in enumerate(celdas):
+                    if c in ("\u2014", "—", "\u2015"):
+                        dash_pos = i
+                        break
+                if equipo and dash_pos is not None and len(equipo) > 2:
+                    equipo_filas.append((equipo, celdas, dash_pos))
+
+        if len(equipo_filas) < 2: return []
+
+        # Paso 2: determinar el offset de las columnas de scores
+        # Las columnas de scores empiezan donde está el '—' del primer equipo
+        first_dash = equipo_filas[0][2]
+        n_teams = len(equipo_filas)
+
+        # Paso 3: mapear columna a equipo (orden de las filas = orden de las columnas)
+        equipos_orden = [ef[0] for ef in equipo_filas]
+
+        # Paso 4: extraer scores
+        resultados = []
+        for row_idx, (equipo_local, celdas, dash_pos) in enumerate(equipo_filas):
+            score_start = first_dash  # las columnas de score empiezan aquí
+            for col_offset in range(n_teams):
+                col_idx = score_start + col_offset
+                if col_idx >= len(celdas): continue
+                if col_offset == row_idx: continue  # diagonal (—)
+                celda = celdas[col_idx]
+                m = SCORE_RE.match(celda)
+                if m:
+                    g1, g2 = int(m.group(1)), int(m.group(2))
+                    if g1 <= 9 and g2 <= 9:
+                        equipo_visit = equipos_orden[col_offset]
+                        resultados.append((equipo_local, equipo_visit, g1, g2))
+        return resultados
 
     for url in wiki_urls:
         try:
             r = requests.get(url, headers=headers, timeout=15)
             soup = BeautifulSoup(r.text, "html.parser")
             for tabla in soup.find_all("table", class_="wikitable"):
-                for fila in tabla.find_all("tr"):
-                    celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
-                    if len(celdas) < 3: continue
+                # Detectar si es cross-table (tiene '—' en celdas)
+                tabla_text = tabla.get_text()
+                is_cross = "—" in tabla_text or "\u2014" in tabla_text
 
-                    found = False
-                    # Estrategia 1: buscar score en celdas[1] (formato | Local | 2:1 | Visit |)
-                    if len(celdas) >= 3:
-                        m = SCORE_RE.match(celdas[1])
-                        if m:
-                            g1,g2=int(m.group(1)),int(m.group(2))
-                            if g1<=9 and g2<=9:
-                                es_horario = (g1 >= 10 and g2 % 5 == 0)
-                                if not es_horario:
-                                    loc, vis = celdas[0].strip(), celdas[2].strip()
-                                    if len(loc)>2 and len(vis)>2:
-                                        found = True
-
-                    # Estrategia 2: buscar score en celdas[3] (formato conmebol | fecha | hora | Local | 2:1 | Visit |)
-                    if not found and len(celdas) >= 5:
-                        m = SCORE_RE.match(celdas[3])
-                        if m:
-                            g1,g2=int(m.group(1)),int(m.group(2))
-                            if g1<=9 and g2<=9:
-                                loc, vis = celdas[2].strip(), celdas[4].strip()
-                                if len(loc)>2 and len(vis)>2:
-                                    found = True
-
-                    # Estrategia 3 (UEL): buscar score en cualquier celda con – (en-dash)
-                    if not found and wiki_fmt == "uel":
-                        for i, celda in enumerate(celdas):
-                            m = re.search(r"^(\d+)\s*[\u2013\-]\s*(\d+)$", celda.strip())
-                            if m and i > 0 and i < len(celdas)-1:
-                                g1,g2=int(m.group(1)),int(m.group(2))
-                                if g1<=9 and g2<=9:
-                                    loc = celdas[i-1].strip()
-                                    vis = celdas[i+1].strip()
-                                    if len(loc)>2 and len(vis)>2:
-                                        found = True
-                                        break
-
-                    if found:
+                if is_cross:
+                    # Parser de cross-table
+                    results = parse_cross_table(tabla)
+                    for loc, vis, g1, g2 in results:
                         if not any(e in loc.lower() or e in vis.lower() for e in excluir):
                             partidos.append((loc, vis, g1, g2))
+                else:
+                    # Parser estándar (filas individuales de resultados)
+                    for fila in tabla.find_all("tr"):
+                        celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                        if len(celdas) < 3: continue
+                        found = False
+
+                        # Buscar score en celdas[1]
+                        m = SCORE_RE.match(celdas[1]) if len(celdas) >= 3 else None
+                        if m:
+                            g1,g2=int(m.group(1)),int(m.group(2))
+                            if g1<=9 and g2<=9:
+                                loc, vis = celdas[0].strip(), celdas[2].strip()
+                                if len(loc)>2 and len(vis)>2: found = True
+
+                        # Buscar score en celdas[3]
+                        if not found and len(celdas) >= 5:
+                            m = SCORE_RE.match(celdas[3])
+                            if m:
+                                g1,g2=int(m.group(1)),int(m.group(2))
+                                if g1<=9 and g2<=9:
+                                    loc, vis = celdas[2].strip(), celdas[4].strip()
+                                    if len(loc)>2 and len(vis)>2: found = True
+
+                        if found:
+                            if not any(e in loc.lower() or e in vis.lower() for e in excluir):
+                                partidos.append((loc, vis, g1, g2))
         except:
             continue
     return partidos, None
