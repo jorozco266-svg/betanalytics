@@ -153,9 +153,8 @@ LIGAS = {
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None,
                                 "equipos_excluir":[]},
-    "🇧🇷 Brasileirão Série B":  {"src":"wiki_multi",
-                                "wiki_urls":["https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B"],
-                                "wiki_fmt":"conmebol", "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True},
+    "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
+                                "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404},
     "🇧🇷 Copa Brasil Feminina": {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_do_Brasil_de_Futebol_Feminino",
