@@ -2709,6 +2709,41 @@ with tab1:
                 hist = modelo_apertura
                 e1 = None
                 st.info(f"📊 Modelo basado en Apertura 2026-I. Equipos de la B no tendrán datos — precaución en esos partidos.")
+        # Próximos Copa BetPlay — Fase 1B (ida 21-23 jul, vuelta 28-30 jul)
+        if "Copa BetPlay" in liga_n and not prox:
+            import hashlib
+            copa_fase1b = [
+                ("Internacional de Bogotá","Inter Palmira","2026-07-21","07:00 PM"),
+                ("Deportes Tolima","Deportes Quindío","2026-07-21","07:00 PM"),
+                ("América de Cali","Real Cartagena","2026-07-22","07:30 PM"),
+                ("Junior","Barranquilla","2026-07-22","07:30 PM"),
+                ("Atlético Nacional","Tigres","2026-07-23","07:30 PM"),
+                ("Deportivo Pasto","Bogotá","2026-07-23","07:30 PM"),
+                ("Once Caldas","Envigado","2026-07-23","05:00 PM"),
+                ("Santa Fe","Unión Magdalena","2026-07-23","07:30 PM"),
+                # Vuelta (28-30 jul) — localía invertida (equipo B cierra)
+                ("Inter Palmira","Internacional de Bogotá","2026-07-28","07:00 PM"),
+                ("Deportes Quindío","Deportes Tolima","2026-07-28","07:00 PM"),
+                ("Real Cartagena","América de Cali","2026-07-29","07:30 PM"),
+                ("Barranquilla","Junior","2026-07-29","07:30 PM"),
+                ("Tigres","Atlético Nacional","2026-07-30","07:30 PM"),
+                ("Bogotá","Deportivo Pasto","2026-07-30","07:30 PM"),
+                ("Envigado","Once Caldas","2026-07-30","05:00 PM"),
+                ("Unión Magdalena","Santa Fe","2026-07-30","07:30 PM"),
+            ]
+            ahora_copa = datetime.datetime.now(TZ_COL)
+            lim_copa = (ahora_copa + datetime.timedelta(days=7)).date()
+            for loc,vis,fecha,hora in copa_fase1b:
+                try:
+                    fecha_dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %I:%M %p").replace(tzinfo=TZ_COL)
+                except:
+                    fecha_dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
+                if fecha_dt < ahora_copa or fecha_dt.date() > lim_copa: continue
+                uid = hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
+                prox.append({"id":uid,"dt":fecha_dt,
+                            "fecha":fecha,"hora":hora,
+                            "local":loc,"visit":vis,"jornada":"Copa - Fase 1B",
+                            "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
         else:
             with st.spinner("Cargando datos..."):
                 if li["src"]=="wiki_multi":
