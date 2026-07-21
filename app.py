@@ -134,29 +134,14 @@ LIGAS = {
     "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
     "🏆 Copa Libertadores":    {"src":"wiki_multi",
                                 "wiki_urls":[
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_A_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_B_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_C_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_D_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_E_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_F_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_G_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_H_de_la_Copa_Libertadores_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Octavos_de_final_de_la_Copa_Libertadores_2026",
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_final_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.25, "odds_key":"soccer_conmebol_copa_libertadores"},
     "🏆 Copa Sudamericana":    {"src":"wiki_multi",
                                 "wiki_urls":[
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_A_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_B_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_C_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_D_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_E_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_F_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_G_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Grupo_H_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Eliminatoria_de_octavos_de_final_de_la_Copa_Sudamericana_2026",
-                                    "https://es.wikipedia.org/wiki/Anexo:Octavos_de_final_de_la_Copa_Sudamericana_2026",
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_group_stage",
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_final_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana"},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
@@ -1496,7 +1481,7 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
                 celdas=[td.get_text(strip=True) for td in fila.find_all(["td","th"])]
                 if wiki_fmt=="conmebol":
                     if len(celdas)<5: continue
-                    m=re.search(r"(\d+)\s*[:\-]\s*(\d+)",celdas[3])
+                    m=re.search(r"(\d+)\s*[:\-\u2013]\s*(\d+)",celdas[3])
                     if not m: continue
                     g1,g2=int(m.group(1)),int(m.group(2))
                     if g1>9 or g2>9: continue  # filtrar horarios/datos espurios
@@ -1527,11 +1512,15 @@ def wiki_hist(wiki_url, wiki_fmt, equipos_excluir=None):
 
 
 def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
-    """Extrae historial de resultados desde múltiples páginas de Wikipedia."""
+    """Extrae historial de resultados desde múltiples páginas de Wikipedia.
+    Maneja formatos: conmebol (es.wiki), uel (en.wiki), cross-table (en.wiki groups)."""
     import re
     headers={"User-Agent":"Mozilla/5.0"}
     excluir = [e.lower() for e in (equipos_excluir or [])]
     partidos = []
+    # Regex que captura marcadores con : - – (en-dash)
+    SCORE_RE = re.compile(r"^\s*(\d{1,2})\s*[\:\-\u2013]\s*(\d{1,2})\s*(?:\([^)]*\))?\s*$")
+
     for url in wiki_urls:
         try:
             r = requests.get(url, headers=headers, timeout=15)
@@ -1539,43 +1528,47 @@ def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
             for tabla in soup.find_all("table", class_="wikitable"):
                 for fila in tabla.find_all("tr"):
                     celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
-                    if wiki_fmt == "uel":
+                    if len(celdas) < 3: continue
+
+                    found = False
+                    # Estrategia 1: buscar score en celdas[1] (formato | Local | 2:1 | Visit |)
+                    if len(celdas) >= 3:
+                        m = SCORE_RE.match(celdas[1])
+                        if m:
+                            g1,g2=int(m.group(1)),int(m.group(2))
+                            if g1<=9 and g2<=9:
+                                es_horario = (g1 >= 10 and g2 % 5 == 0)
+                                if not es_horario:
+                                    loc, vis = celdas[0].strip(), celdas[2].strip()
+                                    if len(loc)>2 and len(vis)>2:
+                                        found = True
+
+                    # Estrategia 2: buscar score en celdas[3] (formato conmebol | fecha | hora | Local | 2:1 | Visit |)
+                    if not found and len(celdas) >= 5:
+                        m = SCORE_RE.match(celdas[3])
+                        if m:
+                            g1,g2=int(m.group(1)),int(m.group(2))
+                            if g1<=9 and g2<=9:
+                                loc, vis = celdas[2].strip(), celdas[4].strip()
+                                if len(loc)>2 and len(vis)>2:
+                                    found = True
+
+                    # Estrategia 3 (UEL): buscar score en cualquier celda con – (en-dash)
+                    if not found and wiki_fmt == "uel":
                         for i, celda in enumerate(celdas):
-                            m = re.search(r"^(\d+)\s*[–\-]\s*(\d+)$", celda.strip())
+                            m = re.search(r"^(\d+)\s*[\u2013\-]\s*(\d+)$", celda.strip())
                             if m and i > 0 and i < len(celdas)-1:
                                 g1,g2=int(m.group(1)),int(m.group(2))
-                                if g1>9 or g2>9: continue
-                                loc = celdas[i-1].strip()
-                                vis = celdas[i+1].strip()
-                                if len(loc)>2 and len(vis)>2:
-                                    if not any(e in loc.lower() or e in vis.lower() for e in excluir):
-                                        partidos.append((loc, vis, g1, g2))
-                    elif wiki_fmt == "conmebol":
-                        if len(celdas)<5: continue
-                        m = re.search(r"(\d+)\s*[:\-]\s*(\d+)", celdas[3])
-                        if not m: continue
-                        g1,g2=int(m.group(1)),int(m.group(2))
-                        if g1>9 or g2>9: continue
-                        if g1+g2 > 12: continue
-                        loc, vis = celdas[2].strip(), celdas[4].strip()
-                        if loc and vis and len(loc)>2 and len(vis)>2:
-                            if not any(e in loc.lower() or e in vis.lower() for e in excluir):
-                                partidos.append((loc, vis, g1, g2))
-                    else:
-                        if len(celdas)<3: continue
-                        m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[1])
-                        if not m:
-                            if len(celdas) >= 5:
-                                m = re.match(r"^\s*(\d{1,2})\s*:\s*(\d{1,2})\s*$", celdas[3])
-                            if not m: continue
-                        g1,g2=int(m.group(1)),int(m.group(2))
-                        es_horario = (g1 >= 10 and g2 % 5 == 0)
-                        if es_horario: continue
-                        if g1 > 9 or g2 > 9: continue
-                        loc, vis = celdas[0].strip(), celdas[2].strip()
-                        if loc and vis and len(loc)>2 and len(vis)>2:
-                            if not any(e in loc.lower() or e in vis.lower() for e in excluir):
-                                partidos.append((loc, vis, g1, g2))
+                                if g1<=9 and g2<=9:
+                                    loc = celdas[i-1].strip()
+                                    vis = celdas[i+1].strip()
+                                    if len(loc)>2 and len(vis)>2:
+                                        found = True
+                                        break
+
+                    if found:
+                        if not any(e in loc.lower() or e in vis.lower() for e in excluir):
+                            partidos.append((loc, vis, g1, g2))
         except:
             continue
     return partidos, None
