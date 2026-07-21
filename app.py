@@ -147,8 +147,11 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
-    "🇨🇴 Copa BetPlay Dimayor": {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Colombia_2026",
-                                "wiki_fmt":"betplay", "avg":1.20, "odds_key":None,
+    "🇨🇴 Copa BetPlay Dimayor": {"src":"wiki_multi",
+                                "wiki_urls":[
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Colombia",
+                                ],
+                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None,
                                 "equipos_excluir":[]},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
@@ -1714,13 +1717,19 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     import unicodedata
                     def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
                     # Filtro de equipos colombianos solo si la URL es de Colombia
-                    es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower() or "finalizaci" in wiki_url.lower()
+                    es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower() or "finalizaci" in wiki_url.lower() or "copa_colombia" in wiki_url.lower()
                     if es_colombia:
                         EQUIPOS_NORM = ["nacional","santa fe","millonarios","junior",
                                         "america","tolima","bucaramanga","pereira",
                                         "once caldas","pasto","deportivo cali","medellin",
                                         "jaguares","cucuta","boyaca","aguilas",
-                                        "fortaleza","alianza","internacional","llaneros"]
+                                        "fortaleza","alianza","internacional","llaneros",
+                                        # Equipos B / Copa
+                                        "barranquilla","envigado","bogota","union magdalena",
+                                        "real cartagena","tigres","patriotas","atletico fc",
+                                        "boca juniors de cali","real santander","quindio",
+                                        "palmira","orsomarso","leones","cortuluá","huila",
+                                        "valledupar","chicó","cali","caldas","cartagena"]
                         loc_n,vis_n=norm(loc),norm(vis)
                         if not any(e in loc_n for e in EQUIPOS_NORM): continue
                         if not any(e in vis_n for e in EQUIPOS_NORM): continue
@@ -2689,7 +2698,7 @@ with tab1:
             # Modelo híbrido: Apertura 2026-I (base de equipos A) + resultados Copa
             modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
             with st.spinner("Cargando resultados Copa BetPlay..."):
-                hist_copa,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+                hist_copa,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
             n_copa = len(hist_copa) if not isinstance(hist_copa, dict) else 0
             if n_copa >= 10:
                 modelo_copa = build_model(hist_copa, li["avg"])
