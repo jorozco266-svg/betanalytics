@@ -842,6 +842,46 @@ ALIASES_EQUIPOS = {
     "fbc melgar": "melgar",
     "huancayo": "sport huancayo",
     "universitario de deportes": "universitario",
+    # CONMEBOL — aliases para The Odds API
+    "nacional de montevideo": "nacional", "club nacional": "nacional",
+    "ca tigre ba": "tigre", "tigre ba": "tigre", "ca tigre": "tigre",
+    "montevideo city torque": "montevideo city torque", "city torque": "montevideo city torque",
+    "racing club": "racing", "racing avellaneda": "racing",
+    "ca lanus": "lanus", "lanus ba": "lanus",
+    "river plate ba": "river plate", "ca river plate": "river plate",
+    "boca juniors ba": "boca juniors", "ca boca juniors": "boca juniors",
+    "atletico mineiro": "atletico mineiro", "atl mineiro": "atletico mineiro",
+    "red bull bragantino": "red bull bragantino", "rb bragantino": "red bull bragantino",
+    "ca independiente": "independiente", "independiente avellaneda": "independiente",
+    "dep cuenca": "deportivo cuenca",
+    "barracas central ba": "barracas central",
+    "sao paulo fc": "sao paulo", "sao paulo": "sao paulo",
+    "santos fc": "santos",
+    "botafogo rj": "botafogo", "botafogo fr": "botafogo",
+    "gremio fb": "gremio", "gremio porto alegrense": "gremio",
+    "vasco da gama rj": "vasco da gama",
+    "olimpia asuncion": "olimpia",
+    "recoleta asuncion": "recoleta",
+    "cerro porteno": "cerro porteno",
+    "sporting cristal": "sporting cristal",
+    "alianza atletico": "alianza atletico",
+    "america de cali": "america de cali",
+    "ind medellin": "independiente medellin", "di medellin": "independiente medellin",
+    "santa fe bogota": "independiente santa fe", "ind santa fe": "independiente santa fe",
+    "audax italiano": "audax italiano",
+    "independiente petrolero": "independiente petrolero",
+    "academia puerto cabello": "academia puerto cabello",
+    "macara": "macara",
+    "deportivo riestra": "deportivo riestra",
+    "boston river": "boston river",
+    "blooming": "blooming",
+    "carabobo fc": "carabobo",
+    "cienciano": "cienciano",
+    "juventud las piedras": "juventud",
+    "san lorenzo ba": "san lorenzo", "ca san lorenzo": "san lorenzo",
+    "millonarios bogota": "millonarios",
+    "palestino": "palestino",
+    "o'higgins": "o'higgins", "ohiggins": "o'higgins",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
@@ -916,11 +956,21 @@ def buscar_equipo_info(nombre, M):
                         if norm(k) == norm(target):
                             equipo_key = k; break
                     if equipo_key: break
-        # Parcial por primera palabra
+        # Parcial por primera palabra (mínimo 4 chars para evitar "ca" → "carabobo")
         if not equipo_key:
-            for k in equipos:
-                if nombre_n.split()[0] in norm(k) or norm(k).split()[0] in nombre_n:
-                    equipo_key = k; break
+            primera = nombre_n.split()[0]
+            if len(primera) >= 4:
+                for k in equipos:
+                    k_norm = norm(k)
+                    k_primera = k_norm.split()[0]
+                    if primera == k_primera or (len(k_primera) >= 4 and k_primera == primera):
+                        equipo_key = k; break
+            # Si aún no, intentar con el nombre completo como substring
+            if not equipo_key:
+                for k in equipos:
+                    k_norm = norm(k)
+                    if len(k_norm) >= 4 and (k_norm in nombre_n or nombre_n in k_norm):
+                        equipo_key = k; break
     if not equipo_key:
         return {"atk":1.0,"def":1.0,"n":0,"gf_avg":0,"gc_avg":0,"partidos":[],
                 "gf_tot":None,"gc_tot":None,"fuente":None}
@@ -2189,11 +2239,11 @@ def buscar_elo(nombre, elo_dict):
     for k, v in elo_dict.items():
         if norm(k) == nombre_n: return v
 
-    # Parcial — primera palabra
+    # Parcial — primera palabra (mínimo 4 chars)
     primera = nombre_n.split()[0] if nombre_n.split() else nombre_n
-    if len(primera) > 3:
+    if len(primera) >= 4:
         for k, v in elo_dict.items():
-            if primera in norm(k) or norm(k).split()[0] == primera:
+            if norm(k).split()[0] == primera:
                 return v
 
     return None
