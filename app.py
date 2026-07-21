@@ -147,6 +147,9 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
+    "🇨🇴 Copa BetPlay Dimayor": {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Copa_Colombia_2026",
+                                "wiki_fmt":"betplay", "avg":1.20, "odds_key":None,
+                                "equipos_excluir":[]},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
@@ -2682,6 +2685,21 @@ with tab1:
                     st.info(f"📊 Modelo basado en Apertura 2026-I + {n_fin} resultados parciales del Finalización. Se actualizará con más fechas.")
                 else:
                     st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas). Se actualizará automáticamente cuando el Finalización genere resultados en Wikipedia.")
+        elif "Copa BetPlay" in liga_n:
+            # Modelo híbrido: Apertura 2026-I (base de equipos A) + resultados Copa
+            modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+            with st.spinner("Cargando resultados Copa BetPlay..."):
+                hist_copa,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+            n_copa = len(hist_copa) if not isinstance(hist_copa, dict) else 0
+            if n_copa >= 10:
+                modelo_copa = build_model(hist_copa, li["avg"])
+                hist = blend_models(modelo_apertura, modelo_copa, decay_base=0.4)
+                e1 = None
+                st.info(f"📊 Modelo híbrido: {n_copa} partidos Copa + Apertura (decay ×0.4). Equipos de la B sin datos del Apertura usan solo la Copa.")
+            else:
+                hist = modelo_apertura
+                e1 = None
+                st.info(f"📊 Modelo basado en Apertura 2026-I. Equipos de la B no tendrán datos — precaución en esos partidos.")
         else:
             with st.spinner("Cargando datos..."):
                 if li["src"]=="wiki_multi":
