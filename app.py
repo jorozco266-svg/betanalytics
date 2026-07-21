@@ -142,6 +142,7 @@ LIGAS = {
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_group_stage",
                                     "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_final_stages",
+                                    "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
