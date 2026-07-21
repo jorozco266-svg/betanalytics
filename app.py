@@ -365,6 +365,22 @@ HIST_BETPLAY_APERTURA_2026 = [
     ("Deportivo Pereira",       15, 32, 19),
 ]
 
+# ── Torneo BetPlay (Primera B) Apertura 2026 — 8 equipos clasificados a cuadrangulares ──
+# Fuente: ESPN / Dimayor · Datos parciales (fase regular 15 fechas)
+# Los 8 clasificados a cuadrangulares son los que entran a Copa Fase 1B
+# Envigado campeón del Torneo I-2026
+HIST_TORNEO_B_2026 = [
+    # (equipo, GF, GC, PJ) — solo los 8 que clasificaron a cuadrangulares + finalistas
+    ("Tigres",                  16, 15, 15),
+    ("Inter Palmira",           26, 14, 15),
+    ("Barranquilla",            20, 16, 15),
+    ("Envigado",                22, 13, 15),
+    ("Unión Magdalena",         19, 16, 15),
+    ("Bogotá",                  15, 17, 15),
+    ("Real Cartagena",          25, 13, 15),
+    ("Deportes Quindío",        24, 14, 15),
+]
+
 # Tabla de posiciones Liga MX Apertura 2026-27 (vía TheSportsDB)
 # Fuente: Wikipedia / El Universal. Formato: (equipo, GF, GC, PJ)
 HIST_LIGAMX_2026 = [
@@ -2695,8 +2711,13 @@ with tab1:
                 else:
                     st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas). Se actualizará automáticamente cuando el Finalización genere resultados en Wikipedia.")
         elif "Copa BetPlay" in liga_n:
-            # Modelo híbrido: Apertura 2026-I (base de equipos A) + resultados Copa
+            # Modelo híbrido: Apertura A (base) + Torneo B (base) + resultados Copa
             modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+            modelo_b = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
+            # Unir ambos modelos (A + B) como base
+            for k, v in modelo_b.items():
+                if not k.startswith("_") and k not in modelo_apertura:
+                    modelo_apertura[k] = v
             with st.spinner("Cargando resultados Copa BetPlay..."):
                 hist_copa,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
             n_copa = len(hist_copa) if not isinstance(hist_copa, dict) else 0
