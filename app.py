@@ -496,16 +496,16 @@ HIST_CONMEBOL = {
         ("Inter de Barquisimeto",    10, 23, 13), ("Rayo Zuliano",            9, 24, 12),
     ],
     "ArgFem": [
-        # Fuente: Tabla Apertura 2026 femenino (El Femenino) — actualizada 13-jul
-        # Formato: (equipo, GF, GC, PJ) · Promedio liga ~2.18 goles/partido
-        ("Racing",         31,  8, 13), ("San Lorenzo",    26,  5, 13),
-        ("River",          25, 13, 13), ("Talleres CBA",   20,  9, 14),
-        ("Boca",           13,  9, 13), ("Belgrano",        8,  8, 13),
-        ("Ferro",          11,  9, 13), ("SAT",            15, 13, 13),
-        ("Gimnasia",       22, 23, 13), ("Banfield",       14, 18, 13),
-        ("San Luis FC",    15, 12, 13), ("Huracán",         7, 12, 13),
-        ("Independiente",  10, 23, 14), ("Lanús",           8, 22, 14),
-        ("Newell's",        3, 22, 14), ("Unión",           8, 30, 13),
+        # Fuente: Tabla Apertura 2026 femenino — actualizada 21-jul-2026
+        # Formato: (equipo, GF, GC, PJ) · 16 equipos · ~2.18 goles/partido
+        ("Racing",         33,  9, 14), ("San Lorenzo",    27,  5, 14),
+        ("River",          30, 15, 15), ("Talleres CBA",   20,  9, 14),
+        ("Gimnasia",       26, 24, 15), ("Belgrano",       11,  9, 15),
+        ("Boca",           16, 12, 14), ("Ferro",          14, 12, 14),
+        ("Banfield",       14, 19, 14), ("SAT",            15, 16, 14),
+        ("San Luis FC",    15, 13, 14), ("Huracán",         8, 15, 14),
+        ("Independiente",  10, 25, 15), ("Lanús",           8, 22, 14),
+        ("Newell's",        3, 22, 14), ("Unión",           9, 32, 14),
     ],
     "MLS": [
         # Fuente: MLS 2026 — ambas conferencias · actualizada al 17-jul-2026
@@ -560,8 +560,8 @@ FUENTE_TABLAS = {
                   "nota":"23 fechas jugadas — muestra sólida. Liga muy ofensiva (~3.09 goles/partido)."},
     "CopaArg":   {"fuente":"Tabla Liga Profesional 2026 (aplicada a la Copa)", "corte":"2026",
                   "nota":"Eliminación directa en cancha neutral. Solo fiable si ambos equipos son de Liga Profesional."},
-    "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"13-jul-2026",
-                  "nota":"Liga ofensiva (~2.18 goles/partido). El Clausura arranca ahora."},
+    "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"21-jul-2026",
+                  "nota":"16 equipos, 14-15 PJ. Racing y San Lorenzo líderes con 35 pts. ~2.18 goles/partido."},
     "Brasil":    {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Bolivia":   {"fuente":"División Profesional 2026 (FBF)", "corte":"16-jul-2026",
                   "nota":"Temporada 2026, ~9 fechas jugadas. Muestra pequeña — el modelo es menos estable con pocos partidos."},
