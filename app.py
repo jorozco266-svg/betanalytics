@@ -291,26 +291,18 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
 # Tabla de posiciones Brasileirao Serie A 2026 (al 24-mayo-2026, jornada 16-17)
 # Fuente: Wikipedia. Formato: (equipo, GF, GC, PJ)
 HIST_BRASILEIRAO_2026 = [
-    ("Palmeiras",            23, 10, 13),
-    ("Flamengo",             24, 10, 12),
-    ("Fluminense",           23, 16, 13),
-    ("Sao Paulo",            17, 11, 13),
-    ("Athletico Paranaense", 20, 15, 13),
-    ("Bahia",                17, 14, 12),
-    ("Coritiba",             15, 13, 13),
-    ("Botafogo",             24, 24, 12),
-    ("Red Bull Bragantino",  15, 15, 13),
-    ("Vasco da Gama",        18, 19, 13),
-    ("Gremio",               15, 16, 13),
-    ("Cruzeiro",             17, 21, 13),
-    ("Vitoria",              12, 17, 12),
-    ("Corinthians",           9, 11, 13),
-    ("Atletico Mineiro",     14, 19, 13),
-    ("Internacional",        12, 14, 13),
-    ("Santos",               18, 21, 13),
-    ("Mirassol",             13, 18, 12),
-    ("Remo",                 13, 23, 13),
-    ("Chapecoense",          12, 24, 12),
+    # Fuente: Brasileirão Série A 2026 — actualizada al 22-jul-2026 (fecha 18-19)
+    # Formato: (equipo, GF, GC, PJ) · 20 equipos · ~2.5 goles/partido
+    ("Palmeiras",            30, 13, 18), ("Flamengo",             31, 16, 17),
+    ("Fluminense",           29, 24, 19), ("Red Bull Bragantino",  26, 20, 19),
+    ("Athletico Paranaense", 24, 18, 18), ("Bahia",                28, 24, 19),
+    ("Coritiba",             24, 24, 18), ("Sao Paulo",            23, 20, 18),
+    ("Botafogo",             33, 32, 18), ("Atletico Mineiro",     23, 24, 19),
+    ("Vitoria",              22, 25, 18), ("Corinthians",          18, 19, 18),
+    ("Cruzeiro",             24, 28, 18), ("Internacional",        21, 22, 18),
+    ("Santos",               27, 31, 19), ("Gremio",               21, 25, 19),
+    ("Vasco da Gama",        22, 30, 19), ("Mirassol",             20, 25, 18),
+    ("Remo",                 21, 29, 18), ("Chapecoense",          17, 35, 18),
 ]
 # Fuente: Wikipedia / ESPN. Formato: (equipo, GF, GC, PJ)
 HIST_ARGENTINA_2026 = [
