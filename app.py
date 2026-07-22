@@ -979,6 +979,8 @@ def mostrar_memoria_equipo(nombre, info, rol="local"):
     # Mostrar ponderación del blend si existe
     if info.get('_blend'):
         st.caption(f"🔀 Ponderación: {info['_blend']}")
+    if info.get('_ajuste'):
+        st.caption(f"⚖️ Ajuste división: {info['_ajuste']}")
     if info.get('partidos'):
         st.caption(f"Partidos usados en el cálculo (últimos {len(info['partidos'])}):")
         for l2, v2, gl2, gv2 in info['partidos']:
@@ -2767,11 +2769,24 @@ with tab1:
                 modelo_copa = build_model(hist_copa, li["avg"])
                 hist = blend_models(modelo_apertura, modelo_copa, decay_base=0.4)
                 e1 = None
-                st.info(f"📊 Modelo híbrido: {n_copa} partidos Copa + Apertura (decay ×0.4). Equipos de la B sin datos del Apertura usan solo la Copa.")
+                st.info(f"📊 Modelo híbrido: {n_copa} partidos Copa + Apertura (decay ×0.4). Equipos de la B ajustados ×0.85 atk / ×1.15 def vs equipos A.")
             else:
                 hist = modelo_apertura
                 e1 = None
                 st.info(f"📊 Modelo basado en Apertura 2026-I. Equipos de la B no tendrán datos — precaución en esos partidos.")
+            # Ajuste por división: equipos de la B reciben penalización
+            # porque sus stats vienen de enfrentar equipos más débiles
+            equipos_b = {e[0].lower() for e in HIST_TORNEO_B_2026}
+            equipos_a = {e[0].lower() for e in HIST_BETPLAY_APERTURA_2026}
+            for k in list(hist.keys()):
+                if k.startswith("_"): continue
+                if k.lower() in equipos_b or (k.lower() not in equipos_a and hist[k].get("n",0) < 15):
+                    hist[k]["atk"] = round(hist[k]["atk"] * 0.85, 3)
+                    hist[k]["def"] = round(hist[k]["def"] * 1.15, 3)
+                    hist[k]["_div"] = "B"
+                    hist[k]["_ajuste"] = "atk ×0.85 · def ×1.15 (ajuste A vs B)"
+                else:
+                    hist[k]["_div"] = "A"
         # Próximos Copa BetPlay — Fase 1B (ida 21-23 jul, vuelta 28-30 jul)
         if "Copa BetPlay" in liga_n and not prox:
             import hashlib
