@@ -470,16 +470,16 @@ HIST_CONMEBOL = {
         ("Juan Pablo II College", 22, 40, 17), ("UTC Cajamarca",         21, 26, 17),
     ],
     "Ecuador": [
-        # Fuente: LigaPro Serie A 2026 — actualizada al 18-jul-2026 (fecha 19-20)
-        # Formato: (equipo, GF, GC, PJ) · 16 equipos · ~2.1 goles/partido
-        ("Independiente del Valle", 43, 19, 19), ("Aucas",                   21, 19, 19),
-        ("Barcelona SC",            21, 14, 19), ("U. Católica",             29, 18, 19),
-        ("Macará",                  21, 21, 20), ("LDU Quito",               19, 15, 19),
-        ("Deportivo Cuenca",        19, 21, 19), ("Emelec",                  16, 17, 19),
-        ("Leones del Norte",        20, 20, 19), ("Técnico Universitario",   19, 20, 19),
-        ("Orense",                  22, 26, 19), ("Guayaquil City",          17, 22, 19),
-        ("Delfín",                  13, 19, 20), ("Mushuc Runa",             24, 29, 19),
-        ("Libertad FC",             18, 25, 19), ("Manta",                    7, 24, 19),
+        # Fuente: LigaPro Serie A 2026 — actualizada al 22-jul-2026 (fecha 21)
+        # Formato: (equipo, GF, GC, PJ) · 16 equipos · IDV intratable (52 GF)
+        ("Independiente del Valle", 52, 20, 21), ("U. Católica",             33, 19, 21),
+        ("Aucas",                   22, 19, 20), ("Barcelona SC",            23, 16, 21),
+        ("Macará",                  24, 21, 21), ("LDU Quito",               20, 17, 21),
+        ("Deportivo Cuenca",        19, 26, 21), ("Leones del Norte",        21, 20, 20),
+        ("Emelec",                  17, 23, 20), ("Guayaquil City",          18, 22, 20),
+        ("Mushuc Runa",             26, 30, 20), ("Libertad FC",             19, 26, 21),
+        ("Orense",                  23, 28, 20), ("Técnico Universitario",   19, 24, 21),
+        ("Delfín",                  13, 20, 21), ("Manta",                    8, 26, 21),
     ],
     "Bolivia": [
         # Fuente: División Profesional 2026 — actualizada al 16-jul-2026
@@ -567,8 +567,8 @@ HIST_CONMEBOL = {
 # Se muestra en la memoria de cálculo para saber qué tan frescos son
 # ─────────────────────────────────────────────
 FUENTE_TABLAS = {
-    "Ecuador":   {"fuente":"LigaPro Serie A 2026", "corte":"18-jul-2026",
-                  "nota":"19-20 fechas por equipo. IDV líder destacado (43 GF). ~2.1 goles/partido."},
+    "Ecuador":   {"fuente":"LigaPro Serie A 2026", "corte":"22-jul-2026",
+                  "nota":"Fecha 21. IDV intratable (52 GF en 21 PJ = 2.48/partido). Manta último con 8 GF."},
     "Uruguay":   {"fuente":"FOX Sports · Tabla Anual (Apertura + Intermedio)", "corte":"22-jul-2026",
                   "nota":"Intermedio en curso. Dep. Maldonado líder anual. 16 equipos, ~2.3 goles/partido."},
     "Peru":      {"fuente":"Liga 1 Perú 2026 — Tabla acumulada (Apertura + Clausura)", "corte":"17-jul-2026",
