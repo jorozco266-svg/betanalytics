@@ -154,7 +154,7 @@ LIGAS = {
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None,
                                 "equipos_excluir":[]},
     "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
-                                "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404},
+                                "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404,"hist_fallback":"BrasilB"},
     "🇧🇷 Copa Brasil Feminina": {"src":"wiki_tabla",
                                 "wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_de_Futebol_Feminino_S%C3%A9rie_A1",
                                 "avg":1.10, "odds_key":None,
@@ -382,6 +382,21 @@ HIST_TORNEO_B_2026 = [
 ]
 
 # Tabla de posiciones Liga MX Apertura 2026-27 (vía TheSportsDB)
+
+# ── Brasileirão Série B 2026 — actualizada al 22-jul-2026 (fecha 19) ──
+# Fuente: Datos oficiales · 20 equipos · ~2.26 goles/partido
+HIST_BRASILEIRAO_B_2026 = [
+    ("Criciuma",            23, 12, 19), ("Operario-PR",         27, 22, 19),
+    ("Vila Nova",           27, 22, 19), ("Juventude",           19,  8, 18),
+    ("Fortaleza",           22, 19, 19), ("Novorizontino",       28, 18, 19),
+    ("Goias",               21, 25, 19), ("Sport Recife",        24, 18, 19),
+    ("Sao Bernardo",        24, 17, 18), ("CRB",                 29, 32, 19),
+    ("Atletico Goianiense", 19, 19, 18), ("Nautico",             24, 24, 19),
+    ("Cuiaba",              14, 13, 18), ("Athletic",            16, 16, 18),
+    ("Botafogo-SP",         20, 18, 18), ("Londrina",            26, 27, 19),
+    ("Avai",                21, 26, 19), ("Ceara",               16, 22, 19),
+    ("Ponte Preta",         14, 38, 19), ("America-MG",          13, 31, 19),
+]
 # Fuente: Wikipedia / El Universal. Formato: (equipo, GF, GC, PJ)
 HIST_LIGAMX_2026 = [
     ("Pumas UNAM",        32, 14, 17),  # Pumas — 1ro 36 pts
@@ -520,6 +535,19 @@ HIST_CONMEBOL = {
         ("Colorado",           25, 24, 15), ("Austin FC",          19, 31, 15),
         ("Sporting KC",        16, 39, 15),
     ],
+    "BrasilB": [
+        # Brasileirão Série B 2026 — actualizada al 22-jul-2026 (fecha 19)
+        ("Criciuma",            23, 12, 19), ("Operario-PR",         27, 22, 19),
+        ("Vila Nova",           27, 22, 19), ("Juventude",           19,  8, 18),
+        ("Fortaleza",           22, 19, 19), ("Novorizontino",       28, 18, 19),
+        ("Goias",               21, 25, 19), ("Sport Recife",        24, 18, 19),
+        ("Sao Bernardo",        24, 17, 18), ("CRB",                 29, 32, 19),
+        ("Atletico Goianiense", 19, 19, 18), ("Nautico",             24, 24, 19),
+        ("Cuiaba",              14, 13, 18), ("Athletic",            16, 16, 18),
+        ("Botafogo-SP",         20, 18, 18), ("Londrina",            26, 27, 19),
+        ("Avai",                21, 26, 19), ("Ceara",               16, 22, 19),
+        ("Ponte Preta",         14, 38, 19), ("America-MG",          13, 31, 19),
+    ],
     "NSWL1": [
         # Fuente: NSW League One 2026 — actualizada al 17-jul-2026 · 23 fechas jugadas
         # Formato: (equipo, GF, GC, PJ) · Liga muy ofensiva: ~3.09 goles/partido
@@ -547,6 +575,8 @@ FUENTE_TABLAS = {
                   "nota":"17 fechas por equipo. El Clausura arranca hoy 17-jul: hubo receso, fichajes (Barcos a Cristal, Cueva a Sport Boys) y descuentos de puntos administrativos."},
     "MLS":       {"fuente":"MLS 2026 — Este + Oeste (30 equipos)", "corte":"17-jul-2026",
                   "nota":"14-15 fechas por equipo — muestra sólida. Liga ofensiva (~3.2 goles/partido)."},
+    "BrasilB":   {"fuente":"Brasileirão Série B 2026", "corte":"22-jul-2026",
+                  "nota":"20 equipos, 19 PJ. Criciúma líder. ~2.26 goles/partido."},
     "NSWL1":     {"fuente":"NSW League One 2026 (Australia)", "corte":"17-jul-2026",
                   "nota":"23 fechas jugadas — muestra sólida. Liga muy ofensiva (~3.09 goles/partido)."},
     "CopaArg":   {"fuente":"Tabla Liga Profesional 2026 (aplicada a la Copa)", "corte":"2026",
