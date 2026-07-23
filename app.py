@@ -420,16 +420,15 @@ HIST_CONMEBOL = {
         ("Rangers",               9, 23, 14), ("Unión La Calera",        8, 24, 14),
     ],
     "Uruguay": [
-        # Fuente: TABLA ANUAL 2026 = Apertura (15 fechas) + Intermedio (4 fechas)
-        # Actualizada al 8-jun-2026 (última fecha antes del receso por el Mundial)
-        # Liga se reanuda 11-jul con la fecha 5 del Intermedio
+        # Fuente: FOX Sports — TABLA ANUAL 2026 = Apertura (15 fechas) + Intermedio (~4 fechas)
+        # Actualizada al 22-jul-2026
         ("Deportivo Maldonado",    35, 20, 19), ("Racing Montevideo",      25, 15, 19),
-        ("Peñarol",                29, 19, 19), ("Albion",                 29, 20, 19),
-        ("Nacional",               31, 26, 19), ("Central Español",        28, 26, 19),
+        ("Peñarol",                28, 18, 19), ("Albion",                 29, 20, 19),
+        ("Nacional",               31, 26, 19), ("Central Español",        27, 25, 19),
         ("Montevideo City Torque", 29, 24, 19), ("Montevideo Wanderers",   22, 24, 19),
         ("Liverpool Montevideo",   22, 20, 19), ("Cerro Largo",            21, 20, 19),
         ("Defensor Sporting",      15, 16, 19), ("Boston River",           19, 26, 19),
-        ("Danubio",                20, 27, 19), ("Juventud",               23, 30, 19),
+        ("Danubio",                19, 26, 18), ("Juventud",               22, 29, 18),
         ("Progreso",               16, 30, 19), ("Cerro",                  10, 31, 19),
     ],
     "Paraguay": [
@@ -542,8 +541,8 @@ HIST_CONMEBOL = {
 FUENTE_TABLAS = {
     "Ecuador":   {"fuente":"LigaPro Serie A 2026", "corte":"18-jul-2026",
                   "nota":"19-20 fechas por equipo. IDV líder destacado (43 GF). ~2.1 goles/partido."},
-    "Uruguay":   {"fuente":"Wikipedia · Tabla Anual (Apertura + Intermedio)", "corte":"8-jun-2026",
-                  "nota":"Liga reanudada el 11-jul tras receso del Mundial."},
+    "Uruguay":   {"fuente":"FOX Sports · Tabla Anual (Apertura + Intermedio)", "corte":"22-jul-2026",
+                  "nota":"Intermedio en curso. Dep. Maldonado líder anual. 16 equipos, ~2.3 goles/partido."},
     "Peru":      {"fuente":"Liga 1 Perú 2026 — Tabla acumulada (Apertura + Clausura)", "corte":"17-jul-2026",
                   "nota":"17 fechas por equipo. El Clausura arranca hoy 17-jul: hubo receso, fichajes (Barcos a Cristal, Cueva a Sport Boys) y descuentos de puntos administrativos."},
     "MLS":       {"fuente":"MLS 2026 — Este + Oeste (30 equipos)", "corte":"17-jul-2026",
