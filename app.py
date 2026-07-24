@@ -2775,6 +2775,32 @@ with tab1:
                     st.info(f"📊 Modelo basado en Apertura 2026-I + {n_fin} resultados parciales del Finalización. Se actualizará con más fechas.")
                 else:
                     st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas). Se actualizará automáticamente cuando el Finalización genere resultados en Wikipedia.")
+        # Próximos Liga BetPlay — Fecha 1 Finalización 2026-II (24-26 jul)
+        if "Liga BetPlay" in liga_n and "Copa" not in liga_n and not prox:
+            import hashlib
+            fecha1_fin = [
+                ("Llaneros","Deportivo Pereira","2026-07-24","06:10 PM"),
+                ("Deportivo Cali","Jaguares","2026-07-24","08:15 PM"),
+                ("Boyacá Chicó","Atlético Nacional","2026-07-25","02:00 PM"),
+                ("Independiente Medellín","Deportivo Pasto","2026-07-25","04:05 PM"),
+                ("Millonarios","Atlético Bucaramanga","2026-07-25","06:10 PM"),
+                ("Deportes Tolima","Junior","2026-07-25","08:00 PM"),
+                ("América de Cali","Once Caldas","2026-07-26","02:00 PM"),
+                ("Independiente Santa Fe","Fortaleza","2026-07-26","04:05 PM"),
+                ("Alianza Valledupar","Águilas Doradas","2026-07-26","06:10 PM"),
+                ("Cúcuta Deportivo","Internacional de Bogotá","2026-07-26","08:15 PM"),
+            ]
+            ahora_bp = datetime.datetime.now(TZ_COL)
+            for loc,vis,fecha,hora in fecha1_fin:
+                uid=hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
+                try:
+                    fecha_dt=datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %I:%M %p").replace(tzinfo=TZ_COL)
+                except:
+                    fecha_dt=datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_COL)
+                if fecha_dt < ahora_bp: continue
+                prox.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
+                             "local":loc,"visit":vis,"jornada":"Fecha 1",
+                             "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
         elif "Copa BetPlay" in liga_n:
             # Modelo híbrido: Apertura A (base) + Torneo B (base) + resultados Copa
             modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
@@ -2878,37 +2904,8 @@ with tab1:
             prox = prox_dedup
         elif li["src"]=="wiki":
             prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            # Fecha 1 Liga BetPlay Finalización 2026-II (24-26 jul)
-            if "Liga BetPlay" in liga_n and not prox_wiki:
-                import hashlib
-                fecha1_fin = [
-                    # Viernes 24 de julio
-                    ("Llaneros","Deportivo Pereira","2026-07-24","06:10 PM"),
-                    ("Deportivo Cali","Jaguares","2026-07-24","08:15 PM"),
-                    # Sábado 25 de julio
-                    ("Boyacá Chicó","Atlético Nacional","2026-07-25","02:00 PM"),
-                    ("Independiente Medellín","Deportivo Pasto","2026-07-25","04:05 PM"),
-                    ("Millonarios","Atlético Bucaramanga","2026-07-25","06:10 PM"),
-                    ("Deportes Tolima","Junior","2026-07-25","08:00 PM"),
-                    # Domingo 26 de julio
-                    ("América de Cali","Once Caldas","2026-07-26","02:00 PM"),
-                    ("Independiente Santa Fe","Fortaleza","2026-07-26","04:05 PM"),
-                    ("Alianza Valledupar","Águilas Doradas","2026-07-26","06:10 PM"),
-                    ("Cúcuta Deportivo","Internacional de Bogotá","2026-07-26","08:15 PM"),
-                ]
-                prox_wiki = []
-                ahora_bp = datetime.datetime.now(TZ_COL)
-                for loc,vis,fecha,hora in fecha1_fin:
-                    uid=hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
-                    try:
-                        fecha_dt=datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %I:%M %p").replace(tzinfo=TZ_COL)
-                    except:
-                        fecha_dt=datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_COL)
-                    if fecha_dt < ahora_bp: continue  # ya pasó
-                    prox_wiki.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
-                                      "local":loc,"visit":vis,"jornada":"Fecha 1",
-                                      "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
-            prox=prox_wiki
+            if prox_wiki:
+                prox=prox_wiki
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
