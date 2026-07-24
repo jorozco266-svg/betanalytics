@@ -2775,10 +2775,10 @@ with tab1:
                     st.info(f"📊 Modelo basado en Apertura 2026-I + {n_fin} resultados parciales del Finalización. Se actualizará con más fechas.")
                 else:
                     st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas). Se actualizará automáticamente cuando el Finalización genere resultados en Wikipedia.")
-        # Próximos Liga BetPlay — Fecha 1 Finalización 2026-II (24-26 jul)
-        if "Liga BetPlay" in liga_n and "Copa" not in liga_n and not prox:
+            # Próximos Liga BetPlay — Fecha 1 Finalización 2026-II (24-26 jul)
             import hashlib
-            fecha1_fin = [
+            ahora_bp = datetime.datetime.now(TZ_COL)
+            for loc,vis,fecha,hora in [
                 ("Llaneros","Deportivo Pereira","2026-07-24","06:10 PM"),
                 ("Deportivo Cali","Jaguares","2026-07-24","08:15 PM"),
                 ("Boyacá Chicó","Atlético Nacional","2026-07-25","02:00 PM"),
@@ -2789,9 +2789,7 @@ with tab1:
                 ("Independiente Santa Fe","Fortaleza","2026-07-26","04:05 PM"),
                 ("Alianza Valledupar","Águilas Doradas","2026-07-26","06:10 PM"),
                 ("Cúcuta Deportivo","Internacional de Bogotá","2026-07-26","08:15 PM"),
-            ]
-            ahora_bp = datetime.datetime.now(TZ_COL)
-            for loc,vis,fecha,hora in fecha1_fin:
+            ]:
                 uid=hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
                 try:
                     fecha_dt=datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %I:%M %p").replace(tzinfo=TZ_COL)
