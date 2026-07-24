@@ -2881,9 +2881,9 @@ with tab1:
         # Mostrar info fuera del spinner
         if isinstance(hist, dict) and "Argentina" in liga_n:
             st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
-        # Cargar próximos partidos (solo si prox está vacío — puede estar prellenado por Copa BetPlay)
+        # Cargar próximos partidos (solo si prox está vacío — puede estar prellenado por Copa/Liga BetPlay)
         if prox:
-            pass  # ya hay próximos cargados (ej. Copa BetPlay hardcoded)
+            cargado=True  # ya hay próximos cargados
         elif li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         elif li["src"]=="wiki_multi":
