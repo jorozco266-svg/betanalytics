@@ -2871,7 +2871,7 @@ with tab1:
                             "fecha":fecha,"hora":hora,
                             "local":loc,"visit":vis,"jornada":"Copa - Fase 1B",
                             "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
-        else:
+        elif "Copa BetPlay" not in liga_n and "Liga BetPlay" not in liga_n:
             with st.spinner("Cargando datos..."):
                 if li["src"]=="wiki_multi":
                     hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
