@@ -2778,6 +2778,7 @@ with tab1:
             # Próximos Liga BetPlay — Fecha 1 Finalización 2026-II (24-26 jul)
             import hashlib
             ahora_bp = datetime.datetime.now(TZ_COL)
+            st.warning(f"🔍 DEBUG: ahora_bp={ahora_bp}, hist type={type(hist).__name__}, hist len={len(hist) if hist else 0}")
             for loc,vis,fecha,hora in [
                 ("Llaneros","Deportivo Pereira","2026-07-24","06:10 PM"),
                 ("Deportivo Cali","Jaguares","2026-07-24","08:15 PM"),
@@ -2799,6 +2800,7 @@ with tab1:
                 prox.append({"id":uid,"dt":fecha_dt,"fecha":fecha,"hora":hora,
                              "local":loc,"visit":vis,"jornada":"Fecha 1",
                              "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
+            st.warning(f"🔍 DEBUG: prox tiene {len(prox)} partidos, cargado={cargado}")
         elif "Copa BetPlay" in liga_n:
             # Modelo híbrido: Apertura A (base) + Torneo B (base) + resultados Copa
             modelo_apertura = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
@@ -2964,6 +2966,8 @@ with tab1:
             for p in pf:
                 render_partido(p,M,li["avg"],bank,kf,ue,cuotas_auto)
 
+    elif cargado and hist:
+        st.info("✓ Modelo cargado. No hay partidos programados en los próximos días — usa el análisis manual abajo.")
     elif cargado:
         st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
 
