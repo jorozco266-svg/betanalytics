@@ -2886,6 +2886,8 @@ with tab1:
         # Cargar próximos partidos (solo si prox está vacío — puede estar prellenado por Copa/Liga BetPlay)
         if prox:
             cargado=True  # ya hay próximos cargados
+        elif li.get("apif_id") and rf_key:
+            prox,e2 = apifootball_next(li["apif_id"], li.get("apif_season",2026), rf_key)
         elif li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         elif li["src"]=="wiki_multi":
