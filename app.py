@@ -1764,6 +1764,111 @@ def wiki_hist_multi(wiki_urls, wiki_fmt, equipos_excluir=None):
     return partidos, None
 
 
+def wiki_next_crosstable(wiki_url, equipos_excluir=None):
+    """Extrae próximos partidos desde cross-tables de Wikipedia.
+    Las celdas con fechas ('28 jul', '2 ago') son partidos pendientes.
+    Las celdas con scores ('2:1') son partidos jugados."""
+    import re, hashlib
+    headers = {"User-Agent": "Mozilla/5.0"}
+    SCORE_RE = re.compile(r"^\s*(\d{1,2})\s*[:\-\u2013]\s*(\d{1,2})\s*(?:\([^)]*\))?\s*$")
+    DATE_RE = re.compile(r"^\s*(\d{1,2})\s+(?:de\s+)?(\w{3,})\s*$", re.IGNORECASE)
+    MESES = {"ene":1,"feb":2,"mar":3,"abr":4,"may":5,"jun":6,"jul":7,"ago":8,
+             "sep":9,"oct":10,"nov":11,"dic":12,
+             "enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
+             "julio":7,"agosto":8,"septiembre":9,"octubre":10,"noviembre":11,"diciembre":12}
+    excluir = [e.lower() for e in (equipos_excluir or [])]
+    ahora = datetime.datetime.now(TZ_COL)
+    lim = (ahora + datetime.timedelta(days=7)).date()
+    anio = ahora.year
+    proximos = []
+
+    try:
+        r = requests.get(wiki_url, headers=headers, timeout=15)
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        for tabla in soup.find_all("table", class_="wikitable"):
+            tabla_text = tabla.get_text()
+            if "\u2014" not in tabla_text and "—" not in tabla_text:
+                continue  # no es cross-table
+
+            # Extraer equipos y posiciones del dash
+            filas = tabla.find_all("tr")
+            equipo_filas = []
+            for fila in filas:
+                celdas = [td.get_text(strip=True) for td in fila.find_all(["td","th"])]
+                if "—" in celdas or "\u2014" in celdas:
+                    equipo = celdas[1].strip() if len(celdas) > 1 else None
+                    dash_pos = None
+                    for i, c in enumerate(celdas):
+                        if c in ("\u2014", "—", "\u2015"):
+                            dash_pos = i
+                            break
+                    if equipo and dash_pos is not None and len(equipo) > 2:
+                        equipo_filas.append((equipo, celdas, dash_pos))
+
+            if len(equipo_filas) < 2:
+                continue
+
+            first_dash = equipo_filas[0][2]
+            n_teams = len(equipo_filas)
+            equipos_orden = [ef[0] for ef in equipo_filas]
+
+            # Buscar celdas con fechas (partidos pendientes)
+            for row_idx, (equipo_local, celdas, dash_pos) in enumerate(equipo_filas):
+                for col_offset in range(n_teams):
+                    col_idx = first_dash + col_offset
+                    if col_idx >= len(celdas) or col_offset == row_idx:
+                        continue
+                    celda = celdas[col_idx].strip()
+                    # Ignorar scores (ya jugados) y dash (diagonal)
+                    if SCORE_RE.match(celda):
+                        continue
+                    # Buscar fecha
+                    m_date = DATE_RE.match(celda)
+                    if not m_date:
+                        continue
+                    dia = int(m_date.group(1))
+                    mes_str = m_date.group(2)[:3].lower()
+                    mes = MESES.get(mes_str, 0)
+                    if mes == 0:
+                        continue
+                    try:
+                        dt = datetime.datetime(anio, mes, dia, 19, 0, tzinfo=TZ_COL)
+                    except:
+                        continue
+                    if dt.date() < ahora.date() or dt.date() > lim:
+                        continue
+
+                    equipo_visit = equipos_orden[col_offset]
+                    # Filtrar excluidos
+                    if any(e in equipo_local.lower() or e in equipo_visit.lower() for e in excluir):
+                        continue
+
+                    uid = hashlib.md5(f"{equipo_local}{equipo_visit}{dt.date()}".encode()).hexdigest()[:8]
+                    from functools import lru_cache
+                    proximos.append({
+                        "id": uid, "dt": dt,
+                        "fecha": dt.strftime("%Y-%m-%d"),
+                        "hora": "Ver en RushBet",
+                        "local": equipo_local, "visit": equipo_visit,
+                        "jornada": "?",
+                        "hoy": (dt.date() == ahora.date()),
+                        "manana": (dt.date() == (ahora + datetime.timedelta(days=1)).date()),
+                    })
+    except Exception as ex:
+        return [], str(ex)
+
+    # Deduplicar
+    seen = set()
+    dedup = []
+    for p in proximos:
+        key = f"{p['local']}{p['visit']}"
+        if key not in seen:
+            seen.add(key)
+            dedup.append(p)
+    return sorted(dedup, key=lambda x: x["dt"]), None
+
+
 @st.cache_data(ttl=900)
 def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
     """Extrae proximos partidos desde Wikipedia con fechas reales."""
@@ -2858,22 +2963,38 @@ with tab1:
         elif li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
         elif li["src"]=="wiki_multi":
-            # Buscar próximos en cada URL del wiki_multi
-            prox_wiki = []
-            for wurl in li.get("wiki_urls",[]):
-                pw, ew = wiki_next(wurl, li["wiki_fmt"], li.get("equipos_excluir",[]))
-                if pw: prox_wiki.extend(pw)
-            # Deduplicar por id
-            seen = set()
-            prox_dedup = []
-            for p in prox_wiki:
-                if p["id"] not in seen:
-                    seen.add(p["id"])
-                    prox_dedup.append(p)
-            prox = prox_dedup
+            # Para Copa Dimayor: usar cross-table parser
+            if "Copa" in liga_n and "BetPlay" in liga_n:
+                prox_wiki = []
+                for wurl in li.get("wiki_urls",[]):
+                    pw, ew = wiki_next_crosstable(wurl, li.get("equipos_excluir",[]))
+                    if pw: prox_wiki.extend(pw)
+                seen = set()
+                for p in prox_wiki:
+                    if p["id"] not in seen:
+                        seen.add(p["id"])
+                        prox.append(p) if isinstance(prox, list) else None
+                prox = prox if prox else prox_wiki
+            else:
+                # Otras ligas wiki_multi: usar wiki_next estándar
+                prox_wiki = []
+                for wurl in li.get("wiki_urls",[]):
+                    pw, ew = wiki_next(wurl, li["wiki_fmt"], li.get("equipos_excluir",[]))
+                    if pw: prox_wiki.extend(pw)
+                seen = set()
+                prox_dedup = []
+                for p in prox_wiki:
+                    if p["id"] not in seen:
+                        seen.add(p["id"])
+                        prox_dedup.append(p)
+                prox = prox_dedup
         elif li["src"]=="wiki":
-            # Skip wiki_next para ligas colombianas — el scraper lee cross-tables incorrectamente
-            if "BetPlay" not in liga_n and "Copa" not in liga_n and "Torneo" not in liga_n:
+            # Para ligas colombianas: usar cross-table parser (wiki_next no funciona con cross-tables)
+            if "BetPlay" in liga_n or "Torneo" in liga_n:
+                prox_wiki, e2 = wiki_next_crosstable(li["wiki_url"], li.get("equipos_excluir",[]))
+                if prox_wiki:
+                    prox = prox_wiki
+            else:
                 prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
                 if prox_wiki:
                     prox=prox_wiki
