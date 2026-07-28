@@ -219,12 +219,15 @@ def build_model_desde_tabla(tabla_goles, avg, fuente_key=None):
     return modelo
 
 
-def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
+def blend_models(modelo_base, modelo_reciente, decay_base=0.5, label_base="Apertura", label_reciente="Finalización"):
     """
     Mezcla dos modelos Poisson con peso dinámico.
     modelo_base: modelo anterior (ej. Apertura) — recibe factor decay
     modelo_reciente: modelo actual (ej. Finalización) — peso completo
     decay_base: factor de descuento para modelo_base (0.5 = pesa la mitad)
+    label_base / label_reciente: nombres a mostrar en la memoria de cálculo
+        (por defecto Apertura/Finalización, pero p.ej. para Copa BetPlay se
+        pasa label_reciente="Copa" para no mostrar "Finalización" donde no aplica)
     
     Fórmula por equipo:
       w_base = n_base × decay_base
@@ -248,13 +251,13 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
         if r and not b:
             # Equipo solo en reciente (nuevo ascenso) — usar directo
             blended[eq] = dict(r)
-            blended[eq]["_blend"] = "100% Finalización"
+            blended[eq]["_blend"] = f"100% {label_reciente}"
         elif b and not r:
             # Equipo solo en base (descendió o no ha jugado aún) — aplicar decay
             blended[eq] = dict(b)
             blended[eq]["atk"] = round(b["atk"] * (1 + (1 - decay_base) * 0.1), 3)  # regresión leve a media
             blended[eq]["def"] = round(b["def"] * (1 + (1 - decay_base) * 0.1), 3)
-            blended[eq]["_blend"] = "100% Apertura (decay)"
+            blended[eq]["_blend"] = f"100% {label_base} (decay) — 0 partidos reales de {label_reciente}"
         else:
             # Equipo en ambos — mezcla ponderada
             n_b = b.get("n", 19)
@@ -268,6 +271,7 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
             gf_avg = round((b["gf_avg"] * w_b + r["gf_avg"] * w_r) / w_total, 2)
             gc_avg = round((b["gc_avg"] * w_b + r["gc_avg"] * w_r) / w_total, 2)
             
+            # pct_rec = % del PESO (no de la cuenta de partidos) que aporta la muestra reciente real
             pct_rec = round(w_r / w_total * 100)
             blended[eq] = {
                 "atk": atk,
@@ -276,7 +280,10 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
                 "gf_avg": gf_avg,
                 "gc_avg": gc_avg,
                 "partidos": r.get("partidos", []),  # mostrar solo partidos recientes en memoria
-                "_blend": f"{pct_rec}% Finalización · {100-pct_rec}% Apertura",
+                "_blend": (
+                    f"{pct_rec}% {label_reciente} ({n_r} partido{'s' if n_r != 1 else ''} real{'es' if n_r != 1 else ''}) "
+                    f"· {100-pct_rec}% {label_base} ({n_b} partidos de tabla)"
+                ),
                 "_n_apertura": n_b,
                 "_n_finalizacion": n_r,
             }
@@ -2868,7 +2875,8 @@ with tab1:
             if n_fin >= 10:
                 # Hay resultados reales → construir modelo Finalización y mezclar
                 modelo_fin = build_model(hist_fin, li["avg"])
-                hist = blend_models(modelo_apertura, modelo_fin, decay_base=0.5)
+                hist = blend_models(modelo_apertura, modelo_fin, decay_base=0.5,
+                                     label_base="Apertura", label_reciente="Finalización")
                 e1 = None
                 n_max_fin = max((v.get("_n_finalizacion", 0) for k, v in hist.items() if not k.startswith("_")), default=0)
                 pct = round(n_max_fin / (n_max_fin + 19 * 0.5) * 100)
@@ -2920,12 +2928,22 @@ with tab1:
             n_copa = len(hist_copa) if not isinstance(hist_copa, dict) else 0
             if n_copa >= 10:
                 modelo_copa = build_model(hist_copa, li["avg"])
-                hist = blend_models(modelo_apertura, modelo_copa, decay_base=0.4)
+                hist = blend_models(modelo_apertura, modelo_copa, decay_base=0.4,
+                                     label_base="Liga (Apertura/B)", label_reciente="Copa")
                 e1 = None
                 st.info(f"📊 Modelo híbrido: {n_copa} partidos Copa + Apertura (decay ×0.4). Equipos de la B ajustados ×0.85 atk / ×1.15 def vs equipos A.")
             else:
                 hist = modelo_apertura
                 e1 = None
+                # Sin muestra real de Copa (< 10 partidos totales scrapeados) → el modelo
+                # es 100% liga regular. Se marca por equipo para que quede visible en la
+                # memoria de cálculo de cada uno, no solo en un aviso global.
+                for k in list(hist.keys()):
+                    if k.startswith("_"): continue
+                    hist[k]["_blend"] = (
+                        "⚠️ 0% Copa (sin partidos reales aún) · 100% liga regular "
+                        "(Apertura/B) — no refleja forma real en la Copa"
+                    )
                 st.info(f"📊 Modelo basado en Apertura 2026-I. Equipos de la B no tendrán datos — precaución en esos partidos.")
             # Ajuste por división: equipos de la B reciben penalización
             # porque sus stats vienen de enfrentar equipos más débiles
