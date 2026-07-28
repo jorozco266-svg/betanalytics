@@ -129,9 +129,9 @@ LIGAS = {
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Finalizaci%C3%B3n_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None, "apif_id":239,
-                                "equipos_excluir":["Villavicencio","Tigres","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla","Leones","Orsomarso","Real Santander","Universitario de Popayan"]},
-    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None},
+    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Finalizaci%C3%B3n_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None, "apif_id":239, "apif_season":2026,
+                                "equipos_excluir":["Villavicencio","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla","Orsomarso","Real Santander","Universitario de Popayan"]},
+    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None, "apif_id":240, "apif_season":2026},
     "🏆 Copa Libertadores":    {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
@@ -151,7 +151,7 @@ LIGAS = {
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Colombia",
                                 ],
-                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None,
+                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None, "apif_id":740, "apif_season":2026,
                                 "equipos_excluir":[]},
     "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
                                 "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404,"hist_fallback":"BrasilB"},
@@ -2834,43 +2834,9 @@ with tab1:
                     hist[k]["_ajuste"] = "atk ×0.85 · def ×1.15 (ajuste A vs B)"
                 else:
                     hist[k]["_div"] = "A"
-        # Próximos Copa BetPlay — Fase 1B (ida 21-23 jul, vuelta 28-30 jul)
-        if "Copa BetPlay" in liga_n and not prox:
-            import hashlib
-            copa_fase1b = [
-                # IDA — Martes 21 de julio
-                ("Atlético Nacional","Tigres","2026-07-21","04:00 PM"),
-                ("Internacional de Bogotá","Inter Palmira","2026-07-21","05:00 PM"),
-                ("Deportes Tolima","Deportes Quindío","2026-07-21","06:00 PM"),
-                ("Once Caldas","Envigado","2026-07-21","07:00 PM"),
-                ("Deportivo Pasto","Bogotá","2026-07-21","07:00 PM"),
-                ("América de Cali","Real Cartagena","2026-07-21","07:30 PM"),
-                # IDA — Miércoles 22 de julio
-                ("Junior","Barranquilla","2026-07-22","07:30 PM"),
-                # Santa Fe vs Unión Magdalena — pendiente (torneos internacionales)
-                # Vuelta (28-30 jul) — localía invertida (equipo B cierra)
-                ("Inter Palmira","Internacional de Bogotá","2026-07-28","07:00 PM"),
-                ("Deportes Quindío","Deportes Tolima","2026-07-28","07:00 PM"),
-                ("Tigres","Atlético Nacional","2026-07-28","07:00 PM"),
-                ("Real Cartagena","América de Cali","2026-07-29","07:30 PM"),
-                ("Barranquilla","Junior","2026-07-29","07:30 PM"),
-                ("Bogotá","Deportivo Pasto","2026-07-30","07:00 PM"),
-                ("Envigado","Once Caldas","2026-07-30","03:30 PM"),
-                ("Unión Magdalena","Santa Fe","2026-07-30","07:30 PM"),
-            ]
-            ahora_copa = datetime.datetime.now(TZ_COL)
-            lim_copa = (ahora_copa + datetime.timedelta(days=7)).date()
-            for loc,vis,fecha,hora in copa_fase1b:
-                try:
-                    fecha_dt = datetime.datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %I:%M %p").replace(tzinfo=TZ_COL)
-                except:
-                    fecha_dt = datetime.datetime.strptime(fecha, "%Y-%m-%d").replace(tzinfo=TZ_COL)
-                if fecha_dt < ahora_copa or fecha_dt.date() > lim_copa: continue
-                uid = hashlib.md5(f"{loc}{vis}{fecha}".encode()).hexdigest()[:8]
-                prox.append({"id":uid,"dt":fecha_dt,
-                            "fecha":fecha,"hora":hora,
-                            "local":loc,"visit":vis,"jornada":"Copa - Fase 1B",
-                            "hoy":es_hoy(fecha_dt),"manana":es_manana(fecha_dt)})
+        # Próximos Copa BetPlay — via API-Football (apif_id=740)
+        # Los fixtures hardcodeados fueron eliminados porque las fechas/horarios
+        # cambian frecuentemente y causaban inconsistencias.
         elif "Copa BetPlay" not in liga_n and "Liga BetPlay" not in liga_n:
             with st.spinner("Cargando datos..."):
                 if li["src"]=="wiki_multi":
@@ -2905,9 +2871,11 @@ with tab1:
                     prox_dedup.append(p)
             prox = prox_dedup
         elif li["src"]=="wiki":
-            prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-            if prox_wiki:
-                prox=prox_wiki
+            # Skip wiki_next para ligas colombianas — el scraper lee cross-tables incorrectamente
+            if "BetPlay" not in liga_n and "Copa" not in liga_n and "Torneo" not in liga_n:
+                prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+                if prox_wiki:
+                    prox=prox_wiki
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
