@@ -2955,49 +2955,37 @@ with tab1:
         # Mostrar info fuera del spinner
         if isinstance(hist, dict) and "Argentina" in liga_n:
             st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
-        # Cargar próximos partidos (solo si prox está vacío — puede estar prellenado por Copa/Liga BetPlay)
+        # Cargar próximos partidos — intenta múltiples fuentes en cascada
         if prox:
-            cargado=True  # ya hay próximos cargados
-        elif li.get("apif_id") and rf_key:
+            cargado=True
+        # 1. API-Football
+        if not prox and li.get("apif_id") and rf_key:
             prox,e2 = apifootball_next(li["apif_id"], li.get("apif_season",2026), rf_key)
-        elif li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
+        # 2. The Odds API
+        if not prox and li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
             prox,e2=odds_fixtures(li["odds_key"],odds_api_key)
-        elif li["src"]=="wiki_multi":
-            # Para Copa Dimayor: usar cross-table parser
+        # 3. Cross-table parser (colombianas) o wiki_next (otras)
+        if not prox and li["src"]=="wiki_multi":
             if "Copa" in liga_n and "BetPlay" in liga_n:
                 prox_wiki = []
                 for wurl in li.get("wiki_urls",[]):
                     pw, ew = wiki_next_crosstable(wurl, li.get("equipos_excluir",[]))
                     if pw: prox_wiki.extend(pw)
                 seen = set()
-                for p in prox_wiki:
-                    if p["id"] not in seen:
-                        seen.add(p["id"])
-                        prox.append(p) if isinstance(prox, list) else None
-                prox = prox if prox else prox_wiki
+                prox = [p for p in prox_wiki if not (p["id"] in seen or seen.add(p["id"]))]
             else:
-                # Otras ligas wiki_multi: usar wiki_next estándar
                 prox_wiki = []
                 for wurl in li.get("wiki_urls",[]):
                     pw, ew = wiki_next(wurl, li["wiki_fmt"], li.get("equipos_excluir",[]))
                     if pw: prox_wiki.extend(pw)
                 seen = set()
-                prox_dedup = []
-                for p in prox_wiki:
-                    if p["id"] not in seen:
-                        seen.add(p["id"])
-                        prox_dedup.append(p)
-                prox = prox_dedup
-        elif li["src"]=="wiki":
-            # Para ligas colombianas: usar cross-table parser (wiki_next no funciona con cross-tables)
+                prox = [p for p in prox_wiki if not (p["id"] in seen or seen.add(p["id"]))]
+        if not prox and li["src"]=="wiki":
             if "BetPlay" in liga_n or "Torneo" in liga_n:
-                prox_wiki, e2 = wiki_next_crosstable(li["wiki_url"], li.get("equipos_excluir",[]))
-                if prox_wiki:
-                    prox = prox_wiki
+                prox, e2 = wiki_next_crosstable(li["wiki_url"], li.get("equipos_excluir",[]))
             else:
-                prox_wiki,e2=wiki_next(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-                if prox_wiki:
-                    prox=prox_wiki
+                pw, e2 = wiki_next(li["wiki_url"], li["wiki_fmt"], li.get("equipos_excluir",[]))
+                if pw: prox = pw
         if e1: st.warning(f"Error historial: {e1}")
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
