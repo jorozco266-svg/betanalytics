@@ -1428,6 +1428,7 @@ def apifootball_next(league_id, season, api_key):
         url = "https://v3.football.api-sports.io/fixtures"
         params = {
             "league": league_id,
+            "season": season,
             "date": fecha,
             "timezone": "America/Bogota",
         }
