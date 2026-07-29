@@ -131,7 +131,8 @@ LIGAS = {
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
     "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4906,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇨🇴 Torneo BetPlay B":    {"src":"sportsdb","sportsdb_id":4951,"sportsdb_season":"2026","avg":1.10,"odds_key":None,"use_odds_fixtures":False},
-    "🇨🇴 Copa BetPlay Dimayor": {"src":"sportsdb","sportsdb_id":5183,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇨🇴 Copa BetPlay Dimayor": {"src":"sportsdb","sportsdb_id":5183,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False,
+                                "sportsdb_extra":[4906, 4951]},
     "🏆 Copa Libertadores":    {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
@@ -2832,6 +2833,15 @@ with tab1:
 
         with st.spinner("Cargando resultados desde TheSportsDB..."):
             hist,e1=sportsdb_hist(li["sportsdb_id"], li.get("sportsdb_season","2026"))
+            # Cargar ligas suplementarias (Copa Dimayor = Copa + Liga A + Torneo B)
+            if li.get("sportsdb_extra"):
+                for extra_id in li["sportsdb_extra"]:
+                    extra_hist, _ = sportsdb_hist(extra_id, li.get("sportsdb_season","2026"))
+                    if extra_hist:
+                        hist.extend(extra_hist)
+                if hist:
+                    n_extra = len(li["sportsdb_extra"])
+                    st.info(f"📊 Modelo enriquecido: {len(hist)} partidos de {1+n_extra} ligas colombianas combinadas.")
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
         if len(hist) < 30:
             fb = li.get("hist_fallback")
