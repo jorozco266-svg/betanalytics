@@ -129,10 +129,10 @@ LIGAS = {
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4906,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4497,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇨🇴 Torneo BetPlay B":    {"src":"sportsdb","sportsdb_id":4951,"sportsdb_season":"2026","avg":1.10,"odds_key":None,"use_odds_fixtures":False},
     "🇨🇴 Copa BetPlay Dimayor": {"src":"sportsdb","sportsdb_id":5183,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False,
-                                "sportsdb_extra":[4906, 4951]},
+                                "sportsdb_extra":[4497, 4951]},
     "🏆 Copa Libertadores":    {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
@@ -1186,7 +1186,7 @@ def sportsdb_hist(league_id, season="2026"):
     Obtiene resultados partido a partido desde TheSportsDB (gratuito, sin registro).
     Retorna lista de (local, visitante, goles_local, goles_visit) como build_model espera.
     """
-    url = f"https://www.thesportsdb.com/api/v1/json/3/eventsseason.php?id={league_id}&s={season}"
+    url = f"https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id={league_id}&s={season}"
     try:
         r = requests.get(url, timeout=15)
         r.raise_for_status()
@@ -1336,7 +1336,7 @@ def sportsdb_next(league_id, season="2026"):
 
     for dias in range(5):
         fecha = (ahora + datetime.timedelta(days=dias)).strftime("%Y-%m-%d")
-        url = f"https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d={fecha}&l={league_id}"
+        url = f"https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d={fecha}&l={league_id}"
         try:
             r = requests.get(url, timeout=10)
             if r.status_code != 200: continue
@@ -1372,7 +1372,7 @@ def sportsdb_next(league_id, season="2026"):
     # Fallback a eventsnextleague si no hay resultados
     if not proximos:
         try:
-            url = f"https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id={league_id}"
+            url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
             r = requests.get(url, timeout=10)
             data = r.json()
             for e in (data.get("events") or []):
@@ -1480,7 +1480,7 @@ def apifootball_next(league_id, season, api_key):
 
     for dias in range(5):  # hoy + 4 días
         fecha = (ahora + datetime.timedelta(days=dias)).strftime("%Y-%m-%d")
-        url = f"https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d={fecha}&l={league_id}"
+        url = f"https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d={fecha}&l={league_id}"
         try:
             r = requests.get(url, timeout=10)
             if r.status_code != 200: continue
@@ -1520,7 +1520,7 @@ def apifootball_next(league_id, season, api_key):
     # Si eventsday no retornó nada, fallback a eventsnextleague
     if not proximos:
         try:
-            url = f"https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id={league_id}"
+            url = f"https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id={league_id}"
             r = requests.get(url, timeout=10)
             data = r.json()
             eventos = data.get("events") or []
@@ -2132,7 +2132,7 @@ def get_amistosos_hoy(api_key, dias=3):
     # Intentar TheSportsDB primero — gratuito y sin restricciones
     for d in range(dias + 1):
         fecha = (ahora + datetime.timedelta(days=d)).strftime("%Y-%m-%d")
-        url = f"https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d={fecha}&l=4562"
+        url = f"https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d={fecha}&l=4562"
         try:
             r = requests.get(url, timeout=10)
             if r.status_code != 200: continue
@@ -2173,7 +2173,7 @@ def get_amistosos_hoy(api_key, dias=3):
     # Fallback: eventsnextleague de TheSportsDB
     if not partidos:
         try:
-            url = "https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4562"
+            url = "https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id=4562"
             r = requests.get(url, timeout=10)
             data = r.json()
             for e in (data.get("events") or []):
