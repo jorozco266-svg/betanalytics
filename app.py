@@ -3130,50 +3130,56 @@ with tab1:
         st.info("No se encontraron partidos históricos suficientes para construir el modelo.")
 
     # ── Agregar resultados recientes al modelo ──
-    if cargado and hist and isinstance(hist, dict):
-        st.markdown("---")
-        with st.expander("➕ Agregar resultados recientes al modelo", expanded=False):
-            st.caption("Agrega partidos recientes que el modelo no tiene (ej. playoffs, amistosos). Se incorporan al cálculo de ataque/defensa.")
-            # Session state para almacenar resultados agregados
-            if "resultados_extra" not in st.session_state:
-                st.session_state.resultados_extra = []
-            
-            col_r1, col_r2, col_r3, col_r4, col_r5 = st.columns([3,1,1,3,1])
-            with col_r1:
-                r_local = st.text_input("Local", key="r_local", placeholder="Ej: Lanús")
-            with col_r2:
-                r_gl = st.number_input("GF", min_value=0, max_value=20, value=0, key="r_gl")
-            with col_r3:
-                r_gv = st.number_input("GC", min_value=0, max_value=20, value=0, key="r_gv")
-            with col_r4:
-                r_visit = st.text_input("Visitante", key="r_visit", placeholder="Ej: Cienciano")
-            with col_r5:
-                st.write("")
-                st.write("")
-                if st.button("➕", key="btn_add_result"):
-                    if r_local and r_visit:
-                        st.session_state.resultados_extra.append((r_local.strip(), r_visit.strip(), r_gl, r_gv))
-            
-            # Mostrar resultados agregados
-            if st.session_state.resultados_extra:
-                st.caption(f"**{len(st.session_state.resultados_extra)} resultado(s) agregado(s):**")
-                for i, (loc, vis, gl, gv) in enumerate(st.session_state.resultados_extra):
-                    marca = "✓" if gl > gv else ("=" if gl == gv else "✗")
-                    st.caption(f"  {marca} {loc} {gl}-{gv} {vis}")
-                if st.button("🗑️ Limpiar todos", key="btn_clear_results"):
+    if cargado and hist:
+        # Convertir hist a modelo dict si es lista
+        if isinstance(hist, list) and len(hist) > 0:
+            M = build_model(hist, li["avg"])
+        elif isinstance(hist, dict):
+            M = hist
+        else:
+            M = None
+        
+        if M and isinstance(M, dict):
+            with st.expander("➕ Agregar resultados recientes al modelo", expanded=False):
+                st.caption("Agrega partidos recientes que el modelo no tiene (ej. playoffs, eliminatorias). Se incorporan al cálculo de ataque/defensa de la sesión actual.")
+                if "resultados_extra" not in st.session_state:
                     st.session_state.resultados_extra = []
-                    st.rerun()
                 
-                # Incorporar al modelo
-                avg = hist.get("_avg", 1.20)
+                col_r1, col_r2, col_r3, col_r4, col_r5 = st.columns([3,1,1,3,1])
+                with col_r1:
+                    r_local = st.text_input("Local", key="r_local", placeholder="Ej: Lanús")
+                with col_r2:
+                    r_gl = st.number_input("GF", min_value=0, max_value=20, value=0, key="r_gl")
+                with col_r3:
+                    r_gv = st.number_input("GC", min_value=0, max_value=20, value=0, key="r_gv")
+                with col_r4:
+                    r_visit = st.text_input("Visitante", key="r_visit", placeholder="Ej: Cienciano")
+                with col_r5:
+                    st.write("")
+                    st.write("")
+                    if st.button("➕", key="btn_add_result"):
+                        if r_local and r_visit:
+                            st.session_state.resultados_extra.append((r_local.strip(), r_visit.strip(), r_gl, r_gv))
+                            st.rerun()
+                
+                if st.session_state.resultados_extra:
+                    st.caption(f"**{len(st.session_state.resultados_extra)} resultado(s) agregado(s):**")
+                    for i, (loc, vis, gl, gv) in enumerate(st.session_state.resultados_extra):
+                        marca = "✓" if gl > gv else ("=" if gl == gv else "✗")
+                        st.caption(f"  {marca} {loc} {gl}-{gv} {vis}")
+                    if st.button("🗑️ Limpiar todos", key="btn_clear_results"):
+                        st.session_state.resultados_extra = []
+                        st.rerun()
+            
+            # Incorporar resultados extra al modelo
+            if st.session_state.get("resultados_extra"):
+                avg = M.get("_avg", li["avg"])
                 for loc, vis, gl, gv in st.session_state.resultados_extra:
-                    # Buscar equipo en el modelo (con aliases)
-                    loc_key = buscar_equipo_en_modelo(loc, hist)
-                    vis_key = buscar_equipo_en_modelo(vis, hist)
-                    
+                    loc_key = buscar_equipo_en_modelo(loc, M)
+                    vis_key = buscar_equipo_en_modelo(vis, M)
                     for nombre, key, goles_f, goles_c in [(loc, loc_key, gl, gv), (vis, vis_key, gv, gl)]:
-                        if key and key in hist:
-                            info = hist[key]
+                        if key and key in M:
+                            info = M[key]
                             n = info.get("n", 1)
                             old_gf = info.get("gf_avg", avg) * n
                             old_gc = info.get("gc_avg", avg) * n
@@ -3187,6 +3193,16 @@ with tab1:
                             info["def"] = round(new_gc_avg / avg, 3)
                             if "partidos" in info:
                                 info["partidos"].append((loc, vis, gl, gv))
+                        elif not key:
+                            # Equipo nuevo — agregar al modelo
+                            M[nombre] = {
+                                "atk": round(goles_f / avg, 3) if goles_f > 0 else 0.5,
+                                "def": round(goles_c / avg, 3) if goles_c > 0 else 0.5,
+                                "n": 1, "gf_avg": float(goles_f), "gc_avg": float(goles_c),
+                                "partidos": [(loc, vis, gl, gv)]
+                            }
+                # Actualizar hist con el modelo modificado
+                hist = M
 
     # ── Análisis manual — siempre visible cuando hay modelo cargado ──
     if cargado and hist:
