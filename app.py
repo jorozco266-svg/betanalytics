@@ -2843,8 +2843,9 @@ with tab1:
                     n_extra = len(li["sportsdb_extra"])
                     st.info(f"📊 Modelo enriquecido: {len(hist)} partidos de {1+n_extra} ligas colombianas combinadas.")
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
-        # Para colombianas: las tablas hardcodeadas son más completas que TheSportsDB free
-        umbral_fallback = 100 if ("BetPlay" in liga_n or "Torneo" in liga_n or "Copa" in liga_n and "Colombia" in liga_n or "Dimayor" in liga_n) else 30
+        # Ligas con tablas hardcodeadas verificadas: umbral alto para forzar el fallback
+        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS"])
+        umbral_fallback = 100 if tiene_tabla_verificada else 30
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
             if "Liga BetPlay" in liga_n:
