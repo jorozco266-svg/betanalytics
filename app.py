@@ -129,9 +129,9 @@ LIGAS = {
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Torneo_Finalizaci%C3%B3n_2026_(Colombia)",       "wiki_fmt":"betplay",  "avg":1.20, "odds_key":None, "apif_id":239, "apif_season":2026,
-                                "equipos_excluir":["Villavicencio","Real Cartagena","Bogota FC","Union Magdalena","Deportes Quindio","Real Cundinamarca","Independiente Yumbo","Atletico Huila","Barranquilla","Orsomarso","Real Santander","Universitario de Popayan"]},
-    "🇨🇴 Torneo BetPlay B":    {"src":"wiki","wiki_url":"https://es.wikipedia.org/wiki/Primera_B_2026_(Colombia)",            "wiki_fmt":"betplay",  "avg":1.10, "odds_key":None, "apif_id":240, "apif_season":2026},
+    "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4906,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇨🇴 Torneo BetPlay B":    {"src":"sportsdb","sportsdb_id":4951,"sportsdb_season":"2026","avg":1.10,"odds_key":None,"use_odds_fixtures":False},
+    "🇨🇴 Copa BetPlay Dimayor": {"src":"sportsdb","sportsdb_id":5183,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🏆 Copa Libertadores":    {"src":"wiki_multi",
                                 "wiki_urls":[
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
@@ -147,12 +147,7 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
-    "🇨🇴 Copa BetPlay Dimayor": {"src":"wiki_multi",
-                                "wiki_urls":[
-                                    "https://en.wikipedia.org/wiki/2026_Copa_Colombia",
-                                ],
-                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":None, "apif_id":740, "apif_season":2026,
-                                "equipos_excluir":[]},
+
     "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
                                 "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404,"hist_fallback":"BrasilB"},
     "🇧🇷 Copa Brasil Feminina": {"src":"wiki_tabla",
