@@ -147,7 +147,8 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages",
                                 ],
-                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True},
+                                "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True,
+                                "sportsdb_extra":[4724, 4501]},
 
     "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
                                 "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404,"hist_fallback":"BrasilB"},
@@ -2996,6 +2997,15 @@ with tab1:
                     hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
                 else:
                     hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
+                # Suplementar con TheSportsDB (playoffs, partidos recientes)
+                if li.get("sportsdb_extra") and not isinstance(hist, dict):
+                    n_antes = len(hist)
+                    for extra_id in li["sportsdb_extra"]:
+                        extra_hist, _ = sportsdb_hist(extra_id, li.get("sportsdb_season","2026"))
+                        if extra_hist:
+                            hist.extend(extra_hist)
+                    if len(hist) > n_antes:
+                        st.info(f"📊 +{len(hist)-n_antes} partidos adicionales vía TheSportsDB (playoffs/eliminatorias).")
                 # Fallback si el scraper retorna vacío
                 if not isinstance(hist, dict) and len(hist) < 10:
                     hist = []
@@ -4176,3 +4186,4 @@ with tab7:
                         if edge_wc>3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#166534;border-radius:6px;font-size:13px;font-weight:700;color:#4ade80">+{edge_wc}% ✅</div>',unsafe_allow_html=True)
                         elif edge_wc<-3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#450a0a;border-radius:6px;font-size:13px;color:#f87171">{edge_wc}% ✗</div>',unsafe_allow_html=True)
                         else: st.markdown(f'<div style="text-align:center;padding:2px 6px;font-size:13px;color:#94a3b8">{edge_wc:+.1f}%</div>',unsafe_allow_html=True)
+ 
