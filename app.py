@@ -2845,7 +2845,26 @@ with tab1:
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
         if len(hist) < 30:
             fb = li.get("hist_fallback")
-            if "Argentina" in liga_n:
+            if "Liga BetPlay" in liga_n:
+                hist = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+                st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas, 20 equipos, datos oficiales). Fixtures vía TheSportsDB.")
+            elif "Copa BetPlay" in liga_n or "Copa Dimayor" in liga_n:
+                # Combinar Apertura A + Torneo B para la Copa
+                hist_a = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+                hist_b = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
+                for k, v in hist_b.items():
+                    if not k.startswith("_") and k not in hist_a:
+                        v["atk"] = round(v["atk"] * 0.85, 3)
+                        v["def"] = round(v["def"] * 1.15, 3)
+                        v["_ajuste"] = "atk ×0.85 · def ×1.15 (ajuste A vs B)"
+                        v["_div"] = "B"
+                        hist_a[k] = v
+                hist = hist_a
+                st.info("📊 Modelo Copa: Apertura A (20 equipos) + Torneo B (8 equipos, ajustados ×0.85/×1.15). Fixtures vía TheSportsDB.")
+            elif "Torneo BetPlay" in liga_n or "Torneo B" in liga_n:
+                hist = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
+                st.info("📊 Modelo basado en tabla del Torneo BetPlay I-2026 (8 equipos clasificados). Fixtures vía TheSportsDB.")
+            elif "Argentina" in liga_n:
                 hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
             elif "Brasileirao" in liga_n or "Brasil" in liga_n:
