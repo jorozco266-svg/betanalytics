@@ -2871,8 +2871,16 @@ with tab1:
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
             if "Liga BetPlay" in liga_n:
-                hist = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
-                st.info("📊 Modelo basado en tabla del Apertura 2026-I (19 fechas, 20 equipos, datos oficiales). Fixtures vía TheSportsDB.")
+                # Blend: Apertura (base) + partidos recientes de TheSportsDB (Clausura)
+                modelo_base = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
+                if len(hist) >= 5:
+                    modelo_reciente = build_model(hist, li["avg"])
+                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
+                    n_rec = max((v.get("_n_finalizacion",0) for k,v in hist.items() if isinstance(v,dict) and not k.startswith("_")), default=0)
+                    st.info(f"📊 Modelo híbrido: Apertura (19 fechas) + {len([k for k in modelo_reciente if not k.startswith('_')])} equipos con datos recientes vía TheSportsDB. Decay ×0.5.")
+                else:
+                    hist = modelo_base
+                    st.info("📊 Modelo basado en Apertura 2026-I. TheSportsDB aún no tiene suficientes partidos del Clausura.")
             elif "Copa BetPlay" in liga_n or "Copa Dimayor" in liga_n:
                 # Combinar Apertura A + Torneo B para la Copa
                 hist_a = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
