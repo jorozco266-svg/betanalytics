@@ -953,6 +953,11 @@ ALIASES_EQUIPOS = {
     "america de cali": "america de cali",
     "ind medellin": "independiente medellin", "di medellin": "independiente medellin",
     "santa fe bogota": "independiente santa fe", "ind santa fe": "independiente santa fe",
+    "independiente santa fe": "independiente santa fe",
+    "independiente medellin": "independiente medellin", "ind medellin": "independiente medellin",
+    "independiente rivadavia": "independiente rivadavia",
+    "independiente del valle": "independiente del valle",
+    "ca independiente": "independiente", "independiente avellaneda": "independiente",
     "audax italiano": "audax italiano",
     "independiente petrolero": "independiente petrolero",
     "academia puerto cabello": "academia puerto cabello",
@@ -1062,10 +1067,19 @@ def buscar_equipo_info(nombre, M):
         for k in equipos:
             if norm(k) == nombre_n:
                 equipo_key = k; break
-        # Aliases conocidos (LDU → LDU Quito, etc.)
+        # Aliases conocidos — primero exacto, luego substring
         if not equipo_key:
+            # Paso 1: alias EXACTO (nombre completo)
             for alias, target in ALIASES_EQUIPOS.items():
-                if alias in nombre_n:
+                if alias == nombre_n:
+                    for k in equipos:
+                        if norm(k) == norm(target):
+                            equipo_key = k; break
+                    if equipo_key: break
+        if not equipo_key:
+            # Paso 2: alias como SUBSTRING (parcial)
+            for alias, target in ALIASES_EQUIPOS.items():
+                if len(alias) >= 6 and alias in nombre_n:
                     for k in equipos:
                         if norm(k) == norm(target):
                             equipo_key = k; break
