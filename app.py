@@ -148,7 +148,7 @@ LIGAS = {
                                     "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages",
                                 ],
                                 "wiki_fmt":"conmebol", "avg":1.20, "odds_key":"soccer_conmebol_copa_sudamericana","use_odds_fixtures":True,
-                                "sportsdb_extra":[4724, 4501]},
+                                "sportsdb_recent_ids":[4724, 4501]},
 
     "🇧🇷 Brasileirão Série B":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_B",
                                 "avg":1.13, "odds_key":"soccer_brazil_serie_b","use_odds_fixtures":True,"sportsdb_id":4404,"hist_fallback":"BrasilB"},
@@ -1221,6 +1221,36 @@ def sportsdb_hist(league_id, season="2026"):
             loc = e.get("strHomeTeam","").strip()
             vis = e.get("strAwayTeam","").strip()
             if gl is None or gv is None: continue  # partido no jugado aún
+            if not loc or not vis: continue
+            try:
+                partidos.append((loc, vis, int(gl), int(gv)))
+            except (ValueError, TypeError):
+                continue
+        return partidos, None
+    except Exception as ex:
+        return [], str(ex)
+
+
+def sportsdb_recent(league_id):
+    """
+    Obtiene los ÚLTIMOS partidos jugados de una liga desde TheSportsDB.
+    Usa eventspastleague.php que retorna los más recientes (no los primeros de la temporada).
+    """
+    url = f"https://www.thesportsdb.com/api/v1/json/123/eventspastleague.php?id={league_id}"
+    try:
+        r = requests.get(url, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        eventos = data.get("events") or []
+        partidos = []
+        for e in eventos:
+            gl = e.get("intHomeScore")
+            gv = e.get("intAwayScore")
+            loc = e.get("strHomeTeam","").strip()
+            vis = e.get("strAwayTeam","").strip()
+            status = e.get("strStatus","")
+            if gl is None or gv is None: continue
+            if status not in ("FT","AET","PEN","AP"): continue
             if not loc or not vis: continue
             try:
                 partidos.append((loc, vis, int(gl), int(gv)))
@@ -3031,15 +3061,25 @@ with tab1:
                     hist,e1=wiki_hist_multi(li["wiki_urls"],li["wiki_fmt"],li.get("equipos_excluir",[]))
                 else:
                     hist,e1=wiki_hist(li["wiki_url"],li["wiki_fmt"],li.get("equipos_excluir",[]))
-                # Suplementar con TheSportsDB (playoffs, partidos recientes)
-                if li.get("sportsdb_extra") and not isinstance(hist, dict):
+                # Suplementar con TheSportsDB (partidos RECIENTES: playoffs, eliminatorias)
+                if li.get("sportsdb_recent_ids") and not isinstance(hist, dict):
                     n_antes = len(hist)
-                    for extra_id in li["sportsdb_extra"]:
-                        extra_hist, _ = sportsdb_hist(extra_id, li.get("sportsdb_season","2026"))
-                        if extra_hist:
-                            hist.extend(extra_hist)
-                    if len(hist) > n_antes:
-                        st.info(f"📊 +{len(hist)-n_antes} partidos adicionales vía TheSportsDB (playoffs/eliminatorias).")
+                    for rid in li["sportsdb_recent_ids"]:
+                        recent, _ = sportsdb_recent(rid)
+                        if recent:
+                            hist.extend(recent)
+                    # Deduplicar partidos (mismo local+visit+score)
+                    seen = set()
+                    hist_dedup = []
+                    for p in hist:
+                        key = f"{p[0]}_{p[1]}_{p[2]}_{p[3]}"
+                        if key not in seen:
+                            seen.add(key)
+                            hist_dedup.append(p)
+                    n_nuevos = len(hist_dedup) - n_antes
+                    hist = hist_dedup
+                    if n_nuevos > 0:
+                        st.info(f"📊 +{n_nuevos} partidos recientes vía TheSportsDB (playoffs/eliminatorias).")
                 # Fallback si el scraper retorna vacío
                 if not isinstance(hist, dict) and len(hist) < 10:
                     hist = []
