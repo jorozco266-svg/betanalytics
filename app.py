@@ -2882,7 +2882,7 @@ with tab1:
                     hist = modelo_base
                     st.info("📊 Modelo basado en Apertura 2026-I. TheSportsDB aún no tiene suficientes partidos del Clausura.")
             elif "Copa BetPlay" in liga_n or "Copa Dimayor" in liga_n:
-                # Combinar Apertura A + Torneo B para la Copa
+                # Blend: Apertura A + Torneo B (base) + partidos recientes Copa vía TheSportsDB
                 hist_a = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
                 hist_b = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
                 for k, v in hist_b.items():
@@ -2892,8 +2892,13 @@ with tab1:
                         v["_ajuste"] = "atk ×0.85 · def ×1.15 (ajuste A vs B)"
                         v["_div"] = "B"
                         hist_a[k] = v
-                hist = hist_a
-                st.info("📊 Modelo Copa: Apertura A (20 equipos) + Torneo B (8 equipos, ajustados ×0.85/×1.15). Fixtures vía TheSportsDB.")
+                if len(hist) >= 5:
+                    modelo_reciente = build_model(hist, li["avg"])
+                    hist = blend_models(hist_a, modelo_reciente, decay_base=0.4)
+                    st.info(f"📊 Modelo Copa: Apertura A + Torneo B (base) + {len(hist)-2} equipos con datos recientes vía TheSportsDB. Decay ×0.4.")
+                else:
+                    hist = hist_a
+                    st.info("📊 Modelo Copa: Apertura A (20 equipos) + Torneo B (8 equipos, ajustados ×0.85/×1.15).")
             elif "Torneo BetPlay" in liga_n or "Torneo B" in liga_n:
                 hist = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla del Torneo BetPlay I-2026 (8 equipos clasificados). Fixtures vía TheSportsDB.")
