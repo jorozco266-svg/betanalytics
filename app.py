@@ -1165,30 +1165,30 @@ def lams(loc,vis,M,avg,fl=None):
     def buscar(nombre):
         if nombre in M: return M[nombre]
         nombre_n = norm(nombre)
-        # Chequear aliases
+        # Exacto normalizado primero
+        for k,v in M.items():
+            if not isinstance(v, dict): continue
+            if norm(k) == nombre_n: return v
+        # Aliases — EXACTO primero
         for alias, target in ALIASES.items():
-            if alias in nombre_n:
+            if alias == nombre_n:
                 target_n = norm(target)
                 for k,v in M.items():
                     if not isinstance(v, dict): continue
                     if norm(k) == target_n: return v
-        # Exacto normalizado
-        for k,v in M.items():
-            if not isinstance(v, dict): continue
-            if norm(k) == nombre_n: return v
-        # Quitar sufijos de ciudad "de Córdoba", "de Buenos Aires", etc.
-        nombre_base = nombre_n.split(" de ")[0].split(" fc")[0].strip()
-        for k,v in M.items():
-            if not isinstance(v, dict): continue
-            k_n = norm(k)
-            k_base = k_n.split(" de ")[0].strip()
-            if nombre_base == k_base: return v
-        # Parcial por primera palabra
-        primera = nombre_base.split()[0] if nombre_base.split() else nombre_base
-        for k,v in M.items():
-            if not isinstance(v, dict): continue
-            k_n = norm(k)
-            if primera in k_n or k_n.split()[0] in nombre_base: return v
+        # Aliases — substring (mínimo 6 chars para evitar falsos positivos)
+        for alias, target in ALIASES.items():
+            if len(alias) >= 6 and alias in nombre_n:
+                target_n = norm(target)
+                for k,v in M.items():
+                    if not isinstance(v, dict): continue
+                    if norm(k) == target_n: return v
+        # Parcial por primera palabra (mínimo 4 chars)
+        primera = nombre_n.split()[0] if nombre_n.split() else nombre_n
+        if len(primera) >= 4:
+            for k,v in M.items():
+                if not isinstance(v, dict): continue
+                if norm(k).split()[0] == primera: return v
         return {"atk":1.0,"def":1.0}
     ml=buscar(loc); mv=buscar(vis)
     _fl = FL if fl is None else fl
