@@ -1074,6 +1074,67 @@ def mostrar_fuente_datos(fuente_key):
     if f.get('nota'): txt += f"\n\n⚠️ {f['nota']}"
     st.caption(txt)
 
+def mostrar_tabla_modelo(M, liga_n):
+    """Muestra tabla de posiciones del modelo con tabs Apertura (histórico) + Actual (blend)."""
+    if not M or not isinstance(M, dict): return
+    import pandas as pd
+
+    with st.expander("📋 Tabla de posiciones del modelo", expanded=False):
+        # Detectar tabla base disponible
+        tabla_base = None
+        tabla_base_nombre = None
+        if "Liga BetPlay" in liga_n:
+            tabla_base = HIST_BETPLAY_APERTURA_2026
+            tabla_base_nombre = "Apertura 2026-I (19 fechas)"
+        elif "Argentina" in liga_n and "Fem" not in liga_n:
+            tabla_base = HIST_ARGENTINA_2026
+            tabla_base_nombre = "Apertura 2026 (18 fechas)"
+        elif "Brasileir" in liga_n and "B" not in liga_n and "Fem" not in liga_n:
+            tabla_base = HIST_BRASILEIRAO_2026
+            tabla_base_nombre = "Brasileirão 2026"
+        elif "Copa BetPlay" in liga_n or "Dimayor" in liga_n:
+            tabla_base = HIST_BETPLAY_APERTURA_2026 + HIST_TORNEO_B_2026
+            tabla_base_nombre = "Apertura A + Torneo B"
+
+        if tabla_base:
+            tab1, tab2 = st.tabs([f"📊 {tabla_base_nombre}", "🔄 Modelo actual"])
+            with tab1:
+                df_base = pd.DataFrame([
+                    {"Equipo": eq, "PJ": pj, "GF": gf, "GC": gc, "DG": gf-gc,
+                     "GF/P": round(gf/pj,2), "GC/P": round(gc/pj,2)}
+                    for eq, gf, gc, pj in tabla_base if pj > 0
+                ]).sort_values("DG", ascending=False).reset_index(drop=True)
+                df_base.index += 1
+                st.dataframe(df_base, use_container_width=True, height=min(400, 35*len(df_base)+38))
+            with tab2:
+                rows = []
+                for k, v in M.items():
+                    if k.startswith("_") or not isinstance(v, dict): continue
+                    n = v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
+                    rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
+                                 "DG":round(gf*n)-round(gc*n), "Atk":v.get("atk",1.0),
+                                 "Def":v.get("def",1.0), "Blend":v.get("_blend","base")})
+                df = pd.DataFrame(rows).sort_values("DG",ascending=False).reset_index(drop=True)
+                df.index += 1
+                st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
+        else:
+            rows = []
+            for k, v in M.items():
+                if k.startswith("_") or not isinstance(v, dict): continue
+                n = v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
+                rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
+                             "DG":round(gf*n)-round(gc*n), "Atk":v.get("atk",1.0), "Def":v.get("def",1.0)})
+            if rows:
+                df = pd.DataFrame(rows).sort_values("DG",ascending=False).reset_index(drop=True)
+                df.index += 1
+                st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
+    """Muestra la procedencia y fecha de corte de los datos del modelo."""
+    if not fuente_key or fuente_key not in FUENTE_TABLAS: return
+    f = FUENTE_TABLAS[fuente_key]
+    txt = f"📁 **Fuente:** {f['fuente']} · **Datos al:** {f['corte']}"
+    if f.get('nota'): txt += f"\n\n⚠️ {f['nota']}"
+    st.caption(txt)
+
 def buscar_equipo_en_modelo(nombre, modelo):
     """Busca un equipo en el modelo por nombre exacto, alias, o coincidencia parcial."""
     import unicodedata
@@ -3195,65 +3256,68 @@ with tab1:
         else:
             st.success(f"✓ {len(hist)} partidos históricos · {len(prox)} próximos (próximos 3 días · hora Colombia)")
             M=build_model(hist,li["avg"])
-            # ── Agregar resultados recientes al modelo ──
-            if "resultados_extra" not in st.session_state:
-                st.session_state.resultados_extra = []
-            with st.expander("➕ Agregar resultados recientes al modelo", expanded=False):
-                st.caption("Agrega partidos que el modelo no tiene (playoffs, eliminatorias). Se recalculan los coeficientes.")
-                col_r1, col_r2, col_r3, col_r4, col_r5 = st.columns([3,1,1,3,1])
-                with col_r1:
-                    r_local = st.text_input("Local", key="r_local", placeholder="Ej: Lanús")
-                with col_r2:
-                    r_gl = st.number_input("GF", min_value=0, max_value=20, value=0, key="r_gl")
-                with col_r3:
-                    r_gv = st.number_input("GC", min_value=0, max_value=20, value=0, key="r_gv")
-                with col_r4:
-                    r_visit = st.text_input("Visitante", key="r_visit", placeholder="Ej: Cienciano")
-                with col_r5:
-                    st.write("")
-                    st.write("")
-                    if st.button("➕", key="btn_add_result"):
-                        if r_local and r_visit:
-                            st.session_state.resultados_extra.append((r_local.strip(), r_visit.strip(), r_gl, r_gv))
-                            st.rerun()
-                if st.session_state.resultados_extra:
-                    st.caption(f"**{len(st.session_state.resultados_extra)} resultado(s) agregado(s):**")
-                    for i, (loc, vis, gl, gv) in enumerate(st.session_state.resultados_extra):
-                        marca = "✓" if gl > gv else ("=" if gl == gv else "✗")
-                        st.caption(f"  {marca} {loc} {gl}-{gv} {vis}")
-                    if st.button("🗑️ Limpiar", key="btn_clear_results"):
-                        st.session_state.resultados_extra = []
+
+        # ── Tabla de posiciones del modelo ──
+        mostrar_tabla_modelo(M, liga_n)
+        # ── Agregar resultados recientes al modelo ──
+        if "resultados_extra" not in st.session_state:
+            st.session_state.resultados_extra = []
+        with st.expander("➕ Agregar resultados recientes al modelo", expanded=False):
+            st.caption("Agrega partidos que el modelo no tiene (playoffs, eliminatorias). Se recalculan los coeficientes.")
+            col_r1, col_r2, col_r3, col_r4, col_r5 = st.columns([3,1,1,3,1])
+            with col_r1:
+                r_local = st.text_input("Local", key="r_local", placeholder="Ej: Lanús")
+            with col_r2:
+                r_gl = st.number_input("GF", min_value=0, max_value=20, value=0, key="r_gl")
+            with col_r3:
+                r_gv = st.number_input("GC", min_value=0, max_value=20, value=0, key="r_gv")
+            with col_r4:
+                r_visit = st.text_input("Visitante", key="r_visit", placeholder="Ej: Cienciano")
+            with col_r5:
+                st.write("")
+                st.write("")
+                if st.button("➕", key="btn_add_result"):
+                    if r_local and r_visit:
+                        st.session_state.resultados_extra.append((r_local.strip(), r_visit.strip(), r_gl, r_gv))
                         st.rerun()
-            # Aplicar resultados extra al modelo ANTES de renderizar
             if st.session_state.resultados_extra:
-                avg_m = M.get("_avg", li["avg"])
-                for loc, vis, gl, gv in st.session_state.resultados_extra:
-                    loc_key = buscar_equipo_en_modelo(loc, M)
-                    vis_key = buscar_equipo_en_modelo(vis, M)
-                    for nombre, key, gf, gc in [(loc, loc_key, gl, gv), (vis, vis_key, gv, gl)]:
-                        if key and key in M:
-                            info = M[key]
-                            n = info.get("n", 1)
-                            new_n = n + 1
-                            new_gf = (info.get("gf_avg", avg_m) * n + gf) / new_n
-                            new_gc = (info.get("gc_avg", avg_m) * n + gc) / new_n
-                            info.update({"n": new_n, "gf_avg": round(new_gf,2), "gc_avg": round(new_gc,2),
-                                        "atk": round(new_gf/avg_m,3), "def": round(new_gc/avg_m,3)})
-                            if "partidos" in info:
-                                info["partidos"].append((loc, vis, gl, gv))
-                        elif not key:
-                            M[nombre] = {"atk": max(round(gf/avg_m,3),0.3), "def": max(round(gc/avg_m,3),0.3),
-                                        "n":1, "gf_avg":float(gf), "gc_avg":float(gc), "partidos":[(loc,vis,gl,gv)]}
-            # Aviso si la cobertura es tan pobre que el modelo no es confiable
-            _n_eq = len([k for k in M if isinstance(M[k], dict)])
-            _prom = (len(hist)*2/_n_eq) if _n_eq else 0
-            if _prom < 4:
-                st.error(
-                    f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
-                    f"(~{_prom:.1f} por equipo).** TheSportsDB no tiene el historial completo de esta liga. "
-                    f"El modelo Poisson necesita 6-8 partidos por equipo como mínimo — con esta muestra, "
-                    f"los coeficientes son ruido. **No uses estos análisis para apostar.**"
-                )
+                st.caption(f"**{len(st.session_state.resultados_extra)} resultado(s) agregado(s):**")
+                for i, (loc, vis, gl, gv) in enumerate(st.session_state.resultados_extra):
+                    marca = "✓" if gl > gv else ("=" if gl == gv else "✗")
+                    st.caption(f"  {marca} {loc} {gl}-{gv} {vis}")
+                if st.button("🗑️ Limpiar", key="btn_clear_results"):
+                    st.session_state.resultados_extra = []
+                    st.rerun()
+        # Aplicar resultados extra al modelo ANTES de renderizar
+        if st.session_state.resultados_extra:
+            avg_m = M.get("_avg", li["avg"])
+            for loc, vis, gl, gv in st.session_state.resultados_extra:
+                loc_key = buscar_equipo_en_modelo(loc, M)
+                vis_key = buscar_equipo_en_modelo(vis, M)
+                for nombre, key, gf, gc in [(loc, loc_key, gl, gv), (vis, vis_key, gv, gl)]:
+                    if key and key in M:
+                        info = M[key]
+                        n = info.get("n", 1)
+                        new_n = n + 1
+                        new_gf = (info.get("gf_avg", avg_m) * n + gf) / new_n
+                        new_gc = (info.get("gc_avg", avg_m) * n + gc) / new_n
+                        info.update({"n": new_n, "gf_avg": round(new_gf,2), "gc_avg": round(new_gc,2),
+                                    "atk": round(new_gf/avg_m,3), "def": round(new_gc/avg_m,3)})
+                        if "partidos" in info:
+                            info["partidos"].append((loc, vis, gl, gv))
+                    elif not key:
+                        M[nombre] = {"atk": max(round(gf/avg_m,3),0.3), "def": max(round(gc/avg_m,3),0.3),
+                                    "n":1, "gf_avg":float(gf), "gc_avg":float(gc), "partidos":[(loc,vis,gl,gv)]}
+        # Aviso si la cobertura es tan pobre que el modelo no es confiable
+        _n_eq = len([k for k in M if isinstance(M[k], dict)])
+        _prom = (len(hist)*2/_n_eq) if _n_eq else 0
+        if _prom < 4:
+            st.error(
+                f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
+                f"(~{_prom:.1f} por equipo).** TheSportsDB no tiene el historial completo de esta liga. "
+                f"El modelo Poisson necesita 6-8 partidos por equipo como mínimo — con esta muestra, "
+                f"los coeficientes son ruido. **No uses estos análisis para apostar.**"
+            )
         # Cargar cuotas automaticas si hay odds_key configurado
         cuotas_auto = {}
         if li.get("odds_key") and odds_api_key:
