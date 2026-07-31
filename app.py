@@ -1074,31 +1074,43 @@ def mostrar_fuente_datos(fuente_key):
     if f.get('nota'): txt += f"\n\n⚠️ {f['nota']}"
     st.caption(txt)
 
-def mostrar_tabla_modelo(M, liga_n):
-    """Muestra tabla de posiciones del modelo con tabs Apertura (histórico) + Actual (blend)."""
+def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
+    """Muestra tabla de posiciones: Apertura (estático) + Clausura (dinámico) + Modelo blend."""
     if not M or not isinstance(M, dict): return
     import pandas as pd
 
     with st.expander("📋 Tabla de posiciones del modelo", expanded=False):
-        # Detectar tabla base disponible
         tabla_base = None
         tabla_base_nombre = None
         if "Liga BetPlay" in liga_n:
             tabla_base = HIST_BETPLAY_APERTURA_2026
-            tabla_base_nombre = "Apertura 2026-I (19 fechas)"
+            tabla_base_nombre = "Apertura 2026-I (estático)"
         elif "Argentina" in liga_n and "Fem" not in liga_n:
             tabla_base = HIST_ARGENTINA_2026
-            tabla_base_nombre = "Apertura 2026 (18 fechas)"
+            tabla_base_nombre = "Apertura 2026 (estático)"
         elif "Brasileir" in liga_n and "B" not in liga_n and "Fem" not in liga_n:
             tabla_base = HIST_BRASILEIRAO_2026
-            tabla_base_nombre = "Brasileirão 2026"
+            tabla_base_nombre = "Brasileirão 2026 (estático)"
         elif "Copa BetPlay" in liga_n or "Dimayor" in liga_n:
             tabla_base = HIST_BETPLAY_APERTURA_2026 + HIST_TORNEO_B_2026
-            tabla_base_nombre = "Apertura A + Torneo B"
+            tabla_base_nombre = "Apertura A + Torneo B (estático)"
 
+        # Construir tabs dinámicamente
+        tabs_nombres = []
+        if tabla_base: tabs_nombres.append(f"📊 {tabla_base_nombre}")
+        if hist_dinamico and len(hist_dinamico) >= 3: tabs_nombres.append("🔄 Clausura / Actual (dinámico)")
+        tabs_nombres.append("⚡ Modelo final (blend)")
+
+        if len(tabs_nombres) == 1:
+            tabs = [st.container()]
+        else:
+            tabs = st.tabs(tabs_nombres)
+
+        tab_idx = 0
+
+        # Tab Apertura (estático)
         if tabla_base:
-            tab1, tab2 = st.tabs([f"📊 {tabla_base_nombre}", "🔄 Modelo actual"])
-            with tab1:
+            with tabs[tab_idx]:
                 df_base = pd.DataFrame([
                     {"Equipo": eq, "PJ": pj, "GF": gf, "GC": gc, "DG": gf-gc,
                      "GF/P": round(gf/pj,2), "GC/P": round(gc/pj,2)}
@@ -1106,28 +1118,38 @@ def mostrar_tabla_modelo(M, liga_n):
                 ]).sort_values("DG", ascending=False).reset_index(drop=True)
                 df_base.index += 1
                 st.dataframe(df_base, use_container_width=True, height=min(400, 35*len(df_base)+38))
-            with tab2:
+                st.caption(f"📁 {len(tabla_base)} equipos · Datos verificados del torneo anterior")
+            tab_idx += 1
+
+        # Tab Clausura (dinámico)
+        if hist_dinamico and len(hist_dinamico) >= 3:
+            with tabs[tab_idx]:
+                M_din = build_model(hist_dinamico, M.get("_avg", 1.20))
                 rows = []
-                for k, v in M.items():
+                for k, v in M_din.items():
                     if k.startswith("_") or not isinstance(v, dict): continue
-                    n = v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
+                    n=v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
                     rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
-                                 "DG":round(gf*n)-round(gc*n), "Atk":v.get("atk",1.0),
-                                 "Def":v.get("def",1.0), "Blend":v.get("_blend","base")})
-                df = pd.DataFrame(rows).sort_values("DG",ascending=False).reset_index(drop=True)
-                df.index += 1
-                st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
-        else:
+                                 "DG":round(gf*n)-round(gc*n), "GF/P":round(gf,2), "GC/P":round(gc,2)})
+                df_din = pd.DataFrame(rows).sort_values("DG", ascending=False).reset_index(drop=True)
+                df_din.index += 1
+                st.dataframe(df_din, use_container_width=True, height=min(400, 35*len(df_din)+38))
+                st.caption(f"🔄 {len(hist_dinamico)} partidos del torneo actual vía TheSportsDB (se actualiza automáticamente)")
+            tab_idx += 1
+
+        # Tab Modelo final (blend)
+        with tabs[tab_idx]:
             rows = []
             for k, v in M.items():
                 if k.startswith("_") or not isinstance(v, dict): continue
-                n = v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
+                n=v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
                 rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
-                             "DG":round(gf*n)-round(gc*n), "Atk":v.get("atk",1.0), "Def":v.get("def",1.0)})
-            if rows:
-                df = pd.DataFrame(rows).sort_values("DG",ascending=False).reset_index(drop=True)
-                df.index += 1
-                st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
+                             "DG":round(gf*n)-round(gc*n), "Atk":v.get("atk",1.0),
+                             "Def":v.get("def",1.0), "Blend":v.get("_blend","base")})
+            df = pd.DataFrame(rows).sort_values("DG", ascending=False).reset_index(drop=True)
+            df.index += 1
+            st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
+            st.caption("⚡ Modelo que usa BetAnalytics para calcular probabilidades")
     """Muestra la procedencia y fecha de corte de los datos del modelo."""
     if not fuente_key or fuente_key not in FUENTE_TABLAS: return
     f = FUENTE_TABLAS[fuente_key]
@@ -3012,25 +3034,24 @@ with tab1:
                 if hist:
                     n_extra = len(li["sportsdb_extra"])
                     st.info(f"📊 Modelo enriquecido: {len(hist)} partidos de {1+n_extra} ligas colombianas combinadas.")
+        # Guardar datos dinámicos (Clausura/torneo actual) antes del fallback
+        hist_dinamico = list(hist) if isinstance(hist, list) else []
+        
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
-        # Ligas con tablas hardcodeadas verificadas: umbral alto para forzar el fallback
         tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS"])
         umbral_fallback = 100 if tiene_tabla_verificada else 30
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
             if "Liga BetPlay" in liga_n:
-                # Blend: Apertura (base) + partidos recientes de TheSportsDB (Clausura)
                 modelo_base = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
-                if len(hist) >= 5:
-                    modelo_reciente = build_model(hist, li["avg"])
+                if len(hist_dinamico) >= 5:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
                     hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
-                    n_rec = max((v.get("_n_finalizacion",0) for k,v in hist.items() if isinstance(v,dict) and not k.startswith("_")), default=0)
-                    st.info(f"📊 Modelo híbrido: Apertura (19 fechas) + {len([k for k in modelo_reciente if not k.startswith('_')])} equipos con datos recientes vía TheSportsDB. Decay ×0.5.")
+                    st.info(f"📊 Modelo híbrido: Apertura (19 fechas) + {len(hist_dinamico)} partidos Clausura vía TheSportsDB. Decay ×0.5.")
                 else:
                     hist = modelo_base
                     st.info("📊 Modelo basado en Apertura 2026-I. TheSportsDB aún no tiene suficientes partidos del Clausura.")
             elif "Copa BetPlay" in liga_n or "Copa Dimayor" in liga_n:
-                # Blend: Apertura A + Torneo B (base) + partidos recientes Copa vía TheSportsDB
                 hist_a = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
                 hist_b = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
                 for k, v in hist_b.items():
@@ -3040,19 +3061,25 @@ with tab1:
                         v["_ajuste"] = "atk ×0.85 · def ×1.15 (ajuste A vs B)"
                         v["_div"] = "B"
                         hist_a[k] = v
-                if len(hist) >= 5:
-                    modelo_reciente = build_model(hist, li["avg"])
+                if len(hist_dinamico) >= 5:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
                     hist = blend_models(hist_a, modelo_reciente, decay_base=0.4)
-                    st.info(f"📊 Modelo Copa: Apertura A + Torneo B (base) + {len(hist)-2} equipos con datos recientes vía TheSportsDB. Decay ×0.4.")
+                    st.info(f"📊 Modelo Copa: Apertura A + Torneo B (base) + {len(hist_dinamico)} partidos recientes. Decay ×0.4.")
                 else:
                     hist = hist_a
                     st.info("📊 Modelo Copa: Apertura A (20 equipos) + Torneo B (8 equipos, ajustados ×0.85/×1.15).")
             elif "Torneo BetPlay" in liga_n or "Torneo B" in liga_n:
                 hist = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
-                st.info("📊 Modelo basado en tabla del Torneo BetPlay I-2026 (8 equipos clasificados). Fixtures vía TheSportsDB.")
-            elif "Argentina" in liga_n:
-                hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
-                st.info("📊 Modelo basado en tabla de posiciones del Apertura 2026.")
+                st.info("📊 Modelo basado en tabla del Torneo BetPlay I-2026. Fixtures vía TheSportsDB.")
+            elif "Argentina" in liga_n and "Fem" not in liga_n:
+                modelo_base = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
+                if len(hist_dinamico) >= 5:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
+                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
+                    st.info(f"📊 Modelo híbrido: Apertura (16 fechas) + {len(hist_dinamico)} partidos Clausura vía TheSportsDB. Decay ×0.5.")
+                else:
+                    hist = modelo_base
+                    st.info("📊 Modelo basado en tabla del Apertura 2026.")
             elif "Brasileirao" in liga_n or "Brasil" in liga_n:
                 hist = build_model_desde_tabla(HIST_BRASILEIRAO_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
@@ -3258,7 +3285,7 @@ with tab1:
             M=build_model(hist,li["avg"])
 
         # ── Tabla de posiciones del modelo ──
-        mostrar_tabla_modelo(M, liga_n)
+        mostrar_tabla_modelo(M, liga_n, hist_dinamico=hist_dinamico if 'hist_dinamico' in dir() else None)
         # ── Agregar resultados recientes al modelo ──
         if "resultados_extra" not in st.session_state:
             st.session_state.resultados_extra = []
