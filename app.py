@@ -808,6 +808,9 @@ ALIASES_EQUIPOS = {
     "atletico paranaense": "athletico paranaense", "athletico-pr": "athletico paranaense",
     "red bull bragantino": "red bull bragantino", "bragantino": "red bull bragantino",
     "estudiantes": "estudiantes (lp)", "estudiantes lp": "estudiantes (lp)",
+    "estudiantes de la plata": "estudiantes (lp)", "estudiantes la plata": "estudiantes (lp)",
+    "estudiantes de rio cuarto": "estudiantes (rc)", "estudiantes rio cuarto": "estudiantes (rc)",
+    "estudiantes rc": "estudiantes (rc)", "estudiantes r cuarto": "estudiantes (rc)",
     "racing club": "racing", "racing de avellaneda": "racing",
     "belgrano": "belgrano", "belgrano cordoba": "belgrano",
     "san martin": "san martin (t)",
@@ -955,9 +958,49 @@ ALIASES_EQUIPOS = {
     "santa fe bogota": "independiente santa fe", "ind santa fe": "independiente santa fe",
     "independiente santa fe": "independiente santa fe",
     "independiente medellin": "independiente medellin", "ind medellin": "independiente medellin",
-    "independiente rivadavia": "independiente rivadavia",
+    "independiente rivadavia": "independiente rivadavia", "ind rivadavia": "independiente rivadavia",
     "independiente del valle": "independiente del valle",
+    "independiente petrolero": "independiente petrolero",
     "ca independiente": "independiente", "independiente avellaneda": "independiente",
+    "independiente argentina": "independiente",
+    # Nacional — priorizar por contexto
+    "nacional de montevideo": "nacional", "club nacional de football": "nacional",
+    "atletico nacional": "atletico nacional", "atletico nacional s.a": "atletico nacional",
+    "nacional potosi": "nacional potosi",
+    # Racing
+    "racing club": "racing", "racing avellaneda": "racing", "racing club argentina": "racing",
+    "racing montevideo": "racing montevideo", "racing de montevideo": "racing montevideo",
+    # Cerro
+    "cerro porteno": "cerro porteno", "cerro porteño": "cerro porteno",
+    "cerro largo": "cerro largo", "cerro largo fc": "cerro largo",
+    # Internacional
+    "internacional porto alegre": "internacional", "sc internacional": "internacional",
+    "internacional de bogota": "internacional de bogota", "inter bogota": "internacional de bogota",
+    "internacional de palmira": "inter palmira", "inter palmira": "inter palmira",
+    # Unión
+    "union santa fe": "union", "union de santa fe": "union",
+    "union magdalena": "union magdalena",
+    "union la calera": "union la calera",
+    # Gimnasia
+    "gimnasia la plata": "gimnasia y esgrima (lp)", "gimnasia lp": "gimnasia y esgrima (lp)", "gelp": "gimnasia y esgrima (lp)",
+    "gimnasia mendoza": "gimnasia y esgrima (m)", "gimnasia de mendoza": "gimnasia y esgrima (m)",
+    # Santos
+    "santos fc": "santos", "santos brasil": "santos",
+    "santos laguna": "santos laguna",
+    # Tigres
+    "tigres fc": "tigres", "tigres colombia": "tigres", "tigres bogota": "tigres",
+    "tigres uanl": "tigres uanl", "tigres mexico": "tigres uanl",
+    # Talleres
+    "talleres cordoba": "talleres (c)", "talleres de cordoba": "talleres (c)",
+    # Deportivo — nombres completos para evitar ambigüedad
+    "deportivo cali": "deportivo cali", "dep cali": "deportivo cali",
+    "deportivo cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
+    "deportivo pasto": "deportivo pasto", "dep pasto": "deportivo pasto",
+    "deportivo pereira": "deportivo pereira", "dep pereira": "deportivo pereira",
+    "deportivo riestra": "deportivo riestra",
+    "deportivo la guaira": "deportivo la guaira",
+    "deportivo tachira": "deportivo tachira",
+    "deportivo maldonado": "deportivo maldonado",
     "audax italiano": "audax italiano",
     "independiente petrolero": "independiente petrolero",
     "academia puerto cabello": "academia puerto cabello",
