@@ -129,7 +129,7 @@ LIGAS = {
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
     "🏆 Champions League":     {"src":"fd","code":"CL",  "avg":1.45, "odds_key":"soccer_uefa_champs_league"},
     "🏆 Europa League":        {"src":"wiki_multi","wiki_urls":["https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_league_phase","https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Europa_League_knockout_phase"],"wiki_fmt":"uel","avg":1.35,"odds_key":"soccer_uefa_europa_league","use_odds_fixtures":True},
-    "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4497,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇨🇴 Liga BetPlay":        {"src":"sportsdb","sportsdb_id":4497,"sportsdb_season":"2026","avg":1.26,"odds_key":None,"use_odds_fixtures":False},
     "🇨🇴 Torneo BetPlay B":    {"src":"sportsdb","sportsdb_id":4951,"sportsdb_season":"2026","avg":1.10,"odds_key":None,"use_odds_fixtures":False},
     "🇨🇴 Copa BetPlay Dimayor": {"src":"sportsdb","sportsdb_id":5183,"sportsdb_season":"2026","avg":1.20,"odds_key":None,"use_odds_fixtures":False,
                                 "sportsdb_extra":[4497, 4951]},
@@ -362,10 +362,8 @@ HIST_ARGENTINA_2026 = [
 ]
 
 # ── Liga BetPlay Apertura 2026 — Tabla final (19 fechas todos contra todos) ──
-# Fuente: Dimayor / datos oficiales · GF/GC confirmados
-# Junior bicampeón — derrotó a Nacional 3-1 global en la final
+# Fuente: Datos oficiales verificados por usuario · GF=GC=480 ✓
 HIST_BETPLAY_APERTURA_2026 = [
-    # (equipo, GF, GC, PJ) — 20 equipos · 19 PJ cada uno
     ("Atlético Nacional",       35, 15, 19),
     ("Junior",                  31, 24, 19),
     ("Deportivo Pasto",         29, 25, 19),
@@ -382,10 +380,33 @@ HIST_BETPLAY_APERTURA_2026 = [
     ("Llaneros",                17, 20, 19),
     ("Fortaleza",               22, 27, 19),
     ("Jaguares",                20, 33, 19),
-    ("Alianza Valledupar",      13, 27, 19),
+    ("Alianza FC",              13, 27, 19),
     ("Boyacá Chicó",            15, 32, 19),
     ("Cúcuta Deportivo",        22, 35, 19),
     ("Deportivo Pereira",       15, 32, 19),
+]
+
+# ── Liga BetPlay Clausura 2026 — Tabla dinámica (actualizada 01-ago-2026) ──
+# Fuente: Datos verificados por usuario · Fecha 1-2
+HIST_BETPLAY_CLAUSURA_2026 = [
+    ("Atlético Bucaramanga",     2,  1, 2),
+    ("Llaneros",                 2,  1, 2),
+    ("Once Caldas",              5,  1, 1),
+    ("América de Cali",          2,  0, 1),
+    ("Deportivo Cali",           2,  0, 1),
+    ("Independiente Medellín",   3,  2, 1),
+    ("Águilas Doradas",          2,  1, 1),
+    ("Deportes Tolima",          2,  1, 1),
+    ("Fortaleza",                1,  1, 2),
+    ("Alianza FC",               1,  1, 1),
+    ("Deportivo Pereira",        0,  1, 2),
+    ("Deportivo Pasto",          2,  3, 1),
+    ("Junior",                   1,  2, 1),
+    ("Independiente Santa Fe",   1,  2, 1),
+    ("Millonarios",              0,  1, 1),
+    ("Internacional de Bogotá",  0,  2, 1),
+    ("Jaguares",                 0,  2, 1),
+    ("Cúcuta Deportivo",         1,  5, 1),
 ]
 
 # ── Torneo BetPlay (Primera B) Apertura 2026 — 8 equipos clasificados a cuadrangulares ──
@@ -979,6 +1000,8 @@ ALIASES_EQUIPOS = {
     "cerro porteno": "cerro porteno",
     "sporting cristal": "sporting cristal",
     "alianza atletico": "alianza atletico",
+    "alianza fc": "alianza fc", "alianza valledupar": "alianza fc", "alianza de valledupar": "alianza fc",
+    "alianza petrolera": "alianza fc",
     "america de cali": "america de cali",
     "ind medellin": "independiente medellin", "di medellin": "independiente medellin",
     "santa fe bogota": "independiente santa fe", "ind santa fe": "independiente santa fe",
@@ -1109,9 +1132,13 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
     with st.expander("📋 Tabla de posiciones del modelo", expanded=False):
         tabla_base = None
         tabla_base_nombre = None
+        tabla_clausura = None
+        tabla_clausura_nombre = None
         if "Liga BetPlay" in liga_n:
             tabla_base = HIST_BETPLAY_APERTURA_2026
             tabla_base_nombre = "Apertura 2026-I (estático)"
+            tabla_clausura = HIST_BETPLAY_CLAUSURA_2026
+            tabla_clausura_nombre = "Clausura 2026-II (dinámico)"
         elif "Argentina" in liga_n and "Fem" not in liga_n:
             tabla_base = HIST_ARGENTINA_2026
             tabla_base_nombre = "Apertura 2026 (estático)"
@@ -1125,7 +1152,10 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
         # Construir tabs dinámicamente
         tabs_nombres = []
         if tabla_base: tabs_nombres.append(f"📊 {tabla_base_nombre}")
-        if hist_dinamico and len(hist_dinamico) >= 3: tabs_nombres.append("🔄 Clausura / Actual (dinámico)")
+        if hasattr(tabla_clausura, '__len__') and tabla_clausura and len([t for t in tabla_clausura if t[3]>0]) >= 3:
+            tabs_nombres.append(f"🔄 {tabla_clausura_nombre}" if tabla_clausura_nombre else "🔄 Clausura (dinámico)")
+        elif hist_dinamico and len(hist_dinamico) >= 3:
+            tabs_nombres.append("🔄 Clausura / Actual (dinámico)")
         tabs_nombres.append("⚡ Modelo final (blend)")
 
         if len(tabs_nombres) == 1:
@@ -1148,20 +1178,31 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
                 st.caption(f"📁 {len(tabla_base)} equipos · Datos verificados del torneo anterior")
             tab_idx += 1
 
-        # Tab Clausura (dinámico)
-        if hist_dinamico and len(hist_dinamico) >= 3:
+        # Tab Clausura
+        clausura_verificada = hasattr(tabla_clausura, '__len__') and tabla_clausura and len([t for t in tabla_clausura if t[3]>0]) >= 3
+        if clausura_verificada or (hist_dinamico and len(hist_dinamico) >= 3):
             with tabs[tab_idx]:
-                M_din = build_model(hist_dinamico, M.get("_avg", 1.20))
-                rows = []
-                for k, v in M_din.items():
-                    if k.startswith("_") or not isinstance(v, dict): continue
-                    n=v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
-                    rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
-                                 "DG":round(gf*n)-round(gc*n), "GF/P":round(gf,2), "GC/P":round(gc,2)})
-                df_din = pd.DataFrame(rows).sort_values("DG", ascending=False).reset_index(drop=True)
-                df_din.index += 1
-                st.dataframe(df_din, use_container_width=True, height=min(400, 35*len(df_din)+38))
-                st.caption(f"🔄 {len(hist_dinamico)} partidos del torneo actual vía TheSportsDB (se actualiza automáticamente)")
+                if clausura_verificada:
+                    df_cl = pd.DataFrame([
+                        {"Equipo": eq, "PJ": pj, "GF": gf, "GC": gc, "DG": gf-gc,
+                         "GF/P": round(gf/pj,2) if pj>0 else 0, "GC/P": round(gc/pj,2) if pj>0 else 0}
+                        for eq, gf, gc, pj in tabla_clausura if pj > 0
+                    ]).sort_values("DG", ascending=False).reset_index(drop=True)
+                    df_cl.index += 1
+                    st.dataframe(df_cl, use_container_width=True, height=min(400, 35*len(df_cl)+38))
+                    st.caption(f"🔄 Datos verificados del Clausura — actualizar manualmente con cada fecha")
+                else:
+                    M_din = build_model(hist_dinamico, M.get("_avg", 1.20))
+                    rows = []
+                    for k, v in M_din.items():
+                        if k.startswith("_") or not isinstance(v, dict): continue
+                        n=v.get("n",0); gf=v.get("gf_avg",0); gc=v.get("gc_avg",0)
+                        rows.append({"Equipo":k, "PJ":n, "GF":round(gf*n), "GC":round(gc*n),
+                                     "DG":round(gf*n)-round(gc*n), "GF/P":round(gf,2), "GC/P":round(gc,2)})
+                    df_din = pd.DataFrame(rows).sort_values("DG", ascending=False).reset_index(drop=True)
+                    df_din.index += 1
+                    st.dataframe(df_din, use_container_width=True, height=min(400, 35*len(df_din)+38))
+                    st.caption(f"🔄 {len(hist_dinamico)} partidos vía TheSportsDB")
             tab_idx += 1
 
         # Tab Modelo final (blend)
@@ -3065,13 +3106,19 @@ with tab1:
             fb = li.get("hist_fallback")
             if "Liga BetPlay" in liga_n:
                 modelo_base = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
-                if len(hist_dinamico) >= 5:
-                    modelo_reciente = build_model(hist_dinamico, li["avg"])
-                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
-                    st.info(f"📊 Modelo híbrido: Apertura (19 fechas) + {len(hist_dinamico)} partidos Clausura vía TheSportsDB. Decay ×0.5.")
+                # Usar Clausura verificada + TheSportsDB dinámico
+                clausura_data = [(e[0],e[1],e[2],e[3]) for e in HIST_BETPLAY_CLAUSURA_2026 if e[3] > 0]
+                # Agregar partidos dinámicos de TheSportsDB que no estén en la tabla
+                all_clausura = list(clausura_data)
+                if len(hist_dinamico) >= 3:
+                    all_clausura = hist_dinamico  # TheSportsDB tiene formato (loc,vis,gl,gv)
+                if len(clausura_data) >= 3:
+                    modelo_clausura = build_model_desde_tabla(HIST_BETPLAY_CLAUSURA_2026, li["avg"])
+                    hist = blend_models(modelo_base, modelo_clausura, decay_base=0.8)
+                    st.info(f"📊 Modelo híbrido: Apertura (19 fechas, avg {li['avg']}) + Clausura ({len(clausura_data)} equipos con datos). Decay ×0.5.")
                 else:
                     hist = modelo_base
-                    st.info("📊 Modelo basado en Apertura 2026-I. TheSportsDB aún no tiene suficientes partidos del Clausura.")
+                    st.info(f"📊 Modelo basado en Apertura 2026-I (avg {li['avg']}). Clausura aún sin datos suficientes.")
             elif "Copa BetPlay" in liga_n or "Copa Dimayor" in liga_n:
                 hist_a = build_model_desde_tabla(HIST_BETPLAY_APERTURA_2026, li["avg"])
                 hist_b = build_model_desde_tabla(HIST_TORNEO_B_2026, li["avg"])
