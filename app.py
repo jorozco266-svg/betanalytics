@@ -233,6 +233,32 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
     avg = modelo_reciente.get("_avg", modelo_base.get("_avg", 1.20))
     blended = {"_avg": avg, "_fuente": modelo_base.get("_fuente")}
     
+    # Resolver aliases: mapear nombres del modelo reciente a los del base
+    import unicodedata
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    equipos_base_norm = {norm(k): k for k in modelo_base if not k.startswith("_")}
+    
+    # Renombrar equipos del modelo reciente si tienen alias que coinciden con el base
+    modelo_rec_resuelto = {}
+    for k, v in modelo_reciente.items():
+        if k.startswith("_"):
+            modelo_rec_resuelto[k] = v
+            continue
+        k_norm = norm(k)
+        matched_base = None
+        # Buscar por alias
+        for alias, target in ALIASES_EQUIPOS.items():
+            if alias == k_norm:
+                target_norm = norm(target)
+                if target_norm in equipos_base_norm:
+                    matched_base = equipos_base_norm[target_norm]
+                    break
+        # Buscar directo
+        if not matched_base and k_norm in equipos_base_norm:
+            matched_base = equipos_base_norm[k_norm]
+        modelo_rec_resuelto[matched_base if matched_base else k] = v
+    modelo_reciente = modelo_rec_resuelto
+    
     # Equipos de ambos modelos
     equipos_base = {k for k in modelo_base if not k.startswith("_")}
     equipos_rec  = {k for k in modelo_reciente if not k.startswith("_")}
