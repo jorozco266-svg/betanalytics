@@ -1150,12 +1150,6 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
             df.index += 1
             st.dataframe(df, use_container_width=True, height=min(400, 35*len(df)+38))
             st.caption("⚡ Modelo que usa BetAnalytics para calcular probabilidades")
-    """Muestra la procedencia y fecha de corte de los datos del modelo."""
-    if not fuente_key or fuente_key not in FUENTE_TABLAS: return
-    f = FUENTE_TABLAS[fuente_key]
-    txt = f"📁 **Fuente:** {f['fuente']} · **Datos al:** {f['corte']}"
-    if f.get('nota'): txt += f"\n\n⚠️ {f['nota']}"
-    st.caption(txt)
 
 def buscar_equipo_en_modelo(nombre, modelo):
     """Busca un equipo en el modelo por nombre exacto, alias, o coincidencia parcial."""
