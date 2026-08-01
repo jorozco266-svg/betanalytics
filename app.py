@@ -3357,9 +3357,12 @@ with tab1:
                         M[nombre] = {"atk": max(round(gf/avg_m,3),0.3), "def": max(round(gc/avg_m,3),0.3),
                                     "n":1, "gf_avg":float(gf), "gc_avg":float(gc), "partidos":[(loc,vis,gl,gv)]}
         # Aviso si la cobertura es tan pobre que el modelo no es confiable
-        _n_eq = len([k for k in M if isinstance(M[k], dict)])
-        _prom = (len(hist)*2/_n_eq) if _n_eq else 0
-        if _prom < 4:
+        _equipos_validos = [k for k in M if isinstance(M.get(k), dict) and M[k].get("n",0) >= 3]
+        _n_eq = len(_equipos_validos)
+        _prom = (sum(M[k].get("n",0) for k in _equipos_validos) / _n_eq) if _n_eq else 0
+        # No mostrar warning si el modelo viene de tabla verificada (Apertura hardcodeado)
+        es_modelo_verificado = isinstance(hist, dict) and any(x in liga_n for x in ["BetPlay","Argentina","Brasileir","Liga MX","MLS","Copa"])
+        if _prom < 4 and not es_modelo_verificado:
             st.error(
                 f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
                 f"(~{_prom:.1f} por equipo).** TheSportsDB no tiene el historial completo de esta liga. "
