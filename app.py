@@ -2895,7 +2895,7 @@ if necesita_fd and not tiene_fd:
 if necesita_rf and not tiene_rf:
     st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
 
-tab1,tab2,tab3,tab4,tab5,tab6,tab7=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos","🏆 Mundial 2026"])
+tab1,tab2,tab3,tab4,tab5,tab6,tab7,tab8=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos","🏆 Mundial 2026","🧮 Calculadora"])
 
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
@@ -4528,3 +4528,194 @@ with tab7:
                         if edge_wc>3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#166534;border-radius:6px;font-size:13px;font-weight:700;color:#4ade80">+{edge_wc}% ✅</div>',unsafe_allow_html=True)
                         elif edge_wc<-3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#450a0a;border-radius:6px;font-size:13px;color:#f87171">{edge_wc}% ✗</div>',unsafe_allow_html=True)
                         else: st.markdown(f'<div style="text-align:center;padding:2px 6px;font-size:13px;color:#94a3b8">{edge_wc:+.1f}%</div>',unsafe_allow_html=True)
+
+# ══════════════════════════════════════════════════════════════════════
+# TAB 8 — CALCULADORA POISSON MANUAL
+# ══════════════════════════════════════════════════════════════════════
+with tab8:
+    st.markdown("### 🧮 Calculadora Poisson Manual")
+    st.caption("Ingresa los datos de cualquier partido. No depende de ligas, APIs ni scrapers.")
+    
+    import math
+    
+    st.markdown("---")
+    col_local, col_sep, col_visit = st.columns([5, 1, 5])
+    
+    with col_local:
+        st.markdown("**🏠 LOCAL**")
+        calc_local = st.text_input("Equipo local", key="calc_local", placeholder="Ej: Nacional")
+        c_l1, c_l2, c_l3 = st.columns(3)
+        with c_l1:
+            calc_gf_l = st.number_input("GF", min_value=0, value=25, key="calc_gf_l")
+        with c_l2:
+            calc_gc_l = st.number_input("GC", min_value=0, value=15, key="calc_gc_l")
+        with c_l3:
+            calc_pj_l = st.number_input("PJ", min_value=1, value=19, key="calc_pj_l")
+    
+    with col_sep:
+        st.markdown("<div style='text-align:center;padding-top:80px;font-size:24px;font-weight:bold'>VS</div>", unsafe_allow_html=True)
+    
+    with col_visit:
+        st.markdown("**✈️ VISITANTE**")
+        calc_visit = st.text_input("Equipo visitante", key="calc_visit", placeholder="Ej: Pereira")
+        c_v1, c_v2, c_v3 = st.columns(3)
+        with c_v1:
+            calc_gf_v = st.number_input("GF", min_value=0, value=15, key="calc_gf_v")
+        with c_v2:
+            calc_gc_v = st.number_input("GC", min_value=0, value=32, key="calc_gc_v")
+        with c_v3:
+            calc_pj_v = st.number_input("PJ", min_value=1, value=19, key="calc_pj_v")
+    
+    st.markdown("---")
+    
+    col_cfg1, col_cfg2, col_cfg3, col_cfg4, col_cfg5 = st.columns(5)
+    with col_cfg1:
+        calc_goles_liga = st.number_input("Goles totales liga", min_value=0, value=480, key="calc_goles_liga",
+                                          help="Suma de todos los goles marcados en la liga")
+    with col_cfg2:
+        calc_equipos_liga = st.number_input("Equipos en liga", min_value=2, value=20, key="calc_equipos_liga")
+    with col_cfg3:
+        calc_fechas_liga = st.number_input("Fechas jugadas", min_value=1, value=19, key="calc_fechas_liga",
+                                           help="Fechas completadas del torneo")
+    with col_cfg4:
+        # Calcular avg automáticamente
+        total_pj_liga = calc_equipos_liga * calc_fechas_liga
+        partidos_liga = total_pj_liga // 2
+        calc_avg_auto = round(calc_goles_liga / total_pj_liga, 3) if total_pj_liga > 0 else 1.26
+        calc_avg = st.number_input("Avg (auto)", min_value=0.5, max_value=3.0, value=calc_avg_auto, step=0.01, key="calc_avg",
+                                    help=f"Calculado: {calc_goles_liga} goles ÷ {total_pj_liga} PJ = {calc_avg_auto}")
+    with col_cfg5:
+        calc_fl = st.number_input("Factor local", min_value=1.0, max_value=1.5, value=1.15, step=0.01, key="calc_fl")
+    
+    st.caption(f"📊 Liga: {calc_goles_liga} goles en {partidos_liga} partidos = **{calc_goles_liga/partidos_liga:.2f} goles/partido** · Avg por equipo: **{calc_avg_auto}**")
+    
+    col_c1, col_c2, col_c3, col_c4, col_c5 = st.columns(5)
+    with col_c1:
+        calc_cuota_l = st.number_input("Cuota local", min_value=1.01, value=1.50, step=0.01, key="calc_cuota_l")
+    with col_c2:
+        calc_cuota_e = st.number_input("Cuota empate", min_value=1.01, value=3.50, step=0.01, key="calc_cuota_e")
+    with col_c3:
+        calc_cuota_v = st.number_input("Cuota visit", min_value=1.01, value=5.00, step=0.01, key="calc_cuota_v")
+    with col_c4:
+        calc_bank = st.number_input("Bankroll ($)", min_value=0, value=119613, key="calc_bank")
+    with col_c5:
+        calc_kelly_f = st.selectbox("Kelly", ["¼ Kelly","½ Kelly","¾ Kelly","Full Kelly"], index=0, key="calc_kelly_f")
+    
+    if st.button("🧮 Calcular", key="btn_calcular", type="primary"):
+        # Coeficientes
+        gf_avg_l = calc_gf_l / calc_pj_l
+        gc_avg_l = calc_gc_l / calc_pj_l
+        gf_avg_v = calc_gf_v / calc_pj_v
+        gc_avg_v = calc_gc_v / calc_pj_v
+        
+        atk_l = round(gf_avg_l / calc_avg, 3)
+        def_l = round(gc_avg_l / calc_avg, 3)
+        atk_v = round(gf_avg_v / calc_avg, 3)
+        def_v = round(gc_avg_v / calc_avg, 3)
+        
+        # Lambdas
+        lam_l = round(atk_l * def_v * calc_avg * calc_fl, 3)
+        lam_v = round(atk_v * def_l * calc_avg, 3)
+        
+        # Poisson
+        max_goles = 10
+        prob_matrix = {}
+        for gl in range(max_goles+1):
+            for gv in range(max_goles+1):
+                p_l = math.exp(-lam_l) * (lam_l**gl) / math.factorial(gl)
+                p_v = math.exp(-lam_v) * (lam_v**gv) / math.factorial(gv)
+                prob_matrix[(gl,gv)] = p_l * p_v
+        
+        p_local = sum(v for (gl,gv),v in prob_matrix.items() if gl > gv)
+        p_empate = sum(v for (gl,gv),v in prob_matrix.items() if gl == gv)
+        p_visit = sum(v for (gl,gv),v in prob_matrix.items() if gl < gv)
+        
+        # Top marcadores
+        top_marcadores = sorted(prob_matrix.items(), key=lambda x: -x[1])[:6]
+        
+        # Vig
+        vig = (1/calc_cuota_l + 1/calc_cuota_e + 1/calc_cuota_v - 1) * 100
+        
+        # Edges
+        edge_l = round((p_local * calc_cuota_l - 1) * 100, 1)
+        edge_e = round((p_empate * calc_cuota_e - 1) * 100, 1)
+        edge_v = round((p_visit * calc_cuota_v - 1) * 100, 1)
+        
+        # Kelly
+        kf_map = {"¼ Kelly":0.25, "½ Kelly":0.5, "¾ Kelly":0.75, "Full Kelly":1.0}
+        kf = kf_map.get(calc_kelly_f, 0.25)
+        
+        # Mostrar resultados
+        st.markdown("---")
+        st.markdown("### 📊 Resultados")
+        
+        # Coeficientes
+        col_r1, col_r2 = st.columns(2)
+        with col_r1:
+            st.markdown(f"**{calc_local or 'Local'}** (🏠)")
+            st.caption(f"GF/P: {gf_avg_l:.2f} · GC/P: {gc_avg_l:.2f}")
+            st.caption(f"Ataque: `{atk_l}` · Defensa: `{def_l}`")
+            st.caption(f"λ = {atk_l} × {def_v} × {calc_avg} × {calc_fl} = **{lam_l}**")
+        with col_r2:
+            st.markdown(f"**{calc_visit or 'Visitante'}** (✈️)")
+            st.caption(f"GF/P: {gf_avg_v:.2f} · GC/P: {gc_avg_v:.2f}")
+            st.caption(f"Ataque: `{atk_v}` · Defensa: `{def_v}`")
+            st.caption(f"λ = {atk_v} × {def_l} × {calc_avg} = **{lam_v}**")
+        
+        # Probabilidades
+        st.markdown("---")
+        col_p1, col_p2, col_p3 = st.columns(3)
+        with col_p1:
+            color_l = "#166534" if edge_l > 3 else ("#450a0a" if edge_l < -3 else "#334155")
+            st.markdown(f"<div style='text-align:center;padding:12px;background:{color_l};border-radius:8px'>"
+                       f"<div style='font-size:13px;color:#94a3b8'>{calc_local or 'Local'}</div>"
+                       f"<div style='font-size:28px;font-weight:bold;color:white'>{p_local*100:.1f}%</div>"
+                       f"<div style='font-size:14px;color:{'#4ade80' if edge_l>0 else '#f87171'}'>Edge: {edge_l:+.1f}%</div>"
+                       f"</div>", unsafe_allow_html=True)
+        with col_p2:
+            color_e = "#166534" if edge_e > 3 else ("#450a0a" if edge_e < -3 else "#334155")
+            st.markdown(f"<div style='text-align:center;padding:12px;background:{color_e};border-radius:8px'>"
+                       f"<div style='font-size:13px;color:#94a3b8'>Empate</div>"
+                       f"<div style='font-size:28px;font-weight:bold;color:white'>{p_empate*100:.1f}%</div>"
+                       f"<div style='font-size:14px;color:{'#4ade80' if edge_e>0 else '#f87171'}'>Edge: {edge_e:+.1f}%</div>"
+                       f"</div>", unsafe_allow_html=True)
+        with col_p3:
+            color_v = "#166534" if edge_v > 3 else ("#450a0a" if edge_v < -3 else "#334155")
+            st.markdown(f"<div style='text-align:center;padding:12px;background:{color_v};border-radius:8px'>"
+                       f"<div style='font-size:13px;color:#94a3b8'>{calc_visit or 'Visit'}</div>"
+                       f"<div style='font-size:28px;font-weight:bold;color:white'>{p_visit*100:.1f}%</div>"
+                       f"<div style='font-size:14px;color:{'#4ade80' if edge_v>0 else '#f87171'}'>Edge: {edge_v:+.1f}%</div>"
+                       f"</div>", unsafe_allow_html=True)
+        
+        # Vig
+        st.caption(f"Vig: {vig:.1f}% — {'✓ limpio' if vig < 5 else '⚠️ margen alto' if vig < 10 else '🚨 excesivo'}")
+        
+        # Marcadores más probables
+        st.markdown("**Marcadores más probables:**")
+        marc_cols = st.columns(6)
+        for i, ((gl,gv), prob) in enumerate(top_marcadores):
+            with marc_cols[i]:
+                st.markdown(f"<div style='text-align:center;padding:6px;background:#1e293b;border-radius:6px'>"
+                           f"<div style='font-size:18px;font-weight:bold'>{gl}-{gv}</div>"
+                           f"<div style='font-size:13px;color:#94a3b8'>{prob*100:.1f}%</div></div>", unsafe_allow_html=True)
+        
+        # Kelly y apuesta recomendada
+        st.markdown("---")
+        best_edge = max(edge_l, edge_e, edge_v)
+        if best_edge > 0:
+            if edge_l == best_edge:
+                best_name, best_prob, best_cuota = calc_local or "Local", p_local, calc_cuota_l
+            elif edge_e == best_edge:
+                best_name, best_prob, best_cuota = "Empate", p_empate, calc_cuota_e
+            else:
+                best_name, best_prob, best_cuota = calc_visit or "Visit", p_visit, calc_cuota_v
+            
+            kelly_full = (best_cuota * best_prob - 1) / (best_cuota - 1)
+            kelly_adj = kelly_full * kf
+            stake = round(calc_bank * kelly_adj)
+            retorno = round(stake * best_cuota)
+            
+            st.success(f"✅ **VALUE BET: {best_name}** a cuota {best_cuota} · Edge +{best_edge:.1f}% · "
+                      f"{calc_kelly_f}: {kelly_adj*100:.1f}% · Apostar **${stake:,}** → Retorno ${retorno:,}")
+        else:
+            st.warning("❌ **SIN VALUE** en ningún mercado. No apostar.")
