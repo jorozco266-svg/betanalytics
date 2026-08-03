@@ -158,7 +158,7 @@ LIGAS = {
                                 "equipos_excluir":[]},
     "🇰🇷 K-League 1":          {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_K_League_1",
                                 "avg":1.13, "odds_key":"soccer_korea_kleague1","use_odds_fixtures":True},
-    "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.30,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
+    "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.03,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
     "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
     "🇺🇾 Uruguay - Clausura":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4432,"hist_fallback":"Uruguay"},
@@ -329,36 +329,48 @@ HIST_BRASILEIRAO_2026 = [
 ]
 # Fuente: Wikipedia / ESPN. Formato: (equipo, GF, GC, PJ)
 HIST_ARGENTINA_2026 = [
-    ("River Plate",          38, 18, 18),
-    ("Boca Juniors",         33, 17, 18),
-    ("Racing",               31, 19, 18),
-    ("Independiente",        28, 22, 18),
-    ("Estudiantes (LP)",     27, 20, 18),
-    ("Talleres (C)",         26, 21, 18),
-    ("Huracán",              25, 22, 18),
-    ("San Lorenzo",          24, 24, 18),
-    ("Belgrano",             23, 25, 18),
-    ("Defensa y Justicia",   22, 23, 18),
-    ("Lanús",                30, 24, 18),
-    ("Rosario Central",      24, 26, 18),
-    ("Gimnasia y Esgrima (LP)", 21, 27, 18),
-    ("Atlético Tucumán",     20, 26, 18),
-    ("Platense",             19, 25, 18),
-    ("Banfield",             18, 27, 18),
-    ("Vélez Sarsfield",      22, 28, 18),
-    ("Newell's Old Boys",    17, 28, 18),
-    ("Instituto",            18, 30, 18),
-    ("Tigre",                17, 29, 18),
-    ("Barracas Central",     16, 29, 18),
-    ("Sarmiento (J)",        15, 31, 18),
-    ("Argentinos Juniors",   19, 28, 18),
-    ("Unión",                20, 30, 18),
-    ("Central Córdoba (SdE)", 14, 32, 18),
-    ("Aldosivi",             13, 33, 18),
-    ("Deportivo Riestra",    12, 35, 18),
-    ("Estudiantes (RC)",     11, 36, 18),
-    ("Gimnasia y Esgrima (M)", 13, 34, 18),
-    ("Independiente Rivadavia", 14, 33, 18),
+    # Apertura 2026 — 30 equipos en 2 grupos de 15 · 16 PJ cada uno
+    # Fuente: datos verificados por usuario · GF=GC=493 ✓ · 2.05 goles/partido
+    # Grupo A
+    ("Estudiantes (LP)",         19,  7, 16), ("Boca Juniors",            22,  9, 16),
+    ("Vélez",                    18, 12, 16), ("Talleres (C)",            17, 13, 16),
+    ("Independiente",            24, 20, 16), ("Lanús",                   18, 15, 16),
+    ("San Lorenzo",              14, 14, 16), ("Unión",                   24, 20, 16),
+    ("Instituto",                17, 17, 16), ("Defensa y Justicia",      18, 21, 16),
+    ("Gimnasia y Esgrima (LP)",  14, 22, 16), ("Platense",                10, 15, 16),
+    ("Central Córdoba",          11, 21, 16), ("Newell's Old Boys",       15, 27, 16),
+    ("Deportivo Riestra",         5, 12, 16),
+    # Grupo B
+    ("Independiente Rivadavia",  29, 15, 16), ("River Plate",             22, 12, 16),
+    ("Argentinos Juniors",       17, 13, 16), ("Rosario Central",         20, 16, 16),
+    ("Belgrano",                 17, 13, 16), ("Gimnasia y Esgrima (M)",  19, 19, 16),
+    ("Huracán",                  17, 13, 16), ("Racing",                  17, 15, 16),
+    ("Barracas Central",         15, 15, 16), ("Tigre",                   18, 15, 16),
+    ("Sarmiento",                13, 20, 16), ("Banfield",                17, 19, 16),
+    ("Atlético Tucumán",         15, 20, 16), ("Aldosivi",                 6, 19, 16),
+    ("Estudiantes (RC)",          5, 24, 16),
+]
+
+# ── Argentina Clausura 2026 — Tabla dinámica (actualizada 01-ago-2026) ──
+HIST_ARGENTINA_CLAUSURA_2026 = [
+    # Grupo A
+    ("Vélez",                     4,  1, 2), ("Independiente",             3,  0, 2),
+    ("Gimnasia y Esgrima (LP)",   3,  1, 3), ("Instituto",                3,  2, 3),
+    ("Newell's Old Boys",         3,  3, 3), ("Defensa y Justicia",       3,  5, 3),
+    ("Deportivo Riestra",         4,  3, 3), ("Estudiantes (LP)",         3,  2, 2),
+    ("Lanús",                     1,  1, 2), ("San Lorenzo",              1,  1, 2),
+    ("Platense",                  3,  4, 2), ("Unión",                    2,  4, 2),
+    ("Boca Juniors",              2,  5, 2), ("Talleres (C)",             1,  4, 2),
+    ("Central Córdoba",           0,  3, 2),
+    # Grupo B
+    ("Argentinos Juniors",        7,  2, 3), ("Barracas Central",         3,  0, 3),
+    ("Gimnasia y Esgrima (M)",    4,  3, 3), ("Atlético Tucumán",         2,  0, 2),
+    ("Independiente Rivadavia",   2,  1, 2), ("Banfield",                 3,  3, 3),
+    ("Rosario Central",           2,  2, 3), ("Racing",                   3,  4, 3),
+    ("Estudiantes (RC)",          1,  3, 3), ("Tigre",                    3,  2, 2),
+    ("Huracán",                   2,  2, 2), ("Belgrano",                 2,  2, 2),
+    ("Aldosivi",                  2,  4, 3), ("Sarmiento",                4,  6, 2),
+    ("River Plate",               0,  3, 3),
 ]
 
 # ── Liga BetPlay Apertura 2026 — Tabla final (19 fechas todos contra todos) ──
@@ -1143,6 +1155,8 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
         elif "Argentina" in liga_n and "Fem" not in liga_n:
             tabla_base = HIST_ARGENTINA_2026
             tabla_base_nombre = "Apertura 2026 (estático)"
+            tabla_clausura = HIST_ARGENTINA_CLAUSURA_2026
+            tabla_clausura_nombre = "Clausura 2026 (dinámico)"
         elif "Brasileir" in liga_n and "B" not in liga_n and "Fem" not in liga_n:
             tabla_base = HIST_BRASILEIRAO_2026
             tabla_base_nombre = "Brasileirão 2026 (estático)"
@@ -3142,13 +3156,14 @@ with tab1:
                 st.info("📊 Modelo basado en tabla del Torneo BetPlay I-2026. Fixtures vía TheSportsDB.")
             elif "Argentina" in liga_n and "Fem" not in liga_n:
                 modelo_base = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"])
-                if len(hist_dinamico) >= 5:
-                    modelo_reciente = build_model(hist_dinamico, li["avg"])
-                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
-                    st.info(f"📊 Modelo híbrido: Apertura (16 fechas) + {len(hist_dinamico)} partidos Clausura vía TheSportsDB. Decay ×0.5.")
+                clausura_arg = [t for t in HIST_ARGENTINA_CLAUSURA_2026 if t[3] > 0]
+                if len(clausura_arg) >= 5:
+                    modelo_clausura = build_model_desde_tabla(HIST_ARGENTINA_CLAUSURA_2026, li["avg"])
+                    hist = blend_models(modelo_base, modelo_clausura, decay_base=0.8)
+                    st.info(f"📊 Modelo híbrido: Apertura (16 fechas, avg {li['avg']}) + Clausura ({len(clausura_arg)} equipos). Decay ×0.8.")
                 else:
                     hist = modelo_base
-                    st.info("📊 Modelo basado en tabla del Apertura 2026.")
+                    st.info(f"📊 Modelo basado en Apertura 2026 (avg {li['avg']}).")
             elif "Brasileirao" in liga_n or "Brasil" in liga_n:
                 hist = build_model_desde_tabla(HIST_BRASILEIRAO_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla de posiciones del Brasileirao 2026.")
