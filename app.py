@@ -235,7 +235,7 @@ def blend_models(modelo_base, modelo_reciente, decay_base=0.5):
     
     # Resolver aliases: mapear nombres del modelo reciente a los del base
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
     equipos_base_norm = {norm(k): k for k in modelo_base if not k.startswith("_")}
     
     # Renombrar equipos del modelo reciente si tienen alias que coinciden con el base
@@ -720,7 +720,7 @@ def resolver_nombre(nombre, liga, modelo):
             return nombre_equiv
     # Búsqueda parcial en equivalencias
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
     nombre_n = norm(nombre)
     for k, v in equiv.items():
         if norm(k) == nombre_n:
@@ -1041,6 +1041,7 @@ ALIASES_EQUIPOS = {
     "tigres uanl": "tigres uanl", "tigres mexico": "tigres uanl",
     # Talleres
     "talleres cordoba": "talleres (c)", "talleres de cordoba": "talleres (c)",
+    "newells old boys": "newell's old boys", "newells": "newell's old boys", "newell's": "newell's old boys",
     # Deportivo — nombres completos para evitar ambigüedad
     "deportivo cali": "deportivo cali", "dep cali": "deportivo cali",
     "deportivo cuenca": "deportivo cuenca", "dep cuenca": "deportivo cuenca",
@@ -1222,7 +1223,7 @@ def mostrar_tabla_modelo(M, liga_n, hist_dinamico=None):
 def buscar_equipo_en_modelo(nombre, modelo):
     """Busca un equipo en el modelo por nombre exacto, alias, o coincidencia parcial."""
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
     nombre_n = norm(nombre)
     equipos = [k for k in modelo if not k.startswith("_")]
     # Exacto
@@ -1243,7 +1244,7 @@ def buscar_equipo_en_modelo(nombre, modelo):
 def buscar_equipo_info(nombre, M):
     """Retorna info completa del equipo incluyendo partidos para la memoria de calculo."""
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
     nombre_n = norm(nombre)
     # Solo claves de equipos reales, nunca metadatos (_avg, _fuente)
     equipos = [k for k in M if isinstance(M.get(k), dict)]
@@ -1305,7 +1306,7 @@ def buscar_equipo_info(nombre, M):
 
 def lams(loc,vis,M,avg,fl=None):
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
     ALIASES = ALIASES_EQUIPOS
     def buscar(nombre):
         if nombre in M: return M[nombre]
@@ -2172,7 +2173,7 @@ def wiki_next(wiki_url, wiki_fmt, equipos_excluir=None):
                     loc,vis=celdas[0].strip(),celdas[2].strip()
                     fecha_str=celdas[3] if len(celdas)>3 else ""
                     import unicodedata
-                    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+                    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
                     # Filtro de equipos colombianos solo si la URL es de Colombia
                     es_colombia = "colombia" in wiki_url.lower() or "betplay" in wiki_url.lower() or "torneo_apertura" in wiki_url.lower() or "primera_b" in wiki_url.lower() or "finalizaci" in wiki_url.lower() or "copa_colombia" in wiki_url.lower()
                     if es_colombia:
@@ -2520,7 +2521,7 @@ def get_team_id_seleccion(nombre, api_key):
 def buscar_elo(nombre, elo_dict):
     """Busca el Elo de una selección con matching flexible — soporta español e inglés."""
     import unicodedata
-    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    def norm(s): return unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower().replace("'","").replace("\"","")
 
     # Aliases: nombre en español/variante → nombre en diccionario Elo
     ALIASES = {
