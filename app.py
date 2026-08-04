@@ -165,7 +165,7 @@ LIGAS = {
     "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Copa_de_Primera","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4687,"hist_fallback":"Paraguay"},
     "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.32,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru"},
     "🇪🇨 Ecuador - LigaPro":   {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_LigaPro_Serie_A","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4686,"hist_fallback":"Ecuador"},
-    "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
+    "🇧🇴 Bolivia - Div Prof":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Bolivian_Football_Championship","avg":1.51,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4685,"hist_fallback":"Bolivia"},
     "🇻🇪 Venezuela - 1ª Div":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2025%E2%80%9326_Venezuelan_Primera_Divisi%C3%B3n","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4513,"hist_fallback":"Venezuela"},
     "🇲🇽 Liga MX":             {"src":"sportsdb","sportsdb_id":4350,"sportsdb_season":"2026-2027","avg":1.25,"odds_key":"soccer_mexico_ligamx","use_odds_fixtures":True},
     "🇺🇸 MLS":                 {"src":"sportsdb","sportsdb_id":4346,"sportsdb_season":"2026","avg":1.67,"odds_key":"soccer_usa_mls","use_odds_fixtures":True,"hist_fallback":"MLS"},
@@ -538,16 +538,16 @@ HIST_CONMEBOL = {
         ("Delfín",                  13, 20, 21), ("Manta",                    8, 26, 21),
     ],
     "Bolivia": [
-        # Fuente: División Profesional 2026 — actualizada al 16-jul-2026
-        # Formato: (equipo, GF, GC, PJ) · 16 equipos
-        ("The Strongest",                15,  8, 9), ("Always Ready",           20,  5, 9),
-        ("Aurora",                       14,  9, 9), ("Bolívar",                20, 10, 9),
-        ("Real Potosí",                  14,  7, 9), ("Blooming",               15, 11, 9),
-        ("Nacional Potosí",              12, 10, 9), ("Independiente Petrolero",12, 12, 8),
-        ("Real Oruro",                   17, 22, 9), ("Guabirá",                14, 20, 9),
-        ("Universitario de Vinto",       15, 16, 9), ("Oriente Petrolero",      11, 13, 9),
-        ("ABB",                          13, 20, 8), ("Real Tomayapo",           7, 20, 9),
-        ("San Antonio Bulo Bulo",        10, 19, 9), ("Gualberto Villarroel San José", 10, 17, 9),
+        # Fuente: Datos verificados usuario · División Profesional 2026 · 12 fechas
+        # GF=GC=290 ✓ · 96 partidos · 3.02 goles/partido · avg=1.51
+        ("Always Ready",                 28,  6, 12), ("The Strongest",              17, 10, 12),
+        ("Bolívar",                      26, 12, 12), ("Aurora",                     20, 14, 12),
+        ("Real Potosí",                  17, 10, 12), ("Blooming",                   17, 14, 12),
+        ("Oriente Petrolero",            16, 16, 12), ("Nacional Potosí",            17, 16, 12),
+        ("Independiente Petrolero",      18, 19, 12), ("Guabirá",                    19, 26, 12),
+        ("Real Oruro",                   22, 30, 12), ("ABB",                        20, 27, 12),
+        ("San Antonio Bulo Bulo",        15, 23, 12), ("Universitario de Vinto",     17, 23, 12),
+        ("Gualberto Villarroel San José",12, 18, 12), ("Real Tomayapo",               9, 26, 12),
     ],
     "Venezuela": [
         ("Deportivo La Guaira",      28, 10, 14), ("Caracas FC",             26, 12, 14),
@@ -640,8 +640,8 @@ FUENTE_TABLAS = {
     "ArgFem":    {"fuente":"El Femenino · Torneo Apertura", "corte":"21-jul-2026",
                   "nota":"16 equipos, 14-15 PJ. Racing y San Lorenzo líderes con 35 pts. ~2.18 goles/partido."},
     "Brasil":    {"fuente":"Tabla estática", "corte":"2026", "nota":""},
-    "Bolivia":   {"fuente":"División Profesional 2026 (FBF)", "corte":"16-jul-2026",
-                  "nota":"Temporada 2026, ~9 fechas jugadas. Muestra pequeña — el modelo es menos estable con pocos partidos."},
+    "Bolivia":   {"fuente":"División Profesional 2026 (verificada)", "corte":"01-ago-2026",
+                  "nota":"16 equipos, 12 fechas. Liga ofensiva (3.02 goles/partido, avg=1.51). Always Ready líder 28 GF, 6 GC."},
     "Venezuela": {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Peru":      {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Chile":     {"fuente":"Tabla estática", "corte":"2026", "nota":""},
