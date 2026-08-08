@@ -123,7 +123,7 @@ BK_INIT  = 119613
 LIGAS = {
     "🇪🇸 La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
-    "🇩🇪 Bundesliga":          {"src":"fd","code":"BL1", "avg":1.55, "odds_key":"soccer_germany_bundesliga"},
+    "🇩🇪 Bundesliga":          {"src":"sportsdb","sportsdb_id":4331,"sportsdb_season":"2026-2027","avg":1.55,"odds_key":"soccer_germany_bundesliga","use_odds_fixtures":True,"hist_fallback":"Bundesliga"},
     "🇮🇹 Serie A":             {"src":"fd","code":"SA",  "avg":1.30, "odds_key":"soccer_italy_serie_a"},
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
@@ -616,6 +616,26 @@ HIST_CONMEBOL = {
         ("Newcastle Jets U23",         43, 52, 23), ("Dulwich Hill",          26, 44, 23),
         ("Prospect United",            22, 41, 23), ("Western City Rangers",  26, 46, 23),
     ],
+    "Bundesliga": [
+        # Fuente: Bundesliga 2025-26 final standings (34 jornadas, 306 partidos, 990 goles = 3.24 g/p)
+        # Bayern campeón con 89 pts. Kane goleador (36). Promedio liga: ~1.62 g/equipo/partido.
+        # Equipos que bajan: Wolfsburg (playoff), Heidenheim, St. Pauli
+        # Equipos que suben: Schalke 04, SV Elversberg, SC Paderborn
+        # Los nombres usan formato TheSportsDB para matching directo.
+        # 15 equipos que permanecen (datos reales 2025-26):
+        ("Bayern Munich",              122, 36, 34), ("Borussia Dortmund",      70, 34, 34),
+        ("RB Leipzig",                  66, 47, 34), ("VfB Stuttgart",           71, 49, 34),
+        ("TSG Hoffenheim",              65, 52, 34), ("Bayer Leverkusen",        68, 47, 34),
+        ("SC Freiburg",                 51, 57, 34), ("Eintracht Frankfurt",     61, 65, 34),
+        ("FC Augsburg",                 45, 61, 34), ("FSV Mainz 05",            44, 53, 34),
+        ("Union Berlin",                44, 58, 34), ("Borussia Monchengladbach",42, 53, 34),
+        ("Hamburger SV",                40, 54, 34), ("FC Koln",                 49, 63, 34),
+        ("Werder Bremen",               37, 60, 34),
+        # 3 ascendidos desde 2. Bundesliga — coeficientes estimados (promedio bajo):
+        ("Schalke 04",                  43, 50, 34), # Campeón 2.BL — más competitivo
+        ("SV Elversberg",               38, 55, 34), # Primer ascenso a Bundesliga
+        ("SC Paderborn 07",             40, 53, 34), # Ascendió vía playoff
+    ],
 }
 
 # ─────────────────────────────────────────────
@@ -648,6 +668,8 @@ FUENTE_TABLAS = {
     "Colombia":  {"fuente":"Liga BetPlay Apertura 2026-I (datos oficiales)", "corte":"3-may-2026",
                   "nota":"Tabla final del Apertura (19 fechas, 190 partidos, 2.53 goles/partido). Se blendea con Finalización automáticamente."},
     "Paraguay":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
+    "Bundesliga":{"fuente":"Bundesliga 2025-26 final standings", "corte":"16-may-2026",
+                  "nota":"34 jornadas, 990 goles (3.24 g/p). Bayern campeón (122 GF). Ascendidos: Schalke, Elversberg, Paderborn — coeficientes estimados. Se blendea con datos reales 2026-27 cuando haya suficientes."},
 }
 
 
@@ -716,6 +738,28 @@ NOMBRES_EQUIV = {
         "Nacional Potosí": "Nacional Potosí",
         "Tomayapo": "Real Tomayapo",
         "Vinto": "Universitario de Vinto",
+    },
+    "Bundesliga": {
+        # TheSportsDB → nombre en HIST_CONMEBOL["Bundesliga"]
+        "FC Bayern Munich": "Bayern Munich", "FC Bayern München": "Bayern Munich",
+        "Bayern München": "Bayern Munich", "FC Bayern": "Bayern Munich",
+        "BV Borussia Dortmund": "Borussia Dortmund", "BVB": "Borussia Dortmund",
+        "Rasenballsport Leipzig": "RB Leipzig", "Red Bull Leipzig": "RB Leipzig",
+        "1899 Hoffenheim": "TSG Hoffenheim", "TSG 1899 Hoffenheim": "TSG Hoffenheim",
+        "Bayer 04 Leverkusen": "Bayer Leverkusen", "Bayer 04": "Bayer Leverkusen",
+        "Eintracht Frankfurt": "Eintracht Frankfurt",
+        "1. FC Union Berlin": "Union Berlin", "FC Union Berlin": "Union Berlin",
+        "Borussia Mönchengladbach": "Borussia Monchengladbach",
+        "Borussia M'gladbach": "Borussia Monchengladbach",
+        "VfB Stuttgart": "VfB Stuttgart",
+        "SC Freiburg": "SC Freiburg",
+        "FC Augsburg": "FC Augsburg",
+        "1. FSV Mainz 05": "FSV Mainz 05", "Mainz 05": "FSV Mainz 05", "Mainz": "FSV Mainz 05",
+        "1. FC Köln": "FC Koln", "1. FC Koeln": "FC Koln", "FC Köln": "FC Koln",
+        "SV Werder Bremen": "Werder Bremen",
+        "FC Schalke 04": "Schalke 04", "Schalke": "Schalke 04",
+        "SC Paderborn": "SC Paderborn 07", "Paderborn": "SC Paderborn 07",
+        "Elversberg": "SV Elversberg",
     },
 }
 
@@ -1084,6 +1128,34 @@ ALIASES_EQUIPOS = {
     "millonarios bogota": "millonarios",
     "palestino": "palestino",
     "o'higgins": "o'higgins", "ohiggins": "o'higgins",
+    # Bundesliga — TheSportsDB → tabla hardcodeada
+    "fc bayern munich": "bayern munich", "fc bayern munchen": "bayern munich",
+    "bayern munchen": "bayern munich", "fc bayern": "bayern munich",
+    "bv borussia dortmund": "borussia dortmund", "bvb": "borussia dortmund",
+    "rasenballsport leipzig": "rb leipzig", "red bull leipzig": "rb leipzig",
+    "1899 hoffenheim": "tsg hoffenheim", "tsg 1899 hoffenheim": "tsg hoffenheim",
+    "hoffenheim": "tsg hoffenheim",
+    "bayer 04 leverkusen": "bayer leverkusen", "bayer 04": "bayer leverkusen",
+    "leverkusen": "bayer leverkusen",
+    "1. fc union berlin": "union berlin", "fc union berlin": "union berlin",
+    "borussia monchengladbach": "borussia monchengladbach",
+    "bor. monchengladbach": "borussia monchengladbach",
+    "borussia m'gladbach": "borussia monchengladbach",
+    "gladbach": "borussia monchengladbach", "monchengladbach": "borussia monchengladbach",
+    "1. fsv mainz 05": "fsv mainz 05", "mainz 05": "fsv mainz 05",
+    "1. fc koln": "fc koln", "1. fc koeln": "fc koln",
+    "fc koln": "fc koln", "koln": "fc koln", "cologne": "fc koln",
+    "sv werder bremen": "werder bremen", "bremen": "werder bremen",
+    "fc schalke 04": "schalke 04", "schalke": "schalke 04",
+    "sc paderborn": "sc paderborn 07", "paderborn": "sc paderborn 07",
+    "paderborn 07": "sc paderborn 07",
+    "elversberg": "sv elversberg",
+    "freiburg": "sc freiburg",
+    "augsburg": "fc augsburg",
+    "stuttgart": "vfb stuttgart",
+    "dortmund": "borussia dortmund",
+    "leipzig": "rb leipzig",
+    "frankfurt": "eintracht frankfurt",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
@@ -3115,7 +3187,7 @@ with tab1:
         hist_dinamico = list(hist) if isinstance(hist, list) else []
         
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
-        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS"])
+        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS","Bundesliga"])
         umbral_fallback = 100 if tiene_tabla_verificada else 30
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
@@ -3170,6 +3242,21 @@ with tab1:
             elif "Liga MX" in liga_n or "Mexico" in liga_n:
                 hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla del Apertura 2026-27. Liga MX inició el 16-jul.")
+            elif "Bundesliga" in liga_n:
+                modelo_base = build_model_desde_tabla(HIST_CONMEBOL["Bundesliga"], li["avg"], "Bundesliga")
+                if len(hist_dinamico) >= 30:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
+                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
+                    st.info(f"📊 Modelo híbrido: Bundesliga 2025-26 (base, decay ×0.5) + {len(hist_dinamico)} partidos 2026-27.")
+                else:
+                    hist = modelo_base
+                    n_din = len(hist_dinamico)
+                    if n_din > 0:
+                        st.info(f"📊 Modelo basado en Bundesliga 2025-26. Solo {n_din} partidos de 2026-27 disponibles — se necesitan ≥30 para blend. Temporada inicia 28-ago.")
+                    else:
+                        st.info("📊 Modelo basado en la tabla final de la Bundesliga 2025-26 (18 equipos, 34 jornadas). "
+                                "Ascendidos (Schalke, Elversberg, Paderborn) con coeficientes estimados. "
+                                "La temporada 2026-27 inicia el 28 de agosto — cuando haya ≥30 partidos se blendea automáticamente.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
                 if fb == "MLS":
@@ -3424,7 +3511,7 @@ with tab1:
         _n_eq = len(_equipos_validos)
         _prom = (sum(M[k].get("n",0) for k in _equipos_validos) / _n_eq) if _n_eq else 0
         # No mostrar warning si el modelo viene de tabla verificada (Apertura hardcodeado)
-        es_modelo_verificado = isinstance(hist, dict) and any(x in liga_n for x in ["BetPlay","Argentina","Brasileir","Liga MX","MLS","Copa"])
+        es_modelo_verificado = isinstance(hist, dict) and any(x in liga_n for x in ["BetPlay","Argentina","Brasileir","Liga MX","MLS","Copa","Bundesliga"])
         if _prom < 4 and not es_modelo_verificado:
             st.error(
                 f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
