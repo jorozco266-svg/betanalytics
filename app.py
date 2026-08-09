@@ -337,13 +337,13 @@ HIST_ARGENTINA_2026 = [
     ("Independiente",            24, 20, 16), ("Lanús",                   18, 15, 16),
     ("San Lorenzo",              14, 14, 16), ("Unión",                   24, 20, 16),
     ("Instituto",                17, 17, 16), ("Defensa y Justicia",      18, 21, 16),
-    ("Gimnasia y Esgrima (LP)",  14, 22, 16), ("Platense",                10, 15, 16),
+    ("Gimnasia y Esgrima (M)",  14, 22, 16), ("Platense",                10, 15, 16),
     ("Central Córdoba",          11, 21, 16), ("Newell's Old Boys",       15, 27, 16),
     ("Deportivo Riestra",         5, 12, 16),
     # Grupo B
     ("Independiente Rivadavia",  29, 15, 16), ("River Plate",             22, 12, 16),
     ("Argentinos Juniors",       17, 13, 16), ("Rosario Central",         20, 16, 16),
-    ("Belgrano",                 17, 13, 16), ("Gimnasia y Esgrima (M)",  19, 19, 16),
+    ("Belgrano",                 17, 13, 16), ("Gimnasia y Esgrima (LP)",  19, 19, 16),
     ("Huracán",                  17, 13, 16), ("Racing",                  17, 15, 16),
     ("Barracas Central",         15, 15, 16), ("Tigre",                   18, 15, 16),
     ("Sarmiento",                13, 20, 16), ("Banfield",                17, 19, 16),
@@ -355,7 +355,7 @@ HIST_ARGENTINA_2026 = [
 HIST_ARGENTINA_CLAUSURA_2026 = [
     # Grupo A
     ("Vélez",                     4,  1, 2), ("Independiente",             3,  0, 2),
-    ("Gimnasia y Esgrima (LP)",   3,  1, 3), ("Instituto",                3,  2, 3),
+    ("Gimnasia y Esgrima (M)",   3,  1, 3), ("Instituto",                3,  2, 3),
     ("Newell's Old Boys",         3,  3, 3), ("Defensa y Justicia",       3,  5, 3),
     ("Deportivo Riestra",         4,  3, 3), ("Estudiantes (LP)",         3,  2, 2),
     ("Lanús",                     1,  1, 2), ("San Lorenzo",              1,  1, 2),
@@ -364,7 +364,7 @@ HIST_ARGENTINA_CLAUSURA_2026 = [
     ("Central Córdoba",           0,  3, 2),
     # Grupo B
     ("Argentinos Juniors",        7,  2, 3), ("Barracas Central",         3,  0, 3),
-    ("Gimnasia y Esgrima (M)",    4,  3, 3), ("Atlético Tucumán",         2,  0, 2),
+    ("Gimnasia y Esgrima (LP)",    4,  3, 3), ("Atlético Tucumán",         2,  0, 2),
     ("Independiente Rivadavia",   2,  1, 2), ("Banfield",                 3,  3, 3),
     ("Rosario Central",           2,  2, 3), ("Racing",                   3,  4, 3),
     ("Estudiantes (RC)",          1,  3, 3), ("Tigre",                    3,  2, 2),
