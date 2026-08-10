@@ -124,6 +124,7 @@ LIGAS = {
     "🇪🇸 La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
     "🇩🇪 Bundesliga":          {"src":"sportsdb","sportsdb_id":4331,"sportsdb_season":"2026-2027","avg":1.55,"odds_key":"soccer_germany_bundesliga","use_odds_fixtures":True,"hist_fallback":"Bundesliga"},
+    "🇩🇪 2. Bundesliga":        {"src":"sportsdb","sportsdb_id":4399,"sportsdb_season":"2026-2027","avg":1.46,"odds_key":"soccer_germany_bundesliga2","use_odds_fixtures":True,"hist_fallback":"Bundesliga2"},
     "🇮🇹 Serie A":             {"src":"fd","code":"SA",  "avg":1.30, "odds_key":"soccer_italy_serie_a"},
     "🇫🇷 Ligue 1":             {"src":"fd","code":"FL1", "avg":1.35, "odds_key":"soccer_france_ligue_one"},
     "🇵🇹 Primeira Liga":       {"src":"fd","code":"PPL", "avg":1.30, "odds_key":None},
@@ -160,7 +161,7 @@ LIGAS = {
                                 "avg":1.13, "odds_key":"soccer_korea_kleague1","use_odds_fixtures":True},
     "🇦🇷 Liga Argentina":      {"src":"sportsdb","sportsdb_id":4406,"sportsdb_season":"2026","avg":1.03,"odds_key":"soccer_argentina_primera_division","use_odds_fixtures":True},
     "🇧🇷 Brasileirao":         {"src":"sportsdb","sportsdb_id":4351,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_brazil_campeonato","use_odds_fixtures":True},
-    "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_de_Primera","avg":1.25,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
+    "🇨🇱 Chile - Liga 1ª":    {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Chilean_Primera_Divisi%C3%B3n","avg":1.40,"odds_key":"soccer_chile_campeonato","use_odds_fixtures":True,"sportsdb_id":4627,"hist_fallback":"Chile"},
     "🇺🇾 Uruguay - Clausura":  {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n","avg":1.30,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4432,"hist_fallback":"Uruguay"},
     "🇵🇾 Paraguay - Div Prof": {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Copa_de_Primera","avg":1.25,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4687,"hist_fallback":"Paraguay"},
     "🇵🇪 Perú - Liga 1":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Liga_1_(Peru)","avg":1.32,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":4688,"hist_fallback":"Peru"},
@@ -337,13 +338,13 @@ HIST_ARGENTINA_2026 = [
     ("Independiente",            24, 20, 16), ("Lanús",                   18, 15, 16),
     ("San Lorenzo",              14, 14, 16), ("Unión",                   24, 20, 16),
     ("Instituto",                17, 17, 16), ("Defensa y Justicia",      18, 21, 16),
-    ("Gimnasia y Esgrima (M)",  14, 22, 16), ("Platense",                10, 15, 16),
+    ("Gimnasia y Esgrima (LP)",  14, 22, 16), ("Platense",                10, 15, 16),
     ("Central Córdoba",          11, 21, 16), ("Newell's Old Boys",       15, 27, 16),
     ("Deportivo Riestra",         5, 12, 16),
     # Grupo B
     ("Independiente Rivadavia",  29, 15, 16), ("River Plate",             22, 12, 16),
     ("Argentinos Juniors",       17, 13, 16), ("Rosario Central",         20, 16, 16),
-    ("Belgrano",                 17, 13, 16), ("Gimnasia y Esgrima (LP)",  19, 19, 16),
+    ("Belgrano",                 17, 13, 16), ("Gimnasia y Esgrima (M)",  19, 19, 16),
     ("Huracán",                  17, 13, 16), ("Racing",                  17, 15, 16),
     ("Barracas Central",         15, 15, 16), ("Tigre",                   18, 15, 16),
     ("Sarmiento",                13, 20, 16), ("Banfield",                17, 19, 16),
@@ -355,7 +356,7 @@ HIST_ARGENTINA_2026 = [
 HIST_ARGENTINA_CLAUSURA_2026 = [
     # Grupo A
     ("Vélez",                     4,  1, 2), ("Independiente",             3,  0, 2),
-    ("Gimnasia y Esgrima (M)",   3,  1, 3), ("Instituto",                3,  2, 3),
+    ("Gimnasia y Esgrima (LP)",   3,  1, 3), ("Instituto",                3,  2, 3),
     ("Newell's Old Boys",         3,  3, 3), ("Defensa y Justicia",       3,  5, 3),
     ("Deportivo Riestra",         4,  3, 3), ("Estudiantes (LP)",         3,  2, 2),
     ("Lanús",                     1,  1, 2), ("San Lorenzo",              1,  1, 2),
@@ -364,7 +365,7 @@ HIST_ARGENTINA_CLAUSURA_2026 = [
     ("Central Córdoba",           0,  3, 2),
     # Grupo B
     ("Argentinos Juniors",        7,  2, 3), ("Barracas Central",         3,  0, 3),
-    ("Gimnasia y Esgrima (LP)",    4,  3, 3), ("Atlético Tucumán",         2,  0, 2),
+    ("Gimnasia y Esgrima (M)",    4,  3, 3), ("Atlético Tucumán",         2,  0, 2),
     ("Independiente Rivadavia",   2,  1, 2), ("Banfield",                 3,  3, 3),
     ("Rosario Central",           2,  2, 3), ("Racing",                   3,  4, 3),
     ("Estudiantes (RC)",          1,  3, 3), ("Tigre",                    3,  2, 2),
@@ -398,27 +399,29 @@ HIST_BETPLAY_APERTURA_2026 = [
     ("Deportivo Pereira",       15, 32, 19),
 ]
 
-# ── Liga BetPlay Clausura 2026 — Tabla dinámica (actualizada 01-ago-2026) ──
-# Fuente: Datos verificados por usuario · Fecha 1-2
+# ── Liga BetPlay Clausura 2026 — Tabla dinámica (actualizada 09-ago-2026) ──
+# Fuente: Captura Rushbet — Fase de grupos (Clausura 2026-II) · 2–4 fechas jugadas
 HIST_BETPLAY_CLAUSURA_2026 = [
-    ("Atlético Bucaramanga",     2,  1, 2),
-    ("Llaneros",                 2,  1, 2),
-    ("Once Caldas",              5,  1, 1),
-    ("América de Cali",          2,  0, 1),
-    ("Deportivo Cali",           2,  0, 1),
-    ("Independiente Medellín",   3,  2, 1),
-    ("Águilas Doradas",          2,  1, 1),
-    ("Deportes Tolima",          2,  1, 1),
-    ("Fortaleza",                1,  1, 2),
-    ("Alianza FC",               1,  1, 1),
-    ("Deportivo Pereira",        0,  1, 2),
-    ("Deportivo Pasto",          2,  3, 1),
-    ("Junior",                   1,  2, 1),
-    ("Independiente Santa Fe",   1,  2, 1),
-    ("Millonarios",              0,  1, 1),
-    ("Internacional de Bogotá",  0,  2, 1),
-    ("Jaguares",                 0,  2, 1),
-    ("Cúcuta Deportivo",         1,  5, 1),
+    ("América de Cali",          11,  0, 4),
+    ("Independiente Medellín",    7,  4, 3),
+    ("Deportes Tolima",           8,  6, 4),
+    ("Atlético Bucaramanga",      6,  4, 4),
+    ("Llaneros",                  5,  2, 3),
+    ("Deportivo Cali",            4,  1, 3),
+    ("Águilas Doradas",           4,  2, 2),
+    ("Millonarios",               3,  1, 3),
+    ("Once Caldas",               8,  5, 4),
+    ("Fortaleza",                 4,  4, 4),
+    ("Independiente Santa Fe",    5,  4, 3),
+    ("Atlético Nacional",         3,  1, 2),
+    ("Internacional de Bogotá",   2,  4, 3),
+    ("Deportivo Pereira",         0,  1, 2),
+    ("Alianza FC",                4,  6, 3),
+    ("Cúcuta Deportivo",          2,  8, 3),
+    ("Jaguares",                  1,  7, 4),
+    ("Junior",                    1,  3, 2),
+    ("Deportivo Pasto",           3,  9, 4),
+    ("Boyacá Chicó",              0,  9, 2),
 ]
 
 # ── Torneo BetPlay (Primera B) Apertura 2026 — 8 equipos clasificados a cuadrangulares ──
@@ -481,14 +484,17 @@ HIST_LIGAMX_2026 = [
 # ─────────────────────────────────────────────
 HIST_CONMEBOL = {
     "Chile": [
-        ("Colo-Colo",            28, 12, 15), ("Universidad de Chile",  24, 14, 15),
-        ("Universidad Católica", 22, 15, 15), ("Coquimbo Unido",        20, 15, 14),
-        ("Huachipato",           19, 16, 15), ("Audax Italiano",        18, 17, 14),
-        ("O'Higgins",            17, 18, 15), ("Ñublense",              16, 17, 14),
-        ("Cobresal",             15, 18, 14), ("Palestino",             14, 18, 15),
-        ("Everton",              13, 19, 14), ("Cobreloa",              12, 20, 14),
-        ("Deportes Iquique",     11, 21, 14), ("Deportes Antofagasta",  10, 22, 14),
-        ("Rangers",               9, 23, 14), ("Unión La Calera",        8, 24, 14),
+        # Fuente: Captura Rushbet/BeSoccer — Primera División Chile 2026
+        # Actualizada al 08-ago-2026 · 16–18 fechas jugadas
+        # 16 equipos · ~2.83 goles/partido (385 goles en ~136 partidos)
+        ("Colo-Colo",               36, 16, 17), ("Universidad Católica",   40, 26, 18),
+        ("Universidad de Chile",    21, 11, 17), ("Palestino",              25, 24, 17),
+        ("Everton",                 24, 20, 18), ("Ñublense",               20, 19, 16),
+        ("Coquimbo Unido",          23, 20, 16), ("Huachipato",             26, 28, 18),
+        ("O'Higgins",               21, 25, 17), ("Deportes Limache",       31, 26, 16),
+        ("Concepción",              19, 23, 17), ("Audax Italiano",         20, 23, 17),
+        ("La Serena",               25, 30, 17), ("Univ. de Concepción",    13, 27, 16),
+        ("Cobresal",                26, 34, 18), ("Unión La Calera",        15, 33, 17),
     ],
     "Uruguay": [
         # Fuente: FOX Sports — TABLA ANUAL 2026 = Apertura (15 fechas) + Intermedio (~4 fechas)
@@ -636,6 +642,27 @@ HIST_CONMEBOL = {
         ("SV Elversberg",               38, 55, 34), # Primer ascenso a Bundesliga
         ("SC Paderborn 07",             40, 53, 34), # Ascendió vía playoff
     ],
+    "Bundesliga2": [
+        # Fuente: 2. Bundesliga 2025-26 — Wikipedia cross-table (escalado 24→34 jornadas)
+        # 306 partidos, 897 goles (2.93 g/p). Schalke campeón. avg/equipo = 1.46
+        # Equipos que suben a BL: Schalke 04, SV Elversberg, SC Paderborn
+        # Equipos que bajan a 3.Liga: Fortuna Düsseldorf, Preußen Münster
+        # Los 13 equipos que permanecen (datos escalados de 2025-26):
+        ("Hertha BSC",               48, 41, 34), ("Arminia Bielefeld",      51, 47, 34),
+        ("VfL Bochum",               45, 42, 34), ("Eintracht Braunschweig", 38, 60, 34),
+        ("Darmstadt 98",             64, 40, 34), ("Dynamo Dresden",         50, 58, 34),
+        ("Greuther Fuerth",          50, 78, 34), ("Hannover 96",            60, 42, 34),
+        ("1. FC Kaiserslautern",     57, 50, 34), ("Karlsruher SC",          52, 62, 34),
+        ("Holstein Kiel",            41, 50, 34), ("1. FC Magdeburg",        50, 67, 34),
+        ("1. FC Nuernberg",          44, 48, 34),
+        # 3 descendidos desde Bundesliga (datos BL 2025-26, ajustados para nivel 2.BL):
+        ("VfL Wolfsburg",            50, 55, 34), # 16° en BL, debería ser top en 2.BL
+        ("1. FC Heidenheim",         45, 58, 34), # 17° en BL
+        ("FC St. Pauli",             32, 48, 34), # 18° en BL
+        # 2 ascendidos desde 3. Liga — coeficientes estimados (media-baja):
+        ("VfL Osnabrueck",           38, 48, 34), # Campeón 3.Liga
+        ("Energie Cottbus",          36, 50, 34), # 2° en 3.Liga
+    ],
 }
 
 # ─────────────────────────────────────────────
@@ -664,12 +691,15 @@ FUENTE_TABLAS = {
                   "nota":"16 equipos, 12 fechas. Liga ofensiva (3.02 goles/partido, avg=1.51). Always Ready líder 28 GF, 6 GC."},
     "Venezuela": {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Peru":      {"fuente":"Tabla estática", "corte":"2026", "nota":""},
-    "Chile":     {"fuente":"Tabla estática", "corte":"2026", "nota":""},
-    "Colombia":  {"fuente":"Liga BetPlay Apertura 2026-I (datos oficiales)", "corte":"3-may-2026",
-                  "nota":"Tabla final del Apertura (19 fechas, 190 partidos, 2.53 goles/partido). Se blendea con Finalización automáticamente."},
+    "Chile":     {"fuente":"Captura Rushbet/BeSoccer", "corte":"08-ago-2026",
+                  "nota":"16 equipos, 16–18 fechas jugadas. ~2.83 g/p. Colo-Colo líder con 42 pts."},
+    "Colombia":  {"fuente":"Liga BetPlay Apertura 2026-I (datos oficiales) + Clausura 2026-II (Rushbet)", "corte":"09-ago-2026",
+                  "nota":"Apertura: tabla final (19 fechas, 480 goles). Clausura: fase de grupos, 2–4 fechas. Blend con decay 0.8 (Apertura base, Clausura reciente)."},
     "Paraguay":  {"fuente":"Tabla estática", "corte":"2026", "nota":""},
     "Bundesliga":{"fuente":"Bundesliga 2025-26 final standings", "corte":"16-may-2026",
                   "nota":"34 jornadas, 990 goles (3.24 g/p). Bayern campeón (122 GF). Ascendidos: Schalke, Elversberg, Paderborn — coeficientes estimados. Se blendea con datos reales 2026-27 cuando haya suficientes."},
+    "Bundesliga2":{"fuente":"2. Bundesliga 2025-26 (escalado 24→34 jornadas)", "corte":"01-mar-2026",
+                   "nota":"897 goles (2.93 g/p). Schalke campeón. Descendidos BL (Wolfsburg, Heidenheim, St.Pauli) y ascendidos 3.Liga (Osnabrück, Cottbus) con coeficientes estimados."},
 }
 
 
@@ -707,9 +737,14 @@ NOMBRES_EQUIV = {
         "Univ. de Chile": "Universidad de Chile",
         "Univ. Católica": "Universidad Católica",
         "O'Higgins": "O'Higgins",
-        "Iquique": "Deportes Iquique",
-        "Antofagasta": "Deportes Antofagasta",
-        "La Calera": "Unión La Calera",
+        "La Calera": "Unión La Calera", "U. La Calera": "Unión La Calera",
+        "Limache": "Deportes Limache", "D. Limache": "Deportes Limache",
+        "Dep. Limache": "Deportes Limache",
+        "U. de Concepción": "Univ. de Concepción",
+        "Universidad de Concepción": "Univ. de Concepción",
+        "Univ. Concepción": "Univ. de Concepción",
+        "Deportes La Serena": "La Serena",
+        "D. La Serena": "La Serena",
     },
     "Ecuador": {
         "LDU": "LDU Quito", "Liga de Quito": "LDU Quito",
@@ -760,6 +795,30 @@ NOMBRES_EQUIV = {
         "FC Schalke 04": "Schalke 04", "Schalke": "Schalke 04",
         "SC Paderborn": "SC Paderborn 07", "Paderborn": "SC Paderborn 07",
         "Elversberg": "SV Elversberg",
+    },
+    "Bundesliga2": {
+        # TheSportsDB → nombre en HIST_CONMEBOL["Bundesliga2"]
+        "Hertha Berlin": "Hertha BSC", "Hertha": "Hertha BSC",
+        "DSC Arminia Bielefeld": "Arminia Bielefeld", "Bielefeld": "Arminia Bielefeld",
+        "Bochum": "VfL Bochum",
+        "Braunschweig": "Eintracht Braunschweig",
+        "SV Darmstadt 98": "Darmstadt 98", "Darmstadt": "Darmstadt 98",
+        "SG Dynamo Dresden": "Dynamo Dresden", "Dresden": "Dynamo Dresden",
+        "SpVgg Greuther Fürth": "Greuther Fuerth", "Greuther Furth": "Greuther Fuerth",
+        "Fürth": "Greuther Fuerth", "Fuerth": "Greuther Fuerth",
+        "Hannover": "Hannover 96",
+        "Kaiserslautern": "1. FC Kaiserslautern", "FCK": "1. FC Kaiserslautern",
+        "Karlsruhe": "Karlsruher SC", "KSC": "Karlsruher SC",
+        "Kiel": "Holstein Kiel",
+        "Magdeburg": "1. FC Magdeburg", "FCM": "1. FC Magdeburg",
+        "1. FC Nürnberg": "1. FC Nuernberg", "Nürnberg": "1. FC Nuernberg",
+        "Nurnberg": "1. FC Nuernberg", "Nuernberg": "1. FC Nuernberg",
+        "Wolfsburg": "VfL Wolfsburg",
+        "Heidenheim": "1. FC Heidenheim",
+        "St. Pauli": "FC St. Pauli", "Sankt Pauli": "FC St. Pauli",
+        "Osnabrück": "VfL Osnabrueck", "Osnabrueck": "VfL Osnabrueck",
+        "VfL Osnabrück": "VfL Osnabrueck",
+        "Cottbus": "Energie Cottbus",
     },
 }
 
@@ -1128,6 +1187,15 @@ ALIASES_EQUIPOS = {
     "millonarios bogota": "millonarios",
     "palestino": "palestino",
     "o'higgins": "o'higgins", "ohiggins": "o'higgins",
+    # Chile 2026 — equipos nuevos
+    "deportes limache": "deportes limache", "limache": "deportes limache",
+    "d. limache": "deportes limache", "dep. limache": "deportes limache",
+    "concepcion": "concepcion",
+    "univ. de concepcion": "univ. de concepcion",
+    "universidad de concepcion": "univ. de concepcion",
+    "u. de concepcion": "univ. de concepcion",
+    "la serena": "la serena", "deportes la serena": "la serena",
+    "d. la serena": "la serena",
     # Bundesliga — TheSportsDB → tabla hardcodeada
     "fc bayern munich": "bayern munich", "fc bayern munchen": "bayern munich",
     "bayern munchen": "bayern munich", "fc bayern": "bayern munich",
@@ -1156,6 +1224,27 @@ ALIASES_EQUIPOS = {
     "dortmund": "borussia dortmund",
     "leipzig": "rb leipzig",
     "frankfurt": "eintracht frankfurt",
+    # 2. Bundesliga — equipos
+    "hertha bsc": "hertha bsc", "hertha berlin": "hertha bsc", "hertha": "hertha bsc",
+    "arminia bielefeld": "arminia bielefeld", "bielefeld": "arminia bielefeld",
+    "vfl bochum": "vfl bochum", "bochum": "vfl bochum",
+    "eintracht braunschweig": "eintracht braunschweig", "braunschweig": "eintracht braunschweig",
+    "darmstadt 98": "darmstadt 98", "sv darmstadt 98": "darmstadt 98", "darmstadt": "darmstadt 98",
+    "dynamo dresden": "dynamo dresden", "sg dynamo dresden": "dynamo dresden", "dresden": "dynamo dresden",
+    "greuther fuerth": "greuther fuerth", "spvgg greuther furth": "greuther fuerth",
+    "greuther furth": "greuther fuerth", "fuerth": "greuther fuerth", "furth": "greuther fuerth",
+    "hannover 96": "hannover 96", "hannover": "hannover 96",
+    "1. fc kaiserslautern": "1. fc kaiserslautern", "kaiserslautern": "1. fc kaiserslautern",
+    "karlsruher sc": "karlsruher sc", "karlsruhe": "karlsruher sc",
+    "holstein kiel": "holstein kiel", "kiel": "holstein kiel",
+    "1. fc magdeburg": "1. fc magdeburg", "magdeburg": "1. fc magdeburg",
+    "1. fc nuernberg": "1. fc nuernberg", "1. fc nurnberg": "1. fc nuernberg",
+    "nurnberg": "1. fc nuernberg", "nuernberg": "1. fc nuernberg",
+    "vfl wolfsburg": "vfl wolfsburg", "wolfsburg": "vfl wolfsburg",
+    "1. fc heidenheim": "1. fc heidenheim", "heidenheim": "1. fc heidenheim",
+    "fc st. pauli": "fc st. pauli", "st. pauli": "fc st. pauli", "st pauli": "fc st. pauli",
+    "vfl osnabrueck": "vfl osnabrueck", "osnabrueck": "vfl osnabrueck", "osnabruck": "vfl osnabrueck",
+    "energie cottbus": "energie cottbus", "cottbus": "energie cottbus",
 }
 
 def mostrar_memoria_equipo(nombre, info, rol="local"):
@@ -3187,7 +3276,7 @@ with tab1:
         hist_dinamico = list(hist) if isinstance(hist, list) else []
         
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
-        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS","Bundesliga"])
+        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS","Bundesliga","2. Bundesliga"])
         umbral_fallback = 100 if tiene_tabla_verificada else 30
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
@@ -3242,7 +3331,7 @@ with tab1:
             elif "Liga MX" in liga_n or "Mexico" in liga_n:
                 hist = build_model_desde_tabla(HIST_LIGAMX_2026, li["avg"])
                 st.info("📊 Modelo basado en tabla del Apertura 2026-27. Liga MX inició el 16-jul.")
-            elif "Bundesliga" in liga_n:
+            elif "Bundesliga" in liga_n and "2." not in liga_n:
                 modelo_base = build_model_desde_tabla(HIST_CONMEBOL["Bundesliga"], li["avg"], "Bundesliga")
                 if len(hist_dinamico) >= 30:
                     modelo_reciente = build_model(hist_dinamico, li["avg"])
@@ -3257,6 +3346,20 @@ with tab1:
                         st.info("📊 Modelo basado en la tabla final de la Bundesliga 2025-26 (18 equipos, 34 jornadas). "
                                 "Ascendidos (Schalke, Elversberg, Paderborn) con coeficientes estimados. "
                                 "La temporada 2026-27 inicia el 28 de agosto — cuando haya ≥30 partidos se blendea automáticamente.")
+            elif "2. Bundesliga" in liga_n:
+                modelo_base = build_model_desde_tabla(HIST_CONMEBOL["Bundesliga2"], li["avg"], "Bundesliga2")
+                if len(hist_dinamico) >= 30:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
+                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
+                    st.info(f"📊 Modelo híbrido: 2. Bundesliga 2025-26 (base, decay ×0.5) + {len(hist_dinamico)} partidos 2026-27.")
+                else:
+                    hist = modelo_base
+                    n_din = len(hist_dinamico)
+                    if n_din > 0:
+                        st.info(f"📊 Modelo basado en 2. Bundesliga 2025-26. {n_din} partidos de 2026-27 disponibles — se necesitan ≥30 para blend.")
+                    else:
+                        st.info("📊 Modelo basado en la 2. Bundesliga 2025-26 (18 equipos, datos escalados). "
+                                "Descendidos de BL (Wolfsburg, Heidenheim, St.Pauli) y ascendidos de 3.Liga (Osnabrück, Cottbus) con coeficientes estimados.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
                 if fb == "MLS":
@@ -3511,7 +3614,7 @@ with tab1:
         _n_eq = len(_equipos_validos)
         _prom = (sum(M[k].get("n",0) for k in _equipos_validos) / _n_eq) if _n_eq else 0
         # No mostrar warning si el modelo viene de tabla verificada (Apertura hardcodeado)
-        es_modelo_verificado = isinstance(hist, dict) and any(x in liga_n for x in ["BetPlay","Argentina","Brasileir","Liga MX","MLS","Copa","Bundesliga"])
+        es_modelo_verificado = isinstance(hist, dict) and any(x in liga_n for x in ["BetPlay","Argentina","Brasileir","Liga MX","MLS","Copa","Bundesliga","2. Bundesliga"])
         if _prom < 4 and not es_modelo_verificado:
             st.error(
                 f"🚨 **Cobertura insuficiente: {len(hist)} partidos para {_n_eq} equipos "
