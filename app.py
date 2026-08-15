@@ -121,7 +121,7 @@ BK_INIT  = 119613
 # Liga: source indica de dónde se obtienen los datos
 # fd = football-data.org | rf = api-football (RapidAPI)
 LIGAS = {
-    "🇪🇸 La Liga":            {"src":"fd","code":"PD",  "avg":1.35, "odds_key":"soccer_spain_la_liga"},
+    "🇪🇸 La Liga":            {"src":"sportsdb","sportsdb_id":4335,"sportsdb_season":"2026-2027","avg":1.35,"odds_key":"soccer_spain_la_liga","use_odds_fixtures":True,"hist_fallback":"LaLiga"},
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League":    {"src":"fd","code":"PL",  "avg":1.40, "odds_key":"soccer_epl"},
     "🇩🇪 Bundesliga":          {"src":"sportsdb","sportsdb_id":4331,"sportsdb_season":"2026-2027","avg":1.55,"odds_key":"soccer_germany_bundesliga","use_odds_fixtures":True,"hist_fallback":"Bundesliga"},
     "🇩🇪 2. Bundesliga":        {"src":"sportsdb","sportsdb_id":4399,"sportsdb_season":"2026-2027","avg":1.46,"odds_key":"soccer_germany_bundesliga2","use_odds_fixtures":True,"hist_fallback":"Bundesliga2"},
@@ -663,6 +663,28 @@ HIST_CONMEBOL = {
         ("VfL Osnabrueck",           38, 48, 34), # Campeón 3.Liga
         ("Energie Cottbus",          36, 50, 34), # 2° en 3.Liga
     ],
+    "LaLiga": [
+        # Fuente: Sporting Life / Wikipedia — La Liga 2025-26 final standings
+        # 380 partidos, 1024 goles (2.69 g/p). Barcelona campeón (29° título). Mbappé goleador (25).
+        # avg/equipo = 1024/(380*2) ≈ 1.35 g/equipo/partido.
+        # Equipos que bajan: Mallorca, Girona, Oviedo
+        # Equipos que suben: Racing Santander, Deportivo La Coruña, Málaga
+        # Los nombres usan formato football-data.org / TheSportsDB para matching directo.
+        # 17 equipos que permanecen (datos reales 2025-26, 38 PJ):
+        ("Barcelona",            95, 36, 38), ("Real Madrid",          77, 35, 38),
+        ("Villarreal",           72, 46, 38), ("Atletico Madrid",      62, 44, 38),
+        ("Real Betis",           59, 48, 38), ("Celta Vigo",           53, 48, 38),
+        ("Getafe",               32, 38, 38), ("Rayo Vallecano",       41, 44, 38),
+        ("Valencia",             46, 55, 38), ("Real Sociedad",        59, 61, 38),
+        ("Espanyol",             43, 55, 38), ("Athletic Club",        43, 58, 38),
+        ("Sevilla",              46, 60, 38), ("Alaves",               44, 56, 38),
+        ("Elche",                49, 57, 38), ("Levante",              47, 61, 38),
+        ("Osasuna",              44, 50, 38),
+        # 3 ascendidos desde Segunda División — coeficientes estimados (promedio bajo-medio):
+        ("Racing Santander",     40, 50, 38), # Campeón 2ª — más competitivo
+        ("Deportivo La Coruna",  38, 52, 38), # 2° en 2ª — buen nivel
+        ("Malaga",               36, 54, 38), # 3° en 2ª (playoff) — primer ascenso en años
+    ],
 }
 
 # ─────────────────────────────────────────────
@@ -700,6 +722,8 @@ FUENTE_TABLAS = {
                   "nota":"34 jornadas, 990 goles (3.24 g/p). Bayern campeón (122 GF). Ascendidos: Schalke, Elversberg, Paderborn — coeficientes estimados. Se blendea con datos reales 2026-27 cuando haya suficientes."},
     "Bundesliga2":{"fuente":"2. Bundesliga 2025-26 (escalado 24→34 jornadas)", "corte":"01-mar-2026",
                    "nota":"897 goles (2.93 g/p). Schalke campeón. Descendidos BL (Wolfsburg, Heidenheim, St.Pauli) y ascendidos 3.Liga (Osnabrück, Cottbus) con coeficientes estimados."},
+    "LaLiga":    {"fuente":"La Liga 2025-26 final standings (Sporting Life / Wikipedia)", "corte":"24-may-2026",
+                  "nota":"380 partidos, 1024 goles (2.69 g/p). Barcelona bicampeón (95 GF). Ascendidos: Racing Santander, Deportivo, Málaga — coeficientes estimados. Se blendea con datos reales 2026-27 cuando haya ≥30 partidos."},
 }
 
 
@@ -795,6 +819,31 @@ NOMBRES_EQUIV = {
         "FC Schalke 04": "Schalke 04", "Schalke": "Schalke 04",
         "SC Paderborn": "SC Paderborn 07", "Paderborn": "SC Paderborn 07",
         "Elversberg": "SV Elversberg",
+    },
+    "LaLiga": {
+        # TheSportsDB / football-data / Odds API → nombre en HIST_CONMEBOL["LaLiga"]
+        "FC Barcelona": "Barcelona", "Barça": "Barcelona", "Barca": "Barcelona",
+        "Real Madrid CF": "Real Madrid",
+        "Villarreal CF": "Villarreal",
+        "Club Atletico de Madrid": "Atletico Madrid", "Atlético de Madrid": "Atletico Madrid",
+        "Atlético Madrid": "Atletico Madrid", "Atletico de Madrid": "Atletico Madrid",
+        "Real Betis Balompié": "Real Betis", "Real Betis Balompie": "Real Betis", "Betis": "Real Betis",
+        "RC Celta de Vigo": "Celta Vigo", "Celta de Vigo": "Celta Vigo", "Celta": "Celta Vigo",
+        "Getafe CF": "Getafe",
+        "Rayo Vallecano de Madrid": "Rayo Vallecano", "Rayo": "Rayo Vallecano",
+        "Valencia CF": "Valencia",
+        "Real Sociedad de Fútbol": "Real Sociedad", "Real Sociedad de Futbol": "Real Sociedad",
+        "RCD Espanyol": "Espanyol", "RCD Espanyol de Barcelona": "Espanyol",
+        "Athletic Club": "Athletic Club", "Athletic Bilbao": "Athletic Club", "Athletic": "Athletic Club",
+        "Sevilla FC": "Sevilla",
+        "Deportivo Alavés": "Alaves", "Deportivo Alaves": "Alaves", "Alavés": "Alaves",
+        "Elche CF": "Elche",
+        "Levante UD": "Levante",
+        "CA Osasuna": "Osasuna",
+        "Racing de Santander": "Racing Santander", "Racing Club de Santander": "Racing Santander", "Racing": "Racing Santander",
+        "Deportivo de La Coruña": "Deportivo La Coruna", "RC Deportivo": "Deportivo La Coruna",
+        "Deportivo La Coruña": "Deportivo La Coruna", "Deportivo": "Deportivo La Coruna",
+        "Málaga CF": "Malaga", "Málaga": "Malaga",
     },
     "Bundesliga2": {
         # TheSportsDB → nombre en HIST_CONMEBOL["Bundesliga2"]
@@ -3276,7 +3325,7 @@ with tab1:
         hist_dinamico = list(hist) if isinstance(hist, list) else []
         
         # Fallback con tabla estática si TheSportsDB retorna pocos partidos
-        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS","Bundesliga","2. Bundesliga"])
+        tiene_tabla_verificada = any(x in liga_n for x in ["BetPlay","Torneo","Dimayor","Argentina","Brasileir","Brasil","Liga MX","Mexico","MLS","Bundesliga","2. Bundesliga","La Liga"])
         umbral_fallback = 100 if tiene_tabla_verificada else 30
         if len(hist) < umbral_fallback:
             fb = li.get("hist_fallback")
@@ -3360,6 +3409,21 @@ with tab1:
                     else:
                         st.info("📊 Modelo basado en la 2. Bundesliga 2025-26 (18 equipos, datos escalados). "
                                 "Descendidos de BL (Wolfsburg, Heidenheim, St.Pauli) y ascendidos de 3.Liga (Osnabrück, Cottbus) con coeficientes estimados.")
+            elif "La Liga" in liga_n:
+                modelo_base = build_model_desde_tabla(HIST_CONMEBOL["LaLiga"], li["avg"], "LaLiga")
+                if len(hist_dinamico) >= 30:
+                    modelo_reciente = build_model(hist_dinamico, li["avg"])
+                    hist = blend_models(modelo_base, modelo_reciente, decay_base=0.5)
+                    st.info(f"📊 Modelo híbrido: La Liga 2025-26 (base, decay ×0.5) + {len(hist_dinamico)} partidos 2026-27.")
+                else:
+                    hist = modelo_base
+                    n_din = len(hist_dinamico)
+                    if n_din > 0:
+                        st.info(f"📊 Modelo basado en La Liga 2025-26. Solo {n_din} partidos de 2026-27 disponibles — se necesitan ≥30 para blend.")
+                    else:
+                        st.info("📊 Modelo basado en la tabla final de La Liga 2025-26 (20 equipos, 38 jornadas, 1024 goles). "
+                                "Ascendidos (Racing Santander, Deportivo, Málaga) con coeficientes estimados. "
+                                "Temporada 2026-27 inicia hoy 15-ago — cuando haya ≥30 partidos se blendea automáticamente.")
             elif fb and fb in HIST_CONMEBOL:
                 hist = build_model_desde_tabla(HIST_CONMEBOL[fb], li["avg"], fb)
                 if fb == "MLS":
