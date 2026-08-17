@@ -359,8 +359,10 @@ def main():
                 new_n = data.get("meta", {}).get("total_matches", 0)
                 old_fix = len(existing.get("fixtures", []))
                 new_fix = len(data.get("fixtures", []))
+                old_has_hist = "hist_season" in existing
+                new_has_hist = "hist_season" in data
 
-                if new_n == old_n and new_fix == old_fix and new_n > 0:
+                if new_n == old_n and new_fix == old_fix and new_n > 0 and old_has_hist == new_has_hist:
                     log.info(f"  — No changes (matches={new_n}, fixtures={new_fix})")
                     continue
 
