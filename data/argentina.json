@@ -4,7 +4,7 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "thesportsdb",
-    "last_updated": "2026-08-17T17:46:32.417699+00:00",
+    "last_updated": "2026-08-17T22:17:19.703654+00:00",
     "avg_goals": 1.03,
     "total_matches": 5,
     "total_goals": 5,
@@ -154,5 +154,162 @@
       "matchday": "1"
     }
   ],
-  "fixtures": []
+  "fixtures": [],
+  "hist_season": {
+    "season": "Apertura 2026",
+    "pj_per_team": 16,
+    "note": "30 equipos en 2 grupos de 15, 16 PJ. GF=GC=493. Datos verificados.",
+    "teams": [
+      {
+        "team": "Estudiantes (LP)",
+        "gf": 19,
+        "ga": 7
+      },
+      {
+        "team": "Boca Juniors",
+        "gf": 22,
+        "ga": 9
+      },
+      {
+        "team": "Vélez",
+        "gf": 18,
+        "ga": 12
+      },
+      {
+        "team": "Talleres (C)",
+        "gf": 17,
+        "ga": 13
+      },
+      {
+        "team": "Independiente",
+        "gf": 24,
+        "ga": 20
+      },
+      {
+        "team": "Lanús",
+        "gf": 18,
+        "ga": 15
+      },
+      {
+        "team": "San Lorenzo",
+        "gf": 14,
+        "ga": 14
+      },
+      {
+        "team": "Unión",
+        "gf": 24,
+        "ga": 20
+      },
+      {
+        "team": "Instituto",
+        "gf": 17,
+        "ga": 17
+      },
+      {
+        "team": "Defensa y Justicia",
+        "gf": 18,
+        "ga": 21
+      },
+      {
+        "team": "Gimnasia y Esgrima (LP)",
+        "gf": 14,
+        "ga": 22
+      },
+      {
+        "team": "Platense",
+        "gf": 10,
+        "ga": 15
+      },
+      {
+        "team": "Central Córdoba",
+        "gf": 11,
+        "ga": 21
+      },
+      {
+        "team": "Newell's Old Boys",
+        "gf": 15,
+        "ga": 27
+      },
+      {
+        "team": "Deportivo Riestra",
+        "gf": 5,
+        "ga": 12
+      },
+      {
+        "team": "Independiente Rivadavia",
+        "gf": 29,
+        "ga": 15
+      },
+      {
+        "team": "River Plate",
+        "gf": 22,
+        "ga": 12
+      },
+      {
+        "team": "Argentinos Juniors",
+        "gf": 17,
+        "ga": 13
+      },
+      {
+        "team": "Rosario Central",
+        "gf": 20,
+        "ga": 16
+      },
+      {
+        "team": "Belgrano",
+        "gf": 17,
+        "ga": 13
+      },
+      {
+        "team": "Gimnasia y Esgrima (M)",
+        "gf": 19,
+        "ga": 19
+      },
+      {
+        "team": "Huracán",
+        "gf": 17,
+        "ga": 13
+      },
+      {
+        "team": "Racing",
+        "gf": 17,
+        "ga": 15
+      },
+      {
+        "team": "Barracas Central",
+        "gf": 15,
+        "ga": 15
+      },
+      {
+        "team": "Tigre",
+        "gf": 18,
+        "ga": 15
+      },
+      {
+        "team": "Sarmiento",
+        "gf": 13,
+        "ga": 20
+      },
+      {
+        "team": "Banfield",
+        "gf": 17,
+        "ga": 19
+      },
+      {
+        "team": "Atlético Tucumán",
+        "gf": 15,
+        "ga": 20
+      },
+      {
+        "team": "Aldosivi",
+        "gf": 6,
+        "ga": 19
+      },
+      {
+        "team": "Estudiantes (RC)",
+        "gf": 5,
+        "ga": 24
+      }
+    ]
+  }
 }

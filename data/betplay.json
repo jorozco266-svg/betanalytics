@@ -4,7 +4,7 @@
     "league_key": "betplay",
     "season": "2026",
     "source": "thesportsdb",
-    "last_updated": "2026-08-17T17:46:31.947239+00:00",
+    "last_updated": "2026-08-17T22:17:19.441967+00:00",
     "avg_goals": 1.26,
     "total_matches": 5,
     "total_goals": 13,
@@ -154,5 +154,112 @@
       "matchday": "1"
     }
   ],
-  "fixtures": []
+  "fixtures": [],
+  "hist_season": {
+    "season": "Apertura 2026",
+    "pj_per_team": 19,
+    "note": "20 equipos todos contra todos. GF=GC=480. Datos verificados.",
+    "teams": [
+      {
+        "team": "Atlético Nacional",
+        "gf": 35,
+        "ga": 15
+      },
+      {
+        "team": "Junior",
+        "gf": 31,
+        "ga": 24
+      },
+      {
+        "team": "Deportivo Pasto",
+        "gf": 29,
+        "ga": 25
+      },
+      {
+        "team": "América de Cali",
+        "gf": 25,
+        "ga": 15
+      },
+      {
+        "team": "Once Caldas",
+        "gf": 31,
+        "ga": 22
+      },
+      {
+        "team": "Deportes Tolima",
+        "gf": 27,
+        "ga": 17
+      },
+      {
+        "team": "Independiente Santa Fe",
+        "gf": 29,
+        "ga": 22
+      },
+      {
+        "team": "Internacional de Bogotá",
+        "gf": 26,
+        "ga": 26
+      },
+      {
+        "team": "Deportivo Cali",
+        "gf": 20,
+        "ga": 16
+      },
+      {
+        "team": "Millonarios",
+        "gf": 31,
+        "ga": 23
+      },
+      {
+        "team": "Independiente Medellín",
+        "gf": 26,
+        "ga": 24
+      },
+      {
+        "team": "Águilas Doradas",
+        "gf": 20,
+        "ga": 25
+      },
+      {
+        "team": "Atlético Bucaramanga",
+        "gf": 26,
+        "ga": 20
+      },
+      {
+        "team": "Llaneros",
+        "gf": 17,
+        "ga": 20
+      },
+      {
+        "team": "Fortaleza",
+        "gf": 22,
+        "ga": 27
+      },
+      {
+        "team": "Jaguares",
+        "gf": 20,
+        "ga": 33
+      },
+      {
+        "team": "Alianza FC",
+        "gf": 13,
+        "ga": 27
+      },
+      {
+        "team": "Boyacá Chicó",
+        "gf": 15,
+        "ga": 32
+      },
+      {
+        "team": "Cúcuta Deportivo",
+        "gf": 22,
+        "ga": 35
+      },
+      {
+        "team": "Deportivo Pereira",
+        "gf": 15,
+        "ga": 32
+      }
+    ]
+  }
 }
