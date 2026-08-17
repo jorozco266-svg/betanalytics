@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "league": "🇨🇴 Liga BetPlay",
+    "league_key": "betplay",
+    "season": "2026",
+    "source": "thesportsdb",
+    "last_updated": "2026-08-17T17:46:31.947239+00:00",
+    "avg_goals": 1.26,
+    "total_matches": 5,
+    "total_goals": 13,
+    "avg_real": 1.3
+  },
+  "standings": [
+    {
+      "team": "Atlético Nacional",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "América de Cali",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Llaneros",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Atlético Bucaramanga",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Fortaleza FC",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Millonarios",
+      "pj": 1,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Alianza de Valledupar",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Deportivo Pereira",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Internacional de Bogotá",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Boyacá Chicó",
+      "pj": 1,
+      "gf": 0,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "2026-01-16",
+      "home": "Deportivo Pereira",
+      "away": "Llaneros",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-17",
+      "home": "América de Cali",
+      "away": "Internacional de Bogotá",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-17",
+      "home": "Atlético Nacional",
+      "away": "Boyacá Chicó",
+      "hg": 4,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-17",
+      "home": "Fortaleza FC",
+      "away": "Alianza de Valledupar",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-18",
+      "home": "Atlético Bucaramanga",
+      "away": "Millonarios",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "1"
+    }
+  ],
+  "fixtures": []
+}

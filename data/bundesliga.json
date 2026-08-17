@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "league": "🇩🇪 Bundesliga",
+    "league_key": "bundesliga",
+    "season": "2026-2027",
+    "source": "thesportsdb",
+    "last_updated": "2026-08-17T17:46:31.428093+00:00",
+    "avg_goals": 1.55,
+    "total_matches": 0,
+    "total_goals": 0,
+    "avg_real": 0
+  },
+  "standings": [],
+  "results": [],
+  "fixtures": [],
+  "hist_season": {
+    "season": "2025-26",
+    "pj_per_team": 34,
+    "teams": [
+      {
+        "team": "Bayern Munich",
+        "gf": 122,
+        "ga": 36
+      },
+      {
+        "team": "Borussia Dortmund",
+        "gf": 70,
+        "ga": 34
+      },
+      {
+        "team": "RB Leipzig",
+        "gf": 66,
+        "ga": 47
+      },
+      {
+        "team": "VfB Stuttgart",
+        "gf": 71,
+        "ga": 49
+      },
+      {
+        "team": "TSG Hoffenheim",
+        "gf": 65,
+        "ga": 52
+      },
+      {
+        "team": "Bayer Leverkusen",
+        "gf": 68,
+        "ga": 47
+      },
+      {
+        "team": "SC Freiburg",
+        "gf": 51,
+        "ga": 57
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "gf": 61,
+        "ga": 65
+      },
+      {
+        "team": "FC Augsburg",
+        "gf": 45,
+        "ga": 61
+      },
+      {
+        "team": "FSV Mainz 05",
+        "gf": 44,
+        "ga": 53
+      },
+      {
+        "team": "Union Berlin",
+        "gf": 44,
+        "ga": 58
+      },
+      {
+        "team": "Borussia Monchengladbach",
+        "gf": 42,
+        "ga": 53
+      },
+      {
+        "team": "Hamburger SV",
+        "gf": 40,
+        "ga": 54
+      },
+      {
+        "team": "FC Koln",
+        "gf": 49,
+        "ga": 63
+      },
+      {
+        "team": "Werder Bremen",
+        "gf": 37,
+        "ga": 60
+      },
+      {
+        "team": "Schalke 04",
+        "gf": 43,
+        "ga": 50,
+        "_promoted": true
+      },
+      {
+        "team": "SV Elversberg",
+        "gf": 38,
+        "ga": 55,
+        "_promoted": true
+      },
+      {
+        "team": "SC Paderborn 07",
+        "gf": 40,
+        "ga": 53,
+        "_promoted": true
+      }
+    ]
+  }
+}

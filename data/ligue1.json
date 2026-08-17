@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "league": "🇫🇷 Ligue 1",
+    "league_key": "ligue1",
+    "season": "current",
+    "source": "footballdata",
+    "last_updated": "2026-08-17T17:46:37.229675+00:00",
+    "avg_goals": 1.35,
+    "total_matches": 0,
+    "total_goals": 0,
+    "avg_real": 0
+  },
+  "standings": [],
+  "results": [],
+  "fixtures": [
+    {
+      "date": "2026-08-21",
+      "time": "01:45 PM",
+      "home": "Olympique de Marseille",
+      "away": "RC Strasbourg Alsace",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "01:45 PM",
+      "home": "Le Mans FC",
+      "away": "Stade Brestois 29",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "01:45 PM",
+      "home": "ES Troyes AC",
+      "away": "Paris FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "01:45 PM",
+      "home": "OGC Nice",
+      "away": "FC Lorient",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "01:45 PM",
+      "home": "Toulouse FC",
+      "away": "Olympique Lyonnais",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "10:15 AM",
+      "home": "Racing Club de Lens",
+      "away": "AJ Auxerre",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "01:45 PM",
+      "home": "Paris Saint-Germain FC",
+      "away": "Stade Rennais FC 1901",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "08:00 AM",
+      "home": "Angers SCO",
+      "away": "Lille OSC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "10:15 AM",
+      "home": "Le Havre AC",
+      "away": "AS Monaco FC",
+      "matchday": 1
+    }
+  ]
+}

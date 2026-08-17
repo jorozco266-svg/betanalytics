@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "league": "🇪🇸 La Liga",
+    "league_key": "laliga",
+    "season": "2026-2027",
+    "source": "thesportsdb",
+    "last_updated": "2026-08-17T17:46:30.955468+00:00",
+    "avg_goals": 1.35,
+    "total_matches": 4,
+    "total_goals": 13,
+    "avg_real": 1.625
+  },
+  "standings": [
+    {
+      "team": "Alaves",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Espanyol",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Sevilla",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Racing Santander",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Villarreal",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Rayo Vallecano",
+      "pj": 1,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Getafe",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Levante",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "2026-08-15",
+      "home": "Sevilla",
+      "away": "Rayo Vallecano",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-15",
+      "home": "Alaves",
+      "away": "Getafe",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-16",
+      "home": "Espanyol",
+      "away": "Levante",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-16",
+      "home": "Racing Santander",
+      "away": "Villarreal",
+      "hg": 2,
+      "ag": 2,
+      "matchday": "1"
+    }
+  ],
+  "fixtures": [
+    {
+      "date": "2026-08-17",
+      "time": "02:00 PM",
+      "home": "Deportivo de A Coruña",
+      "away": "Elche",
+      "matchday": "1"
+    }
+  ],
+  "hist_season": {
+    "season": "2025-26",
+    "pj_per_team": 38,
+    "teams": [
+      {
+        "team": "Barcelona",
+        "gf": 95,
+        "ga": 36
+      },
+      {
+        "team": "Real Madrid",
+        "gf": 77,
+        "ga": 35
+      },
+      {
+        "team": "Villarreal",
+        "gf": 72,
+        "ga": 46
+      },
+      {
+        "team": "Atletico Madrid",
+        "gf": 62,
+        "ga": 44
+      },
+      {
+        "team": "Real Betis",
+        "gf": 59,
+        "ga": 48
+      },
+      {
+        "team": "Celta Vigo",
+        "gf": 53,
+        "ga": 48
+      },
+      {
+        "team": "Getafe",
+        "gf": 32,
+        "ga": 38
+      },
+      {
+        "team": "Rayo Vallecano",
+        "gf": 41,
+        "ga": 44
+      },
+      {
+        "team": "Valencia",
+        "gf": 46,
+        "ga": 55
+      },
+      {
+        "team": "Real Sociedad",
+        "gf": 59,
+        "ga": 61
+      },
+      {
+        "team": "Espanyol",
+        "gf": 43,
+        "ga": 55
+      },
+      {
+        "team": "Athletic Club",
+        "gf": 43,
+        "ga": 58
+      },
+      {
+        "team": "Sevilla",
+        "gf": 46,
+        "ga": 60
+      },
+      {
+        "team": "Alaves",
+        "gf": 44,
+        "ga": 56
+      },
+      {
+        "team": "Elche",
+        "gf": 49,
+        "ga": 57
+      },
+      {
+        "team": "Levante",
+        "gf": 47,
+        "ga": 61
+      },
+      {
+        "team": "Osasuna",
+        "gf": 44,
+        "ga": 50
+      },
+      {
+        "team": "Racing Santander",
+        "gf": 69,
+        "ga": 61,
+        "_promoted": true,
+        "_note": "Campeón 2ª (90GF/61GA en 42PJ, ajustado)"
+      },
+      {
+        "team": "Deportivo La Coruna",
+        "gf": 50,
+        "ga": 44,
+        "_promoted": true,
+        "_note": "2° en 2ª (65GF/44GA en 42PJ, ajustado)"
+      },
+      {
+        "team": "Malaga",
+        "gf": 58,
+        "ga": 52,
+        "_promoted": true,
+        "_note": "4° en 2ª playoff (75GF/52GA en 42PJ, ajustado)"
+      }
+    ]
+  }
+}

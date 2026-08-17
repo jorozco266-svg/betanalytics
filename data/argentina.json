@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "league": "🇦🇷 Liga Argentina",
+    "league_key": "argentina",
+    "season": "2026",
+    "source": "thesportsdb",
+    "last_updated": "2026-08-17T17:46:32.417699+00:00",
+    "avg_goals": 1.03,
+    "total_matches": 5,
+    "total_goals": 5,
+    "avg_real": 0.5
+  },
+  "standings": [
+    {
+      "team": "Gimnasia y Esgrima de Mendoza",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Banfield",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Huracán",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Independiente",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Estudiantes de La Plata",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Aldosivi",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Defensa y Justicia",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Unión",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Platense",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Central Córdoba de Santiago del Estero",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "2026-01-22",
+      "home": "Aldosivi",
+      "away": "Defensa y Justicia",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-22",
+      "home": "Banfield",
+      "away": "Huracán",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-22",
+      "home": "Unión",
+      "away": "Platense",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-23",
+      "home": "Central Córdoba de Santiago del Estero",
+      "away": "Gimnasia y Esgrima de Mendoza",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-01-23",
+      "home": "Independiente",
+      "away": "Estudiantes de La Plata",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "1"
+    }
+  ],
+  "fixtures": []
+}

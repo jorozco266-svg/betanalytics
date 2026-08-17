@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "league": "🇺🇸 MLS",
+    "league_key": "mls",
+    "season": "2026",
+    "source": "thesportsdb",
+    "last_updated": "2026-08-17T17:46:40.461092+00:00",
+    "avg_goals": 1.67,
+    "total_matches": 5,
+    "total_goals": 9,
+    "avg_real": 0.9
+  },
+  "standings": [
+    {
+      "team": "FC Cincinnati",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "New York Red Bulls",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "DC United",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Vancouver Whitecaps",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "St. Louis City SC",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Charlotte FC",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Orlando City",
+      "pj": 1,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Philadelphia Union",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Real Salt Lake",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Atlanta United",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "2026-02-21",
+      "home": "St. Louis City SC",
+      "away": "Charlotte FC",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-21",
+      "home": "FC Cincinnati",
+      "away": "Atlanta United",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "DC United",
+      "away": "Philadelphia Union",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "Orlando City",
+      "away": "New York Red Bulls",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "Vancouver Whitecaps",
+      "away": "Real Salt Lake",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "1"
+    }
+  ],
+  "fixtures": []
+}

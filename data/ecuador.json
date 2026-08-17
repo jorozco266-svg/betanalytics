@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "league": "🇪🇨 Ecuador - LigaPro",
+    "league_key": "ecuador",
+    "season": "2026",
+    "source": "wikipedia",
+    "last_updated": "2026-08-17T17:46:40.018466+00:00",
+    "avg_goals": 1.25,
+    "total_matches": 199,
+    "total_goals": 440,
+    "avg_real": 1.106
+  },
+  "standings": [
+    {
+      "team": "Independiente del Valle",
+      "gf": 61,
+      "ga": 24,
+      "pj": 25,
+      "pts": 64,
+      "w": 21,
+      "d": 1,
+      "l": 3
+    },
+    {
+      "team": "Macará",
+      "gf": 32,
+      "ga": 24,
+      "pj": 24,
+      "pts": 41,
+      "w": 12,
+      "d": 5,
+      "l": 7
+    },
+    {
+      "team": "Aucas",
+      "gf": 29,
+      "ga": 26,
+      "pj": 25,
+      "pts": 41,
+      "w": 12,
+      "d": 5,
+      "l": 8
+    },
+    {
+      "team": "Universidad Católica",
+      "gf": 39,
+      "ga": 21,
+      "pj": 24,
+      "pts": 39,
+      "w": 11,
+      "d": 6,
+      "l": 7
+    },
+    {
+      "team": "LDU Quito",
+      "gf": 24,
+      "ga": 20,
+      "pj": 25,
+      "pts": 38,
+      "w": 11,
+      "d": 5,
+      "l": 9
+    },
+    {
+      "team": "Barcelona",
+      "gf": 25,
+      "ga": 20,
+      "pj": 25,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 7
+    },
+    {
+      "team": "Leones",
+      "gf": 26,
+      "ga": 25,
+      "pj": 25,
+      "pts": 35,
+      "w": 9,
+      "d": 8,
+      "l": 8
+    },
+    {
+      "team": "Libertad",
+      "gf": 28,
+      "ga": 29,
+      "pj": 25,
+      "pts": 34,
+      "w": 9,
+      "d": 7,
+      "l": 9
+    },
+    {
+      "team": "Mushuc Runa",
+      "gf": 32,
+      "ga": 34,
+      "pj": 25,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 9
+    },
+    {
+      "team": "Emelec",
+      "gf": 21,
+      "ga": 29,
+      "pj": 25,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 9
+    },
+    {
+      "team": "Deportivo Cuenca",
+      "gf": 22,
+      "ga": 32,
+      "pj": 25,
+      "pts": 31,
+      "w": 9,
+      "d": 4,
+      "l": 12
+    },
+    {
+      "team": "Guayaquil City",
+      "gf": 22,
+      "ga": 27,
+      "pj": 25,
+      "pts": 30,
+      "w": 7,
+      "d": 9,
+      "l": 9
+    },
+    {
+      "team": "Orense",
+      "gf": 30,
+      "ga": 36,
+      "pj": 25,
+      "pts": 30,
+      "w": 8,
+      "d": 6,
+      "l": 11
+    },
+    {
+      "team": "Técnico Universitario",
+      "gf": 21,
+      "ga": 34,
+      "pj": 25,
+      "pts": 26,
+      "w": 8,
+      "d": 2,
+      "l": 15
+    },
+    {
+      "team": "Delfín",
+      "gf": 17,
+      "ga": 27,
+      "pj": 25,
+      "pts": 24,
+      "w": 6,
+      "d": 6,
+      "l": 13
+    },
+    {
+      "team": "Manta",
+      "gf": 11,
+      "ga": 32,
+      "pj": 25,
+      "pts": 17,
+      "w": 4,
+      "d": 5,
+      "l": 16
+    }
+  ],
+  "results": [],
+  "fixtures": []
+}

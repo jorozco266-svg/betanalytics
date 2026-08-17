@@ -1,0 +1,1890 @@
+{
+  "meta": {
+    "league": "🏆 Champions League",
+    "league_key": "champions",
+    "season": "current",
+    "source": "footballdata",
+    "last_updated": "2026-08-17T17:46:38.488461+00:00",
+    "avg_goals": 1.45,
+    "total_matches": 189,
+    "total_goals": 662,
+    "avg_real": 1.751
+  },
+  "standings": [
+    {
+      "team": "Paris Saint-Germain FC",
+      "pj": 17,
+      "gf": 49,
+      "ga": 26,
+      "w": 11,
+      "d": 4,
+      "l": 2,
+      "pts": 37
+    },
+    {
+      "team": "Arsenal FC",
+      "pj": 15,
+      "gf": 33,
+      "ga": 11,
+      "w": 11,
+      "d": 3,
+      "l": 1,
+      "pts": 36
+    },
+    {
+      "team": "FC Bayern München",
+      "pj": 14,
+      "gf": 43,
+      "ga": 20,
+      "w": 11,
+      "d": 1,
+      "l": 2,
+      "pts": 34
+    },
+    {
+      "team": "Real Madrid CF",
+      "pj": 14,
+      "gf": 33,
+      "ga": 20,
+      "w": 9,
+      "d": 0,
+      "l": 5,
+      "pts": 27
+    },
+    {
+      "team": "Club Atlético de Madrid",
+      "pj": 16,
+      "gf": 35,
+      "ga": 28,
+      "w": 7,
+      "d": 3,
+      "l": 6,
+      "pts": 24
+    },
+    {
+      "team": "FC Barcelona",
+      "pj": 12,
+      "gf": 32,
+      "ga": 20,
+      "w": 7,
+      "d": 2,
+      "l": 3,
+      "pts": 23
+    },
+    {
+      "team": "Newcastle United FC",
+      "pj": 12,
+      "gf": 29,
+      "ga": 18,
+      "w": 6,
+      "d": 3,
+      "l": 3,
+      "pts": 21
+    },
+    {
+      "team": "Liverpool FC",
+      "pj": 12,
+      "gf": 24,
+      "ga": 13,
+      "w": 7,
+      "d": 0,
+      "l": 5,
+      "pts": 21
+    },
+    {
+      "team": "Tottenham Hotspur FC",
+      "pj": 10,
+      "gf": 22,
+      "ga": 14,
+      "w": 6,
+      "d": 2,
+      "l": 2,
+      "pts": 20
+    },
+    {
+      "team": "Sporting Clube de Portugal",
+      "pj": 12,
+      "gf": 22,
+      "ga": 15,
+      "w": 6,
+      "d": 2,
+      "l": 4,
+      "pts": 20
+    },
+    {
+      "team": "FK Bodø/Glimt",
+      "pj": 12,
+      "gf": 22,
+      "ga": 22,
+      "w": 5,
+      "d": 3,
+      "l": 4,
+      "pts": 18
+    },
+    {
+      "team": "Bayer 04 Leverkusen",
+      "pj": 12,
+      "gf": 16,
+      "ga": 17,
+      "w": 4,
+      "d": 5,
+      "l": 3,
+      "pts": 17
+    },
+    {
+      "team": "Juventus FC",
+      "pj": 10,
+      "gf": 19,
+      "ga": 17,
+      "w": 4,
+      "d": 4,
+      "l": 2,
+      "pts": 16
+    },
+    {
+      "team": "Manchester City FC",
+      "pj": 10,
+      "gf": 16,
+      "ga": 14,
+      "w": 5,
+      "d": 1,
+      "l": 4,
+      "pts": 16
+    },
+    {
+      "team": "Chelsea FC",
+      "pj": 10,
+      "gf": 19,
+      "ga": 18,
+      "w": 5,
+      "d": 1,
+      "l": 4,
+      "pts": 16
+    },
+    {
+      "team": "Galatasaray SK",
+      "pj": 12,
+      "gf": 17,
+      "ga": 20,
+      "w": 5,
+      "d": 1,
+      "l": 6,
+      "pts": 16
+    },
+    {
+      "team": "Atalanta BC",
+      "pj": 12,
+      "gf": 16,
+      "ga": 23,
+      "w": 5,
+      "d": 1,
+      "l": 6,
+      "pts": 16
+    },
+    {
+      "team": "FC Internazionale Milano",
+      "pj": 10,
+      "gf": 17,
+      "ga": 12,
+      "w": 5,
+      "d": 0,
+      "l": 5,
+      "pts": 15
+    },
+    {
+      "team": "Borussia Dortmund",
+      "pj": 10,
+      "gf": 22,
+      "ga": 21,
+      "w": 4,
+      "d": 2,
+      "l": 4,
+      "pts": 14
+    },
+    {
+      "team": "PAE Olympiakos SFP",
+      "pj": 10,
+      "gf": 10,
+      "ga": 16,
+      "w": 3,
+      "d": 3,
+      "l": 4,
+      "pts": 12
+    },
+    {
+      "team": "Club Brugge KV",
+      "pj": 10,
+      "gf": 19,
+      "ga": 24,
+      "w": 3,
+      "d": 2,
+      "l": 5,
+      "pts": 11
+    },
+    {
+      "team": "AS Monaco FC",
+      "pj": 10,
+      "gf": 12,
+      "ga": 19,
+      "w": 2,
+      "d": 5,
+      "l": 3,
+      "pts": 11
+    },
+    {
+      "team": "Qarabağ Ağdam FK",
+      "pj": 10,
+      "gf": 16,
+      "ga": 30,
+      "w": 3,
+      "d": 1,
+      "l": 6,
+      "pts": 10
+    },
+    {
+      "team": "Olympique de Marseille",
+      "pj": 8,
+      "gf": 11,
+      "ga": 14,
+      "w": 3,
+      "d": 0,
+      "l": 5,
+      "pts": 9
+    },
+    {
+      "team": "Paphos FC",
+      "pj": 8,
+      "gf": 8,
+      "ga": 11,
+      "w": 2,
+      "d": 3,
+      "l": 3,
+      "pts": 9
+    },
+    {
+      "team": "Sport Lisboa e Benfica",
+      "pj": 10,
+      "gf": 11,
+      "ga": 15,
+      "w": 3,
+      "d": 0,
+      "l": 7,
+      "pts": 9
+    },
+    {
+      "team": "Royale Union Saint-Gilloise",
+      "pj": 8,
+      "gf": 8,
+      "ga": 17,
+      "w": 3,
+      "d": 0,
+      "l": 5,
+      "pts": 9
+    },
+    {
+      "team": "PSV",
+      "pj": 8,
+      "gf": 16,
+      "ga": 16,
+      "w": 2,
+      "d": 2,
+      "l": 4,
+      "pts": 8
+    },
+    {
+      "team": "Athletic Club",
+      "pj": 8,
+      "gf": 9,
+      "ga": 14,
+      "w": 2,
+      "d": 2,
+      "l": 4,
+      "pts": 8
+    },
+    {
+      "team": "SSC Napoli",
+      "pj": 8,
+      "gf": 9,
+      "ga": 15,
+      "w": 2,
+      "d": 2,
+      "l": 4,
+      "pts": 8
+    },
+    {
+      "team": "FC København",
+      "pj": 8,
+      "gf": 12,
+      "ga": 21,
+      "w": 2,
+      "d": 2,
+      "l": 4,
+      "pts": 8
+    },
+    {
+      "team": "AFC Ajax",
+      "pj": 8,
+      "gf": 8,
+      "ga": 21,
+      "w": 2,
+      "d": 0,
+      "l": 6,
+      "pts": 6
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "pj": 8,
+      "gf": 10,
+      "ga": 21,
+      "w": 1,
+      "d": 1,
+      "l": 6,
+      "pts": 4
+    },
+    {
+      "team": "SK Slavia Praha",
+      "pj": 8,
+      "gf": 5,
+      "ga": 19,
+      "w": 0,
+      "d": 3,
+      "l": 5,
+      "pts": 3
+    },
+    {
+      "team": "Villarreal CF",
+      "pj": 8,
+      "gf": 5,
+      "ga": 18,
+      "w": 0,
+      "d": 1,
+      "l": 7,
+      "pts": 1
+    },
+    {
+      "team": "FK Kairat",
+      "pj": 8,
+      "gf": 7,
+      "ga": 22,
+      "w": 0,
+      "d": 1,
+      "l": 7,
+      "pts": 1
+    }
+  ],
+  "results": [
+    {
+      "date": "2025-09-16",
+      "home": "Athletic Club",
+      "away": "Arsenal FC",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-16",
+      "home": "PSV",
+      "away": "Royale Union Saint-Gilloise",
+      "hg": 1,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-16",
+      "home": "Juventus FC",
+      "away": "Borussia Dortmund",
+      "hg": 4,
+      "ag": 4,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-16",
+      "home": "Sport Lisboa e Benfica",
+      "away": "Qarabağ Ağdam FK",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-16",
+      "home": "Tottenham Hotspur FC",
+      "away": "Villarreal CF",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-16",
+      "home": "Real Madrid CF",
+      "away": "Olympique de Marseille",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "SK Slavia Praha",
+      "away": "FK Bodø/Glimt",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "PAE Olympiakos SFP",
+      "away": "Paphos FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "AFC Ajax",
+      "away": "FC Internazionale Milano",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "Liverpool FC",
+      "away": "Club Atlético de Madrid",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "Paris Saint-Germain FC",
+      "away": "Atalanta BC",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-17",
+      "home": "FC Bayern München",
+      "away": "Chelsea FC",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "FC København",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "Club Brugge KV",
+      "away": "AS Monaco FC",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "Newcastle United FC",
+      "away": "FC Barcelona",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "Manchester City FC",
+      "away": "SSC Napoli",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "Eintracht Frankfurt",
+      "away": "Galatasaray SK",
+      "hg": 5,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-18",
+      "home": "Sporting Clube de Portugal",
+      "away": "FK Kairat",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Atalanta BC",
+      "away": "Club Brugge KV",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "FK Kairat",
+      "away": "Real Madrid CF",
+      "hg": 0,
+      "ag": 5,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Galatasaray SK",
+      "away": "Liverpool FC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Club Atlético de Madrid",
+      "away": "Eintracht Frankfurt",
+      "hg": 5,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Olympique de Marseille",
+      "away": "AFC Ajax",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "FK Bodø/Glimt",
+      "away": "Tottenham Hotspur FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Paphos FC",
+      "away": "FC Bayern München",
+      "hg": 1,
+      "ag": 5,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "Chelsea FC",
+      "away": "Sport Lisboa e Benfica",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-09-30",
+      "home": "FC Internazionale Milano",
+      "away": "SK Slavia Praha",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Qarabağ Ağdam FK",
+      "away": "FC København",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Royale Union Saint-Gilloise",
+      "away": "Newcastle United FC",
+      "hg": 0,
+      "ag": 4,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Borussia Dortmund",
+      "away": "Athletic Club",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "FC Barcelona",
+      "away": "Paris Saint-Germain FC",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "AS Monaco FC",
+      "away": "Manchester City FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Bayer 04 Leverkusen",
+      "away": "PSV",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Arsenal FC",
+      "away": "PAE Olympiakos SFP",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "Villarreal CF",
+      "away": "Juventus FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-01",
+      "home": "SSC Napoli",
+      "away": "Sporting Clube de Portugal",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2025-10-21",
+      "home": "FC Barcelona",
+      "away": "PAE Olympiakos SFP",
+      "hg": 6,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "FK Kairat",
+      "away": "Paphos FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "Royale Union Saint-Gilloise",
+      "away": "FC Internazionale Milano",
+      "hg": 0,
+      "ag": 4,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "FC København",
+      "away": "Borussia Dortmund",
+      "hg": 2,
+      "ag": 4,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "Bayer 04 Leverkusen",
+      "away": "Paris Saint-Germain FC",
+      "hg": 2,
+      "ag": 7,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "Villarreal CF",
+      "away": "Manchester City FC",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "Arsenal FC",
+      "away": "Club Atlético de Madrid",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "Newcastle United FC",
+      "away": "Sport Lisboa e Benfica",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-21",
+      "home": "PSV",
+      "away": "SSC Napoli",
+      "hg": 6,
+      "ag": 2,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Galatasaray SK",
+      "away": "FK Bodø/Glimt",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Athletic Club",
+      "away": "Qarabağ Ağdam FK",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Eintracht Frankfurt",
+      "away": "Liverpool FC",
+      "hg": 1,
+      "ag": 5,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Atalanta BC",
+      "away": "SK Slavia Praha",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Sporting Clube de Portugal",
+      "away": "Olympique de Marseille",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "AS Monaco FC",
+      "away": "Tottenham Hotspur FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "FC Bayern München",
+      "away": "Club Brugge KV",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Chelsea FC",
+      "away": "AFC Ajax",
+      "hg": 5,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2025-10-22",
+      "home": "Real Madrid CF",
+      "away": "Juventus FC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2025-11-04",
+      "home": "SK Slavia Praha",
+      "away": "Arsenal FC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "SSC Napoli",
+      "away": "Eintracht Frankfurt",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "Juventus FC",
+      "away": "Sporting Clube de Portugal",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "Club Atlético de Madrid",
+      "away": "Royale Union Saint-Gilloise",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "Tottenham Hotspur FC",
+      "away": "FC København",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "FK Bodø/Glimt",
+      "away": "AS Monaco FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "PAE Olympiakos SFP",
+      "away": "PSV",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "Paris Saint-Germain FC",
+      "away": "FC Bayern München",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-04",
+      "home": "Liverpool FC",
+      "away": "Real Madrid CF",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Paphos FC",
+      "away": "Villarreal CF",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Qarabağ Ağdam FK",
+      "away": "Chelsea FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "FC Internazionale Milano",
+      "away": "FK Kairat",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Manchester City FC",
+      "away": "Borussia Dortmund",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Club Brugge KV",
+      "away": "FC Barcelona",
+      "hg": 3,
+      "ag": 3,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Sport Lisboa e Benfica",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Olympique de Marseille",
+      "away": "Atalanta BC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "AFC Ajax",
+      "away": "Galatasaray SK",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-05",
+      "home": "Newcastle United FC",
+      "away": "Athletic Club",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 4
+    },
+    {
+      "date": "2025-11-25",
+      "home": "AFC Ajax",
+      "away": "Sport Lisboa e Benfica",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "Galatasaray SK",
+      "away": "Royale Union Saint-Gilloise",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal CF",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "Manchester City FC",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "FK Bodø/Glimt",
+      "away": "Juventus FC",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "Olympique de Marseille",
+      "away": "Newcastle United FC",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "SK Slavia Praha",
+      "away": "Athletic Club",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "SSC Napoli",
+      "away": "Qarabağ Ağdam FK",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-25",
+      "home": "Chelsea FC",
+      "away": "FC Barcelona",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Paphos FC",
+      "away": "AS Monaco FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "FC København",
+      "away": "FK Kairat",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Liverpool FC",
+      "away": "PSV",
+      "hg": 1,
+      "ag": 4,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Paris Saint-Germain FC",
+      "away": "Tottenham Hotspur FC",
+      "hg": 5,
+      "ag": 3,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Eintracht Frankfurt",
+      "away": "Atalanta BC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Sporting Clube de Portugal",
+      "away": "Club Brugge KV",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Arsenal FC",
+      "away": "FC Bayern München",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "PAE Olympiakos SFP",
+      "away": "Real Madrid CF",
+      "hg": 3,
+      "ag": 4,
+      "matchday": 5
+    },
+    {
+      "date": "2025-11-26",
+      "home": "Club Atlético de Madrid",
+      "away": "FC Internazionale Milano",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 5
+    },
+    {
+      "date": "2025-12-09",
+      "home": "FK Kairat",
+      "away": "PAE Olympiakos SFP",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "FC Bayern München",
+      "away": "Sporting Clube de Portugal",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "FC Barcelona",
+      "away": "Eintracht Frankfurt",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "PSV",
+      "away": "Club Atlético de Madrid",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "Royale Union Saint-Gilloise",
+      "away": "Olympique de Marseille",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "Tottenham Hotspur FC",
+      "away": "SK Slavia Praha",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "AS Monaco FC",
+      "away": "Galatasaray SK",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "Atalanta BC",
+      "away": "Chelsea FC",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-09",
+      "home": "FC Internazionale Milano",
+      "away": "Liverpool FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Villarreal CF",
+      "away": "FC København",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Qarabağ Ağdam FK",
+      "away": "AFC Ajax",
+      "hg": 2,
+      "ag": 4,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Borussia Dortmund",
+      "away": "FK Bodø/Glimt",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Athletic Club",
+      "away": "Paris Saint-Germain FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Bayer 04 Leverkusen",
+      "away": "Newcastle United FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Club Brugge KV",
+      "away": "Arsenal FC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Sport Lisboa e Benfica",
+      "away": "SSC Napoli",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Juventus FC",
+      "away": "Paphos FC",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 6
+    },
+    {
+      "date": "2025-12-10",
+      "home": "Real Madrid CF",
+      "away": "Manchester City FC",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 6
+    },
+    {
+      "date": "2026-01-20",
+      "home": "FK Kairat",
+      "away": "Club Brugge KV",
+      "hg": 1,
+      "ag": 4,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "FK Bodø/Glimt",
+      "away": "Manchester City FC",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "Tottenham Hotspur FC",
+      "away": "Borussia Dortmund",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "Sporting Clube de Portugal",
+      "away": "Paris Saint-Germain FC",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "PAE Olympiakos SFP",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "Villarreal CF",
+      "away": "AFC Ajax",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "FC København",
+      "away": "SSC Napoli",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "Real Madrid CF",
+      "away": "AS Monaco FC",
+      "hg": 6,
+      "ag": 1,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-20",
+      "home": "FC Internazionale Milano",
+      "away": "Arsenal FC",
+      "hg": 1,
+      "ag": 3,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Qarabağ Ağdam FK",
+      "away": "Eintracht Frankfurt",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Galatasaray SK",
+      "away": "Club Atlético de Madrid",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Olympique de Marseille",
+      "away": "Liverpool FC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "SK Slavia Praha",
+      "away": "FC Barcelona",
+      "hg": 2,
+      "ag": 4,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Atalanta BC",
+      "away": "Athletic Club",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Juventus FC",
+      "away": "Sport Lisboa e Benfica",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Newcastle United FC",
+      "away": "PSV",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "FC Bayern München",
+      "away": "Royale Union Saint-Gilloise",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-21",
+      "home": "Chelsea FC",
+      "away": "Paphos FC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 7
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Liverpool FC",
+      "away": "Qarabağ Ağdam FK",
+      "hg": 6,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "FC Barcelona",
+      "away": "FC København",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Manchester City FC",
+      "away": "Galatasaray SK",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Bayer 04 Leverkusen",
+      "away": "Villarreal CF",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Arsenal FC",
+      "away": "FK Kairat",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Royale Union Saint-Gilloise",
+      "away": "Atalanta BC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Club Brugge KV",
+      "away": "Olympique de Marseille",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Eintracht Frankfurt",
+      "away": "Tottenham Hotspur FC",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "AS Monaco FC",
+      "away": "Juventus FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Club Atlético de Madrid",
+      "away": "FK Bodø/Glimt",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Athletic Club",
+      "away": "Sporting Clube de Portugal",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "AFC Ajax",
+      "away": "PAE Olympiakos SFP",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Paris Saint-Germain FC",
+      "away": "Newcastle United FC",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Paphos FC",
+      "away": "SK Slavia Praha",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "PSV",
+      "away": "FC Bayern München",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "SSC Napoli",
+      "away": "Chelsea FC",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Sport Lisboa e Benfica",
+      "away": "Real Madrid CF",
+      "hg": 4,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-01-28",
+      "home": "Borussia Dortmund",
+      "away": "FC Internazionale Milano",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-02-17",
+      "home": "Galatasaray SK",
+      "away": "Juventus FC",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-17",
+      "home": "Sport Lisboa e Benfica",
+      "away": "Real Madrid CF",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-17",
+      "home": "AS Monaco FC",
+      "away": "Paris Saint-Germain FC",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-17",
+      "home": "Borussia Dortmund",
+      "away": "Atalanta BC",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-18",
+      "home": "Qarabağ Ağdam FK",
+      "away": "Newcastle United FC",
+      "hg": 1,
+      "ag": 6,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-18",
+      "home": "Club Brugge KV",
+      "away": "Club Atlético de Madrid",
+      "hg": 3,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-18",
+      "home": "PAE Olympiakos SFP",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-18",
+      "home": "FK Bodø/Glimt",
+      "away": "FC Internazionale Milano",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-02-24",
+      "home": "Club Atlético de Madrid",
+      "away": "Club Brugge KV",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-24",
+      "home": "Newcastle United FC",
+      "away": "Qarabağ Ağdam FK",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-24",
+      "home": "Bayer 04 Leverkusen",
+      "away": "PAE Olympiakos SFP",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-24",
+      "home": "FC Internazionale Milano",
+      "away": "FK Bodø/Glimt",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-25",
+      "home": "Atalanta BC",
+      "away": "Borussia Dortmund",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-25",
+      "home": "Real Madrid CF",
+      "away": "Sport Lisboa e Benfica",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-25",
+      "home": "Paris Saint-Germain FC",
+      "away": "AS Monaco FC",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-02-25",
+      "home": "Juventus FC",
+      "away": "Galatasaray SK",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-10",
+      "home": "Galatasaray SK",
+      "away": "Liverpool FC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-10",
+      "home": "Atalanta BC",
+      "away": "FC Bayern München",
+      "hg": 1,
+      "ag": 6,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-10",
+      "home": "Newcastle United FC",
+      "away": "FC Barcelona",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-10",
+      "home": "Club Atlético de Madrid",
+      "away": "Tottenham Hotspur FC",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-11",
+      "home": "Bayer 04 Leverkusen",
+      "away": "Arsenal FC",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-11",
+      "home": "Paris Saint-Germain FC",
+      "away": "Chelsea FC",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-11",
+      "home": "Real Madrid CF",
+      "away": "Manchester City FC",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-11",
+      "home": "FK Bodø/Glimt",
+      "away": "Sporting Clube de Portugal",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-03-17",
+      "home": "Sporting Clube de Portugal",
+      "away": "FK Bodø/Glimt",
+      "hg": 5,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-17",
+      "home": "Chelsea FC",
+      "away": "Paris Saint-Germain FC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-17",
+      "home": "Manchester City FC",
+      "away": "Real Madrid CF",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-17",
+      "home": "Arsenal FC",
+      "away": "Bayer 04 Leverkusen",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-18",
+      "home": "FC Barcelona",
+      "away": "Newcastle United FC",
+      "hg": 7,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-18",
+      "home": "Liverpool FC",
+      "away": "Galatasaray SK",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-18",
+      "home": "FC Bayern München",
+      "away": "Atalanta BC",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-03-18",
+      "home": "Tottenham Hotspur FC",
+      "away": "Club Atlético de Madrid",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-04-07",
+      "home": "Real Madrid CF",
+      "away": "FC Bayern München",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-04-07",
+      "home": "Sporting Clube de Portugal",
+      "away": "Arsenal FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-04-08",
+      "home": "Paris Saint-Germain FC",
+      "away": "Liverpool FC",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-04-08",
+      "home": "FC Barcelona",
+      "away": "Club Atlético de Madrid",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-04-14",
+      "home": "Liverpool FC",
+      "away": "Paris Saint-Germain FC",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-04-14",
+      "home": "Club Atlético de Madrid",
+      "away": "FC Barcelona",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-04-15",
+      "home": "FC Bayern München",
+      "away": "Real Madrid CF",
+      "hg": 4,
+      "ag": 3,
+      "matchday": 2
+    },
+    {
+      "date": "2026-04-15",
+      "home": "Arsenal FC",
+      "away": "Sporting Clube de Portugal",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-04-28",
+      "home": "Paris Saint-Germain FC",
+      "away": "FC Bayern München",
+      "hg": 5,
+      "ag": 4,
+      "matchday": 1
+    },
+    {
+      "date": "2026-04-29",
+      "home": "Club Atlético de Madrid",
+      "away": "Arsenal FC",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-05-05",
+      "home": "Arsenal FC",
+      "away": "Club Atlético de Madrid",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-05-06",
+      "home": "FC Bayern München",
+      "away": "Paris Saint-Germain FC",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-05-30",
+      "home": "Paris Saint-Germain FC",
+      "away": "Arsenal FC",
+      "hg": 5,
+      "ag": 4,
+      "matchday": null
+    }
+  ],
+  "fixtures": []
+}

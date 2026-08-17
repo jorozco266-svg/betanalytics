@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "league": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
+    "league_key": "premier",
+    "season": "current",
+    "source": "footballdata",
+    "last_updated": "2026-08-17T17:46:34.332118+00:00",
+    "avg_goals": 1.4,
+    "total_matches": 0,
+    "total_goals": 0,
+    "avg_real": 0
+  },
+  "standings": [],
+  "results": [],
+  "fixtures": [
+    {
+      "date": "2026-08-21",
+      "time": "02:00 PM",
+      "home": "Arsenal FC",
+      "away": "Coventry City FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "06:30 AM",
+      "home": "Hull City AFC",
+      "away": "Manchester United FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "09:00 AM",
+      "home": "Ipswich Town FC",
+      "away": "Sunderland AFC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "09:00 AM",
+      "home": "Nottingham Forest FC",
+      "away": "Leeds United FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "09:00 AM",
+      "home": "Everton FC",
+      "away": "Crystal Palace FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "time": "11:30 AM",
+      "home": "Brentford FC",
+      "away": "Tottenham Hotspur FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "08:00 AM",
+      "home": "Manchester City FC",
+      "away": "AFC Bournemouth",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "08:00 AM",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Aston Villa FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "time": "10:30 AM",
+      "home": "Newcastle United FC",
+      "away": "Liverpool FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-24",
+      "time": "02:00 PM",
+      "home": "Fulham FC",
+      "away": "Chelsea FC",
+      "matchday": 1
+    }
+  ]
+}
