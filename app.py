@@ -3356,6 +3356,8 @@ with tab1:
                             "local": f["home"],
                             "visit": f["away"],
                             "jornada": f.get("matchday","?"),
+                            "hoy": _fd == _hoy,
+                            "manana": _fd == _hoy + datetime.timedelta(days=1),
                         })
                     prox.sort(key=lambda x: x["dt"])
                     cargado = True
