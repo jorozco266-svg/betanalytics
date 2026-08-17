@@ -566,14 +566,14 @@ HIST_CONMEBOL = {
     "ArgFem": [
         # Fuente: Tabla Apertura 2026 femenino — actualizada 21-jul-2026
         # Formato: (equipo, GF, GC, PJ) · 16 equipos · ~2.18 goles/partido
-        ("Racing",         33,  9, 14), ("San Lorenzo",    27,  5, 14),
-        ("River",          30, 15, 15), ("Talleres CBA",   20,  9, 14),
-        ("Gimnasia",       26, 24, 15), ("Belgrano",       11,  9, 15),
-        ("Boca",           16, 12, 14), ("Ferro",          14, 12, 14),
-        ("Banfield",       14, 19, 14), ("SAT",            15, 16, 14),
-        ("San Luis FC",    15, 13, 14), ("Huracán",         8, 15, 14),
-        ("Independiente",  10, 25, 15), ("Lanús",           8, 22, 14),
-        ("Newell's",        3, 22, 14), ("Unión",           9, 32, 14),
+        ("Racing",         40,  14, 18), ("San Lorenzo",    32,  11, 18),
+        ("River",          39, 18, 19), ("Talleres CBA",   26,  15, 18),
+        ("Gimnasia",       27, 31, 19), ("Belgrano",       20,  11, 19),
+        ("Boca",           24, 16, 19), ("Ferro",          21, 20, 19),
+        ("Banfield",       26, 25, 19), ("SAT",            20, 19, 18),
+        ("San Luis FC",    23, 25, 18), ("Huracán",         11, 19, 18),
+        ("Independiente",  10, 35, 18), ("Lanús",           13, 25, 18),
+        ("Newell's",        7, 31, 19), ("Unión",           15, 37, 19),
     ],
     "MLS": [
         # Fuente: MLS 2026 — ambas conferencias · actualizada al 17-jul-2026
