@@ -1,1 +1,43 @@
+name: "📊 Fetch BetAnalytics Data"
 
+on:
+  schedule:
+    - cron: '0 11 * * *'      # 6:00 AM Colombia (UTC-5) — todos los días
+    - cron: '0 23 * * *'      # 6:00 PM Colombia — segunda pasada (captura resultados nocturnos)
+  workflow_dispatch:            # Permite ejecución manual desde GitHub
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run data fetcher
+        env:
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python fetcher.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "BetAnalytics Bot"
+          git config user.email "bot@betanalytics.app"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            CHANGES=$(git diff --staged --stat | tail -1)
+            git commit -m "📊 Data update $(date -u +%Y-%m-%d) — $CHANGES"
+            git push
+          fi
