@@ -3303,7 +3303,7 @@ with tab1:
                             dfn_h = max(0.30, min(3.0, dfn_h))
                             _h_model[t["team"]] = {"atk": atk_h, "def": dfn_h, "n": _hpj, "_gf": t["gf"], "_ga": t["ga"]}
 
-                        if _n_matches >= 5:
+                        if _n_matches >= 4:
                             # Blend parcial: hist 60% + dinámico 40%
                             _blended = {"_avg": li["avg"]}
                             _all_teams = set(k for k in _h_model if not k.startswith("_")) | set(k for k in _model if not k.startswith("_"))
@@ -3326,7 +3326,7 @@ with tab1:
                             # Muy pocos partidos → usar solo hist_season
                             hist = _h_model
                             if _n_matches > 0:
-                                st.info(f"📊 Modelo JSON basado en {_hist_season.get('season','?')}. Solo {_n_matches} partidos actuales — se blendea con ≥5.")
+                                st.info(f"📊 Modelo JSON basado en {_hist_season.get('season','?')}. Solo {_n_matches} partidos actuales — se blendea con ≥4.")
                             else:
                                 st.info(f"📊 Modelo JSON basado en {_hist_season.get('season','?')}. Temporada aún sin partidos.")
                     else:
