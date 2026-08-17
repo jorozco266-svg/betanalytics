@@ -680,10 +680,14 @@ HIST_CONMEBOL = {
         ("Sevilla",              46, 60, 38), ("Alaves",               44, 56, 38),
         ("Elche",                49, 57, 38), ("Levante",              47, 61, 38),
         ("Osasuna",              44, 50, 38),
-        # 3 ascendidos desde Segunda División — coeficientes estimados (promedio bajo-medio):
-        ("Racing Santander",     40, 50, 38), # Campeón 2ª — más competitivo
-        ("Deportivo La Coruna",  38, 52, 38), # 2° en 2ª — buen nivel
-        ("Malaga",               36, 54, 38), # 3° en 2ª (playoff) — primer ascenso en años
+        # 3 ascendidos desde Segunda División — datos reales 2025-26 (42 PJ), escalados a 38 PJ.
+        # Se aplica factor ×0.85 en ataque y ×1.10 en defensa para ajustar al nivel de Primera.
+        # Racing: 90 GF, 61 GA → escalado: 81 GF, 55 GA → ajustado: 69 GF, 61 GA
+        # Deportivo: 65 GF, 44 GA → escalado: 59 GF, 40 GA → ajustado: 50 GF, 44 GA
+        # Málaga: 75 GF, 52 GA → escalado: 68 GF, 47 GA → ajustado: 58 GF, 52 GA
+        ("Racing Santander",     69, 61, 38), # Campeón 2ª (90 GF en 42 PJ) — el más ofensivo
+        ("Deportivo La Coruna",  50, 44, 38), # 2° en 2ª (65 GF, 44 GA) — sólido defensivamente
+        ("Malaga",               58, 52, 38), # 4° en 2ª playoff (75 GF, 52 GA) — buen ataque
     ],
 }
 
@@ -723,7 +727,7 @@ FUENTE_TABLAS = {
     "Bundesliga2":{"fuente":"2. Bundesliga 2025-26 (escalado 24→34 jornadas)", "corte":"01-mar-2026",
                    "nota":"897 goles (2.93 g/p). Schalke campeón. Descendidos BL (Wolfsburg, Heidenheim, St.Pauli) y ascendidos 3.Liga (Osnabrück, Cottbus) con coeficientes estimados."},
     "LaLiga":    {"fuente":"La Liga 2025-26 final standings (Sporting Life / Wikipedia)", "corte":"24-may-2026",
-                  "nota":"380 partidos, 1024 goles (2.69 g/p). Barcelona bicampeón (95 GF). Ascendidos: Racing Santander, Deportivo, Málaga — coeficientes estimados. Se blendea con datos reales 2026-27 cuando haya ≥30 partidos."},
+                  "nota":"380 partidos, 1024 goles (2.69 g/p). Barcelona bicampeón (95 GF). Ascendidos: Racing (90 GF en 42 PJ 2ª), Deportivo (65 GF), Málaga (75 GF) — datos reales de 2ª, escalados 42→38 PJ y ajustados (atk ×0.85, def ×1.10) por cambio de nivel."},
 }
 
 
