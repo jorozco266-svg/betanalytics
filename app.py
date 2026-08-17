@@ -3347,8 +3347,16 @@ with tab1:
                             _dt = datetime.datetime.strptime(f"{f['date']} {_time_str}", "%Y-%m-%d %I:%M %p")
                             _dt = _dt.replace(tzinfo=TZ_COL)
                         except:
-                            _dt = datetime.datetime(f["date"][:4], tzinfo=TZ_COL) if False else datetime.datetime(_fd.year, _fd.month, _fd.day, tzinfo=TZ_COL)
-                        prox.append({"dt": _dt, "local": f["home"], "visit": f["away"], "jornada": f.get("matchday","?")})
+                            _dt = datetime.datetime(_fd.year, _fd.month, _fd.day, tzinfo=TZ_COL)
+                        prox.append({
+                            "id": hash(f"{f['home']}{f['away']}{f['date']}") & 0xFFFFFFFF,
+                            "dt": _dt,
+                            "fecha": _fd.isoformat(),
+                            "hora": _time_str,
+                            "local": f["home"],
+                            "visit": f["away"],
+                            "jornada": f.get("matchday","?"),
+                        })
                     prox.sort(key=lambda x: x["dt"])
                     cargado = True
 
