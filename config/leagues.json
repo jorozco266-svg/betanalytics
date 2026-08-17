@@ -10,35 +10,127 @@
       "season": "2025-26",
       "pj_per_team": 38,
       "teams": [
-        {"team": "Barcelona", "gf": 95, "ga": 36},
-        {"team": "Real Madrid", "gf": 77, "ga": 35},
-        {"team": "Villarreal", "gf": 72, "ga": 46},
-        {"team": "Atletico Madrid", "gf": 62, "ga": 44},
-        {"team": "Real Betis", "gf": 59, "ga": 48},
-        {"team": "Celta Vigo", "gf": 53, "ga": 48},
-        {"team": "Getafe", "gf": 32, "ga": 38},
-        {"team": "Rayo Vallecano", "gf": 41, "ga": 44},
-        {"team": "Valencia", "gf": 46, "ga": 55},
-        {"team": "Real Sociedad", "gf": 59, "ga": 61},
-        {"team": "Espanyol", "gf": 43, "ga": 55},
-        {"team": "Athletic Club", "gf": 43, "ga": 58},
-        {"team": "Sevilla", "gf": 46, "ga": 60},
-        {"team": "Alaves", "gf": 44, "ga": 56},
-        {"team": "Elche", "gf": 49, "ga": 57},
-        {"team": "Levante", "gf": 47, "ga": 61},
-        {"team": "Osasuna", "gf": 44, "ga": 50},
-        {"team": "Racing Santander", "gf": 69, "ga": 61, "_promoted": true, "_note": "Campeón 2ª (90GF/61GA en 42PJ, ajustado)"},
-        {"team": "Deportivo La Coruna", "gf": 50, "ga": 44, "_promoted": true, "_note": "2° en 2ª (65GF/44GA en 42PJ, ajustado)"},
-        {"team": "Malaga", "gf": 58, "ga": 52, "_promoted": true, "_note": "4° en 2ª playoff (75GF/52GA en 42PJ, ajustado)"}
+        {
+          "team": "Barcelona",
+          "gf": 95,
+          "ga": 36
+        },
+        {
+          "team": "Real Madrid",
+          "gf": 77,
+          "ga": 35
+        },
+        {
+          "team": "Villarreal",
+          "gf": 72,
+          "ga": 46
+        },
+        {
+          "team": "Atletico Madrid",
+          "gf": 62,
+          "ga": 44
+        },
+        {
+          "team": "Real Betis",
+          "gf": 59,
+          "ga": 48
+        },
+        {
+          "team": "Celta Vigo",
+          "gf": 53,
+          "ga": 48
+        },
+        {
+          "team": "Getafe",
+          "gf": 32,
+          "ga": 38
+        },
+        {
+          "team": "Rayo Vallecano",
+          "gf": 41,
+          "ga": 44
+        },
+        {
+          "team": "Valencia",
+          "gf": 46,
+          "ga": 55
+        },
+        {
+          "team": "Real Sociedad",
+          "gf": 59,
+          "ga": 61
+        },
+        {
+          "team": "Espanyol",
+          "gf": 43,
+          "ga": 55
+        },
+        {
+          "team": "Athletic Club",
+          "gf": 43,
+          "ga": 58
+        },
+        {
+          "team": "Sevilla",
+          "gf": 46,
+          "ga": 60
+        },
+        {
+          "team": "Alaves",
+          "gf": 44,
+          "ga": 56
+        },
+        {
+          "team": "Elche",
+          "gf": 49,
+          "ga": 57
+        },
+        {
+          "team": "Levante",
+          "gf": 47,
+          "ga": 61
+        },
+        {
+          "team": "Osasuna",
+          "gf": 44,
+          "ga": 50
+        },
+        {
+          "team": "Racing Santander",
+          "gf": 69,
+          "ga": 61,
+          "_promoted": true,
+          "_note": "Campeón 2ª (90GF/61GA en 42PJ, ajustado)"
+        },
+        {
+          "team": "Deportivo La Coruna",
+          "gf": 50,
+          "ga": 44,
+          "_promoted": true,
+          "_note": "2° en 2ª (65GF/44GA en 42PJ, ajustado)"
+        },
+        {
+          "team": "Malaga",
+          "gf": 58,
+          "ga": 52,
+          "_promoted": true,
+          "_note": "4° en 2ª playoff (75GF/52GA en 42PJ, ajustado)"
+        }
       ]
     },
     "aliases": {
-      "FC Barcelona": "Barcelona", "Barça": "Barcelona",
+      "FC Barcelona": "Barcelona",
+      "Barça": "Barcelona",
       "Real Madrid CF": "Real Madrid",
       "Villarreal CF": "Villarreal",
-      "Club Atletico de Madrid": "Atletico Madrid", "Atlético de Madrid": "Atletico Madrid", "Atlético Madrid": "Atletico Madrid",
-      "Real Betis Balompié": "Real Betis", "Betis": "Real Betis",
-      "RC Celta de Vigo": "Celta Vigo", "Celta de Vigo": "Celta Vigo", "Celta": "Celta Vigo",
+      "Club Atletico de Madrid": "Atletico Madrid",
+      "Atlético de Madrid": "Atletico Madrid",
+      "Atlético Madrid": "Atletico Madrid",
+      "Real Betis Balompié": "Real Betis",
+      "Betis": "Real Betis",
+      "RC Celta de Vigo": "Celta Vigo",
+      "Celta de Vigo": "Celta Vigo",
+      "Celta": "Celta Vigo",
       "Getafe CF": "Getafe",
       "Rayo Vallecano de Madrid": "Rayo Vallecano",
       "Valencia CF": "Valencia",
@@ -46,13 +138,16 @@
       "RCD Espanyol": "Espanyol",
       "Athletic Bilbao": "Athletic Club",
       "Sevilla FC": "Sevilla",
-      "Deportivo Alavés": "Alaves", "Alavés": "Alaves",
+      "Deportivo Alavés": "Alaves",
+      "Alavés": "Alaves",
       "Elche CF": "Elche",
       "Levante UD": "Levante",
       "CA Osasuna": "Osasuna",
       "Racing de Santander": "Racing Santander",
-      "Deportivo de La Coruña": "Deportivo La Coruna", "RC Deportivo": "Deportivo La Coruna",
-      "Málaga CF": "Malaga", "Málaga": "Malaga"
+      "Deportivo de La Coruña": "Deportivo La Coruna",
+      "RC Deportivo": "Deportivo La Coruna",
+      "Málaga CF": "Malaga",
+      "Málaga": "Malaga"
     }
   },
   "bundesliga": {
@@ -66,28 +161,104 @@
       "season": "2025-26",
       "pj_per_team": 34,
       "teams": [
-        {"team": "Bayern Munich", "gf": 122, "ga": 36},
-        {"team": "Borussia Dortmund", "gf": 70, "ga": 34},
-        {"team": "RB Leipzig", "gf": 66, "ga": 47},
-        {"team": "VfB Stuttgart", "gf": 71, "ga": 49},
-        {"team": "TSG Hoffenheim", "gf": 65, "ga": 52},
-        {"team": "Bayer Leverkusen", "gf": 68, "ga": 47},
-        {"team": "SC Freiburg", "gf": 51, "ga": 57},
-        {"team": "Eintracht Frankfurt", "gf": 61, "ga": 65},
-        {"team": "FC Augsburg", "gf": 45, "ga": 61},
-        {"team": "FSV Mainz 05", "gf": 44, "ga": 53},
-        {"team": "Union Berlin", "gf": 44, "ga": 58},
-        {"team": "Borussia Monchengladbach", "gf": 42, "ga": 53},
-        {"team": "Hamburger SV", "gf": 40, "ga": 54},
-        {"team": "FC Koln", "gf": 49, "ga": 63},
-        {"team": "Werder Bremen", "gf": 37, "ga": 60},
-        {"team": "Schalke 04", "gf": 43, "ga": 50, "_promoted": true},
-        {"team": "SV Elversberg", "gf": 38, "ga": 55, "_promoted": true},
-        {"team": "SC Paderborn 07", "gf": 40, "ga": 53, "_promoted": true}
+        {
+          "team": "Bayern Munich",
+          "gf": 122,
+          "ga": 36
+        },
+        {
+          "team": "Borussia Dortmund",
+          "gf": 70,
+          "ga": 34
+        },
+        {
+          "team": "RB Leipzig",
+          "gf": 66,
+          "ga": 47
+        },
+        {
+          "team": "VfB Stuttgart",
+          "gf": 71,
+          "ga": 49
+        },
+        {
+          "team": "TSG Hoffenheim",
+          "gf": 65,
+          "ga": 52
+        },
+        {
+          "team": "Bayer Leverkusen",
+          "gf": 68,
+          "ga": 47
+        },
+        {
+          "team": "SC Freiburg",
+          "gf": 51,
+          "ga": 57
+        },
+        {
+          "team": "Eintracht Frankfurt",
+          "gf": 61,
+          "ga": 65
+        },
+        {
+          "team": "FC Augsburg",
+          "gf": 45,
+          "ga": 61
+        },
+        {
+          "team": "FSV Mainz 05",
+          "gf": 44,
+          "ga": 53
+        },
+        {
+          "team": "Union Berlin",
+          "gf": 44,
+          "ga": 58
+        },
+        {
+          "team": "Borussia Monchengladbach",
+          "gf": 42,
+          "ga": 53
+        },
+        {
+          "team": "Hamburger SV",
+          "gf": 40,
+          "ga": 54
+        },
+        {
+          "team": "FC Koln",
+          "gf": 49,
+          "ga": 63
+        },
+        {
+          "team": "Werder Bremen",
+          "gf": 37,
+          "ga": 60
+        },
+        {
+          "team": "Schalke 04",
+          "gf": 43,
+          "ga": 50,
+          "_promoted": true
+        },
+        {
+          "team": "SV Elversberg",
+          "gf": 38,
+          "ga": 55,
+          "_promoted": true
+        },
+        {
+          "team": "SC Paderborn 07",
+          "gf": 40,
+          "ga": 53,
+          "_promoted": true
+        }
       ]
     },
     "aliases": {
-      "FC Bayern Munich": "Bayern Munich", "FC Bayern München": "Bayern Munich",
+      "FC Bayern Munich": "Bayern Munich",
+      "FC Bayern München": "Bayern Munich",
       "BV Borussia Dortmund": "Borussia Dortmund",
       "Rasenballsport Leipzig": "RB Leipzig",
       "1899 Hoffenheim": "TSG Hoffenheim",
@@ -107,7 +278,114 @@
     "sportsdb_id": 4497,
     "season": "2026",
     "avg": 1.26,
-    "odds_key": null
+    "odds_key": null,
+    "hist_season": {
+      "season": "Apertura 2026",
+      "pj_per_team": 19,
+      "note": "20 equipos todos contra todos. GF=GC=480. Datos verificados.",
+      "teams": [
+        {
+          "team": "Atlético Nacional",
+          "gf": 35,
+          "ga": 15
+        },
+        {
+          "team": "Junior",
+          "gf": 31,
+          "ga": 24
+        },
+        {
+          "team": "Deportivo Pasto",
+          "gf": 29,
+          "ga": 25
+        },
+        {
+          "team": "América de Cali",
+          "gf": 25,
+          "ga": 15
+        },
+        {
+          "team": "Once Caldas",
+          "gf": 31,
+          "ga": 22
+        },
+        {
+          "team": "Deportes Tolima",
+          "gf": 27,
+          "ga": 17
+        },
+        {
+          "team": "Independiente Santa Fe",
+          "gf": 29,
+          "ga": 22
+        },
+        {
+          "team": "Internacional de Bogotá",
+          "gf": 26,
+          "ga": 26
+        },
+        {
+          "team": "Deportivo Cali",
+          "gf": 20,
+          "ga": 16
+        },
+        {
+          "team": "Millonarios",
+          "gf": 31,
+          "ga": 23
+        },
+        {
+          "team": "Independiente Medellín",
+          "gf": 26,
+          "ga": 24
+        },
+        {
+          "team": "Águilas Doradas",
+          "gf": 20,
+          "ga": 25
+        },
+        {
+          "team": "Atlético Bucaramanga",
+          "gf": 26,
+          "ga": 20
+        },
+        {
+          "team": "Llaneros",
+          "gf": 17,
+          "ga": 20
+        },
+        {
+          "team": "Fortaleza",
+          "gf": 22,
+          "ga": 27
+        },
+        {
+          "team": "Jaguares",
+          "gf": 20,
+          "ga": 33
+        },
+        {
+          "team": "Alianza FC",
+          "gf": 13,
+          "ga": 27
+        },
+        {
+          "team": "Boyacá Chicó",
+          "gf": 15,
+          "ga": 32
+        },
+        {
+          "team": "Cúcuta Deportivo",
+          "gf": 22,
+          "ga": 35
+        },
+        {
+          "team": "Deportivo Pereira",
+          "gf": 15,
+          "ga": 32
+        }
+      ]
+    }
   },
   "argentina": {
     "name": "🇦🇷 Liga Argentina",
@@ -115,7 +393,164 @@
     "sportsdb_id": 4406,
     "season": "2026",
     "avg": 1.03,
-    "odds_key": "soccer_argentina_primera_division"
+    "odds_key": "soccer_argentina_primera_division",
+    "hist_season": {
+      "season": "Apertura 2026",
+      "pj_per_team": 16,
+      "note": "30 equipos en 2 grupos de 15, 16 PJ. GF=GC=493. Datos verificados.",
+      "teams": [
+        {
+          "team": "Estudiantes (LP)",
+          "gf": 19,
+          "ga": 7
+        },
+        {
+          "team": "Boca Juniors",
+          "gf": 22,
+          "ga": 9
+        },
+        {
+          "team": "Vélez",
+          "gf": 18,
+          "ga": 12
+        },
+        {
+          "team": "Talleres (C)",
+          "gf": 17,
+          "ga": 13
+        },
+        {
+          "team": "Independiente",
+          "gf": 24,
+          "ga": 20
+        },
+        {
+          "team": "Lanús",
+          "gf": 18,
+          "ga": 15
+        },
+        {
+          "team": "San Lorenzo",
+          "gf": 14,
+          "ga": 14
+        },
+        {
+          "team": "Unión",
+          "gf": 24,
+          "ga": 20
+        },
+        {
+          "team": "Instituto",
+          "gf": 17,
+          "ga": 17
+        },
+        {
+          "team": "Defensa y Justicia",
+          "gf": 18,
+          "ga": 21
+        },
+        {
+          "team": "Gimnasia y Esgrima (LP)",
+          "gf": 14,
+          "ga": 22
+        },
+        {
+          "team": "Platense",
+          "gf": 10,
+          "ga": 15
+        },
+        {
+          "team": "Central Córdoba",
+          "gf": 11,
+          "ga": 21
+        },
+        {
+          "team": "Newell's Old Boys",
+          "gf": 15,
+          "ga": 27
+        },
+        {
+          "team": "Deportivo Riestra",
+          "gf": 5,
+          "ga": 12
+        },
+        {
+          "team": "Independiente Rivadavia",
+          "gf": 29,
+          "ga": 15
+        },
+        {
+          "team": "River Plate",
+          "gf": 22,
+          "ga": 12
+        },
+        {
+          "team": "Argentinos Juniors",
+          "gf": 17,
+          "ga": 13
+        },
+        {
+          "team": "Rosario Central",
+          "gf": 20,
+          "ga": 16
+        },
+        {
+          "team": "Belgrano",
+          "gf": 17,
+          "ga": 13
+        },
+        {
+          "team": "Gimnasia y Esgrima (M)",
+          "gf": 19,
+          "ga": 19
+        },
+        {
+          "team": "Huracán",
+          "gf": 17,
+          "ga": 13
+        },
+        {
+          "team": "Racing",
+          "gf": 17,
+          "ga": 15
+        },
+        {
+          "team": "Barracas Central",
+          "gf": 15,
+          "ga": 15
+        },
+        {
+          "team": "Tigre",
+          "gf": 18,
+          "ga": 15
+        },
+        {
+          "team": "Sarmiento",
+          "gf": 13,
+          "ga": 20
+        },
+        {
+          "team": "Banfield",
+          "gf": 17,
+          "ga": 19
+        },
+        {
+          "team": "Atlético Tucumán",
+          "gf": 15,
+          "ga": 20
+        },
+        {
+          "team": "Aldosivi",
+          "gf": 6,
+          "ga": 19
+        },
+        {
+          "team": "Estudiantes (RC)",
+          "gf": 5,
+          "ga": 24
+        }
+      ]
+    }
   },
   "brasileirao": {
     "name": "🇧🇷 Brasileirão",
@@ -129,14 +564,14 @@
     "name": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
     "source": "footballdata",
     "fd_code": "PL",
-    "avg": 1.40,
+    "avg": 1.4,
     "odds_key": "soccer_epl"
   },
   "seriea": {
     "name": "🇮🇹 Serie A",
     "source": "footballdata",
     "fd_code": "SA",
-    "avg": 1.30,
+    "avg": 1.3,
     "odds_key": "soccer_italy_serie_a"
   },
   "ligue1": {
@@ -158,7 +593,7 @@
     "source": "wikipedia",
     "wiki_url": "https://en.wikipedia.org/wiki/2026_Chilean_Primera_Divisi%C3%B3n",
     "sportsdb_id": 4627,
-    "avg": 1.40,
+    "avg": 1.4,
     "odds_key": "soccer_chile_campeonato"
   },
   "uruguay": {
@@ -166,7 +601,7 @@
     "source": "wikipedia",
     "wiki_url": "https://en.wikipedia.org/wiki/2026_Uruguayan_Primera_Divisi%C3%B3n",
     "sportsdb_id": 4432,
-    "avg": 1.30
+    "avg": 1.3
   },
   "ecuador": {
     "name": "🇪🇨 Ecuador - LigaPro",
