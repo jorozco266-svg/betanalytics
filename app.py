@@ -10,7 +10,7 @@ BetAnalytics v3.1
 - Bankroll dinámico: se descuenta al apostar, se acredita al ganar
 """
 
-import math, datetime
+import math, datetime, os, json
 from itertools import product as iproduct
 from zoneinfo import ZoneInfo
 import streamlit as st
@@ -3124,7 +3124,7 @@ if necesita_fd and not tiene_fd:
 if necesita_rf and not tiene_rf:
     st.info("👈 Ingresa tu API key de **API-Football (RapidAPI)** para cargar ligas de Suramérica y Colombia.")
 
-tab1,tab2,tab3,tab4,tab5,tab6,tab7,tab8=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos","🏆 Mundial 2026","🧮 Calculadora"])
+tab1,tab2,tab3,tab4,tab5,tab6,tab7=st.tabs(["⚽ Partidos","📈 Equipos","💰 Mis apuestas","📋 Casos de estudio","🎾 Tenis","🌍 Amistosos","🧮 Calculadora"])
 
 # ─────────────────────────────────────────────
 # FUNCIÓN AUXILIAR: RENDER DE PARTIDO
@@ -3247,7 +3247,117 @@ with tab1:
     hist,prox=[],[]
     cargado=False
 
-    if li["src"]=="fd" and tiene_fd:
+    # ── JSON-FIRST: intentar cargar desde data/{key}.json (generado por el agente) ──
+    LIGA_JSON_KEY = {
+        "🇪🇸 La Liga": "laliga", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League": "premier",
+        "🇩🇪 Bundesliga": "bundesliga", "🇮🇹 Serie A": "seriea",
+        "🇫🇷 Ligue 1": "ligue1", "🏆 Champions League": "champions",
+        "🇨🇴 Liga BetPlay": "betplay", "🇦🇷 Liga Argentina": "argentina",
+        "🇧🇷 Brasileirao": "brasileirao", "🇺🇸 MLS": "mls",
+        "🇨🇱 Chile - Liga 1ª": "chile", "🇺🇾 Uruguay - Clausura": "uruguay",
+        "🇪🇨 Ecuador - LigaPro": "ecuador", "🇦🇷 Arg Femenina": "argfem",
+    }
+    json_key = LIGA_JSON_KEY.get(liga_n)
+    if json_key:
+        json_path = os.path.join(os.path.dirname(__file__), "data", f"{json_key}.json")
+        if os.path.exists(json_path):
+            try:
+                with open(json_path) as _jf:
+                    _jdata = json.load(_jf)
+                _standings = _jdata.get("standings", [])
+                _results = _jdata.get("results", [])
+                _fixtures = _jdata.get("fixtures", [])
+                _hist_season = _jdata.get("hist_season")
+                _meta = _jdata.get("meta", {})
+                _n_matches = len(_results)
+
+                # Construir modelo desde JSON
+                if _standings and len(_standings) >= 5:
+                    # Hay datos dinámicos suficientes → modelo desde standings
+                    _total_gf = sum(t["gf"] for t in _standings)
+                    _total_pj = sum(t["pj"] for t in _standings)
+                    _avg_gf = _total_gf / _total_pj if _total_pj > 0 else li["avg"]
+                    _avg_ga = sum(t["ga"] for t in _standings) / _total_pj if _total_pj > 0 else li["avg"]
+                    _model = {"_avg": li["avg"]}
+                    for t in _standings:
+                        if t["pj"] == 0: continue
+                        atk = round((t["gf"] / t["pj"]) / _avg_gf, 3) if _avg_gf > 0 else 1.0
+                        dfn = round((t["ga"] / t["pj"]) / _avg_ga, 3) if _avg_ga > 0 else 1.0
+                        atk = max(0.30, min(3.0, atk))
+                        dfn = max(0.30, min(3.0, dfn))
+                        _model[t["team"]] = {"atk": atk, "def": dfn, "n": t["pj"], "_gf": t["gf"], "_ga": t["ga"]}
+
+                    # Si hay hist_season y pocos partidos dinámicos → blend o fallback
+                    _blend_threshold = 30
+                    if _n_matches < _blend_threshold and _hist_season and _hist_season.get("teams"):
+                        # Construir modelo histórico
+                        _ht = _hist_season["teams"]
+                        _hpj = _hist_season.get("pj_per_team", 38)
+                        _h_total_gf = sum(t["gf"] for t in _ht)
+                        _h_avg = _h_total_gf / (len(_ht) * _hpj) if _hpj > 0 else li["avg"]
+                        _h_model = {"_avg": li["avg"]}
+                        for t in _ht:
+                            atk_h = round((t["gf"] / _hpj) / _h_avg, 3) if _h_avg > 0 else 1.0
+                            dfn_h = round((t["ga"] / _hpj) / _h_avg, 3) if _h_avg > 0 else 1.0
+                            atk_h = max(0.30, min(3.0, atk_h))
+                            dfn_h = max(0.30, min(3.0, dfn_h))
+                            _h_model[t["team"]] = {"atk": atk_h, "def": dfn_h, "n": _hpj, "_gf": t["gf"], "_ga": t["ga"]}
+
+                        if _n_matches >= 5:
+                            # Blend parcial: hist 60% + dinámico 40%
+                            _blended = {"_avg": li["avg"]}
+                            _all_teams = set(k for k in _h_model if not k.startswith("_")) | set(k for k in _model if not k.startswith("_"))
+                            for team in _all_teams:
+                                b = _h_model.get(team, {"atk": 1.0, "def": 1.0})
+                                r = _model.get(team, None)
+                                if r is None:
+                                    _blended[team] = {"atk": b["atk"], "def": b["def"], "n": b.get("n",0)}
+                                elif team not in _h_model:
+                                    _blended[team] = {"atk": r["atk"], "def": r["def"], "n": r.get("n",0)}
+                                else:
+                                    _blended[team] = {
+                                        "atk": round(b["atk"] * 0.6 + r["atk"] * 0.4, 3),
+                                        "def": round(b["def"] * 0.6 + r["def"] * 0.4, 3),
+                                        "n": r.get("n", 0),
+                                    }
+                            hist = _blended
+                            st.info(f"📊 Modelo JSON: blend hist ({_hist_season.get('season','?')}) + {_n_matches} partidos actuales.")
+                        else:
+                            # Muy pocos partidos → usar solo hist_season
+                            hist = _h_model
+                            if _n_matches > 0:
+                                st.info(f"📊 Modelo JSON basado en {_hist_season.get('season','?')}. Solo {_n_matches} partidos actuales — se blendea con ≥5.")
+                            else:
+                                st.info(f"📊 Modelo JSON basado en {_hist_season.get('season','?')}. Temporada aún sin partidos.")
+                    else:
+                        hist = _model
+                        st.info(f"📊 Modelo JSON: {_n_matches} partidos · {len(_standings)} equipos · última actualización: {_meta.get('last_updated','?')[:10]}")
+
+                    # Convertir fixtures JSON al formato que espera render_partido
+                    _hoy = datetime.datetime.now(TZ_COL).date()
+                    _lim = _hoy + datetime.timedelta(days=7)
+                    prox = []
+                    for f in _fixtures:
+                        try:
+                            _fd = datetime.date.fromisoformat(f["date"])
+                        except: continue
+                        if _fd < _hoy or _fd > _lim: continue
+                        _time_str = f.get("time", "TBD")
+                        try:
+                            _dt = datetime.datetime.strptime(f"{f['date']} {_time_str}", "%Y-%m-%d %I:%M %p")
+                            _dt = _dt.replace(tzinfo=TZ_COL)
+                        except:
+                            _dt = datetime.datetime(f["date"][:4], tzinfo=TZ_COL) if False else datetime.datetime(_fd.year, _fd.month, _fd.day, tzinfo=TZ_COL)
+                        prox.append({"dt": _dt, "local": f["home"], "visit": f["away"], "jornada": f.get("matchday","?")})
+                    prox.sort(key=lambda x: x["dt"])
+                    cargado = True
+
+            except Exception as _je:
+                st.warning(f"⚠ Error leyendo JSON ({json_key}): {_je} — cayendo a fuente tradicional.")
+                cargado = False
+
+    # ── FUENTES TRADICIONALES (fallback si JSON no tiene datos) ──
+    if not cargado and li["src"]=="fd" and tiene_fd:
         with st.spinner("Cargando datos..."):
             hist,e1=fd_hist(li["code"],fd_key)
             prox,e2=fd_next(li["code"],fd_key)
@@ -3255,7 +3365,7 @@ with tab1:
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
-    elif li["src"]=="wiki_tabla":
+    elif not cargado and li["src"]=="wiki_tabla":
         e1, e2, prox = None, None, []
         fb = li.get("hist_fallback")
         # Para ligas con tabla estática actualizada, usarla directamente
@@ -3287,7 +3397,7 @@ with tab1:
         if e2 and li.get("sportsdb_id"): st.warning(f"Error próximos: {e2}")
         cargado=True
 
-    elif li["src"]=="copa_arg":
+    elif not cargado and li["src"]=="copa_arg":
         e1, e2, prox = None, None, []
         hist = build_model_desde_tabla(HIST_ARGENTINA_2026, li["avg"], "CopaArg")
         st.info(
@@ -3299,7 +3409,7 @@ with tab1:
         st.caption("⚖️ Cancha neutral: no se aplica factor de localía. El 'local' del fixture es solo nominal.")
         cargado=True
 
-    elif li["src"]=="sportsdb":
+    elif not cargado and li["src"]=="sportsdb":
         e1, e2, prox = None, None, []
 
         # Aviso específico para ligas de desarrollo
@@ -3451,7 +3561,7 @@ with tab1:
         if e2: st.caption("ℹ️ Fixtures automáticos no disponibles ahora. Ingresa el partido manualmente.")
         cargado=True
 
-    elif li["src"] in ("wiki", "wiki_multi"):
+    elif not cargado and li["src"] in ("wiki", "wiki_multi"):
         e1, e2, prox = None, None, []
         # Para Liga Argentina: usar modelo estático directo, no depender del scraper
         if "Argentina" in liga_n:
@@ -3608,7 +3718,7 @@ with tab1:
         if e2: st.warning(f"Error próximos: {e2}")
         cargado=True
 
-    elif li["src"]=="rf" and tiene_rf:
+    elif not cargado and li["src"]=="rf" and tiene_rf:
         with st.spinner("Cargando datos de Suramérica..."):
             hist,e1=rf_hist(li["rf_id"],rf_key)
             prox,e2=rf_next(li["rf_id"],rf_key)
@@ -4484,329 +4594,10 @@ with tab6:
                     st.warning(f"⚠️ '{sel_local_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
                 if not elo_vis_m:
                     st.warning(f"⚠️ '{sel_visit_m}' no encontrado. Revisa el nombre en la lista de selecciones disponibles.")
-
-# ════════════════════════════════════════════════════════════
-# TAB 7 — MUNDIAL 2026
-# ════════════════════════════════════════════════════════════
-with tab7:
-    import sys as _sys
-    _sys.path.insert(0, '/home/claude')
-    try:
-        from mundial2026 import (GRUPOS_MUNDIAL, BANDERAS_MUNDIAL, FIXTURE_GRUPOS,
-                                  WC_STATS, calcular_tabla, get_resultados_wc_hoy)
-    except ImportError:
-        st.error("⚠️ No se encontró mundial2026.py — asegúrate de que está en el repositorio.")
-        st.stop()
-
-    st.markdown("### 🏆 Copa del Mundo 2026")
-    st.caption("🇺🇸🇲🇽🇨🇦 · 48 equipos · 104 partidos · 11 jun – 19 jul 2026")
-
-    # Estado actual del torneo
-    st.success(
-        "**🏁 FINAL: 🇪🇸 España vs 🇦🇷 Argentina** — domingo 19 de julio, 14:00 COT · MetLife Stadium\n\n"
-        "🥉 Tercer puesto: 🇫🇷 Francia vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra — sábado 18 de julio\n\n"
-        "Semifinales: Francia 0-2 España · Inglaterra 1-2 Argentina"
-    )
-    st.caption("📊 Las estadísticas de España, Argentina, Francia e Inglaterra ya reflejan sus 7 partidos del Mundial. El resto de selecciones conserva datos previos al torneo.")
-
-    vista_wc = st.radio("Vista:", ["📅 Fixture","📊 Grupos","🔍 Analizar partido"],
-                         horizontal=True, key="vista_wc")
-
-    with st.spinner("Consultando resultados..."):
-        resultados_auto = get_resultados_wc_hoy()
-
-    if "wc_resultados" not in st.session_state:
-        st.session_state.wc_resultados = {}
-    resultados_wc = {**resultados_auto, **st.session_state.wc_resultados}
-
-    # ── FIXTURE ──────────────────────────────────────────────
-    if "Fixture" in vista_wc:
-        TZ_WC = ZoneInfo("America/Bogota")
-        ahora_wc = datetime.datetime.now(TZ_WC)
-        col_f1, col_f2 = st.columns(2)
-        with col_f1:
-            grupo_filtro = st.selectbox("Filtrar por grupo:",
-                ["Todos"]+[f"Grupo {g}" for g in sorted(GRUPOS_MUNDIAL.keys())],
-                key="wc_gf")
-        with col_f2:
-            jornada_filtro = st.selectbox("Jornada:",
-                ["Todas","Jornada 1","Jornada 2","Jornada 3"], key="wc_jf")
-
-        partidos_m = FIXTURE_GRUPOS
-        if grupo_filtro != "Todos":
-            partidos_m = [p for p in partidos_m if p[0]==grupo_filtro.split()[-1]]
-
-        fechas_wc = sorted(set(p[3] for p in partidos_m))
-        for fecha in fechas_wc:
-            ps = [p for p in partidos_m if p[3]==fecha]
-            if not ps: continue
-            try:
-                dt_f = datetime.datetime.strptime(fecha,"%Y-%m-%d").replace(tzinfo=TZ_WC)
-                dd = (dt_f.date()-ahora_wc.date()).days
-                if dd==0: lbl=f"🔴 HOY · {fecha}"
-                elif dd==1: lbl=f"🟡 MAÑANA · {fecha}"
-                elif dd<0: lbl=f"✅ {fecha}"
-                else: lbl=f"📅 {fecha}"
-            except: lbl=f"📅 {fecha}"
-            st.markdown(f'<div style="font-family:var(--mono);font-size:11px;color:var(--text3);'
-                        f'letter-spacing:0.1em;text-transform:uppercase;margin:1.2rem 0 0.4rem;'
-                        f'border-bottom:1px solid var(--border);padding-bottom:4px;">{lbl}</div>',
-                        unsafe_allow_html=True)
-            for grupo,loc,vis,fecha_p,hora,sede in ps:
-                fl=BANDERAS_MUNDIAL.get(loc,"🏳️"); fv=BANDERAS_MUNDIAL.get(vis,"🏳️")
-                res=resultados_wc.get((loc,vis))
-                c1,c2,c3=st.columns([4,1,1])
-                with c1:
-                    if res:
-                        st.markdown(f"**{fl} {loc} {res[0]}–{res[1]} {vis} {fv}** ✅")
-                    else:
-                        st.markdown(f"**{fl} {loc} vs {vis} {fv}** · {hora} COT")
-                    st.caption(f"Grupo {grupo} · {sede}")
-                with c2:
-                    if not res:
-                        if st.button("+ Res", key=f"wce_{loc[:3]}{vis[:3]}{fecha_p}"):
-                            st.session_state[f"wced_{loc}{vis}"]=True
-                with c3: st.caption("")
-                if st.session_state.get(f"wced_{loc}{vis}"):
-                    ce1,ce2,ce3=st.columns(3)
-                    with ce1: g1=st.number_input(f"Goles {loc[:8]}",0,20,0,key=f"wgl_{loc[:4]}{vis[:4]}")
-                    with ce2: g2=st.number_input(f"Goles {vis[:8]}",0,20,0,key=f"wgv_{loc[:4]}{vis[:4]}")
-                    with ce3:
-                        if st.button("💾",key=f"wcs_{loc[:4]}{vis[:4]}"):
-                            st.session_state.wc_resultados[(loc,vis)]=(g1,g2)
-                            st.session_state[f"wced_{loc}{vis}"]=False
-                            st.rerun()
-
-    # ── GRUPOS ───────────────────────────────────────────────
-    elif "Grupos" in vista_wc:
-        cols_g=st.columns(2)
-        for idx,grupo in enumerate(sorted(GRUPOS_MUNDIAL.keys())):
-            with cols_g[idx%2]:
-                st.markdown(f"#### Grupo {grupo}")
-                tabla=calcular_tabla(grupo,resultados_wc)
-                for pos,(eq,stats) in enumerate(tabla,1):
-                    flag=BANDERAS_MUNDIAL.get(eq,"🏳️")
-                    cl="🟢" if pos<=2 else "⚪"
-                    st.markdown(f"{cl} **{pos}. {flag} {eq}** — "
-                                f"{stats['pts']}pts · {stats['pj']}PJ · "
-                                f"{stats['gf']}:{stats['gc']} ({stats['dif']:+d})")
-                st.markdown("---")
-
-    # ── ANALIZAR PARTIDO ─────────────────────────────────────
-    else:
-        st.markdown("#### 🔍 Analizar partido del Mundial")
-        equipos_wc=sorted(BANDERAS_MUNDIAL.keys())
-        opciones_wc=["— Selecciona —"]+[f"{BANDERAS_MUNDIAL.get(e,'🏳️')} {e}" for e in equipos_wc]
-        mapa_wc={f"{BANDERAS_MUNDIAL.get(e,'🏳️')} {e}":e for e in equipos_wc}
-
-        cwa,cwb=st.columns(2)
-        with cwa: sel_wc_loc=st.selectbox("🏠 Local",opciones_wc,key="wc_local")
-        with cwb: sel_wc_vis=st.selectbox("✈️ Visitante",opciones_wc,key="wc_visit")
-        es_neutral_wc=st.checkbox("🌐 Cancha neutral",value=True,key="wc_neutral")
-
-        if sel_wc_loc!="— Selecciona —" and sel_wc_vis!="— Selecciona —":
-            eq_loc=mapa_wc.get(sel_wc_loc,""); eq_vis=mapa_wc.get(sel_wc_vis,"")
-            if eq_loc and eq_vis and eq_loc!=eq_vis:
-                fl=BANDERAS_MUNDIAL.get(eq_loc,"🏳️"); fv=BANDERAS_MUNDIAL.get(eq_vis,"🏳️")
-
-                # Cuotas
-                st.markdown("**Cuotas:**")
-                cq1,cq2,cq3=st.columns(3)
-                with cq1: ql_wc=st.number_input(f"Local ({eq_loc[:10]})",1.01,50.0,2.0,0.05,format="%.2f",key="wc_ql")
-                with cq2: qe_wc=st.number_input("Empate",1.01,50.0,3.2,0.05,format="%.2f",key="wc_qe")
-                with cq3: qv_wc=st.number_input(f"Visit ({eq_vis[:10]})",1.01,50.0,3.8,0.05,format="%.2f",key="wc_qv")
-
-                st.markdown("---")
-
-                # ELO
-                st.markdown("#### 🎯 Modelo Elo")
-                elo_loc_wc=WC_STATS.get(eq_loc,{}).get("elo") or buscar_elo(eq_loc,elo_sel)
-                elo_vis_wc=WC_STATS.get(eq_vis,{}).get("elo") or buscar_elo(eq_vis,elo_sel)
-                if elo_loc_wc and elo_vis_wc:
-                    pl_elo_wc,pe_elo_wc,pv_elo_wc=prob_elo_selecciones(elo_loc_wc,elo_vis_wc,es_neutral=es_neutral_wc)
-                    ce1,ce2,ce3,ce4=st.columns(4)
-                    with ce1: st.metric(f"Elo {eq_loc[:12]}",elo_loc_wc)
-                    with ce2: st.metric(f"Elo {eq_vis[:12]}",elo_vis_wc,delta=f"{abs(elo_loc_wc-elo_vis_wc)} pts")
-                    with ce3: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:28px;font-weight:700;color:#22c55e;">{pl_elo_wc*100:.1f}%</div></div>',unsafe_allow_html=True)
-                    with ce4: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT</div><div style="font-size:28px;font-weight:700;color:#94a3b8;">{pv_elo_wc*100:.1f}%</div></div>',unsafe_allow_html=True)
-                    st.caption(f"Empate: {pe_elo_wc*100:.1f}%")
-
-                # POISSON
-                st.markdown("#### 📊 Modelo Poisson")
-                sw=WC_STATS.get(eq_loc,{}); vw=WC_STATS.get(eq_vis,{})
-                cp1,cp2=st.columns(2)
-                with cp1:
-                    st.markdown(f"**{eq_loc}**")
-                    gfl=st.number_input("GF/partido",0.1,5.0,float(round(sw.get("gf",1.5),2)),0.1,key="wc_gfl")
-                    gcl=st.number_input("GC/partido",0.1,5.0,float(round(sw.get("gc",1.2),2)),0.1,key="wc_gcl")
-                    if sw.get("fuente"):
-                        st.caption(f"📋 {sw['fuente']}")
-                with cp2:
-                    st.markdown(f"**{eq_vis}**")
-                    gfv=st.number_input("GF/partido",0.1,5.0,float(round(vw.get("gf",1.3),2)),0.1,key="wc_gfv")
-                    gcv=st.number_input("GC/partido",0.1,5.0,float(round(vw.get("gc",1.3),2)),0.1,key="wc_gcv")
-                    if vw.get("fuente"):
-                        st.caption(f"📋 {vw['fuente']}")
-
-                metodo_wc=st.radio("⚙️ Método λ:",["Poisson estándar (GF × GC)","Promedio ponderado (GF + GC) / 2"],horizontal=True,key="wc_met")
-
-                # Factor por bajas
-                cbw1, cbw2 = st.columns(2)
-                with cbw1:
-                    fa_l_wc, fd_l_wc, desc_l_wc = selector_bajas(eq_loc, "wc_bajas_loc")
-                with cbw2:
-                    fa_v_wc, fd_v_wc, desc_v_wc = selector_bajas(eq_vis, "wc_bajas_vis")
-                hay_bajas_wc = (fa_l_wc, fd_l_wc, fa_v_wc, fd_v_wc) != (1.0, 1.0, 1.0, 1.0)
-
-                fl_wc=1.0 if es_neutral_wc else 1.15
-                avg_din_wc=max((gfl+gcl+gfv+gcv)/4,0.8)
-                if "Promedio" in metodo_wc:
-                    ll_base_wc=max(round((gfl+gcv)/2*fl_wc,3),0.1)
-                    lv_base_wc=max(round((gfv+gcl)/2,3),0.1)
-                else:
-                    ll_base_wc=max(round((gfl/avg_din_wc)*(gcv/avg_din_wc)*avg_din_wc*fl_wc,3),0.1)
-                    lv_base_wc=max(round((gfv/avg_din_wc)*(gcl/avg_din_wc)*avg_din_wc,3),0.1)
-
-                # Aplicar bajas
-                ll_wc = max(round(ll_base_wc * fa_l_wc * fd_v_wc, 3), 0.1)
-                lv_wc = max(round(lv_base_wc * fa_v_wc * fd_l_wc, 3), 0.1)
-
-                import math as _mwc
-                def _pmf_wc(k,lam): return _mwc.exp(-lam)*(lam**k)/_mwc.factorial(k)
-                pl_pw=pe_pw=pv_pw=o25w=o35w=bsiw=0.0
-                for gl in range(12):
-                    for gv2 in range(12):
-                        pp=_pmf_wc(gl,ll_wc)*_pmf_wc(gv2,lv_wc)
-                        if gl>gv2: pl_pw+=pp
-                        elif gl==gv2: pe_pw+=pp
-                        else: pv_pw+=pp
-                        if gl+gv2>2.5: o25w+=pp
-                        if gl+gv2>3.5: o35w+=pp
-                        if gl>0 and gv2>0: bsiw+=pp
-
-                st.caption(f"λ {eq_loc}: **{ll_wc}** · λ {eq_vis}: **{lv_wc}** · Goles esperados: **{round(ll_wc+lv_wc,2)}**")
-
-                # ── Memoria de cálculo del Mundial ──────────────
-                with st.expander("📊 Memoria de cálculo del modelo", expanded=False):
-                    st.caption("📁 **Fuente:** partidos verificados de cada selección (2025–2026) · **Datos al:** inicio del Mundial 2026")
-                    st.divider()
-
-                    # Local
-                    st.markdown(f"**{fl} {eq_loc} — {sw.get('n', 7)} partidos**")
-                    st.markdown(
-                        f"Goles/partido: `{sw.get('gf',0):.2f}` a favor, `{sw.get('gc',0):.2f}` en contra · "
-                        f"Elo: `{elo_loc_wc or 'n/d'}`"
-                    )
-                    if sw.get("fuente"):
-                        st.markdown(f"&nbsp;&nbsp;⚽ {sw['fuente']}", unsafe_allow_html=True)
-                    st.caption(f"Over 2.5 histórico: {sw.get('over25',0)*100:.0f}% · BTTS histórico: {sw.get('btts',0)*100:.0f}%")
-
-                    st.divider()
-
-                    # Visitante
-                    st.markdown(f"**{fv} {eq_vis} — {vw.get('n', 7)} partidos**")
-                    st.markdown(
-                        f"Goles/partido: `{vw.get('gf',0):.2f}` a favor, `{vw.get('gc',0):.2f}` en contra · "
-                        f"Elo: `{elo_vis_wc or 'n/d'}`"
-                    )
-                    if vw.get("fuente"):
-                        st.markdown(f"&nbsp;&nbsp;⚽ {vw['fuente']}", unsafe_allow_html=True)
-                    st.caption(f"Over 2.5 histórico: {vw.get('over25',0)*100:.0f}% · BTTS histórico: {vw.get('btts',0)*100:.0f}%")
-
-                    st.divider()
-
-                    # Cómo se calculó lambda
-                    st.markdown("**Cálculo de λ:**")
-                    if "Promedio" in metodo_wc:
-                        st.markdown(
-                            f"λ_{eq_loc} = (GF_{eq_loc}({gfl:.2f}) + GC_{eq_vis}({gcv:.2f})) / 2 "
-                            f"× Factor_local({fl_wc}) = **{ll_base_wc}**"
-                        )
-                        st.markdown(
-                            f"λ_{eq_vis} = (GF_{eq_vis}({gfv:.2f}) + GC_{eq_loc}({gcl:.2f})) / 2 = **{lv_base_wc}**"
-                        )
-                    else:
-                        st.markdown(f"Referencia dinámica = (GF_loc + GC_loc + GF_vis + GC_vis) / 4 = **{avg_din_wc:.3f}**")
-                        st.markdown(
-                            f"λ_{eq_loc} = (GF({gfl:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcv:.2f})/{avg_din_wc:.2f}) "
-                            f"× {avg_din_wc:.2f} × Factor_local({fl_wc}) = **{ll_base_wc}**"
-                        )
-                        st.markdown(
-                            f"λ_{eq_vis} = (GF({gfv:.2f})/{avg_din_wc:.2f}) × (GC_riv({gcl:.2f})/{avg_din_wc:.2f}) "
-                            f"× {avg_din_wc:.2f} = **{lv_base_wc}**"
-                        )
-                    if hay_bajas_wc:
-                        st.divider()
-                        st.markdown("**🚑 Ajuste por bajas:**")
-                        st.markdown(f"&nbsp;&nbsp;{eq_loc}: {desc_l_wc} → atk ×{fa_l_wc} · def ×{fd_l_wc}", unsafe_allow_html=True)
-                        st.markdown(f"&nbsp;&nbsp;{eq_vis}: {desc_v_wc} → atk ×{fa_v_wc} · def ×{fd_v_wc}", unsafe_allow_html=True)
-                        st.markdown(f"λ_{eq_loc} ajustado = {ll_base_wc} × {fa_l_wc} × {fd_v_wc} = **{ll_wc}**")
-                        st.markdown(f"λ_{eq_vis} ajustado = {lv_base_wc} × {fa_v_wc} × {fd_l_wc} = **{lv_wc}**")
-                    st.caption("⚠️ La referencia dinámica evita que un promedio fijo (2.5) aplaste los λ de selecciones con pocos goles.")
-
-                cp1b,cp2b,cp3b=st.columns(3)
-                with cp1b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">LOCAL</div><div style="font-size:24px;font-weight:700;color:#22c55e;">{pl_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
-                with cp2b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">EMPATE</div><div style="font-size:24px;font-weight:700;color:#f59e0b;">{pe_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
-                with cp3b: st.markdown(f'<div style="text-align:center"><div style="font-size:11px;color:var(--text3);">VISIT</div><div style="font-size:24px;font-weight:700;color:#94a3b8;">{pv_pw*100:.1f}%</div></div>',unsafe_allow_html=True)
-
-                # VEREDICTO
-                st.markdown("---")
-                st.markdown("#### ⚖️ Veredicto")
-                mod_wc=st.radio("Modelo:",["Elo","Poisson","Promedio"],horizontal=True,key="wc_mod")
-                if mod_wc=="Elo" and elo_loc_wc and elo_vis_wc:
-                    plf,pef,pvf=pl_elo_wc,pe_elo_wc,pv_elo_wc
-                elif mod_wc=="Poisson":
-                    plf,pef,pvf=pl_pw,pe_pw,pv_pw
-                else:
-                    if elo_loc_wc and elo_vis_wc:
-                        plf=(pl_elo_wc+pl_pw)/2; pef=(pe_elo_wc+pe_pw)/2; pvf=(pv_elo_wc+pv_pw)/2
-                    else:
-                        plf,pef,pvf=pl_pw,pe_pw,pv_pw
-
-                im_wc=impl({"local":ql_wc,"empate":qe_wc,"visit":qv_wc})
-                vig_wc=im_wc["vig"]
-                if vig_wc<=7: st.markdown(f'<div class="vig-ok">✓ Vig: {vig_wc}%</div>',unsafe_allow_html=True)
-                elif vig_wc<=12: st.markdown(f'<div class="vig-warn">⚠️ Vig: {vig_wc}%</div>',unsafe_allow_html=True)
-                else: st.markdown(f'<div class="vig-bad">✗ Vig: {vig_wc}% — mercado caro</div>',unsafe_allow_html=True)
-
-                for nm,pm_wc,cu_wc,et_wc in [("local",plf,ql_wc,f"{fl} {eq_loc}"),("empate",pef,qe_wc,"Empate"),("visit",pvf,qv_wc,f"{fv} {eq_vis}")]:
-                    k_wc=kelly_calc(pm_wc,cu_wc,kf,bank,ue)
-                    if k_wc["value"]:
-                        st.markdown(f'<div class="vbet"><span class="vbet-badge">✓ VALUE BET</span><div class="vbet-title">{et_wc} · cuota {cu_wc}</div><div class="vbet-grid"><div class="vbet-item"><label>P MODELO</label><span>{pm_wc*100:.1f}%</span></div><div class="vbet-item"><label>P IMPLÍCITA</label><span>{im_wc["p"].get(nm,0)*100:.1f}%</span></div><div class="vbet-item"><label>EDGE</label><span style="color:#4ade80">+{k_wc["edge"]:.1f}%</span></div><div class="vbet-item"><label>KELLY</label><span>{k_wc["ku"]:.1f}%</span></div><div class="vbet-item"><label>APOSTAR</label><span class="highlight">${k_wc["s"]:,}</span></div><div class="vbet-item"><label>RETORNO</label><span>${k_wc["r"]:,}</span></div></div></div>',unsafe_allow_html=True)
-                    else:
-                        st.markdown(f'<div class="nobet"><span class="nobet-badge">✗ SIN VALUE</span><span class="nobet-text">{et_wc} · cuota {cu_wc} · edge {k_wc["edge"]:+.1f}%</span></div>',unsafe_allow_html=True)
-
-                # MERCADOS ALTERNATIVOS
-                st.markdown("---")
-                st.markdown("#### 🎰 Mercados alternativos")
-                mercados_wc=[
-                    ("⚽ Más de 2.5 goles",  round(o25w,3),"wc_o25"),
-                    ("⚽ Menos de 2.5 goles",round(1-o25w,3),"wc_u25"),
-                    ("⚽ Más de 3.5 goles",  round(o35w,3),"wc_o35"),
-                    ("⚽ Menos de 3.5 goles",round(1-o35w,3),"wc_u35"),
-                    ("🤝 Ambos marcan (Sí)", round(bsiw,3),"wc_bsi"),
-                    ("🤝 Ambos marcan (No)", round(1-bsiw,3),"wc_bno"),
-                ]
-                for m_nom_wc,m_prob_wc,m_key_wc in mercados_wc:
-                    if m_prob_wc<=0: continue
-                    cm1,cm2,cm3,cm4,cm5=st.columns([3,1.2,1.2,1.2,1.5])
-                    with cm1: st.markdown(f"**{m_nom_wc}**")
-                    with cm2: st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">P.modelo<br><b style="color:#e8eeff">{m_prob_wc*100:.1f}%</b></div>',unsafe_allow_html=True)
-                    with cm3:
-                        cj_wc=round(1/m_prob_wc,2) if m_prob_wc>0.01 else 99.0
-                        st.markdown(f'<div style="text-align:center;font-size:13px;color:var(--text3);">C.justa<br><b style="color:#f59e0b">{cj_wc}</b></div>',unsafe_allow_html=True)
-                    with cm4:
-                        cc_wc=st.number_input("Tu cuota",1.01,50.0,float(min(cj_wc,49.0)),0.05,format="%.2f",key=f"{m_key_wc}_inp",label_visibility="collapsed")
-                    with cm5:
-                        edge_wc=round((m_prob_wc*cc_wc-1)*100,1)
-                        if edge_wc>3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#166534;border-radius:6px;font-size:13px;font-weight:700;color:#4ade80">+{edge_wc}% ✅</div>',unsafe_allow_html=True)
-                        elif edge_wc<-3: st.markdown(f'<div style="text-align:center;padding:2px 6px;background:#450a0a;border-radius:6px;font-size:13px;color:#f87171">{edge_wc}% ✗</div>',unsafe_allow_html=True)
-                        else: st.markdown(f'<div style="text-align:center;padding:2px 6px;font-size:13px;color:#94a3b8">{edge_wc:+.1f}%</div>',unsafe_allow_html=True)
-
 # ══════════════════════════════════════════════════════════════════════
 # TAB 8 — CALCULADORA POISSON MANUAL
 # ══════════════════════════════════════════════════════════════════════
-with tab8:
+with tab7:
     st.markdown("### 🧮 Calculadora Poisson Manual")
     st.caption("Ingresa los datos de cualquier partido. No depende de ligas, APIs ni scrapers.")
     
