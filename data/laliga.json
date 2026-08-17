@@ -4,11 +4,11 @@
     "league_key": "laliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-17T17:46:30.955468+00:00",
+    "last_updated": "2026-08-17T21:34:00.630976+00:00",
     "avg_goals": 1.35,
-    "total_matches": 4,
-    "total_goals": 13,
-    "avg_real": 1.625
+    "total_matches": 5,
+    "total_goals": 14,
+    "avg_real": 1.4
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "pts": 3
     },
     {
+      "team": "Deportivo de A Coruña",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Racing Santander",
       "pj": 1,
       "gf": 2,
@@ -66,6 +76,16 @@
       "pj": 1,
       "gf": 1,
       "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Elche",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
       "w": 0,
       "d": 0,
       "l": 1,
@@ -124,17 +144,17 @@
       "hg": 2,
       "ag": 2,
       "matchday": "1"
-    }
-  ],
-  "fixtures": [
+    },
     {
       "date": "2026-08-17",
-      "time": "02:00 PM",
       "home": "Deportivo de A Coruña",
       "away": "Elche",
+      "hg": 1,
+      "ag": 0,
       "matchday": "1"
     }
   ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
