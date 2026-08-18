@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-17T17:46:40.018466+00:00",
+    "last_updated": "2026-08-18T11:28:58.929478+00:00",
     "avg_goals": 1.25,
-    "total_matches": 199,
-    "total_goals": 440,
-    "avg_real": 1.106
+    "total_matches": 200,
+    "total_goals": 442,
+    "avg_real": 1.105
   },
   "standings": [
     {
@@ -23,12 +23,12 @@
     },
     {
       "team": "Macará",
-      "gf": 32,
-      "ga": 24,
-      "pj": 24,
-      "pts": 41,
+      "gf": 33,
+      "ga": 25,
+      "pj": 25,
+      "pts": 42,
       "w": 12,
-      "d": 5,
+      "d": 6,
       "l": 7
     },
     {
@@ -43,12 +43,12 @@
     },
     {
       "team": "Universidad Católica",
-      "gf": 39,
-      "ga": 21,
-      "pj": 24,
-      "pts": 39,
+      "gf": 40,
+      "ga": 22,
+      "pj": 25,
+      "pts": 40,
       "w": 11,
-      "d": 6,
+      "d": 7,
       "l": 7
     },
     {

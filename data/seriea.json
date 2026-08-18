@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-17T22:17:22.367544+00:00",
+    "last_updated": "2026-08-18T11:28:54.685444+00:00",
     "avg_goals": 1.3,
     "total_matches": 0,
     "total_goals": 0,
@@ -82,6 +82,13 @@
       "home": "Bologna FC 1909",
       "away": "SS Lazio",
       "matchday": 1
+    },
+    {
+      "date": "2026-08-28",
+      "time": "01:45 PM",
+      "home": "AC Milan",
+      "away": "Venezia FC",
+      "matchday": 2
     }
   ]
 }

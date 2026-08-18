@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-17T22:17:23.349850+00:00",
+    "last_updated": "2026-08-18T11:28:55.879392+00:00",
     "avg_goals": 1.35,
     "total_matches": 0,
     "total_goals": 0,
@@ -75,6 +75,13 @@
       "home": "Le Havre AC",
       "away": "AS Monaco FC",
       "matchday": 1
+    },
+    {
+      "date": "2026-08-28",
+      "time": "01:45 PM",
+      "home": "Lille OSC",
+      "away": "Paris Saint-Germain FC",
+      "matchday": 2
     }
   ]
 }

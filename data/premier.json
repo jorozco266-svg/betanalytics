@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-17T22:17:21.128892+00:00",
+    "last_updated": "2026-08-18T11:28:53.068378+00:00",
     "avg_goals": 1.4,
     "total_matches": 0,
     "total_goals": 0,
@@ -82,6 +82,13 @@
       "home": "Fulham FC",
       "away": "Chelsea FC",
       "matchday": 1
+    },
+    {
+      "date": "2026-08-28",
+      "time": "02:00 PM",
+      "home": "Crystal Palace FC",
+      "away": "Manchester City FC",
+      "matchday": 2
     }
   ]
 }
