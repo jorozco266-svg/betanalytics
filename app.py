@@ -3362,12 +3362,19 @@ with tab1:
                     prox.sort(key=lambda x: x["dt"])
                     cargado = True
 
-                    # Si el JSON no tiene fixtures pero la liga usa Odds API, obtener fixtures de ahí
+                    # Si el JSON no tiene fixtures, intentar obtenerlos de otras fuentes
                     if not prox and li.get("use_odds_fixtures") and li.get("odds_key") and odds_api_key:
                         try:
                             prox_odds, _oe = odds_fixtures(li["odds_key"], odds_api_key)
                             if prox_odds:
                                 prox = prox_odds
+                        except Exception:
+                            pass
+                    if not prox and li.get("sportsdb_id"):
+                        try:
+                            prox_sdb, _se = sportsdb_next(li["sportsdb_id"])
+                            if prox_sdb:
+                                prox = prox_sdb
                         except Exception:
                             pass
 
