@@ -3,14 +3,560 @@
     "league": "🇧🇷 Brasileirão",
     "league_key": "brasileirao",
     "season": "2026-2027",
-    "source": "thesportsdb",
-    "last_updated": "2026-08-19T03:52:16.775911+00:00",
+    "source": "conmebol_multi",
+    "last_updated": "2026-08-19T10:27:37.161480+00:00",
     "avg_goals": 1.35,
-    "total_matches": 0,
-    "total_goals": 0,
-    "avg_real": 0
+    "total_matches": 50,
+    "total_goals": 113,
+    "avg_real": 1.13,
+    "sources_used": [
+      "wikipedia",
+      "thesportsdb"
+    ]
   },
-  "standings": [],
-  "results": [],
+  "standings": [
+    {
+      "team": "3–0",
+      "pj": 12,
+      "gf": 15,
+      "ga": 10,
+      "w": 5,
+      "d": 6,
+      "l": 1,
+      "pts": 21
+    },
+    {
+      "team": "1–1",
+      "pj": 10,
+      "gf": 16,
+      "ga": 13,
+      "w": 6,
+      "d": 1,
+      "l": 3,
+      "pts": 19
+    },
+    {
+      "team": "1–0",
+      "pj": 14,
+      "gf": 13,
+      "ga": 15,
+      "w": 4,
+      "d": 5,
+      "l": 5,
+      "pts": 17
+    },
+    {
+      "team": "1–2",
+      "pj": 16,
+      "gf": 19,
+      "ga": 24,
+      "w": 3,
+      "d": 7,
+      "l": 6,
+      "pts": 16
+    },
+    {
+      "team": "3–2",
+      "pj": 10,
+      "gf": 10,
+      "ga": 11,
+      "w": 4,
+      "d": 3,
+      "l": 3,
+      "pts": 15
+    },
+    {
+      "team": "0–1",
+      "pj": 9,
+      "gf": 10,
+      "ga": 8,
+      "w": 3,
+      "d": 3,
+      "l": 3,
+      "pts": 12
+    },
+    {
+      "team": "2–1",
+      "pj": 10,
+      "gf": 9,
+      "ga": 8,
+      "w": 3,
+      "d": 3,
+      "l": 4,
+      "pts": 12
+    },
+    {
+      "team": "0–0",
+      "pj": 11,
+      "gf": 11,
+      "ga": 13,
+      "w": 3,
+      "d": 3,
+      "l": 5,
+      "pts": 12
+    },
+    {
+      "team": "0–2",
+      "pj": 8,
+      "gf": 10,
+      "ga": 11,
+      "w": 2,
+      "d": 3,
+      "l": 3,
+      "pts": 9
+    }
+  ],
+  "results": [
+    {
+      "date": "",
+      "home": "2–1",
+      "away": "3–0",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "2–1",
+      "away": "0–0",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "2–1",
+      "away": "1–2",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "2–1",
+      "away": "1–0",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "0–0",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "3–2",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "0–1",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "1–1",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "0–2",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–0",
+      "away": "1–2",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–0",
+      "away": "2–1",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–0",
+      "away": "3–0",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–0",
+      "away": "1–0",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–0",
+      "away": "1–1",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–0",
+      "away": "1–2",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–2",
+      "away": "2–1",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–2",
+      "away": "3–0",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–2",
+      "away": "0–0",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–2",
+      "away": "0–1",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "3–2",
+      "away": "1–2",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–1",
+      "away": "3–0",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–1",
+      "away": "3–2",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–1",
+      "away": "1–1",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–1",
+      "away": "1–2",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–1",
+      "away": "0–2",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "2–1",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "0–0",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "3–2",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "1–1",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "0–2",
+      "hg": 3,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "1–2",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "1–0",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–1",
+      "away": "2–1",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–1",
+      "away": "0–0",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–1",
+      "away": "0–1",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–1",
+      "away": "1–0",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–1",
+      "away": "1–2",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "2–1",
+      "hg": 2,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "3–0",
+      "hg": 2,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "1–1",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "0–2",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "1–0",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–2",
+      "away": "2–1",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–2",
+      "away": "3–2",
+      "hg": 2,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–2",
+      "away": "0–1",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "0–2",
+      "away": "1–0",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "0–0",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "3–2",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–2",
+      "away": "1–2",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "1–0",
+      "away": "3–0",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    }
+  ],
   "fixtures": []
 }

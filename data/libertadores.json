@@ -1,0 +1,1165 @@
+{
+  "meta": {
+    "league": "🏆 Copa Libertadores",
+    "league_key": "libertadores",
+    "season": "2026",
+    "source": "conmebol_multi",
+    "last_updated": "2026-08-19T10:27:44.870317+00:00",
+    "avg_goals": 1.25,
+    "total_matches": 87,
+    "total_goals": 200,
+    "avg_real": 1.149,
+    "sources_used": [
+      "wikipedia",
+      "thesportsdb"
+    ]
+  },
+  "standings": [
+    {
+      "team": "Independiente Rivadavia",
+      "pj": 6,
+      "gf": 13,
+      "ga": 5,
+      "w": 4,
+      "d": 2,
+      "l": 0,
+      "pts": 14
+    },
+    {
+      "team": "Flamengo",
+      "pj": 5,
+      "gf": 11,
+      "ga": 2,
+      "w": 4,
+      "d": 1,
+      "l": 0,
+      "pts": 13
+    },
+    {
+      "team": "LDU Quito",
+      "pj": 6,
+      "gf": 9,
+      "ga": 4,
+      "w": 4,
+      "d": 1,
+      "l": 1,
+      "pts": 13
+    },
+    {
+      "team": "Independiente del Valle",
+      "pj": 6,
+      "gf": 11,
+      "ga": 7,
+      "w": 4,
+      "d": 0,
+      "l": 2,
+      "pts": 12
+    },
+    {
+      "team": "Coquimbo Unido",
+      "pj": 6,
+      "gf": 9,
+      "ga": 4,
+      "w": 3,
+      "d": 2,
+      "l": 1,
+      "pts": 11
+    },
+    {
+      "team": "Cerro Porteño",
+      "pj": 6,
+      "gf": 6,
+      "ga": 3,
+      "w": 3,
+      "d": 2,
+      "l": 1,
+      "pts": 11
+    },
+    {
+      "team": "Universidad Católica",
+      "pj": 6,
+      "gf": 7,
+      "ga": 7,
+      "w": 3,
+      "d": 1,
+      "l": 2,
+      "pts": 10
+    },
+    {
+      "team": "Rosario Central",
+      "pj": 4,
+      "gf": 5,
+      "ga": 1,
+      "w": 3,
+      "d": 0,
+      "l": 1,
+      "pts": 9
+    },
+    {
+      "team": "Corinthians",
+      "pj": 6,
+      "gf": 6,
+      "ga": 4,
+      "w": 2,
+      "d": 3,
+      "l": 1,
+      "pts": 9
+    },
+    {
+      "team": "Nacional",
+      "pj": 6,
+      "gf": 7,
+      "ga": 6,
+      "w": 2,
+      "d": 3,
+      "l": 1,
+      "pts": 9
+    },
+    {
+      "team": "Santa Fe",
+      "pj": 6,
+      "gf": 6,
+      "ga": 6,
+      "w": 2,
+      "d": 3,
+      "l": 1,
+      "pts": 9
+    },
+    {
+      "team": "Universidad Central",
+      "pj": 6,
+      "gf": 7,
+      "ga": 8,
+      "w": 3,
+      "d": 0,
+      "l": 3,
+      "pts": 9
+    },
+    {
+      "team": "Lanús",
+      "pj": 6,
+      "gf": 3,
+      "ga": 8,
+      "w": 3,
+      "d": 0,
+      "l": 3,
+      "pts": 9
+    },
+    {
+      "team": "Palmeiras",
+      "pj": 4,
+      "gf": 8,
+      "ga": 3,
+      "w": 2,
+      "d": 2,
+      "l": 0,
+      "pts": 8
+    },
+    {
+      "team": "Cruzeiro",
+      "pj": 4,
+      "gf": 6,
+      "ga": 1,
+      "w": 2,
+      "d": 2,
+      "l": 0,
+      "pts": 8
+    },
+    {
+      "team": "Estudiantes",
+      "pj": 5,
+      "gf": 8,
+      "ga": 5,
+      "w": 2,
+      "d": 2,
+      "l": 1,
+      "pts": 8
+    },
+    {
+      "team": "Platense",
+      "pj": 4,
+      "gf": 6,
+      "ga": 4,
+      "w": 2,
+      "d": 1,
+      "l": 1,
+      "pts": 7
+    },
+    {
+      "team": "Independiente Medellín",
+      "pj": 5,
+      "gf": 7,
+      "ga": 9,
+      "w": 2,
+      "d": 1,
+      "l": 2,
+      "pts": 7
+    },
+    {
+      "team": "Boca Juniors",
+      "pj": 6,
+      "gf": 6,
+      "ga": 8,
+      "w": 2,
+      "d": 1,
+      "l": 3,
+      "pts": 7
+    },
+    {
+      "team": "Mirassol",
+      "pj": 4,
+      "gf": 4,
+      "ga": 4,
+      "w": 2,
+      "d": 0,
+      "l": 2,
+      "pts": 6
+    },
+    {
+      "team": "Sporting Cristal",
+      "pj": 6,
+      "gf": 6,
+      "ga": 11,
+      "w": 2,
+      "d": 0,
+      "l": 4,
+      "pts": 6
+    },
+    {
+      "team": "Fluminense",
+      "pj": 4,
+      "gf": 4,
+      "ga": 4,
+      "w": 1,
+      "d": 2,
+      "l": 1,
+      "pts": 5
+    },
+    {
+      "team": "Universitario",
+      "pj": 5,
+      "gf": 5,
+      "ga": 6,
+      "w": 1,
+      "d": 2,
+      "l": 2,
+      "pts": 5
+    },
+    {
+      "team": "Bolívar",
+      "pj": 6,
+      "gf": 6,
+      "ga": 9,
+      "w": 1,
+      "d": 2,
+      "l": 3,
+      "pts": 5
+    },
+    {
+      "team": "Junior",
+      "pj": 5,
+      "gf": 4,
+      "ga": 7,
+      "w": 1,
+      "d": 1,
+      "l": 3,
+      "pts": 4
+    },
+    {
+      "team": "25 Aug",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Always Ready",
+      "pj": 5,
+      "gf": 7,
+      "ga": 7,
+      "w": 1,
+      "d": 0,
+      "l": 4,
+      "pts": 3
+    },
+    {
+      "team": "19 Aug",
+      "pj": 3,
+      "gf": 3,
+      "ga": 3,
+      "w": 0,
+      "d": 3,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Deportivo La Guaira",
+      "pj": 5,
+      "gf": 5,
+      "ga": 10,
+      "w": 0,
+      "d": 3,
+      "l": 2,
+      "pts": 3
+    },
+    {
+      "team": "Barcelona",
+      "pj": 5,
+      "gf": 2,
+      "ga": 8,
+      "w": 1,
+      "d": 0,
+      "l": 4,
+      "pts": 3
+    },
+    {
+      "team": "20 Aug",
+      "pj": 2,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
+      "team": "Peñarol",
+      "pj": 5,
+      "gf": 3,
+      "ga": 7,
+      "w": 0,
+      "d": 2,
+      "l": 3,
+      "pts": 2
+    },
+    {
+      "team": "Deportes Tolima",
+      "pj": 4,
+      "gf": 1,
+      "ga": 6,
+      "w": 0,
+      "d": 2,
+      "l": 2,
+      "pts": 2
+    },
+    {
+      "team": "1–1",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Cusco",
+      "pj": 5,
+      "gf": 3,
+      "ga": 10,
+      "w": 0,
+      "d": 1,
+      "l": 4,
+      "pts": 1
+    },
+    {
+      "team": "Libertad",
+      "pj": 5,
+      "gf": 4,
+      "ga": 12,
+      "w": 0,
+      "d": 0,
+      "l": 5,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "Estudiantes",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "Independiente Medellín",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "Cusco",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Estudiantes",
+      "away": "Independiente Medellín",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Medellín",
+      "away": "Estudiantes",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Medellín",
+      "away": "Cusco",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cusco",
+      "away": "Flamengo",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cusco",
+      "away": "Estudiantes",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cusco",
+      "away": "Independiente Medellín",
+      "hg": 2,
+      "ag": 3,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Coquimbo Unido",
+      "away": "Deportes Tolima",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Coquimbo Unido",
+      "away": "Nacional",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Coquimbo Unido",
+      "away": "Universitario",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Deportes Tolima",
+      "away": "Nacional",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Nacional",
+      "away": "Coquimbo Unido",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Nacional",
+      "away": "Deportes Tolima",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Nacional",
+      "away": "Universitario",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universitario",
+      "away": "Coquimbo Unido",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universitario",
+      "away": "Deportes Tolima",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universitario",
+      "away": "Nacional",
+      "hg": 4,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Rivadavia",
+      "away": "Fluminense",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Rivadavia",
+      "away": "Bolívar",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Rivadavia",
+      "away": "Deportivo La Guaira",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Fluminense",
+      "away": "Bolívar",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Bolívar",
+      "away": "Independiente Rivadavia",
+      "hg": 1,
+      "ag": 3,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Bolívar",
+      "away": "Fluminense",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Bolívar",
+      "away": "Deportivo La Guaira",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Deportivo La Guaira",
+      "away": "Independiente Rivadavia",
+      "hg": 2,
+      "ag": 4,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Deportivo La Guaira",
+      "away": "Fluminense",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Deportivo La Guaira",
+      "away": "Bolívar",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Católica",
+      "away": "Cruzeiro",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Católica",
+      "away": "Boca Juniors",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Católica",
+      "away": "Barcelona",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cruzeiro",
+      "away": "Boca Juniors",
+      "hg": 4,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Boca Juniors",
+      "away": "Universidad Católica",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Boca Juniors",
+      "away": "Cruzeiro",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Boca Juniors",
+      "away": "Barcelona",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Barcelona",
+      "away": "Universidad Católica",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Barcelona",
+      "away": "Cruzeiro",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Barcelona",
+      "away": "Boca Juniors",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Corinthians",
+      "away": "Platense",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Corinthians",
+      "away": "Santa Fe",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Corinthians",
+      "away": "Peñarol",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Platense",
+      "away": "Santa Fe",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Santa Fe",
+      "away": "Corinthians",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Santa Fe",
+      "away": "Platense",
+      "hg": 2,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Santa Fe",
+      "away": "Peñarol",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Peñarol",
+      "away": "Corinthians",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Peñarol",
+      "away": "Platense",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Peñarol",
+      "away": "Santa Fe",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cerro Porteño",
+      "away": "Palmeiras",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cerro Porteño",
+      "away": "Sporting Cristal",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cerro Porteño",
+      "away": "Junior",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Palmeiras",
+      "away": "Sporting Cristal",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Sporting Cristal",
+      "away": "Cerro Porteño",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Sporting Cristal",
+      "away": "Palmeiras",
+      "hg": 0,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Sporting Cristal",
+      "away": "Junior",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Junior",
+      "away": "Cerro Porteño",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Junior",
+      "away": "Palmeiras",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Junior",
+      "away": "Sporting Cristal",
+      "hg": 3,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "LDU Quito",
+      "away": "Mirassol",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "LDU Quito",
+      "away": "Lanús",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "LDU Quito",
+      "away": "Always Ready",
+      "hg": 3,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Mirassol",
+      "away": "Lanús",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Lanús",
+      "away": "LDU Quito",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Lanús",
+      "away": "Mirassol",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Lanús",
+      "away": "Always Ready",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Always Ready",
+      "away": "LDU Quito",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Always Ready",
+      "away": "Mirassol",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Always Ready",
+      "away": "Lanús",
+      "hg": 4,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente del Valle",
+      "away": "Rosario Central",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente del Valle",
+      "away": "Universidad Central",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente del Valle",
+      "away": "Libertad",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Rosario Central",
+      "away": "Universidad Central",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Central",
+      "away": "Independiente del Valle",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Central",
+      "away": "Rosario Central",
+      "hg": 0,
+      "ag": 3,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Universidad Central",
+      "away": "Libertad",
+      "hg": 3,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Libertad",
+      "away": "Independiente del Valle",
+      "hg": 2,
+      "ag": 3,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Libertad",
+      "away": "Rosario Central",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Libertad",
+      "away": "Universidad Central",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Estudiantes",
+      "away": "Universidad Católica",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "LDU Quito",
+      "away": "20 Aug",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente Rivadavia",
+      "away": "1–1",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente del Valle",
+      "away": "25 Aug",
+      "hg": 0,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "19 Aug",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Coquimbo Unido",
+      "away": "19 Aug",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cerro Porteño",
+      "away": "19 Aug",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Corinthians",
+      "away": "20 Aug",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    }
+  ],
+  "fixtures": []
+}
