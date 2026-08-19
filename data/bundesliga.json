@@ -4,7 +4,7 @@
     "league_key": "bundesliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-18T11:28:50.333867+00:00",
+    "last_updated": "2026-08-19T03:52:15.984490+00:00",
     "avg_goals": 1.55,
     "total_matches": 0,
     "total_goals": 0,
@@ -18,6 +18,34 @@
       "time": "01:30 PM",
       "home": "Bayern Munich",
       "away": "Stuttgart",
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "time": "08:30 AM",
+      "home": "Mainz",
+      "away": "Paderborn",
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "time": "08:30 AM",
+      "home": "RB Leipzig",
+      "away": "Borussia Monchengladbach",
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "time": "08:30 AM",
+      "home": "Union Berlin",
+      "away": "Eintracht Frankfurt",
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "time": "11:30 AM",
+      "home": "Borussia Dortmund",
+      "away": "Hamburg",
       "matchday": "1"
     }
   ],
