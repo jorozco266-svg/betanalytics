@@ -274,7 +274,7 @@
   },
   "betplay": {
     "name": "🇨🇴 Liga BetPlay",
-    "source": "thesportsdb",
+    "source": "conmebol",
     "sportsdb_id": 4497,
     "season": "2026",
     "avg": 1.26,
@@ -402,11 +402,17 @@
       "Jaguares de Córdoba": "Jaguares",
       "Deportivo Pasto": "Deportivo Pasto",
       "Cúcuta Deportivo FC": "Cúcuta Deportivo"
-    }
+    },
+    "wiki_urls": [
+      "https://en.wikipedia.org/wiki/2026_Liga_DIMAYOR"
+    ],
+    "sportsdb_ids": [
+      4497
+    ]
   },
   "argentina": {
     "name": "🇦🇷 Liga Argentina",
-    "source": "thesportsdb",
+    "source": "conmebol",
     "sportsdb_id": 4406,
     "season": "2026",
     "avg": 1.03,
@@ -567,15 +573,27 @@
           "ga": 24
         }
       ]
-    }
+    },
+    "wiki_urls": [
+      "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n"
+    ],
+    "sportsdb_ids": [
+      4406
+    ]
   },
   "brasileirao": {
     "name": "🇧🇷 Brasileirão",
-    "source": "thesportsdb",
+    "source": "conmebol",
     "sportsdb_id": 4351,
     "season": "2026-2027",
     "avg": 1.35,
-    "odds_key": "soccer_brazil_campeonato"
+    "odds_key": "soccer_brazil_campeonato",
+    "wiki_urls": [
+      "https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"
+    ],
+    "sportsdb_ids": [
+      4351
+    ]
   },
   "premier": {
     "name": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
