@@ -22,6 +22,7 @@ from sources.footballdata import (
     build_standings as fd_standings,
 )
 from sources.wikipedia import fetch_standings as wiki_standings
+from sources.conmebol import fetch_all_results as conmebol_results
 
 # ── Config ──────────────────────────────────────────
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
@@ -322,10 +323,70 @@ def process_wikipedia(key: str, cfg: dict, existing: dict | None) -> dict:
 
 # ── Dispatcher ──────────────────────────────────────
 
+def process_conmebol(key: str, cfg: dict, existing: dict | None) -> dict:
+    """Procesa una copa CONMEBOL (Libertadores/Sudamericana) con multi-source."""
+    aliases = cfg.get("aliases", {})
+
+    log.info(f"  CONMEBOL multi-source")
+    api_results = conmebol_results(cfg)
+
+    # Aplicar aliases
+    api_results = resolve_names(api_results, aliases)
+
+    # ── MERGE incremental ──
+    existing_results = existing.get("results", []) if existing else []
+    all_results = merge_results(existing_results, api_results)
+
+    # Standings desde todos los resultados
+    standings = sdb_standings(all_results) if all_results else []
+
+    total_goals = sum(r["hg"] + r["ag"] for r in all_results)
+    total_matches = len(all_results)
+
+    # Fixtures desde TheSportsDB
+    fixtures = []
+    for sid in cfg.get("sportsdb_ids", []):
+        fx = sdb_fixtures(sid, cfg.get("season", "2026"))
+        if fx:
+            fixtures.extend(fx)
+    fixtures = resolve_names(fixtures, aliases)
+
+    # Preservar hist_season (copas no suelen tener, pero por consistencia)
+    hist_season = None
+    if existing and "hist_season" in existing:
+        hist_season = existing["hist_season"]
+    elif "hist_season" in cfg:
+        hist_season = cfg["hist_season"]
+
+    data = {
+        "meta": {
+            "league": cfg["name"],
+            "league_key": key,
+            "season": cfg.get("season", "2026"),
+            "source": "conmebol_multi",
+            "last_updated": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "avg_goals": cfg["avg"],
+            "total_matches": total_matches,
+            "total_goals": total_goals,
+            "avg_real": round(total_goals / (total_matches * 2), 3) if total_matches > 0 else 0,
+            "sources_used": ["wikipedia", "thesportsdb"],
+        },
+        "standings": standings,
+        "results": all_results,
+        "fixtures": fixtures,
+    }
+
+    if hist_season:
+        data["hist_season"] = hist_season
+
+    return data
+
+
 PROCESSORS = {
     "thesportsdb": process_thesportsdb,
     "footballdata": process_footballdata,
     "wikipedia": process_wikipedia,
+    "conmebol": process_conmebol,
 }
 
 
