@@ -385,6 +385,23 @@
           "ga": 32
         }
       ]
+    },
+    "aliases": {
+      "Fortaleza FC": "Fortaleza",
+      "Alianza de Valledupar": "Alianza FC",
+      "Rionegro Águilas": "Águilas Doradas",
+      "Aguilas Doradas Rionegro": "Águilas Doradas",
+      "Águilas Doradas Rionegro": "Águilas Doradas",
+      "CD Junior": "Junior",
+      "Junior FC": "Junior",
+      "Atlético Junior": "Junior",
+      "Independiente Santa Fe": "Independiente Santa Fe",
+      "Deportivo Independiente Medellín": "Independiente Medellín",
+      "DIM": "Independiente Medellín",
+      "CD Once Caldas": "Once Caldas",
+      "Jaguares de Córdoba": "Jaguares",
+      "Deportivo Pasto": "Deportivo Pasto",
+      "Cúcuta Deportivo FC": "Cúcuta Deportivo"
     }
   },
   "argentina": {
@@ -623,5 +640,69 @@
     "source": "wikipedia",
     "wiki_url": "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)",
     "avg": 1.15
+  },
+  "libertadores": {
+    "name": "🏆 Copa Libertadores",
+    "source": "conmebol",
+    "season": "2026",
+    "avg": 1.25,
+    "odds_key": "soccer_conmebol_copa_libertadores",
+    "use_odds_fixtures": true,
+    "wiki_urls": [
+      "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
+      "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_final_stages"
+    ],
+    "sportsdb_ids": [
+      4480
+    ],
+    "aliases": {
+      "Club Atlético Boca Juniors": "Boca Juniors",
+      "Club Atlético River Plate": "River Plate",
+      "Club Atlético Independiente": "Independiente",
+      "São Paulo FC": "São Paulo",
+      "Sport Club Internacional": "Internacional",
+      "Club Nacional de Football": "Nacional",
+      "Club Atlético Peñarol": "Peñarol",
+      "Club Olimpia": "Olimpia",
+      "Cerro Porteño": "Cerro Porteño",
+      "Deportivo Cali": "Deportivo Cali",
+      "Atlético Nacional": "Atlético Nacional",
+      "Club Universitario de Deportes": "Universitario",
+      "Sporting Cristal": "Sporting Cristal",
+      "Club Bolívar": "Bolívar",
+      "The Strongest": "The Strongest",
+      "Barcelona SC": "Barcelona SC",
+      "LDU Quito": "LDU Quito",
+      "Liga Deportiva Universitaria": "LDU Quito"
+    }
+  },
+  "sudamericana": {
+    "name": "🏆 Copa Sudamericana",
+    "source": "conmebol",
+    "season": "2026",
+    "avg": 1.2,
+    "odds_key": "soccer_conmebol_copa_sudamericana",
+    "use_odds_fixtures": true,
+    "wiki_urls": [
+      "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_group_stage",
+      "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_first_stage",
+      "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana_final_stages",
+      "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_group_stage",
+      "https://en.wikipedia.org/wiki/2026_Copa_Libertadores_qualifying_stages"
+    ],
+    "sportsdb_ids": [
+      4724
+    ],
+    "aliases": {
+      "Club Atlético Boca Juniors": "Boca Juniors",
+      "Club Atlético San Lorenzo de Almagro": "San Lorenzo",
+      "Club Atlético Lanús": "Lanús",
+      "Club Atlético Talleres": "Talleres",
+      "Club Atlético Independiente": "Independiente",
+      "Santos FC": "Santos",
+      "Deportivo Recoleta": "Recoleta",
+      "Deportivo Cuenca": "Deportivo Cuenca",
+      "Club Nacional": "Nacional"
+    }
   }
 }
