@@ -3256,6 +3256,7 @@ with tab1:
         "🇧🇷 Brasileirao": "brasileirao", "🇺🇸 MLS": "mls",
         "🇨🇱 Chile - Liga 1ª": "chile", "🇺🇾 Uruguay - Clausura": "uruguay",
         "🇪🇨 Ecuador - LigaPro": "ecuador", "🇦🇷 Arg Femenina": "argfem",
+        "🏆 Copa Libertadores": "libertadores", "🏆 Copa Sudamericana": "sudamericana",
     }
     json_key = LIGA_JSON_KEY.get(liga_n)
     if json_key:
@@ -3273,6 +3274,18 @@ with tab1:
 
                 # Construir modelo desde JSON
                 if _standings and len(_standings) >= 5:
+                    # Cargar aliases del JSON para normalizar nombres
+                    _json_aliases = {}
+                    if _hist_season and _hist_season.get("teams"):
+                        # Construir reverse aliases: si config tiene aliases, aplicarlos al hist model
+                        _cfg_path = os.path.join(os.path.dirname(__file__), "config", "leagues.json")
+                        if os.path.exists(_cfg_path):
+                            try:
+                                with open(_cfg_path) as _cf:
+                                    _all_cfg = json.load(_cf)
+                                _json_aliases = _all_cfg.get(json_key, {}).get("aliases", {})
+                            except: pass
+
                     # Hay datos dinámicos suficientes → modelo desde standings
                     _total_gf = sum(t["gf"] for t in _standings)
                     _total_pj = sum(t["pj"] for t in _standings)
@@ -3281,11 +3294,12 @@ with tab1:
                     _model = {"_avg": li["avg"]}
                     for t in _standings:
                         if t["pj"] == 0: continue
+                        _tname = _json_aliases.get(t["team"], t["team"])  # Aplicar alias
                         atk = round((t["gf"] / t["pj"]) / _avg_gf, 3) if _avg_gf > 0 else 1.0
                         dfn = round((t["ga"] / t["pj"]) / _avg_ga, 3) if _avg_ga > 0 else 1.0
                         atk = max(0.30, min(3.0, atk))
                         dfn = max(0.30, min(3.0, dfn))
-                        _model[t["team"]] = {"atk": atk, "def": dfn, "n": t["pj"], "_gf": t["gf"], "_ga": t["ga"]}
+                        _model[_tname] = {"atk": atk, "def": dfn, "n": t["pj"], "_gf": t["gf"], "_ga": t["ga"]}
 
                     # Si hay hist_season y pocos partidos dinámicos → blend o fallback
                     _blend_threshold = 30
@@ -3311,14 +3325,22 @@ with tab1:
                                 b = _h_model.get(team, {"atk": 1.0, "def": 1.0})
                                 r = _model.get(team, None)
                                 if r is None:
-                                    _blended[team] = {"atk": b["atk"], "def": b["def"], "n": b.get("n",0)}
+                                    # Solo en hist (no ha jugado en temporada actual)
+                                    _blended[team] = {"atk": b["atk"], "def": b["def"], "n": b.get("n",0),
+                                                      "_gf": b.get("_gf",0), "_ga": b.get("_ga",0)}
                                 elif team not in _h_model:
-                                    _blended[team] = {"atk": r["atk"], "def": r["def"], "n": r.get("n",0)}
+                                    # Solo en actual (equipo nuevo o nombre no coincide)
+                                    _blended[team] = {"atk": r["atk"], "def": r["def"], "n": r.get("n",0),
+                                                      "_gf": r.get("_gf",0), "_ga": r.get("_ga",0)}
                                 else:
+                                    # En ambos → blend ponderado, sumar partidos
+                                    _n_total = b.get("n", 0) + r.get("n", 0)
                                     _blended[team] = {
                                         "atk": round(b["atk"] * 0.6 + r["atk"] * 0.4, 3),
                                         "def": round(b["def"] * 0.6 + r["def"] * 0.4, 3),
-                                        "n": r.get("n", 0),
+                                        "n": _n_total,
+                                        "_gf": b.get("_gf", 0) + r.get("_gf", 0),
+                                        "_ga": b.get("_ga", 0) + r.get("_ga", 0),
                                     }
                             hist = _blended
                             st.info(f"📊 Modelo JSON: blend hist ({_hist_season.get('season','?')}) + {_n_matches} partidos actuales.")
@@ -3353,8 +3375,8 @@ with tab1:
                             "dt": _dt,
                             "fecha": _fd.isoformat(),
                             "hora": _time_str,
-                            "local": f["home"],
-                            "visit": f["away"],
+                            "local": _json_aliases.get(f["home"], f["home"]),
+                            "visit": _json_aliases.get(f["away"], f["away"]),
                             "jornada": f.get("matchday","?"),
                             "hoy": _fd == _hoy,
                             "manana": _fd == _hoy + datetime.timedelta(days=1),
