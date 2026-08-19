@@ -3,257 +3,213 @@
     "league": "🇨🇴 Liga BetPlay",
     "league_key": "betplay",
     "season": "2026",
-    "source": "conmebol_multi",
-    "last_updated": "2026-08-19T10:27:35.622268+00:00",
+    "source": "wikipedia",
+    "last_updated": "2026-08-19T10:32:23.440269+00:00",
     "avg_goals": 1.26,
-    "total_matches": 34,
-    "total_goals": 106,
-    "avg_real": 1.559,
-    "sources_used": [
-      "wikipedia",
-      "thesportsdb"
-    ]
+    "total_matches": 190,
+    "total_goals": 480,
+    "avg_real": 1.263
   },
   "standings": [
     {
-      "team": "0–1",
-      "pj": 10,
-      "gf": 13,
-      "ga": 14,
-      "w": 4,
-      "d": 2,
-      "l": 4,
-      "pts": 14
-    },
-    {
-      "team": "4–1",
-      "pj": 6,
-      "gf": 8,
-      "ga": 4,
-      "w": 4,
-      "d": 1,
-      "l": 1,
-      "pts": 13
-    },
-    {
-      "team": "1–1",
-      "pj": 9,
-      "gf": 14,
-      "ga": 15,
-      "w": 3,
-      "d": 3,
-      "l": 3,
-      "pts": 12
-    },
-    {
-      "team": "2–0",
-      "pj": 9,
-      "gf": 11,
-      "ga": 14,
-      "w": 4,
-      "d": 0,
-      "l": 5,
-      "pts": 12
-    },
-    {
       "team": "Atlético Nacional",
-      "pj": 3,
-      "gf": 17,
-      "ga": 3,
-      "w": 3,
-      "d": 0,
-      "l": 0,
-      "pts": 9
-    },
-    {
-      "team": "1–0",
-      "pj": 5,
-      "gf": 6,
-      "ga": 3,
-      "w": 2,
+      "gf": 35,
+      "ga": 15,
+      "pj": 19,
+      "pts": 40,
+      "w": 13,
       "d": 1,
-      "l": 2,
-      "pts": 7
+      "l": 5
     },
     {
       "team": "Junior",
-      "pj": 2,
-      "gf": 4,
-      "ga": 3,
-      "w": 1,
-      "d": 1,
-      "l": 0,
-      "pts": 4
-    },
-    {
-      "team": "1–2",
-      "pj": 5,
-      "gf": 8,
-      "ga": 10,
-      "w": 1,
-      "d": 1,
-      "l": 3,
-      "pts": 4
-    },
-    {
-      "team": "Santa Fe",
-      "pj": 1,
-      "gf": 5,
-      "ga": 1,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Llaneros",
-      "pj": 1,
-      "gf": 2,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Atlético Bucaramanga",
-      "pj": 1,
-      "gf": 2,
-      "ga": 1,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Fortaleza FC",
-      "pj": 1,
-      "gf": 1,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Fortaleza",
-      "pj": 1,
-      "gf": 1,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Deportes Tolima",
-      "pj": 2,
-      "gf": 4,
-      "ga": 4,
-      "w": 1,
-      "d": 0,
-      "l": 1,
-      "pts": 3
-    },
-    {
-      "team": "América de Cali",
-      "pj": 2,
-      "gf": 4,
-      "ga": 5,
-      "w": 1,
-      "d": 0,
-      "l": 1,
-      "pts": 3
-    },
-    {
-      "team": "0–0",
-      "pj": 1,
-      "gf": 1,
-      "ga": 1,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
-      "team": "Once Caldas",
-      "pj": 1,
-      "gf": 2,
-      "ga": 3,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Millonarios",
-      "pj": 1,
-      "gf": 1,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Alianza de Valledupar",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Alianza FC",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Deportivo Pereira",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "gf": 31,
+      "ga": 24,
+      "pj": 19,
+      "pts": 35,
+      "w": 11,
+      "d": 2,
+      "l": 6
     },
     {
       "team": "Deportivo Pasto",
-      "pj": 1,
-      "gf": 0,
-      "ga": 3,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "gf": 29,
+      "ga": 25,
+      "pj": 19,
+      "pts": 34,
+      "w": 10,
+      "d": 4,
+      "l": 5
     },
     {
-      "team": "Boyacá Chicó",
-      "pj": 1,
-      "gf": 0,
-      "ga": 4,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "team": "América de Cali",
+      "gf": 25,
+      "ga": 15,
+      "pj": 19,
+      "pts": 33,
+      "w": 10,
+      "d": 3,
+      "l": 6
+    },
+    {
+      "team": "Once Caldas",
+      "gf": 31,
+      "ga": 22,
+      "pj": 19,
+      "pts": 33,
+      "w": 8,
+      "d": 9,
+      "l": 2
+    },
+    {
+      "team": "Deportes Tolima",
+      "gf": 27,
+      "ga": 17,
+      "pj": 19,
+      "pts": 31,
+      "w": 8,
+      "d": 7,
+      "l": 4
+    },
+    {
+      "team": "Santa Fe",
+      "gf": 29,
+      "ga": 22,
+      "pj": 19,
+      "pts": 29,
+      "w": 7,
+      "d": 8,
+      "l": 4
     },
     {
       "team": "Internacional de Bogotá",
-      "pj": 2,
-      "gf": 2,
-      "ga": 12,
-      "w": 0,
-      "d": 0,
-      "l": 2,
-      "pts": 0
+      "gf": 26,
+      "ga": 26,
+      "pj": 19,
+      "pts": 28,
+      "w": 7,
+      "d": 7,
+      "l": 5
+    },
+    {
+      "team": "Deportivo Cali",
+      "gf": 20,
+      "ga": 16,
+      "pj": 19,
+      "pts": 27,
+      "w": 7,
+      "d": 6,
+      "l": 6
+    },
+    {
+      "team": "Millonarios",
+      "gf": 31,
+      "ga": 23,
+      "pj": 19,
+      "pts": 26,
+      "w": 7,
+      "d": 5,
+      "l": 7
+    },
+    {
+      "team": "Independiente Medellín",
+      "gf": 26,
+      "ga": 24,
+      "pj": 19,
+      "pts": 26,
+      "w": 7,
+      "d": 5,
+      "l": 7
+    },
+    {
+      "team": "Águilas Doradas",
+      "gf": 20,
+      "ga": 25,
+      "pj": 19,
+      "pts": 26,
+      "w": 7,
+      "d": 5,
+      "l": 7
+    },
+    {
+      "team": "Atlético Bucaramanga",
+      "gf": 26,
+      "ga": 20,
+      "pj": 19,
+      "pts": 23,
+      "w": 5,
+      "d": 8,
+      "l": 6
+    },
+    {
+      "team": "Llaneros",
+      "gf": 17,
+      "ga": 20,
+      "pj": 19,
+      "pts": 22,
+      "w": 4,
+      "d": 10,
+      "l": 5
+    },
+    {
+      "team": "Fortaleza",
+      "gf": 22,
+      "ga": 27,
+      "pj": 19,
+      "pts": 22,
+      "w": 5,
+      "d": 7,
+      "l": 7
+    },
+    {
+      "team": "Jaguares",
+      "gf": 20,
+      "ga": 33,
+      "pj": 19,
+      "pts": 18,
+      "w": 5,
+      "d": 3,
+      "l": 11
+    },
+    {
+      "team": "Alianza",
+      "gf": 13,
+      "ga": 27,
+      "pj": 19,
+      "pts": 17,
+      "w": 3,
+      "d": 8,
+      "l": 8
+    },
+    {
+      "team": "Boyacá Chicó",
+      "gf": 15,
+      "ga": 32,
+      "pj": 19,
+      "pts": 17,
+      "w": 5,
+      "d": 2,
+      "l": 12
+    },
+    {
+      "team": "Cúcuta Deportivo",
+      "gf": 22,
+      "ga": 35,
+      "pj": 19,
+      "pts": 16,
+      "w": 3,
+      "d": 7,
+      "l": 9
+    },
+    {
+      "team": "Deportivo Pereira",
+      "gf": 15,
+      "ga": 32,
+      "pj": 19,
+      "pts": 10,
+      "w": 1,
+      "d": 7,
+      "l": 11
     }
   ],
   "results": [
