@@ -274,7 +274,7 @@
   },
   "betplay": {
     "name": "🇨🇴 Liga BetPlay",
-    "source": "conmebol",
+    "source": "wikipedia",
     "sportsdb_id": 4497,
     "season": "2026",
     "avg": 1.26,
@@ -403,16 +403,11 @@
       "Deportivo Pasto": "Deportivo Pasto",
       "Cúcuta Deportivo FC": "Cúcuta Deportivo"
     },
-    "wiki_urls": [
-      "https://en.wikipedia.org/wiki/2026_Liga_DIMAYOR"
-    ],
-    "sportsdb_ids": [
-      4497
-    ]
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Liga_DIMAYOR"
   },
   "argentina": {
     "name": "🇦🇷 Liga Argentina",
-    "source": "conmebol",
+    "source": "wikipedia",
     "sportsdb_id": 4406,
     "season": "2026",
     "avg": 1.03,
@@ -574,26 +569,16 @@
         }
       ]
     },
-    "wiki_urls": [
-      "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n"
-    ],
-    "sportsdb_ids": [
-      4406
-    ]
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n"
   },
   "brasileirao": {
     "name": "🇧🇷 Brasileirão",
-    "source": "conmebol",
+    "source": "wikipedia",
     "sportsdb_id": 4351,
     "season": "2026-2027",
     "avg": 1.35,
     "odds_key": "soccer_brazil_campeonato",
-    "wiki_urls": [
-      "https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"
-    ],
-    "sportsdb_ids": [
-      4351
-    ]
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Campeonato_Brasileiro_S%C3%A9rie_A"
   },
   "premier": {
     "name": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
