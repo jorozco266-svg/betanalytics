@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-19T11:28:20.486264+00:00",
+    "last_updated": "2026-08-20T11:30:21.793151+00:00",
     "avg_goals": 1.3,
     "total_matches": 0,
     "total_goals": 0,
@@ -116,6 +116,27 @@
       "time": "11:30 AM",
       "home": "ACF Fiorentina",
       "away": "Frosinone Calcio",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "01:45 PM",
+      "home": "SS Lazio",
+      "away": "Genoa CFC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "01:45 PM",
+      "home": "Cagliari Calcio",
+      "away": "FC Internazionale Milano",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "11:30 AM",
+      "home": "SSC Napoli",
+      "away": "Como 1907",
       "matchday": 2
     }
   ]

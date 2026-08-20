@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-19T11:28:19.374739+00:00",
+    "last_updated": "2026-08-20T11:30:20.619549+00:00",
     "avg_goals": 1.4,
     "total_matches": 0,
     "total_goals": 0,
@@ -116,6 +116,34 @@
       "time": "11:30 AM",
       "home": "Tottenham Hotspur FC",
       "away": "Newcastle United FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "08:00 AM",
+      "home": "Sunderland AFC",
+      "away": "Fulham FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "08:00 AM",
+      "home": "Chelsea FC",
+      "away": "Brighton & Hove Albion FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "08:00 AM",
+      "home": "Leeds United FC",
+      "away": "Brentford FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "10:30 AM",
+      "home": "Manchester United FC",
+      "away": "Ipswich Town FC",
       "matchday": 2
     }
   ]

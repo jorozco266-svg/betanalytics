@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-19T11:28:21.420491+00:00",
+    "last_updated": "2026-08-20T11:30:22.945220+00:00",
     "avg_goals": 1.35,
     "total_matches": 0,
     "total_goals": 0,
@@ -116,6 +116,27 @@
       "time": "10:15 AM",
       "home": "RC Strasbourg Alsace",
       "away": "Racing Club de Lens",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "01:45 PM",
+      "home": "AS Monaco FC",
+      "away": "Olympique de Marseille",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "08:00 AM",
+      "home": "Paris FC",
+      "away": "OGC Nice",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "10:15 AM",
+      "home": "Stade Rennais FC 1901",
+      "away": "Le Mans FC",
       "matchday": 2
     }
   ]

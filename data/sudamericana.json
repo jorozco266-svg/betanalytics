@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-08-19T10:27:46.881618+00:00",
+    "last_updated": "2026-08-20T11:30:30.167182+00:00",
     "avg_goals": 1.2,
-    "total_matches": 210,
-    "total_goals": 517,
-    "avg_real": 1.231,
+    "total_matches": 213,
+    "total_goals": 526,
+    "avg_real": 1.235,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -27,13 +27,23 @@
     },
     {
       "team": "River Plate",
-      "pj": 6,
+      "pj": 7,
       "gf": 14,
       "ga": 2,
       "w": 5,
-      "d": 1,
+      "d": 2,
       "l": 0,
-      "pts": 16
+      "pts": 17
+    },
+    {
+      "team": "Montevideo City Torque",
+      "pj": 9,
+      "gf": 13,
+      "ga": 7,
+      "w": 5,
+      "d": 2,
+      "l": 2,
+      "pts": 17
     },
     {
       "team": "O'Higgins",
@@ -57,19 +67,9 @@
     },
     {
       "team": "Tigre",
-      "pj": 7,
-      "gf": 13,
-      "ga": 6,
-      "w": 4,
-      "d": 2,
-      "l": 1,
-      "pts": 14
-    },
-    {
-      "team": "Montevideo City Torque",
       "pj": 8,
-      "gf": 10,
-      "ga": 6,
+      "gf": 14,
+      "ga": 9,
       "w": 4,
       "d": 2,
       "l": 2,
@@ -107,12 +107,22 @@
     },
     {
       "team": "Red Bull Bragantino",
-      "pj": 7,
-      "gf": 9,
-      "ga": 5,
+      "pj": 8,
+      "gf": 11,
+      "ga": 8,
       "w": 4,
       "d": 1,
-      "l": 2,
+      "l": 3,
+      "pts": 13
+    },
+    {
+      "team": "Atlético Mineiro",
+      "pj": 8,
+      "gf": 10,
+      "ga": 10,
+      "w": 4,
+      "d": 1,
+      "l": 3,
       "pts": 13
     },
     {
@@ -243,16 +253,6 @@
       "w": 3,
       "d": 1,
       "l": 2,
-      "pts": 10
-    },
-    {
-      "team": "Atlético Mineiro",
-      "pj": 7,
-      "gf": 7,
-      "ga": 8,
-      "w": 3,
-      "d": 1,
-      "l": 3,
       "pts": 10
     },
     {
@@ -710,6 +710,16 @@
       "pj": 1,
       "gf": 1,
       "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "26 Aug",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
       "w": 0,
       "d": 1,
       "l": 0,
@@ -2779,6 +2789,33 @@
       "away": "Botafogo",
       "hg": 2,
       "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Red Bull Bragantino",
+      "away": "Atlético Mineiro",
+      "hg": 2,
+      "ag": 3,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "River Plate",
+      "away": "26 Aug",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Tigre",
+      "away": "Montevideo City Torque",
+      "hg": 1,
+      "ag": 3,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
