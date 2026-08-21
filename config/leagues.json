@@ -585,7 +585,147 @@
     "source": "footballdata",
     "fd_code": "PL",
     "avg": 1.4,
-    "odds_key": "soccer_epl"
+    "odds_key": "soccer_epl",
+    "hist_season": {
+      "season": "2025-26",
+      "pj_per_team": 38,
+      "note": "38 PJ, Arsenal campeón (85pts). Haaland goleador (27). Relegados: West Ham, Burnley, Wolves. Ascendidos: Coventry, Ipswich, Hull.",
+      "teams": [
+        {
+          "team": "Arsenal",
+          "gf": 71,
+          "ga": 27
+        },
+        {
+          "team": "Manchester City",
+          "gf": 77,
+          "ga": 35
+        },
+        {
+          "team": "Manchester United",
+          "gf": 69,
+          "ga": 50
+        },
+        {
+          "team": "Aston Villa",
+          "gf": 56,
+          "ga": 49
+        },
+        {
+          "team": "Liverpool",
+          "gf": 63,
+          "ga": 53
+        },
+        {
+          "team": "Bournemouth",
+          "gf": 58,
+          "ga": 54
+        },
+        {
+          "team": "Sunderland",
+          "gf": 42,
+          "ga": 48
+        },
+        {
+          "team": "Brighton",
+          "gf": 52,
+          "ga": 46
+        },
+        {
+          "team": "Chelsea",
+          "gf": 55,
+          "ga": 52
+        },
+        {
+          "team": "Crystal Palace",
+          "gf": 58,
+          "ga": 52
+        },
+        {
+          "team": "Everton",
+          "gf": 47,
+          "ga": 51
+        },
+        {
+          "team": "Newcastle",
+          "gf": 53,
+          "ga": 55
+        },
+        {
+          "team": "Nottingham Forest",
+          "gf": 47,
+          "ga": 50
+        },
+        {
+          "team": "Tottenham",
+          "gf": 49,
+          "ga": 56
+        },
+        {
+          "team": "Fulham",
+          "gf": 41,
+          "ga": 51
+        },
+        {
+          "team": "Brentford",
+          "gf": 48,
+          "ga": 51
+        },
+        {
+          "team": "Leicester City",
+          "gf": 48,
+          "ga": 57
+        },
+        {
+          "team": "Coventry City",
+          "gf": 45,
+          "ga": 52,
+          "_promoted": true
+        },
+        {
+          "team": "Ipswich Town",
+          "gf": 42,
+          "ga": 55,
+          "_promoted": true
+        },
+        {
+          "team": "Hull City",
+          "gf": 40,
+          "ga": 56,
+          "_promoted": true
+        }
+      ]
+    },
+    "aliases": {
+      "Arsenal FC": "Arsenal",
+      "Manchester City FC": "Manchester City",
+      "Man City": "Manchester City",
+      "Manchester United FC": "Manchester United",
+      "Man Utd": "Manchester United",
+      "Man United": "Manchester United",
+      "Aston Villa FC": "Aston Villa",
+      "Liverpool FC": "Liverpool",
+      "AFC Bournemouth": "Bournemouth",
+      "Sunderland AFC": "Sunderland",
+      "Brighton and Hove Albion": "Brighton",
+      "Brighton & Hove Albion": "Brighton",
+      "Chelsea FC": "Chelsea",
+      "Crystal Palace FC": "Crystal Palace",
+      "Everton FC": "Everton",
+      "Newcastle United": "Newcastle",
+      "Newcastle United FC": "Newcastle",
+      "Nottingham Forest FC": "Nottingham Forest",
+      "Nott'm Forest": "Nottingham Forest",
+      "Tottenham Hotspur": "Tottenham",
+      "Tottenham Hotspur FC": "Tottenham",
+      "Spurs": "Tottenham",
+      "Fulham FC": "Fulham",
+      "Brentford FC": "Brentford",
+      "Leicester City FC": "Leicester City",
+      "Coventry City FC": "Coventry City",
+      "Ipswich Town FC": "Ipswich Town",
+      "Hull City AFC": "Hull City"
+    }
   },
   "seriea": {
     "name": "🇮🇹 Serie A",
