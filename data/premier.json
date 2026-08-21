@@ -4,14 +4,44 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T20:52:42.286567+00:00",
+    "last_updated": "2026-08-21T21:43:56.975312+00:00",
     "avg_goals": 1.4,
-    "total_matches": 0,
-    "total_goals": 0,
-    "avg_real": 0
+    "total_matches": 1,
+    "total_goals": 3,
+    "avg_real": 1.5
   },
-  "standings": [],
-  "results": [],
+  "standings": [
+    {
+      "team": "Arsenal",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Coventry City",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
+    {
+      "date": "2026-08-21",
+      "home": "Arsenal",
+      "away": "Coventry City",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 1
+    }
+  ],
   "fixtures": [
     {
       "date": "2026-08-22",
