@@ -25,7 +25,6 @@ jobs:
         run: python verify_agent.py
       - name: Push changes
         run: |
-          git config user.name "Bot"
-          git config user.email "bot@bot.com"
-          git add data/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"concurrency:           git add data/
           git diff --staged --quiet || git commit -m "data update" && git push
