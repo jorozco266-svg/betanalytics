@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T11:29:59.288580+00:00",
+    "last_updated": "2026-08-21T16:29:17.783808+00:00",
     "avg_goals": 1.4,
     "total_matches": 0,
     "total_goals": 0,
@@ -16,119 +16,119 @@
     {
       "date": "2026-08-21",
       "time": "02:00 PM",
-      "home": "Arsenal FC",
-      "away": "Coventry City FC",
+      "home": "Arsenal",
+      "away": "Coventry City",
       "matchday": 1
     },
     {
       "date": "2026-08-22",
       "time": "06:30 AM",
-      "home": "Hull City AFC",
-      "away": "Manchester United FC",
+      "home": "Hull City",
+      "away": "Manchester United",
       "matchday": 1
     },
     {
       "date": "2026-08-22",
       "time": "09:00 AM",
-      "home": "Ipswich Town FC",
-      "away": "Sunderland AFC",
+      "home": "Ipswich Town",
+      "away": "Sunderland",
       "matchday": 1
     },
     {
       "date": "2026-08-22",
       "time": "09:00 AM",
-      "home": "Nottingham Forest FC",
+      "home": "Nottingham Forest",
       "away": "Leeds United FC",
       "matchday": 1
     },
     {
       "date": "2026-08-22",
       "time": "09:00 AM",
-      "home": "Everton FC",
-      "away": "Crystal Palace FC",
+      "home": "Everton",
+      "away": "Crystal Palace",
       "matchday": 1
     },
     {
       "date": "2026-08-22",
       "time": "11:30 AM",
-      "home": "Brentford FC",
-      "away": "Tottenham Hotspur FC",
+      "home": "Brentford",
+      "away": "Tottenham",
       "matchday": 1
     },
     {
       "date": "2026-08-23",
       "time": "08:00 AM",
-      "home": "Manchester City FC",
-      "away": "AFC Bournemouth",
+      "home": "Manchester City",
+      "away": "Bournemouth",
       "matchday": 1
     },
     {
       "date": "2026-08-23",
       "time": "08:00 AM",
       "home": "Brighton & Hove Albion FC",
-      "away": "Aston Villa FC",
+      "away": "Aston Villa",
       "matchday": 1
     },
     {
       "date": "2026-08-23",
       "time": "10:30 AM",
-      "home": "Newcastle United FC",
-      "away": "Liverpool FC",
+      "home": "Newcastle",
+      "away": "Liverpool",
       "matchday": 1
     },
     {
       "date": "2026-08-24",
       "time": "02:00 PM",
-      "home": "Fulham FC",
-      "away": "Chelsea FC",
+      "home": "Fulham",
+      "away": "Chelsea",
       "matchday": 1
     },
     {
       "date": "2026-08-28",
       "time": "02:00 PM",
-      "home": "Crystal Palace FC",
-      "away": "Manchester City FC",
+      "home": "Crystal Palace",
+      "away": "Manchester City",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "06:30 AM",
-      "home": "Liverpool FC",
-      "away": "Nottingham Forest FC",
+      "home": "Liverpool",
+      "away": "Nottingham Forest",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "09:00 AM",
-      "home": "AFC Bournemouth",
-      "away": "Everton FC",
+      "home": "Bournemouth",
+      "away": "Everton",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "09:00 AM",
-      "home": "Coventry City FC",
-      "away": "Hull City AFC",
+      "home": "Coventry City",
+      "away": "Hull City",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "11:30 AM",
-      "home": "Tottenham Hotspur FC",
-      "away": "Newcastle United FC",
+      "home": "Tottenham",
+      "away": "Newcastle",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "08:00 AM",
-      "home": "Sunderland AFC",
-      "away": "Fulham FC",
+      "home": "Sunderland",
+      "away": "Fulham",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "08:00 AM",
-      "home": "Chelsea FC",
+      "home": "Chelsea",
       "away": "Brighton & Hove Albion FC",
       "matchday": 2
     },
@@ -136,22 +136,132 @@
       "date": "2026-08-30",
       "time": "08:00 AM",
       "home": "Leeds United FC",
-      "away": "Brentford FC",
+      "away": "Brentford",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "10:30 AM",
-      "home": "Manchester United FC",
-      "away": "Ipswich Town FC",
+      "home": "Manchester United",
+      "away": "Ipswich Town",
       "matchday": 2
     },
     {
       "date": "2026-08-31",
       "time": "02:00 PM",
-      "home": "Aston Villa FC",
-      "away": "Arsenal FC",
+      "home": "Aston Villa",
+      "away": "Arsenal",
       "matchday": 2
     }
-  ]
+  ],
+  "hist_season": {
+    "season": "2025-26",
+    "pj_per_team": 38,
+    "note": "38 PJ, Arsenal campeón (85pts). Haaland goleador (27). Relegados: West Ham, Burnley, Wolves. Ascendidos: Coventry, Ipswich, Hull.",
+    "teams": [
+      {
+        "team": "Arsenal",
+        "gf": 71,
+        "ga": 27
+      },
+      {
+        "team": "Manchester City",
+        "gf": 77,
+        "ga": 35
+      },
+      {
+        "team": "Manchester United",
+        "gf": 69,
+        "ga": 50
+      },
+      {
+        "team": "Aston Villa",
+        "gf": 56,
+        "ga": 49
+      },
+      {
+        "team": "Liverpool",
+        "gf": 63,
+        "ga": 53
+      },
+      {
+        "team": "Bournemouth",
+        "gf": 58,
+        "ga": 54
+      },
+      {
+        "team": "Sunderland",
+        "gf": 42,
+        "ga": 48
+      },
+      {
+        "team": "Brighton",
+        "gf": 52,
+        "ga": 46
+      },
+      {
+        "team": "Chelsea",
+        "gf": 55,
+        "ga": 52
+      },
+      {
+        "team": "Crystal Palace",
+        "gf": 58,
+        "ga": 52
+      },
+      {
+        "team": "Everton",
+        "gf": 47,
+        "ga": 51
+      },
+      {
+        "team": "Newcastle",
+        "gf": 53,
+        "ga": 55
+      },
+      {
+        "team": "Nottingham Forest",
+        "gf": 47,
+        "ga": 50
+      },
+      {
+        "team": "Tottenham",
+        "gf": 49,
+        "ga": 56
+      },
+      {
+        "team": "Fulham",
+        "gf": 41,
+        "ga": 51
+      },
+      {
+        "team": "Brentford",
+        "gf": 48,
+        "ga": 51
+      },
+      {
+        "team": "Leicester City",
+        "gf": 48,
+        "ga": 57
+      },
+      {
+        "team": "Coventry City",
+        "gf": 45,
+        "ga": 52,
+        "_promoted": true
+      },
+      {
+        "team": "Ipswich Town",
+        "gf": 42,
+        "ga": 55,
+        "_promoted": true
+      },
+      {
+        "team": "Hull City",
+        "gf": 40,
+        "ga": 56,
+        "_promoted": true
+      }
+    ]
+  }
 }
