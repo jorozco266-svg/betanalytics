@@ -4,22 +4,45 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T16:29:19.743928+00:00",
+    "last_updated": "2026-08-21T20:52:45.038026+00:00",
     "avg_goals": 1.35,
-    "total_matches": 0,
-    "total_goals": 0,
-    "avg_real": 0
+    "total_matches": 1,
+    "total_goals": 4,
+    "avg_real": 2.0
   },
-  "standings": [],
-  "results": [],
-  "fixtures": [
+  "standings": [
+    {
+      "team": "Olympique de Marseille",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "RC Strasbourg Alsace",
+      "pj": 1,
+      "gf": 0,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    }
+  ],
+  "results": [
     {
       "date": "2026-08-21",
-      "time": "01:45 PM",
       "home": "Olympique de Marseille",
       "away": "RC Strasbourg Alsace",
+      "hg": 4,
+      "ag": 0,
       "matchday": 1
-    },
+    }
+  ],
+  "fixtures": [
     {
       "date": "2026-08-22",
       "time": "01:45 PM",

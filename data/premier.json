@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T16:29:17.783808+00:00",
+    "last_updated": "2026-08-21T20:52:42.286567+00:00",
     "avg_goals": 1.4,
     "total_matches": 0,
     "total_goals": 0,
@@ -13,13 +13,6 @@
   "standings": [],
   "results": [],
   "fixtures": [
-    {
-      "date": "2026-08-21",
-      "time": "02:00 PM",
-      "home": "Arsenal",
-      "away": "Coventry City",
-      "matchday": 1
-    },
     {
       "date": "2026-08-22",
       "time": "06:30 AM",
