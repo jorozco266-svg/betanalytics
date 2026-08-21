@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-08-20T11:30:30.167182+00:00",
+    "last_updated": "2026-08-21T11:30:17.289379+00:00",
     "avg_goals": 1.2,
-    "total_matches": 213,
-    "total_goals": 526,
-    "avg_real": 1.235,
+    "total_matches": 215,
+    "total_goals": 539,
+    "avg_real": 1.253,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -17,12 +17,12 @@
   "standings": [
     {
       "team": "Botafogo",
-      "pj": 9,
-      "gf": 24,
-      "ga": 11,
+      "pj": 10,
+      "gf": 26,
+      "ga": 17,
       "w": 7,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 22
     },
     {
@@ -56,14 +56,34 @@
       "pts": 16
     },
     {
-      "team": "Olimpia",
+      "team": "Cienciano",
       "pj": 8,
-      "gf": 9,
-      "ga": 5,
+      "gf": 16,
+      "ga": 9,
       "w": 4,
       "d": 3,
       "l": 1,
       "pts": 15
+    },
+    {
+      "team": "Olimpia",
+      "pj": 8,
+      "gf": 10,
+      "ga": 6,
+      "w": 4,
+      "d": 3,
+      "l": 1,
+      "pts": 15
+    },
+    {
+      "team": "Santos",
+      "pj": 8,
+      "gf": 18,
+      "ga": 9,
+      "w": 3,
+      "d": 5,
+      "l": 0,
+      "pts": 14
     },
     {
       "team": "Tigre",
@@ -77,12 +97,12 @@
     },
     {
       "team": "Macará",
-      "pj": 8,
-      "gf": 8,
-      "ga": 5,
+      "pj": 9,
+      "gf": 9,
+      "ga": 7,
       "w": 3,
       "d": 5,
-      "l": 0,
+      "l": 1,
       "pts": 14
     },
     {
@@ -98,8 +118,8 @@
     {
       "team": "Vasco da Gama",
       "pj": 7,
-      "gf": 14,
-      "ga": 9,
+      "gf": 15,
+      "ga": 10,
       "w": 4,
       "d": 1,
       "l": 2,
@@ -184,26 +204,6 @@
       "d": 0,
       "l": 1,
       "pts": 12
-    },
-    {
-      "team": "Cienciano",
-      "pj": 7,
-      "gf": 10,
-      "ga": 7,
-      "w": 3,
-      "d": 3,
-      "l": 1,
-      "pts": 12
-    },
-    {
-      "team": "Santos",
-      "pj": 7,
-      "gf": 16,
-      "ga": 8,
-      "w": 2,
-      "d": 5,
-      "l": 0,
-      "pts": 11
     },
     {
       "team": "Grêmio",
@@ -1572,9 +1572,9 @@
       "date": "",
       "home": "Vasco da Gama",
       "away": "Olimpia",
-      "hg": 3,
-      "ag": 0,
-      "matchday": "group",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "knockout",
       "_source": "wikipedia"
     },
     {
@@ -2816,6 +2816,24 @@
       "away": "Montevideo City Torque",
       "hg": 1,
       "ag": 3,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cienciano",
+      "away": "Botafogo",
+      "hg": 6,
+      "ag": 2,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Santos",
+      "away": "Macará",
+      "hg": 2,
+      "ag": 1,
       "matchday": "knockout",
       "_source": "wikipedia"
     },

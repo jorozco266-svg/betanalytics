@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-20T11:30:20.619549+00:00",
+    "last_updated": "2026-08-21T11:29:59.288580+00:00",
     "avg_goals": 1.4,
     "total_matches": 0,
     "total_goals": 0,
@@ -144,6 +144,13 @@
       "time": "10:30 AM",
       "home": "Manchester United FC",
       "away": "Ipswich Town FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-31",
+      "time": "02:00 PM",
+      "home": "Aston Villa FC",
+      "away": "Arsenal FC",
       "matchday": 2
     }
   ]
