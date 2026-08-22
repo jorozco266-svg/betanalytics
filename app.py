@@ -3273,7 +3273,9 @@ with tab1:
                 _n_matches = len(_results)
 
                 # Construir modelo desde JSON
-                if _standings and len(_standings) >= 5:
+                _has_enough_standings = _standings and len(_standings) >= 5
+                _has_hist = _hist_season and len(_hist_season.get("teams", [])) >= 5
+                if _has_enough_standings or _has_hist:
                     # Cargar aliases del JSON para normalizar nombres
                     _json_aliases = {}
                     if _hist_season and _hist_season.get("teams"):
