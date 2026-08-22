@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T20:52:45.038026+00:00",
+    "last_updated": "2026-08-22T23:15:56.130828+00:00",
     "avg_goals": 1.35,
-    "total_matches": 1,
-    "total_goals": 4,
-    "avg_real": 2.0
+    "total_matches": 6,
+    "total_goals": 17,
+    "avg_real": 1.417
   },
   "standings": [
     {
@@ -20,6 +20,106 @@
       "d": 0,
       "l": 0,
       "pts": 3
+    },
+    {
+      "team": "Racing Club de Lens",
+      "pj": 1,
+      "gf": 5,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Olympique Lyonnais",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Le Mans FC",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Stade Brestois 29",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "ES Troyes AC",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Paris FC",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "OGC Nice",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "FC Lorient",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Toulouse FC",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "AJ Auxerre",
+      "pj": 1,
+      "gf": 2,
+      "ga": 5,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     },
     {
       "team": "RC Strasbourg Alsace",
@@ -40,44 +140,49 @@
       "hg": 4,
       "ag": 0,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Racing Club de Lens",
+      "away": "AJ Auxerre",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Le Mans FC",
+      "away": "Stade Brestois 29",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "ES Troyes AC",
+      "away": "Paris FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "OGC Nice",
+      "away": "FC Lorient",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Toulouse FC",
+      "away": "Olympique Lyonnais",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-22",
-      "time": "01:45 PM",
-      "home": "Le Mans FC",
-      "away": "Stade Brestois 29",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "01:45 PM",
-      "home": "ES Troyes AC",
-      "away": "Paris FC",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "01:45 PM",
-      "home": "OGC Nice",
-      "away": "FC Lorient",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "01:45 PM",
-      "home": "Toulouse FC",
-      "away": "Olympique Lyonnais",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "10:15 AM",
-      "home": "Racing Club de Lens",
-      "away": "AJ Auxerre",
-      "matchday": 1
-    },
     {
       "date": "2026-08-23",
       "time": "01:45 PM",

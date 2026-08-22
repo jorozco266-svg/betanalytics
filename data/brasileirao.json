@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-19T10:32:24.845063+00:00",
+    "last_updated": "2026-08-22T23:15:52.237008+00:00",
     "avg_goals": 1.35,
-    "total_matches": 225,
-    "total_goals": 586,
-    "avg_real": 1.302
+    "total_matches": 226,
+    "total_goals": 589,
+    "avg_real": 1.303
   },
   "standings": [
     {
@@ -43,11 +43,11 @@
     },
     {
       "team": "Fluminense",
-      "gf": 34,
-      "ga": 28,
-      "pj": 23,
-      "pts": 38,
-      "w": 10,
+      "gf": 36,
+      "ga": 29,
+      "pj": 24,
+      "pts": 41,
+      "w": 11,
       "d": 8,
       "l": 5
     },
@@ -183,13 +183,13 @@
     },
     {
       "team": "Remo",
-      "gf": 27,
-      "ga": 37,
-      "pj": 23,
+      "gf": 28,
+      "ga": 39,
+      "pj": 24,
       "pts": 23,
       "w": 5,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Vasco da Gama",

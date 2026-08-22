@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-21T21:43:56.975312+00:00",
+    "last_updated": "2026-08-22T23:15:53.709084+00:00",
     "avg_goals": 1.4,
-    "total_matches": 1,
-    "total_goals": 3,
-    "avg_real": 1.5
+    "total_matches": 6,
+    "total_goals": 14,
+    "avg_real": 1.167
   },
   "standings": [
     {
@@ -22,7 +22,107 @@
       "pts": 3
     },
     {
+      "team": "Brentford",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Hull City",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Everton",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Ipswich Town",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Leeds United FC",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Sunderland",
+      "pj": 1,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Nottingham Forest",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Manchester United",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Crystal Palace",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Coventry City",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Tottenham",
       "pj": 1,
       "gf": 0,
       "ga": 3,
@@ -40,44 +140,49 @@
       "hg": 3,
       "ag": 0,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Hull City",
+      "away": "Manchester United",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Ipswich Town",
+      "away": "Sunderland",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Nottingham Forest",
+      "away": "Leeds United FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Everton",
+      "away": "Crystal Palace",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Brentford",
+      "away": "Tottenham",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-22",
-      "time": "06:30 AM",
-      "home": "Hull City",
-      "away": "Manchester United",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "09:00 AM",
-      "home": "Ipswich Town",
-      "away": "Sunderland",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "09:00 AM",
-      "home": "Nottingham Forest",
-      "away": "Leeds United FC",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "09:00 AM",
-      "home": "Everton",
-      "away": "Crystal Palace",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-22",
-      "time": "11:30 AM",
-      "home": "Brentford",
-      "away": "Tottenham",
-      "matchday": 1
-    },
     {
       "date": "2026-08-23",
       "time": "08:00 AM",

@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-22T11:23:33.407295+00:00",
+    "last_updated": "2026-08-22T23:15:58.774270+00:00",
     "avg_goals": 1.25,
-    "total_matches": 202,
-    "total_goals": 447,
-    "avg_real": 1.106
+    "total_matches": 203,
+    "total_goals": 453,
+    "avg_real": 1.116
   },
   "standings": [
     {
@@ -20,6 +20,16 @@
       "w": 22,
       "d": 1,
       "l": 3
+    },
+    {
+      "team": "Universidad Católica",
+      "gf": 45,
+      "ga": 23,
+      "pj": 26,
+      "pts": 43,
+      "w": 12,
+      "d": 7,
+      "l": 7
     },
     {
       "team": "Macará",
@@ -40,16 +50,6 @@
       "w": 12,
       "d": 5,
       "l": 8
-    },
-    {
-      "team": "Universidad Católica",
-      "gf": 40,
-      "ga": 22,
-      "pj": 25,
-      "pts": 40,
-      "w": 11,
-      "d": 7,
-      "l": 7
     },
     {
       "team": "LDU Quito",
@@ -163,13 +163,13 @@
     },
     {
       "team": "Manta",
-      "gf": 11,
-      "ga": 32,
-      "pj": 25,
+      "gf": 12,
+      "ga": 37,
+      "pj": 26,
       "pts": 17,
       "w": 4,
       "d": 5,
-      "l": 16
+      "l": 17
     }
   ],
   "results": [],
