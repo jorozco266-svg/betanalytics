@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-22T23:15:58.774270+00:00",
+    "last_updated": "2026-08-23T11:23:36.323718+00:00",
     "avg_goals": 1.25,
-    "total_matches": 203,
-    "total_goals": 453,
-    "avg_real": 1.116
+    "total_matches": 205,
+    "total_goals": 461,
+    "avg_real": 1.124
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 8
     },
     {
+      "team": "Barcelona",
+      "gf": 28,
+      "ga": 20,
+      "pj": 26,
+      "pts": 39,
+      "w": 10,
+      "d": 9,
+      "l": 7
+    },
+    {
       "team": "LDU Quito",
       "gf": 24,
       "ga": 20,
@@ -60,16 +70,6 @@
       "w": 11,
       "d": 5,
       "l": 9
-    },
-    {
-      "team": "Barcelona",
-      "gf": 25,
-      "ga": 20,
-      "pj": 25,
-      "pts": 36,
-      "w": 9,
-      "d": 9,
-      "l": 7
     },
     {
       "team": "Leones",
@@ -102,6 +102,16 @@
       "l": 9
     },
     {
+      "team": "Guayaquil City",
+      "gf": 25,
+      "ga": 29,
+      "pj": 26,
+      "pts": 33,
+      "w": 8,
+      "d": 9,
+      "l": 9
+    },
+    {
       "team": "Emelec",
       "gf": 21,
       "ga": 29,
@@ -122,34 +132,24 @@
       "l": 12
     },
     {
-      "team": "Guayaquil City",
-      "gf": 22,
-      "ga": 27,
-      "pj": 25,
-      "pts": 30,
-      "w": 7,
-      "d": 9,
-      "l": 9
-    },
-    {
       "team": "Orense",
       "gf": 30,
-      "ga": 36,
-      "pj": 25,
+      "ga": 39,
+      "pj": 26,
       "pts": 30,
       "w": 8,
       "d": 6,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Técnico Universitario",
-      "gf": 21,
-      "ga": 34,
-      "pj": 25,
+      "gf": 23,
+      "ga": 37,
+      "pj": 26,
       "pts": 26,
       "w": 8,
       "d": 2,
-      "l": 15
+      "l": 16
     },
     {
       "team": "Delfín",

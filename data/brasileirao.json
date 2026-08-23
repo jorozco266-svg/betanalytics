@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-22T23:15:52.237008+00:00",
+    "last_updated": "2026-08-23T11:23:31.092391+00:00",
     "avg_goals": 1.35,
-    "total_matches": 226,
-    "total_goals": 589,
-    "avg_real": 1.303
+    "total_matches": 228,
+    "total_goals": 592,
+    "avg_real": 1.298
   },
   "standings": [
     {
@@ -23,13 +23,13 @@
     },
     {
       "team": "Flamengo",
-      "gf": 44,
-      "ga": 19,
-      "pj": 22,
+      "gf": 45,
+      "ga": 21,
+      "pj": 23,
       "pts": 45,
       "w": 13,
       "d": 6,
-      "l": 3
+      "l": 4
     },
     {
       "team": "Athletico Paranaense",
@@ -53,11 +53,11 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 32,
-      "ga": 32,
-      "pj": 23,
-      "pts": 36,
-      "w": 10,
+      "gf": 34,
+      "ga": 33,
+      "pj": 24,
+      "pts": 39,
+      "w": 11,
       "d": 6,
       "l": 7
     },
@@ -72,19 +72,19 @@
       "l": 5
     },
     {
-      "team": "Red Bull Bragantino",
-      "gf": 27,
-      "ga": 23,
-      "pj": 22,
-      "pts": 32,
-      "w": 9,
-      "d": 5,
-      "l": 8
-    },
-    {
       "team": "Atlético Mineiro",
       "gf": 30,
       "ga": 27,
+      "pj": 23,
+      "pts": 33,
+      "w": 9,
+      "d": 6,
+      "l": 8
+    },
+    {
+      "team": "Red Bull Bragantino",
+      "gf": 27,
+      "ga": 23,
       "pj": 22,
       "pts": 32,
       "w": 9,
@@ -165,10 +165,10 @@
       "team": "Internacional",
       "gf": 24,
       "ga": 28,
-      "pj": 23,
-      "pts": 24,
+      "pj": 24,
+      "pts": 25,
       "w": 5,
-      "d": 9,
+      "d": 10,
       "l": 9
     },
     {
