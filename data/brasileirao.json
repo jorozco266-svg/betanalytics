@@ -4,20 +4,20 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-23T11:23:31.092391+00:00",
+    "last_updated": "2026-08-23T23:16:20.796093+00:00",
     "avg_goals": 1.35,
-    "total_matches": 228,
-    "total_goals": 592,
-    "avg_real": 1.298
+    "total_matches": 231,
+    "total_goals": 600,
+    "avg_real": 1.299
   },
   "standings": [
     {
       "team": "Palmeiras",
-      "gf": 40,
-      "ga": 19,
-      "pj": 23,
-      "pts": 48,
-      "w": 14,
+      "gf": 44,
+      "ga": 20,
+      "pj": 24,
+      "pts": 51,
+      "w": 15,
       "d": 6,
       "l": 3
     },
@@ -63,13 +63,23 @@
     },
     {
       "team": "Bahia",
-      "gf": 32,
+      "gf": 34,
       "ga": 28,
-      "pj": 23,
-      "pts": 34,
-      "w": 8,
+      "pj": 24,
+      "pts": 37,
+      "w": 9,
       "d": 10,
       "l": 5
+    },
+    {
+      "team": "Red Bull Bragantino",
+      "gf": 28,
+      "ga": 23,
+      "pj": 23,
+      "pts": 35,
+      "w": 10,
+      "d": 5,
+      "l": 8
     },
     {
       "team": "Atlético Mineiro",
@@ -79,16 +89,6 @@
       "pts": 33,
       "w": 9,
       "d": 6,
-      "l": 8
-    },
-    {
-      "team": "Red Bull Bragantino",
-      "gf": 27,
-      "ga": 23,
-      "pj": 22,
-      "pts": 32,
-      "w": 9,
-      "d": 5,
       "l": 8
     },
     {
@@ -124,12 +124,12 @@
     {
       "team": "Vitória",
       "gf": 23,
-      "ga": 33,
-      "pj": 23,
+      "ga": 35,
+      "pj": 24,
       "pts": 29,
       "w": 8,
       "d": 5,
-      "l": 10
+      "l": 11
     },
     {
       "team": "São Paulo",
@@ -154,12 +154,12 @@
     {
       "team": "Grêmio",
       "gf": 24,
-      "ga": 30,
-      "pj": 22,
+      "ga": 31,
+      "pj": 23,
       "pts": 25,
       "w": 6,
       "d": 7,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Internacional",
@@ -193,13 +193,13 @@
     },
     {
       "team": "Vasco da Gama",
-      "gf": 23,
-      "ga": 34,
-      "pj": 22,
+      "gf": 24,
+      "ga": 38,
+      "pj": 23,
       "pts": 22,
       "w": 5,
       "d": 7,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Chapecoense",

@@ -4,13 +4,23 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-22T23:15:53.709084+00:00",
+    "last_updated": "2026-08-23T23:16:21.785222+00:00",
     "avg_goals": 1.4,
-    "total_matches": 6,
-    "total_goals": 14,
-    "avg_real": 1.167
+    "total_matches": 9,
+    "total_goals": 25,
+    "avg_real": 1.389
   },
   "standings": [
+    {
+      "team": "Brighton & Hove Albion FC",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
     {
       "team": "Arsenal",
       "pj": 1,
@@ -62,6 +72,16 @@
       "pts": 3
     },
     {
+      "team": "Manchester City",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Leeds United FC",
       "pj": 1,
       "gf": 1,
@@ -72,7 +92,37 @@
       "pts": 3
     },
     {
+      "team": "Newcastle",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Liverpool",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
       "team": "Sunderland",
+      "pj": 1,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Bournemouth",
       "pj": 1,
       "gf": 1,
       "ga": 2,
@@ -130,6 +180,16 @@
       "d": 0,
       "l": 1,
       "pts": 0
+    },
+    {
+      "team": "Aston Villa",
+      "pj": 1,
+      "gf": 0,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     }
   ],
   "results": [
@@ -180,30 +240,33 @@
       "hg": 3,
       "ag": 0,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Manchester City",
+      "away": "Bournemouth",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Brighton & Hove Albion FC",
+      "away": "Aston Villa",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Newcastle",
+      "away": "Liverpool",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-23",
-      "time": "08:00 AM",
-      "home": "Manchester City",
-      "away": "Bournemouth",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-23",
-      "time": "08:00 AM",
-      "home": "Brighton & Hove Albion FC",
-      "away": "Aston Villa",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-23",
-      "time": "10:30 AM",
-      "home": "Newcastle",
-      "away": "Liverpool",
-      "matchday": 1
-    },
     {
       "date": "2026-08-24",
       "time": "02:00 PM",

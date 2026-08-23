@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-22T23:15:56.130828+00:00",
+    "last_updated": "2026-08-23T23:16:24.235474+00:00",
     "avg_goals": 1.35,
-    "total_matches": 6,
-    "total_goals": 17,
-    "avg_real": 1.417
+    "total_matches": 9,
+    "total_goals": 25,
+    "avg_real": 1.389
   },
   "standings": [
     {
@@ -32,9 +32,29 @@
       "pts": 3
     },
     {
+      "team": "Lille OSC",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Olympique Lyonnais",
       "pj": 1,
       "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "AS Monaco FC",
+      "pj": 1,
+      "gf": 1,
       "ga": 0,
       "w": 1,
       "d": 0,
@@ -53,6 +73,26 @@
     },
     {
       "team": "Stade Brestois 29",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Paris Saint-Germain FC",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Stade Rennais FC 1901",
       "pj": 1,
       "gf": 2,
       "ga": 2,
@@ -102,6 +142,16 @@
       "pts": 1
     },
     {
+      "team": "Le Havre AC",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Toulouse FC",
       "pj": 1,
       "gf": 0,
@@ -116,6 +166,16 @@
       "pj": 1,
       "gf": 2,
       "ga": 5,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Angers SCO",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
       "w": 0,
       "d": 0,
       "l": 1,
@@ -180,30 +240,33 @@
       "hg": 0,
       "ag": 2,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Angers SCO",
+      "away": "Lille OSC",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Le Havre AC",
+      "away": "AS Monaco FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Paris Saint-Germain FC",
+      "away": "Stade Rennais FC 1901",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-23",
-      "time": "01:45 PM",
-      "home": "Paris Saint-Germain FC",
-      "away": "Stade Rennais FC 1901",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-23",
-      "time": "08:00 AM",
-      "home": "Angers SCO",
-      "away": "Lille OSC",
-      "matchday": 1
-    },
-    {
-      "date": "2026-08-23",
-      "time": "10:15 AM",
-      "home": "Le Havre AC",
-      "away": "AS Monaco FC",
-      "matchday": 1
-    },
     {
       "date": "2026-08-28",
       "time": "01:45 PM",
