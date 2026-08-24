@@ -173,6 +173,7 @@ LIGAS = {
     "🇺🇸 MLS Next Pro":        {"src":"sportsdb","sportsdb_id":5279,"sportsdb_season":"2026","avg":1.50,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇺 NSW League One":      {"src":"wiki_tabla","wiki_url":None,"avg":1.55,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"NSWL1"},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2026-2027","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
+    "🇩🇪 Frauen-Bundesliga":   {"src":"wikipedia","wiki_url":"https://en.wikipedia.org/wiki/2026%E2%80%9327_Frauen-Bundesliga","sportsdb_id":4458,"avg":1.72,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
     "🇦🇷 Copa Argentina":      {"src":"copa_arg","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
@@ -3257,6 +3258,7 @@ with tab1:
         "🇨🇱 Chile - Liga 1ª": "chile", "🇺🇾 Uruguay - Clausura": "uruguay",
         "🇪🇨 Ecuador - LigaPro": "ecuador", "🇦🇷 Arg Femenina": "argfem",
         "🏆 Copa Libertadores": "libertadores", "🏆 Copa Sudamericana": "sudamericana",
+        "🇩🇪 Frauen-Bundesliga": "frauenbundesliga",
     }
     json_key = LIGA_JSON_KEY.get(liga_n)
     if json_key:
@@ -3391,6 +3393,10 @@ with tab1:
                         try:
                             prox_odds, _oe = odds_fixtures(li["odds_key"], odds_api_key)
                             if prox_odds:
+                                # Aplicar aliases a nombres de Odds API
+                                for _p in prox_odds:
+                                    _p["local"] = _json_aliases.get(_p.get("local",""), _p.get("local",""))
+                                    _p["visit"] = _json_aliases.get(_p.get("visit",""), _p.get("visit",""))
                                 prox = prox_odds
                         except Exception:
                             pass
@@ -3398,6 +3404,9 @@ with tab1:
                         try:
                             prox_sdb, _se = sportsdb_next(li["sportsdb_id"])
                             if prox_sdb:
+                                for _p in prox_sdb:
+                                    _p["local"] = _json_aliases.get(_p.get("local",""), _p.get("local",""))
+                                    _p["visit"] = _json_aliases.get(_p.get("visit",""), _p.get("visit",""))
                                 prox = prox_sdb
                         except Exception:
                             pass
