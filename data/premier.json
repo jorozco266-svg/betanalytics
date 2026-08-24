@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-23T23:16:21.785222+00:00",
+    "last_updated": "2026-08-24T21:46:49.373091+00:00",
     "avg_goals": 1.4,
-    "total_matches": 9,
-    "total_goals": 25,
-    "avg_real": 1.389
+    "total_matches": 10,
+    "total_goals": 30,
+    "avg_real": 1.5
   },
   "standings": [
     {
@@ -56,6 +56,16 @@
       "pj": 1,
       "gf": 2,
       "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Chelsea",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
       "w": 1,
       "d": 0,
       "l": 0,
@@ -110,6 +120,16 @@
       "d": 1,
       "l": 0,
       "pts": 1
+    },
+    {
+      "team": "Fulham",
+      "pj": 1,
+      "gf": 2,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     },
     {
       "team": "Sunderland",
@@ -264,16 +284,17 @@
       "hg": 2,
       "ag": 2,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-24",
+      "home": "Fulham",
+      "away": "Chelsea",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-24",
-      "time": "02:00 PM",
-      "home": "Fulham",
-      "away": "Chelsea",
-      "matchday": 1
-    },
     {
       "date": "2026-08-28",
       "time": "02:00 PM",

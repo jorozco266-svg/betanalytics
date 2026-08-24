@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "league": "🇩🇪 Frauen-Bundesliga",
+    "league_key": "frauenbundesliga",
+    "season": "2026-2027",
+    "source": "wikipedia",
+    "last_updated": "2026-08-24T21:47:05.530166+00:00",
+    "avg_goals": 1.72,
+    "total_matches": 7,
+    "total_goals": 27,
+    "avg_real": 1.929
+  },
+  "standings": [
+    {
+      "team": "VfL Wolfsburg",
+      "gf": 8,
+      "ga": 2,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Bayern Munich",
+      "gf": 4,
+      "ga": 1,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "gf": 2,
+      "ga": 0,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Bayer Leverkusen",
+      "gf": 2,
+      "ga": 0,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Werder Bremen",
+      "gf": 2,
+      "ga": 1,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "VfB Stuttgart",
+      "gf": 2,
+      "ga": 1,
+      "pj": 1,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "SC Freiburg",
+      "gf": 1,
+      "ga": 1,
+      "pj": 1,
+      "pts": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0
+    },
+    {
+      "team": "Hamburger SV",
+      "gf": 1,
+      "ga": 1,
+      "pj": 1,
+      "pts": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "gf": 1,
+      "ga": 2,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    },
+    {
+      "team": "Mainz 05",
+      "gf": 1,
+      "ga": 2,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    },
+    {
+      "team": "1. FC Köln",
+      "gf": 0,
+      "ga": 2,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    },
+    {
+      "team": "RB Leipzig",
+      "gf": 0,
+      "ga": 2,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    },
+    {
+      "team": "Union Berlin",
+      "gf": 1,
+      "ga": 4,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    },
+    {
+      "team": "1. FC Nürnberg",
+      "gf": 2,
+      "ga": 8,
+      "pj": 1,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 1
+    }
+  ],
+  "results": [],
+  "fixtures": [],
+  "hist_season": {
+    "season": "2025-26",
+    "pj_per_team": 26,
+    "note": "14 equipos, 182 partidos, 627 goles (3.45 g/p). Bayern Munich tetracampeón. Relegadas: Jena, Essen. Ascendidas: Stuttgart, Mainz 05.",
+    "_fetch_from": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Frauen-Bundesliga",
+    "teams": [
+      {
+        "team": "Bayern Munich",
+        "gf": 80,
+        "ga": 14
+      },
+      {
+        "team": "VfL Wolfsburg",
+        "gf": 72,
+        "ga": 20
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "gf": 55,
+        "ga": 28
+      },
+      {
+        "team": "SC Freiburg",
+        "gf": 50,
+        "ga": 30
+      },
+      {
+        "team": "TSG Hoffenheim",
+        "gf": 48,
+        "ga": 32
+      },
+      {
+        "team": "Werder Bremen",
+        "gf": 42,
+        "ga": 35
+      },
+      {
+        "team": "1. FC Köln",
+        "gf": 38,
+        "ga": 40
+      },
+      {
+        "team": "RB Leipzig",
+        "gf": 35,
+        "ga": 42
+      },
+      {
+        "team": "Union Berlin",
+        "gf": 34,
+        "ga": 44
+      },
+      {
+        "team": "1. FC Nürnberg",
+        "gf": 30,
+        "ga": 50
+      },
+      {
+        "team": "Hamburger SV",
+        "gf": 28,
+        "ga": 52
+      },
+      {
+        "team": "Bayer Leverkusen",
+        "gf": 25,
+        "ga": 55
+      },
+      {
+        "team": "VfB Stuttgart",
+        "gf": 40,
+        "ga": 38,
+        "_promoted": true
+      },
+      {
+        "team": "Mainz 05",
+        "gf": 35,
+        "ga": 42,
+        "_promoted": true
+      }
+    ]
+  }
+}
