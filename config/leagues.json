@@ -403,7 +403,8 @@
       "Deportivo Pasto": "Deportivo Pasto",
       "Cúcuta Deportivo FC": "Cúcuta Deportivo"
     },
-    "wiki_url": "https://es.wikipedia.org/wiki/Torneo_Finalizaci%C3%B3n_2026_(Colombia)"
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Liga_DIMAYOR",
+    "table_index": -1
   },
   "argentina": {
     "name": "🇦🇷 Liga Argentina",
@@ -732,7 +733,140 @@
     "source": "footballdata",
     "fd_code": "SA",
     "avg": 1.3,
-    "odds_key": "soccer_italy_serie_a"
+    "odds_key": "soccer_italy_serie_a",
+    "hist_season": {
+      "season": "2025-26",
+      "pj_per_team": 38,
+      "note": "380 PJ, 922 goles (2.43 g/p). Inter campeón (21° título). Relegados: Cremonese, Verona, Pisa.",
+      "teams": [
+        {
+          "team": "Inter Milan",
+          "gf": 89,
+          "ga": 35
+        },
+        {
+          "team": "Napoli",
+          "gf": 58,
+          "ga": 36
+        },
+        {
+          "team": "Roma",
+          "gf": 59,
+          "ga": 31
+        },
+        {
+          "team": "Como",
+          "gf": 65,
+          "ga": 29
+        },
+        {
+          "team": "AC Milan",
+          "gf": 53,
+          "ga": 35
+        },
+        {
+          "team": "Juventus",
+          "gf": 61,
+          "ga": 34
+        },
+        {
+          "team": "Atalanta",
+          "gf": 51,
+          "ga": 36
+        },
+        {
+          "team": "Lazio",
+          "gf": 49,
+          "ga": 46
+        },
+        {
+          "team": "Fiorentina",
+          "gf": 41,
+          "ga": 40
+        },
+        {
+          "team": "Torino",
+          "gf": 45,
+          "ga": 48
+        },
+        {
+          "team": "Cagliari",
+          "gf": 46,
+          "ga": 50
+        },
+        {
+          "team": "Sassuolo",
+          "gf": 44,
+          "ga": 63
+        },
+        {
+          "team": "Genoa",
+          "gf": 28,
+          "ga": 46
+        },
+        {
+          "team": "Bologna",
+          "gf": 40,
+          "ga": 53
+        },
+        {
+          "team": "Udinese",
+          "gf": 41,
+          "ga": 50
+        },
+        {
+          "team": "Monza",
+          "gf": 41,
+          "ga": 51
+        },
+        {
+          "team": "Lecce",
+          "gf": 28,
+          "ga": 50
+        },
+        {
+          "team": "Frosinone",
+          "gf": 38,
+          "ga": 52,
+          "_promoted": true
+        },
+        {
+          "team": "Venezia",
+          "gf": 36,
+          "ga": 54,
+          "_promoted": true
+        },
+        {
+          "team": "Salernitana",
+          "gf": 34,
+          "ga": 56,
+          "_promoted": true
+        }
+      ]
+    },
+    "aliases": {
+      "FC Internazionale Milano": "Inter Milan",
+      "Inter": "Inter Milan",
+      "SSC Napoli": "Napoli",
+      "AS Roma": "Roma",
+      "Como 1907": "Como",
+      "AC Milan": "AC Milan",
+      "Juventus FC": "Juventus",
+      "Atalanta BC": "Atalanta",
+      "SS Lazio": "Lazio",
+      "ACF Fiorentina": "Fiorentina",
+      "Torino FC": "Torino",
+      "Cagliari Calcio": "Cagliari",
+      "US Sassuolo Calcio": "Sassuolo",
+      "Genoa CFC": "Genoa",
+      "Bologna FC 1909": "Bologna",
+      "Udinese Calcio": "Udinese",
+      "AC Monza": "Monza",
+      "US Lecce": "Lecce",
+      "Frosinone Calcio": "Frosinone",
+      "Venezia FC": "Venezia",
+      "US Salernitana 1919": "Salernitana"
+    }
   },
   "ligue1": {
     "name": "🇫🇷 Ligue 1",
