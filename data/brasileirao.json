@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-23T23:16:20.796093+00:00",
+    "last_updated": "2026-08-24T11:32:29.702701+00:00",
     "avg_goals": 1.35,
-    "total_matches": 231,
-    "total_goals": 600,
-    "avg_real": 1.299
+    "total_matches": 234,
+    "total_goals": 606,
+    "avg_real": 1.295
   },
   "standings": [
     {
@@ -82,6 +82,16 @@
       "l": 8
     },
     {
+      "team": "Coritiba",
+      "gf": 30,
+      "ga": 31,
+      "pj": 24,
+      "pts": 34,
+      "w": 9,
+      "d": 7,
+      "l": 8
+    },
+    {
       "team": "Atlético Mineiro",
       "gf": 30,
       "ga": 27,
@@ -93,22 +103,12 @@
     },
     {
       "team": "Corinthians",
-      "gf": 25,
-      "ga": 22,
-      "pj": 23,
+      "gf": 26,
+      "ga": 24,
+      "pj": 24,
       "pts": 32,
       "w": 8,
       "d": 8,
-      "l": 7
-    },
-    {
-      "team": "Coritiba",
-      "gf": 28,
-      "ga": 30,
-      "pj": 23,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
       "l": 8
     },
     {
@@ -134,21 +134,21 @@
     {
       "team": "São Paulo",
       "gf": 27,
-      "ga": 26,
-      "pj": 22,
+      "ga": 27,
+      "pj": 23,
       "pts": 27,
       "w": 7,
       "d": 6,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Santos",
-      "gf": 32,
-      "ga": 35,
-      "pj": 22,
-      "pts": 25,
+      "gf": 33,
+      "ga": 36,
+      "pj": 23,
+      "pts": 26,
       "w": 6,
-      "d": 7,
+      "d": 8,
       "l": 9
     },
     {
@@ -173,12 +173,12 @@
     },
     {
       "team": "Mirassol",
-      "gf": 25,
-      "ga": 35,
-      "pj": 22,
-      "pts": 23,
+      "gf": 26,
+      "ga": 36,
+      "pj": 23,
+      "pts": 24,
       "w": 6,
-      "d": 5,
+      "d": 6,
       "l": 11
     },
     {
@@ -203,11 +203,11 @@
     },
     {
       "team": "Chapecoense",
-      "gf": 23,
+      "gf": 24,
       "ga": 46,
-      "pj": 22,
-      "pts": 11,
-      "w": 1,
+      "pj": 23,
+      "pts": 14,
+      "w": 2,
       "d": 8,
       "l": 13
     }

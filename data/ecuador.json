@@ -4,10 +4,10 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-23T23:16:26.167720+00:00",
+    "last_updated": "2026-08-24T11:32:35.329455+00:00",
     "avg_goals": 1.25,
-    "total_matches": 206,
-    "total_goals": 462,
+    "total_matches": 207,
+    "total_goals": 464,
     "avg_real": 1.121
   },
   "standings": [
@@ -52,6 +52,16 @@
       "l": 7
     },
     {
+      "team": "LDU Quito",
+      "gf": 26,
+      "ga": 20,
+      "pj": 26,
+      "pts": 41,
+      "w": 12,
+      "d": 5,
+      "l": 9
+    },
+    {
       "team": "Barcelona",
       "gf": 28,
       "ga": 20,
@@ -60,16 +70,6 @@
       "w": 10,
       "d": 9,
       "l": 7
-    },
-    {
-      "team": "LDU Quito",
-      "gf": 24,
-      "ga": 20,
-      "pj": 25,
-      "pts": 38,
-      "w": 11,
-      "d": 5,
-      "l": 9
     },
     {
       "team": "Leones",
@@ -112,16 +112,6 @@
       "l": 9
     },
     {
-      "team": "Emelec",
-      "gf": 21,
-      "ga": 29,
-      "pj": 25,
-      "pts": 32,
-      "w": 8,
-      "d": 8,
-      "l": 9
-    },
-    {
       "team": "Deportivo Cuenca",
       "gf": 22,
       "ga": 32,
@@ -130,6 +120,16 @@
       "w": 9,
       "d": 5,
       "l": 12
+    },
+    {
+      "team": "Emelec",
+      "gf": 21,
+      "ga": 31,
+      "pj": 26,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 10
     },
     {
       "team": "Orense",

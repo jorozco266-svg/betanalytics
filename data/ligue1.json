@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-23T23:16:24.235474+00:00",
+    "last_updated": "2026-08-24T11:32:32.988274+00:00",
     "avg_goals": 1.35,
     "total_matches": 9,
-    "total_goals": 25,
-    "avg_real": 1.389
+    "total_goals": 24,
+    "avg_real": 1.333
   },
   "standings": [
     {
@@ -32,9 +32,9 @@
       "pts": 3
     },
     {
-      "team": "Lille OSC",
+      "team": "Olympique Lyonnais",
       "pj": 1,
-      "gf": 3,
+      "gf": 2,
       "ga": 0,
       "w": 1,
       "d": 0,
@@ -42,7 +42,7 @@
       "pts": 3
     },
     {
-      "team": "Olympique Lyonnais",
+      "team": "Lille OSC",
       "pj": 1,
       "gf": 2,
       "ga": 0,
@@ -162,20 +162,20 @@
       "pts": 0
     },
     {
-      "team": "AJ Auxerre",
+      "team": "Angers SCO",
       "pj": 1,
-      "gf": 2,
-      "ga": 5,
+      "gf": 0,
+      "ga": 2,
       "w": 0,
       "d": 0,
       "l": 1,
       "pts": 0
     },
     {
-      "team": "Angers SCO",
+      "team": "AJ Auxerre",
       "pj": 1,
-      "gf": 0,
-      "ga": 3,
+      "gf": 2,
+      "ga": 5,
       "w": 0,
       "d": 0,
       "l": 1,
@@ -246,7 +246,7 @@
       "home": "Angers SCO",
       "away": "Lille OSC",
       "hg": 0,
-      "ag": 3,
+      "ag": 2,
       "matchday": 1
     },
     {
@@ -329,6 +329,13 @@
       "home": "Stade Rennais FC 1901",
       "away": "Le Mans FC",
       "matchday": 2
+    },
+    {
+      "date": "2026-09-03",
+      "time": "01:45 PM",
+      "home": "Toulouse FC",
+      "away": "Lille OSC",
+      "matchday": 3
     }
   ]
 }
