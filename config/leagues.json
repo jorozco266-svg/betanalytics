@@ -570,7 +570,60 @@
         }
       ]
     },
-    "wiki_url": "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n"
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n",
+    "aliases": {
+      "CA Tigre BA": "Tigre",
+      "CA Vélez Sarsfield": "Vélez",
+      "Vélez Sarsfield": "Vélez",
+      "Velez Sarsfield": "Vélez",
+      "CA Huracán": "Huracán",
+      "CA Independiente": "Independiente",
+      "Racing Club": "Racing",
+      "CA Racing Club": "Racing",
+      "CA Banfield": "Banfield",
+      "CA Sarmiento": "Sarmiento",
+      "Sarmiento (J)": "Sarmiento",
+      "Sarmiento Junín": "Sarmiento",
+      "CA Rosario Central": "Rosario Central",
+      "CA River Plate": "River Plate",
+      "CA Talleres Córdoba": "Talleres (C)",
+      "Talleres": "Talleres (C)",
+      "Talleres Córdoba": "Talleres (C)",
+      "CA Belgrano Córdoba": "Belgrano",
+      "CA Barracas Central": "Barracas Central",
+      "CA Estudiantes de La Plata": "Estudiantes (LP)",
+      "Estudiantes de La Plata": "Estudiantes (LP)",
+      "Estudiantes LP": "Estudiantes (LP)",
+      "CA Lanús": "Lanús",
+      "CA Boca Juniors": "Boca Juniors",
+      "CA San Lorenzo": "San Lorenzo",
+      "San Lorenzo de Almagro": "San Lorenzo",
+      "CA Platense": "Platense",
+      "Argentinos Jrs": "Argentinos Juniors",
+      "AA Argentinos Juniors": "Argentinos Juniors",
+      "CA Newell's Old Boys": "Newell's Old Boys",
+      "Newell's Old Boys": "Newell's Old Boys",
+      "Gimnasia y Esgrima La Plata": "Gimnasia y Esgrima (LP)",
+      "Gimnasia y Esgrima LP": "Gimnasia y Esgrima (LP)",
+      "Gimnasia LP": "Gimnasia y Esgrima (LP)",
+      "Gimnasia y Esgrima de Mendoza": "Gimnasia y Esgrima (M)",
+      "Gimnasia Mendoza": "Gimnasia y Esgrima (M)",
+      "CA Unión de Santa Fe": "Unión",
+      "Unión de Santa Fe": "Unión",
+      "Atlético Tucumán": "Atlético Tucumán",
+      "Central Córdoba de Santiago del Estero": "Central Córdoba",
+      "Central Córdoba (SdE)": "Central Córdoba",
+      "Central Córdoba SdE": "Central Córdoba",
+      "CA Aldosivi": "Aldosivi",
+      "Defensa y Justicia": "Defensa y Justicia",
+      "Deportivo Riestra": "Deportivo Riestra",
+      "Club Instituto": "Instituto",
+      "Instituto ACC": "Instituto",
+      "CA Independiente Rivadavia": "Independiente Rivadavia",
+      "Independiente Rivadavia": "Independiente Rivadavia",
+      "Estudiantes de Río Cuarto": "Estudiantes (RC)",
+      "Estudiantes RC": "Estudiantes (RC)"
+    }
   },
   "brasileirao": {
     "name": "🇧🇷 Brasileirão",
@@ -980,6 +1033,110 @@
       "Deportivo Recoleta": "Recoleta",
       "Deportivo Cuenca": "Deportivo Cuenca",
       "Club Nacional": "Nacional"
+    }
+  },
+  "frauenbundesliga": {
+    "name": "🇩🇪 Frauen-Bundesliga",
+    "source": "wikipedia",
+    "wiki_url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Frauen-Bundesliga",
+    "sportsdb_id": 4458,
+    "season": "2026-2027",
+    "avg": 1.72,
+    "odds_key": null,
+    "table_index": 0,
+    "hist_season": {
+      "season": "2025-26",
+      "pj_per_team": 26,
+      "note": "14 equipos, 182 partidos, 627 goles (3.45 g/p). Bayern Munich tetracampeón. Relegadas: Jena, Essen. Ascendidas: Stuttgart, Mainz 05.",
+      "_fetch_from": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Frauen-Bundesliga",
+      "teams": [
+        {
+          "team": "Bayern Munich",
+          "gf": 80,
+          "ga": 14
+        },
+        {
+          "team": "VfL Wolfsburg",
+          "gf": 72,
+          "ga": 20
+        },
+        {
+          "team": "Eintracht Frankfurt",
+          "gf": 55,
+          "ga": 28
+        },
+        {
+          "team": "SC Freiburg",
+          "gf": 50,
+          "ga": 30
+        },
+        {
+          "team": "TSG Hoffenheim",
+          "gf": 48,
+          "ga": 32
+        },
+        {
+          "team": "Werder Bremen",
+          "gf": 42,
+          "ga": 35
+        },
+        {
+          "team": "1. FC Köln",
+          "gf": 38,
+          "ga": 40
+        },
+        {
+          "team": "RB Leipzig",
+          "gf": 35,
+          "ga": 42
+        },
+        {
+          "team": "Union Berlin",
+          "gf": 34,
+          "ga": 44
+        },
+        {
+          "team": "1. FC Nürnberg",
+          "gf": 30,
+          "ga": 50
+        },
+        {
+          "team": "Hamburger SV",
+          "gf": 28,
+          "ga": 52
+        },
+        {
+          "team": "Bayer Leverkusen",
+          "gf": 25,
+          "ga": 55
+        },
+        {
+          "team": "VfB Stuttgart",
+          "gf": 40,
+          "ga": 38,
+          "_promoted": true
+        },
+        {
+          "team": "Mainz 05",
+          "gf": 35,
+          "ga": 42,
+          "_promoted": true
+        }
+      ]
+    },
+    "aliases": {
+      "FC Bayern München": "Bayern Munich",
+      "FC Bayern Munich": "Bayern Munich",
+      "VfL Wolfsburg": "VfL Wolfsburg",
+      "Eintracht Frankfurt": "Eintracht Frankfurt",
+      "SC Freiburg": "SC Freiburg",
+      "1899 Hoffenheim": "TSG Hoffenheim",
+      "TSG 1899 Hoffenheim": "TSG Hoffenheim",
+      "SV Werder Bremen": "Werder Bremen",
+      "1. FC Union Berlin": "Union Berlin",
+      "Hamburger SV": "Hamburger SV",
+      "Bayer 04 Leverkusen": "Bayer Leverkusen",
+      "1. FSV Mainz 05": "Mainz 05"
     }
   }
 }
