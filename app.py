@@ -3199,9 +3199,9 @@ def render_partido(p, M, avg, bank, kf, ue, cuotas_auto=None):
             ql_def, qe_def, qv_def = 2.00, 3.30, 3.80
             st.markdown("**Cuotas — actualiza con las de tu casa de apuestas:**")
         c1,c2,c3=st.columns(3)
-        with c1: ql=st.number_input("Local",   1.01,200.0,float(min(ql_def,199.0)),0.05,key=f"ql_{p['id']}",format="%.2f")
-        with c2: qe=st.number_input("Empate",  1.01,200.0,float(min(qe_def,199.0)),0.05,key=f"qe_{p['id']}",format="%.2f")
-        with c3: qv=st.number_input("Visit",   1.01,200.0,float(min(qv_def,199.0)),0.05,key=f"qv_{p['id']}",format="%.2f")
+        with c1: ql=st.number_input("Local",   1.01,200.0,float(max(1.01,min(ql_def,199.0))),0.05,key=f"ql_{p['id']}",format="%.2f")
+        with c2: qe=st.number_input("Empate",  1.01,200.0,float(max(1.01,min(qe_def,199.0))),0.05,key=f"qe_{p['id']}",format="%.2f")
+        with c3: qv=st.number_input("Visit",   1.01,200.0,float(max(1.01,min(qv_def,199.0))),0.05,key=f"qv_{p['id']}",format="%.2f")
 
         im=impl({"local":ql,"empate":qe,"visit":qv})
         vig=im["vig"]
