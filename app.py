@@ -3305,9 +3305,8 @@ with tab1:
                         dfn = max(0.30, min(3.0, dfn))
                         _model[_tname] = {"atk": atk, "def": dfn, "n": t["pj"], "_gf": t["gf"], "_ga": t["ga"]}
 
-                    # Si hay hist_season y pocos partidos dinámicos → blend o fallback
-                    _blend_threshold = 30
-                    if _n_matches < _blend_threshold and _hist_season and _hist_season.get("teams"):
+                    # Si hay hist_season → SIEMPRE hacer blend (con peso dinámico)
+                    if _hist_season and _hist_season.get("teams"):
                         # Construir modelo histórico
                         _ht = _hist_season["teams"]
                         _hpj = _hist_season.get("pj_per_team", 38)
@@ -3322,7 +3321,13 @@ with tab1:
                             _h_model[t["team"]] = {"atk": atk_h, "def": dfn_h, "n": _hpj, "_gf": t["gf"], "_ga": t["ga"]}
 
                         if _n_matches >= 4:
-                            # Blend parcial: hist 60% + dinámico 40%
+                            # Peso dinámico: más partidos actuales → más peso al actual
+                            # 4 partidos: hist 80% / actual 20%
+                            # 30 partidos: hist 50% / actual 50%
+                            # 100+ partidos: hist 20% / actual 80%
+                            _w_current = min(0.80, max(0.20, _n_matches / 120))
+                            _w_hist = 1.0 - _w_current
+
                             _blended = {"_avg": li["avg"]}
                             _all_teams = set(k for k in _h_model if not k.startswith("_")) | set(k for k in _model if not k.startswith("_"))
                             for team in _all_teams:
@@ -3340,14 +3345,14 @@ with tab1:
                                     # En ambos → blend ponderado, sumar partidos
                                     _n_total = b.get("n", 0) + r.get("n", 0)
                                     _blended[team] = {
-                                        "atk": round(b["atk"] * 0.6 + r["atk"] * 0.4, 3),
-                                        "def": round(b["def"] * 0.6 + r["def"] * 0.4, 3),
+                                        "atk": round(b["atk"] * _w_hist + r["atk"] * _w_current, 3),
+                                        "def": round(b["def"] * _w_hist + r["def"] * _w_current, 3),
                                         "n": _n_total,
                                         "_gf": b.get("_gf", 0) + r.get("_gf", 0),
                                         "_ga": b.get("_ga", 0) + r.get("_ga", 0),
                                     }
                             hist = _blended
-                            st.info(f"📊 Modelo JSON: blend hist ({_hist_season.get('season','?')}) + {_n_matches} partidos actuales.")
+                            st.info(f"📊 Modelo JSON: blend hist ({_hist_season.get('season','?')}) {_w_hist:.0%} + {_n_matches} partidos actuales {_w_current:.0%}. {len(_all_teams)} equipos.")
                         else:
                             # Muy pocos partidos → usar solo hist_season
                             hist = _h_model
