@@ -174,6 +174,7 @@ LIGAS = {
     "🇦🇺 NSW League One":      {"src":"wiki_tabla","wiki_url":None,"avg":1.55,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"NSWL1"},
     "🇪🇸 Liga F (Femenina)":   {"src":"sportsdb","sportsdb_id":5106,"sportsdb_season":"2026-2027","avg":1.20,"odds_key":None,"use_odds_fixtures":False},
     "🇩🇪 Frauen-Bundesliga":   {"src":"wikipedia","wiki_url":"https://en.wikipedia.org/wiki/2026%E2%80%9327_Frauen-Bundesliga","sportsdb_id":4458,"avg":1.72,"odds_key":None,"use_odds_fixtures":False},
+    "🇦🇷 Argentina Reserva (U23)": {"src":"wikipedia","wiki_url":"https://en.wikipedia.org/wiki/Torneo_de_Reserva_(Argentina)","avg":1.19,"odds_key":None,"use_odds_fixtures":False},
     "🇦🇷 Arg Femenina":        {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_Argentine_Primera_Divisi%C3%B3n_(women)","avg":1.15,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None,"hist_fallback":"ArgFem"},
     "🇦🇷 Copa Argentina":      {"src":"copa_arg","avg":1.20,"odds_key":None,"use_odds_fixtures":False,"sportsdb_id":None},
     "🇮🇪 Irlanda - Div":       {"src":"wiki_tabla","wiki_url":"https://en.wikipedia.org/wiki/2026_League_of_Ireland_First_Division","avg":1.35,"odds_key":"soccer_league_of_ireland","use_odds_fixtures":True,"sportsdb_id":4757},
@@ -3259,6 +3260,7 @@ with tab1:
         "🇪🇨 Ecuador - LigaPro": "ecuador", "🇦🇷 Arg Femenina": "argfem",
         "🏆 Copa Libertadores": "libertadores", "🏆 Copa Sudamericana": "sudamericana",
         "🇩🇪 Frauen-Bundesliga": "frauenbundesliga",
+        "🇦🇷 Argentina Reserva (U23)": "argentina_reserva",
     }
     json_key = LIGA_JSON_KEY.get(liga_n)
     if json_key:
