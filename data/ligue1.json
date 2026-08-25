@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-25T03:19:22.313357+00:00",
+    "last_updated": "2026-08-25T11:31:31.529348+00:00",
     "avg_goals": 1.35,
-    "total_matches": 9,
-    "total_goals": 24,
-    "avg_real": 1.333
+    "total_matches": 10,
+    "total_goals": 28,
+    "avg_real": 1.4
   },
   "standings": [
     {
@@ -62,6 +62,26 @@
       "pts": 3
     },
     {
+      "team": "Paris Saint-Germain FC",
+      "pj": 2,
+      "gf": 4,
+      "ga": 4,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
+      "team": "Stade Rennais FC 1901",
+      "pj": 2,
+      "gf": 4,
+      "ga": 4,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
       "team": "Le Mans FC",
       "pj": 1,
       "gf": 2,
@@ -73,26 +93,6 @@
     },
     {
       "team": "Stade Brestois 29",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
-      "team": "Paris Saint-Germain FC",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
-      "team": "Stade Rennais FC 1901",
       "pj": 1,
       "gf": 2,
       "ga": 2,
@@ -261,6 +261,14 @@
       "date": "2026-08-23",
       "home": "Paris Saint-Germain FC",
       "away": "Stade Rennais FC 1901",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Stade Rennais FC 1901",
+      "away": "Paris Saint-Germain FC",
       "hg": 2,
       "ag": 2,
       "matchday": 1
