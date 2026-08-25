@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-24T11:32:35.329455+00:00",
+    "last_updated": "2026-08-25T03:19:24.851927+00:00",
     "avg_goals": 1.25,
-    "total_matches": 207,
-    "total_goals": 464,
-    "avg_real": 1.121
+    "total_matches": 208,
+    "total_goals": 465,
+    "avg_real": 1.118
   },
   "standings": [
     {
@@ -44,12 +44,12 @@
     {
       "team": "Macará",
       "gf": 33,
-      "ga": 25,
-      "pj": 25,
+      "ga": 26,
+      "pj": 26,
       "pts": 42,
       "w": 12,
       "d": 6,
-      "l": 7
+      "l": 8
     },
     {
       "team": "LDU Quito",
@@ -72,6 +72,16 @@
       "l": 7
     },
     {
+      "team": "Libertad",
+      "gf": 29,
+      "ga": 29,
+      "pj": 26,
+      "pts": 37,
+      "w": 10,
+      "d": 7,
+      "l": 9
+    },
+    {
       "team": "Leones",
       "gf": 28,
       "ga": 28,
@@ -79,16 +89,6 @@
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 9
-    },
-    {
-      "team": "Libertad",
-      "gf": 28,
-      "ga": 29,
-      "pj": 25,
-      "pts": 34,
-      "w": 9,
-      "d": 7,
       "l": 9
     },
     {

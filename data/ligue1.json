@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-24T11:32:32.988274+00:00",
+    "last_updated": "2026-08-25T03:19:22.313357+00:00",
     "avg_goals": 1.35,
     "total_matches": 9,
     "total_goals": 24,
@@ -335,6 +335,20 @@
       "time": "01:45 PM",
       "home": "Toulouse FC",
       "away": "Lille OSC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "time": "02:05 PM",
+      "home": "Paris Saint-Germain FC",
+      "away": "AS Monaco FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "time": "12:00 PM",
+      "home": "Olympique Lyonnais",
+      "away": "AJ Auxerre",
       "matchday": 3
     }
   ]

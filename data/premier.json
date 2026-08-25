@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-24T21:46:49.373091+00:00",
+    "last_updated": "2026-08-25T03:19:20.042787+00:00",
     "avg_goals": 1.4,
     "total_matches": 10,
     "total_goals": 30,
@@ -364,6 +364,13 @@
       "home": "Aston Villa",
       "away": "Arsenal",
       "matchday": 2
+    },
+    {
+      "date": "2026-09-04",
+      "time": "02:00 PM",
+      "home": "Ipswich Town",
+      "away": "Liverpool",
+      "matchday": 3
     }
   ],
   "hist_season": {
