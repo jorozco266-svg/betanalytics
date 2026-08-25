@@ -25,7 +25,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), "config", "leagues.json")
 
 MAX_LEAGUES_PER_RUN = 5
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-3.6-flash"
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 
 PRIORITY_ORDER = [
