@@ -1,11 +1,11 @@
 {
   "meta": {
-    "league": "🇨🇱 Chile - Liga 1ª",
-    "league_key": "chile",
+    "league": "🇦🇷 Argentina Reserva (U23)",
+    "league_key": "argentina_reserva",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-25T20:27:25.650556+00:00",
-    "avg_goals": 1.4,
+    "last_updated": "2026-08-25T20:27:31.180510+00:00",
+    "avg_goals": 1.19,
     "total_matches": 0,
     "total_goals": 0,
     "avg_real": 0
