@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-08-21T11:30:15.222318+00:00",
+    "last_updated": "2026-08-26T11:33:40.880982+00:00",
     "avg_goals": 1.25,
-    "total_matches": 92,
-    "total_goals": 213,
-    "avg_real": 1.158,
+    "total_matches": 93,
+    "total_goals": 218,
+    "avg_real": 1.172,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -24,6 +24,16 @@
       "d": 1,
       "l": 0,
       "pts": 16
+    },
+    {
+      "team": "Independiente del Valle",
+      "pj": 7,
+      "gf": 15,
+      "ga": 8,
+      "w": 5,
+      "d": 0,
+      "l": 2,
+      "pts": 15
     },
     {
       "team": "Independiente Rivadavia",
@@ -53,16 +63,6 @@
       "w": 3,
       "d": 3,
       "l": 1,
-      "pts": 12
-    },
-    {
-      "team": "Independiente del Valle",
-      "pj": 6,
-      "gf": 11,
-      "ga": 7,
-      "w": 4,
-      "d": 0,
-      "l": 2,
       "pts": 12
     },
     {
@@ -347,12 +347,12 @@
     },
     {
       "team": "Deportes Tolima",
-      "pj": 4,
-      "gf": 1,
-      "ga": 6,
+      "pj": 5,
+      "gf": 2,
+      "ga": 10,
       "w": 0,
       "d": 2,
-      "l": 2,
+      "l": 3,
       "pts": 2
     },
     {
@@ -1212,6 +1212,15 @@
       "away": "Corinthians",
       "hg": 0,
       "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Deportes Tolima",
+      "away": "Independiente del Valle",
+      "hg": 1,
+      "ag": 4,
       "matchday": "knockout",
       "_source": "wikipedia"
     }

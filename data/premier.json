@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-25T03:19:20.042787+00:00",
+    "last_updated": "2026-08-26T11:33:33.170245+00:00",
     "avg_goals": 1.4,
     "total_matches": 10,
     "total_goals": 30,
@@ -294,85 +294,7 @@
       "matchday": 1
     }
   ],
-  "fixtures": [
-    {
-      "date": "2026-08-28",
-      "time": "02:00 PM",
-      "home": "Crystal Palace",
-      "away": "Manchester City",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "06:30 AM",
-      "home": "Liverpool",
-      "away": "Nottingham Forest",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "09:00 AM",
-      "home": "Bournemouth",
-      "away": "Everton",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "09:00 AM",
-      "home": "Coventry City",
-      "away": "Hull City",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "11:30 AM",
-      "home": "Tottenham",
-      "away": "Newcastle",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Sunderland",
-      "away": "Fulham",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Chelsea",
-      "away": "Brighton & Hove Albion FC",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Leeds United FC",
-      "away": "Brentford",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "10:30 AM",
-      "home": "Manchester United",
-      "away": "Ipswich Town",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-31",
-      "time": "02:00 PM",
-      "home": "Aston Villa",
-      "away": "Arsenal",
-      "matchday": 2
-    },
-    {
-      "date": "2026-09-04",
-      "time": "02:00 PM",
-      "home": "Ipswich Town",
-      "away": "Liverpool",
-      "matchday": 3
-    }
-  ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
