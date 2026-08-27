@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-26T11:33:35.594904+00:00",
+    "last_updated": "2026-08-27T04:11:47.691248+00:00",
     "avg_goals": 1.35,
     "total_matches": 10,
     "total_goals": 28,
@@ -274,5 +274,132 @@
       "matchday": 1
     }
   ],
-  "fixtures": []
+  "fixtures": [
+    {
+      "date": "2026-08-28",
+      "time": "01:45 PM",
+      "home": "Lille OSC",
+      "away": "Paris Saint-Germain FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "time": "01:45 PM",
+      "home": "FC Lorient",
+      "away": "ES Troyes AC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "time": "01:45 PM",
+      "home": "Olympique Lyonnais",
+      "away": "Le Havre AC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "time": "01:45 PM",
+      "home": "AJ Auxerre",
+      "away": "Angers SCO",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "time": "01:45 PM",
+      "home": "Stade Brestois 29",
+      "away": "Toulouse FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "time": "10:15 AM",
+      "home": "RC Strasbourg Alsace",
+      "away": "Racing Club de Lens",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "01:45 PM",
+      "home": "AS Monaco FC",
+      "away": "Olympique de Marseille",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "08:00 AM",
+      "home": "Paris FC",
+      "away": "OGC Nice",
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "time": "10:15 AM",
+      "home": "Stade Rennais FC 1901",
+      "away": "Le Mans FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-09-03",
+      "time": "01:45 PM",
+      "home": "Toulouse FC",
+      "away": "Lille OSC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "time": "02:05 PM",
+      "home": "Paris Saint-Germain FC",
+      "away": "AS Monaco FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "time": "12:00 PM",
+      "home": "Olympique Lyonnais",
+      "away": "AJ Auxerre",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "time": "01:45 PM",
+      "home": "Le Havre AC",
+      "away": "Stade Brestois 29",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "time": "01:45 PM",
+      "home": "OGC Nice",
+      "away": "Le Mans FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "time": "10:15 AM",
+      "home": "Racing Club de Lens",
+      "away": "FC Lorient",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "01:45 PM",
+      "home": "Olympique de Marseille",
+      "away": "Paris FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "08:00 AM",
+      "home": "ES Troyes AC",
+      "away": "RC Strasbourg Alsace",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "10:15 AM",
+      "home": "Angers SCO",
+      "away": "Stade Rennais FC 1901",
+      "matchday": 3
+    }
+  ]
 }

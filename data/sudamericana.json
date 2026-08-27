@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-08-21T11:30:17.289379+00:00",
+    "last_updated": "2026-08-27T04:11:53.701938+00:00",
     "avg_goals": 1.2,
-    "total_matches": 215,
+    "total_matches": 216,
     "total_goals": 539,
-    "avg_real": 1.253,
+    "avg_real": 1.248,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -27,13 +27,13 @@
     },
     {
       "team": "River Plate",
-      "pj": 7,
+      "pj": 8,
       "gf": 14,
       "ga": 2,
       "w": 5,
-      "d": 2,
+      "d": 3,
       "l": 0,
-      "pts": 17
+      "pts": 18
     },
     {
       "team": "Montevideo City Torque",
@@ -717,6 +717,16 @@
     },
     {
       "team": "26 Aug",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "1–1",
       "pj": 1,
       "gf": 0,
       "ga": 0,
@@ -2834,6 +2844,15 @@
       "away": "Macará",
       "hg": 2,
       "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "River Plate",
+      "away": "1–1",
+      "hg": 0,
+      "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
