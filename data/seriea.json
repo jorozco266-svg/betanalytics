@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-27T04:11:46.549187+00:00",
+    "last_updated": "2026-08-28T06:28:24.249495+00:00",
     "avg_goals": 1.3,
     "total_matches": 18,
     "total_goals": 43,
@@ -623,6 +623,20 @@
       "time": "11:00 AM",
       "home": "Bologna",
       "away": "Sassuolo",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-07",
+      "time": "01:45 PM",
+      "home": "Udinese",
+      "away": "Lazio",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-07",
+      "time": "11:00 AM",
+      "home": "Cagliari",
+      "away": "Lecce",
       "matchday": 3
     }
   ],
