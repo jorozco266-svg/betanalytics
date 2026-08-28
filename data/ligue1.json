@@ -4,13 +4,23 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-28T14:10:41.001270+00:00",
+    "last_updated": "2026-08-28T21:20:15.399885+00:00",
     "avg_goals": 1.35,
-    "total_matches": 19,
-    "total_goals": 52,
-    "avg_real": 1.368
+    "total_matches": 20,
+    "total_goals": 56,
+    "avg_real": 1.4
   },
   "standings": [
+    {
+      "team": "Lille",
+      "pj": 2,
+      "gf": 4,
+      "ga": 2,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
     {
       "team": "Olympique de Marseille",
       "pj": 1,
@@ -82,16 +92,6 @@
       "pts": 3
     },
     {
-      "team": "Lille",
-      "pj": 1,
-      "gf": 2,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
       "team": "AS Monaco FC",
       "pj": 1,
       "gf": 1,
@@ -123,6 +123,16 @@
     },
     {
       "team": "Stade Rennais FC 1901",
+      "pj": 2,
+      "gf": 4,
+      "ga": 4,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
+      "team": "Paris Saint-Germain",
       "pj": 2,
       "gf": 4,
       "ga": 4,
@@ -183,16 +193,6 @@
     },
     {
       "team": "Rennes",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
-      "team": "Paris Saint-Germain",
       "pj": 1,
       "gf": 2,
       "ga": 2,
@@ -514,6 +514,14 @@
       "hg": 2,
       "ag": 2,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-28",
+      "home": "Lille",
+      "away": "Paris Saint-Germain",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
     }
   ],
   "fixtures": [

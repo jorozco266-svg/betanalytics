@@ -4,13 +4,23 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-27T04:11:45.417437+00:00",
+    "last_updated": "2026-08-28T21:20:11.277804+00:00",
     "avg_goals": 1.4,
-    "total_matches": 10,
-    "total_goals": 30,
-    "avg_real": 1.5
+    "total_matches": 11,
+    "total_goals": 35,
+    "avg_real": 1.591
   },
   "standings": [
+    {
+      "team": "Manchester City",
+      "pj": 2,
+      "gf": 6,
+      "ga": 2,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
+    },
     {
       "team": "Brighton & Hove Albion FC",
       "pj": 1,
@@ -73,16 +83,6 @@
     },
     {
       "team": "Ipswich Town",
-      "pj": 1,
-      "gf": 2,
-      "ga": 1,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Manchester City",
       "pj": 1,
       "gf": 2,
       "ga": 1,
@@ -172,16 +172,6 @@
       "pts": 0
     },
     {
-      "team": "Crystal Palace",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "Coventry City",
       "pj": 1,
       "gf": 0,
@@ -209,6 +199,16 @@
       "w": 0,
       "d": 0,
       "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Crystal Palace",
+      "pj": 2,
+      "gf": 1,
+      "ga": 6,
+      "w": 0,
+      "d": 0,
+      "l": 2,
       "pts": 0
     }
   ],
@@ -292,6 +292,14 @@
       "hg": 2,
       "ag": 3,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-28",
+      "home": "Crystal Palace",
+      "away": "Manchester City",
+      "hg": 1,
+      "ag": 4,
+      "matchday": 2
     }
   ],
   "fixtures": [
