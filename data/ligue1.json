@@ -4,15 +4,25 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-27T04:11:47.691248+00:00",
+    "last_updated": "2026-08-28T14:10:41.001270+00:00",
     "avg_goals": 1.35,
-    "total_matches": 10,
-    "total_goals": 28,
-    "avg_real": 1.4
+    "total_matches": 19,
+    "total_goals": 52,
+    "avg_real": 1.368
   },
   "standings": [
     {
       "team": "Olympique de Marseille",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Marseille",
       "pj": 1,
       "gf": 4,
       "ga": 0,
@@ -32,7 +42,27 @@
       "pts": 3
     },
     {
+      "team": "Lens",
+      "pj": 1,
+      "gf": 5,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Olympique Lyonnais",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Lyon",
       "pj": 1,
       "gf": 2,
       "ga": 0,
@@ -52,7 +82,27 @@
       "pts": 3
     },
     {
+      "team": "Lille",
+      "pj": 1,
+      "gf": 2,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "AS Monaco FC",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Monaco",
       "pj": 1,
       "gf": 1,
       "ga": 0,
@@ -82,6 +132,16 @@
       "pts": 2
     },
     {
+      "team": "Paris FC",
+      "pj": 2,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
       "team": "Le Mans FC",
       "pj": 1,
       "gf": 2,
@@ -102,17 +162,47 @@
       "pts": 1
     },
     {
-      "team": "ES Troyes AC",
+      "team": "Le Mans",
       "pj": 1,
-      "gf": 0,
-      "ga": 0,
+      "gf": 2,
+      "ga": 2,
       "w": 0,
       "d": 1,
       "l": 0,
       "pts": 1
     },
     {
-      "team": "Paris FC",
+      "team": "Brest",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Rennes",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Paris Saint-Germain",
+      "pj": 1,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "ES Troyes AC",
       "pj": 1,
       "gf": 0,
       "ga": 0,
@@ -142,7 +232,47 @@
       "pts": 1
     },
     {
+      "team": "Troyes",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Nice",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Lorient",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
       "team": "Le Havre AC",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Le Havre",
       "pj": 1,
       "gf": 0,
       "ga": 1,
@@ -162,7 +292,27 @@
       "pts": 0
     },
     {
+      "team": "Toulouse",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Angers SCO",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Angers",
       "pj": 1,
       "gf": 0,
       "ga": 2,
@@ -182,7 +332,27 @@
       "pts": 0
     },
     {
+      "team": "Auxerre",
+      "pj": 1,
+      "gf": 2,
+      "ga": 5,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "RC Strasbourg Alsace",
+      "pj": 1,
+      "gf": 0,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Strasbourg",
       "pj": 1,
       "gf": 0,
       "ga": 4,
@@ -197,6 +367,14 @@
       "date": "2026-08-21",
       "home": "Olympique de Marseille",
       "away": "RC Strasbourg Alsace",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-21",
+      "home": "Marseille",
+      "away": "Strasbourg",
       "hg": 4,
       "ag": 0,
       "matchday": 1
@@ -242,6 +420,46 @@
       "matchday": 1
     },
     {
+      "date": "2026-08-22",
+      "home": "Lens",
+      "away": "Auxerre",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Le Mans",
+      "away": "Brest",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Troyes",
+      "away": "Paris FC",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Nice",
+      "away": "Lorient",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Toulouse",
+      "away": "Lyon",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
       "date": "2026-08-23",
       "home": "Angers SCO",
       "away": "Lille OSC",
@@ -272,134 +490,259 @@
       "hg": 2,
       "ag": 2,
       "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Angers",
+      "away": "Lille",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Le Havre",
+      "away": "Monaco",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Rennes",
+      "away": "Paris Saint-Germain",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 1
     }
   ],
   "fixtures": [
     {
       "date": "2026-08-28",
       "time": "01:45 PM",
-      "home": "Lille OSC",
-      "away": "Paris Saint-Germain FC",
+      "home": "Lille",
+      "away": "Paris Saint-Germain",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "01:45 PM",
-      "home": "FC Lorient",
-      "away": "ES Troyes AC",
+      "home": "Lorient",
+      "away": "Troyes",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "01:45 PM",
-      "home": "Olympique Lyonnais",
-      "away": "Le Havre AC",
+      "home": "Lyon",
+      "away": "Le Havre",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "01:45 PM",
-      "home": "AJ Auxerre",
-      "away": "Angers SCO",
+      "home": "Auxerre",
+      "away": "Angers",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "01:45 PM",
-      "home": "Stade Brestois 29",
-      "away": "Toulouse FC",
+      "home": "Brest",
+      "away": "Toulouse",
       "matchday": 2
     },
     {
       "date": "2026-08-29",
       "time": "10:15 AM",
-      "home": "RC Strasbourg Alsace",
-      "away": "Racing Club de Lens",
+      "home": "Strasbourg",
+      "away": "Lens",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "01:45 PM",
-      "home": "AS Monaco FC",
-      "away": "Olympique de Marseille",
+      "home": "Monaco",
+      "away": "Marseille",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "08:00 AM",
       "home": "Paris FC",
-      "away": "OGC Nice",
+      "away": "Nice",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "10:15 AM",
-      "home": "Stade Rennais FC 1901",
-      "away": "Le Mans FC",
+      "home": "Rennes",
+      "away": "Le Mans",
       "matchday": 2
     },
     {
       "date": "2026-09-03",
       "time": "01:45 PM",
-      "home": "Toulouse FC",
-      "away": "Lille OSC",
+      "home": "Toulouse",
+      "away": "Lille",
       "matchday": 3
     },
     {
       "date": "2026-09-04",
       "time": "02:05 PM",
-      "home": "Paris Saint-Germain FC",
-      "away": "AS Monaco FC",
+      "home": "Paris Saint-Germain",
+      "away": "Monaco",
       "matchday": 3
     },
     {
       "date": "2026-09-04",
       "time": "12:00 PM",
-      "home": "Olympique Lyonnais",
-      "away": "AJ Auxerre",
+      "home": "Lyon",
+      "away": "Auxerre",
       "matchday": 3
     },
     {
       "date": "2026-09-05",
       "time": "01:45 PM",
-      "home": "Le Havre AC",
-      "away": "Stade Brestois 29",
+      "home": "Le Havre",
+      "away": "Brest",
       "matchday": 3
     },
     {
       "date": "2026-09-05",
       "time": "01:45 PM",
-      "home": "OGC Nice",
-      "away": "Le Mans FC",
+      "home": "Nice",
+      "away": "Le Mans",
       "matchday": 3
     },
     {
       "date": "2026-09-05",
       "time": "10:15 AM",
-      "home": "Racing Club de Lens",
-      "away": "FC Lorient",
+      "home": "Lens",
+      "away": "Lorient",
       "matchday": 3
     },
     {
       "date": "2026-09-06",
       "time": "01:45 PM",
-      "home": "Olympique de Marseille",
+      "home": "Marseille",
       "away": "Paris FC",
       "matchday": 3
     },
     {
       "date": "2026-09-06",
       "time": "08:00 AM",
-      "home": "ES Troyes AC",
-      "away": "RC Strasbourg Alsace",
+      "home": "Troyes",
+      "away": "Strasbourg",
       "matchday": 3
     },
     {
       "date": "2026-09-06",
       "time": "10:15 AM",
-      "home": "Angers SCO",
-      "away": "Stade Rennais FC 1901",
+      "home": "Angers",
+      "away": "Rennes",
       "matchday": 3
     }
-  ]
+  ],
+  "hist_season": {
+    "season": "2025-26",
+    "pj_per_team": 34,
+    "note": "306 PJ, 863 goles (2.82 g/p). PSG campeón (14° título). Lepaul goleador (21). Relegados: Nantes, Metz.",
+    "teams": [
+      {
+        "team": "Paris Saint-Germain",
+        "gf": 82,
+        "ga": 22
+      },
+      {
+        "team": "Lens",
+        "gf": 58,
+        "ga": 30
+      },
+      {
+        "team": "Lille",
+        "gf": 62,
+        "ga": 28
+      },
+      {
+        "team": "Lyon",
+        "gf": 56,
+        "ga": 32
+      },
+      {
+        "team": "Marseille",
+        "gf": 55,
+        "ga": 34
+      },
+      {
+        "team": "Rennes",
+        "gf": 50,
+        "ga": 36
+      },
+      {
+        "team": "Monaco",
+        "gf": 52,
+        "ga": 35
+      },
+      {
+        "team": "Brest",
+        "gf": 45,
+        "ga": 38
+      },
+      {
+        "team": "Nice",
+        "gf": 42,
+        "ga": 40
+      },
+      {
+        "team": "Toulouse",
+        "gf": 44,
+        "ga": 42
+      },
+      {
+        "team": "Strasbourg",
+        "gf": 48,
+        "ga": 45
+      },
+      {
+        "team": "Lorient",
+        "gf": 40,
+        "ga": 44
+      },
+      {
+        "team": "Auxerre",
+        "gf": 38,
+        "ga": 46
+      },
+      {
+        "team": "Angers",
+        "gf": 36,
+        "ga": 48
+      },
+      {
+        "team": "Le Havre",
+        "gf": 34,
+        "ga": 50
+      },
+      {
+        "team": "Paris FC",
+        "gf": 32,
+        "ga": 52
+      },
+      {
+        "team": "Troyes",
+        "gf": 45,
+        "ga": 40,
+        "_promoted": true,
+        "_note": "Campeón Ligue 2 (60GF/33GA en 34PJ, ajustado)"
+      },
+      {
+        "team": "Le Mans",
+        "gf": 40,
+        "ga": 44,
+        "_promoted": true,
+        "_note": "2° Ligue 2 (50GF/31GA en 34PJ, ajustado)"
+      }
+    ]
+  }
 }
