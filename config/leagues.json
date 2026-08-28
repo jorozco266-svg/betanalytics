@@ -934,7 +934,136 @@
     "source": "footballdata",
     "fd_code": "FL1",
     "avg": 1.35,
-    "odds_key": "soccer_france_ligue_one"
+    "odds_key": "soccer_france_ligue_one",
+    "hist_season": {
+      "season": "2025-26",
+      "pj_per_team": 34,
+      "note": "306 PJ, 863 goles (2.82 g/p). PSG campeón (14° título). Lepaul goleador (21). Relegados: Nantes, Metz.",
+      "teams": [
+        {
+          "team": "Paris Saint-Germain",
+          "gf": 82,
+          "ga": 22
+        },
+        {
+          "team": "Lens",
+          "gf": 58,
+          "ga": 30
+        },
+        {
+          "team": "Lille",
+          "gf": 62,
+          "ga": 28
+        },
+        {
+          "team": "Lyon",
+          "gf": 56,
+          "ga": 32
+        },
+        {
+          "team": "Marseille",
+          "gf": 55,
+          "ga": 34
+        },
+        {
+          "team": "Rennes",
+          "gf": 50,
+          "ga": 36
+        },
+        {
+          "team": "Monaco",
+          "gf": 52,
+          "ga": 35
+        },
+        {
+          "team": "Brest",
+          "gf": 45,
+          "ga": 38
+        },
+        {
+          "team": "Nice",
+          "gf": 42,
+          "ga": 40
+        },
+        {
+          "team": "Toulouse",
+          "gf": 44,
+          "ga": 42
+        },
+        {
+          "team": "Strasbourg",
+          "gf": 48,
+          "ga": 45
+        },
+        {
+          "team": "Lorient",
+          "gf": 40,
+          "ga": 44
+        },
+        {
+          "team": "Auxerre",
+          "gf": 38,
+          "ga": 46
+        },
+        {
+          "team": "Angers",
+          "gf": 36,
+          "ga": 48
+        },
+        {
+          "team": "Le Havre",
+          "gf": 34,
+          "ga": 50
+        },
+        {
+          "team": "Paris FC",
+          "gf": 32,
+          "ga": 52
+        },
+        {
+          "team": "Troyes",
+          "gf": 45,
+          "ga": 40,
+          "_promoted": true,
+          "_note": "Campeón Ligue 2 (60GF/33GA en 34PJ, ajustado)"
+        },
+        {
+          "team": "Le Mans",
+          "gf": 40,
+          "ga": 44,
+          "_promoted": true,
+          "_note": "2° Ligue 2 (50GF/31GA en 34PJ, ajustado)"
+        }
+      ]
+    },
+    "aliases": {
+      "Paris Saint-Germain FC": "Paris Saint-Germain",
+      "PSG": "Paris Saint-Germain",
+      "RC Strasbourg Alsace": "Strasbourg",
+      "RC Strasbourg": "Strasbourg",
+      "Racing Club de Lens": "Lens",
+      "RC Lens": "Lens",
+      "Lille OSC": "Lille",
+      "LOSC Lille": "Lille",
+      "Olympique Lyonnais": "Lyon",
+      "OL": "Lyon",
+      "Olympique de Marseille": "Marseille",
+      "OM": "Marseille",
+      "Stade Rennais FC 1901": "Rennes",
+      "Stade Rennais": "Rennes",
+      "AS Monaco FC": "Monaco",
+      "AS Monaco": "Monaco",
+      "Stade Brestois 29": "Brest",
+      "OGC Nice": "Nice",
+      "Toulouse FC": "Toulouse",
+      "FC Lorient": "Lorient",
+      "AJ Auxerre": "Auxerre",
+      "Angers SCO": "Angers",
+      "Le Havre AC": "Le Havre",
+      "Paris FC": "Paris FC",
+      "ES Troyes AC": "Troyes",
+      "Le Mans FC": "Le Mans"
+    }
   },
   "champions": {
     "name": "🏆 Champions League",
