@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-28T21:20:15.399885+00:00",
+    "last_updated": "2026-08-29T03:59:50.586058+00:00",
     "avg_goals": 1.35,
     "total_matches": 20,
     "total_goals": 56,
@@ -525,13 +525,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-28",
-      "time": "01:45 PM",
-      "home": "Lille",
-      "away": "Paris Saint-Germain",
-      "matchday": 2
-    },
     {
       "date": "2026-08-29",
       "time": "01:45 PM",
