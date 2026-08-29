@@ -4,11 +4,11 @@
     "league_key": "bundesliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-28T21:20:04.224048+00:00",
+    "last_updated": "2026-08-29T15:32:22.550562+00:00",
     "avg_goals": 1.55,
-    "total_matches": 1,
-    "total_goals": 6,
-    "avg_real": 3.0
+    "total_matches": 4,
+    "total_goals": 15,
+    "avg_real": 1.875
   },
   "standings": [
     {
@@ -20,6 +20,66 @@
       "d": 0,
       "l": 0,
       "pts": 3
+    },
+    {
+      "team": "RB Leipzig",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Union Berlin",
+      "pj": 1,
+      "gf": 3,
+      "ga": 3,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "pj": 1,
+      "gf": 3,
+      "ga": 3,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Mainz",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Paderborn",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Borussia Monchengladbach",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     },
     {
       "team": "Stuttgart",
@@ -40,30 +100,33 @@
       "hg": 5,
       "ag": 1,
       "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Mainz",
+      "away": "Paderborn",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "RB Leipzig",
+      "away": "Borussia Monchengladbach",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Union Berlin",
+      "away": "Eintracht Frankfurt",
+      "hg": 3,
+      "ag": 3,
+      "matchday": "1"
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-29",
-      "time": "08:30 AM",
-      "home": "Mainz",
-      "away": "Paderborn",
-      "matchday": "1"
-    },
-    {
-      "date": "2026-08-29",
-      "time": "08:30 AM",
-      "home": "RB Leipzig",
-      "away": "Borussia Monchengladbach",
-      "matchday": "1"
-    },
-    {
-      "date": "2026-08-29",
-      "time": "08:30 AM",
-      "home": "Union Berlin",
-      "away": "Eintracht Frankfurt",
-      "matchday": "1"
-    },
     {
       "date": "2026-08-29",
       "time": "11:30 AM",

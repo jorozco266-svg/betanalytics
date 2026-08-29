@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-29T03:59:50.586058+00:00",
+    "last_updated": "2026-08-29T15:32:27.517274+00:00",
     "avg_goals": 1.35,
     "total_matches": 20,
     "total_goals": 56,
@@ -551,13 +551,6 @@
       "time": "01:45 PM",
       "home": "Brest",
       "away": "Toulouse",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "10:15 AM",
-      "home": "Strasbourg",
-      "away": "Lens",
       "matchday": 2
     },
     {

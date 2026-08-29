@@ -4,13 +4,33 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-28T21:20:22.849327+00:00",
+    "last_updated": "2026-08-29T15:32:32.708156+00:00",
     "avg_goals": 1.72,
-    "total_matches": 8,
-    "total_goals": 28,
-    "avg_real": 1.75
+    "total_matches": 10,
+    "total_goals": 32,
+    "avg_real": 1.6
   },
   "standings": [
+    {
+      "team": "VfB Stuttgart",
+      "gf": 4,
+      "ga": 2,
+      "pj": 2,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "SC Freiburg",
+      "gf": 2,
+      "ga": 1,
+      "pj": 2,
+      "pts": 4,
+      "w": 1,
+      "d": 1,
+      "l": 0
+    },
     {
       "team": "VfL Wolfsburg",
       "gf": 8,
@@ -62,16 +82,6 @@
       "l": 0
     },
     {
-      "team": "VfB Stuttgart",
-      "gf": 2,
-      "ga": 1,
-      "pj": 1,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 0
-    },
-    {
       "team": "1. FC Köln",
       "gf": 1,
       "ga": 2,
@@ -82,24 +92,14 @@
       "l": 1
     },
     {
-      "team": "SC Freiburg",
-      "gf": 1,
-      "ga": 1,
-      "pj": 1,
-      "pts": 1,
-      "w": 0,
-      "d": 1,
-      "l": 0
-    },
-    {
       "team": "Hamburger SV",
-      "gf": 1,
-      "ga": 1,
-      "pj": 1,
+      "gf": 2,
+      "ga": 3,
+      "pj": 2,
       "pts": 1,
       "w": 0,
       "d": 1,
-      "l": 0
+      "l": 1
     },
     {
       "team": "Mainz 05",
@@ -134,12 +134,12 @@
     {
       "team": "Union Berlin",
       "gf": 1,
-      "ga": 4,
-      "pj": 1,
+      "ga": 5,
+      "pj": 2,
       "pts": 0,
       "w": 0,
       "d": 0,
-      "l": 1
+      "l": 2
     },
     {
       "team": "1. FC Nürnberg",
