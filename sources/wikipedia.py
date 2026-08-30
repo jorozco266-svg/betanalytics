@@ -12,7 +12,7 @@ log = logging.getLogger("fetcher.wikipedia")
 HEADERS = {"User-Agent": "BetAnalytics/1.0 (educational project)"}
 
 
-def fetch_standings(wiki_url: str) -> list[dict]:
+def fetch_standings(wiki_url: str, table_index: int | None = None) -> list[dict]:
     """
     Extrae la tabla de posiciones estándar de una página de Wikipedia.
     Busca columnas: Equipo/Team, PJ/Pld/MP, GF/GS, GC/GA.
@@ -27,19 +27,19 @@ def fetch_standings(wiki_url: str) -> list[dict]:
     soup = BeautifulSoup(r.text, "html.parser")
     tables = soup.find_all("table", class_="wikitable")
 
-    # Buscar la tabla que tenga columnas de standings (Pts, GF, GC)
+    # Buscar TODAS las tablas válidas de standings
+    all_valid = []
+
     for table in tables:
         headers_row = table.find("tr")
         if not headers_row:
             continue
         header_texts = [th.get_text(strip=True).lower() for th in headers_row.find_all(["th", "td"])]
-        header_str = " ".join(header_texts)
 
         # Verificar que tiene las columnas necesarias
         has_pts = any(h in header_texts for h in ["pts", "points", "puntos"])
         has_gf = any(h in header_texts for h in ["gf", "gs", "goles a favor", "goals for", "f"])
         has_ga = any(h in header_texts for h in ["gc", "ga", "goles en contra", "goals against", "a"])
-        has_pj = any(h in header_texts for h in ["pj", "pld", "mp", "played", "j", "jugados"])
 
         if not (has_pts and has_gf and has_ga):
             continue
@@ -82,7 +82,7 @@ def fetch_standings(wiki_url: str) -> list[dict]:
                 # Filtrar números y textos cortos (posición, etc)
                 if text and not text.isdigit() and len(text) > 2:
                     # Limpiar sufijos como (C), (R), (P)
-                    text = re.sub(r"\s*\([CRPQ]\)\s*$", "", text).strip()
+                    text = re.sub(r"\s*\([CRPQS]\)\s*$", "", text).strip()
                     if text:
                         team_name = text
                         break
@@ -115,8 +115,21 @@ def fetch_standings(wiki_url: str) -> list[dict]:
                 standings.append(entry)
 
         if len(standings) >= 5:
-            log.info(f"Wikipedia: extracted {len(standings)} teams from {wiki_url}")
-            return standings
+            all_valid.append(standings)
 
-    log.warning(f"Wikipedia: could not find standings table in {wiki_url}")
-    return []
+    if not all_valid:
+        log.warning(f"Wikipedia: could not find standings table in {wiki_url}")
+        return []
+
+    # Seleccionar tabla: por índice explícito, o la más grande (para Overall tables)
+    if table_index is not None:
+        try:
+            selected = all_valid[table_index]
+        except IndexError:
+            selected = all_valid[-1]  # fallback to last
+    else:
+        # Por defecto: la tabla con más equipos (Overall > Conference)
+        selected = max(all_valid, key=len)
+
+    log.info(f"Wikipedia: extracted {len(selected)} teams from {wiki_url} (selected from {len(all_valid)} valid tables)")
+    return selected
