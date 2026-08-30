@@ -1100,7 +1100,210 @@
     "sportsdb_id": 4346,
     "season": "2026",
     "avg": 1.67,
-    "odds_key": "soccer_usa_mls"
+    "odds_key": "soccer_usa_mls",
+    "wiki_url": "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+    "wiki_table_index": -1,
+    "hist_season": {
+      "season": "2025",
+      "pj_per_team": 34,
+      "teams": [
+        {
+          "team": "Philadelphia Union",
+          "gf": 57,
+          "ga": 35
+        },
+        {
+          "team": "FC Cincinnati",
+          "gf": 52,
+          "ga": 40
+        },
+        {
+          "team": "Inter Miami CF",
+          "gf": 81,
+          "ga": 55
+        },
+        {
+          "team": "Charlotte FC",
+          "gf": 55,
+          "ga": 46
+        },
+        {
+          "team": "New York City FC",
+          "gf": 50,
+          "ga": 44
+        },
+        {
+          "team": "Nashville SC",
+          "gf": 58,
+          "ga": 45
+        },
+        {
+          "team": "Columbus Crew SC",
+          "gf": 55,
+          "ga": 51
+        },
+        {
+          "team": "Chicago Fire",
+          "gf": 68,
+          "ga": 60
+        },
+        {
+          "team": "Orlando City SC",
+          "gf": 63,
+          "ga": 51
+        },
+        {
+          "team": "New York Red Bulls",
+          "gf": 48,
+          "ga": 47
+        },
+        {
+          "team": "New England Revolution",
+          "gf": 44,
+          "ga": 51
+        },
+        {
+          "team": "Toronto FC",
+          "gf": 37,
+          "ga": 44
+        },
+        {
+          "team": "CF Montreal",
+          "gf": 34,
+          "ga": 60
+        },
+        {
+          "team": "Atlanta United FC",
+          "gf": 38,
+          "ga": 63
+        },
+        {
+          "team": "D.C. United",
+          "gf": 30,
+          "ga": 66
+        },
+        {
+          "team": "San Diego FC",
+          "gf": 64,
+          "ga": 41
+        },
+        {
+          "team": "Vancouver Whitecaps FC",
+          "gf": 66,
+          "ga": 38
+        },
+        {
+          "team": "Los Angeles FC",
+          "gf": 65,
+          "ga": 40
+        },
+        {
+          "team": "Minnesota United FC",
+          "gf": 56,
+          "ga": 39
+        },
+        {
+          "team": "Seattle Sounders FC",
+          "gf": 58,
+          "ga": 48
+        },
+        {
+          "team": "Austin FC",
+          "gf": 37,
+          "ga": 45
+        },
+        {
+          "team": "FC Dallas",
+          "gf": 52,
+          "ga": 55
+        },
+        {
+          "team": "Portland Timbers",
+          "gf": 41,
+          "ga": 48
+        },
+        {
+          "team": "Real Salt Lake",
+          "gf": 38,
+          "ga": 49
+        },
+        {
+          "team": "San Jose Earthquakes",
+          "gf": 60,
+          "ga": 63
+        },
+        {
+          "team": "Colorado Rapids",
+          "gf": 44,
+          "ga": 56
+        },
+        {
+          "team": "Houston Dynamo",
+          "gf": 43,
+          "ga": 56
+        },
+        {
+          "team": "St. Louis City SC",
+          "gf": 44,
+          "ga": 58
+        },
+        {
+          "team": "LA Galaxy",
+          "gf": 46,
+          "ga": 66
+        },
+        {
+          "team": "Sporting Kansas City",
+          "gf": 46,
+          "ga": 70
+        }
+      ]
+    },
+    "aliases": {
+      "Atlanta United": "Atlanta United FC",
+      "DC United": "D.C. United",
+      "Inter Miami": "Inter Miami CF",
+      "CF Montréal": "CF Montreal",
+      "Montreal": "CF Montreal",
+      "Montréal": "CF Montreal",
+      "NY Red Bulls": "New York Red Bulls",
+      "NYRB": "New York Red Bulls",
+      "NYCFC": "New York City FC",
+      "NY City FC": "New York City FC",
+      "New York City": "New York City FC",
+      "Columbus Crew": "Columbus Crew SC",
+      "New England": "New England Revolution",
+      "Orlando City": "Orlando City SC",
+      "Philadelphia": "Philadelphia Union",
+      "Chicago Fire FC": "Chicago Fire",
+      "Nashville": "Nashville SC",
+      "Toronto": "Toronto FC",
+      "Charlotte": "Charlotte FC",
+      "Vancouver Whitecaps": "Vancouver Whitecaps FC",
+      "Vancouver": "Vancouver Whitecaps FC",
+      "Los Angeles FC": "Los Angeles FC",
+      "LAFC": "Los Angeles FC",
+      "Minnesota United": "Minnesota United FC",
+      "Minnesota": "Minnesota United FC",
+      "Seattle Sounders": "Seattle Sounders FC",
+      "Seattle": "Seattle Sounders FC",
+      "Austin": "Austin FC",
+      "FC Dallas": "FC Dallas",
+      "Portland": "Portland Timbers",
+      "San Jose": "San Jose Earthquakes",
+      "Colorado": "Colorado Rapids",
+      "Houston Dynamo FC": "Houston Dynamo",
+      "Houston": "Houston Dynamo",
+      "St. Louis City": "St. Louis City SC",
+      "St. Louis": "St. Louis City SC",
+      "LA Galaxy": "LA Galaxy",
+      "Galaxy": "LA Galaxy",
+      "Sporting KC": "Sporting Kansas City",
+      "Kansas City": "Sporting Kansas City",
+      "San Diego": "San Diego FC",
+      "Real Salt Lake": "Real Salt Lake",
+      "Salt Lake": "Real Salt Lake"
+    }
   },
   "argfem": {
     "name": "🇦🇷 Arg Femenina",
