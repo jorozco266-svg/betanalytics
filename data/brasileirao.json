@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-30T00:58:25.293385+00:00",
+    "last_updated": "2026-08-30T04:26:59.727500+00:00",
     "avg_goals": 1.35,
-    "total_matches": 236,
-    "total_goals": 614,
-    "avg_real": 1.301
+    "total_matches": 238,
+    "total_goals": 621,
+    "avg_real": 1.305
   },
   "standings": [
     {
@@ -53,13 +53,13 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 34,
-      "ga": 33,
-      "pj": 24,
+      "gf": 35,
+      "ga": 36,
+      "pj": 25,
       "pts": 39,
       "w": 11,
       "d": 6,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Bahia",
@@ -83,13 +83,13 @@
     },
     {
       "team": "Red Bull Bragantino",
-      "gf": 28,
-      "ga": 23,
-      "pj": 23,
+      "gf": 29,
+      "ga": 25,
+      "pj": 24,
       "pts": 35,
       "w": 10,
       "d": 5,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Coritiba",
@@ -112,6 +112,16 @@
       "l": 8
     },
     {
+      "team": "São Paulo",
+      "gf": 29,
+      "ga": 28,
+      "pj": 24,
+      "pts": 30,
+      "w": 8,
+      "d": 6,
+      "l": 10
+    },
+    {
       "team": "Botafogo",
       "gf": 37,
       "ga": 37,
@@ -132,16 +142,6 @@
       "l": 12
     },
     {
-      "team": "São Paulo",
-      "gf": 27,
-      "ga": 27,
-      "pj": 23,
-      "pts": 27,
-      "w": 7,
-      "d": 6,
-      "l": 10
-    },
-    {
       "team": "Santos",
       "gf": 33,
       "ga": 36,
@@ -160,6 +160,16 @@
       "w": 6,
       "d": 7,
       "l": 10
+    },
+    {
+      "team": "Vasco da Gama",
+      "gf": 27,
+      "ga": 39,
+      "pj": 24,
+      "pts": 25,
+      "w": 6,
+      "d": 7,
+      "l": 11
     },
     {
       "team": "Internacional",
@@ -189,16 +199,6 @@
       "pts": 23,
       "w": 5,
       "d": 8,
-      "l": 11
-    },
-    {
-      "team": "Vasco da Gama",
-      "gf": 24,
-      "ga": 38,
-      "pj": 23,
-      "pts": 22,
-      "w": 5,
-      "d": 7,
       "l": 11
     },
     {

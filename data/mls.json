@@ -4,112 +4,282 @@
     "league_key": "mls",
     "season": "2026",
     "source": "thesportsdb",
-    "last_updated": "2026-08-17T17:46:40.461092+00:00",
+    "last_updated": "2026-08-30T04:27:07.022616+00:00",
     "avg_goals": 1.67,
-    "total_matches": 5,
-    "total_goals": 9,
-    "avg_real": 0.9
+    "total_matches": 9,
+    "total_goals": 16,
+    "avg_real": 0.889
   },
   "standings": [
     {
-      "team": "FC Cincinnati",
-      "pj": 1,
-      "gf": 2,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
+      "team": "Nashville SC",
+      "gf": 43,
+      "ga": 17,
+      "pj": 21,
+      "pts": 49,
+      "w": 15,
+      "l": 2
     },
     {
-      "team": "New York Red Bulls",
-      "pj": 1,
-      "gf": 2,
-      "ga": 1,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
+      "team": "Vancouver Whitecaps FC",
+      "gf": 45,
+      "ga": 18,
+      "pj": 20,
+      "pts": 40,
+      "w": 12,
+      "l": 4
     },
     {
-      "team": "DC United",
-      "pj": 1,
-      "gf": 1,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
+      "team": "Inter Miami CF",
+      "gf": 49,
+      "ga": 40,
+      "pj": 21,
+      "pts": 39,
+      "w": 11,
+      "l": 4
     },
     {
-      "team": "Vancouver Whitecaps",
-      "pj": 1,
-      "gf": 1,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
+      "team": "Houston Dynamo",
+      "gf": 30,
+      "ga": 26,
+      "pj": 21,
+      "pts": 38,
+      "w": 12,
+      "l": 7
+    },
+    {
+      "team": "Chicago Fire",
+      "gf": 37,
+      "ga": 26,
+      "pj": 20,
+      "pts": 36,
+      "w": 11,
+      "l": 6
+    },
+    {
+      "team": "Los Angeles FC",
+      "gf": 36,
+      "ga": 22,
+      "pj": 22,
+      "pts": 35,
+      "w": 10,
+      "l": 7
+    },
+    {
+      "team": "New England Revolution",
+      "gf": 33,
+      "ga": 26,
+      "pj": 21,
+      "pts": 34,
+      "w": 10,
+      "l": 7
+    },
+    {
+      "team": "San Jose Earthquakes",
+      "gf": 39,
+      "ga": 33,
+      "pj": 21,
+      "pts": 33,
+      "w": 10,
+      "l": 8
+    },
+    {
+      "team": "FC Dallas",
+      "gf": 38,
+      "ga": 34,
+      "pj": 21,
+      "pts": 33,
+      "w": 9,
+      "l": 6
     },
     {
       "team": "St. Louis City SC",
-      "pj": 1,
-      "gf": 1,
-      "ga": 1,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
+      "gf": 30,
+      "ga": 27,
+      "pj": 21,
+      "pts": 33,
+      "w": 9,
+      "l": 6
     },
     {
       "team": "Charlotte FC",
-      "pj": 1,
-      "gf": 1,
-      "ga": 1,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
+      "gf": 38,
+      "ga": 32,
+      "pj": 21,
+      "pts": 32,
+      "w": 9,
+      "l": 7
     },
     {
-      "team": "Orlando City",
-      "pj": 1,
-      "gf": 1,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "team": "FC Cincinnati",
+      "gf": 49,
+      "ga": 47,
+      "pj": 21,
+      "pts": 31,
+      "w": 8,
+      "l": 6
     },
     {
-      "team": "Philadelphia Union",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "team": "Colorado Rapids",
+      "gf": 30,
+      "ga": 28,
+      "pj": 21,
+      "pts": 28,
+      "w": 9,
+      "l": 11
     },
     {
       "team": "Real Salt Lake",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "gf": 34,
+      "ga": 32,
+      "pj": 20,
+      "pts": 28,
+      "w": 8,
+      "l": 8
     },
     {
-      "team": "Atlanta United",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
+      "team": "Portland Timbers",
+      "gf": 38,
+      "ga": 37,
+      "pj": 21,
+      "pts": 28,
+      "w": 8,
+      "l": 9
+    },
+    {
+      "team": "Minnesota United FC",
+      "gf": 27,
+      "ga": 29,
+      "pj": 21,
+      "pts": 28,
+      "w": 7,
+      "l": 7
+    },
+    {
+      "team": "San Diego FC",
+      "gf": 37,
+      "ga": 32,
+      "pj": 21,
+      "pts": 27,
+      "w": 7,
+      "l": 8
+    },
+    {
+      "team": "New York City FC",
+      "gf": 35,
+      "ga": 30,
+      "pj": 21,
+      "pts": 27,
+      "w": 7,
+      "l": 8
+    },
+    {
+      "team": "New York Red Bulls",
+      "gf": 31,
+      "ga": 43,
+      "pj": 21,
+      "pts": 26,
+      "w": 7,
+      "l": 9
+    },
+    {
+      "team": "LA Galaxy",
+      "gf": 27,
+      "ga": 32,
+      "pj": 22,
+      "pts": 26,
+      "w": 6,
+      "l": 8
+    },
+    {
+      "team": "Seattle Sounders FC",
+      "gf": 22,
+      "ga": 27,
+      "pj": 20,
+      "pts": 25,
+      "w": 7,
+      "l": 9
+    },
+    {
+      "team": "Orlando City SC",
+      "gf": 34,
+      "ga": 51,
+      "pj": 21,
+      "pts": 24,
+      "w": 7,
+      "l": 11
+    },
+    {
+      "team": "Toronto FC",
+      "gf": 31,
+      "ga": 37,
+      "pj": 21,
+      "pts": 24,
+      "w": 5,
+      "l": 7
+    },
+    {
+      "team": "D.C. United",
+      "gf": 28,
+      "ga": 36,
+      "pj": 21,
+      "pts": 24,
+      "w": 5,
+      "l": 7
+    },
+    {
+      "team": "Atlanta United FC",
+      "gf": 25,
+      "ga": 36,
+      "pj": 21,
+      "pts": 21,
+      "w": 6,
+      "l": 12
+    },
+    {
+      "team": "Philadelphia Union",
+      "gf": 31,
+      "ga": 38,
+      "pj": 21,
+      "pts": 21,
+      "w": 5,
+      "l": 10
+    },
+    {
+      "team": "CF Montreal",
+      "gf": 29,
+      "ga": 39,
+      "pj": 21,
+      "pts": 21,
+      "w": 5,
+      "l": 10
+    },
+    {
+      "team": "Austin FC",
+      "gf": 26,
+      "ga": 40,
+      "pj": 21,
+      "pts": 21,
+      "w": 5,
+      "l": 10
+    },
+    {
+      "team": "Columbus Crew SC",
+      "gf": 30,
+      "ga": 36,
+      "pj": 21,
+      "pts": 20,
+      "w": 5,
+      "l": 11
+    },
+    {
+      "team": "Sporting Kansas City",
+      "gf": 20,
+      "ga": 51,
+      "pj": 21,
+      "pts": 15,
+      "w": 4,
+      "l": 14
     }
   ],
   "results": [
@@ -125,6 +295,14 @@
       "date": "2026-02-21",
       "home": "FC Cincinnati",
       "away": "Atlanta United",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-21",
+      "home": "FC Cincinnati",
+      "away": "Atlanta United FC",
       "hg": 2,
       "ag": 0,
       "matchday": "1"
@@ -152,7 +330,187 @@
       "hg": 1,
       "ag": 0,
       "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "D.C. United",
+      "away": "Philadelphia Union",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "Orlando City SC",
+      "away": "New York Red Bulls",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-02-22",
+      "home": "Vancouver Whitecaps FC",
+      "away": "Real Salt Lake",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "1"
     }
   ],
-  "fixtures": []
+  "fixtures": [],
+  "hist_season": {
+    "season": "2025",
+    "pj_per_team": 34,
+    "teams": [
+      {
+        "team": "Philadelphia Union",
+        "gf": 57,
+        "ga": 35
+      },
+      {
+        "team": "FC Cincinnati",
+        "gf": 52,
+        "ga": 40
+      },
+      {
+        "team": "Inter Miami CF",
+        "gf": 81,
+        "ga": 55
+      },
+      {
+        "team": "Charlotte FC",
+        "gf": 55,
+        "ga": 46
+      },
+      {
+        "team": "New York City FC",
+        "gf": 50,
+        "ga": 44
+      },
+      {
+        "team": "Nashville SC",
+        "gf": 58,
+        "ga": 45
+      },
+      {
+        "team": "Columbus Crew SC",
+        "gf": 55,
+        "ga": 51
+      },
+      {
+        "team": "Chicago Fire",
+        "gf": 68,
+        "ga": 60
+      },
+      {
+        "team": "Orlando City SC",
+        "gf": 63,
+        "ga": 51
+      },
+      {
+        "team": "New York Red Bulls",
+        "gf": 48,
+        "ga": 47
+      },
+      {
+        "team": "New England Revolution",
+        "gf": 44,
+        "ga": 51
+      },
+      {
+        "team": "Toronto FC",
+        "gf": 37,
+        "ga": 44
+      },
+      {
+        "team": "CF Montreal",
+        "gf": 34,
+        "ga": 60
+      },
+      {
+        "team": "Atlanta United FC",
+        "gf": 38,
+        "ga": 63
+      },
+      {
+        "team": "D.C. United",
+        "gf": 30,
+        "ga": 66
+      },
+      {
+        "team": "San Diego FC",
+        "gf": 64,
+        "ga": 41
+      },
+      {
+        "team": "Vancouver Whitecaps FC",
+        "gf": 66,
+        "ga": 38
+      },
+      {
+        "team": "Los Angeles FC",
+        "gf": 65,
+        "ga": 40
+      },
+      {
+        "team": "Minnesota United FC",
+        "gf": 56,
+        "ga": 39
+      },
+      {
+        "team": "Seattle Sounders FC",
+        "gf": 58,
+        "ga": 48
+      },
+      {
+        "team": "Austin FC",
+        "gf": 37,
+        "ga": 45
+      },
+      {
+        "team": "FC Dallas",
+        "gf": 52,
+        "ga": 55
+      },
+      {
+        "team": "Portland Timbers",
+        "gf": 41,
+        "ga": 48
+      },
+      {
+        "team": "Real Salt Lake",
+        "gf": 38,
+        "ga": 49
+      },
+      {
+        "team": "San Jose Earthquakes",
+        "gf": 60,
+        "ga": 63
+      },
+      {
+        "team": "Colorado Rapids",
+        "gf": 44,
+        "ga": 56
+      },
+      {
+        "team": "Houston Dynamo",
+        "gf": 43,
+        "ga": 56
+      },
+      {
+        "team": "St. Louis City SC",
+        "gf": 44,
+        "ga": 58
+      },
+      {
+        "team": "LA Galaxy",
+        "gf": 46,
+        "ga": 66
+      },
+      {
+        "team": "Sporting Kansas City",
+        "gf": 46,
+        "ga": 70
+      }
+    ]
+  }
 }
