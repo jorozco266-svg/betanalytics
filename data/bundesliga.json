@@ -4,11 +4,11 @@
     "league_key": "bundesliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-29T15:32:22.550562+00:00",
+    "last_updated": "2026-08-30T00:58:22.806683+00:00",
     "avg_goals": 1.55,
-    "total_matches": 4,
-    "total_goals": 15,
-    "avg_real": 1.875
+    "total_matches": 5,
+    "total_goals": 17,
+    "avg_real": 1.7
   },
   "standings": [
     {
@@ -25,6 +25,16 @@
       "team": "RB Leipzig",
       "pj": 1,
       "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Borussia Dortmund",
+      "pj": 1,
+      "gf": 2,
       "ga": 0,
       "w": 1,
       "d": 0,
@@ -70,6 +80,16 @@
       "d": 1,
       "l": 0,
       "pts": 1
+    },
+    {
+      "team": "Hamburg",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     },
     {
       "team": "Borussia Monchengladbach",
@@ -124,17 +144,17 @@
       "hg": 3,
       "ag": 3,
       "matchday": "1"
-    }
-  ],
-  "fixtures": [
+    },
     {
       "date": "2026-08-29",
-      "time": "11:30 AM",
       "home": "Borussia Dortmund",
       "away": "Hamburg",
+      "hg": 2,
+      "ag": 0,
       "matchday": "1"
     }
   ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,

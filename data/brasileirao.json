@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-25T03:19:18.715060+00:00",
+    "last_updated": "2026-08-30T00:58:25.293385+00:00",
     "avg_goals": 1.35,
-    "total_matches": 235,
-    "total_goals": 611,
-    "avg_real": 1.3
+    "total_matches": 236,
+    "total_goals": 614,
+    "avg_real": 1.301
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "l": 5
     },
     {
+      "team": "Atlético Mineiro",
+      "gf": 32,
+      "ga": 28,
+      "pj": 24,
+      "pts": 36,
+      "w": 10,
+      "d": 6,
+      "l": 8
+    },
+    {
       "team": "Red Bull Bragantino",
       "gf": 28,
       "ga": 23,
@@ -89,16 +99,6 @@
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 8
-    },
-    {
-      "team": "Atlético Mineiro",
-      "gf": 30,
-      "ga": 27,
-      "pj": 23,
-      "pts": 33,
-      "w": 9,
-      "d": 6,
       "l": 8
     },
     {
@@ -123,13 +123,13 @@
     },
     {
       "team": "Vitória",
-      "gf": 23,
-      "ga": 35,
-      "pj": 24,
+      "gf": 24,
+      "ga": 37,
+      "pj": 25,
       "pts": 29,
       "w": 8,
       "d": 5,
-      "l": 11
+      "l": 12
     },
     {
       "team": "São Paulo",

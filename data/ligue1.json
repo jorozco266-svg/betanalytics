@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-29T15:32:27.517274+00:00",
+    "last_updated": "2026-08-30T00:58:28.879561+00:00",
     "avg_goals": 1.35,
-    "total_matches": 20,
-    "total_goals": 56,
-    "avg_real": 1.4
+    "total_matches": 25,
+    "total_goals": 72,
+    "avg_real": 1.44
   },
   "standings": [
     {
@@ -16,6 +16,26 @@
       "pj": 2,
       "gf": 4,
       "ga": 2,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
+      "team": "Lyon",
+      "pj": 2,
+      "gf": 3,
+      "ga": 1,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
+      "team": "Troyes",
+      "pj": 2,
+      "gf": 2,
+      "ga": 1,
       "w": 1,
       "d": 1,
       "l": 0,
@@ -53,26 +73,16 @@
     },
     {
       "team": "Lens",
-      "pj": 1,
-      "gf": 5,
-      "ga": 2,
+      "pj": 2,
+      "gf": 6,
+      "ga": 4,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 3
     },
     {
       "team": "Olympique Lyonnais",
-      "pj": 1,
-      "gf": 2,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Lyon",
       "pj": 1,
       "gf": 2,
       "ga": 0,
@@ -110,6 +120,36 @@
       "d": 0,
       "l": 0,
       "pts": 3
+    },
+    {
+      "team": "Angers",
+      "pj": 2,
+      "gf": 3,
+      "ga": 3,
+      "w": 1,
+      "d": 0,
+      "l": 1,
+      "pts": 3
+    },
+    {
+      "team": "Strasbourg",
+      "pj": 2,
+      "gf": 2,
+      "ga": 5,
+      "w": 1,
+      "d": 0,
+      "l": 1,
+      "pts": 3
+    },
+    {
+      "team": "Brest",
+      "pj": 2,
+      "gf": 4,
+      "ga": 4,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
     },
     {
       "team": "Paris Saint-Germain FC",
@@ -182,16 +222,6 @@
       "pts": 1
     },
     {
-      "team": "Brest",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
       "team": "Rennes",
       "pj": 1,
       "gf": 2,
@@ -232,16 +262,6 @@
       "pts": 1
     },
     {
-      "team": "Troyes",
-      "pj": 1,
-      "gf": 0,
-      "ga": 0,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
       "team": "Nice",
       "pj": 1,
       "gf": 0,
@@ -253,26 +273,36 @@
     },
     {
       "team": "Lorient",
-      "pj": 1,
-      "gf": 0,
-      "ga": 0,
+      "pj": 2,
+      "gf": 1,
+      "ga": 2,
       "w": 0,
       "d": 1,
-      "l": 0,
+      "l": 1,
+      "pts": 1
+    },
+    {
+      "team": "Le Havre",
+      "pj": 2,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
+    },
+    {
+      "team": "Toulouse",
+      "pj": 2,
+      "gf": 2,
+      "ga": 4,
+      "w": 0,
+      "d": 1,
+      "l": 1,
       "pts": 1
     },
     {
       "team": "Le Havre AC",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Le Havre",
       "pj": 1,
       "gf": 0,
       "ga": 1,
@@ -292,27 +322,7 @@
       "pts": 0
     },
     {
-      "team": "Toulouse",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "Angers SCO",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Angers",
       "pj": 1,
       "gf": 0,
       "ga": 2,
@@ -332,16 +342,6 @@
       "pts": 0
     },
     {
-      "team": "Auxerre",
-      "pj": 1,
-      "gf": 2,
-      "ga": 5,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "RC Strasbourg Alsace",
       "pj": 1,
       "gf": 0,
@@ -352,13 +352,13 @@
       "pts": 0
     },
     {
-      "team": "Strasbourg",
-      "pj": 1,
-      "gf": 0,
-      "ga": 4,
+      "team": "Auxerre",
+      "pj": 2,
+      "gf": 3,
+      "ga": 8,
       "w": 0,
       "d": 0,
-      "l": 1,
+      "l": 2,
       "pts": 0
     }
   ],
@@ -522,37 +522,49 @@
       "hg": 2,
       "ag": 2,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Strasbourg",
+      "away": "Lens",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Lorient",
+      "away": "Troyes",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Lyon",
+      "away": "Le Havre",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Auxerre",
+      "away": "Angers",
+      "hg": 1,
+      "ag": 3,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Brest",
+      "away": "Toulouse",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 2
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-29",
-      "time": "01:45 PM",
-      "home": "Lorient",
-      "away": "Troyes",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "01:45 PM",
-      "home": "Lyon",
-      "away": "Le Havre",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "01:45 PM",
-      "home": "Auxerre",
-      "away": "Angers",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-29",
-      "time": "01:45 PM",
-      "home": "Brest",
-      "away": "Toulouse",
-      "matchday": 2
-    },
     {
       "date": "2026-08-30",
       "time": "01:45 PM",

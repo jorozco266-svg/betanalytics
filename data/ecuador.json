@@ -4,22 +4,32 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-29T03:59:53.090383+00:00",
+    "last_updated": "2026-08-30T00:58:31.115639+00:00",
     "avg_goals": 1.25,
-    "total_matches": 210,
-    "total_goals": 470,
-    "avg_real": 1.119
+    "total_matches": 212,
+    "total_goals": 477,
+    "avg_real": 1.125
   },
   "standings": [
     {
       "team": "Independiente del Valle",
-      "gf": 64,
-      "ga": 26,
-      "pj": 26,
-      "pts": 67,
+      "gf": 66,
+      "ga": 28,
+      "pj": 27,
+      "pts": 68,
       "w": 22,
-      "d": 1,
+      "d": 2,
       "l": 3
+    },
+    {
+      "team": "Universidad Católica",
+      "gf": 47,
+      "ga": 25,
+      "pj": 27,
+      "pts": 44,
+      "w": 12,
+      "d": 8,
+      "l": 7
     },
     {
       "team": "Aucas",
@@ -30,16 +40,6 @@
       "w": 13,
       "d": 5,
       "l": 8
-    },
-    {
-      "team": "Universidad Católica",
-      "gf": 45,
-      "ga": 23,
-      "pj": 26,
-      "pts": 43,
-      "w": 12,
-      "d": 7,
-      "l": 7
     },
     {
       "team": "Macará",
@@ -53,13 +53,13 @@
     },
     {
       "team": "LDU Quito",
-      "gf": 26,
-      "ga": 20,
-      "pj": 26,
+      "gf": 27,
+      "ga": 22,
+      "pj": 27,
       "pts": 41,
       "w": 12,
       "d": 5,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Barcelona",
@@ -92,6 +92,16 @@
       "l": 9
     },
     {
+      "team": "Guayaquil City",
+      "gf": 27,
+      "ga": 30,
+      "pj": 27,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 9
+    },
+    {
       "team": "Leones",
       "gf": 28,
       "ga": 28,
@@ -99,16 +109,6 @@
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 9
-    },
-    {
-      "team": "Guayaquil City",
-      "gf": 25,
-      "ga": 29,
-      "pj": 26,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
       "l": 9
     },
     {
