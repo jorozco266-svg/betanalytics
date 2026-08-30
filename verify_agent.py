@@ -134,6 +134,64 @@ def merge_results(existing, new_results):
     return existing, added
 
 
+# ── BACKFILL MODE ──────────────────────────
+
+def backfill_missing_results(league_name, standings, existing_results):
+    """
+    When a league has very few results (<20), ask Gemini to find results
+    in monthly blocks going back to the season start.
+    """
+    # Determine date range to backfill
+    if existing_results:
+        last_date = max(r.get("date", "") for r in existing_results)
+    else:
+        last_date = "2026-01-01"
+
+    today = datetime.date.today().isoformat()
+    teams = [t["team"] for t in standings[:20]] if standings else []
+    teams_str = ", ".join(teams) if teams else "(unknown)"
+
+    log.info(f"  🔄 Backfill mode: {len(existing_results)} results, scanning {last_date} to {today}")
+
+    existing_str = "\n".join(
+        f"  {r.get('date','?')} | {r['home']} {r['hg']}-{r['ag']} {r['away']}"
+        for r in existing_results[-5:]
+    ) if existing_results else "  (none)"
+
+    prompt = f"""You are a sports data backfill agent. A league database has very few results and needs to be filled.
+
+LEAGUE: {league_name}
+TODAY: {today}
+RESULTS WE HAVE ({len(existing_results)} total, showing latest):
+{existing_str}
+
+TEAMS IN LEAGUE: {teams_str}
+
+TASK: Search the web for ALL {league_name} results from {last_date} to {today}.
+This league should have MANY more results than we have. Find as many completed matches as possible.
+Focus on official league matches only (not friendlies, cups, or other competitions).
+
+Respond with ONLY a JSON array (no markdown, no explanation):
+[{{"date":"2026-03-01","home":"Team A","away":"Team B","hg":2,"ag":1}}]
+
+If you cannot find any results: []
+
+RULES: Only verified web results with confirmed scores. Never invent. JSON only. Maximum 50 results."""
+
+    response = call_gemini(prompt)
+    results = parse_json_array(response)
+    results = [r for r in results if all(k in r for k in ("date", "home", "away", "hg", "ag"))
+               and isinstance(r.get("hg"), int) and isinstance(r.get("ag"), int)]
+
+    if results:
+        log.info(f"  Backfill found {len(results)} results")
+        for r in results:
+            r["_source"] = "verify_agent_backfill"
+            r["_verified_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+    return results
+
+
 # ── FIXTURES VERIFICATION ──────────────────────────
 
 def build_fixtures_prompt(league_name, standings, existing_fixtures):
@@ -264,6 +322,19 @@ def main():
         changed = False
 
         log.info(f"▸ {name} ({len(results)}R, {len(fixtures)}F)")
+
+        # ── Step 0: Backfill mode — if very few results and season is ongoing ──
+        if len(results) < 20:
+            backfill_results = backfill_missing_results(name, standings, results)
+            if backfill_results:
+                data["results"], added_bf = merge_results(data["results"], backfill_results)
+                if added_bf > 0:
+                    data["standings"] = rebuild_standings(data["results"])
+                    results = data["results"]  # update for subsequent steps
+                    standings = data["standings"]
+                    total_results_added += added_bf
+                    changed = True
+                    log.info(f"  Backfill: +{added_bf} results")
 
         # ── Step 1: Verify results ──
         prompt_r = build_results_prompt(name, standings, results)

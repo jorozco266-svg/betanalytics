@@ -167,6 +167,23 @@ def process_thesportsdb(key: str, cfg: dict, existing: dict | None) -> dict:
     # Standings desde TODOS los resultados acumulados
     standings = sdb_standings(all_results) if all_results else []
 
+    # ── Wikipedia fallback: si TheSportsDB tiene pocos datos y hay wiki_url ──
+    wiki_url = cfg.get("wiki_url")
+    if wiki_url and len(standings) < 20:
+        log.info(f"  ⚠ TheSportsDB solo tiene {len(standings)} equipos — intentando Wikipedia fallback")
+        try:
+            wiki_table_index = cfg.get("wiki_table_index")
+            wiki_std = wiki_standings(wiki_url, wiki_table_index)
+            if wiki_std and len(wiki_std) > len(standings):
+                log.info(f"  ✓ Wikipedia fallback: {len(wiki_std)} equipos (reemplaza {len(standings)})")
+                # Aplicar aliases a standings de Wikipedia
+                for t in wiki_std:
+                    if t["team"] in aliases:
+                        t["team"] = aliases[t["team"]]
+                standings = wiki_std
+        except Exception as e:
+            log.warning(f"  Wikipedia fallback failed: {e}")
+
     total_goals = sum(r["hg"] + r["ag"] for r in all_results)
     total_matches = len(all_results)
 
