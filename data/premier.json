@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-30T00:58:26.596865+00:00",
+    "last_updated": "2026-08-30T11:43:22.486143+00:00",
     "avg_goals": 1.4,
-    "total_matches": 15,
-    "total_goals": 44,
-    "avg_real": 1.467
+    "total_matches": 17,
+    "total_goals": 49,
+    "avg_real": 1.441
   },
   "standings": [
     {
@@ -53,6 +53,16 @@
     },
     {
       "team": "Brighton & Hove Albion FC",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Brighton",
       "pj": 1,
       "gf": 4,
       "ga": 0,
@@ -112,6 +122,16 @@
       "pts": 3
     },
     {
+      "team": "Leeds United",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Liverpool",
       "pj": 2,
       "gf": 4,
@@ -122,7 +142,7 @@
       "pts": 2
     },
     {
-      "team": "Nottingham Forest",
+      "team": "Bournemouth",
       "pj": 2,
       "gf": 2,
       "ga": 3,
@@ -132,13 +152,13 @@
       "pts": 1
     },
     {
-      "team": "Bournemouth",
-      "pj": 2,
+      "team": "Nottingham Forest",
+      "pj": 3,
       "gf": 2,
-      "ga": 3,
+      "ga": 4,
       "w": 0,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 1
     },
     {
@@ -182,16 +202,6 @@
       "pts": 0
     },
     {
-      "team": "Aston Villa",
-      "pj": 1,
-      "gf": 0,
-      "ga": 4,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "Crystal Palace",
       "pj": 2,
       "gf": 1,
@@ -206,6 +216,16 @@
       "pj": 2,
       "gf": 0,
       "ga": 5,
+      "w": 0,
+      "d": 0,
+      "l": 2,
+      "pts": 0
+    },
+    {
+      "team": "Aston Villa",
+      "pj": 2,
+      "gf": 0,
+      "ga": 8,
       "w": 0,
       "d": 0,
       "l": 2,
@@ -262,6 +282,14 @@
       "matchday": 1
     },
     {
+      "date": "2026-08-22",
+      "home": "Nottingham Forest",
+      "away": "Leeds United",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
       "date": "2026-08-23",
       "home": "Manchester City",
       "away": "Bournemouth",
@@ -283,6 +311,14 @@
       "away": "Liverpool",
       "hg": 2,
       "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Brighton",
+      "away": "Aston Villa",
+      "hg": 4,
+      "ag": 0,
       "matchday": 1
     },
     {
@@ -346,13 +382,13 @@
       "date": "2026-08-30",
       "time": "08:00 AM",
       "home": "Chelsea",
-      "away": "Brighton & Hove Albion FC",
+      "away": "Brighton",
       "matchday": 2
     },
     {
       "date": "2026-08-30",
       "time": "08:00 AM",
-      "home": "Leeds United FC",
+      "home": "Leeds United",
       "away": "Brentford",
       "matchday": 2
     },
@@ -401,8 +437,8 @@
     {
       "date": "2026-09-05",
       "time": "09:00 AM",
-      "home": "Brighton & Hove Albion FC",
-      "away": "Leeds United FC",
+      "home": "Brighton",
+      "away": "Leeds United",
       "matchday": 3
     },
     {
