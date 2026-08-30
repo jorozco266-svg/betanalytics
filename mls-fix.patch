@@ -1,0 +1,411 @@
+diff --git a/config/leagues.json b/config/leagues.json
+index 628d9ef..bbdfd60 100644
+--- a/config/leagues.json
++++ b/config/leagues.json
+@@ -1100,7 +1100,210 @@
+     "sportsdb_id": 4346,
+     "season": "2026",
+     "avg": 1.67,
+-    "odds_key": "soccer_usa_mls"
++    "odds_key": "soccer_usa_mls",
++    "wiki_url": "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
++    "wiki_table_index": -1,
++    "hist_season": {
++      "season": "2025",
++      "pj_per_team": 34,
++      "teams": [
++        {
++          "team": "Philadelphia Union",
++          "gf": 57,
++          "ga": 35
++        },
++        {
++          "team": "FC Cincinnati",
++          "gf": 52,
++          "ga": 40
++        },
++        {
++          "team": "Inter Miami CF",
++          "gf": 81,
++          "ga": 55
++        },
++        {
++          "team": "Charlotte FC",
++          "gf": 55,
++          "ga": 46
++        },
++        {
++          "team": "New York City FC",
++          "gf": 50,
++          "ga": 44
++        },
++        {
++          "team": "Nashville SC",
++          "gf": 58,
++          "ga": 45
++        },
++        {
++          "team": "Columbus Crew SC",
++          "gf": 55,
++          "ga": 51
++        },
++        {
++          "team": "Chicago Fire",
++          "gf": 68,
++          "ga": 60
++        },
++        {
++          "team": "Orlando City SC",
++          "gf": 63,
++          "ga": 51
++        },
++        {
++          "team": "New York Red Bulls",
++          "gf": 48,
++          "ga": 47
++        },
++        {
++          "team": "New England Revolution",
++          "gf": 44,
++          "ga": 51
++        },
++        {
++          "team": "Toronto FC",
++          "gf": 37,
++          "ga": 44
++        },
++        {
++          "team": "CF Montreal",
++          "gf": 34,
++          "ga": 60
++        },
++        {
++          "team": "Atlanta United FC",
++          "gf": 38,
++          "ga": 63
++        },
++        {
++          "team": "D.C. United",
++          "gf": 30,
++          "ga": 66
++        },
++        {
++          "team": "San Diego FC",
++          "gf": 64,
++          "ga": 41
++        },
++        {
++          "team": "Vancouver Whitecaps FC",
++          "gf": 66,
++          "ga": 38
++        },
++        {
++          "team": "Los Angeles FC",
++          "gf": 65,
++          "ga": 40
++        },
++        {
++          "team": "Minnesota United FC",
++          "gf": 56,
++          "ga": 39
++        },
++        {
++          "team": "Seattle Sounders FC",
++          "gf": 58,
++          "ga": 48
++        },
++        {
++          "team": "Austin FC",
++          "gf": 37,
++          "ga": 45
++        },
++        {
++          "team": "FC Dallas",
++          "gf": 52,
++          "ga": 55
++        },
++        {
++          "team": "Portland Timbers",
++          "gf": 41,
++          "ga": 48
++        },
++        {
++          "team": "Real Salt Lake",
++          "gf": 38,
++          "ga": 49
++        },
++        {
++          "team": "San Jose Earthquakes",
++          "gf": 60,
++          "ga": 63
++        },
++        {
++          "team": "Colorado Rapids",
++          "gf": 44,
++          "ga": 56
++        },
++        {
++          "team": "Houston Dynamo",
++          "gf": 43,
++          "ga": 56
++        },
++        {
++          "team": "St. Louis City SC",
++          "gf": 44,
++          "ga": 58
++        },
++        {
++          "team": "LA Galaxy",
++          "gf": 46,
++          "ga": 66
++        },
++        {
++          "team": "Sporting Kansas City",
++          "gf": 46,
++          "ga": 70
++        }
++      ]
++    },
++    "aliases": {
++      "Atlanta United": "Atlanta United FC",
++      "DC United": "D.C. United",
++      "Inter Miami": "Inter Miami CF",
++      "CF Montréal": "CF Montreal",
++      "Montreal": "CF Montreal",
++      "Montréal": "CF Montreal",
++      "NY Red Bulls": "New York Red Bulls",
++      "NYRB": "New York Red Bulls",
++      "NYCFC": "New York City FC",
++      "NY City FC": "New York City FC",
++      "New York City": "New York City FC",
++      "Columbus Crew": "Columbus Crew SC",
++      "New England": "New England Revolution",
++      "Orlando City": "Orlando City SC",
++      "Philadelphia": "Philadelphia Union",
++      "Chicago Fire FC": "Chicago Fire",
++      "Nashville": "Nashville SC",
++      "Toronto": "Toronto FC",
++      "Charlotte": "Charlotte FC",
++      "Vancouver Whitecaps": "Vancouver Whitecaps FC",
++      "Vancouver": "Vancouver Whitecaps FC",
++      "Los Angeles FC": "Los Angeles FC",
++      "LAFC": "Los Angeles FC",
++      "Minnesota United": "Minnesota United FC",
++      "Minnesota": "Minnesota United FC",
++      "Seattle Sounders": "Seattle Sounders FC",
++      "Seattle": "Seattle Sounders FC",
++      "Austin": "Austin FC",
++      "FC Dallas": "FC Dallas",
++      "Portland": "Portland Timbers",
++      "San Jose": "San Jose Earthquakes",
++      "Colorado": "Colorado Rapids",
++      "Houston Dynamo FC": "Houston Dynamo",
++      "Houston": "Houston Dynamo",
++      "St. Louis City": "St. Louis City SC",
++      "St. Louis": "St. Louis City SC",
++      "LA Galaxy": "LA Galaxy",
++      "Galaxy": "LA Galaxy",
++      "Sporting KC": "Sporting Kansas City",
++      "Kansas City": "Sporting Kansas City",
++      "San Diego": "San Diego FC",
++      "Real Salt Lake": "Real Salt Lake",
++      "Salt Lake": "Real Salt Lake"
++    }
+   },
+   "argfem": {
+     "name": "🇦🇷 Arg Femenina",
+@@ -1320,4 +1523,4 @@
+       "Deportivo Riestra Reserve": "Deportivo Riestra"
+     }
+   }
+-}
++}
+\ No newline at end of file
+diff --git a/fetcher.py b/fetcher.py
+index fc93b1e..87946f0 100644
+--- a/fetcher.py
++++ b/fetcher.py
+@@ -167,6 +167,23 @@ def process_thesportsdb(key: str, cfg: dict, existing: dict | None) -> dict:
+     # Standings desde TODOS los resultados acumulados
+     standings = sdb_standings(all_results) if all_results else []
+ 
++    # ── Wikipedia fallback: si TheSportsDB tiene pocos datos y hay wiki_url ──
++    wiki_url = cfg.get("wiki_url")
++    if wiki_url and len(standings) < 20:
++        log.info(f"  ⚠ TheSportsDB solo tiene {len(standings)} equipos — intentando Wikipedia fallback")
++        try:
++            wiki_table_index = cfg.get("wiki_table_index")
++            wiki_std = wiki_standings(wiki_url, wiki_table_index)
++            if wiki_std and len(wiki_std) > len(standings):
++                log.info(f"  ✓ Wikipedia fallback: {len(wiki_std)} equipos (reemplaza {len(standings)})")
++                # Aplicar aliases a standings de Wikipedia
++                for t in wiki_std:
++                    if t["team"] in aliases:
++                        t["team"] = aliases[t["team"]]
++                standings = wiki_std
++        except Exception as e:
++            log.warning(f"  Wikipedia fallback failed: {e}")
++
+     total_goals = sum(r["hg"] + r["ag"] for r in all_results)
+     total_matches = len(all_results)
+ 
+diff --git a/sources/wikipedia.py b/sources/wikipedia.py
+index 3346e6a..22640a2 100644
+--- a/sources/wikipedia.py
++++ b/sources/wikipedia.py
+@@ -12,7 +12,7 @@ log = logging.getLogger("fetcher.wikipedia")
+ HEADERS = {"User-Agent": "BetAnalytics/1.0 (educational project)"}
+ 
+ 
+-def fetch_standings(wiki_url: str) -> list[dict]:
++def fetch_standings(wiki_url: str, table_index: int | None = None) -> list[dict]:
+     """
+     Extrae la tabla de posiciones estándar de una página de Wikipedia.
+     Busca columnas: Equipo/Team, PJ/Pld/MP, GF/GS, GC/GA.
+@@ -27,19 +27,19 @@ def fetch_standings(wiki_url: str) -> list[dict]:
+     soup = BeautifulSoup(r.text, "html.parser")
+     tables = soup.find_all("table", class_="wikitable")
+ 
+-    # Buscar la tabla que tenga columnas de standings (Pts, GF, GC)
++    # Buscar TODAS las tablas válidas de standings
++    all_valid = []
++
+     for table in tables:
+         headers_row = table.find("tr")
+         if not headers_row:
+             continue
+         header_texts = [th.get_text(strip=True).lower() for th in headers_row.find_all(["th", "td"])]
+-        header_str = " ".join(header_texts)
+ 
+         # Verificar que tiene las columnas necesarias
+         has_pts = any(h in header_texts for h in ["pts", "points", "puntos"])
+         has_gf = any(h in header_texts for h in ["gf", "gs", "goles a favor", "goals for", "f"])
+         has_ga = any(h in header_texts for h in ["gc", "ga", "goles en contra", "goals against", "a"])
+-        has_pj = any(h in header_texts for h in ["pj", "pld", "mp", "played", "j", "jugados"])
+ 
+         if not (has_pts and has_gf and has_ga):
+             continue
+@@ -82,7 +82,7 @@ def fetch_standings(wiki_url: str) -> list[dict]:
+                 # Filtrar números y textos cortos (posición, etc)
+                 if text and not text.isdigit() and len(text) > 2:
+                     # Limpiar sufijos como (C), (R), (P)
+-                    text = re.sub(r"\s*\([CRPQ]\)\s*$", "", text).strip()
++                    text = re.sub(r"\s*\([CRPQS]\)\s*$", "", text).strip()
+                     if text:
+                         team_name = text
+                         break
+@@ -115,8 +115,21 @@ def fetch_standings(wiki_url: str) -> list[dict]:
+                 standings.append(entry)
+ 
+         if len(standings) >= 5:
+-            log.info(f"Wikipedia: extracted {len(standings)} teams from {wiki_url}")
+-            return standings
++            all_valid.append(standings)
++
++    if not all_valid:
++        log.warning(f"Wikipedia: could not find standings table in {wiki_url}")
++        return []
+ 
+-    log.warning(f"Wikipedia: could not find standings table in {wiki_url}")
+-    return []
++    # Seleccionar tabla: por índice explícito, o la más grande (para Overall tables)
++    if table_index is not None:
++        try:
++            selected = all_valid[table_index]
++        except IndexError:
++            selected = all_valid[-1]  # fallback to last
++    else:
++        # Por defecto: la tabla con más equipos (Overall > Conference)
++        selected = max(all_valid, key=len)
++
++    log.info(f"Wikipedia: extracted {len(selected)} teams from {wiki_url} (selected from {len(all_valid)} valid tables)")
++    return selected
+diff --git a/verify_agent.py b/verify_agent.py
+index cd5709c..b311333 100644
+--- a/verify_agent.py
++++ b/verify_agent.py
+@@ -134,6 +134,64 @@ def merge_results(existing, new_results):
+     return existing, added
+ 
+ 
++# ── BACKFILL MODE ──────────────────────────
++
++def backfill_missing_results(league_name, standings, existing_results):
++    """
++    When a league has very few results (<20), ask Gemini to find results
++    in monthly blocks going back to the season start.
++    """
++    # Determine date range to backfill
++    if existing_results:
++        last_date = max(r.get("date", "") for r in existing_results)
++    else:
++        last_date = "2026-01-01"
++
++    today = datetime.date.today().isoformat()
++    teams = [t["team"] for t in standings[:20]] if standings else []
++    teams_str = ", ".join(teams) if teams else "(unknown)"
++
++    log.info(f"  🔄 Backfill mode: {len(existing_results)} results, scanning {last_date} to {today}")
++
++    existing_str = "\n".join(
++        f"  {r.get('date','?')} | {r['home']} {r['hg']}-{r['ag']} {r['away']}"
++        for r in existing_results[-5:]
++    ) if existing_results else "  (none)"
++
++    prompt = f"""You are a sports data backfill agent. A league database has very few results and needs to be filled.
++
++LEAGUE: {league_name}
++TODAY: {today}
++RESULTS WE HAVE ({len(existing_results)} total, showing latest):
++{existing_str}
++
++TEAMS IN LEAGUE: {teams_str}
++
++TASK: Search the web for ALL {league_name} results from {last_date} to {today}.
++This league should have MANY more results than we have. Find as many completed matches as possible.
++Focus on official league matches only (not friendlies, cups, or other competitions).
++
++Respond with ONLY a JSON array (no markdown, no explanation):
++[{{"date":"2026-03-01","home":"Team A","away":"Team B","hg":2,"ag":1}}]
++
++If you cannot find any results: []
++
++RULES: Only verified web results with confirmed scores. Never invent. JSON only. Maximum 50 results."""
++
++    response = call_gemini(prompt)
++    results = parse_json_array(response)
++    results = [r for r in results if all(k in r for k in ("date", "home", "away", "hg", "ag"))
++               and isinstance(r.get("hg"), int) and isinstance(r.get("ag"), int)]
++
++    if results:
++        log.info(f"  Backfill found {len(results)} results")
++        for r in results:
++            r["_source"] = "verify_agent_backfill"
++            r["_verified_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
++
++    return results
++
++
+ # ── FIXTURES VERIFICATION ──────────────────────────
+ 
+ def build_fixtures_prompt(league_name, standings, existing_fixtures):
+@@ -265,6 +323,19 @@ def main():
+ 
+         log.info(f"▸ {name} ({len(results)}R, {len(fixtures)}F)")
+ 
++        # ── Step 0: Backfill mode — if very few results and season is ongoing ──
++        if len(results) < 20:
++            backfill_results = backfill_missing_results(name, standings, results)
++            if backfill_results:
++                data["results"], added_bf = merge_results(data["results"], backfill_results)
++                if added_bf > 0:
++                    data["standings"] = rebuild_standings(data["results"])
++                    results = data["results"]  # update for subsequent steps
++                    standings = data["standings"]
++                    total_results_added += added_bf
++                    changed = True
++                    log.info(f"  Backfill: +{added_bf} results")
++
+         # ── Step 1: Verify results ──
+         prompt_r = build_results_prompt(name, standings, results)
+         response_r = call_gemini(prompt_r)
