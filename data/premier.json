@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-30T11:43:22.486143+00:00",
+    "last_updated": "2026-08-30T15:14:54.155185+00:00",
     "avg_goals": 1.4,
-    "total_matches": 17,
-    "total_goals": 49,
-    "avg_real": 1.441
+    "total_matches": 20,
+    "total_goals": 59,
+    "avg_real": 1.475
   },
   "standings": [
     {
@@ -32,6 +32,26 @@
       "pts": 6
     },
     {
+      "team": "Chelsea",
+      "pj": 2,
+      "gf": 7,
+      "ga": 5,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
+    },
+    {
+      "team": "Brentford",
+      "pj": 2,
+      "gf": 4,
+      "ga": 1,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
       "team": "Newcastle",
       "pj": 2,
       "gf": 4,
@@ -52,6 +72,16 @@
       "pts": 4
     },
     {
+      "team": "Leeds United",
+      "pj": 2,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
       "team": "Brighton & Hove Albion FC",
       "pj": 1,
       "gf": 4,
@@ -63,12 +93,12 @@
     },
     {
       "team": "Brighton",
-      "pj": 1,
-      "gf": 4,
-      "ga": 0,
+      "pj": 2,
+      "gf": 7,
+      "ga": 4,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 3
     },
     {
@@ -76,26 +106,6 @@
       "pj": 1,
       "gf": 3,
       "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Brentford",
-      "pj": 1,
-      "gf": 3,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Chelsea",
-      "pj": 1,
-      "gf": 3,
-      "ga": 2,
       "w": 1,
       "d": 0,
       "l": 0,
@@ -122,13 +132,13 @@
       "pts": 3
     },
     {
-      "team": "Leeds United",
-      "pj": 1,
-      "gf": 1,
-      "ga": 0,
+      "team": "Sunderland",
+      "pj": 2,
+      "gf": 2,
+      "ga": 2,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 3
     },
     {
@@ -163,22 +173,12 @@
     },
     {
       "team": "Fulham",
-      "pj": 1,
+      "pj": 2,
       "gf": 2,
-      "ga": 3,
+      "ga": 4,
       "w": 0,
       "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
-      "team": "Sunderland",
-      "pj": 1,
-      "gf": 1,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
+      "l": 2,
       "pts": 0
     },
     {
@@ -368,30 +368,33 @@
       "hg": 0,
       "ag": 2,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Sunderland",
+      "away": "Fulham",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Chelsea",
+      "away": "Brighton",
+      "hg": 4,
+      "ag": 3,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Leeds United",
+      "away": "Brentford",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 2
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Sunderland",
-      "away": "Fulham",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Chelsea",
-      "away": "Brighton",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Leeds United",
-      "away": "Brentford",
-      "matchday": 2
-    },
     {
       "date": "2026-08-30",
       "time": "10:30 AM",

@@ -4,13 +4,23 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-30T00:58:28.879561+00:00",
+    "last_updated": "2026-08-30T15:14:56.820381+00:00",
     "avg_goals": 1.35,
-    "total_matches": 25,
-    "total_goals": 72,
-    "avg_real": 1.44
+    "total_matches": 26,
+    "total_goals": 75,
+    "avg_real": 1.442
   },
   "standings": [
+    {
+      "team": "Paris FC",
+      "pj": 3,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 2,
+      "l": 0,
+      "pts": 5
+    },
     {
       "team": "Lille",
       "pj": 2,
@@ -182,16 +192,6 @@
       "pts": 2
     },
     {
-      "team": "Paris FC",
-      "pj": 2,
-      "gf": 0,
-      "ga": 0,
-      "w": 0,
-      "d": 2,
-      "l": 0,
-      "pts": 2
-    },
-    {
       "team": "Le Mans FC",
       "pj": 1,
       "gf": 2,
@@ -262,16 +262,6 @@
       "pts": 1
     },
     {
-      "team": "Nice",
-      "pj": 1,
-      "gf": 0,
-      "ga": 0,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
       "team": "Lorient",
       "pj": 2,
       "gf": 1,
@@ -296,6 +286,16 @@
       "pj": 2,
       "gf": 2,
       "ga": 4,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
+    },
+    {
+      "team": "Nice",
+      "pj": 2,
+      "gf": 0,
+      "ga": 3,
       "w": 0,
       "d": 1,
       "l": 1,
@@ -562,6 +562,14 @@
       "hg": 2,
       "ag": 2,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Paris FC",
+      "away": "Nice",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 2
     }
   ],
   "fixtures": [
@@ -570,13 +578,6 @@
       "time": "01:45 PM",
       "home": "Monaco",
       "away": "Marseille",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "08:00 AM",
-      "home": "Paris FC",
-      "away": "Nice",
       "matchday": 2
     },
     {
