@@ -4,13 +4,33 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-30T15:15:02.799741+00:00",
+    "last_updated": "2026-08-31T01:03:16.061649+00:00",
     "avg_goals": 1.72,
-    "total_matches": 11,
-    "total_goals": 34,
-    "avg_real": 1.545
+    "total_matches": 13,
+    "total_goals": 39,
+    "avg_real": 1.5
   },
   "standings": [
+    {
+      "team": "VfL Wolfsburg",
+      "gf": 10,
+      "ga": 3,
+      "pj": 2,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Werder Bremen",
+      "gf": 4,
+      "ga": 1,
+      "pj": 2,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 0
+    },
     {
       "team": "VfB Stuttgart",
       "gf": 4,
@@ -42,16 +62,6 @@
       "l": 0
     },
     {
-      "team": "VfL Wolfsburg",
-      "gf": 8,
-      "ga": 2,
-      "pj": 1,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 0
-    },
-    {
       "team": "Bayern Munich",
       "gf": 4,
       "ga": 1,
@@ -63,23 +73,13 @@
     },
     {
       "team": "Bayer Leverkusen",
-      "gf": 2,
-      "ga": 0,
-      "pj": 1,
+      "gf": 3,
+      "ga": 2,
+      "pj": 2,
       "pts": 3,
       "w": 1,
       "d": 0,
-      "l": 0
-    },
-    {
-      "team": "Werder Bremen",
-      "gf": 2,
-      "ga": 1,
-      "pj": 1,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 0
+      "l": 1
     },
     {
       "team": "1. FC Köln",
@@ -132,19 +132,19 @@
       "l": 2
     },
     {
-      "team": "RB Leipzig",
-      "gf": 0,
-      "ga": 2,
-      "pj": 1,
-      "pts": 0,
-      "w": 0,
-      "d": 0,
-      "l": 1
-    },
-    {
       "team": "Union Berlin",
       "gf": 1,
       "ga": 5,
+      "pj": 2,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 2
+    },
+    {
+      "team": "RB Leipzig",
+      "gf": 0,
+      "ga": 4,
       "pj": 2,
       "pts": 0,
       "w": 0,

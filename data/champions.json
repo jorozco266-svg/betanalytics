@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-17T17:46:38.488461+00:00",
+    "last_updated": "2026-08-31T01:03:07.172648+00:00",
     "avg_goals": 1.45,
     "total_matches": 189,
     "total_goals": 662,
@@ -1886,5 +1886,132 @@
       "matchday": null
     }
   ],
-  "fixtures": []
+  "fixtures": [
+    {
+      "date": "2026-09-08",
+      "time": "02:00 PM",
+      "home": "Real Madrid CF",
+      "away": "FC Internazionale Milano",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "time": "02:00 PM",
+      "home": "FC Porto",
+      "away": "Manchester City FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "time": "02:00 PM",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal CF",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "time": "02:00 PM",
+      "home": "Lille OSC",
+      "away": "Real Betis Balompié",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "time": "11:45 AM",
+      "home": "Club Brugge KV",
+      "away": "Aston Villa FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "time": "11:45 AM",
+      "home": "PAE AEK",
+      "away": "LASK Linz",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "02:00 PM",
+      "home": "Liverpool FC",
+      "away": "Club Atlético de Madrid",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "02:00 PM",
+      "home": "Paris Saint-Germain FC",
+      "away": "ŠK Slovan Bratislava",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "02:00 PM",
+      "home": "SSC Napoli",
+      "away": "Arsenal FC",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "02:00 PM",
+      "home": "Sporting Clube de Portugal",
+      "away": "Galatasaray SK",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "11:45 AM",
+      "home": "FC Barcelona",
+      "away": "Feyenoord Rotterdam",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-09",
+      "time": "11:45 AM",
+      "home": "VfB Stuttgart",
+      "away": "Viking FK",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "02:00 PM",
+      "home": "FC Bayern München",
+      "away": "FK Bodø/Glimt",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "02:00 PM",
+      "home": "Manchester United FC",
+      "away": "Sabah FK",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "02:00 PM",
+      "home": "Como 1907",
+      "away": "RB Leipzig",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "02:00 PM",
+      "home": "SK Slavia Praha",
+      "away": "Racing Club de Lens",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "11:45 AM",
+      "home": "Fenerbahçe SK",
+      "away": "AS Roma",
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "time": "11:45 AM",
+      "home": "PSV",
+      "away": "FK Shakhtar Donetsk",
+      "matchday": 1
+    }
+  ]
 }

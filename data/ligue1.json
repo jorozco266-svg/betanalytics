@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-30T15:14:56.820381+00:00",
+    "last_updated": "2026-08-31T01:03:06.325301+00:00",
     "avg_goals": 1.35,
-    "total_matches": 26,
-    "total_goals": 75,
-    "avg_real": 1.442
+    "total_matches": 27,
+    "total_goals": 80,
+    "avg_real": 1.481
   },
   "standings": [
     {
@@ -36,6 +36,16 @@
       "pj": 2,
       "gf": 3,
       "ga": 1,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
+      "team": "Rennes",
+      "pj": 2,
+      "gf": 5,
+      "ga": 4,
       "w": 1,
       "d": 1,
       "l": 0,
@@ -212,26 +222,6 @@
       "pts": 1
     },
     {
-      "team": "Le Mans",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
-      "team": "Rennes",
-      "pj": 1,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
       "team": "ES Troyes AC",
       "pj": 1,
       "gf": 0,
@@ -259,6 +249,16 @@
       "w": 0,
       "d": 1,
       "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "Le Mans",
+      "pj": 2,
+      "gf": 4,
+      "ga": 5,
+      "w": 0,
+      "d": 1,
+      "l": 1,
       "pts": 1
     },
     {
@@ -570,23 +570,17 @@
       "hg": 3,
       "ag": 0,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Rennes",
+      "away": "Le Mans",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 2
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-30",
-      "time": "01:45 PM",
-      "home": "Monaco",
-      "away": "Marseille",
-      "matchday": 2
-    },
-    {
-      "date": "2026-08-30",
-      "time": "10:15 AM",
-      "home": "Rennes",
-      "away": "Le Mans",
-      "matchday": 2
-    },
     {
       "date": "2026-09-03",
       "time": "01:45 PM",

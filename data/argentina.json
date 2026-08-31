@@ -4,27 +4,27 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-30T04:26:59.204049+00:00",
+    "last_updated": "2026-08-31T01:03:02.351893+00:00",
     "avg_goals": 1.03,
-    "total_matches": 337,
-    "total_goals": 693,
-    "avg_real": 1.028
+    "total_matches": 340,
+    "total_goals": 704,
+    "avg_real": 1.035
   },
   "standings": [
     {
-      "team": "Independiente Rivadavia",
-      "gf": 34,
-      "ga": 21,
-      "pj": 22,
-      "pts": 42,
-      "w": 12,
+      "team": "Argentinos Juniors",
+      "gf": 29,
+      "ga": 20,
+      "pj": 23,
+      "pts": 45,
+      "w": 13,
       "d": 6,
       "l": 4
     },
     {
-      "team": "Argentinos Juniors",
-      "gf": 27,
-      "ga": 19,
+      "team": "Independiente Rivadavia",
+      "gf": 34,
+      "ga": 21,
       "pj": 22,
       "pts": 42,
       "w": 12,
@@ -92,14 +92,24 @@
       "l": 6
     },
     {
+      "team": "River Plate",
+      "gf": 29,
+      "ga": 20,
+      "pj": 23,
+      "pts": 36,
+      "w": 11,
+      "d": 3,
+      "l": 9
+    },
+    {
       "team": "Independiente",
       "gf": 30,
-      "ga": 23,
-      "pj": 22,
+      "ga": 26,
+      "pj": 23,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Instituto",
@@ -112,13 +122,13 @@
       "l": 8
     },
     {
-      "team": "River Plate",
+      "team": "Gimnasia y Esgrima (M)",
       "gf": 26,
-      "ga": 18,
-      "pj": 22,
-      "pts": 33,
+      "ga": 27,
+      "pj": 23,
+      "pts": 34,
       "w": 10,
-      "d": 3,
+      "d": 4,
       "l": 9
     },
     {
@@ -172,16 +182,6 @@
       "l": 8
     },
     {
-      "team": "Gimnasia y Esgrima (M)",
-      "gf": 23,
-      "ga": 27,
-      "pj": 22,
-      "pts": 31,
-      "w": 9,
-      "d": 4,
-      "l": 9
-    },
-    {
       "team": "Sarmiento (J)",
       "gf": 26,
       "ga": 32,
@@ -233,13 +233,13 @@
     },
     {
       "team": "Banfield",
-      "gf": 22,
-      "ga": 26,
-      "pj": 22,
+      "gf": 24,
+      "ga": 29,
+      "pj": 23,
       "pts": 25,
       "w": 7,
       "d": 4,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Newell's Old Boys",
@@ -303,13 +303,13 @@
     },
     {
       "team": "Aldosivi",
-      "gf": 10,
-      "ga": 28,
-      "pj": 22,
+      "gf": 11,
+      "ga": 30,
+      "pj": 23,
       "pts": 10,
       "w": 0,
       "d": 10,
-      "l": 12
+      "l": 13
     }
   ],
   "results": [

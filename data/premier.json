@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-30T15:14:54.155185+00:00",
+    "last_updated": "2026-08-31T01:03:04.240889+00:00",
     "avg_goals": 1.4,
-    "total_matches": 20,
-    "total_goals": 59,
-    "avg_real": 1.475
+    "total_matches": 21,
+    "total_goals": 66,
+    "avg_real": 1.571
   },
   "standings": [
     {
@@ -112,13 +112,13 @@
       "pts": 3
     },
     {
-      "team": "Ipswich Town",
-      "pj": 1,
-      "gf": 2,
-      "ga": 1,
+      "team": "Manchester United",
+      "pj": 2,
+      "gf": 5,
+      "ga": 4,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 3
     },
     {
@@ -136,6 +136,16 @@
       "pj": 2,
       "gf": 2,
       "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 1,
+      "pts": 3
+    },
+    {
+      "team": "Ipswich Town",
+      "pj": 2,
+      "gf": 4,
+      "ga": 6,
       "w": 1,
       "d": 0,
       "l": 1,
@@ -179,16 +189,6 @@
       "w": 0,
       "d": 0,
       "l": 2,
-      "pts": 0
-    },
-    {
-      "team": "Manchester United",
-      "pj": 1,
-      "gf": 0,
-      "ga": 2,
-      "w": 0,
-      "d": 0,
-      "l": 1,
       "pts": 0
     },
     {
@@ -392,16 +392,17 @@
       "hg": 1,
       "ag": 1,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Manchester United",
+      "away": "Ipswich Town",
+      "hg": 5,
+      "ag": 2,
+      "matchday": 2
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-30",
-      "time": "10:30 AM",
-      "home": "Manchester United",
-      "away": "Ipswich Town",
-      "matchday": 2
-    },
     {
       "date": "2026-08-31",
       "time": "02:00 PM",

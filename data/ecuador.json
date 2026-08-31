@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-30T04:27:06.113375+00:00",
+    "last_updated": "2026-08-31T01:03:11.960438+00:00",
     "avg_goals": 1.25,
-    "total_matches": 213,
-    "total_goals": 479,
-    "avg_real": 1.124
+    "total_matches": 216,
+    "total_goals": 486,
+    "avg_real": 1.125
   },
   "standings": [
     {
@@ -22,6 +22,26 @@
       "l": 3
     },
     {
+      "team": "Aucas",
+      "gf": 31,
+      "ga": 26,
+      "pj": 27,
+      "pts": 47,
+      "w": 14,
+      "d": 5,
+      "l": 8
+    },
+    {
+      "team": "Macará",
+      "gf": 35,
+      "ga": 27,
+      "pj": 27,
+      "pts": 45,
+      "w": 13,
+      "d": 6,
+      "l": 8
+    },
+    {
       "team": "Universidad Católica",
       "gf": 47,
       "ga": 25,
@@ -30,26 +50,6 @@
       "w": 12,
       "d": 8,
       "l": 7
-    },
-    {
-      "team": "Aucas",
-      "gf": 30,
-      "ga": 26,
-      "pj": 26,
-      "pts": 44,
-      "w": 13,
-      "d": 5,
-      "l": 8
-    },
-    {
-      "team": "Macará",
-      "gf": 33,
-      "ga": 26,
-      "pj": 26,
-      "pts": 42,
-      "w": 12,
-      "d": 6,
-      "l": 8
     },
     {
       "team": "LDU Quito",
@@ -74,12 +74,12 @@
     {
       "team": "Libertad",
       "gf": 29,
-      "ga": 29,
-      "pj": 26,
+      "ga": 30,
+      "pj": 27,
       "pts": 37,
       "w": 10,
       "d": 7,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Mushuc Runa",
@@ -103,21 +103,21 @@
     },
     {
       "team": "Leones",
-      "gf": 28,
-      "ga": 28,
-      "pj": 26,
+      "gf": 29,
+      "ga": 30,
+      "pj": 27,
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Emelec",
-      "gf": 21,
-      "ga": 31,
-      "pj": 26,
-      "pts": 32,
-      "w": 8,
+      "gf": 23,
+      "ga": 32,
+      "pj": 27,
+      "pts": 35,
+      "w": 9,
       "d": 8,
       "l": 10
     },
@@ -133,13 +133,13 @@
     },
     {
       "team": "Orense",
-      "gf": 30,
-      "ga": 39,
-      "pj": 26,
+      "gf": 31,
+      "ga": 41,
+      "pj": 27,
       "pts": 30,
       "w": 8,
       "d": 6,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Técnico Universitario",
