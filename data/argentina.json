@@ -4,17 +4,17 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-31T01:03:02.351893+00:00",
+    "last_updated": "2026-08-31T17:56:55.364536+00:00",
     "avg_goals": 1.03,
-    "total_matches": 340,
-    "total_goals": 704,
-    "avg_real": 1.035
+    "total_matches": 341,
+    "total_goals": 708,
+    "avg_real": 1.038
   },
   "standings": [
     {
-      "team": "Argentinos Juniors",
-      "gf": 29,
-      "ga": 20,
+      "team": "Independiente Rivadavia",
+      "gf": 37,
+      "ga": 22,
       "pj": 23,
       "pts": 45,
       "w": 13,
@@ -22,12 +22,12 @@
       "l": 4
     },
     {
-      "team": "Independiente Rivadavia",
-      "gf": 34,
-      "ga": 21,
-      "pj": 22,
-      "pts": 42,
-      "w": 12,
+      "team": "Argentinos Juniors",
+      "gf": 29,
+      "ga": 20,
+      "pj": 23,
+      "pts": 45,
+      "w": 13,
       "d": 6,
       "l": 4
     },
@@ -223,13 +223,13 @@
     },
     {
       "team": "Racing",
-      "gf": 22,
-      "ga": 23,
-      "pj": 22,
+      "gf": 23,
+      "ga": 26,
+      "pj": 23,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Banfield",

@@ -4,17 +4,27 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-31T01:03:16.061649+00:00",
+    "last_updated": "2026-08-31T17:57:05.069224+00:00",
     "avg_goals": 1.72,
-    "total_matches": 13,
-    "total_goals": 39,
-    "avg_real": 1.5
+    "total_matches": 14,
+    "total_goals": 41,
+    "avg_real": 1.464
   },
   "standings": [
     {
       "team": "VfL Wolfsburg",
       "gf": 10,
       "ga": 3,
+      "pj": 2,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 0
+    },
+    {
+      "team": "Bayern Munich",
+      "gf": 6,
+      "ga": 1,
       "pj": 2,
       "pts": 6,
       "w": 2,
@@ -62,16 +72,6 @@
       "l": 0
     },
     {
-      "team": "Bayern Munich",
-      "gf": 4,
-      "ga": 1,
-      "pj": 1,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 0
-    },
-    {
       "team": "Bayer Leverkusen",
       "gf": 3,
       "ga": 2,
@@ -112,19 +112,19 @@
       "l": 1
     },
     {
-      "team": "Mainz 05",
-      "gf": 1,
-      "ga": 2,
-      "pj": 1,
-      "pts": 0,
-      "w": 0,
-      "d": 0,
-      "l": 1
-    },
-    {
       "team": "TSG Hoffenheim",
       "gf": 1,
       "ga": 3,
+      "pj": 2,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 2
+    },
+    {
+      "team": "Mainz 05",
+      "gf": 1,
+      "ga": 4,
       "pj": 2,
       "pts": 0,
       "w": 0,
