@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-31T01:03:04.240889+00:00",
+    "last_updated": "2026-09-01T01:34:38.929801+00:00",
     "avg_goals": 1.4,
     "total_matches": 21,
     "total_goals": 66,
@@ -403,13 +403,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-08-31",
-      "time": "02:00 PM",
-      "home": "Aston Villa",
-      "away": "Arsenal",
-      "matchday": 2
-    },
     {
       "date": "2026-09-04",
       "time": "02:00 PM",

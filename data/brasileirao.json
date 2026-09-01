@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-08-31T01:03:02.759650+00:00",
+    "last_updated": "2026-09-01T01:34:37.951396+00:00",
     "avg_goals": 1.35,
-    "total_matches": 244,
-    "total_goals": 642,
-    "avg_real": 1.316
+    "total_matches": 245,
+    "total_goals": 647,
+    "avg_real": 1.32
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "l": 8
     },
     {
+      "team": "Coritiba",
+      "gf": 33,
+      "ga": 33,
+      "pj": 25,
+      "pts": 37,
+      "w": 10,
+      "d": 7,
+      "l": 8
+    },
+    {
       "team": "Atlético Mineiro",
       "gf": 32,
       "ga": 28,
@@ -90,16 +100,6 @@
       "w": 10,
       "d": 5,
       "l": 9
-    },
-    {
-      "team": "Coritiba",
-      "gf": 30,
-      "ga": 31,
-      "pj": 24,
-      "pts": 34,
-      "w": 9,
-      "d": 7,
-      "l": 8
     },
     {
       "team": "Corinthians",
@@ -193,13 +193,13 @@
     },
     {
       "team": "Remo",
-      "gf": 28,
-      "ga": 39,
-      "pj": 24,
+      "gf": 30,
+      "ga": 42,
+      "pj": 25,
       "pts": 23,
       "w": 5,
       "d": 8,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Chapecoense",

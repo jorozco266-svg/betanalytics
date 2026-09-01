@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-31T17:56:55.364536+00:00",
+    "last_updated": "2026-09-01T01:34:37.509723+00:00",
     "avg_goals": 1.03,
-    "total_matches": 341,
-    "total_goals": 708,
-    "avg_real": 1.038
+    "total_matches": 343,
+    "total_goals": 709,
+    "avg_real": 1.034
   },
   "standings": [
     {
@@ -62,6 +62,16 @@
       "l": 6
     },
     {
+      "team": "Estudiantes (LP)",
+      "gf": 26,
+      "ga": 14,
+      "pj": 23,
+      "pts": 38,
+      "w": 11,
+      "d": 5,
+      "l": 7
+    },
+    {
       "team": "Gimnasia y Esgrima (LP)",
       "gf": 29,
       "ga": 30,
@@ -70,16 +80,6 @@
       "w": 12,
       "d": 2,
       "l": 9
-    },
-    {
-      "team": "Estudiantes (LP)",
-      "gf": 26,
-      "ga": 14,
-      "pj": 22,
-      "pts": 37,
-      "w": 11,
-      "d": 4,
-      "l": 7
     },
     {
       "team": "Belgrano",
@@ -130,6 +130,16 @@
       "w": 10,
       "d": 4,
       "l": 9
+    },
+    {
+      "team": "Defensa y Justicia",
+      "gf": 27,
+      "ga": 29,
+      "pj": 23,
+      "pts": 33,
+      "w": 8,
+      "d": 9,
+      "l": 6
     },
     {
       "team": "Unión",
@@ -202,16 +212,6 @@
       "l": 8
     },
     {
-      "team": "Defensa y Justicia",
-      "gf": 26,
-      "ga": 29,
-      "pj": 22,
-      "pts": 30,
-      "w": 7,
-      "d": 9,
-      "l": 6
-    },
-    {
       "team": "San Lorenzo",
       "gf": 16,
       "ga": 18,
@@ -232,6 +232,16 @@
       "l": 9
     },
     {
+      "team": "Newell's Old Boys",
+      "gf": 23,
+      "ga": 33,
+      "pj": 23,
+      "pts": 26,
+      "w": 6,
+      "d": 8,
+      "l": 9
+    },
+    {
       "team": "Banfield",
       "gf": 24,
       "ga": 29,
@@ -240,16 +250,6 @@
       "w": 7,
       "d": 4,
       "l": 12
-    },
-    {
-      "team": "Newell's Old Boys",
-      "gf": 23,
-      "ga": 33,
-      "pj": 22,
-      "pts": 25,
-      "w": 6,
-      "d": 7,
-      "l": 9
     },
     {
       "team": "Atlético Tucumán",
@@ -264,12 +264,12 @@
     {
       "team": "Platense",
       "gf": 17,
-      "ga": 25,
-      "pj": 22,
+      "ga": 26,
+      "pj": 23,
       "pts": 24,
       "w": 5,
       "d": 9,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Central Córdoba (SdE)",
