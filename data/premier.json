@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-01T01:34:38.929801+00:00",
+    "last_updated": "2026-09-01T15:25:23.387228+00:00",
     "avg_goals": 1.4,
-    "total_matches": 21,
-    "total_goals": 66,
-    "avg_real": 1.571
+    "total_matches": 22,
+    "total_goals": 67,
+    "avg_real": 1.523
   },
   "standings": [
     {
@@ -16,6 +16,16 @@
       "pj": 2,
       "gf": 6,
       "ga": 2,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
+    },
+    {
+      "team": "Arsenal",
+      "pj": 2,
+      "gf": 4,
+      "ga": 0,
       "w": 2,
       "d": 0,
       "l": 0,
@@ -99,16 +109,6 @@
       "w": 1,
       "d": 0,
       "l": 1,
-      "pts": 3
-    },
-    {
-      "team": "Arsenal",
-      "pj": 1,
-      "gf": 3,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
       "pts": 3
     },
     {
@@ -223,12 +223,12 @@
     },
     {
       "team": "Aston Villa",
-      "pj": 2,
+      "pj": 3,
       "gf": 0,
-      "ga": 8,
+      "ga": 9,
       "w": 0,
       "d": 0,
-      "l": 2,
+      "l": 3,
       "pts": 0
     }
   ],
@@ -399,6 +399,14 @@
       "away": "Ipswich Town",
       "hg": 5,
       "ag": 2,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-31",
+      "home": "Aston Villa",
+      "away": "Arsenal",
+      "hg": 0,
+      "ag": 1,
       "matchday": 2
     }
   ],

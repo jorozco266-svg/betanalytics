@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-01T01:34:37.509723+00:00",
+    "last_updated": "2026-09-01T15:25:21.306280+00:00",
     "avg_goals": 1.03,
-    "total_matches": 343,
-    "total_goals": 709,
-    "avg_real": 1.034
+    "total_matches": 345,
+    "total_goals": 710,
+    "avg_real": 1.029
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "l": 6
     },
     {
+      "team": "Instituto",
+      "gf": 23,
+      "ga": 19,
+      "pj": 23,
+      "pts": 37,
+      "w": 11,
+      "d": 4,
+      "l": 8
+    },
+    {
       "team": "River Plate",
       "gf": 29,
       "ga": 20,
@@ -110,16 +120,6 @@
       "w": 9,
       "d": 7,
       "l": 7
-    },
-    {
-      "team": "Instituto",
-      "gf": 22,
-      "ga": 19,
-      "pj": 22,
-      "pts": 34,
-      "w": 10,
-      "d": 4,
-      "l": 8
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -142,6 +142,16 @@
       "l": 6
     },
     {
+      "team": "Tigre",
+      "gf": 24,
+      "ga": 18,
+      "pj": 23,
+      "pts": 32,
+      "w": 7,
+      "d": 11,
+      "l": 5
+    },
+    {
       "team": "Unión",
       "gf": 36,
       "ga": 30,
@@ -150,16 +160,6 @@
       "w": 8,
       "d": 7,
       "l": 8
-    },
-    {
-      "team": "Tigre",
-      "gf": 24,
-      "ga": 18,
-      "pj": 22,
-      "pts": 31,
-      "w": 7,
-      "d": 10,
-      "l": 5
     },
     {
       "team": "Huracán",
@@ -192,6 +192,16 @@
       "l": 8
     },
     {
+      "team": "Barracas Central",
+      "gf": 19,
+      "ga": 20,
+      "pj": 23,
+      "pts": 31,
+      "w": 8,
+      "d": 7,
+      "l": 8
+    },
+    {
       "team": "Sarmiento (J)",
       "gf": 26,
       "ga": 32,
@@ -202,24 +212,14 @@
       "l": 12
     },
     {
-      "team": "Barracas Central",
-      "gf": 19,
-      "ga": 20,
-      "pj": 22,
-      "pts": 30,
-      "w": 8,
-      "d": 6,
-      "l": 8
-    },
-    {
       "team": "San Lorenzo",
       "gf": 16,
-      "ga": 18,
-      "pj": 22,
+      "ga": 19,
+      "pj": 23,
       "pts": 29,
       "w": 7,
       "d": 8,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Racing",

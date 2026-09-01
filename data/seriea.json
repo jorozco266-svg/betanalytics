@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-01T01:34:39.933281+00:00",
+    "last_updated": "2026-09-01T15:25:24.740474+00:00",
     "avg_goals": 1.3,
-    "total_matches": 26,
-    "total_goals": 63,
-    "avg_real": 1.212
+    "total_matches": 28,
+    "total_goals": 68,
+    "avg_real": 1.214
   },
   "standings": [
     {
@@ -20,6 +20,16 @@
       "d": 0,
       "l": 0,
       "pts": 9
+    },
+    {
+      "team": "Roma",
+      "pj": 2,
+      "gf": 8,
+      "ga": 0,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
     },
     {
       "team": "Inter Milan",
@@ -36,6 +46,16 @@
       "pj": 2,
       "gf": 3,
       "ga": 0,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
+    },
+    {
+      "team": "Atalanta",
+      "pj": 2,
+      "gf": 3,
+      "ga": 1,
       "w": 2,
       "d": 0,
       "l": 0,
@@ -70,16 +90,6 @@
       "d": 1,
       "l": 0,
       "pts": 4
-    },
-    {
-      "team": "Roma",
-      "pj": 1,
-      "gf": 4,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
     },
     {
       "team": "FC Internazionale Milano",
@@ -122,16 +132,6 @@
       "pts": 3
     },
     {
-      "team": "Lecce",
-      "pj": 1,
-      "gf": 2,
-      "ga": 0,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
       "team": "Napoli",
       "pj": 2,
       "gf": 3,
@@ -143,16 +143,6 @@
     },
     {
       "team": "Atalanta BC",
-      "pj": 1,
-      "gf": 2,
-      "ga": 1,
-      "w": 1,
-      "d": 0,
-      "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Atalanta",
       "pj": 1,
       "gf": 2,
       "ga": 1,
@@ -196,6 +186,16 @@
       "pj": 2,
       "gf": 1,
       "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 1,
+      "pts": 3
+    },
+    {
+      "team": "Lecce",
+      "pj": 2,
+      "gf": 2,
+      "ga": 4,
       "w": 1,
       "d": 0,
       "l": 1,
@@ -252,16 +252,6 @@
       "pts": 0
     },
     {
-      "team": "Bologna",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "Torino",
       "pj": 2,
       "gf": 2,
@@ -289,6 +279,16 @@
       "w": 0,
       "d": 0,
       "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Bologna",
+      "pj": 2,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 2,
       "pts": 0
     },
     {
@@ -560,6 +560,22 @@
       "hg": 0,
       "ag": 1,
       "matchday": 2
+    },
+    {
+      "date": "2026-08-31",
+      "home": "Lecce",
+      "away": "Roma",
+      "hg": 0,
+      "ag": 4,
+      "matchday": 2
+    },
+    {
+      "date": "2026-08-31",
+      "home": "Atalanta",
+      "away": "Bologna",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 2
     }
   ],
   "fixtures": [
@@ -628,7 +644,7 @@
     },
     {
       "date": "2026-09-07",
-      "time": "11:00 AM",
+      "time": "11:30 AM",
       "home": "Cagliari",
       "away": "Lecce",
       "matchday": 3
