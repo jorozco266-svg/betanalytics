@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-02T00:46:57.261275+00:00",
+    "last_updated": "2026-09-02T15:01:14.862162+00:00",
     "avg_goals": 1.25,
-    "total_matches": 217,
+    "total_matches": 218,
     "total_goals": 487,
-    "avg_real": 1.122
+    "avg_real": 1.117
   },
   "standings": [
     {
@@ -55,10 +55,10 @@
       "team": "LDU Quito",
       "gf": 27,
       "ga": 22,
-      "pj": 27,
-      "pts": 41,
+      "pj": 28,
+      "pts": 42,
       "w": 12,
-      "d": 5,
+      "d": 6,
       "l": 10
     },
     {
@@ -72,6 +72,16 @@
       "l": 8
     },
     {
+      "team": "Mushuc Runa",
+      "gf": 33,
+      "ga": 34,
+      "pj": 28,
+      "pts": 37,
+      "w": 9,
+      "d": 10,
+      "l": 9
+    },
+    {
       "team": "Libertad",
       "gf": 29,
       "ga": 30,
@@ -80,16 +90,6 @@
       "w": 10,
       "d": 7,
       "l": 10
-    },
-    {
-      "team": "Mushuc Runa",
-      "gf": 33,
-      "ga": 34,
-      "pj": 27,
-      "pts": 36,
-      "w": 9,
-      "d": 9,
-      "l": 9
     },
     {
       "team": "Guayaquil City",
