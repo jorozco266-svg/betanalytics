@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-08-31T01:03:11.960438+00:00",
+    "last_updated": "2026-09-02T00:46:57.261275+00:00",
     "avg_goals": 1.25,
-    "total_matches": 216,
-    "total_goals": 486,
-    "avg_real": 1.125
+    "total_matches": 217,
+    "total_goals": 487,
+    "avg_real": 1.122
   },
   "standings": [
     {
@@ -144,20 +144,20 @@
     {
       "team": "Técnico Universitario",
       "gf": 26,
-      "ga": 38,
-      "pj": 27,
+      "ga": 39,
+      "pj": 28,
       "pts": 29,
       "w": 9,
       "d": 2,
-      "l": 16
+      "l": 17
     },
     {
       "team": "Delfín",
-      "gf": 17,
+      "gf": 18,
       "ga": 29,
-      "pj": 27,
-      "pts": 24,
-      "w": 6,
+      "pj": 28,
+      "pts": 27,
+      "w": 7,
       "d": 6,
       "l": 15
     },

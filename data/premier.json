@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-01T15:25:23.387228+00:00",
+    "last_updated": "2026-09-02T00:46:53.209911+00:00",
     "avg_goals": 1.4,
     "total_matches": 22,
     "total_goals": 67,
@@ -480,6 +480,55 @@
       "home": "Arsenal",
       "away": "Chelsea",
       "matchday": 3
+    },
+    {
+      "date": "2026-09-12",
+      "time": "02:00 PM",
+      "home": "Sunderland",
+      "away": "Arsenal",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:00 AM",
+      "home": "Crystal Palace",
+      "away": "Ipswich Town",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:00 AM",
+      "home": "Liverpool",
+      "away": "Fulham",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:00 AM",
+      "home": "Aston Villa",
+      "away": "Nottingham Forest",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:00 AM",
+      "home": "Bournemouth",
+      "away": "Brentford",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "09:00 AM",
+      "home": "Chelsea",
+      "away": "Hull City",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "11:30 AM",
+      "home": "Tottenham",
+      "away": "Everton",
+      "matchday": 4
     }
   ],
   "hist_season": {

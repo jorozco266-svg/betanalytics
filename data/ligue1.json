@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-01T01:34:41.008915+00:00",
+    "last_updated": "2026-09-02T00:46:55.029159+00:00",
     "avg_goals": 1.35,
     "total_matches": 28,
     "total_goals": 82,
@@ -657,6 +657,41 @@
       "time": "01:45 PM",
       "home": "Rennes",
       "away": "Marseille",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Lorient",
+      "away": "Toulouse",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Auxerre",
+      "away": "Nice",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Le Havre",
+      "away": "Angers",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Paris FC",
+      "away": "Lyon",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "10:15 AM",
+      "home": "Strasbourg",
+      "away": "Monaco",
       "matchday": 4
     }
   ],
