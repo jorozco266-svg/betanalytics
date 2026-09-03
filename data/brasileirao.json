@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-01T01:34:37.951396+00:00",
+    "last_updated": "2026-09-03T00:54:57.414439+00:00",
     "avg_goals": 1.35,
-    "total_matches": 245,
-    "total_goals": 647,
-    "avg_real": 1.32
+    "total_matches": 246,
+    "total_goals": 649,
+    "avg_real": 1.319
   },
   "standings": [
     {
@@ -23,11 +23,11 @@
     },
     {
       "team": "Flamengo",
-      "gf": 48,
+      "gf": 50,
       "ga": 21,
-      "pj": 24,
-      "pts": 48,
-      "w": 14,
+      "pj": 25,
+      "pts": 51,
+      "w": 15,
       "d": 6,
       "l": 4
     },
@@ -164,19 +164,19 @@
     {
       "team": "Mirassol",
       "gf": 27,
-      "ga": 37,
-      "pj": 24,
-      "pts": 25,
+      "ga": 39,
+      "pj": 25,
+      "pts": 0,
       "w": 6,
       "d": 7,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Vasco da Gama",
       "gf": 27,
       "ga": 39,
       "pj": 24,
-      "pts": 25,
+      "pts": 0,
       "w": 6,
       "d": 7,
       "l": 11

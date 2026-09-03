@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-02T15:01:14.862162+00:00",
+    "last_updated": "2026-09-03T00:55:04.122884+00:00",
     "avg_goals": 1.25,
-    "total_matches": 218,
-    "total_goals": 487,
-    "avg_real": 1.117
+    "total_matches": 220,
+    "total_goals": 495,
+    "avg_real": 1.125
   },
   "standings": [
     {
@@ -22,6 +22,16 @@
       "l": 3
     },
     {
+      "team": "Macará",
+      "gf": 39,
+      "ga": 30,
+      "pj": 28,
+      "pts": 48,
+      "w": 14,
+      "d": 6,
+      "l": 8
+    },
+    {
       "team": "Aucas",
       "gf": 31,
       "ga": 26,
@@ -29,16 +39,6 @@
       "pts": 47,
       "w": 14,
       "d": 5,
-      "l": 8
-    },
-    {
-      "team": "Macará",
-      "gf": 35,
-      "ga": 27,
-      "pj": 27,
-      "pts": 45,
-      "w": 13,
-      "d": 6,
       "l": 8
     },
     {
@@ -94,12 +94,12 @@
     {
       "team": "Guayaquil City",
       "gf": 27,
-      "ga": 30,
-      "pj": 27,
+      "ga": 31,
+      "pj": 28,
       "pts": 36,
       "w": 9,
       "d": 9,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Leones",
@@ -123,11 +123,11 @@
     },
     {
       "team": "Deportivo Cuenca",
-      "gf": 23,
+      "gf": 24,
       "ga": 35,
-      "pj": 27,
-      "pts": 32,
-      "w": 9,
+      "pj": 28,
+      "pts": 35,
+      "w": 10,
       "d": 5,
       "l": 13
     },
@@ -163,13 +163,13 @@
     },
     {
       "team": "Manta",
-      "gf": 14,
-      "ga": 37,
-      "pj": 27,
+      "gf": 17,
+      "ga": 41,
+      "pj": 28,
       "pts": 20,
       "w": 5,
       "d": 5,
-      "l": 17
+      "l": 18
     }
   ],
   "results": [],
