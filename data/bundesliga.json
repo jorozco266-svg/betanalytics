@@ -4,17 +4,27 @@
     "league_key": "bundesliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-30T00:58:22.806683+00:00",
+    "last_updated": "2026-09-03T14:55:12.328065+00:00",
     "avg_goals": 1.55,
-    "total_matches": 5,
-    "total_goals": 17,
-    "avg_real": 1.7
+    "total_matches": 9,
+    "total_goals": 35,
+    "avg_real": 1.944
   },
   "standings": [
     {
       "team": "Bayern Munich",
       "pj": 1,
       "gf": 5,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Freiburg",
+      "pj": 1,
+      "gf": 4,
       "ga": 1,
       "w": 1,
       "d": 0,
@@ -32,10 +42,40 @@
       "pts": 3
     },
     {
+      "team": "Augsburg",
+      "pj": 1,
+      "gf": 3,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Borussia Dortmund",
       "pj": 1,
       "gf": 2,
       "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Köln",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Elversberg",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
       "w": 1,
       "d": 0,
       "l": 0,
@@ -82,6 +122,26 @@
       "pts": 1
     },
     {
+      "team": "Hoffenheim",
+      "pj": 1,
+      "gf": 2,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Bayer Leverkusen",
+      "pj": 1,
+      "gf": 2,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Hamburg",
       "pj": 1,
       "gf": 0,
@@ -92,7 +152,27 @@
       "pts": 0
     },
     {
+      "team": "Werder Bremen",
+      "pj": 1,
+      "gf": 1,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Borussia Monchengladbach",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Schalke 04",
       "pj": 1,
       "gf": 0,
       "ga": 3,
@@ -152,9 +232,84 @@
       "hg": 2,
       "ag": 0,
       "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Köln",
+      "away": "Hoffenheim",
+      "hg": 3,
+      "ag": 2,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-29",
+      "home": "Elversberg",
+      "away": "Bayer Leverkusen",
+      "hg": 3,
+      "ag": 2,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Freiburg",
+      "away": "Werder Bremen",
+      "hg": 4,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-30",
+      "home": "Augsburg",
+      "away": "Schalke 04",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "1"
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-09-04",
+      "time": "01:30 PM",
+      "home": "Stuttgart",
+      "away": "Köln",
+      "matchday": "2"
+    },
+    {
+      "date": "2026-09-05",
+      "time": "08:30 AM",
+      "home": "Werder Bremen",
+      "away": "RB Leipzig",
+      "matchday": "2"
+    },
+    {
+      "date": "2026-09-05",
+      "time": "08:30 AM",
+      "home": "Borussia Monchengladbach",
+      "away": "Elversberg",
+      "matchday": "2"
+    },
+    {
+      "date": "2026-09-05",
+      "time": "08:30 AM",
+      "home": "Hoffenheim",
+      "away": "Borussia Dortmund",
+      "matchday": "2"
+    },
+    {
+      "date": "2026-09-05",
+      "time": "08:30 AM",
+      "home": "Bayer Leverkusen",
+      "away": "Union Berlin",
+      "matchday": "2"
+    },
+    {
+      "date": "2026-09-05",
+      "time": "11:30 AM",
+      "home": "Schalke 04",
+      "away": "Bayern Munich",
+      "matchday": "2"
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,
