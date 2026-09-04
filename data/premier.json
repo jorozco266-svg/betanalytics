@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-04T00:40:42.401643+00:00",
+    "last_updated": "2026-09-04T14:52:08.516747+00:00",
     "avg_goals": 1.4,
     "total_matches": 22,
     "total_goals": 67,
@@ -410,148 +410,7 @@
       "matchday": 2
     }
   ],
-  "fixtures": [
-    {
-      "date": "2026-09-04",
-      "time": "02:00 PM",
-      "home": "Ipswich Town",
-      "away": "Liverpool",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "06:30 AM",
-      "home": "Newcastle",
-      "away": "Bournemouth",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "09:00 AM",
-      "home": "Nottingham Forest",
-      "away": "Tottenham",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "09:00 AM",
-      "home": "Manchester City",
-      "away": "Coventry City",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "09:00 AM",
-      "home": "Brighton",
-      "away": "Leeds United",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "09:00 AM",
-      "home": "Brentford",
-      "away": "Sunderland",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "09:00 AM",
-      "home": "Fulham",
-      "away": "Crystal Palace",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "11:30 AM",
-      "home": "Hull City",
-      "away": "Aston Villa",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-06",
-      "time": "08:00 AM",
-      "home": "Everton",
-      "away": "Manchester United",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-06",
-      "time": "10:30 AM",
-      "home": "Arsenal",
-      "away": "Chelsea",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-12",
-      "time": "02:00 PM",
-      "home": "Sunderland",
-      "away": "Arsenal",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "09:00 AM",
-      "home": "Crystal Palace",
-      "away": "Ipswich Town",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "09:00 AM",
-      "home": "Liverpool",
-      "away": "Fulham",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "09:00 AM",
-      "home": "Aston Villa",
-      "away": "Nottingham Forest",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "09:00 AM",
-      "home": "Bournemouth",
-      "away": "Brentford",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "09:00 AM",
-      "home": "Chelsea",
-      "away": "Hull City",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-12",
-      "time": "11:30 AM",
-      "home": "Tottenham",
-      "away": "Everton",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-13",
-      "time": "08:00 AM",
-      "home": "Coventry City",
-      "away": "Brighton",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-13",
-      "time": "10:30 AM",
-      "home": "Manchester United",
-      "away": "Manchester City",
-      "matchday": 4
-    },
-    {
-      "date": "2026-09-14",
-      "time": "02:00 PM",
-      "home": "Leeds United",
-      "away": "Newcastle",
-      "matchday": 4
-    }
-  ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,

@@ -4,10 +4,10 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-04T00:40:46.870402+00:00",
+    "last_updated": "2026-09-04T14:52:12.996603+00:00",
     "avg_goals": 1.25,
-    "total_matches": 223,
-    "total_goals": 501,
+    "total_matches": 224,
+    "total_goals": 503,
     "avg_real": 1.123
   },
   "standings": [
@@ -82,6 +82,16 @@
       "l": 10
     },
     {
+      "team": "Libertad",
+      "gf": 30,
+      "ga": 31,
+      "pj": 28,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
+      "l": 10
+    },
+    {
       "team": "Mushuc Runa",
       "gf": 33,
       "ga": 34,
@@ -90,16 +100,6 @@
       "w": 9,
       "d": 10,
       "l": 9
-    },
-    {
-      "team": "Libertad",
-      "gf": 29,
-      "ga": 30,
-      "pj": 27,
-      "pts": 37,
-      "w": 10,
-      "d": 7,
-      "l": 10
     },
     {
       "team": "Guayaquil City",
@@ -113,12 +113,12 @@
     },
     {
       "team": "Emelec",
-      "gf": 23,
-      "ga": 32,
-      "pj": 27,
-      "pts": 35,
+      "gf": 24,
+      "ga": 33,
+      "pj": 28,
+      "pts": 36,
       "w": 9,
-      "d": 8,
+      "d": 9,
       "l": 10
     },
     {
