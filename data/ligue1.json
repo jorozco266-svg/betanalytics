@@ -4,13 +4,23 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-03T00:55:01.246874+00:00",
+    "last_updated": "2026-09-04T00:40:44.399684+00:00",
     "avg_goals": 1.35,
-    "total_matches": 28,
-    "total_goals": 82,
-    "avg_real": 1.464
+    "total_matches": 29,
+    "total_goals": 83,
+    "avg_real": 1.431
   },
   "standings": [
+    {
+      "team": "Lille",
+      "pj": 3,
+      "gf": 5,
+      "ga": 2,
+      "w": 2,
+      "d": 1,
+      "l": 0,
+      "pts": 7
+    },
     {
       "team": "Monaco",
       "pj": 2,
@@ -30,16 +40,6 @@
       "d": 2,
       "l": 0,
       "pts": 5
-    },
-    {
-      "team": "Lille",
-      "pj": 2,
-      "gf": 4,
-      "ga": 2,
-      "w": 1,
-      "d": 1,
-      "l": 0,
-      "pts": 4
     },
     {
       "team": "Lyon",
@@ -283,12 +283,12 @@
     },
     {
       "team": "Toulouse",
-      "pj": 2,
+      "pj": 3,
       "gf": 2,
-      "ga": 4,
+      "ga": 5,
       "w": 0,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 1
     },
     {
@@ -586,16 +586,17 @@
       "hg": 2,
       "ag": 0,
       "matchday": 2
+    },
+    {
+      "date": "2026-09-03",
+      "home": "Toulouse",
+      "away": "Lille",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 3
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-03",
-      "time": "01:45 PM",
-      "home": "Toulouse",
-      "away": "Lille",
-      "matchday": 3
-    },
     {
       "date": "2026-09-04",
       "time": "02:05 PM",

@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-03T00:54:58.677646+00:00",
+    "last_updated": "2026-09-04T00:40:42.401643+00:00",
     "avg_goals": 1.4,
     "total_matches": 22,
     "total_goals": 67,
@@ -542,6 +542,13 @@
       "time": "10:30 AM",
       "home": "Manchester United",
       "away": "Manchester City",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-14",
+      "time": "02:00 PM",
+      "home": "Leeds United",
+      "away": "Newcastle",
       "matchday": 4
     }
   ],

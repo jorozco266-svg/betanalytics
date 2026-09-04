@@ -4,7 +4,7 @@
     "league_key": "bundesliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-09-03T14:55:12.328065+00:00",
+    "last_updated": "2026-09-04T00:40:39.122197+00:00",
     "avg_goals": 1.55,
     "total_matches": 9,
     "total_goals": 35,
@@ -266,50 +266,7 @@
       "matchday": "1"
     }
   ],
-  "fixtures": [
-    {
-      "date": "2026-09-04",
-      "time": "01:30 PM",
-      "home": "Stuttgart",
-      "away": "Köln",
-      "matchday": "2"
-    },
-    {
-      "date": "2026-09-05",
-      "time": "08:30 AM",
-      "home": "Werder Bremen",
-      "away": "RB Leipzig",
-      "matchday": "2"
-    },
-    {
-      "date": "2026-09-05",
-      "time": "08:30 AM",
-      "home": "Borussia Monchengladbach",
-      "away": "Elversberg",
-      "matchday": "2"
-    },
-    {
-      "date": "2026-09-05",
-      "time": "08:30 AM",
-      "home": "Hoffenheim",
-      "away": "Borussia Dortmund",
-      "matchday": "2"
-    },
-    {
-      "date": "2026-09-05",
-      "time": "08:30 AM",
-      "home": "Bayer Leverkusen",
-      "away": "Union Berlin",
-      "matchday": "2"
-    },
-    {
-      "date": "2026-09-05",
-      "time": "11:30 AM",
-      "home": "Schalke 04",
-      "away": "Bayern Munich",
-      "matchday": "2"
-    }
-  ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,

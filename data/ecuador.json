@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-03T14:55:21.882647+00:00",
+    "last_updated": "2026-09-04T00:40:46.870402+00:00",
     "avg_goals": 1.25,
-    "total_matches": 221,
-    "total_goals": 498,
-    "avg_real": 1.127
+    "total_matches": 223,
+    "total_goals": 501,
+    "avg_real": 1.123
   },
   "standings": [
     {
@@ -33,22 +33,22 @@
     },
     {
       "team": "Aucas",
-      "gf": 31,
-      "ga": 26,
-      "pj": 27,
-      "pts": 47,
+      "gf": 32,
+      "ga": 27,
+      "pj": 28,
+      "pts": 48,
       "w": 14,
-      "d": 5,
+      "d": 6,
       "l": 8
     },
     {
       "team": "Universidad Católica",
-      "gf": 47,
-      "ga": 25,
-      "pj": 27,
-      "pts": 44,
+      "gf": 48,
+      "ga": 26,
+      "pj": 28,
+      "pts": 45,
       "w": 12,
-      "d": 8,
+      "d": 9,
       "l": 7
     },
     {
@@ -69,6 +69,16 @@
       "pts": 42,
       "w": 12,
       "d": 6,
+      "l": 10
+    },
+    {
+      "team": "Leones",
+      "gf": 30,
+      "ga": 30,
+      "pj": 28,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
       "l": 10
     },
     {
@@ -102,16 +112,6 @@
       "l": 10
     },
     {
-      "team": "Leones",
-      "gf": 29,
-      "ga": 30,
-      "pj": 27,
-      "pts": 35,
-      "w": 9,
-      "d": 8,
-      "l": 10
-    },
-    {
       "team": "Emelec",
       "gf": 23,
       "ga": 32,
@@ -134,12 +134,12 @@
     {
       "team": "Orense",
       "gf": 31,
-      "ga": 41,
-      "pj": 27,
+      "ga": 42,
+      "pj": 28,
       "pts": 30,
       "w": 8,
       "d": 6,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Técnico Universitario",
