@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-05T00:35:12.143381+00:00",
+    "last_updated": "2026-09-05T13:45:29.110051+00:00",
     "avg_goals": 1.72,
-    "total_matches": 15,
-    "total_goals": 44,
-    "avg_real": 1.467
+    "total_matches": 16,
+    "total_goals": 46,
+    "avg_real": 1.438
   },
   "standings": [
     {
@@ -93,13 +93,23 @@
     },
     {
       "team": "Hamburger SV",
-      "gf": 2,
-      "ga": 3,
-      "pj": 2,
+      "gf": 3,
+      "ga": 4,
+      "pj": 3,
+      "pts": 2,
+      "w": 0,
+      "d": 2,
+      "l": 1
+    },
+    {
+      "team": "RB Leipzig",
+      "gf": 1,
+      "ga": 5,
+      "pj": 3,
       "pts": 1,
       "w": 0,
       "d": 1,
-      "l": 1
+      "l": 2
     },
     {
       "team": "1. FC Nürnberg",
@@ -135,16 +145,6 @@
       "team": "Union Berlin",
       "gf": 1,
       "ga": 5,
-      "pj": 2,
-      "pts": 0,
-      "w": 0,
-      "d": 0,
-      "l": 2
-    },
-    {
-      "team": "RB Leipzig",
-      "gf": 0,
-      "ga": 4,
       "pj": 2,
       "pts": 0,
       "w": 0,
