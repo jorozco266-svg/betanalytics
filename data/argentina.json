@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-01T15:25:21.306280+00:00",
+    "last_updated": "2026-09-05T00:35:02.706366+00:00",
     "avg_goals": 1.03,
-    "total_matches": 345,
-    "total_goals": 710,
+    "total_matches": 348,
+    "total_goals": 716,
     "avg_real": 1.029
   },
   "standings": [
@@ -72,6 +72,16 @@
       "l": 7
     },
     {
+      "team": "Belgrano",
+      "gf": 25,
+      "ga": 18,
+      "pj": 24,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
+      "l": 6
+    },
+    {
       "team": "Gimnasia y Esgrima (LP)",
       "gf": 29,
       "ga": 30,
@@ -80,16 +90,6 @@
       "w": 12,
       "d": 2,
       "l": 9
-    },
-    {
-      "team": "Belgrano",
-      "gf": 24,
-      "ga": 17,
-      "pj": 23,
-      "pts": 37,
-      "w": 10,
-      "d": 7,
-      "l": 6
     },
     {
       "team": "Instituto",
@@ -132,6 +132,16 @@
       "l": 9
     },
     {
+      "team": "Sarmiento (J)",
+      "gf": 28,
+      "ga": 32,
+      "pj": 24,
+      "pts": 34,
+      "w": 11,
+      "d": 1,
+      "l": 12
+    },
+    {
       "team": "Defensa y Justicia",
       "gf": 27,
       "ga": 29,
@@ -152,6 +162,16 @@
       "l": 5
     },
     {
+      "team": "Huracán",
+      "gf": 23,
+      "ga": 19,
+      "pj": 24,
+      "pts": 32,
+      "w": 7,
+      "d": 11,
+      "l": 6
+    },
+    {
       "team": "Unión",
       "gf": 36,
       "ga": 30,
@@ -160,16 +180,6 @@
       "w": 8,
       "d": 7,
       "l": 8
-    },
-    {
-      "team": "Huracán",
-      "gf": 22,
-      "ga": 18,
-      "pj": 23,
-      "pts": 31,
-      "w": 7,
-      "d": 10,
-      "l": 6
     },
     {
       "team": "Lanús",
@@ -200,16 +210,6 @@
       "w": 8,
       "d": 7,
       "l": 8
-    },
-    {
-      "team": "Sarmiento (J)",
-      "gf": 26,
-      "ga": 32,
-      "pj": 23,
-      "pts": 31,
-      "w": 10,
-      "d": 1,
-      "l": 12
     },
     {
       "team": "San Lorenzo",
@@ -252,19 +252,19 @@
       "l": 12
     },
     {
-      "team": "Atlético Tucumán",
-      "gf": 19,
-      "ga": 22,
-      "pj": 23,
-      "pts": 24,
+      "team": "Platense",
+      "gf": 18,
+      "ga": 27,
+      "pj": 24,
+      "pts": 25,
       "w": 5,
-      "d": 9,
+      "d": 10,
       "l": 9
     },
     {
-      "team": "Platense",
-      "gf": 17,
-      "ga": 26,
+      "team": "Atlético Tucumán",
+      "gf": 19,
+      "ga": 22,
       "pj": 23,
       "pts": 24,
       "w": 5,
@@ -283,23 +283,23 @@
     },
     {
       "team": "Deportivo Riestra",
-      "gf": 12,
-      "ga": 18,
-      "pj": 23,
-      "pts": 19,
+      "gf": 13,
+      "ga": 19,
+      "pj": 24,
+      "pts": 20,
       "w": 3,
-      "d": 10,
+      "d": 11,
       "l": 10
     },
     {
       "team": "Estudiantes (RC)",
       "gf": 8,
-      "ga": 31,
-      "pj": 23,
+      "ga": 33,
+      "pj": 24,
       "pts": 11,
       "w": 2,
       "d": 5,
-      "l": 16
+      "l": 17
     },
     {
       "team": "Aldosivi",

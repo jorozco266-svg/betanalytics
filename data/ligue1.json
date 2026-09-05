@@ -4,13 +4,33 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-04T14:52:10.563941+00:00",
+    "last_updated": "2026-09-05T00:35:06.251959+00:00",
     "avg_goals": 1.35,
-    "total_matches": 29,
-    "total_goals": 83,
-    "avg_real": 1.431
+    "total_matches": 31,
+    "total_goals": 90,
+    "avg_real": 1.452
   },
   "standings": [
+    {
+      "team": "Monaco",
+      "pj": 3,
+      "gf": 5,
+      "ga": 1,
+      "w": 3,
+      "d": 0,
+      "l": 0,
+      "pts": 9
+    },
+    {
+      "team": "Lyon",
+      "pj": 3,
+      "gf": 6,
+      "ga": 2,
+      "w": 2,
+      "d": 1,
+      "l": 0,
+      "pts": 7
+    },
     {
       "team": "Lille",
       "pj": 3,
@@ -22,16 +42,6 @@
       "pts": 7
     },
     {
-      "team": "Monaco",
-      "pj": 2,
-      "gf": 3,
-      "ga": 0,
-      "w": 2,
-      "d": 0,
-      "l": 0,
-      "pts": 6
-    },
-    {
       "team": "Paris FC",
       "pj": 3,
       "gf": 3,
@@ -40,16 +50,6 @@
       "d": 2,
       "l": 0,
       "pts": 5
-    },
-    {
-      "team": "Lyon",
-      "pj": 2,
-      "gf": 3,
-      "ga": 1,
-      "w": 1,
-      "d": 1,
-      "l": 0,
-      "pts": 4
     },
     {
       "team": "Rennes",
@@ -193,12 +193,12 @@
     },
     {
       "team": "Paris Saint-Germain",
-      "pj": 2,
-      "gf": 4,
-      "ga": 4,
+      "pj": 3,
+      "gf": 5,
+      "ga": 6,
       "w": 0,
       "d": 2,
-      "l": 0,
+      "l": 1,
       "pts": 2
     },
     {
@@ -353,12 +353,12 @@
     },
     {
       "team": "Auxerre",
-      "pj": 2,
-      "gf": 3,
-      "ga": 8,
+      "pj": 3,
+      "gf": 4,
+      "ga": 11,
       "w": 0,
       "d": 0,
-      "l": 2,
+      "l": 3,
       "pts": 0
     }
   ],
@@ -594,9 +594,131 @@
       "hg": 0,
       "ag": 1,
       "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "home": "Lyon",
+      "away": "Auxerre",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-04",
+      "home": "Paris Saint-Germain",
+      "away": "Monaco",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 3
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-09-05",
+      "time": "01:45 PM",
+      "home": "Le Havre",
+      "away": "Brest",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "time": "01:45 PM",
+      "home": "Nice",
+      "away": "Le Mans",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "time": "10:15 AM",
+      "home": "Lens",
+      "away": "Lorient",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "01:45 PM",
+      "home": "Marseille",
+      "away": "Paris FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "08:00 AM",
+      "home": "Troyes",
+      "away": "Strasbourg",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-06",
+      "time": "10:15 AM",
+      "home": "Angers",
+      "away": "Rennes",
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-11",
+      "time": "01:45 PM",
+      "home": "Rennes",
+      "away": "Marseille",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Lorient",
+      "away": "Toulouse",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Auxerre",
+      "away": "Nice",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Le Havre",
+      "away": "Angers",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Paris FC",
+      "away": "Lyon",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "10:15 AM",
+      "home": "Strasbourg",
+      "away": "Monaco",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "01:45 PM",
+      "home": "Brest",
+      "away": "Paris Saint-Germain",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "08:00 AM",
+      "home": "Lille",
+      "away": "Troyes",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "10:15 AM",
+      "home": "Le Mans",
+      "away": "Lens",
+      "matchday": 4
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,
