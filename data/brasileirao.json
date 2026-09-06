@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-06T00:31:51.897324+00:00",
+    "last_updated": "2026-09-06T14:01:56.737307+00:00",
     "avg_goals": 1.35,
-    "total_matches": 248,
-    "total_goals": 656,
-    "avg_real": 1.323
+    "total_matches": 249,
+    "total_goals": 657,
+    "avg_real": 1.319
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "l": 6
     },
     {
+      "team": "Fluminense",
+      "gf": 40,
+      "ga": 32,
+      "pj": 26,
+      "pts": 45,
+      "w": 12,
+      "d": 9,
+      "l": 5
+    },
+    {
       "team": "Bahia",
       "gf": 40,
       "ga": 32,
@@ -49,16 +59,6 @@
       "pts": 43,
       "w": 11,
       "d": 10,
-      "l": 5
-    },
-    {
-      "team": "Fluminense",
-      "gf": 39,
-      "ga": 32,
-      "pj": 25,
-      "pts": 42,
-      "w": 11,
-      "d": 9,
       "l": 5
     },
     {
@@ -166,7 +166,7 @@
       "gf": 27,
       "ga": 39,
       "pj": 25,
-      "pts": 0,
+      "pts": 25,
       "w": 6,
       "d": 7,
       "l": 12
@@ -174,12 +174,12 @@
     {
       "team": "Vasco da Gama",
       "gf": 27,
-      "ga": 39,
-      "pj": 24,
-      "pts": 0,
+      "ga": 40,
+      "pj": 25,
+      "pts": 25,
       "w": 6,
       "d": 7,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Internacional",

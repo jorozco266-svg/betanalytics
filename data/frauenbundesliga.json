@@ -4,20 +4,20 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-06T00:32:05.064799+00:00",
+    "last_updated": "2026-09-06T14:02:09.307468+00:00",
     "avg_goals": 1.72,
-    "total_matches": 17,
-    "total_goals": 50,
-    "avg_real": 1.471
+    "total_matches": 18,
+    "total_goals": 55,
+    "avg_real": 1.528
   },
   "standings": [
     {
       "team": "VfL Wolfsburg",
-      "gf": 10,
-      "ga": 3,
-      "pj": 2,
-      "pts": 6,
-      "w": 2,
+      "gf": 13,
+      "ga": 5,
+      "pj": 3,
+      "pts": 9,
+      "w": 3,
       "d": 0,
       "l": 0
     },
@@ -43,13 +43,13 @@
     },
     {
       "team": "Werder Bremen",
-      "gf": 4,
-      "ga": 1,
-      "pj": 2,
+      "gf": 6,
+      "ga": 4,
+      "pj": 3,
       "pts": 6,
       "w": 2,
       "d": 0,
-      "l": 0
+      "l": 1
     },
     {
       "team": "Bayer Leverkusen",

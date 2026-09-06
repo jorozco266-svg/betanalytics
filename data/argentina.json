@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-06T00:31:51.337553+00:00",
+    "last_updated": "2026-09-06T14:01:56.186088+00:00",
     "avg_goals": 1.03,
-    "total_matches": 352,
-    "total_goals": 728,
-    "avg_real": 1.034
+    "total_matches": 353,
+    "total_goals": 729,
+    "avg_real": 1.033
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 4
     },
     {
+      "team": "Vélez Sarsfield",
+      "gf": 29,
+      "ga": 18,
+      "pj": 24,
+      "pts": 44,
+      "w": 11,
+      "d": 11,
+      "l": 2
+    },
+    {
       "team": "Boca Juniors",
       "gf": 31,
       "ga": 19,
@@ -40,16 +50,6 @@
       "w": 10,
       "d": 11,
       "l": 3
-    },
-    {
-      "team": "Vélez Sarsfield",
-      "gf": 28,
-      "ga": 18,
-      "pj": 23,
-      "pts": 41,
-      "w": 10,
-      "d": 11,
-      "l": 2
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -74,12 +74,12 @@
     {
       "team": "Estudiantes (LP)",
       "gf": 26,
-      "ga": 14,
-      "pj": 23,
+      "ga": 15,
+      "pj": 24,
       "pts": 38,
       "w": 11,
       "d": 5,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Belgrano",
