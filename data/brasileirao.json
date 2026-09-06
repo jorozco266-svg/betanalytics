@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-03T00:54:57.414439+00:00",
+    "last_updated": "2026-09-06T00:31:51.897324+00:00",
     "avg_goals": 1.35,
-    "total_matches": 246,
-    "total_goals": 649,
-    "avg_real": 1.319
+    "total_matches": 248,
+    "total_goals": 656,
+    "avg_real": 1.323
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "l": 6
     },
     {
+      "team": "Bahia",
+      "gf": 40,
+      "ga": 32,
+      "pj": 26,
+      "pts": 43,
+      "w": 11,
+      "d": 10,
+      "l": 5
+    },
+    {
       "team": "Fluminense",
       "gf": 39,
       "ga": 32,
@@ -49,16 +59,6 @@
       "pts": 42,
       "w": 11,
       "d": 9,
-      "l": 5
-    },
-    {
-      "team": "Bahia",
-      "gf": 37,
-      "ga": 30,
-      "pj": 25,
-      "pts": 40,
-      "w": 10,
-      "d": 10,
       "l": 5
     },
     {
@@ -84,22 +84,32 @@
     {
       "team": "Atlético Mineiro",
       "gf": 32,
-      "ga": 28,
-      "pj": 24,
+      "ga": 30,
+      "pj": 25,
       "pts": 36,
       "w": 10,
       "d": 6,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Red Bull Bragantino",
-      "gf": 29,
-      "ga": 25,
-      "pj": 24,
+      "gf": 31,
+      "ga": 28,
+      "pj": 25,
       "pts": 35,
       "w": 10,
       "d": 5,
-      "l": 9
+      "l": 10
+    },
+    {
+      "team": "São Paulo",
+      "gf": 31,
+      "ga": 28,
+      "pj": 25,
+      "pts": 33,
+      "w": 9,
+      "d": 6,
+      "l": 10
     },
     {
       "team": "Corinthians",
@@ -110,16 +120,6 @@
       "w": 8,
       "d": 8,
       "l": 9
-    },
-    {
-      "team": "São Paulo",
-      "gf": 29,
-      "ga": 28,
-      "pj": 24,
-      "pts": 30,
-      "w": 8,
-      "d": 6,
-      "l": 10
     },
     {
       "team": "Botafogo",

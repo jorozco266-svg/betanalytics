@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-05T13:45:29.110051+00:00",
+    "last_updated": "2026-09-06T00:32:05.064799+00:00",
     "avg_goals": 1.72,
-    "total_matches": 16,
-    "total_goals": 46,
-    "avg_real": 1.438
+    "total_matches": 17,
+    "total_goals": 50,
+    "avg_real": 1.471
   },
   "standings": [
     {
@@ -30,6 +30,16 @@
       "w": 2,
       "d": 0,
       "l": 0
+    },
+    {
+      "team": "1. FC Köln",
+      "gf": 5,
+      "ga": 2,
+      "pj": 3,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 1
     },
     {
       "team": "Werder Bremen",
@@ -82,16 +92,6 @@
       "l": 0
     },
     {
-      "team": "1. FC Köln",
-      "gf": 1,
-      "ga": 2,
-      "pj": 2,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 1
-    },
-    {
       "team": "Hamburger SV",
       "gf": 3,
       "ga": 4,
@@ -132,16 +132,6 @@
       "l": 3
     },
     {
-      "team": "Mainz 05",
-      "gf": 1,
-      "ga": 4,
-      "pj": 2,
-      "pts": 0,
-      "w": 0,
-      "d": 0,
-      "l": 2
-    },
-    {
       "team": "Union Berlin",
       "gf": 1,
       "ga": 5,
@@ -150,6 +140,16 @@
       "w": 0,
       "d": 0,
       "l": 2
+    },
+    {
+      "team": "Mainz 05",
+      "gf": 1,
+      "ga": 8,
+      "pj": 3,
+      "pts": 0,
+      "w": 0,
+      "d": 0,
+      "l": 3
     }
   ],
   "results": [],

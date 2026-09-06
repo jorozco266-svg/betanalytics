@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-05T00:35:06.251959+00:00",
+    "last_updated": "2026-09-06T00:31:55.774242+00:00",
     "avg_goals": 1.35,
-    "total_matches": 31,
-    "total_goals": 90,
-    "avg_real": 1.452
+    "total_matches": 34,
+    "total_goals": 96,
+    "avg_real": 1.412
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "pts": 5
     },
     {
+      "team": "Brest",
+      "pj": 3,
+      "gf": 6,
+      "ga": 5,
+      "w": 1,
+      "d": 2,
+      "l": 0,
+      "pts": 5
+    },
+    {
       "team": "Rennes",
       "pj": 2,
       "gf": 5,
@@ -72,6 +82,16 @@
       "pts": 4
     },
     {
+      "team": "Lorient",
+      "pj": 3,
+      "gf": 2,
+      "ga": 2,
+      "w": 1,
+      "d": 1,
+      "l": 1,
+      "pts": 4
+    },
+    {
       "team": "Olympique de Marseille",
       "pj": 1,
       "gf": 4,
@@ -89,16 +109,6 @@
       "w": 1,
       "d": 0,
       "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Lens",
-      "pj": 2,
-      "gf": 6,
-      "ga": 4,
-      "w": 1,
-      "d": 0,
-      "l": 1,
       "pts": 3
     },
     {
@@ -132,6 +142,16 @@
       "pts": 3
     },
     {
+      "team": "Lens",
+      "pj": 3,
+      "gf": 6,
+      "ga": 5,
+      "w": 1,
+      "d": 0,
+      "l": 2,
+      "pts": 3
+    },
+    {
       "team": "AS Monaco FC",
       "pj": 1,
       "gf": 1,
@@ -162,16 +182,6 @@
       "pts": 3
     },
     {
-      "team": "Brest",
-      "pj": 2,
-      "gf": 4,
-      "ga": 4,
-      "w": 0,
-      "d": 2,
-      "l": 0,
-      "pts": 2
-    },
-    {
       "team": "Paris Saint-Germain FC",
       "pj": 2,
       "gf": 4,
@@ -192,10 +202,30 @@
       "pts": 2
     },
     {
+      "team": "Le Mans",
+      "pj": 3,
+      "gf": 5,
+      "ga": 6,
+      "w": 0,
+      "d": 2,
+      "l": 1,
+      "pts": 2
+    },
+    {
       "team": "Paris Saint-Germain",
       "pj": 3,
       "gf": 5,
       "ga": 6,
+      "w": 0,
+      "d": 2,
+      "l": 1,
+      "pts": 2
+    },
+    {
+      "team": "Nice",
+      "pj": 3,
+      "gf": 1,
+      "ga": 4,
       "w": 0,
       "d": 2,
       "l": 1,
@@ -252,33 +282,13 @@
       "pts": 1
     },
     {
-      "team": "Le Mans",
-      "pj": 2,
-      "gf": 4,
-      "ga": 5,
-      "w": 0,
-      "d": 1,
-      "l": 1,
-      "pts": 1
-    },
-    {
-      "team": "Lorient",
-      "pj": 2,
-      "gf": 1,
-      "ga": 2,
-      "w": 0,
-      "d": 1,
-      "l": 1,
-      "pts": 1
-    },
-    {
       "team": "Le Havre",
-      "pj": 2,
-      "gf": 1,
-      "ga": 2,
+      "pj": 3,
+      "gf": 2,
+      "ga": 4,
       "w": 0,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 1
     },
     {
@@ -289,16 +299,6 @@
       "w": 0,
       "d": 1,
       "l": 2,
-      "pts": 1
-    },
-    {
-      "team": "Nice",
-      "pj": 2,
-      "gf": 0,
-      "ga": 3,
-      "w": 0,
-      "d": 1,
-      "l": 1,
       "pts": 1
     },
     {
@@ -610,30 +610,33 @@
       "hg": 1,
       "ag": 2,
       "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Lens",
+      "away": "Lorient",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Le Havre",
+      "away": "Brest",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 3
+    },
+    {
+      "date": "2026-09-05",
+      "home": "Nice",
+      "away": "Le Mans",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 3
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-05",
-      "time": "01:45 PM",
-      "home": "Le Havre",
-      "away": "Brest",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "01:45 PM",
-      "home": "Nice",
-      "away": "Le Mans",
-      "matchday": 3
-    },
-    {
-      "date": "2026-09-05",
-      "time": "10:15 AM",
-      "home": "Lens",
-      "away": "Lorient",
-      "matchday": 3
-    },
     {
       "date": "2026-09-06",
       "time": "01:45 PM",

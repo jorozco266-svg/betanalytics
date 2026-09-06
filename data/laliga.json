@@ -4,17 +4,47 @@
     "league_key": "laliga",
     "season": "2026-2027",
     "source": "thesportsdb",
-    "last_updated": "2026-08-17T21:34:00.630976+00:00",
+    "last_updated": "2026-09-06T00:31:49.070929+00:00",
     "avg_goals": 1.35,
-    "total_matches": 5,
-    "total_goals": 14,
-    "avg_real": 1.4
+    "total_matches": 15,
+    "total_goals": 39,
+    "avg_real": 1.3
   },
   "standings": [
     {
+      "team": "Sevilla",
+      "pj": 2,
+      "gf": 5,
+      "ga": 2,
+      "w": 2,
+      "d": 0,
+      "l": 0,
+      "pts": 6
+    },
+    {
       "team": "Alaves",
+      "pj": 2,
+      "gf": 4,
+      "ga": 1,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
+      "team": "Atletico Madrid",
+      "pj": 2,
+      "gf": 4,
+      "ga": 2,
+      "w": 1,
+      "d": 1,
+      "l": 0,
+      "pts": 4
+    },
+    {
+      "team": "Barcelona",
       "pj": 1,
-      "gf": 3,
+      "gf": 5,
       "ga": 0,
       "w": 1,
       "d": 0,
@@ -23,16 +53,16 @@
     },
     {
       "team": "Espanyol",
-      "pj": 1,
-      "gf": 3,
-      "ga": 0,
+      "pj": 2,
+      "gf": 4,
+      "ga": 2,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 3
     },
     {
-      "team": "Sevilla",
+      "team": "Real Madrid",
       "pj": 1,
       "gf": 2,
       "ga": 1,
@@ -42,7 +72,7 @@
       "pts": 3
     },
     {
-      "team": "Deportivo de A Coruña",
+      "team": "Real Betis",
       "pj": 1,
       "gf": 1,
       "ga": 0,
@@ -52,20 +82,50 @@
       "pts": 3
     },
     {
-      "team": "Racing Santander",
-      "pj": 1,
+      "team": "Getafe",
+      "pj": 2,
+      "gf": 1,
+      "ga": 3,
+      "w": 1,
+      "d": 0,
+      "l": 1,
+      "pts": 3
+    },
+    {
+      "team": "Villarreal",
+      "pj": 2,
+      "gf": 4,
+      "ga": 4,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
+      "team": "Deportivo de A Coruña",
+      "pj": 2,
       "gf": 2,
       "ga": 2,
+      "w": 0,
+      "d": 2,
+      "l": 0,
+      "pts": 2
+    },
+    {
+      "team": "Valencia",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
       "w": 0,
       "d": 1,
       "l": 0,
       "pts": 1
     },
     {
-      "team": "Villarreal",
+      "team": "Celta Vigo",
       "pj": 1,
-      "gf": 2,
-      "ga": 2,
+      "gf": 0,
+      "ga": 0,
       "w": 0,
       "d": 1,
       "l": 0,
@@ -73,16 +133,46 @@
     },
     {
       "team": "Rayo Vallecano",
-      "pj": 1,
-      "gf": 1,
-      "ga": 2,
+      "pj": 2,
+      "gf": 2,
+      "ga": 3,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 1,
-      "pts": 0
+      "pts": 1
+    },
+    {
+      "team": "Racing Santander",
+      "pj": 2,
+      "gf": 2,
+      "ga": 3,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
+    },
+    {
+      "team": "Malaga",
+      "pj": 2,
+      "gf": 1,
+      "ga": 3,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
     },
     {
       "team": "Elche",
+      "pj": 2,
+      "gf": 1,
+      "ga": 6,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
+    },
+    {
+      "team": "Real Sociedad",
       "pj": 1,
       "gf": 0,
       "ga": 1,
@@ -92,9 +182,9 @@
       "pts": 0
     },
     {
-      "team": "Getafe",
+      "team": "Athletic Club",
       "pj": 1,
-      "gf": 0,
+      "gf": 1,
       "ga": 3,
       "w": 0,
       "d": 0,
@@ -150,8 +240,88 @@
       "home": "Deportivo de A Coruña",
       "away": "Elche",
       "hg": 1,
+      "ag": 1,
+      "matchday": "1"
+    },
+    {
+      "date": "2026-08-19",
+      "home": "Atletico Madrid",
+      "away": "Malaga",
+      "hg": 2,
       "ag": 0,
       "matchday": "1"
+    },
+    {
+      "date": "2026-08-20",
+      "home": "Rayo Vallecano",
+      "away": "Alaves",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-21",
+      "home": "Real Betis",
+      "away": "Real Sociedad",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Athletic Club",
+      "away": "Sevilla",
+      "hg": 1,
+      "ag": 3,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Valencia",
+      "away": "Celta Vigo",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-22",
+      "home": "Espanyol",
+      "away": "Real Madrid",
+      "hg": 1,
+      "ag": 2,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Atletico Madrid",
+      "away": "Villarreal",
+      "hg": 2,
+      "ag": 2,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Getafe",
+      "away": "Racing Santander",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-23",
+      "home": "Elche",
+      "away": "Barcelona",
+      "hg": 0,
+      "ag": 5,
+      "matchday": "2"
+    },
+    {
+      "date": "2026-08-24",
+      "home": "Malaga",
+      "away": "Deportivo de A Coruña",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "2"
     }
   ],
   "fixtures": [],

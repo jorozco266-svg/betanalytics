@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-05T00:35:02.706366+00:00",
+    "last_updated": "2026-09-06T00:31:51.337553+00:00",
     "avg_goals": 1.03,
-    "total_matches": 348,
-    "total_goals": 716,
-    "avg_real": 1.029
+    "total_matches": 352,
+    "total_goals": 728,
+    "avg_real": 1.034
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 4
     },
     {
+      "team": "Boca Juniors",
+      "gf": 31,
+      "ga": 19,
+      "pj": 24,
+      "pts": 41,
+      "w": 10,
+      "d": 11,
+      "l": 3
+    },
+    {
       "team": "Vélez Sarsfield",
       "gf": 28,
       "ga": 18,
@@ -42,14 +52,14 @@
       "l": 2
     },
     {
-      "team": "Boca Juniors",
-      "gf": 29,
-      "ga": 17,
-      "pj": 23,
-      "pts": 40,
-      "w": 10,
-      "d": 10,
-      "l": 3
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 31,
+      "ga": 31,
+      "pj": 24,
+      "pts": 41,
+      "w": 13,
+      "d": 2,
+      "l": 9
     },
     {
       "team": "Rosario Central",
@@ -82,16 +92,6 @@
       "l": 6
     },
     {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 29,
-      "ga": 30,
-      "pj": 23,
-      "pts": 38,
-      "w": 12,
-      "d": 2,
-      "l": 9
-    },
-    {
       "team": "Instituto",
       "gf": 23,
       "ga": 19,
@@ -112,6 +112,16 @@
       "l": 9
     },
     {
+      "team": "Gimnasia y Esgrima (M)",
+      "gf": 28,
+      "ga": 29,
+      "pj": 24,
+      "pts": 35,
+      "w": 10,
+      "d": 5,
+      "l": 9
+    },
+    {
       "team": "Independiente",
       "gf": 30,
       "ga": 26,
@@ -120,16 +130,6 @@
       "w": 9,
       "d": 7,
       "l": 7
-    },
-    {
-      "team": "Gimnasia y Esgrima (M)",
-      "gf": 26,
-      "ga": 27,
-      "pj": 23,
-      "pts": 34,
-      "w": 10,
-      "d": 4,
-      "l": 9
     },
     {
       "team": "Sarmiento (J)",
@@ -153,13 +153,13 @@
     },
     {
       "team": "Tigre",
-      "gf": 24,
-      "ga": 18,
-      "pj": 23,
+      "gf": 25,
+      "ga": 20,
+      "pj": 24,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 5
+      "l": 6
     },
     {
       "team": "Huracán",
@@ -170,6 +170,16 @@
       "w": 7,
       "d": 11,
       "l": 6
+    },
+    {
+      "team": "San Lorenzo",
+      "gf": 17,
+      "ga": 19,
+      "pj": 24,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 8
     },
     {
       "team": "Unión",
@@ -194,12 +204,12 @@
     {
       "team": "Talleres",
       "gf": 25,
-      "ga": 25,
-      "pj": 23,
+      "ga": 26,
+      "pj": 24,
       "pts": 31,
       "w": 8,
       "d": 7,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Barracas Central",
@@ -209,16 +219,6 @@
       "pts": 31,
       "w": 8,
       "d": 7,
-      "l": 8
-    },
-    {
-      "team": "San Lorenzo",
-      "gf": 16,
-      "ga": 19,
-      "pj": 23,
-      "pts": 29,
-      "w": 7,
-      "d": 8,
       "l": 8
     },
     {
@@ -243,13 +243,13 @@
     },
     {
       "team": "Banfield",
-      "gf": 24,
-      "ga": 29,
-      "pj": 23,
+      "gf": 25,
+      "ga": 32,
+      "pj": 24,
       "pts": 25,
       "w": 7,
       "d": 4,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Platense",
@@ -292,6 +292,16 @@
       "l": 10
     },
     {
+      "team": "Aldosivi",
+      "gf": 14,
+      "ga": 31,
+      "pj": 24,
+      "pts": 13,
+      "w": 1,
+      "d": 10,
+      "l": 13
+    },
+    {
       "team": "Estudiantes (RC)",
       "gf": 8,
       "ga": 33,
@@ -300,16 +310,6 @@
       "w": 2,
       "d": 5,
       "l": 17
-    },
-    {
-      "team": "Aldosivi",
-      "gf": 11,
-      "ga": 30,
-      "pj": 23,
-      "pts": 10,
-      "w": 0,
-      "d": 10,
-      "l": 13
     }
   ],
   "results": [
