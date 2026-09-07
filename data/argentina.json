@@ -4,22 +4,22 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-06T14:01:56.186088+00:00",
+    "last_updated": "2026-09-07T00:38:41.915061+00:00",
     "avg_goals": 1.03,
-    "total_matches": 353,
-    "total_goals": 729,
-    "avg_real": 1.033
+    "total_matches": 357,
+    "total_goals": 737,
+    "avg_real": 1.032
   },
   "standings": [
     {
       "team": "Independiente Rivadavia",
-      "gf": 37,
-      "ga": 22,
-      "pj": 23,
+      "gf": 38,
+      "ga": 25,
+      "pj": 24,
       "pts": 45,
       "w": 13,
       "d": 6,
-      "l": 4
+      "l": 5
     },
     {
       "team": "Argentinos Juniors",
@@ -63,13 +63,23 @@
     },
     {
       "team": "Rosario Central",
-      "gf": 28,
-      "ga": 23,
-      "pj": 23,
-      "pts": 39,
+      "gf": 29,
+      "ga": 24,
+      "pj": 24,
+      "pts": 40,
       "w": 11,
-      "d": 6,
+      "d": 7,
       "l": 6
+    },
+    {
+      "team": "River Plate",
+      "gf": 32,
+      "ga": 21,
+      "pj": 24,
+      "pts": 39,
+      "w": 12,
+      "d": 3,
+      "l": 9
     },
     {
       "team": "Estudiantes (LP)",
@@ -92,6 +102,16 @@
       "l": 6
     },
     {
+      "team": "Independiente",
+      "gf": 31,
+      "ga": 26,
+      "pj": 24,
+      "pts": 37,
+      "w": 10,
+      "d": 7,
+      "l": 7
+    },
+    {
       "team": "Instituto",
       "gf": 23,
       "ga": 19,
@@ -100,16 +120,6 @@
       "w": 11,
       "d": 4,
       "l": 8
-    },
-    {
-      "team": "River Plate",
-      "gf": 29,
-      "ga": 20,
-      "pj": 23,
-      "pts": 36,
-      "w": 11,
-      "d": 3,
-      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -122,14 +132,14 @@
       "l": 9
     },
     {
-      "team": "Independiente",
-      "gf": 30,
-      "ga": 26,
-      "pj": 23,
+      "team": "Lanús",
+      "gf": 26,
+      "ga": 23,
+      "pj": 24,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Sarmiento (J)",
@@ -144,12 +154,12 @@
     {
       "team": "Defensa y Justicia",
       "gf": 27,
-      "ga": 29,
-      "pj": 23,
+      "ga": 30,
+      "pj": 24,
       "pts": 33,
       "w": 8,
       "d": 9,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Tigre",
@@ -192,16 +202,6 @@
       "l": 8
     },
     {
-      "team": "Lanús",
-      "gf": 25,
-      "ga": 23,
-      "pj": 23,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
-      "l": 8
-    },
-    {
       "team": "Talleres",
       "gf": 25,
       "ga": 26,
@@ -222,19 +222,19 @@
       "l": 8
     },
     {
-      "team": "Racing",
-      "gf": 23,
-      "ga": 26,
-      "pj": 23,
-      "pts": 26,
+      "team": "Newell's Old Boys",
+      "gf": 24,
+      "ga": 34,
+      "pj": 24,
+      "pts": 27,
       "w": 6,
-      "d": 8,
+      "d": 9,
       "l": 9
     },
     {
-      "team": "Newell's Old Boys",
+      "team": "Racing",
       "gf": 23,
-      "ga": 33,
+      "ga": 26,
       "pj": 23,
       "pts": 26,
       "w": 6,
@@ -274,12 +274,12 @@
     {
       "team": "Central Córdoba (SdE)",
       "gf": 15,
-      "ga": 28,
-      "pj": 23,
+      "ga": 29,
+      "pj": 24,
       "pts": 23,
       "w": 6,
       "d": 5,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Deportivo Riestra",
