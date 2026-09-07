@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-07T00:38:41.915061+00:00",
+    "last_updated": "2026-09-07T16:19:33.413392+00:00",
     "avg_goals": 1.03,
-    "total_matches": 357,
-    "total_goals": 737,
-    "avg_real": 1.032
+    "total_matches": 358,
+    "total_goals": 740,
+    "avg_real": 1.034
   },
   "standings": [
     {
@@ -222,6 +222,16 @@
       "l": 8
     },
     {
+      "team": "Atlético Tucumán",
+      "gf": 21,
+      "ga": 23,
+      "pj": 24,
+      "pts": 27,
+      "w": 6,
+      "d": 9,
+      "l": 9
+    },
+    {
       "team": "Newell's Old Boys",
       "gf": 24,
       "ga": 34,
@@ -233,13 +243,13 @@
     },
     {
       "team": "Racing",
-      "gf": 23,
-      "ga": 26,
-      "pj": 23,
+      "gf": 24,
+      "ga": 28,
+      "pj": 24,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Banfield",
@@ -259,16 +269,6 @@
       "pts": 25,
       "w": 5,
       "d": 10,
-      "l": 9
-    },
-    {
-      "team": "Atlético Tucumán",
-      "gf": 19,
-      "ga": 22,
-      "pj": 23,
-      "pts": 24,
-      "w": 5,
-      "d": 9,
       "l": 9
     },
     {
