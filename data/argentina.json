@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-08T00:52:43.294614+00:00",
+    "last_updated": "2026-09-08T14:59:48.661327+00:00",
     "avg_goals": 1.03,
-    "total_matches": 359,
-    "total_goals": 740,
-    "avg_real": 1.031
+    "total_matches": 360,
+    "total_goals": 745,
+    "avg_real": 1.035
   },
   "standings": [
     {
@@ -113,13 +113,13 @@
     },
     {
       "team": "Instituto",
-      "gf": 23,
-      "ga": 19,
-      "pj": 23,
+      "gf": 25,
+      "ga": 22,
+      "pj": 24,
       "pts": 37,
       "w": 11,
       "d": 4,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -130,6 +130,16 @@
       "w": 10,
       "d": 5,
       "l": 9
+    },
+    {
+      "team": "Unión",
+      "gf": 39,
+      "ga": 32,
+      "pj": 24,
+      "pts": 34,
+      "w": 9,
+      "d": 7,
+      "l": 8
     },
     {
       "team": "Lanús",
@@ -199,16 +209,6 @@
       "pts": 32,
       "w": 8,
       "d": 8,
-      "l": 8
-    },
-    {
-      "team": "Unión",
-      "gf": 36,
-      "ga": 30,
-      "pj": 23,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
       "l": 8
     },
     {

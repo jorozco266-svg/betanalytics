@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-07T16:19:41.348544+00:00",
+    "last_updated": "2026-09-08T15:00:00.940079+00:00",
     "avg_goals": 1.25,
-    "total_matches": 229,
-    "total_goals": 515,
-    "avg_real": 1.124
+    "total_matches": 232,
+    "total_goals": 525,
+    "avg_real": 1.131
   },
   "standings": [
     {
@@ -83,43 +83,43 @@
     },
     {
       "team": "Leones",
-      "gf": 30,
-      "ga": 30,
-      "pj": 28,
-      "pts": 38,
-      "w": 10,
-      "d": 8,
-      "l": 10
-    },
-    {
-      "team": "Mushuc Runa",
-      "gf": 33,
-      "ga": 34,
-      "pj": 28,
-      "pts": 37,
-      "w": 9,
-      "d": 10,
-      "l": 9
-    },
-    {
-      "team": "Guayaquil City",
-      "gf": 27,
+      "gf": 31,
       "ga": 31,
-      "pj": 28,
-      "pts": 36,
-      "w": 9,
+      "pj": 29,
+      "pts": 39,
+      "w": 10,
       "d": 9,
       "l": 10
     },
     {
       "team": "Emelec",
-      "gf": 24,
+      "gf": 25,
       "ga": 33,
-      "pj": 28,
+      "pj": 29,
+      "pts": 39,
+      "w": 10,
+      "d": 9,
+      "l": 10
+    },
+    {
+      "team": "Mushuc Runa",
+      "gf": 34,
+      "ga": 35,
+      "pj": 29,
+      "pts": 38,
+      "w": 9,
+      "d": 11,
+      "l": 9
+    },
+    {
+      "team": "Guayaquil City",
+      "gf": 30,
+      "ga": 35,
+      "pj": 29,
       "pts": 36,
       "w": 9,
       "d": 9,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Deportivo Cuenca",
@@ -133,11 +133,11 @@
     },
     {
       "team": "Orense",
-      "gf": 31,
-      "ga": 42,
-      "pj": 28,
-      "pts": 30,
-      "w": 8,
+      "gf": 35,
+      "ga": 45,
+      "pj": 29,
+      "pts": 33,
+      "w": 9,
       "d": 6,
       "l": 14
     },
@@ -164,12 +164,12 @@
     {
       "team": "Manta",
       "gf": 17,
-      "ga": 41,
-      "pj": 28,
+      "ga": 42,
+      "pj": 29,
       "pts": 20,
       "w": 5,
       "d": 5,
-      "l": 18
+      "l": 19
     }
   ],
   "results": [],

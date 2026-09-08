@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-07T00:38:42.545991+00:00",
+    "last_updated": "2026-09-08T14:59:49.051345+00:00",
     "avg_goals": 1.35,
-    "total_matches": 255,
-    "total_goals": 673,
-    "avg_real": 1.32
+    "total_matches": 256,
+    "total_goals": 674,
+    "avg_real": 1.316
   },
   "standings": [
     {
@@ -112,6 +112,16 @@
       "l": 10
     },
     {
+      "team": "Vitória",
+      "gf": 25,
+      "ga": 37,
+      "pj": 26,
+      "pts": 32,
+      "w": 9,
+      "d": 5,
+      "l": 12
+    },
+    {
       "team": "Corinthians",
       "gf": 27,
       "ga": 27,
@@ -142,24 +152,14 @@
       "l": 10
     },
     {
-      "team": "Vitória",
-      "gf": 24,
-      "ga": 37,
-      "pj": 25,
-      "pts": 29,
-      "w": 8,
-      "d": 5,
-      "l": 12
-    },
-    {
       "team": "Grêmio",
       "gf": 27,
-      "ga": 32,
-      "pj": 24,
+      "ga": 33,
+      "pj": 25,
       "pts": 28,
       "w": 7,
       "d": 7,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Mirassol",
