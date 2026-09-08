@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-07T00:38:45.672070+00:00",
+    "last_updated": "2026-09-08T00:52:47.226271+00:00",
     "avg_goals": 1.35,
     "total_matches": 37,
     "total_goals": 112,
@@ -723,6 +723,13 @@
       "home": "Le Mans",
       "away": "Lens",
       "matchday": 4
+    },
+    {
+      "date": "2026-09-18",
+      "time": "01:45 PM",
+      "home": "Monaco",
+      "away": "Lens",
+      "matchday": 5
     }
   ],
   "hist_season": {

@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-07T00:38:43.553093+00:00",
+    "last_updated": "2026-09-08T00:52:44.921558+00:00",
     "avg_goals": 1.4,
     "total_matches": 32,
     "total_goals": 90,
@@ -560,6 +560,13 @@
       "home": "Leeds United",
       "away": "Newcastle",
       "matchday": 4
+    },
+    {
+      "date": "2026-09-18",
+      "time": "02:00 PM",
+      "home": "Brentford",
+      "away": "Chelsea",
+      "matchday": 5
     }
   ],
   "hist_season": {
