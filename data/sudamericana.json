@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-09T01:00:14.011492+00:00",
+    "last_updated": "2026-09-09T15:03:01.967505+00:00",
     "avg_goals": 1.2,
-    "total_matches": 227,
-    "total_goals": 561,
-    "avg_real": 1.236,
+    "total_matches": 228,
+    "total_goals": 562,
+    "avg_real": 1.232,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -64,6 +64,16 @@
       "d": 1,
       "l": 2,
       "pts": 16
+    },
+    {
+      "team": "São Paulo",
+      "pj": 8,
+      "gf": 12,
+      "ga": 6,
+      "w": 4,
+      "d": 3,
+      "l": 1,
+      "pts": 15
     },
     {
       "team": "Olimpia",
@@ -163,16 +173,6 @@
       "w": 4,
       "d": 0,
       "l": 0,
-      "pts": 12
-    },
-    {
-      "team": "São Paulo",
-      "pj": 7,
-      "gf": 11,
-      "ga": 6,
-      "w": 3,
-      "d": 3,
-      "l": 1,
       "pts": 12
     },
     {
@@ -756,16 +756,6 @@
       "pts": 1
     },
     {
-      "team": "15 Sep",
-      "pj": 1,
-      "gf": 0,
-      "ga": 0,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "pts": 1
-    },
-    {
       "team": "Guabirá",
       "pj": 1,
       "gf": 0,
@@ -793,6 +783,16 @@
       "w": 0,
       "d": 1,
       "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "15 Sep",
+      "pj": 2,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 1,
       "pts": 1
     },
     {
@@ -2921,6 +2921,15 @@
       "home": "Vasco da Gama",
       "away": "15 Sep",
       "hg": 0,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "São Paulo",
+      "away": "15 Sep",
+      "hg": 1,
       "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
