@@ -4,10 +4,10 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-08-31T01:03:07.172648+00:00",
+    "last_updated": "2026-09-09T01:00:07.114519+00:00",
     "avg_goals": 1.45,
-    "total_matches": 189,
-    "total_goals": 662,
+    "total_matches": 195,
+    "total_goals": 683,
     "avg_real": 1.751
   },
   "standings": [
@@ -43,13 +43,13 @@
     },
     {
       "team": "Real Madrid CF",
-      "pj": 14,
-      "gf": 33,
-      "ga": 20,
-      "w": 9,
+      "pj": 15,
+      "gf": 35,
+      "ga": 21,
+      "w": 10,
       "d": 0,
       "l": 5,
-      "pts": 27
+      "pts": 30
     },
     {
       "team": "Club Atlético de Madrid",
@@ -112,6 +112,16 @@
       "pts": 20
     },
     {
+      "team": "Manchester City FC",
+      "pj": 11,
+      "gf": 18,
+      "ga": 14,
+      "w": 6,
+      "d": 1,
+      "l": 4,
+      "pts": 19
+    },
+    {
       "team": "FK Bodø/Glimt",
       "pj": 12,
       "gf": 22,
@@ -120,6 +130,16 @@
       "d": 3,
       "l": 4,
       "pts": 18
+    },
+    {
+      "team": "Borussia Dortmund",
+      "pj": 11,
+      "gf": 25,
+      "ga": 23,
+      "w": 5,
+      "d": 2,
+      "l": 4,
+      "pts": 17
     },
     {
       "team": "Bayer 04 Leverkusen",
@@ -139,16 +159,6 @@
       "w": 4,
       "d": 4,
       "l": 2,
-      "pts": 16
-    },
-    {
-      "team": "Manchester City FC",
-      "pj": 10,
-      "gf": 16,
-      "ga": 14,
-      "w": 5,
-      "d": 1,
-      "l": 4,
       "pts": 16
     },
     {
@@ -183,23 +193,13 @@
     },
     {
       "team": "FC Internazionale Milano",
-      "pj": 10,
-      "gf": 17,
-      "ga": 12,
+      "pj": 11,
+      "gf": 18,
+      "ga": 14,
       "w": 5,
       "d": 0,
-      "l": 5,
+      "l": 6,
       "pts": 15
-    },
-    {
-      "team": "Borussia Dortmund",
-      "pj": 10,
-      "gf": 22,
-      "ga": 21,
-      "w": 4,
-      "d": 2,
-      "l": 4,
-      "pts": 14
     },
     {
       "team": "PAE Olympiakos SFP",
@@ -213,12 +213,12 @@
     },
     {
       "team": "Club Brugge KV",
-      "pj": 10,
-      "gf": 19,
-      "ga": 24,
+      "pj": 11,
+      "gf": 21,
+      "ga": 27,
       "w": 3,
       "d": 2,
-      "l": 5,
+      "l": 6,
       "pts": 11
     },
     {
@@ -342,6 +342,36 @@
       "pts": 4
     },
     {
+      "team": "Aston Villa FC",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Real Betis Balompié",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "PAE AEK",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "SK Slavia Praha",
       "pj": 8,
       "gf": 5,
@@ -353,12 +383,12 @@
     },
     {
       "team": "Villarreal CF",
-      "pj": 8,
-      "gf": 5,
-      "ga": 18,
+      "pj": 9,
+      "gf": 7,
+      "ga": 21,
       "w": 0,
       "d": 1,
-      "l": 7,
+      "l": 8,
       "pts": 1
     },
     {
@@ -370,6 +400,36 @@
       "d": 1,
       "l": 7,
       "pts": 1
+    },
+    {
+      "team": "Lille OSC",
+      "pj": 1,
+      "gf": 2,
+      "ga": 3,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "LASK Linz",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "FC Porto",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     }
   ],
   "results": [
@@ -1884,51 +1944,57 @@
       "hg": 5,
       "ag": 4,
       "matchday": null
+    },
+    {
+      "date": "2026-09-08",
+      "home": "Club Brugge KV",
+      "away": "Aston Villa FC",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "home": "PAE AEK",
+      "away": "LASK Linz",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "home": "Real Madrid CF",
+      "away": "FC Internazionale Milano",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "home": "FC Porto",
+      "away": "Manchester City FC",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "home": "Borussia Dortmund",
+      "away": "Villarreal CF",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-08",
+      "home": "Lille OSC",
+      "away": "Real Betis Balompié",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 1
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-08",
-      "time": "02:00 PM",
-      "home": "Real Madrid CF",
-      "away": "FC Internazionale Milano",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-08",
-      "time": "02:00 PM",
-      "home": "FC Porto",
-      "away": "Manchester City FC",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-08",
-      "time": "02:00 PM",
-      "home": "Borussia Dortmund",
-      "away": "Villarreal CF",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-08",
-      "time": "02:00 PM",
-      "home": "Lille OSC",
-      "away": "Real Betis Balompié",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-08",
-      "time": "11:45 AM",
-      "home": "Club Brugge KV",
-      "away": "Aston Villa FC",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-08",
-      "time": "11:45 AM",
-      "home": "PAE AEK",
-      "away": "LASK Linz",
-      "matchday": 1
-    },
     {
       "date": "2026-09-09",
       "time": "02:00 PM",

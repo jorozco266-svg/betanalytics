@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-07T16:19:46.685067+00:00",
+    "last_updated": "2026-09-09T01:00:14.011492+00:00",
     "avg_goals": 1.2,
-    "total_matches": 226,
+    "total_matches": 227,
     "total_goals": 561,
-    "avg_real": 1.241,
+    "avg_real": 1.236,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -86,6 +86,16 @@
       "pts": 14
     },
     {
+      "team": "Vasco da Gama",
+      "pj": 8,
+      "gf": 15,
+      "ga": 10,
+      "w": 4,
+      "d": 2,
+      "l": 2,
+      "pts": 14
+    },
+    {
       "team": "Tigre",
       "pj": 8,
       "gf": 14,
@@ -113,16 +123,6 @@
       "w": 4,
       "d": 1,
       "l": 0,
-      "pts": 13
-    },
-    {
-      "team": "Vasco da Gama",
-      "pj": 7,
-      "gf": 15,
-      "ga": 10,
-      "w": 4,
-      "d": 1,
-      "l": 2,
       "pts": 13
     },
     {
@@ -747,6 +747,16 @@
     },
     {
       "team": "1–1",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "15 Sep",
       "pj": 1,
       "gf": 0,
       "ga": 0,
@@ -2901,6 +2911,15 @@
       "date": "",
       "home": "River Plate",
       "away": "1–1",
+      "hg": 0,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Vasco da Gama",
+      "away": "15 Sep",
       "hg": 0,
       "ag": 0,
       "matchday": "knockout",
