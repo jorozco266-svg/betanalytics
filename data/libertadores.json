@@ -4,17 +4,27 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-09T01:00:11.125144+00:00",
+    "last_updated": "2026-09-10T00:47:06.650599+00:00",
     "avg_goals": 1.25,
-    "total_matches": 94,
-    "total_goals": 220,
-    "avg_real": 1.17,
+    "total_matches": 95,
+    "total_goals": 221,
+    "avg_real": 1.163,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
     ]
   },
   "standings": [
+    {
+      "team": "LDU Quito",
+      "pj": 8,
+      "gf": 11,
+      "ga": 5,
+      "w": 5,
+      "d": 2,
+      "l": 1,
+      "pts": 17
+    },
     {
       "team": "Flamengo",
       "pj": 6,
@@ -43,16 +53,6 @@
       "w": 4,
       "d": 2,
       "l": 0,
-      "pts": 14
-    },
-    {
-      "team": "LDU Quito",
-      "pj": 7,
-      "gf": 10,
-      "ga": 5,
-      "w": 4,
-      "d": 2,
-      "l": 1,
       "pts": 14
     },
     {
@@ -374,6 +374,16 @@
       "d": 1,
       "l": 4,
       "pts": 1
+    },
+    {
+      "team": "16 Sep",
+      "pj": 1,
+      "gf": 0,
+      "ga": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
     },
     {
       "team": "15 Sep",
@@ -1239,6 +1249,15 @@
       "home": "Platense",
       "away": "15 Sep",
       "hg": 2,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "LDU Quito",
+      "away": "16 Sep",
+      "hg": 1,
       "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"

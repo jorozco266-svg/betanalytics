@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-09T01:00:05.966763+00:00",
+    "last_updated": "2026-09-10T00:47:01.468771+00:00",
     "avg_goals": 1.35,
     "total_matches": 37,
     "total_goals": 112,
@@ -764,6 +764,27 @@
       "time": "10:15 AM",
       "home": "Paris FC",
       "away": "Strasbourg",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "01:45 PM",
+      "home": "Marseille",
+      "away": "Paris Saint-Germain",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "08:00 AM",
+      "home": "Auxerre",
+      "away": "Brest",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "10:15 AM",
+      "home": "Nice",
+      "away": "Lille",
       "matchday": 5
     }
   ],
