@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-10T00:47:06.650599+00:00",
+    "last_updated": "2026-09-10T14:55:34.238071+00:00",
     "avg_goals": 1.25,
-    "total_matches": 95,
-    "total_goals": 221,
-    "avg_real": 1.163,
+    "total_matches": 96,
+    "total_goals": 223,
+    "avg_real": 1.161,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -56,20 +56,20 @@
       "pts": 14
     },
     {
+      "team": "Corinthians",
+      "pj": 8,
+      "gf": 8,
+      "ga": 5,
+      "w": 3,
+      "d": 4,
+      "l": 1,
+      "pts": 13
+    },
+    {
       "team": "Coquimbo Unido",
       "pj": 7,
       "gf": 10,
       "ga": 5,
-      "w": 3,
-      "d": 3,
-      "l": 1,
-      "pts": 12
-    },
-    {
-      "team": "Corinthians",
-      "pj": 7,
-      "gf": 7,
-      "ga": 4,
       "w": 3,
       "d": 3,
       "l": 1,
@@ -366,6 +366,16 @@
       "pts": 1
     },
     {
+      "team": "16 Sep",
+      "pj": 2,
+      "gf": 1,
+      "ga": 2,
+      "w": 0,
+      "d": 1,
+      "l": 1,
+      "pts": 1
+    },
+    {
       "team": "Cusco",
       "pj": 5,
       "gf": 3,
@@ -374,16 +384,6 @@
       "d": 1,
       "l": 4,
       "pts": 1
-    },
-    {
-      "team": "16 Sep",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
     },
     {
       "team": "15 Sep",
@@ -1259,6 +1259,15 @@
       "away": "16 Sep",
       "hg": 1,
       "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Corinthians",
+      "away": "16 Sep",
+      "hg": 1,
+      "ag": 1,
       "matchday": "knockout",
       "_source": "wikipedia"
     }
