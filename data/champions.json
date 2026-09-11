@@ -4,11 +4,11 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-10T00:47:02.515300+00:00",
+    "last_updated": "2026-09-11T00:48:09.972057+00:00",
     "avg_goals": 1.45,
-    "total_matches": 201,
-    "total_goals": 708,
-    "avg_real": 1.761
+    "total_matches": 207,
+    "total_goals": 731,
+    "avg_real": 1.766
   },
   "standings": [
     {
@@ -33,13 +33,13 @@
     },
     {
       "team": "FC Bayern München",
-      "pj": 14,
-      "gf": 43,
+      "pj": 15,
+      "gf": 48,
       "ga": 20,
-      "w": 11,
+      "w": 12,
       "d": 1,
       "l": 2,
-      "pts": 34
+      "pts": 37
     },
     {
       "team": "Real Madrid CF",
@@ -123,12 +123,12 @@
     },
     {
       "team": "FK Bodø/Glimt",
-      "pj": 12,
+      "pj": 13,
       "gf": 22,
-      "ga": 22,
+      "ga": 27,
       "w": 5,
       "d": 3,
-      "l": 4,
+      "l": 5,
       "pts": 18
     },
     {
@@ -242,6 +242,16 @@
       "pts": 10
     },
     {
+      "team": "PSV",
+      "pj": 9,
+      "gf": 17,
+      "ga": 17,
+      "w": 2,
+      "d": 3,
+      "l": 4,
+      "pts": 9
+    },
+    {
       "team": "Olympique de Marseille",
       "pj": 8,
       "gf": 11,
@@ -280,16 +290,6 @@
       "d": 0,
       "l": 5,
       "pts": 9
-    },
-    {
-      "team": "PSV",
-      "pj": 8,
-      "gf": 16,
-      "ga": 16,
-      "w": 2,
-      "d": 2,
-      "l": 4,
-      "pts": 8
     },
     {
       "team": "Athletic Club",
@@ -342,6 +342,26 @@
       "pts": 4
     },
     {
+      "team": "Manchester United FC",
+      "pj": 1,
+      "gf": 4,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "Como 1907",
+      "pj": 1,
+      "gf": 4,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "VfB Stuttgart",
       "pj": 1,
       "gf": 3,
@@ -372,6 +392,16 @@
       "pts": 3
     },
     {
+      "team": "Racing Club de Lens",
+      "pj": 1,
+      "gf": 3,
+      "ga": 2,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "PAE AEK",
       "pj": 1,
       "gf": 1,
@@ -383,13 +413,43 @@
     },
     {
       "team": "SK Slavia Praha",
-      "pj": 8,
-      "gf": 5,
-      "ga": 19,
+      "pj": 9,
+      "gf": 7,
+      "ga": 22,
       "w": 0,
       "d": 3,
-      "l": 5,
+      "l": 6,
       "pts": 3
+    },
+    {
+      "team": "Fenerbahçe SK",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "AS Roma",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "FK Shakhtar Donetsk",
+      "pj": 1,
+      "gf": 1,
+      "ga": 1,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
     },
     {
       "team": "Villarreal CF",
@@ -452,10 +512,30 @@
       "pts": 0
     },
     {
+      "team": "RB Leipzig",
+      "pj": 1,
+      "gf": 1,
+      "ga": 4,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
       "team": "Feyenoord Rotterdam",
       "pj": 1,
       "gf": 1,
       "ga": 5,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "Sabah FK",
+      "pj": 1,
+      "gf": 0,
+      "ga": 4,
       "w": 0,
       "d": 0,
       "l": 1,
@@ -2080,50 +2160,55 @@
       "hg": 3,
       "ag": 1,
       "matchday": 1
-    }
-  ],
-  "fixtures": [
-    {
-      "date": "2026-09-10",
-      "time": "02:00 PM",
-      "home": "FC Bayern München",
-      "away": "FK Bodø/Glimt",
-      "matchday": 1
     },
     {
       "date": "2026-09-10",
-      "time": "02:00 PM",
-      "home": "Manchester United FC",
-      "away": "Sabah FK",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-10",
-      "time": "02:00 PM",
-      "home": "Como 1907",
-      "away": "RB Leipzig",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-10",
-      "time": "02:00 PM",
-      "home": "SK Slavia Praha",
-      "away": "Racing Club de Lens",
-      "matchday": 1
-    },
-    {
-      "date": "2026-09-10",
-      "time": "11:45 AM",
       "home": "Fenerbahçe SK",
       "away": "AS Roma",
+      "hg": 1,
+      "ag": 1,
       "matchday": 1
     },
     {
       "date": "2026-09-10",
-      "time": "11:45 AM",
       "home": "PSV",
       "away": "FK Shakhtar Donetsk",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "home": "FC Bayern München",
+      "away": "FK Bodø/Glimt",
+      "hg": 5,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "home": "Manchester United FC",
+      "away": "Sabah FK",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "home": "Como 1907",
+      "away": "RB Leipzig",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 1
+    },
+    {
+      "date": "2026-09-10",
+      "home": "SK Slavia Praha",
+      "away": "Racing Club de Lens",
+      "hg": 2,
+      "ag": 3,
       "matchday": 1
     }
-  ]
+  ],
+  "fixtures": []
 }

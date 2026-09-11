@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-10T14:55:27.104713+00:00",
+    "last_updated": "2026-09-11T00:48:08.162498+00:00",
     "avg_goals": 1.3,
     "total_matches": 38,
     "total_goals": 101,
@@ -658,7 +658,148 @@
       "matchday": 3
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-09-11",
+      "time": "01:45 PM",
+      "home": "Venezia",
+      "away": "Fiorentina",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "01:45 PM",
+      "home": "Atalanta",
+      "away": "Cagliari",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "08:00 AM",
+      "home": "Genoa",
+      "away": "Frosinone",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-12",
+      "time": "11:00 AM",
+      "home": "Lazio",
+      "away": "AC Milan",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "01:45 PM",
+      "home": "Sassuolo",
+      "away": "Juventus",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "08:00 AM",
+      "home": "Lecce",
+      "away": "Monza",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "time": "11:00 AM",
+      "home": "Napoli",
+      "away": "Bologna",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-14",
+      "time": "01:45 PM",
+      "home": "Inter Milan",
+      "away": "Udinese",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-14",
+      "time": "11:30 AM",
+      "home": "Como",
+      "away": "Parma Calcio 1913",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-14",
+      "time": "11:30 AM",
+      "home": "Torino",
+      "away": "Roma",
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-18",
+      "time": "01:45 PM",
+      "home": "Monza",
+      "away": "Sassuolo",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-19",
+      "time": "01:45 PM",
+      "home": "Venezia",
+      "away": "Lazio",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-19",
+      "time": "08:00 AM",
+      "home": "Bologna",
+      "away": "Torino",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-19",
+      "time": "08:00 AM",
+      "home": "Udinese",
+      "away": "Cagliari",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-19",
+      "time": "11:00 AM",
+      "home": "Roma",
+      "away": "Inter Milan",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "01:45 PM",
+      "home": "AC Milan",
+      "away": "Lecce",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "05:30 AM",
+      "home": "Fiorentina",
+      "away": "Napoli",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "08:00 AM",
+      "home": "Frosinone",
+      "away": "Como",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "08:00 AM",
+      "home": "Parma Calcio 1913",
+      "away": "Genoa",
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "time": "11:00 AM",
+      "home": "Juventus",
+      "away": "Atalanta",
+      "matchday": 5
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
