@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-10T00:47:11.692752+00:00",
+    "last_updated": "2026-09-11T14:55:25.773598+00:00",
     "avg_goals": 1.2,
-    "total_matches": 229,
-    "total_goals": 564,
-    "avg_real": 1.231,
+    "total_matches": 230,
+    "total_goals": 566,
+    "avg_real": 1.23,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -26,6 +26,16 @@
       "pts": 22
     },
     {
+      "team": "Montevideo City Torque",
+      "pj": 10,
+      "gf": 15,
+      "ga": 7,
+      "w": 6,
+      "d": 2,
+      "l": 2,
+      "pts": 20
+    },
+    {
       "team": "River Plate",
       "pj": 8,
       "gf": 14,
@@ -34,16 +44,6 @@
       "d": 3,
       "l": 0,
       "pts": 18
-    },
-    {
-      "team": "Montevideo City Torque",
-      "pj": 9,
-      "gf": 13,
-      "ga": 7,
-      "w": 5,
-      "d": 2,
-      "l": 2,
-      "pts": 17
     },
     {
       "team": "Cienciano",
@@ -967,6 +967,16 @@
     },
     {
       "team": "16 Sep",
+      "pj": 1,
+      "gf": 0,
+      "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "17 Sep",
       "pj": 1,
       "gf": 0,
       "ga": 2,
@@ -2948,6 +2958,15 @@
       "date": "",
       "home": "Atlético Mineiro",
       "away": "16 Sep",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Montevideo City Torque",
+      "away": "17 Sep",
       "hg": 2,
       "ag": 0,
       "matchday": "knockout",
