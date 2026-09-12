@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-08T14:59:49.051345+00:00",
+    "last_updated": "2026-09-12T13:55:23.849466+00:00",
     "avg_goals": 1.35,
-    "total_matches": 256,
-    "total_goals": 674,
-    "avg_real": 1.316
+    "total_matches": 257,
+    "total_goals": 680,
+    "avg_real": 1.323
   },
   "standings": [
     {
@@ -33,12 +33,12 @@
     },
     {
       "team": "Athletico Paranaense",
-      "gf": 38,
-      "ga": 28,
-      "pj": 26,
-      "pts": 45,
+      "gf": 41,
+      "ga": 31,
+      "pj": 27,
+      "pts": 46,
       "w": 13,
-      "d": 6,
+      "d": 7,
       "l": 7
     },
     {
@@ -73,12 +73,12 @@
     },
     {
       "team": "Coritiba",
-      "gf": 34,
-      "ga": 35,
-      "pj": 26,
-      "pts": 37,
+      "gf": 37,
+      "ga": 38,
+      "pj": 27,
+      "pts": 38,
       "w": 10,
-      "d": 7,
+      "d": 8,
       "l": 9
     },
     {

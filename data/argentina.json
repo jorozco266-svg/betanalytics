@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-12T00:51:17.713017+00:00",
+    "last_updated": "2026-09-12T13:55:23.084326+00:00",
     "avg_goals": 1.03,
-    "total_matches": 362,
-    "total_goals": 749,
-    "avg_real": 1.035
+    "total_matches": 363,
+    "total_goals": 753,
+    "avg_real": 1.037
   },
   "standings": [
     {
@@ -43,11 +43,11 @@
     },
     {
       "team": "Boca Juniors",
-      "gf": 31,
-      "ga": 19,
-      "pj": 24,
-      "pts": 41,
-      "w": 10,
+      "gf": 34,
+      "ga": 20,
+      "pj": 25,
+      "pts": 44,
+      "w": 11,
       "d": 11,
       "l": 3
     },
@@ -273,13 +273,13 @@
     },
     {
       "team": "Central Córdoba (SdE)",
-      "gf": 15,
-      "ga": 29,
-      "pj": 24,
+      "gf": 16,
+      "ga": 32,
+      "pj": 25,
       "pts": 23,
       "w": 6,
       "d": 5,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Deportivo Riestra",
