@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-08T14:59:48.661327+00:00",
+    "last_updated": "2026-09-12T00:51:17.713017+00:00",
     "avg_goals": 1.03,
-    "total_matches": 360,
-    "total_goals": 745,
+    "total_matches": 362,
+    "total_goals": 749,
     "avg_real": 1.035
   },
   "standings": [
@@ -33,12 +33,12 @@
     },
     {
       "team": "Vélez Sarsfield",
-      "gf": 29,
-      "ga": 18,
-      "pj": 24,
-      "pts": 44,
+      "gf": 30,
+      "ga": 19,
+      "pj": 25,
+      "pts": 45,
       "w": 11,
-      "d": 11,
+      "d": 12,
       "l": 2
     },
     {
@@ -122,14 +122,24 @@
       "l": 9
     },
     {
+      "team": "Defensa y Justicia",
+      "gf": 29,
+      "ga": 30,
+      "pj": 25,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 7
+    },
+    {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 28,
-      "ga": 29,
-      "pj": 24,
+      "ga": 31,
+      "pj": 25,
       "pts": 35,
       "w": 10,
       "d": 5,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Unión",
@@ -160,16 +170,6 @@
       "w": 11,
       "d": 1,
       "l": 12
-    },
-    {
-      "team": "Defensa y Justicia",
-      "gf": 27,
-      "ga": 30,
-      "pj": 24,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
-      "l": 7
     },
     {
       "team": "Tigre",
@@ -222,19 +222,19 @@
       "l": 9
     },
     {
-      "team": "Atlético Tucumán",
-      "gf": 21,
-      "ga": 23,
-      "pj": 24,
-      "pts": 27,
+      "team": "Newell's Old Boys",
+      "gf": 25,
+      "ga": 35,
+      "pj": 25,
+      "pts": 28,
       "w": 6,
-      "d": 9,
+      "d": 10,
       "l": 9
     },
     {
-      "team": "Newell's Old Boys",
-      "gf": 24,
-      "ga": 34,
+      "team": "Atlético Tucumán",
+      "gf": 21,
+      "ga": 23,
       "pj": 24,
       "pts": 27,
       "w": 6,
