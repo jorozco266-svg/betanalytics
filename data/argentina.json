@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-12T13:55:23.084326+00:00",
+    "last_updated": "2026-09-13T00:34:26.696065+00:00",
     "avg_goals": 1.03,
-    "total_matches": 363,
-    "total_goals": 753,
-    "avg_real": 1.037
+    "total_matches": 366,
+    "total_goals": 766,
+    "avg_real": 1.046
   },
   "standings": [
+    {
+      "team": "Independiente Rivadavia",
+      "gf": 42,
+      "ga": 28,
+      "pj": 25,
+      "pts": 48,
+      "w": 14,
+      "d": 6,
+      "l": 5
+    },
     {
       "team": "Argentinos Juniors",
       "gf": 29,
@@ -20,16 +30,6 @@
       "w": 13,
       "d": 7,
       "l": 4
-    },
-    {
-      "team": "Independiente Rivadavia",
-      "gf": 38,
-      "ga": 25,
-      "pj": 24,
-      "pts": 45,
-      "w": 13,
-      "d": 6,
-      "l": 5
     },
     {
       "team": "Vélez Sarsfield",
@@ -52,6 +52,26 @@
       "l": 3
     },
     {
+      "team": "River Plate",
+      "gf": 34,
+      "ga": 22,
+      "pj": 25,
+      "pts": 42,
+      "w": 13,
+      "d": 3,
+      "l": 9
+    },
+    {
+      "team": "Estudiantes (LP)",
+      "gf": 28,
+      "ga": 16,
+      "pj": 25,
+      "pts": 41,
+      "w": 12,
+      "d": 5,
+      "l": 8
+    },
+    {
       "team": "Gimnasia y Esgrima (LP)",
       "gf": 31,
       "ga": 31,
@@ -70,26 +90,6 @@
       "w": 11,
       "d": 7,
       "l": 6
-    },
-    {
-      "team": "River Plate",
-      "gf": 32,
-      "ga": 21,
-      "pj": 24,
-      "pts": 39,
-      "w": 12,
-      "d": 3,
-      "l": 9
-    },
-    {
-      "team": "Estudiantes (LP)",
-      "gf": 26,
-      "ga": 15,
-      "pj": 24,
-      "pts": 38,
-      "w": 11,
-      "d": 5,
-      "l": 8
     },
     {
       "team": "Belgrano",
@@ -233,13 +233,13 @@
     },
     {
       "team": "Atlético Tucumán",
-      "gf": 21,
-      "ga": 23,
-      "pj": 24,
+      "gf": 22,
+      "ga": 25,
+      "pj": 25,
       "pts": 27,
       "w": 6,
       "d": 9,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Racing",
@@ -263,13 +263,13 @@
     },
     {
       "team": "Platense",
-      "gf": 18,
-      "ga": 27,
-      "pj": 24,
+      "gf": 19,
+      "ga": 29,
+      "pj": 25,
       "pts": 25,
       "w": 5,
       "d": 10,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Central Córdoba (SdE)",
@@ -293,13 +293,13 @@
     },
     {
       "team": "Aldosivi",
-      "gf": 14,
-      "ga": 31,
-      "pj": 24,
+      "gf": 17,
+      "ga": 35,
+      "pj": 25,
       "pts": 13,
       "w": 1,
       "d": 10,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Estudiantes (RC)",
