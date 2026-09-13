@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T00:34:27.271732+00:00",
+    "last_updated": "2026-09-13T14:50:58.822804+00:00",
     "avg_goals": 1.35,
-    "total_matches": 261,
-    "total_goals": 692,
-    "avg_real": 1.326
+    "total_matches": 263,
+    "total_goals": 697,
+    "avg_real": 1.325
   },
   "standings": [
     {
@@ -63,13 +63,13 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 38,
-      "ga": 37,
-      "pj": 26,
+      "gf": 39,
+      "ga": 39,
+      "pj": 27,
       "pts": 42,
       "w": 12,
       "d": 6,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Atlético Mineiro",
@@ -93,13 +93,23 @@
     },
     {
       "team": "Red Bull Bragantino",
-      "gf": 31,
-      "ga": 28,
-      "pj": 25,
-      "pts": 35,
+      "gf": 32,
+      "ga": 29,
+      "pj": 26,
+      "pts": 36,
       "w": 10,
-      "d": 5,
+      "d": 6,
       "l": 10
+    },
+    {
+      "team": "Santos",
+      "gf": 39,
+      "ga": 39,
+      "pj": 26,
+      "pts": 35,
+      "w": 9,
+      "d": 8,
+      "l": 9
     },
     {
       "team": "São Paulo",
@@ -132,23 +142,13 @@
       "l": 10
     },
     {
-      "team": "Santos",
-      "gf": 37,
-      "ga": 38,
-      "pj": 25,
+      "team": "Botafogo",
+      "gf": 38,
+      "ga": 41,
+      "pj": 26,
       "pts": 32,
       "w": 8,
       "d": 8,
-      "l": 9
-    },
-    {
-      "team": "Botafogo",
-      "gf": 37,
-      "ga": 40,
-      "pj": 25,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
       "l": 10
     },
     {

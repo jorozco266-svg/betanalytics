@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T00:34:26.696065+00:00",
+    "last_updated": "2026-09-13T14:50:58.392306+00:00",
     "avg_goals": 1.03,
-    "total_matches": 366,
-    "total_goals": 766,
-    "avg_real": 1.046
+    "total_matches": 367,
+    "total_goals": 769,
+    "avg_real": 1.048
   },
   "standings": [
     {
@@ -143,13 +143,13 @@
     },
     {
       "team": "Unión",
-      "gf": 39,
-      "ga": 32,
-      "pj": 24,
+      "gf": 40,
+      "ga": 34,
+      "pj": 25,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Lanús",
@@ -160,6 +160,16 @@
       "w": 9,
       "d": 7,
       "l": 8
+    },
+    {
+      "team": "Talleres",
+      "gf": 27,
+      "ga": 27,
+      "pj": 25,
+      "pts": 34,
+      "w": 9,
+      "d": 7,
+      "l": 9
     },
     {
       "team": "Sarmiento (J)",
@@ -210,16 +220,6 @@
       "w": 8,
       "d": 8,
       "l": 8
-    },
-    {
-      "team": "Talleres",
-      "gf": 25,
-      "ga": 26,
-      "pj": 24,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
-      "l": 9
     },
     {
       "team": "Newell's Old Boys",

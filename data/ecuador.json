@@ -4,10 +4,10 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T00:34:34.154542+00:00",
+    "last_updated": "2026-09-13T14:51:04.876387+00:00",
     "avg_goals": 1.25,
-    "total_matches": 234,
-    "total_goals": 529,
+    "total_matches": 235,
+    "total_goals": 531,
     "avg_real": 1.13
   },
   "standings": [
@@ -53,12 +53,12 @@
     },
     {
       "team": "LDU Quito",
-      "gf": 30,
-      "ga": 23,
-      "pj": 29,
-      "pts": 45,
+      "gf": 31,
+      "ga": 24,
+      "pj": 30,
+      "pts": 46,
       "w": 13,
-      "d": 6,
+      "d": 7,
       "l": 10
     },
     {
@@ -123,12 +123,12 @@
     },
     {
       "team": "Deportivo Cuenca",
-      "gf": 24,
-      "ga": 36,
-      "pj": 29,
-      "pts": 35,
+      "gf": 25,
+      "ga": 37,
+      "pj": 30,
+      "pts": 36,
       "w": 10,
-      "d": 5,
+      "d": 6,
       "l": 14
     },
     {

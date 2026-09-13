@@ -4,20 +4,20 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T00:34:41.964385+00:00",
+    "last_updated": "2026-09-13T14:51:08.873308+00:00",
     "avg_goals": 1.72,
-    "total_matches": 24,
-    "total_goals": 74,
-    "avg_real": 1.542
+    "total_matches": 25,
+    "total_goals": 76,
+    "avg_real": 1.52
   },
   "standings": [
     {
       "team": "VfL Wolfsburg",
-      "gf": 13,
+      "gf": 15,
       "ga": 5,
-      "pj": 3,
-      "pts": 9,
-      "w": 3,
+      "pj": 4,
+      "pts": 12,
+      "w": 4,
       "d": 0,
       "l": 0
     },
@@ -64,12 +64,12 @@
     {
       "team": "VfB Stuttgart",
       "gf": 7,
-      "ga": 5,
-      "pj": 3,
+      "ga": 7,
+      "pj": 4,
       "pts": 7,
       "w": 2,
       "d": 1,
-      "l": 0
+      "l": 1
     },
     {
       "team": "Bayer Leverkusen",

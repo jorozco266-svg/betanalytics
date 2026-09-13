@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-13T00:34:28.749207+00:00",
+    "last_updated": "2026-09-13T14:50:59.739862+00:00",
     "avg_goals": 1.4,
     "total_matches": 39,
     "total_goals": 108,
@@ -547,13 +547,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-13",
-      "time": "08:00 AM",
-      "home": "Coventry City",
-      "away": "Brighton",
-      "matchday": 4
-    },
     {
       "date": "2026-09-13",
       "time": "10:30 AM",
