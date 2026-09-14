@@ -4,11 +4,11 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T14:51:04.876387+00:00",
+    "last_updated": "2026-09-14T00:38:49.250448+00:00",
     "avg_goals": 1.25,
-    "total_matches": 235,
-    "total_goals": 531,
-    "avg_real": 1.13
+    "total_matches": 237,
+    "total_goals": 533,
+    "avg_real": 1.124
   },
   "standings": [
     {
@@ -20,6 +20,16 @@
       "w": 23,
       "d": 2,
       "l": 4
+    },
+    {
+      "team": "Macará",
+      "gf": 41,
+      "ga": 33,
+      "pj": 30,
+      "pts": 51,
+      "w": 15,
+      "d": 6,
+      "l": 9
     },
     {
       "team": "Aucas",
@@ -40,16 +50,6 @@
       "w": 13,
       "d": 9,
       "l": 7
-    },
-    {
-      "team": "Macará",
-      "gf": 40,
-      "ga": 33,
-      "pj": 29,
-      "pts": 48,
-      "w": 14,
-      "d": 6,
-      "l": 9
     },
     {
       "team": "LDU Quito",
@@ -84,12 +84,12 @@
     {
       "team": "Leones",
       "gf": 31,
-      "ga": 31,
-      "pj": 29,
+      "ga": 32,
+      "pj": 30,
       "pts": 39,
       "w": 10,
       "d": 9,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Guayaquil City",
@@ -104,12 +104,12 @@
     {
       "team": "Emelec",
       "gf": 25,
-      "ga": 33,
-      "pj": 29,
+      "ga": 34,
+      "pj": 30,
       "pts": 39,
       "w": 10,
       "d": 9,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Mushuc Runa",
@@ -143,11 +143,11 @@
     },
     {
       "team": "Técnico Universitario",
-      "gf": 27,
+      "gf": 28,
       "ga": 42,
-      "pj": 29,
-      "pts": 29,
-      "w": 9,
+      "pj": 30,
+      "pts": 32,
+      "w": 10,
       "d": 2,
       "l": 18
     },

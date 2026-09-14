@@ -4,13 +4,23 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T14:50:58.822804+00:00",
+    "last_updated": "2026-09-14T00:38:41.614499+00:00",
     "avg_goals": 1.35,
-    "total_matches": 263,
-    "total_goals": 697,
-    "avg_real": 1.325
+    "total_matches": 265,
+    "total_goals": 704,
+    "avg_real": 1.328
   },
   "standings": [
+    {
+      "team": "Flamengo",
+      "gf": 53,
+      "ga": 22,
+      "pj": 27,
+      "pts": 57,
+      "w": 17,
+      "d": 6,
+      "l": 4
+    },
     {
       "team": "Palmeiras",
       "gf": 47,
@@ -20,16 +30,6 @@
       "w": 16,
       "d": 8,
       "l": 3
-    },
-    {
-      "team": "Flamengo",
-      "gf": 51,
-      "ga": 21,
-      "pj": 26,
-      "pts": 54,
-      "w": 16,
-      "d": 6,
-      "l": 4
     },
     {
       "team": "Athletico Paranaense",
@@ -123,23 +123,23 @@
     },
     {
       "team": "Vitória",
-      "gf": 25,
-      "ga": 37,
-      "pj": 26,
-      "pts": 32,
+      "gf": 27,
+      "ga": 39,
+      "pj": 27,
+      "pts": 33,
       "w": 9,
-      "d": 5,
+      "d": 6,
       "l": 12
     },
     {
       "team": "Corinthians",
-      "gf": 27,
-      "ga": 27,
-      "pj": 26,
+      "gf": 28,
+      "ga": 29,
+      "pj": 27,
       "pts": 32,
       "w": 8,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Botafogo",
@@ -152,19 +152,19 @@
       "l": 10
     },
     {
-      "team": "Grêmio",
-      "gf": 28,
-      "ga": 35,
-      "pj": 26,
-      "pts": 28,
+      "team": "Mirassol",
+      "gf": 31,
+      "ga": 42,
+      "pj": 27,
+      "pts": 29,
       "w": 7,
-      "d": 7,
+      "d": 8,
       "l": 12
     },
     {
-      "team": "Mirassol",
-      "gf": 29,
-      "ga": 40,
+      "team": "Grêmio",
+      "gf": 28,
+      "ga": 35,
       "pj": 26,
       "pts": 28,
       "w": 7,

@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-13T14:50:59.739862+00:00",
+    "last_updated": "2026-09-14T00:38:43.282892+00:00",
     "avg_goals": 1.4,
-    "total_matches": 39,
-    "total_goals": 108,
-    "avg_real": 1.385
+    "total_matches": 41,
+    "total_goals": 114,
+    "avg_real": 1.39
   },
   "standings": [
     {
@@ -23,13 +23,13 @@
     },
     {
       "team": "Manchester City",
-      "pj": 3,
-      "gf": 7,
+      "pj": 4,
+      "gf": 8,
       "ga": 2,
-      "w": 3,
+      "w": 4,
       "d": 0,
       "l": 0,
-      "pts": 9
+      "pts": 12
     },
     {
       "team": "Hull City",
@@ -40,6 +40,16 @@
       "d": 2,
       "l": 0,
       "pts": 8
+    },
+    {
+      "team": "Brighton",
+      "pj": 4,
+      "gf": 13,
+      "ga": 5,
+      "w": 2,
+      "d": 1,
+      "l": 1,
+      "pts": 7
     },
     {
       "team": "Chelsea",
@@ -122,23 +132,13 @@
       "pts": 5
     },
     {
-      "team": "Brighton",
-      "pj": 3,
-      "gf": 8,
-      "ga": 5,
-      "w": 1,
-      "d": 1,
-      "l": 1,
-      "pts": 4
-    },
-    {
       "team": "Manchester United",
-      "pj": 3,
+      "pj": 4,
       "gf": 7,
-      "ga": 6,
+      "ga": 7,
       "w": 1,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 4
     },
     {
@@ -223,12 +223,12 @@
     },
     {
       "team": "Coventry City",
-      "pj": 3,
+      "pj": 4,
       "gf": 0,
-      "ga": 5,
+      "ga": 10,
       "w": 0,
       "d": 0,
-      "l": 3,
+      "l": 4,
       "pts": 0
     }
   ],
@@ -544,16 +544,25 @@
       "hg": 0,
       "ag": 2,
       "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Coventry City",
+      "away": "Brighton",
+      "hg": 0,
+      "ag": 5,
+      "matchday": 4
+    },
+    {
+      "date": "2026-09-13",
+      "home": "Manchester United",
+      "away": "Manchester City",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 4
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-13",
-      "time": "10:30 AM",
-      "home": "Manchester United",
-      "away": "Manchester City",
-      "matchday": 4
-    },
     {
       "date": "2026-09-14",
       "time": "02:00 PM",

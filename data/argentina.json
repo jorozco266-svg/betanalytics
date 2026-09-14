@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-13T14:50:58.392306+00:00",
+    "last_updated": "2026-09-14T00:38:40.997952+00:00",
     "avg_goals": 1.03,
-    "total_matches": 367,
-    "total_goals": 769,
-    "avg_real": 1.048
+    "total_matches": 371,
+    "total_goals": 776,
+    "avg_real": 1.046
   },
   "standings": [
     {
@@ -23,12 +23,12 @@
     },
     {
       "team": "Argentinos Juniors",
-      "gf": 29,
-      "ga": 20,
-      "pj": 24,
-      "pts": 46,
+      "gf": 30,
+      "ga": 21,
+      "pj": 25,
+      "pts": 47,
       "w": 13,
-      "d": 7,
+      "d": 8,
       "l": 4
     },
     {
@@ -52,9 +52,29 @@
       "l": 3
     },
     {
+      "team": "Rosario Central",
+      "gf": 30,
+      "ga": 24,
+      "pj": 25,
+      "pts": 43,
+      "w": 12,
+      "d": 7,
+      "l": 6
+    },
+    {
       "team": "River Plate",
       "gf": 34,
       "ga": 22,
+      "pj": 25,
+      "pts": 42,
+      "w": 13,
+      "d": 3,
+      "l": 9
+    },
+    {
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 32,
+      "ga": 32,
       "pj": 25,
       "pts": 42,
       "w": 13,
@@ -72,43 +92,23 @@
       "l": 8
     },
     {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 31,
-      "ga": 31,
-      "pj": 24,
-      "pts": 41,
-      "w": 13,
-      "d": 2,
-      "l": 9
-    },
-    {
-      "team": "Rosario Central",
-      "gf": 29,
-      "ga": 24,
-      "pj": 24,
-      "pts": 40,
-      "w": 11,
-      "d": 7,
-      "l": 6
-    },
-    {
       "team": "Belgrano",
-      "gf": 25,
-      "ga": 18,
-      "pj": 24,
-      "pts": 38,
+      "gf": 26,
+      "ga": 19,
+      "pj": 25,
+      "pts": 39,
       "w": 10,
-      "d": 8,
+      "d": 9,
       "l": 6
     },
     {
       "team": "Independiente",
-      "gf": 31,
-      "ga": 26,
-      "pj": 24,
-      "pts": 37,
+      "gf": 32,
+      "ga": 27,
+      "pj": 25,
+      "pts": 38,
       "w": 10,
-      "d": 7,
+      "d": 8,
       "l": 7
     },
     {
@@ -142,6 +142,16 @@
       "l": 10
     },
     {
+      "team": "Sarmiento (J)",
+      "gf": 29,
+      "ga": 33,
+      "pj": 25,
+      "pts": 35,
+      "w": 11,
+      "d": 2,
+      "l": 12
+    },
+    {
       "team": "Unión",
       "gf": 40,
       "ga": 34,
@@ -172,24 +182,24 @@
       "l": 9
     },
     {
-      "team": "Sarmiento (J)",
-      "gf": 28,
-      "ga": 32,
-      "pj": 24,
-      "pts": 34,
-      "w": 11,
-      "d": 1,
-      "l": 12
+      "team": "San Lorenzo",
+      "gf": 18,
+      "ga": 20,
+      "pj": 25,
+      "pts": 33,
+      "w": 8,
+      "d": 9,
+      "l": 8
     },
     {
       "team": "Tigre",
       "gf": 25,
-      "ga": 20,
-      "pj": 24,
+      "ga": 21,
+      "pj": 25,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Huracán",
@@ -205,16 +215,6 @@
       "team": "Barracas Central",
       "gf": 19,
       "ga": 20,
-      "pj": 24,
-      "pts": 32,
-      "w": 8,
-      "d": 8,
-      "l": 8
-    },
-    {
-      "team": "San Lorenzo",
-      "gf": 17,
-      "ga": 19,
       "pj": 24,
       "pts": 32,
       "w": 8,
