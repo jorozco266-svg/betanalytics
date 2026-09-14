@@ -4,20 +4,20 @@
     "league_key": "ecuador",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-14T00:38:49.250448+00:00",
+    "last_updated": "2026-09-14T16:51:08.373510+00:00",
     "avg_goals": 1.25,
-    "total_matches": 237,
-    "total_goals": 533,
-    "avg_real": 1.124
+    "total_matches": 239,
+    "total_goals": 540,
+    "avg_real": 1.13
   },
   "standings": [
     {
       "team": "Independiente del Valle",
-      "gf": 70,
-      "ga": 31,
-      "pj": 29,
-      "pts": 71,
-      "w": 23,
+      "gf": 73,
+      "ga": 33,
+      "pj": 30,
+      "pts": 74,
+      "w": 24,
       "d": 2,
       "l": 4
     },
@@ -63,23 +63,23 @@
     },
     {
       "team": "Barcelona",
-      "gf": 31,
-      "ga": 24,
-      "pj": 29,
-      "pts": 43,
+      "gf": 32,
+      "ga": 25,
+      "pj": 30,
+      "pts": 44,
       "w": 11,
-      "d": 10,
+      "d": 11,
       "l": 8
     },
     {
       "team": "Libertad",
-      "gf": 31,
-      "ga": 31,
-      "pj": 29,
+      "gf": 33,
+      "ga": 34,
+      "pj": 30,
       "pts": 41,
       "w": 11,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Leones",
@@ -153,12 +153,12 @@
     },
     {
       "team": "Delfín",
-      "gf": 18,
-      "ga": 30,
-      "pj": 29,
-      "pts": 27,
+      "gf": 19,
+      "ga": 31,
+      "pj": 30,
+      "pts": 28,
       "w": 7,
-      "d": 6,
+      "d": 7,
       "l": 16
     },
     {

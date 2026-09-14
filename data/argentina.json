@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-14T00:38:40.997952+00:00",
+    "last_updated": "2026-09-14T16:51:01.537051+00:00",
     "avg_goals": 1.03,
-    "total_matches": 371,
-    "total_goals": 776,
-    "avg_real": 1.046
+    "total_matches": 372,
+    "total_goals": 779,
+    "avg_real": 1.047
   },
   "standings": [
     {
@@ -132,6 +132,16 @@
       "l": 7
     },
     {
+      "team": "Huracán",
+      "gf": 25,
+      "ga": 20,
+      "pj": 25,
+      "pts": 35,
+      "w": 8,
+      "d": 11,
+      "l": 6
+    },
+    {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 28,
       "ga": 31,
@@ -202,16 +212,6 @@
       "l": 7
     },
     {
-      "team": "Huracán",
-      "gf": 23,
-      "ga": 19,
-      "pj": 24,
-      "pts": 32,
-      "w": 7,
-      "d": 11,
-      "l": 6
-    },
-    {
       "team": "Barracas Central",
       "gf": 19,
       "ga": 20,
@@ -243,13 +243,13 @@
     },
     {
       "team": "Racing",
-      "gf": 24,
-      "ga": 28,
-      "pj": 24,
+      "gf": 25,
+      "ga": 30,
+      "pj": 25,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Banfield",
