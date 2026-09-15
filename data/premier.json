@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-14T00:38:43.282892+00:00",
+    "last_updated": "2026-09-15T01:08:18.004696+00:00",
     "avg_goals": 1.4,
-    "total_matches": 41,
-    "total_goals": 114,
-    "avg_real": 1.39
+    "total_matches": 42,
+    "total_goals": 119,
+    "avg_real": 1.417
   },
   "standings": [
     {
@@ -30,6 +30,16 @@
       "d": 0,
       "l": 0,
       "pts": 12
+    },
+    {
+      "team": "Leeds United",
+      "pj": 4,
+      "gf": 7,
+      "ga": 3,
+      "w": 2,
+      "d": 2,
+      "l": 0,
+      "pts": 8
     },
     {
       "team": "Hull City",
@@ -103,22 +113,12 @@
     },
     {
       "team": "Newcastle",
-      "pj": 3,
-      "gf": 6,
-      "ga": 4,
+      "pj": 4,
+      "gf": 7,
+      "ga": 8,
       "w": 1,
       "d": 2,
-      "l": 0,
-      "pts": 5
-    },
-    {
-      "team": "Leeds United",
-      "pj": 3,
-      "gf": 3,
-      "ga": 2,
-      "w": 1,
-      "d": 2,
-      "l": 0,
+      "l": 1,
       "pts": 5
     },
     {
@@ -560,16 +560,17 @@
       "hg": 0,
       "ag": 1,
       "matchday": 4
+    },
+    {
+      "date": "2026-09-14",
+      "home": "Leeds United",
+      "away": "Newcastle",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 4
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-14",
-      "time": "02:00 PM",
-      "home": "Leeds United",
-      "away": "Newcastle",
-      "matchday": 4
-    },
     {
       "date": "2026-09-18",
       "time": "02:00 PM",
