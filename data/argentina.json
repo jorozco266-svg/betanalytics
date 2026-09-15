@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-15T01:08:15.864385+00:00",
+    "last_updated": "2026-09-15T15:29:02.933503+00:00",
     "avg_goals": 1.03,
-    "total_matches": 374,
-    "total_goals": 784,
-    "avg_real": 1.048
+    "total_matches": 375,
+    "total_goals": 787,
+    "avg_real": 1.049
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "l": 8
     },
     {
+      "team": "Instituto",
+      "gf": 27,
+      "ga": 23,
+      "pj": 25,
+      "pts": 40,
+      "w": 12,
+      "d": 4,
+      "l": 9
+    },
+    {
       "team": "Belgrano",
       "gf": 26,
       "ga": 19,
@@ -120,16 +130,6 @@
       "w": 10,
       "d": 7,
       "l": 8
-    },
-    {
-      "team": "Instituto",
-      "gf": 25,
-      "ga": 22,
-      "pj": 24,
-      "pts": 37,
-      "w": 11,
-      "d": 4,
-      "l": 9
     },
     {
       "team": "Defensa y Justicia",
@@ -303,13 +303,13 @@
     },
     {
       "team": "Estudiantes (RC)",
-      "gf": 8,
-      "ga": 33,
-      "pj": 24,
+      "gf": 9,
+      "ga": 35,
+      "pj": 25,
       "pts": 11,
       "w": 2,
       "d": 5,
-      "l": 17
+      "l": 18
     }
   ],
   "results": [
