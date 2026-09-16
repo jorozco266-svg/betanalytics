@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-11T14:55:25.773598+00:00",
+    "last_updated": "2026-09-16T01:00:55.499795+00:00",
     "avg_goals": 1.2,
-    "total_matches": 230,
-    "total_goals": 566,
-    "avg_real": 1.23,
+    "total_matches": 231,
+    "total_goals": 568,
+    "avg_real": 1.229,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -44,6 +44,16 @@
       "d": 3,
       "l": 0,
       "pts": 18
+    },
+    {
+      "team": "Vasco da Gama",
+      "pj": 9,
+      "gf": 17,
+      "ga": 10,
+      "w": 5,
+      "d": 2,
+      "l": 2,
+      "pts": 17
     },
     {
       "team": "Cienciano",
@@ -103,16 +113,6 @@
       "w": 3,
       "d": 5,
       "l": 0,
-      "pts": 14
-    },
-    {
-      "team": "Vasco da Gama",
-      "pj": 8,
-      "gf": 15,
-      "ga": 10,
-      "w": 4,
-      "d": 2,
-      "l": 2,
       "pts": 14
     },
     {
@@ -176,16 +176,6 @@
       "pts": 12
     },
     {
-      "team": "Santa Fe",
-      "pj": 7,
-      "gf": 11,
-      "ga": 6,
-      "w": 3,
-      "d": 3,
-      "l": 1,
-      "pts": 12
-    },
-    {
       "team": "Independiente del Valle",
       "pj": 5,
       "gf": 11,
@@ -203,6 +193,16 @@
       "w": 4,
       "d": 0,
       "l": 1,
+      "pts": 12
+    },
+    {
+      "team": "Santa Fe",
+      "pj": 8,
+      "gf": 11,
+      "ga": 8,
+      "w": 3,
+      "d": 3,
+      "l": 2,
       "pts": 12
     },
     {
@@ -2969,6 +2969,15 @@
       "away": "17 Sep",
       "hg": 2,
       "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Santa Fe",
+      "away": "Vasco da Gama",
+      "hg": 0,
+      "ag": 2,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
