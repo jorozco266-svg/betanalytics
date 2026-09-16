@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-16T01:00:55.499795+00:00",
+    "last_updated": "2026-09-16T15:21:42.344336+00:00",
     "avg_goals": 1.2,
-    "total_matches": 231,
-    "total_goals": 568,
-    "avg_real": 1.229,
+    "total_matches": 232,
+    "total_goals": 571,
+    "avg_real": 1.231,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -87,12 +87,12 @@
     },
     {
       "team": "São Paulo",
-      "pj": 8,
-      "gf": 12,
-      "ga": 6,
+      "pj": 9,
+      "gf": 13,
+      "ga": 8,
       "w": 4,
       "d": 3,
-      "l": 1,
+      "l": 2,
       "pts": 15
     },
     {
@@ -143,6 +143,16 @@
       "w": 4,
       "d": 1,
       "l": 0,
+      "pts": 13
+    },
+    {
+      "team": "Boca Juniors",
+      "pj": 8,
+      "gf": 15,
+      "ga": 10,
+      "w": 4,
+      "d": 1,
+      "l": 3,
       "pts": 13
     },
     {
@@ -253,16 +263,6 @@
       "w": 3,
       "d": 1,
       "l": 1,
-      "pts": 10
-    },
-    {
-      "team": "Boca Juniors",
-      "pj": 7,
-      "gf": 13,
-      "ga": 9,
-      "w": 3,
-      "d": 1,
-      "l": 3,
       "pts": 10
     },
     {
@@ -2978,6 +2978,15 @@
       "away": "Vasco da Gama",
       "hg": 0,
       "ag": 2,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Boca Juniors",
+      "away": "São Paulo",
+      "hg": 2,
+      "ag": 1,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
