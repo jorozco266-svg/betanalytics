@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-17T01:03:47.481938+00:00",
+    "last_updated": "2026-09-17T15:28:25.596173+00:00",
     "avg_goals": 1.25,
-    "total_matches": 99,
-    "total_goals": 231,
-    "avg_real": 1.167,
+    "total_matches": 100,
+    "total_goals": 234,
+    "avg_real": 1.17,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -57,12 +57,12 @@
     },
     {
       "team": "Corinthians",
-      "pj": 8,
-      "gf": 8,
-      "ga": 5,
+      "pj": 9,
+      "gf": 9,
+      "ga": 7,
       "w": 3,
       "d": 4,
-      "l": 1,
+      "l": 2,
       "pts": 13
     },
     {
@@ -83,6 +83,16 @@
       "w": 3,
       "d": 2,
       "l": 0,
+      "pts": 11
+    },
+    {
+      "team": "Estudiantes",
+      "pj": 6,
+      "gf": 10,
+      "ga": 6,
+      "w": 3,
+      "d": 2,
+      "l": 1,
       "pts": 11
     },
     {
@@ -170,16 +180,6 @@
       "pj": 5,
       "gf": 8,
       "ga": 4,
-      "w": 2,
-      "d": 2,
-      "l": 1,
-      "pts": 8
-    },
-    {
-      "team": "Estudiantes",
-      "pj": 5,
-      "gf": 8,
-      "ga": 5,
       "w": 2,
       "d": 2,
       "l": 1,
@@ -1315,6 +1315,15 @@
       "away": "2–3",
       "hg": 1,
       "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Estudiantes",
+      "away": "Corinthians",
+      "hg": 2,
+      "ag": 1,
       "matchday": "knockout",
       "_source": "wikipedia"
     }
