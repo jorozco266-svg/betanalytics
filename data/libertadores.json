@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-17T15:28:25.596173+00:00",
+    "last_updated": "2026-09-18T14:50:48.073960+00:00",
     "avg_goals": 1.25,
-    "total_matches": 100,
-    "total_goals": 234,
-    "avg_real": 1.17,
+    "total_matches": 101,
+    "total_goals": 238,
+    "avg_real": 1.178,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -27,22 +27,22 @@
     },
     {
       "team": "Flamengo",
-      "pj": 7,
-      "gf": 14,
-      "ga": 6,
-      "w": 5,
+      "pj": 8,
+      "gf": 17,
+      "ga": 7,
+      "w": 6,
       "d": 1,
       "l": 1,
-      "pts": 16
+      "pts": 19
     },
     {
       "team": "Independiente del Valle",
-      "pj": 7,
-      "gf": 15,
-      "ga": 8,
+      "pj": 8,
+      "gf": 16,
+      "ga": 11,
       "w": 5,
       "d": 0,
-      "l": 2,
+      "l": 3,
       "pts": 15
     },
     {
@@ -1324,6 +1324,15 @@
       "away": "Corinthians",
       "hg": 2,
       "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Independiente del Valle",
+      "away": "Flamengo",
+      "hg": 1,
+      "ag": 3,
       "matchday": "knockout",
       "_source": "wikipedia"
     }

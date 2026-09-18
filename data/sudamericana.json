@@ -4,17 +4,27 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-17T01:03:50.035729+00:00",
+    "last_updated": "2026-09-18T14:50:50.662276+00:00",
     "avg_goals": 1.2,
-    "total_matches": 233,
-    "total_goals": 573,
-    "avg_real": 1.23,
+    "total_matches": 234,
+    "total_goals": 578,
+    "avg_real": 1.235,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
     ]
   },
   "standings": [
+    {
+      "team": "Montevideo City Torque",
+      "pj": 11,
+      "gf": 18,
+      "ga": 9,
+      "w": 7,
+      "d": 2,
+      "l": 2,
+      "pts": 23
+    },
     {
       "team": "Botafogo",
       "pj": 10,
@@ -24,16 +34,6 @@
       "d": 1,
       "l": 2,
       "pts": 22
-    },
-    {
-      "team": "Montevideo City Torque",
-      "pj": 10,
-      "gf": 15,
-      "ga": 7,
-      "w": 6,
-      "d": 2,
-      "l": 2,
-      "pts": 20
     },
     {
       "team": "Atlético Mineiro",
@@ -67,12 +67,12 @@
     },
     {
       "team": "Cienciano",
-      "pj": 9,
-      "gf": 17,
-      "ga": 10,
+      "pj": 10,
+      "gf": 19,
+      "ga": 13,
       "w": 4,
       "d": 4,
-      "l": 1,
+      "l": 2,
       "pts": 16
     },
     {
@@ -3006,6 +3006,15 @@
       "away": "2–4",
       "hg": 2,
       "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cienciano",
+      "away": "Montevideo City Torque",
+      "hg": 2,
+      "ag": 3,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
