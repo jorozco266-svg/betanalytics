@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-15T01:08:18.004696+00:00",
+    "last_updated": "2026-09-19T00:55:14.836859+00:00",
     "avg_goals": 1.4,
-    "total_matches": 42,
-    "total_goals": 119,
-    "avg_real": 1.417
+    "total_matches": 43,
+    "total_goals": 122,
+    "avg_real": 1.419
   },
   "standings": [
     {
@@ -30,6 +30,16 @@
       "d": 0,
       "l": 0,
       "pts": 12
+    },
+    {
+      "team": "Brentford",
+      "pj": 5,
+      "gf": 10,
+      "ga": 4,
+      "w": 2,
+      "d": 3,
+      "l": 0,
+      "pts": 9
     },
     {
       "team": "Leeds United",
@@ -63,23 +73,13 @@
     },
     {
       "team": "Chelsea",
-      "pj": 4,
+      "pj": 5,
       "gf": 10,
-      "ga": 9,
+      "ga": 12,
       "w": 2,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 7
-    },
-    {
-      "team": "Brentford",
-      "pj": 4,
-      "gf": 7,
-      "ga": 4,
-      "w": 1,
-      "d": 3,
-      "l": 0,
-      "pts": 6
     },
     {
       "team": "Liverpool",
@@ -568,16 +568,17 @@
       "hg": 4,
       "ag": 1,
       "matchday": 4
+    },
+    {
+      "date": "2026-09-18",
+      "home": "Brentford",
+      "away": "Chelsea",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 5
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-18",
-      "time": "02:00 PM",
-      "home": "Brentford",
-      "away": "Chelsea",
-      "matchday": 5
-    },
     {
       "date": "2026-09-19",
       "time": "06:30 AM",

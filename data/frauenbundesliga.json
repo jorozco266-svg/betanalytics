@@ -4,22 +4,32 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-15T01:08:31.674772+00:00",
+    "last_updated": "2026-09-19T00:55:26.705630+00:00",
     "avg_goals": 1.72,
-    "total_matches": 28,
-    "total_goals": 90,
-    "avg_real": 1.607
+    "total_matches": 30,
+    "total_goals": 98,
+    "avg_real": 1.633
   },
   "standings": [
     {
-      "team": "VfL Wolfsburg",
-      "gf": 15,
+      "team": "Eintracht Frankfurt",
+      "gf": 11,
       "ga": 5,
-      "pj": 4,
+      "pj": 5,
+      "pts": 13,
+      "w": 4,
+      "d": 1,
+      "l": 0
+    },
+    {
+      "team": "VfL Wolfsburg",
+      "gf": 16,
+      "ga": 7,
+      "pj": 5,
       "pts": 12,
       "w": 4,
       "d": 0,
-      "l": 0
+      "l": 1
     },
     {
       "team": "Bayern Munich",
@@ -29,16 +39,6 @@
       "pts": 12,
       "w": 4,
       "d": 0,
-      "l": 0
-    },
-    {
-      "team": "Eintracht Frankfurt",
-      "gf": 8,
-      "ga": 3,
-      "pj": 4,
-      "pts": 10,
-      "w": 3,
-      "d": 1,
       "l": 0
     },
     {
@@ -102,6 +102,16 @@
       "l": 2
     },
     {
+      "team": "TSG Hoffenheim",
+      "gf": 6,
+      "ga": 10,
+      "pj": 5,
+      "pts": 3,
+      "w": 1,
+      "d": 0,
+      "l": 4
+    },
+    {
       "team": "Hamburger SV",
       "gf": 3,
       "ga": 5,
@@ -122,16 +132,6 @@
       "l": 2
     },
     {
-      "team": "TSG Hoffenheim",
-      "gf": 4,
-      "ga": 9,
-      "pj": 4,
-      "pts": 0,
-      "w": 0,
-      "d": 0,
-      "l": 4
-    },
-    {
       "team": "Union Berlin",
       "gf": 1,
       "ga": 9,
@@ -143,13 +143,13 @@
     },
     {
       "team": "Mainz 05",
-      "gf": 1,
-      "ga": 11,
-      "pj": 4,
+      "gf": 3,
+      "ga": 14,
+      "pj": 5,
       "pts": 0,
       "w": 0,
       "d": 0,
-      "l": 4
+      "l": 5
     }
   ],
   "results": [],

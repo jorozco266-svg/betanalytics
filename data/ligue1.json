@@ -4,27 +4,27 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-14T00:38:45.838412+00:00",
+    "last_updated": "2026-09-19T00:55:17.861299+00:00",
     "avg_goals": 1.35,
-    "total_matches": 46,
-    "total_goals": 127,
-    "avg_real": 1.38
+    "total_matches": 47,
+    "total_goals": 130,
+    "avg_real": 1.383
   },
   "standings": [
+    {
+      "team": "Monaco",
+      "pj": 5,
+      "gf": 8,
+      "ga": 3,
+      "w": 4,
+      "d": 1,
+      "l": 0,
+      "pts": 13
+    },
     {
       "team": "Lille",
       "pj": 4,
       "gf": 7,
-      "ga": 2,
-      "w": 3,
-      "d": 1,
-      "l": 0,
-      "pts": 10
-    },
-    {
-      "team": "Monaco",
-      "pj": 4,
-      "gf": 6,
       "ga": 2,
       "w": 3,
       "d": 1,
@@ -103,12 +103,12 @@
     },
     {
       "team": "Lens",
-      "pj": 4,
-      "gf": 8,
-      "ga": 7,
+      "pj": 5,
+      "gf": 9,
+      "ga": 9,
       "w": 1,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 4
     },
     {
@@ -730,16 +730,17 @@
       "hg": 0,
       "ag": 1,
       "matchday": 4
+    },
+    {
+      "date": "2026-09-18",
+      "home": "Monaco",
+      "away": "Lens",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 5
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-18",
-      "time": "01:45 PM",
-      "home": "Monaco",
-      "away": "Lens",
-      "matchday": 5
-    },
     {
       "date": "2026-09-19",
       "time": "01:45 PM",
