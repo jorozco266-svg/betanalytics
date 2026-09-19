@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-19T00:55:14.836859+00:00",
+    "last_updated": "2026-09-19T14:13:23.277464+00:00",
     "avg_goals": 1.4,
-    "total_matches": 43,
-    "total_goals": 122,
-    "avg_real": 1.419
+    "total_matches": 44,
+    "total_goals": 127,
+    "avg_real": 1.443
   },
   "standings": [
     {
@@ -152,6 +152,16 @@
       "pts": 4
     },
     {
+      "team": "Aston Villa",
+      "pj": 6,
+      "gf": 4,
+      "ga": 13,
+      "w": 1,
+      "d": 1,
+      "l": 4,
+      "pts": 4
+    },
+    {
       "team": "Brighton & Hove Albion FC",
       "pj": 1,
       "gf": 4,
@@ -193,12 +203,12 @@
     },
     {
       "team": "Tottenham",
-      "pj": 4,
-      "gf": 0,
-      "ga": 5,
+      "pj": 5,
+      "gf": 2,
+      "ga": 8,
       "w": 0,
       "d": 2,
-      "l": 2,
+      "l": 3,
       "pts": 2
     },
     {
@@ -209,16 +219,6 @@
       "w": 0,
       "d": 1,
       "l": 3,
-      "pts": 1
-    },
-    {
-      "team": "Aston Villa",
-      "pj": 5,
-      "gf": 1,
-      "ga": 11,
-      "w": 0,
-      "d": 1,
-      "l": 4,
       "pts": 1
     },
     {
@@ -576,37 +576,17 @@
       "hg": 3,
       "ag": 0,
       "matchday": 5
+    },
+    {
+      "date": "2026-09-19",
+      "home": "Tottenham",
+      "away": "Aston Villa",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 5
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-09-19",
-      "time": "06:30 AM",
-      "home": "Tottenham",
-      "away": "Aston Villa",
-      "matchday": 5
-    },
-    {
-      "date": "2026-09-19",
-      "time": "09:00 AM",
-      "home": "Everton",
-      "away": "Ipswich Town",
-      "matchday": 5
-    },
-    {
-      "date": "2026-09-19",
-      "time": "09:00 AM",
-      "home": "Brighton",
-      "away": "Arsenal",
-      "matchday": 5
-    },
-    {
-      "date": "2026-09-19",
-      "time": "09:00 AM",
-      "home": "Newcastle",
-      "away": "Hull City",
-      "matchday": 5
-    },
     {
       "date": "2026-09-19",
       "time": "11:30 AM",

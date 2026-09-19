@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-19T00:55:12.207869+00:00",
+    "last_updated": "2026-09-19T14:13:21.587125+00:00",
     "avg_goals": 1.03,
-    "total_matches": 376,
-    "total_goals": 791,
-    "avg_real": 1.052
+    "total_matches": 377,
+    "total_goals": 795,
+    "avg_real": 1.054
   },
   "standings": [
     {
@@ -163,13 +163,13 @@
     },
     {
       "team": "Sarmiento (J)",
-      "gf": 29,
-      "ga": 33,
-      "pj": 25,
+      "gf": 30,
+      "ga": 36,
+      "pj": 26,
       "pts": 35,
       "w": 11,
       "d": 2,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Unión",
@@ -222,6 +222,16 @@
       "l": 7
     },
     {
+      "team": "Racing",
+      "gf": 28,
+      "ga": 31,
+      "pj": 26,
+      "pts": 29,
+      "w": 7,
+      "d": 8,
+      "l": 11
+    },
+    {
       "team": "Newell's Old Boys",
       "gf": 25,
       "ga": 35,
@@ -240,16 +250,6 @@
       "w": 6,
       "d": 9,
       "l": 10
-    },
-    {
-      "team": "Racing",
-      "gf": 25,
-      "ga": 30,
-      "pj": 25,
-      "pts": 26,
-      "w": 6,
-      "d": 8,
-      "l": 11
     },
     {
       "team": "Banfield",

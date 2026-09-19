@@ -4,13 +4,23 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-19T00:55:26.705630+00:00",
+    "last_updated": "2026-09-19T14:13:33.849273+00:00",
     "avg_goals": 1.72,
-    "total_matches": 30,
-    "total_goals": 98,
-    "avg_real": 1.633
+    "total_matches": 31,
+    "total_goals": 105,
+    "avg_real": 1.694
   },
   "standings": [
+    {
+      "team": "Bayern Munich",
+      "gf": 18,
+      "ga": 6,
+      "pj": 5,
+      "pts": 15,
+      "w": 5,
+      "d": 0,
+      "l": 0
+    },
     {
       "team": "Eintracht Frankfurt",
       "gf": 11,
@@ -32,24 +42,14 @@
       "l": 1
     },
     {
-      "team": "Bayern Munich",
-      "gf": 13,
-      "ga": 4,
-      "pj": 4,
-      "pts": 12,
-      "w": 4,
-      "d": 0,
-      "l": 0
-    },
-    {
       "team": "1. FC Köln",
-      "gf": 8,
-      "ga": 2,
-      "pj": 4,
+      "gf": 10,
+      "ga": 7,
+      "pj": 5,
       "pts": 9,
       "w": 3,
       "d": 0,
-      "l": 1
+      "l": 2
     },
     {
       "team": "Werder Bremen",
