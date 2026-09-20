@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-19T14:13:21.587125+00:00",
+    "last_updated": "2026-09-20T00:35:45.438469+00:00",
     "avg_goals": 1.03,
-    "total_matches": 377,
-    "total_goals": 795,
-    "avg_real": 1.054
+    "total_matches": 381,
+    "total_goals": 805,
+    "avg_real": 1.056
   },
   "standings": [
     {
@@ -62,24 +62,24 @@
       "l": 6
     },
     {
-      "team": "River Plate",
+      "team": "Gimnasia y Esgrima (LP)",
       "gf": 34,
-      "ga": 22,
-      "pj": 25,
-      "pts": 42,
+      "ga": 34,
+      "pj": 26,
+      "pts": 43,
       "w": 13,
-      "d": 3,
+      "d": 4,
       "l": 9
     },
     {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 32,
-      "ga": 32,
-      "pj": 25,
+      "team": "River Plate",
+      "gf": 35,
+      "ga": 24,
+      "pj": 26,
       "pts": 42,
       "w": 13,
       "d": 3,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Estudiantes (LP)",
@@ -90,6 +90,16 @@
       "w": 12,
       "d": 5,
       "l": 8
+    },
+    {
+      "team": "Independiente",
+      "gf": 34,
+      "ga": 28,
+      "pj": 26,
+      "pts": 41,
+      "w": 11,
+      "d": 8,
+      "l": 7
     },
     {
       "team": "Instituto",
@@ -112,14 +122,14 @@
       "l": 6
     },
     {
-      "team": "Independiente",
-      "gf": 32,
-      "ga": 27,
-      "pj": 25,
+      "team": "Huracán",
+      "gf": 27,
+      "ga": 21,
+      "pj": 26,
       "pts": 38,
-      "w": 10,
-      "d": 8,
-      "l": 7
+      "w": 9,
+      "d": 11,
+      "l": 6
     },
     {
       "team": "Lanús",
@@ -142,23 +152,13 @@
       "l": 7
     },
     {
-      "team": "Huracán",
-      "gf": 25,
-      "ga": 20,
-      "pj": 25,
-      "pts": 35,
-      "w": 8,
-      "d": 11,
-      "l": 6
-    },
-    {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 28,
       "ga": 31,
-      "pj": 25,
-      "pts": 35,
+      "pj": 26,
+      "pts": 36,
       "w": 10,
-      "d": 5,
+      "d": 6,
       "l": 10
     },
     {
@@ -173,13 +173,13 @@
     },
     {
       "team": "Unión",
-      "gf": 40,
-      "ga": 34,
-      "pj": 25,
+      "gf": 41,
+      "ga": 36,
+      "pj": 26,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Talleres",
@@ -253,12 +253,12 @@
     },
     {
       "team": "Banfield",
-      "gf": 26,
-      "ga": 33,
-      "pj": 25,
-      "pts": 26,
+      "gf": 28,
+      "ga": 35,
+      "pj": 26,
+      "pts": 27,
       "w": 7,
-      "d": 5,
+      "d": 6,
       "l": 13
     },
     {
@@ -285,10 +285,10 @@
       "team": "Deportivo Riestra",
       "gf": 13,
       "ga": 22,
-      "pj": 25,
-      "pts": 20,
+      "pj": 26,
+      "pts": 21,
       "w": 3,
-      "d": 11,
+      "d": 12,
       "l": 11
     },
     {

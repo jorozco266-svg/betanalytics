@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-17T01:03:37.538393+00:00",
+    "last_updated": "2026-09-20T00:35:46.024349+00:00",
     "avg_goals": 1.35,
-    "total_matches": 267,
-    "total_goals": 712,
-    "avg_real": 1.333
+    "total_matches": 270,
+    "total_goals": 719,
+    "avg_real": 1.331
   },
   "standings": [
     {
@@ -73,12 +73,22 @@
     },
     {
       "team": "Atlético Mineiro",
-      "gf": 35,
-      "ga": 31,
-      "pj": 26,
-      "pts": 39,
+      "gf": 36,
+      "ga": 32,
+      "pj": 27,
+      "pts": 40,
       "w": 11,
-      "d": 6,
+      "d": 7,
+      "l": 9
+    },
+    {
+      "team": "Santos",
+      "gf": 41,
+      "ga": 40,
+      "pj": 27,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
       "l": 9
     },
     {
@@ -102,24 +112,14 @@
       "l": 10
     },
     {
-      "team": "Santos",
-      "gf": 39,
-      "ga": 39,
-      "pj": 26,
-      "pts": 35,
-      "w": 9,
-      "d": 8,
-      "l": 9
-    },
-    {
       "team": "Botafogo",
       "gf": 41,
-      "ga": 43,
-      "pj": 27,
+      "ga": 45,
+      "pj": 28,
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "São Paulo",
@@ -153,11 +153,11 @@
     },
     {
       "team": "Mirassol",
-      "gf": 31,
+      "gf": 33,
       "ga": 42,
-      "pj": 27,
-      "pts": 29,
-      "w": 7,
+      "pj": 28,
+      "pts": 32,
+      "w": 8,
       "d": 8,
       "l": 12
     },
@@ -193,22 +193,22 @@
     },
     {
       "team": "Remo",
-      "gf": 31,
-      "ga": 45,
-      "pj": 27,
+      "gf": 32,
+      "ga": 47,
+      "pj": 28,
       "pts": 23,
       "w": 5,
       "d": 8,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Chapecoense",
-      "gf": 28,
-      "ga": 52,
-      "pj": 26,
-      "pts": 17,
+      "gf": 29,
+      "ga": 53,
+      "pj": 27,
+      "pts": 18,
       "w": 3,
-      "d": 8,
+      "d": 9,
       "l": 15
     }
   ],
