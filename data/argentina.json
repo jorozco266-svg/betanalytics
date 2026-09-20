@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-20T00:35:45.438469+00:00",
+    "last_updated": "2026-09-20T14:36:51.414951+00:00",
     "avg_goals": 1.03,
-    "total_matches": 381,
-    "total_goals": 805,
-    "avg_real": 1.056
+    "total_matches": 382,
+    "total_goals": 809,
+    "avg_real": 1.059
   },
   "standings": [
     {
@@ -50,6 +50,16 @@
       "w": 11,
       "d": 11,
       "l": 3
+    },
+    {
+      "team": "Instituto",
+      "gf": 30,
+      "ga": 24,
+      "pj": 26,
+      "pts": 43,
+      "w": 13,
+      "d": 4,
+      "l": 9
     },
     {
       "team": "Rosario Central",
@@ -100,16 +110,6 @@
       "w": 11,
       "d": 8,
       "l": 7
-    },
-    {
-      "team": "Instituto",
-      "gf": 27,
-      "ga": 23,
-      "pj": 25,
-      "pts": 40,
-      "w": 12,
-      "d": 4,
-      "l": 9
     },
     {
       "team": "Belgrano",
@@ -183,13 +183,13 @@
     },
     {
       "team": "Talleres",
-      "gf": 27,
-      "ga": 27,
-      "pj": 25,
+      "gf": 28,
+      "ga": 30,
+      "pj": 26,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Barracas Central",

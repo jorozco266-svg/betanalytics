@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-20T00:35:48.988431+00:00",
+    "last_updated": "2026-09-20T14:36:54.926862+00:00",
     "avg_goals": 1.35,
     "total_matches": 52,
     "total_goals": 147,
@@ -786,13 +786,6 @@
       "time": "01:45 PM",
       "home": "Marseille",
       "away": "Paris Saint-Germain",
-      "matchday": 5
-    },
-    {
-      "date": "2026-09-20",
-      "time": "08:00 AM",
-      "home": "Auxerre",
-      "away": "Brest",
       "matchday": 5
     },
     {

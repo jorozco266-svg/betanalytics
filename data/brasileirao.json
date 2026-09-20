@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-20T00:35:46.024349+00:00",
+    "last_updated": "2026-09-20T14:36:51.861079+00:00",
     "avg_goals": 1.35,
-    "total_matches": 270,
-    "total_goals": 719,
-    "avg_real": 1.331
+    "total_matches": 272,
+    "total_goals": 725,
+    "avg_real": 1.333
   },
   "standings": [
     {
@@ -94,12 +94,12 @@
     {
       "team": "Coritiba",
       "gf": 37,
-      "ga": 38,
-      "pj": 27,
+      "ga": 43,
+      "pj": 28,
       "pts": 38,
       "w": 10,
       "d": 8,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Red Bull Bragantino",
@@ -112,6 +112,16 @@
       "l": 10
     },
     {
+      "team": "São Paulo",
+      "gf": 32,
+      "ga": 30,
+      "pj": 27,
+      "pts": 36,
+      "w": 10,
+      "d": 6,
+      "l": 11
+    },
+    {
       "team": "Botafogo",
       "gf": 41,
       "ga": 45,
@@ -119,16 +129,6 @@
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 11
-    },
-    {
-      "team": "São Paulo",
-      "gf": 31,
-      "ga": 30,
-      "pj": 26,
-      "pts": 33,
-      "w": 9,
-      "d": 6,
       "l": 11
     },
     {
@@ -162,6 +162,16 @@
       "l": 12
     },
     {
+      "team": "Vasco da Gama",
+      "gf": 34,
+      "ga": 41,
+      "pj": 27,
+      "pts": 31,
+      "w": 8,
+      "d": 7,
+      "l": 12
+    },
+    {
       "team": "Grêmio",
       "gf": 30,
       "ga": 38,
@@ -172,24 +182,14 @@
       "l": 13
     },
     {
-      "team": "Vasco da Gama",
-      "gf": 29,
-      "ga": 41,
-      "pj": 26,
-      "pts": 28,
-      "w": 7,
-      "d": 7,
-      "l": 12
-    },
-    {
       "team": "Internacional",
       "gf": 30,
-      "ga": 35,
-      "pj": 27,
+      "ga": 36,
+      "pj": 28,
       "pts": 28,
       "w": 6,
       "d": 10,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Remo",
