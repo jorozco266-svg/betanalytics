@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-21T00:47:49.115033+00:00",
+    "last_updated": "2026-09-21T16:52:27.184323+00:00",
     "avg_goals": 1.03,
-    "total_matches": 386,
-    "total_goals": 816,
-    "avg_real": 1.057
+    "total_matches": 387,
+    "total_goals": 821,
+    "avg_real": 1.061
   },
   "standings": [
     {
@@ -20,6 +20,16 @@
       "w": 14,
       "d": 6,
       "l": 5
+    },
+    {
+      "team": "Vélez Sarsfield",
+      "gf": 33,
+      "ga": 21,
+      "pj": 26,
+      "pts": 48,
+      "w": 12,
+      "d": 12,
+      "l": 2
     },
     {
       "team": "Boca Juniors",
@@ -50,16 +60,6 @@
       "w": 13,
       "d": 7,
       "l": 6
-    },
-    {
-      "team": "Vélez Sarsfield",
-      "gf": 30,
-      "ga": 19,
-      "pj": 25,
-      "pts": 45,
-      "w": 11,
-      "d": 12,
-      "l": 2
     },
     {
       "team": "Instituto",
@@ -213,13 +213,13 @@
     },
     {
       "team": "Tigre",
-      "gf": 25,
-      "ga": 21,
-      "pj": 25,
+      "gf": 27,
+      "ga": 24,
+      "pj": 26,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Newell's Old Boys",
