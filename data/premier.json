@@ -4,22 +4,22 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-20T14:36:52.783729+00:00",
+    "last_updated": "2026-09-21T00:47:50.893806+00:00",
     "avg_goals": 1.4,
-    "total_matches": 48,
-    "total_goals": 135,
-    "avg_real": 1.406
+    "total_matches": 52,
+    "total_goals": 146,
+    "avg_real": 1.404
   },
   "standings": [
     {
       "team": "Manchester City",
-      "pj": 4,
-      "gf": 8,
-      "ga": 2,
-      "w": 4,
+      "pj": 5,
+      "gf": 13,
+      "ga": 5,
+      "w": 5,
       "d": 0,
       "l": 0,
-      "pts": 12
+      "pts": 15
     },
     {
       "team": "Arsenal",
@@ -52,6 +52,26 @@
       "pts": 9
     },
     {
+      "team": "Leeds United",
+      "pj": 5,
+      "gf": 7,
+      "ga": 3,
+      "w": 2,
+      "d": 3,
+      "l": 0,
+      "pts": 9
+    },
+    {
+      "team": "Liverpool",
+      "pj": 5,
+      "gf": 7,
+      "ga": 4,
+      "w": 2,
+      "d": 3,
+      "l": 0,
+      "pts": 9
+    },
+    {
       "team": "Everton",
       "pj": 5,
       "gf": 6,
@@ -60,16 +80,6 @@
       "d": 3,
       "l": 0,
       "pts": 9
-    },
-    {
-      "team": "Leeds United",
-      "pj": 4,
-      "gf": 7,
-      "ga": 3,
-      "w": 2,
-      "d": 2,
-      "l": 0,
-      "pts": 8
     },
     {
       "team": "Hull City",
@@ -102,16 +112,6 @@
       "pts": 7
     },
     {
-      "team": "Liverpool",
-      "pj": 4,
-      "gf": 6,
-      "ga": 4,
-      "w": 1,
-      "d": 3,
-      "l": 0,
-      "pts": 6
-    },
-    {
       "team": "Ipswich Town",
       "pj": 5,
       "gf": 7,
@@ -120,6 +120,16 @@
       "d": 0,
       "l": 3,
       "pts": 6
+    },
+    {
+      "team": "Manchester United",
+      "pj": 5,
+      "gf": 8,
+      "ga": 8,
+      "w": 1,
+      "d": 2,
+      "l": 2,
+      "pts": 5
     },
     {
       "team": "Nottingham Forest",
@@ -132,23 +142,23 @@
       "pts": 5
     },
     {
-      "team": "Manchester United",
-      "pj": 4,
-      "gf": 7,
-      "ga": 7,
+      "team": "Sunderland",
+      "pj": 5,
+      "gf": 6,
+      "ga": 10,
       "w": 1,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 4
     },
     {
-      "team": "Sunderland",
-      "pj": 4,
-      "gf": 3,
-      "ga": 5,
+      "team": "Crystal Palace",
+      "pj": 5,
+      "gf": 6,
+      "ga": 11,
       "w": 1,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 4
     },
     {
@@ -183,22 +193,12 @@
     },
     {
       "team": "Bournemouth",
-      "pj": 4,
+      "pj": 5,
       "gf": 6,
-      "ga": 7,
+      "ga": 8,
       "w": 0,
       "d": 3,
-      "l": 1,
-      "pts": 3
-    },
-    {
-      "team": "Crystal Palace",
-      "pj": 4,
-      "gf": 6,
-      "ga": 11,
-      "w": 1,
-      "d": 0,
-      "l": 3,
+      "l": 2,
       "pts": 3
     },
     {
@@ -212,6 +212,16 @@
       "pts": 3
     },
     {
+      "team": "Fulham",
+      "pj": 5,
+      "gf": 5,
+      "ga": 8,
+      "w": 0,
+      "d": 2,
+      "l": 3,
+      "pts": 2
+    },
+    {
       "team": "Tottenham",
       "pj": 5,
       "gf": 2,
@@ -220,16 +230,6 @@
       "d": 2,
       "l": 3,
       "pts": 2
-    },
-    {
-      "team": "Fulham",
-      "pj": 4,
-      "gf": 4,
-      "ga": 7,
-      "w": 0,
-      "d": 1,
-      "l": 3,
-      "pts": 1
     }
   ],
   "results": [
@@ -616,17 +616,41 @@
       "hg": 0,
       "ag": 1,
       "matchday": 5
-    }
-  ],
-  "fixtures": [
+    },
     {
       "date": "2026-09-20",
-      "time": "10:30 AM",
+      "home": "Bournemouth",
+      "away": "Liverpool",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Leeds United",
+      "away": "Crystal Palace",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
+      "home": "Manchester City",
+      "away": "Sunderland",
+      "hg": 5,
+      "ag": 3,
+      "matchday": 5
+    },
+    {
+      "date": "2026-09-20",
       "home": "Fulham",
       "away": "Manchester United",
+      "hg": 1,
+      "ag": 1,
       "matchday": 5
     }
   ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
