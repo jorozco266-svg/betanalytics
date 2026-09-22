@@ -4,20 +4,20 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-21T16:52:27.184323+00:00",
+    "last_updated": "2026-09-22T01:24:03.939767+00:00",
     "avg_goals": 1.03,
-    "total_matches": 387,
-    "total_goals": 821,
-    "avg_real": 1.061
+    "total_matches": 389,
+    "total_goals": 823,
+    "avg_real": 1.058
   },
   "standings": [
     {
       "team": "Independiente Rivadavia",
-      "gf": 42,
+      "gf": 43,
       "ga": 28,
-      "pj": 25,
-      "pts": 48,
-      "w": 14,
+      "pj": 26,
+      "pts": 51,
+      "w": 15,
       "d": 6,
       "l": 5
     },
@@ -194,12 +194,12 @@
     {
       "team": "Barracas Central",
       "gf": 20,
-      "ga": 21,
-      "pj": 25,
+      "ga": 22,
+      "pj": 26,
       "pts": 33,
       "w": 8,
       "d": 9,
-      "l": 8
+      "l": 9
     },
     {
       "team": "San Lorenzo",
@@ -244,12 +244,12 @@
     {
       "team": "Atlético Tucumán",
       "gf": 22,
-      "ga": 25,
-      "pj": 25,
+      "ga": 26,
+      "pj": 26,
       "pts": 27,
       "w": 6,
       "d": 9,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Banfield",
@@ -293,11 +293,11 @@
     },
     {
       "team": "Aldosivi",
-      "gf": 17,
+      "gf": 18,
       "ga": 35,
-      "pj": 25,
-      "pts": 13,
-      "w": 1,
+      "pj": 26,
+      "pts": 16,
+      "w": 2,
       "d": 10,
       "l": 14
     },
