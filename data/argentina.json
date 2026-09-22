@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-22T01:24:03.939767+00:00",
+    "last_updated": "2026-09-22T15:27:24.191378+00:00",
     "avg_goals": 1.03,
-    "total_matches": 389,
-    "total_goals": 823,
-    "avg_real": 1.058
+    "total_matches": 390,
+    "total_goals": 826,
+    "avg_real": 1.059
   },
   "standings": [
     {
@@ -103,13 +103,13 @@
     },
     {
       "team": "Estudiantes (LP)",
-      "gf": 28,
-      "ga": 16,
-      "pj": 25,
+      "gf": 29,
+      "ga": 18,
+      "pj": 26,
       "pts": 41,
       "w": 12,
       "d": 5,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Independiente",
@@ -122,6 +122,16 @@
       "l": 7
     },
     {
+      "team": "Lanús",
+      "gf": 31,
+      "ga": 24,
+      "pj": 26,
+      "pts": 40,
+      "w": 11,
+      "d": 7,
+      "l": 8
+    },
+    {
       "team": "Huracán",
       "gf": 27,
       "ga": 21,
@@ -130,16 +140,6 @@
       "w": 9,
       "d": 11,
       "l": 6
-    },
-    {
-      "team": "Lanús",
-      "gf": 29,
-      "ga": 23,
-      "pj": 25,
-      "pts": 37,
-      "w": 10,
-      "d": 7,
-      "l": 8
     },
     {
       "team": "Defensa y Justicia",
