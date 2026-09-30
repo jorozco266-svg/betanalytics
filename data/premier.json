@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-21T00:47:50.893806+00:00",
+    "last_updated": "2026-09-30T01:47:53.212190+00:00",
     "avg_goals": 1.4,
     "total_matches": 52,
     "total_goals": 146,
@@ -650,7 +650,50 @@
       "matchday": 5
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-10-10",
+      "time": "06:30 AM",
+      "home": "Arsenal",
+      "away": "Leeds United",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "09:00 AM",
+      "home": "Sunderland",
+      "away": "Brighton",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "09:00 AM",
+      "home": "Chelsea",
+      "away": "Bournemouth",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "09:00 AM",
+      "home": "Ipswich Town",
+      "away": "Fulham",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "09:00 AM",
+      "home": "Aston Villa",
+      "away": "Brentford",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "11:30 AM",
+      "home": "Manchester United",
+      "away": "Tottenham",
+      "matchday": 6
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,

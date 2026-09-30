@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-21T00:47:52.175967+00:00",
+    "last_updated": "2026-09-30T01:47:54.558057+00:00",
     "avg_goals": 1.3,
     "total_matches": 58,
     "total_goals": 164,
@@ -818,7 +818,29 @@
       "matchday": 5
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-10-10",
+      "time": "01:45 PM",
+      "home": "Napoli",
+      "away": "Frosinone",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "08:00 AM",
+      "home": "Genoa",
+      "away": "Fiorentina",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "time": "11:00 AM",
+      "home": "Inter Milan",
+      "away": "Parma Calcio 1913",
+      "matchday": 6
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
