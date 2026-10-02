@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-01T01:46:24.042653+00:00",
+    "last_updated": "2026-10-02T01:56:58.200749+00:00",
     "avg_goals": 1.3,
     "total_matches": 58,
     "total_goals": 164,
@@ -873,6 +873,20 @@
       "time": "11:00 AM",
       "home": "Sassuolo",
       "away": "AC Milan",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-12",
+      "time": "01:45 PM",
+      "home": "Torino",
+      "away": "Udinese",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-12",
+      "time": "11:30 AM",
+      "home": "Atalanta",
+      "away": "Venezia",
       "matchday": 6
     }
   ],

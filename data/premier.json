@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-01T01:46:22.637739+00:00",
+    "last_updated": "2026-10-02T01:56:56.936902+00:00",
     "avg_goals": 1.4,
     "total_matches": 52,
     "total_goals": 146,
@@ -712,6 +712,13 @@
       "time": "10:30 AM",
       "home": "Liverpool",
       "away": "Manchester City",
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-12",
+      "time": "02:00 PM",
+      "home": "Coventry City",
+      "away": "Newcastle",
       "matchday": 6
     }
   ],
