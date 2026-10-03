@@ -4,22 +4,32 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-03T01:41:06.748553+00:00",
+    "last_updated": "2026-10-03T15:05:00.238954+00:00",
     "avg_goals": 1.03,
-    "total_matches": 391,
-    "total_goals": 831,
-    "avg_real": 1.063
+    "total_matches": 393,
+    "total_goals": 836,
+    "avg_real": 1.064
   },
   "standings": [
     {
       "team": "Independiente Rivadavia",
-      "gf": 43,
-      "ga": 28,
-      "pj": 26,
-      "pts": 51,
+      "gf": 44,
+      "ga": 29,
+      "pj": 27,
+      "pts": 52,
       "w": 15,
-      "d": 6,
+      "d": 7,
       "l": 5
+    },
+    {
+      "team": "Boca Juniors",
+      "gf": 39,
+      "ga": 20,
+      "pj": 27,
+      "pts": 50,
+      "w": 13,
+      "d": 11,
+      "l": 3
     },
     {
       "team": "Vélez Sarsfield",
@@ -30,16 +40,6 @@
       "w": 12,
       "d": 12,
       "l": 2
-    },
-    {
-      "team": "Boca Juniors",
-      "gf": 36,
-      "ga": 20,
-      "pj": 26,
-      "pts": 47,
-      "w": 12,
-      "d": 11,
-      "l": 3
     },
     {
       "team": "Argentinos Juniors",
@@ -73,12 +73,12 @@
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
-      "gf": 34,
-      "ga": 34,
-      "pj": 26,
-      "pts": 43,
+      "gf": 35,
+      "ga": 35,
+      "pj": 27,
+      "pts": 44,
       "w": 13,
-      "d": 4,
+      "d": 5,
       "l": 9
     },
     {
@@ -174,12 +174,12 @@
     {
       "team": "Unión",
       "gf": 41,
-      "ga": 36,
-      "pj": 26,
+      "ga": 39,
+      "pj": 27,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Talleres",

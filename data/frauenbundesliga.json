@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-09-22T01:24:13.602218+00:00",
+    "last_updated": "2026-10-03T15:05:14.298200+00:00",
     "avg_goals": 1.72,
-    "total_matches": 35,
-    "total_goals": 121,
-    "avg_real": 1.729
+    "total_matches": 37,
+    "total_goals": 131,
+    "avg_real": 1.77
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "l": 1
     },
     {
+      "team": "Bayer Leverkusen",
+      "gf": 12,
+      "ga": 9,
+      "pj": 6,
+      "pts": 12,
+      "w": 4,
+      "d": 0,
+      "l": 2
+    },
+    {
       "team": "1. FC Köln",
       "gf": 10,
       "ga": 7,
@@ -53,16 +63,6 @@
     },
     {
       "team": "Werder Bremen",
-      "gf": 7,
-      "ga": 4,
-      "pj": 4,
-      "pts": 9,
-      "w": 3,
-      "d": 0,
-      "l": 1
-    },
-    {
-      "team": "Bayer Leverkusen",
       "gf": 9,
       "ga": 7,
       "pj": 5,
@@ -80,6 +80,16 @@
       "w": 2,
       "d": 2,
       "l": 1
+    },
+    {
+      "team": "RB Leipzig",
+      "gf": 10,
+      "ga": 9,
+      "pj": 6,
+      "pts": 7,
+      "w": 2,
+      "d": 1,
+      "l": 3
     },
     {
       "team": "SC Freiburg",
@@ -100,16 +110,6 @@
       "w": 1,
       "d": 2,
       "l": 2
-    },
-    {
-      "team": "RB Leipzig",
-      "gf": 5,
-      "ga": 9,
-      "pj": 5,
-      "pts": 4,
-      "w": 1,
-      "d": 1,
-      "l": 3
     },
     {
       "team": "Union Berlin",
@@ -144,12 +144,12 @@
     {
       "team": "Mainz 05",
       "gf": 3,
-      "ga": 14,
-      "pj": 5,
+      "ga": 19,
+      "pj": 6,
       "pts": 0,
       "w": 0,
       "d": 0,
-      "l": 5
+      "l": 6
     }
   ],
   "results": [],
