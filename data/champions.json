@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-09-11T00:48:09.972057+00:00",
+    "last_updated": "2026-10-03T01:41:14.189241+00:00",
     "avg_goals": 1.45,
     "total_matches": 207,
     "total_goals": 731,
@@ -2210,5 +2210,69 @@
       "matchday": 1
     }
   ],
-  "fixtures": []
+  "fixtures": [
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "FC Internazionale Milano",
+      "away": "Club Brugge KV",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "Galatasaray SK",
+      "away": "FC Barcelona",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "Club Atlético de Madrid",
+      "away": "Manchester United FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "Arsenal FC",
+      "away": "Lille OSC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "Viking FK",
+      "away": "FC Bayern München",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "RB Leipzig",
+      "away": "PSV",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "02:00 PM",
+      "home": "Villarreal CF",
+      "away": "SSC Napoli",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "11:45 AM",
+      "home": "Racing Club de Lens",
+      "away": "Sporting Clube de Portugal",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-13",
+      "time": "11:45 AM",
+      "home": "Sabah FK",
+      "away": "SK Slavia Praha",
+      "matchday": 2
+    }
+  ]
 }

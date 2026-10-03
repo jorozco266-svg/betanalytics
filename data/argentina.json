@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-09-22T15:27:24.191378+00:00",
+    "last_updated": "2026-10-03T01:41:06.748553+00:00",
     "avg_goals": 1.03,
-    "total_matches": 390,
-    "total_goals": 826,
-    "avg_real": 1.059
+    "total_matches": 391,
+    "total_goals": 831,
+    "avg_real": 1.063
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 5
     },
     {
+      "team": "Instituto",
+      "gf": 34,
+      "ga": 25,
+      "pj": 27,
+      "pts": 46,
+      "w": 14,
+      "d": 4,
+      "l": 9
+    },
+    {
       "team": "Rosario Central",
       "gf": 31,
       "ga": 24,
@@ -60,16 +70,6 @@
       "w": 13,
       "d": 7,
       "l": 6
-    },
-    {
-      "team": "Instituto",
-      "gf": 30,
-      "ga": 24,
-      "pj": 26,
-      "pts": 43,
-      "w": 13,
-      "d": 4,
-      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -113,13 +113,13 @@
     },
     {
       "team": "Independiente",
-      "gf": 34,
-      "ga": 28,
-      "pj": 26,
+      "gf": 35,
+      "ga": 32,
+      "pj": 27,
       "pts": 41,
       "w": 11,
       "d": 8,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Lanús",
