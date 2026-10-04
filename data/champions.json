@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-03T01:41:14.189241+00:00",
+    "last_updated": "2026-10-04T02:20:34.870794+00:00",
     "avg_goals": 1.45,
     "total_matches": 207,
     "total_goals": 731,
@@ -2272,6 +2272,69 @@
       "time": "11:45 AM",
       "home": "Sabah FK",
       "away": "SK Slavia Praha",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "AS Roma",
+      "away": "Real Madrid CF",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "Manchester City FC",
+      "away": "Paris Saint-Germain FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "FK Bodø/Glimt",
+      "away": "Borussia Dortmund",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "Aston Villa FC",
+      "away": "Fenerbahçe SK",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "Real Betis Balompié",
+      "away": "FC Porto",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "FK Shakhtar Donetsk",
+      "away": "PAE AEK",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "02:00 PM",
+      "home": "ŠK Slovan Bratislava",
+      "away": "VfB Stuttgart",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "11:45 AM",
+      "home": "LASK Linz",
+      "away": "Liverpool FC",
+      "matchday": 2
+    },
+    {
+      "date": "2026-10-14",
+      "time": "11:45 AM",
+      "home": "Feyenoord Rotterdam",
+      "away": "Como 1907",
       "matchday": 2
     }
   ]

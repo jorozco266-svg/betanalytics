@@ -4,32 +4,32 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-03T15:05:14.298200+00:00",
+    "last_updated": "2026-10-04T02:20:42.284259+00:00",
     "avg_goals": 1.72,
-    "total_matches": 37,
-    "total_goals": 131,
-    "avg_real": 1.77
+    "total_matches": 39,
+    "total_goals": 133,
+    "avg_real": 1.705
   },
   "standings": [
     {
       "team": "Bayern Munich",
-      "gf": 18,
+      "gf": 19,
       "ga": 6,
-      "pj": 5,
-      "pts": 15,
-      "w": 5,
+      "pj": 6,
+      "pts": 18,
+      "w": 6,
       "d": 0,
       "l": 0
     },
     {
       "team": "Eintracht Frankfurt",
       "gf": 11,
-      "ga": 5,
-      "pj": 5,
+      "ga": 6,
+      "pj": 6,
       "pts": 13,
       "w": 4,
       "d": 1,
-      "l": 0
+      "l": 1
     },
     {
       "team": "VfL Wolfsburg",
@@ -52,14 +52,24 @@
       "l": 2
     },
     {
+      "team": "SC Freiburg",
+      "gf": 8,
+      "ga": 7,
+      "pj": 6,
+      "pts": 10,
+      "w": 3,
+      "d": 1,
+      "l": 2
+    },
+    {
       "team": "1. FC Köln",
       "gf": 10,
-      "ga": 7,
-      "pj": 5,
+      "ga": 8,
+      "pj": 6,
       "pts": 9,
       "w": 3,
       "d": 0,
-      "l": 2
+      "l": 3
     },
     {
       "team": "Werder Bremen",
@@ -90,16 +100,6 @@
       "w": 2,
       "d": 1,
       "l": 3
-    },
-    {
-      "team": "SC Freiburg",
-      "gf": 7,
-      "ga": 7,
-      "pj": 5,
-      "pts": 7,
-      "w": 2,
-      "d": 1,
-      "l": 2
     },
     {
       "team": "Hamburger SV",

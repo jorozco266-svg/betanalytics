@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-03T15:05:00.238954+00:00",
+    "last_updated": "2026-10-04T02:20:29.653018+00:00",
     "avg_goals": 1.03,
-    "total_matches": 393,
-    "total_goals": 836,
-    "avg_real": 1.064
+    "total_matches": 396,
+    "total_goals": 844,
+    "avg_real": 1.066
   },
   "standings": [
     {
@@ -112,6 +112,16 @@
       "l": 9
     },
     {
+      "team": "Lanús",
+      "gf": 31,
+      "ga": 24,
+      "pj": 27,
+      "pts": 41,
+      "w": 11,
+      "d": 8,
+      "l": 8
+    },
+    {
       "team": "Independiente",
       "gf": 35,
       "ga": 32,
@@ -122,14 +132,14 @@
       "l": 8
     },
     {
-      "team": "Lanús",
-      "gf": 31,
-      "ga": 24,
-      "pj": 26,
+      "team": "Defensa y Justicia",
+      "gf": 34,
+      "ga": 32,
+      "pj": 27,
       "pts": 40,
-      "w": 11,
-      "d": 7,
-      "l": 8
+      "w": 10,
+      "d": 10,
+      "l": 7
     },
     {
       "team": "Huracán",
@@ -142,14 +152,14 @@
       "l": 6
     },
     {
-      "team": "Defensa y Justicia",
-      "gf": 31,
-      "ga": 32,
-      "pj": 26,
-      "pts": 37,
+      "team": "Barracas Central",
+      "gf": 23,
+      "ga": 24,
+      "pj": 27,
+      "pts": 36,
       "w": 9,
-      "d": 10,
-      "l": 7
+      "d": 9,
+      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -192,24 +202,14 @@
       "l": 10
     },
     {
-      "team": "Barracas Central",
-      "gf": 20,
-      "ga": 22,
-      "pj": 26,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
-      "l": 9
-    },
-    {
       "team": "San Lorenzo",
       "gf": 18,
-      "ga": 22,
-      "pj": 26,
+      "ga": 25,
+      "pj": 27,
       "pts": 33,
       "w": 8,
       "d": 9,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Tigre",
@@ -225,10 +225,10 @@
       "team": "Newell's Old Boys",
       "gf": 26,
       "ga": 35,
-      "pj": 26,
-      "pts": 31,
+      "pj": 27,
+      "pts": 32,
       "w": 7,
-      "d": 10,
+      "d": 11,
       "l": 9
     },
     {
@@ -243,13 +243,13 @@
     },
     {
       "team": "Atlético Tucumán",
-      "gf": 22,
-      "ga": 26,
-      "pj": 26,
+      "gf": 24,
+      "ga": 29,
+      "pj": 27,
       "pts": 27,
       "w": 6,
       "d": 9,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Banfield",
