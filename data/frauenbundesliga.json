@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-04T02:20:42.284259+00:00",
+    "last_updated": "2026-10-04T15:42:16.309303+00:00",
     "avg_goals": 1.72,
-    "total_matches": 39,
-    "total_goals": 133,
-    "avg_real": 1.705
+    "total_matches": 40,
+    "total_goals": 136,
+    "avg_real": 1.7
   },
   "standings": [
     {
@@ -22,6 +22,16 @@
       "l": 0
     },
     {
+      "team": "VfL Wolfsburg",
+      "gf": 18,
+      "ga": 8,
+      "pj": 6,
+      "pts": 15,
+      "w": 5,
+      "d": 0,
+      "l": 1
+    },
+    {
       "team": "Eintracht Frankfurt",
       "gf": 11,
       "ga": 6,
@@ -29,16 +39,6 @@
       "pts": 13,
       "w": 4,
       "d": 1,
-      "l": 1
-    },
-    {
-      "team": "VfL Wolfsburg",
-      "gf": 16,
-      "ga": 7,
-      "pj": 5,
-      "pts": 12,
-      "w": 4,
-      "d": 0,
       "l": 1
     },
     {
@@ -103,13 +103,13 @@
     },
     {
       "team": "Hamburger SV",
-      "gf": 8,
-      "ga": 6,
-      "pj": 5,
+      "gf": 9,
+      "ga": 8,
+      "pj": 6,
       "pts": 5,
       "w": 1,
       "d": 2,
-      "l": 2
+      "l": 3
     },
     {
       "team": "Union Berlin",
