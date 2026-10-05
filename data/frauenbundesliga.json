@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-04T15:42:16.309303+00:00",
+    "last_updated": "2026-10-05T01:31:53.690594+00:00",
     "avg_goals": 1.72,
-    "total_matches": 40,
-    "total_goals": 136,
-    "avg_real": 1.7
+    "total_matches": 42,
+    "total_goals": 143,
+    "avg_real": 1.702
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 2
     },
     {
+      "team": "Werder Bremen",
+      "gf": 10,
+      "ga": 8,
+      "pj": 6,
+      "pts": 10,
+      "w": 3,
+      "d": 1,
+      "l": 2
+    },
+    {
       "team": "SC Freiburg",
       "gf": 8,
       "ga": 7,
@@ -72,24 +82,14 @@
       "l": 3
     },
     {
-      "team": "Werder Bremen",
-      "gf": 9,
-      "ga": 7,
-      "pj": 5,
-      "pts": 9,
-      "w": 3,
-      "d": 0,
-      "l": 2
-    },
-    {
       "team": "VfB Stuttgart",
       "gf": 8,
-      "ga": 8,
-      "pj": 5,
+      "ga": 12,
+      "pj": 6,
       "pts": 8,
       "w": 2,
       "d": 2,
-      "l": 1
+      "l": 2
     },
     {
       "team": "RB Leipzig",
@@ -102,6 +102,26 @@
       "l": 3
     },
     {
+      "team": "Union Berlin",
+      "gf": 8,
+      "ga": 11,
+      "pj": 6,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 4
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "gf": 8,
+      "ga": 11,
+      "pj": 6,
+      "pts": 6,
+      "w": 2,
+      "d": 0,
+      "l": 4
+    },
+    {
       "team": "Hamburger SV",
       "gf": 9,
       "ga": 8,
@@ -112,34 +132,14 @@
       "l": 3
     },
     {
-      "team": "Union Berlin",
-      "gf": 5,
-      "ga": 12,
-      "pj": 6,
-      "pts": 4,
-      "w": 1,
-      "d": 1,
-      "l": 4
-    },
-    {
-      "team": "TSG Hoffenheim",
-      "gf": 6,
-      "ga": 10,
-      "pj": 5,
-      "pts": 3,
-      "w": 1,
-      "d": 0,
-      "l": 4
-    },
-    {
       "team": "1. FC Nürnberg",
-      "gf": 8,
-      "ga": 19,
-      "pj": 5,
+      "gf": 9,
+      "ga": 21,
+      "pj": 6,
       "pts": 2,
       "w": 0,
       "d": 2,
-      "l": 3
+      "l": 4
     },
     {
       "team": "Mainz 05",

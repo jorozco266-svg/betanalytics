@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-04T02:20:29.653018+00:00",
+    "last_updated": "2026-10-05T01:31:40.573244+00:00",
     "avg_goals": 1.03,
-    "total_matches": 396,
-    "total_goals": 844,
-    "avg_real": 1.066
+    "total_matches": 399,
+    "total_goals": 849,
+    "avg_real": 1.064
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 3
     },
     {
+      "team": "Argentinos Juniors",
+      "gf": 32,
+      "ga": 23,
+      "pj": 27,
+      "pts": 50,
+      "w": 14,
+      "d": 8,
+      "l": 5
+    },
+    {
       "team": "Vélez Sarsfield",
       "gf": 33,
       "ga": 21,
@@ -40,16 +50,6 @@
       "w": 12,
       "d": 12,
       "l": 2
-    },
-    {
-      "team": "Argentinos Juniors",
-      "gf": 30,
-      "ga": 22,
-      "pj": 26,
-      "pts": 47,
-      "w": 13,
-      "d": 8,
-      "l": 5
     },
     {
       "team": "Instituto",
@@ -69,6 +69,16 @@
       "pts": 46,
       "w": 13,
       "d": 7,
+      "l": 6
+    },
+    {
+      "team": "Belgrano",
+      "gf": 29,
+      "ga": 20,
+      "pj": 27,
+      "pts": 45,
+      "w": 12,
+      "d": 9,
       "l": 6
     },
     {
@@ -92,16 +102,6 @@
       "l": 10
     },
     {
-      "team": "Belgrano",
-      "gf": 28,
-      "ga": 20,
-      "pj": 26,
-      "pts": 42,
-      "w": 11,
-      "d": 9,
-      "l": 6
-    },
-    {
       "team": "Estudiantes (LP)",
       "gf": 29,
       "ga": 18,
@@ -122,6 +122,16 @@
       "l": 8
     },
     {
+      "team": "Huracán",
+      "gf": 28,
+      "ga": 21,
+      "pj": 27,
+      "pts": 41,
+      "w": 10,
+      "d": 11,
+      "l": 6
+    },
+    {
       "team": "Independiente",
       "gf": 35,
       "ga": 32,
@@ -140,16 +150,6 @@
       "w": 10,
       "d": 10,
       "l": 7
-    },
-    {
-      "team": "Huracán",
-      "gf": 27,
-      "ga": 21,
-      "pj": 26,
-      "pts": 38,
-      "w": 9,
-      "d": 11,
-      "l": 6
     },
     {
       "team": "Barracas Central",
@@ -194,12 +194,12 @@
     {
       "team": "Talleres",
       "gf": 28,
-      "ga": 30,
-      "pj": 26,
+      "ga": 31,
+      "pj": 27,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 10
+      "l": 11
     },
     {
       "team": "San Lorenzo",
@@ -213,13 +213,13 @@
     },
     {
       "team": "Tigre",
-      "gf": 27,
-      "ga": 24,
-      "pj": 26,
+      "gf": 28,
+      "ga": 26,
+      "pj": 27,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Newell's Old Boys",
@@ -294,12 +294,12 @@
     {
       "team": "Aldosivi",
       "gf": 18,
-      "ga": 35,
-      "pj": 26,
+      "ga": 36,
+      "pj": 27,
       "pts": 16,
       "w": 2,
       "d": 10,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Estudiantes (RC)",
