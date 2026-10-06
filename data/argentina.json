@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-05T19:32:54.627174+00:00",
+    "last_updated": "2026-10-06T02:39:04.386558+00:00",
     "avg_goals": 1.03,
-    "total_matches": 400,
-    "total_goals": 852,
-    "avg_real": 1.065
+    "total_matches": 404,
+    "total_goals": 863,
+    "avg_real": 1.068
   },
   "standings": [
     {
@@ -43,13 +43,23 @@
     },
     {
       "team": "Vélez Sarsfield",
-      "gf": 33,
-      "ga": 21,
-      "pj": 26,
-      "pts": 48,
+      "gf": 35,
+      "ga": 23,
+      "pj": 27,
+      "pts": 49,
       "w": 12,
-      "d": 12,
+      "d": 13,
       "l": 2
+    },
+    {
+      "team": "Rosario Central",
+      "gf": 32,
+      "ga": 25,
+      "pj": 27,
+      "pts": 47,
+      "w": 13,
+      "d": 8,
+      "l": 6
     },
     {
       "team": "Instituto",
@@ -62,16 +72,6 @@
       "l": 9
     },
     {
-      "team": "Rosario Central",
-      "gf": 31,
-      "ga": 24,
-      "pj": 26,
-      "pts": 46,
-      "w": 13,
-      "d": 7,
-      "l": 6
-    },
-    {
       "team": "Belgrano",
       "gf": 29,
       "ga": 20,
@@ -80,6 +80,16 @@
       "w": 12,
       "d": 9,
       "l": 6
+    },
+    {
+      "team": "Estudiantes (LP)",
+      "gf": 32,
+      "ga": 18,
+      "pj": 27,
+      "pts": 44,
+      "w": 13,
+      "d": 5,
+      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -100,16 +110,6 @@
       "w": 13,
       "d": 3,
       "l": 10
-    },
-    {
-      "team": "Estudiantes (LP)",
-      "gf": 29,
-      "ga": 18,
-      "pj": 26,
-      "pts": 41,
-      "w": 12,
-      "d": 5,
-      "l": 9
     },
     {
       "team": "Lanús",
@@ -164,12 +164,12 @@
     {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 28,
-      "ga": 31,
-      "pj": 26,
+      "ga": 34,
+      "pj": 27,
       "pts": 36,
       "w": 10,
       "d": 6,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Sarmiento (J)",
@@ -242,6 +242,16 @@
       "l": 9
     },
     {
+      "team": "Banfield",
+      "gf": 29,
+      "ga": 36,
+      "pj": 27,
+      "pts": 28,
+      "w": 7,
+      "d": 7,
+      "l": 13
+    },
+    {
       "team": "Atlético Tucumán",
       "gf": 24,
       "ga": 29,
@@ -252,43 +262,33 @@
       "l": 12
     },
     {
-      "team": "Banfield",
-      "gf": 28,
-      "ga": 35,
-      "pj": 26,
-      "pts": 27,
-      "w": 7,
-      "d": 6,
-      "l": 13
-    },
-    {
       "team": "Platense",
-      "gf": 19,
-      "ga": 30,
-      "pj": 26,
-      "pts": 25,
+      "gf": 21,
+      "ga": 32,
+      "pj": 27,
+      "pts": 26,
       "w": 5,
-      "d": 10,
+      "d": 11,
       "l": 11
     },
     {
       "team": "Central Córdoba (SdE)",
-      "gf": 18,
-      "ga": 34,
-      "pj": 26,
-      "pts": 24,
+      "gf": 19,
+      "ga": 35,
+      "pj": 27,
+      "pts": 25,
       "w": 6,
-      "d": 6,
+      "d": 7,
       "l": 14
     },
     {
       "team": "Deportivo Riestra",
-      "gf": 13,
-      "ga": 22,
-      "pj": 26,
-      "pts": 21,
+      "gf": 14,
+      "ga": 23,
+      "pj": 27,
+      "pts": 22,
       "w": 3,
-      "d": 12,
+      "d": 13,
       "l": 11
     },
     {

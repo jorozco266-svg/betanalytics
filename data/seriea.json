@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-02T01:56:58.200749+00:00",
+    "last_updated": "2026-10-06T02:39:08.434877+00:00",
     "avg_goals": 1.3,
     "total_matches": 58,
     "total_goals": 164,
@@ -888,6 +888,13 @@
       "home": "Atalanta",
       "away": "Venezia",
       "matchday": 6
+    },
+    {
+      "date": "2026-10-16",
+      "time": "01:45 PM",
+      "home": "Frosinone",
+      "away": "Sassuolo",
+      "matchday": 7
     }
   ],
   "hist_season": {
