@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-08T02:25:19.644683+00:00",
+    "last_updated": "2026-10-08T17:46:48.717743+00:00",
     "avg_goals": 1.35,
-    "total_matches": 284,
-    "total_goals": 757,
-    "avg_real": 1.333
+    "total_matches": 285,
+    "total_goals": 759,
+    "avg_real": 1.332
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "l": 7
     },
     {
+      "team": "Cruzeiro",
+      "gf": 44,
+      "ga": 40,
+      "pj": 29,
+      "pts": 48,
+      "w": 14,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Fluminense",
       "gf": 44,
       "ga": 36,
@@ -60,16 +70,6 @@
       "w": 12,
       "d": 10,
       "l": 6
-    },
-    {
-      "team": "Cruzeiro",
-      "gf": 42,
-      "ga": 40,
-      "pj": 28,
-      "pts": 45,
-      "w": 13,
-      "d": 6,
-      "l": 9
     },
     {
       "team": "Santos",
@@ -114,12 +114,12 @@
     {
       "team": "São Paulo",
       "gf": 33,
-      "ga": 32,
-      "pj": 28,
+      "ga": 34,
+      "pj": 29,
       "pts": 36,
       "w": 10,
       "d": 6,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Vitória",
