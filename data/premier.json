@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-07T02:00:53.422945+00:00",
+    "last_updated": "2026-10-08T02:25:28.696188+00:00",
     "avg_goals": 1.4,
     "total_matches": 52,
     "total_goals": 146,
@@ -754,6 +754,34 @@
       "time": "11:30 AM",
       "home": "Newcastle",
       "away": "Aston Villa",
+      "matchday": 7
+    },
+    {
+      "date": "2026-10-18",
+      "time": "08:00 AM",
+      "home": "Bournemouth",
+      "away": "Sunderland",
+      "matchday": 7
+    },
+    {
+      "date": "2026-10-18",
+      "time": "08:00 AM",
+      "home": "Leeds United",
+      "away": "Manchester United",
+      "matchday": 7
+    },
+    {
+      "date": "2026-10-18",
+      "time": "08:00 AM",
+      "home": "Brighton",
+      "away": "Crystal Palace",
+      "matchday": 7
+    },
+    {
+      "date": "2026-10-18",
+      "time": "10:30 AM",
+      "home": "Nottingham Forest",
+      "away": "Arsenal",
       "matchday": 7
     }
   ],
