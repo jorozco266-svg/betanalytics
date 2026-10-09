@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-08T02:25:28.696188+00:00",
+    "last_updated": "2026-10-09T02:42:33.995182+00:00",
     "avg_goals": 1.4,
     "total_matches": 52,
     "total_goals": 146,
@@ -782,6 +782,13 @@
       "time": "10:30 AM",
       "home": "Nottingham Forest",
       "away": "Arsenal",
+      "matchday": 7
+    },
+    {
+      "date": "2026-10-19",
+      "time": "02:00 PM",
+      "home": "Tottenham",
+      "away": "Coventry City",
       "matchday": 7
     }
   ],
