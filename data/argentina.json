@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-10T02:02:02.949007+00:00",
+    "last_updated": "2026-10-10T16:08:15.771851+00:00",
     "avg_goals": 1.03,
-    "total_matches": 407,
-    "total_goals": 873,
+    "total_matches": 408,
+    "total_goals": 875,
     "avg_real": 1.072
   },
   "standings": [
@@ -102,6 +102,16 @@
       "l": 9
     },
     {
+      "team": "Defensa y Justicia",
+      "gf": 36,
+      "ga": 32,
+      "pj": 28,
+      "pts": 43,
+      "w": 11,
+      "d": 10,
+      "l": 7
+    },
+    {
       "team": "River Plate",
       "gf": 35,
       "ga": 24,
@@ -142,16 +152,6 @@
       "l": 8
     },
     {
-      "team": "Defensa y Justicia",
-      "gf": 34,
-      "ga": 32,
-      "pj": 27,
-      "pts": 40,
-      "w": 10,
-      "d": 10,
-      "l": 7
-    },
-    {
       "team": "Sarmiento (J)",
       "gf": 33,
       "ga": 37,
@@ -184,12 +184,12 @@
     {
       "team": "Unión",
       "gf": 41,
-      "ga": 39,
-      "pj": 27,
+      "ga": 41,
+      "pj": 28,
       "pts": 34,
       "w": 9,
       "d": 7,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Talleres",
