@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-08T02:25:33.221060+00:00",
+    "last_updated": "2026-10-10T02:02:09.240639+00:00",
     "avg_goals": 1.35,
-    "total_matches": 55,
-    "total_goals": 156,
-    "avg_real": 1.418
+    "total_matches": 56,
+    "total_goals": 159,
+    "avg_real": 1.42
   },
   "standings": [
     {
@@ -33,12 +33,12 @@
     },
     {
       "team": "Lyon",
-      "pj": 5,
-      "gf": 10,
-      "ga": 2,
+      "pj": 6,
+      "gf": 11,
+      "ga": 4,
       "w": 3,
       "d": 2,
-      "l": 0,
+      "l": 1,
       "pts": 11
     },
     {
@@ -70,6 +70,16 @@
       "d": 2,
       "l": 1,
       "pts": 8
+    },
+    {
+      "team": "Lens",
+      "pj": 6,
+      "gf": 11,
+      "ga": 10,
+      "w": 2,
+      "d": 1,
+      "l": 3,
+      "pts": 7
     },
     {
       "team": "Angers",
@@ -150,16 +160,6 @@
       "d": 2,
       "l": 2,
       "pts": 5
-    },
-    {
-      "team": "Lens",
-      "pj": 5,
-      "gf": 9,
-      "ga": 9,
-      "w": 1,
-      "d": 1,
-      "l": 3,
-      "pts": 4
     },
     {
       "team": "Troyes",
@@ -802,16 +802,17 @@
       "hg": 1,
       "ag": 2,
       "matchday": 5
+    },
+    {
+      "date": "2026-10-09",
+      "home": "Lens",
+      "away": "Lyon",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 6
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-09",
-      "time": "01:45 PM",
-      "home": "Lens",
-      "away": "Lyon",
-      "matchday": 6
-    },
     {
       "date": "2026-10-10",
       "time": "01:45 PM",
