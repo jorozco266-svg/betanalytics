@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-11T01:31:20.015436+00:00",
+    "last_updated": "2026-10-11T16:35:27.742817+00:00",
     "avg_goals": 1.35,
-    "total_matches": 61,
-    "total_goals": 175,
-    "avg_real": 1.434
+    "total_matches": 62,
+    "total_goals": 178,
+    "avg_real": 1.435
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "pts": 8
     },
     {
+      "team": "Nice",
+      "pj": 6,
+      "gf": 5,
+      "ga": 7,
+      "w": 2,
+      "d": 2,
+      "l": 2,
+      "pts": 8
+    },
+    {
       "team": "Lens",
       "pj": 6,
       "gf": 11,
@@ -103,12 +113,12 @@
     },
     {
       "team": "Strasbourg",
-      "pj": 5,
-      "gf": 10,
-      "ga": 10,
+      "pj": 6,
+      "gf": 11,
+      "ga": 12,
       "w": 2,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 7
     },
     {
@@ -150,16 +160,6 @@
       "d": 0,
       "l": 3,
       "pts": 6
-    },
-    {
-      "team": "Nice",
-      "pj": 5,
-      "gf": 3,
-      "ga": 6,
-      "w": 1,
-      "d": 2,
-      "l": 2,
-      "pts": 5
     },
     {
       "team": "Troyes",
@@ -850,6 +850,14 @@
       "hg": 2,
       "ag": 2,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-11",
+      "home": "Nice",
+      "away": "Strasbourg",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 6
     }
   ],
   "fixtures": [
@@ -858,20 +866,6 @@
       "time": "01:45 PM",
       "home": "Troyes",
       "away": "Marseille",
-      "matchday": 6
-    },
-    {
-      "date": "2026-10-11",
-      "time": "08:00 AM",
-      "home": "Nice",
-      "away": "Strasbourg",
-      "matchday": 6
-    },
-    {
-      "date": "2026-10-11",
-      "time": "10:15 AM",
-      "home": "Rennes",
-      "away": "Auxerre",
       "matchday": 6
     },
     {

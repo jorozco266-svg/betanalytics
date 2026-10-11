@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-11T01:31:16.216732+00:00",
+    "last_updated": "2026-10-11T16:35:22.285209+00:00",
     "avg_goals": 1.35,
-    "total_matches": 290,
-    "total_goals": 772,
-    "avg_real": 1.331
+    "total_matches": 291,
+    "total_goals": 775,
+    "avg_real": 1.332
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "l": 9
     },
     {
+      "team": "São Paulo",
+      "gf": 35,
+      "ga": 35,
+      "pj": 30,
+      "pts": 39,
+      "w": 11,
+      "d": 6,
+      "l": 13
+    },
+    {
       "team": "Coritiba",
       "gf": 37,
       "ga": 47,
@@ -112,24 +122,14 @@
       "l": 12
     },
     {
-      "team": "São Paulo",
-      "gf": 33,
-      "ga": 34,
-      "pj": 29,
-      "pts": 36,
-      "w": 10,
-      "d": 6,
-      "l": 13
-    },
-    {
       "team": "Vitória",
-      "gf": 32,
-      "ga": 42,
-      "pj": 29,
+      "gf": 33,
+      "ga": 44,
+      "pj": 30,
       "pts": 36,
       "w": 10,
       "d": 6,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Botafogo",

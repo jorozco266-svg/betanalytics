@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-11T01:31:15.698085+00:00",
+    "last_updated": "2026-10-11T16:35:21.722581+00:00",
     "avg_goals": 1.03,
-    "total_matches": 411,
-    "total_goals": 884,
-    "avg_real": 1.075
+    "total_matches": 412,
+    "total_goals": 885,
+    "avg_real": 1.074
   },
   "standings": [
     {
@@ -82,6 +82,16 @@
       "l": 9
     },
     {
+      "team": "River Plate",
+      "gf": 36,
+      "ga": 24,
+      "pj": 27,
+      "pts": 45,
+      "w": 14,
+      "d": 3,
+      "l": 10
+    },
+    {
       "team": "Belgrano",
       "gf": 29,
       "ga": 20,
@@ -110,16 +120,6 @@
       "w": 11,
       "d": 10,
       "l": 7
-    },
-    {
-      "team": "River Plate",
-      "gf": 35,
-      "ga": 24,
-      "pj": 26,
-      "pts": 42,
-      "w": 13,
-      "d": 3,
-      "l": 10
     },
     {
       "team": "Lanús",
@@ -304,12 +304,12 @@
     {
       "team": "Estudiantes (RC)",
       "gf": 11,
-      "ga": 39,
-      "pj": 27,
+      "ga": 40,
+      "pj": 28,
       "pts": 11,
       "w": 2,
       "d": 5,
-      "l": 20
+      "l": 21
     }
   ],
   "results": [
