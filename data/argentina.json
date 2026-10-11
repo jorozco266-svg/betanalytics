@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-10T16:08:15.771851+00:00",
+    "last_updated": "2026-10-11T01:31:15.698085+00:00",
     "avg_goals": 1.03,
-    "total_matches": 408,
-    "total_goals": 875,
-    "avg_real": 1.072
+    "total_matches": 411,
+    "total_goals": 884,
+    "avg_real": 1.075
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "l": 6
     },
     {
+      "team": "Estudiantes (LP)",
+      "gf": 34,
+      "ga": 20,
+      "pj": 28,
+      "pts": 45,
+      "w": 13,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Belgrano",
       "gf": 29,
       "ga": 20,
@@ -89,16 +99,6 @@
       "pts": 45,
       "w": 13,
       "d": 6,
-      "l": 9
-    },
-    {
-      "team": "Estudiantes (LP)",
-      "gf": 32,
-      "ga": 18,
-      "pj": 27,
-      "pts": 44,
-      "w": 13,
-      "d": 5,
       "l": 9
     },
     {
@@ -134,12 +134,12 @@
     {
       "team": "Huracán",
       "gf": 28,
-      "ga": 21,
-      "pj": 27,
+      "ga": 23,
+      "pj": 28,
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Independiente",
@@ -152,6 +152,16 @@
       "l": 8
     },
     {
+      "team": "Barracas Central",
+      "gf": 25,
+      "ga": 24,
+      "pj": 28,
+      "pts": 39,
+      "w": 10,
+      "d": 9,
+      "l": 9
+    },
+    {
       "team": "Sarmiento (J)",
       "gf": 33,
       "ga": 37,
@@ -160,16 +170,6 @@
       "w": 12,
       "d": 2,
       "l": 13
-    },
-    {
-      "team": "Barracas Central",
-      "gf": 23,
-      "ga": 24,
-      "pj": 27,
-      "pts": 36,
-      "w": 9,
-      "d": 9,
-      "l": 9
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -213,13 +213,13 @@
     },
     {
       "team": "Tigre",
-      "gf": 28,
-      "ga": 26,
-      "pj": 27,
+      "gf": 29,
+      "ga": 28,
+      "pj": 28,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Racing",
@@ -242,6 +242,16 @@
       "l": 9
     },
     {
+      "team": "Banfield",
+      "gf": 31,
+      "ga": 37,
+      "pj": 28,
+      "pts": 31,
+      "w": 8,
+      "d": 7,
+      "l": 13
+    },
+    {
       "team": "Atlético Tucumán",
       "gf": 25,
       "ga": 30,
@@ -250,16 +260,6 @@
       "w": 6,
       "d": 10,
       "l": 12
-    },
-    {
-      "team": "Banfield",
-      "gf": 29,
-      "ga": 36,
-      "pj": 27,
-      "pts": 28,
-      "w": 7,
-      "d": 7,
-      "l": 13
     },
     {
       "team": "Platense",
@@ -273,12 +273,12 @@
     },
     {
       "team": "Central Córdoba (SdE)",
-      "gf": 19,
-      "ga": 35,
-      "pj": 27,
-      "pts": 25,
+      "gf": 21,
+      "ga": 37,
+      "pj": 28,
+      "pts": 26,
       "w": 6,
-      "d": 7,
+      "d": 8,
       "l": 14
     },
     {

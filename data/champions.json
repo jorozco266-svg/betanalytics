@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-10T02:02:11.167571+00:00",
+    "last_updated": "2026-10-11T01:31:20.923800+00:00",
     "avg_goals": 1.45,
     "total_matches": 207,
     "total_goals": 731,
@@ -2398,6 +2398,69 @@
       "time": "11:45 AM",
       "home": "Fenerbahçe SK",
       "away": "SK Slavia Praha",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "Real Madrid CF",
+      "away": "RB Leipzig",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "FC Internazionale Milano",
+      "away": "FK Shakhtar Donetsk",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "FC Bayern München",
+      "away": "Arsenal FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "Club Brugge KV",
+      "away": "Racing Club de Lens",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "Aston Villa FC",
+      "away": "Viking FK",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "Sporting Clube de Portugal",
+      "away": "LASK Linz",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "02:00 PM",
+      "home": "Real Betis Balompié",
+      "away": "Feyenoord Rotterdam",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "11:45 AM",
+      "home": "Como 1907",
+      "away": "Manchester United FC",
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-21",
+      "time": "11:45 AM",
+      "home": "Lille OSC",
+      "away": "Galatasaray SK",
       "matchday": 3
     }
   ]

@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-09T02:42:32.856157+00:00",
+    "last_updated": "2026-10-11T01:31:16.216732+00:00",
     "avg_goals": 1.35,
-    "total_matches": 289,
+    "total_matches": 290,
     "total_goals": 772,
-    "avg_real": 1.336
+    "avg_real": 1.331
   },
   "standings": [
     {
@@ -145,10 +145,10 @@
       "team": "Vasco da Gama",
       "gf": 36,
       "ga": 42,
-      "pj": 28,
-      "pts": 34,
+      "pj": 29,
+      "pts": 35,
       "w": 9,
-      "d": 7,
+      "d": 8,
       "l": 12
     },
     {
@@ -195,10 +195,10 @@
       "team": "Remo",
       "gf": 33,
       "ga": 48,
-      "pj": 29,
-      "pts": 24,
+      "pj": 30,
+      "pts": 25,
       "w": 5,
-      "d": 9,
+      "d": 10,
       "l": 15
     },
     {

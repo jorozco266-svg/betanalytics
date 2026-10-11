@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-10T16:08:17.932193+00:00",
+    "last_updated": "2026-10-11T01:31:17.478831+00:00",
     "avg_goals": 1.4,
-    "total_matches": 57,
-    "total_goals": 164,
-    "avg_real": 1.439
+    "total_matches": 58,
+    "total_goals": 166,
+    "avg_real": 1.431
   },
   "standings": [
     {
@@ -123,13 +123,13 @@
     },
     {
       "team": "Manchester United",
-      "pj": 5,
-      "gf": 8,
-      "ga": 8,
+      "pj": 6,
+      "gf": 9,
+      "ga": 9,
       "w": 1,
-      "d": 2,
+      "d": 3,
       "l": 2,
-      "pts": 5
+      "pts": 6
     },
     {
       "team": "Nottingham Forest",
@@ -202,6 +202,16 @@
       "pts": 3
     },
     {
+      "team": "Tottenham",
+      "pj": 6,
+      "gf": 3,
+      "ga": 9,
+      "w": 0,
+      "d": 3,
+      "l": 3,
+      "pts": 3
+    },
+    {
       "team": "Coventry City",
       "pj": 5,
       "gf": 1,
@@ -219,16 +229,6 @@
       "w": 0,
       "d": 2,
       "l": 4,
-      "pts": 2
-    },
-    {
-      "team": "Tottenham",
-      "pj": 5,
-      "gf": 2,
-      "ga": 8,
-      "w": 0,
-      "d": 2,
-      "l": 3,
       "pts": 2
     }
   ],
@@ -688,16 +688,17 @@
       "hg": 2,
       "ag": 2,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-10",
+      "home": "Manchester United",
+      "away": "Tottenham",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 6
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-10",
-      "time": "11:30 AM",
-      "home": "Manchester United",
-      "away": "Tottenham",
-      "matchday": 6
-    },
     {
       "date": "2026-10-11",
       "time": "08:00 AM",
