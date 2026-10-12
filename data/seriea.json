@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-12T02:01:00.610304+00:00",
+    "last_updated": "2026-10-12T20:10:47.185551+00:00",
     "avg_goals": 1.3,
-    "total_matches": 66,
-    "total_goals": 184,
-    "avg_real": 1.394
+    "total_matches": 67,
+    "total_goals": 188,
+    "avg_real": 1.403
   },
   "standings": [
     {
@@ -102,6 +102,16 @@
       "pts": 10
     },
     {
+      "team": "Atalanta",
+      "pj": 6,
+      "gf": 8,
+      "ga": 8,
+      "w": 3,
+      "d": 0,
+      "l": 3,
+      "pts": 9
+    },
+    {
       "team": "Sassuolo",
       "pj": 6,
       "gf": 10,
@@ -110,16 +120,6 @@
       "d": 2,
       "l": 2,
       "pts": 8
-    },
-    {
-      "team": "Atalanta",
-      "pj": 5,
-      "gf": 5,
-      "ga": 7,
-      "w": 2,
-      "d": 0,
-      "l": 3,
-      "pts": 6
     },
     {
       "team": "Lecce",
@@ -343,12 +343,12 @@
     },
     {
       "team": "Venezia",
-      "pj": 5,
-      "gf": 4,
-      "ga": 13,
+      "pj": 6,
+      "gf": 5,
+      "ga": 16,
       "w": 0,
       "d": 0,
-      "l": 5,
+      "l": 6,
       "pts": 0
     }
   ],
@@ -880,23 +880,17 @@
       "hg": 1,
       "ag": 1,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-12",
+      "home": "Atalanta",
+      "away": "Venezia",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 6
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-12",
-      "time": "01:45 PM",
-      "home": "Torino",
-      "away": "Udinese",
-      "matchday": 6
-    },
-    {
-      "date": "2026-10-12",
-      "time": "11:30 AM",
-      "home": "Atalanta",
-      "away": "Venezia",
-      "matchday": 6
-    },
     {
       "date": "2026-10-16",
       "time": "01:45 PM",

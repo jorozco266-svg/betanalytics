@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-12T02:00:58.592581+00:00",
+    "last_updated": "2026-10-12T20:10:45.985496+00:00",
     "avg_goals": 1.4,
     "total_matches": 61,
     "total_goals": 177,
@@ -723,13 +723,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-12",
-      "time": "02:00 PM",
-      "home": "Coventry City",
-      "away": "Newcastle",
-      "matchday": 6
-    },
     {
       "date": "2026-10-17",
       "time": "06:30 AM",
