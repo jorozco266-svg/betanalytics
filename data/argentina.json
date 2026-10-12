@@ -4,22 +4,22 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-11T16:35:21.722581+00:00",
+    "last_updated": "2026-10-12T02:00:56.204598+00:00",
     "avg_goals": 1.03,
-    "total_matches": 412,
-    "total_goals": 885,
-    "avg_real": 1.074
+    "total_matches": 416,
+    "total_goals": 895,
+    "avg_real": 1.076
   },
   "standings": [
     {
       "team": "Independiente Rivadavia",
       "gf": 44,
-      "ga": 29,
-      "pj": 27,
+      "ga": 34,
+      "pj": 28,
       "pts": 52,
       "w": 15,
       "d": 7,
-      "l": 5
+      "l": 6
     },
     {
       "team": "Boca Juniors",
@@ -33,13 +33,23 @@
     },
     {
       "team": "Argentinos Juniors",
-      "gf": 32,
-      "ga": 23,
-      "pj": 27,
+      "gf": 33,
+      "ga": 24,
+      "pj": 28,
+      "pts": 51,
+      "w": 14,
+      "d": 9,
+      "l": 5
+    },
+    {
+      "team": "Rosario Central",
+      "gf": 37,
+      "ga": 25,
+      "pj": 28,
       "pts": 50,
       "w": 14,
       "d": 8,
-      "l": 5
+      "l": 6
     },
     {
       "team": "Vélez Sarsfield",
@@ -52,6 +62,16 @@
       "l": 2
     },
     {
+      "team": "Belgrano",
+      "gf": 31,
+      "ga": 20,
+      "pj": 28,
+      "pts": 48,
+      "w": 13,
+      "d": 9,
+      "l": 6
+    },
+    {
       "team": "Instituto",
       "gf": 36,
       "ga": 27,
@@ -60,16 +80,6 @@
       "w": 14,
       "d": 5,
       "l": 9
-    },
-    {
-      "team": "Rosario Central",
-      "gf": 32,
-      "ga": 25,
-      "pj": 27,
-      "pts": 47,
-      "w": 13,
-      "d": 8,
-      "l": 6
     },
     {
       "team": "Estudiantes (LP)",
@@ -90,16 +100,6 @@
       "w": 14,
       "d": 3,
       "l": 10
-    },
-    {
-      "team": "Belgrano",
-      "gf": 29,
-      "ga": 20,
-      "pj": 27,
-      "pts": 45,
-      "w": 12,
-      "d": 9,
-      "l": 6
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -182,6 +182,16 @@
       "l": 11
     },
     {
+      "team": "San Lorenzo",
+      "gf": 19,
+      "ga": 25,
+      "pj": 28,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 10
+    },
+    {
       "team": "Unión",
       "gf": 41,
       "ga": 41,
@@ -202,16 +212,6 @@
       "l": 11
     },
     {
-      "team": "San Lorenzo",
-      "gf": 18,
-      "ga": 25,
-      "pj": 27,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
-      "l": 10
-    },
-    {
       "team": "Tigre",
       "gf": 29,
       "ga": 28,
@@ -224,12 +224,12 @@
     {
       "team": "Racing",
       "gf": 30,
-      "ga": 32,
-      "pj": 27,
+      "ga": 34,
+      "pj": 28,
       "pts": 32,
       "w": 8,
       "d": 8,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Newell's Old Boys",
@@ -263,12 +263,12 @@
     },
     {
       "team": "Platense",
-      "gf": 21,
-      "ga": 32,
-      "pj": 27,
-      "pts": 26,
+      "gf": 22,
+      "ga": 33,
+      "pj": 28,
+      "pts": 27,
       "w": 5,
-      "d": 11,
+      "d": 12,
       "l": 11
     },
     {
@@ -284,12 +284,12 @@
     {
       "team": "Deportivo Riestra",
       "gf": 14,
-      "ga": 23,
-      "pj": 27,
+      "ga": 24,
+      "pj": 28,
       "pts": 22,
       "w": 3,
       "d": 13,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Aldosivi",

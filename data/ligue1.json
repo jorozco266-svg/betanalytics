@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-11T16:35:27.742817+00:00",
+    "last_updated": "2026-10-12T02:01:01.868364+00:00",
     "avg_goals": 1.35,
-    "total_matches": 62,
-    "total_goals": 178,
-    "avg_real": 1.435
+    "total_matches": 64,
+    "total_goals": 185,
+    "avg_real": 1.445
   },
   "standings": [
     {
@@ -26,6 +26,16 @@
       "pj": 6,
       "gf": 9,
       "ga": 4,
+      "w": 4,
+      "d": 1,
+      "l": 1,
+      "pts": 13
+    },
+    {
+      "team": "Rennes",
+      "pj": 6,
+      "gf": 12,
+      "ga": 10,
       "w": 4,
       "d": 1,
       "l": 1,
@@ -60,16 +70,6 @@
       "d": 2,
       "l": 1,
       "pts": 11
-    },
-    {
-      "team": "Rennes",
-      "pj": 5,
-      "gf": 8,
-      "ga": 9,
-      "w": 3,
-      "d": 1,
-      "l": 1,
-      "pts": 10
     },
     {
       "team": "Brest",
@@ -132,6 +132,16 @@
       "pts": 7
     },
     {
+      "team": "Marseille",
+      "pj": 6,
+      "gf": 9,
+      "ga": 8,
+      "w": 2,
+      "d": 0,
+      "l": 4,
+      "pts": 6
+    },
+    {
       "team": "Le Mans",
       "pj": 6,
       "gf": 10,
@@ -153,22 +163,22 @@
     },
     {
       "team": "Auxerre",
-      "pj": 5,
-      "gf": 7,
-      "ga": 12,
+      "pj": 6,
+      "gf": 8,
+      "ga": 16,
       "w": 2,
       "d": 0,
-      "l": 3,
+      "l": 4,
       "pts": 6
     },
     {
       "team": "Troyes",
-      "pj": 5,
+      "pj": 6,
       "gf": 4,
-      "ga": 11,
+      "ga": 13,
       "w": 1,
       "d": 1,
-      "l": 3,
+      "l": 4,
       "pts": 4
     },
     {
@@ -219,16 +229,6 @@
       "w": 1,
       "d": 0,
       "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Marseille",
-      "pj": 5,
-      "gf": 7,
-      "ga": 8,
-      "w": 1,
-      "d": 0,
-      "l": 4,
       "pts": 3
     },
     {
@@ -858,16 +858,25 @@
       "hg": 2,
       "ag": 1,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-11",
+      "home": "Rennes",
+      "away": "Auxerre",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-11",
+      "home": "Troyes",
+      "away": "Marseille",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 6
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-11",
-      "time": "01:45 PM",
-      "home": "Troyes",
-      "away": "Marseille",
-      "matchday": 6
-    },
     {
       "date": "2026-10-16",
       "time": "01:45 PM",

@@ -4,42 +4,42 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-11T16:35:22.285209+00:00",
+    "last_updated": "2026-10-12T02:00:56.675088+00:00",
     "avg_goals": 1.35,
-    "total_matches": 291,
-    "total_goals": 775,
-    "avg_real": 1.332
+    "total_matches": 296,
+    "total_goals": 787,
+    "avg_real": 1.329
   },
   "standings": [
     {
       "team": "Flamengo",
-      "gf": 57,
+      "gf": 58,
       "ga": 25,
-      "pj": 29,
-      "pts": 61,
-      "w": 18,
+      "pj": 30,
+      "pts": 64,
+      "w": 19,
       "d": 7,
       "l": 4
     },
     {
       "team": "Palmeiras",
-      "gf": 48,
-      "ga": 21,
-      "pj": 29,
-      "pts": 60,
-      "w": 17,
+      "gf": 52,
+      "ga": 22,
+      "pj": 30,
+      "pts": 63,
+      "w": 18,
       "d": 9,
       "l": 3
     },
     {
       "team": "Fluminense",
       "gf": 48,
-      "ga": 36,
-      "pj": 29,
+      "ga": 37,
+      "pj": 30,
       "pts": 51,
       "w": 14,
       "d": 9,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Athletico Paranaense",
@@ -49,6 +49,16 @@
       "pts": 50,
       "w": 14,
       "d": 8,
+      "l": 7
+    },
+    {
+      "team": "Bahia",
+      "gf": 44,
+      "ga": 36,
+      "pj": 30,
+      "pts": 49,
+      "w": 13,
+      "d": 10,
       "l": 7
     },
     {
@@ -62,34 +72,24 @@
       "l": 9
     },
     {
-      "team": "Bahia",
-      "gf": 43,
-      "ga": 36,
-      "pj": 29,
-      "pts": 46,
-      "w": 12,
-      "d": 10,
-      "l": 7
-    },
-    {
       "team": "Atlético Mineiro",
-      "gf": 39,
-      "ga": 34,
-      "pj": 29,
-      "pts": 44,
-      "w": 12,
+      "gf": 41,
+      "ga": 35,
+      "pj": 30,
+      "pts": 47,
+      "w": 13,
       "d": 8,
       "l": 9
     },
     {
       "team": "Santos",
-      "gf": 45,
-      "ga": 43,
-      "pj": 29,
+      "gf": 46,
+      "ga": 45,
+      "pj": 30,
       "pts": 42,
       "w": 11,
       "d": 9,
-      "l": 9
+      "l": 10
     },
     {
       "team": "São Paulo",
@@ -154,41 +154,41 @@
     {
       "team": "Mirassol",
       "gf": 34,
-      "ga": 43,
-      "pj": 29,
+      "ga": 44,
+      "pj": 30,
       "pts": 33,
       "w": 8,
       "d": 9,
-      "l": 12
-    },
-    {
-      "team": "Corinthians",
-      "gf": 30,
-      "ga": 34,
-      "pj": 29,
-      "pts": 32,
-      "w": 8,
-      "d": 8,
       "l": 13
     },
     {
+      "team": "Corinthians",
+      "gf": 31,
+      "ga": 38,
+      "pj": 30,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 14
+    },
+    {
       "team": "Internacional",
-      "gf": 32,
-      "ga": 37,
-      "pj": 29,
-      "pts": 31,
+      "gf": 33,
+      "ga": 38,
+      "pj": 30,
+      "pts": 32,
       "w": 7,
-      "d": 10,
+      "d": 11,
       "l": 12
     },
     {
       "team": "Grêmio",
-      "gf": 31,
-      "ga": 39,
-      "pj": 29,
-      "pts": 30,
+      "gf": 32,
+      "ga": 40,
+      "pj": 30,
+      "pts": 31,
       "w": 7,
-      "d": 9,
+      "d": 10,
       "l": 13
     },
     {

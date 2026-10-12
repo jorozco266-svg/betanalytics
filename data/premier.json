@@ -4,22 +4,22 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-11T16:35:24.223497+00:00",
+    "last_updated": "2026-10-12T02:00:58.592581+00:00",
     "avg_goals": 1.4,
-    "total_matches": 60,
-    "total_goals": 174,
-    "avg_real": 1.45
+    "total_matches": 61,
+    "total_goals": 177,
+    "avg_real": 1.451
   },
   "standings": [
     {
       "team": "Manchester City",
-      "pj": 5,
-      "gf": 13,
+      "pj": 6,
+      "gf": 16,
       "ga": 5,
-      "w": 5,
+      "w": 6,
       "d": 0,
       "l": 0,
-      "pts": 15
+      "pts": 18
     },
     {
       "team": "Arsenal",
@@ -82,20 +82,20 @@
       "pts": 9
     },
     {
-      "team": "Liverpool",
-      "pj": 5,
-      "gf": 7,
-      "ga": 4,
-      "w": 2,
-      "d": 3,
-      "l": 0,
-      "pts": 9
-    },
-    {
       "team": "Hull City",
       "pj": 6,
       "gf": 8,
       "ga": 6,
+      "w": 2,
+      "d": 3,
+      "l": 1,
+      "pts": 9
+    },
+    {
+      "team": "Liverpool",
+      "pj": 6,
+      "gf": 7,
+      "ga": 7,
       "w": 2,
       "d": 3,
       "l": 1,
@@ -711,6 +711,14 @@
       "away": "Nottingham Forest",
       "hg": 3,
       "ag": 1,
+      "matchday": 6
+    },
+    {
+      "date": "2026-10-11",
+      "home": "Liverpool",
+      "away": "Manchester City",
+      "hg": 0,
+      "ag": 3,
       "matchday": 6
     }
   ],
