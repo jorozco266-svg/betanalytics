@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-12T20:10:44.239784+00:00",
+    "last_updated": "2026-10-13T03:19:38.040436+00:00",
     "avg_goals": 1.03,
-    "total_matches": 417,
-    "total_goals": 895,
-    "avg_real": 1.073
+    "total_matches": 419,
+    "total_goals": 898,
+    "avg_real": 1.072
   },
   "standings": [
     {
@@ -54,12 +54,12 @@
     {
       "team": "Vélez Sarsfield",
       "gf": 35,
-      "ga": 23,
-      "pj": 27,
+      "ga": 25,
+      "pj": 28,
       "pts": 49,
       "w": 12,
       "d": 13,
-      "l": 2
+      "l": 3
     },
     {
       "team": "Belgrano",
@@ -112,6 +112,16 @@
       "l": 9
     },
     {
+      "team": "Lanús",
+      "gf": 33,
+      "ga": 24,
+      "pj": 28,
+      "pts": 44,
+      "w": 12,
+      "d": 8,
+      "l": 8
+    },
+    {
       "team": "Defensa y Justicia",
       "gf": 36,
       "ga": 32,
@@ -129,16 +139,6 @@
       "pts": 42,
       "w": 11,
       "d": 9,
-      "l": 8
-    },
-    {
-      "team": "Lanús",
-      "gf": 31,
-      "ga": 24,
-      "pj": 27,
-      "pts": 41,
-      "w": 11,
-      "d": 8,
       "l": 8
     },
     {
@@ -162,6 +162,16 @@
       "l": 9
     },
     {
+      "team": "Gimnasia y Esgrima (M)",
+      "gf": 29,
+      "ga": 34,
+      "pj": 28,
+      "pts": 39,
+      "w": 11,
+      "d": 6,
+      "l": 11
+    },
+    {
       "team": "Sarmiento (J)",
       "gf": 33,
       "ga": 37,
@@ -170,16 +180,6 @@
       "w": 12,
       "d": 2,
       "l": 13
-    },
-    {
-      "team": "Gimnasia y Esgrima (M)",
-      "gf": 28,
-      "ga": 34,
-      "pj": 27,
-      "pts": 36,
-      "w": 10,
-      "d": 6,
-      "l": 11
     },
     {
       "team": "San Lorenzo",
@@ -234,12 +234,12 @@
     {
       "team": "Newell's Old Boys",
       "gf": 26,
-      "ga": 35,
-      "pj": 27,
+      "ga": 36,
+      "pj": 28,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Banfield",

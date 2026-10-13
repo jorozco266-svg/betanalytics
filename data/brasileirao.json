@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-12T02:00:56.675088+00:00",
+    "last_updated": "2026-10-13T03:19:38.477053+00:00",
     "avg_goals": 1.35,
-    "total_matches": 296,
-    "total_goals": 787,
-    "avg_real": 1.329
+    "total_matches": 299,
+    "total_goals": 800,
+    "avg_real": 1.338
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 3
     },
     {
+      "team": "Athletico Paranaense",
+      "gf": 49,
+      "ga": 35,
+      "pj": 30,
+      "pts": 53,
+      "w": 15,
+      "d": 8,
+      "l": 7
+    },
+    {
       "team": "Fluminense",
       "gf": 48,
       "ga": 37,
@@ -39,16 +49,6 @@
       "pts": 51,
       "w": 14,
       "d": 9,
-      "l": 7
-    },
-    {
-      "team": "Athletico Paranaense",
-      "gf": 45,
-      "ga": 34,
-      "pj": 29,
-      "pts": 50,
-      "w": 14,
-      "d": 8,
       "l": 7
     },
     {
@@ -63,13 +63,13 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 44,
-      "ga": 40,
-      "pj": 29,
+      "gf": 46,
+      "ga": 44,
+      "pj": 30,
       "pts": 48,
       "w": 14,
       "d": 6,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Atlético Mineiro",
@@ -92,6 +92,16 @@
       "l": 10
     },
     {
+      "team": "Red Bull Bragantino",
+      "gf": 38,
+      "ga": 35,
+      "pj": 30,
+      "pts": 40,
+      "w": 11,
+      "d": 7,
+      "l": 12
+    },
+    {
       "team": "São Paulo",
       "gf": 35,
       "ga": 35,
@@ -103,23 +113,13 @@
     },
     {
       "team": "Coritiba",
-      "gf": 37,
-      "ga": 47,
-      "pj": 29,
-      "pts": 38,
+      "gf": 38,
+      "ga": 48,
+      "pj": 30,
+      "pts": 39,
       "w": 10,
-      "d": 8,
+      "d": 9,
       "l": 11
-    },
-    {
-      "team": "Red Bull Bragantino",
-      "gf": 34,
-      "ga": 33,
-      "pj": 29,
-      "pts": 37,
-      "w": 10,
-      "d": 7,
-      "l": 12
     },
     {
       "team": "Vitória",
@@ -133,12 +133,12 @@
     },
     {
       "team": "Botafogo",
-      "gf": 42,
-      "ga": 47,
-      "pj": 29,
-      "pts": 35,
+      "gf": 43,
+      "ga": 48,
+      "pj": 30,
+      "pts": 36,
       "w": 9,
-      "d": 8,
+      "d": 9,
       "l": 12
     },
     {
@@ -203,13 +203,13 @@
     },
     {
       "team": "Chapecoense",
-      "gf": 29,
-      "ga": 57,
-      "pj": 28,
+      "gf": 30,
+      "ga": 61,
+      "pj": 29,
       "pts": 18,
       "w": 3,
       "d": 9,
-      "l": 16
+      "l": 17
     }
   ],
   "results": [

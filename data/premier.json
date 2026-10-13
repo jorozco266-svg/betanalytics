@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-12T20:10:45.985496+00:00",
+    "last_updated": "2026-10-13T03:19:39.981248+00:00",
     "avg_goals": 1.4,
-    "total_matches": 61,
-    "total_goals": 177,
-    "avg_real": 1.451
+    "total_matches": 62,
+    "total_goals": 182,
+    "avg_real": 1.468
   },
   "standings": [
     {
@@ -113,12 +113,12 @@
     },
     {
       "team": "Newcastle",
-      "pj": 5,
-      "gf": 9,
-      "ga": 9,
+      "pj": 6,
+      "gf": 10,
+      "ga": 13,
       "w": 2,
       "d": 2,
-      "l": 1,
+      "l": 2,
       "pts": 8
     },
     {
@@ -139,6 +139,16 @@
       "w": 1,
       "d": 3,
       "l": 2,
+      "pts": 6
+    },
+    {
+      "team": "Coventry City",
+      "pj": 6,
+      "gf": 5,
+      "ga": 11,
+      "w": 2,
+      "d": 0,
+      "l": 4,
       "pts": 6
     },
     {
@@ -209,16 +219,6 @@
       "w": 0,
       "d": 3,
       "l": 3,
-      "pts": 3
-    },
-    {
-      "team": "Coventry City",
-      "pj": 5,
-      "gf": 1,
-      "ga": 10,
-      "w": 1,
-      "d": 0,
-      "l": 4,
       "pts": 3
     },
     {
@@ -720,6 +720,14 @@
       "hg": 0,
       "ag": 3,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-12",
+      "home": "Coventry City",
+      "away": "Newcastle",
+      "hg": 4,
+      "ag": 1,
+      "matchday": 6
     }
   ],
   "fixtures": [
@@ -792,6 +800,13 @@
       "home": "Tottenham",
       "away": "Coventry City",
       "matchday": 7
+    },
+    {
+      "date": "2026-10-23",
+      "time": "02:00 PM",
+      "home": "Ipswich Town",
+      "away": "Nottingham Forest",
+      "matchday": 8
     }
   ],
   "hist_season": {

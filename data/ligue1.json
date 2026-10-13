@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-12T02:01:01.868364+00:00",
+    "last_updated": "2026-10-13T03:19:42.816784+00:00",
     "avg_goals": 1.35,
     "total_matches": 64,
     "total_goals": 185,
@@ -939,6 +939,13 @@
       "home": "Le Havre",
       "away": "Auxerre",
       "matchday": 7
+    },
+    {
+      "date": "2026-10-23",
+      "time": "01:45 PM",
+      "home": "Brest",
+      "away": "Nice",
+      "matchday": 8
     }
   ],
   "hist_season": {
