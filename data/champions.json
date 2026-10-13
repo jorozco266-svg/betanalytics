@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-11T01:31:20.923800+00:00",
+    "last_updated": "2026-10-13T18:03:00.349908+00:00",
     "avg_goals": 1.45,
     "total_matches": 207,
     "total_goals": 731,
@@ -2258,20 +2258,6 @@
       "time": "02:00 PM",
       "home": "Villarreal CF",
       "away": "SSC Napoli",
-      "matchday": 2
-    },
-    {
-      "date": "2026-10-13",
-      "time": "11:45 AM",
-      "home": "Racing Club de Lens",
-      "away": "Sporting Clube de Portugal",
-      "matchday": 2
-    },
-    {
-      "date": "2026-10-13",
-      "time": "11:45 AM",
-      "home": "Sabah FK",
-      "away": "SK Slavia Praha",
       "matchday": 2
     },
     {
