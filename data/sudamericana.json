@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-09-18T14:50:50.662276+00:00",
+    "last_updated": "2026-10-14T15:44:44.610541+00:00",
     "avg_goals": 1.2,
-    "total_matches": 234,
-    "total_goals": 578,
-    "avg_real": 1.235,
+    "total_matches": 235,
+    "total_goals": 579,
+    "avg_real": 1.232,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -57,12 +57,12 @@
     },
     {
       "team": "Vasco da Gama",
-      "pj": 9,
+      "pj": 10,
       "gf": 17,
-      "ga": 10,
+      "ga": 11,
       "w": 5,
       "d": 2,
-      "l": 2,
+      "l": 3,
       "pts": 17
     },
     {
@@ -647,6 +647,16 @@
     },
     {
       "team": "2–1",
+      "pj": 1,
+      "gf": 1,
+      "ga": 0,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "20 Oct",
       "pj": 1,
       "gf": 1,
       "ga": 0,
@@ -3015,6 +3025,15 @@
       "away": "Montevideo City Torque",
       "hg": 2,
       "ag": 3,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Vasco da Gama",
+      "away": "20 Oct",
+      "hg": 0,
+      "ag": 1,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
