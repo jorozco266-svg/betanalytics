@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-14T15:44:44.610541+00:00",
+    "last_updated": "2026-10-15T01:11:32.334969+00:00",
     "avg_goals": 1.2,
-    "total_matches": 235,
-    "total_goals": 579,
-    "avg_real": 1.232,
+    "total_matches": 236,
+    "total_goals": 582,
+    "avg_real": 1.233,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -17,13 +17,13 @@
   "standings": [
     {
       "team": "Montevideo City Torque",
-      "pj": 11,
-      "gf": 18,
+      "pj": 12,
+      "gf": 21,
       "ga": 9,
-      "w": 7,
+      "w": 8,
       "d": 2,
       "l": 2,
-      "pts": 23
+      "pts": 26
     },
     {
       "team": "Botafogo",
@@ -1010,6 +1010,16 @@
       "pj": 1,
       "gf": 0,
       "ga": 2,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "pts": 0
+    },
+    {
+      "team": "21 Oct",
+      "pj": 1,
+      "gf": 0,
+      "ga": 3,
       "w": 0,
       "d": 0,
       "l": 1,
@@ -3034,6 +3044,15 @@
       "away": "20 Oct",
       "hg": 0,
       "ag": 1,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Montevideo City Torque",
+      "away": "21 Oct",
+      "hg": 3,
+      "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
     },
