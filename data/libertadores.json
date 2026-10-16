@@ -4,17 +4,27 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-15T15:31:59.942521+00:00",
+    "last_updated": "2026-10-16T15:18:11.918159+00:00",
     "avg_goals": 1.25,
-    "total_matches": 102,
+    "total_matches": 103,
     "total_goals": 241,
-    "avg_real": 1.181,
+    "avg_real": 1.17,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
     ]
   },
   "standings": [
+    {
+      "team": "Flamengo",
+      "pj": 9,
+      "gf": 17,
+      "ga": 7,
+      "w": 6,
+      "d": 2,
+      "l": 1,
+      "pts": 20
+    },
     {
       "team": "LDU Quito",
       "pj": 9,
@@ -24,16 +34,6 @@
       "d": 2,
       "l": 1,
       "pts": 20
-    },
-    {
-      "team": "Flamengo",
-      "pj": 8,
-      "gf": 17,
-      "ga": 7,
-      "w": 6,
-      "d": 1,
-      "l": 1,
-      "pts": 19
     },
     {
       "team": "Independiente del Valle",
@@ -377,6 +377,16 @@
     },
     {
       "team": "1–1",
+      "pj": 1,
+      "gf": 0,
+      "ga": 0,
+      "w": 0,
+      "d": 1,
+      "l": 0,
+      "pts": 1
+    },
+    {
+      "team": "22 Oct",
       "pj": 1,
       "gf": 0,
       "ga": 0,
@@ -1352,6 +1362,15 @@
       "away": "21 Oct",
       "hg": 1,
       "ag": 2,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "22 Oct",
+      "hg": 0,
+      "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
     }

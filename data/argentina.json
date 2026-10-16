@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-15T01:11:17.899362+00:00",
+    "last_updated": "2026-10-16T15:18:02.054585+00:00",
     "avg_goals": 1.03,
-    "total_matches": 420,
-    "total_goals": 900,
-    "avg_real": 1.071
+    "total_matches": 421,
+    "total_goals": 903,
+    "avg_real": 1.072
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "l": 6
     },
     {
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 38,
+      "ga": 37,
+      "pj": 29,
+      "pts": 48,
+      "w": 14,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Instituto",
       "gf": 36,
       "ga": 27,
@@ -95,16 +105,6 @@
       "team": "Estudiantes (LP)",
       "gf": 34,
       "ga": 20,
-      "pj": 28,
-      "pts": 45,
-      "w": 13,
-      "d": 6,
-      "l": 9
-    },
-    {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 36,
-      "ga": 36,
       "pj": 28,
       "pts": 45,
       "w": 13,
@@ -143,13 +143,13 @@
     },
     {
       "team": "Huracán",
-      "gf": 28,
-      "ga": 23,
-      "pj": 28,
+      "gf": 29,
+      "ga": 25,
+      "pj": 29,
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Barracas Central",
