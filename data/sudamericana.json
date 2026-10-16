@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-15T01:11:32.334969+00:00",
+    "last_updated": "2026-10-16T01:02:38.982585+00:00",
     "avg_goals": 1.2,
-    "total_matches": 236,
-    "total_goals": 582,
-    "avg_real": 1.233,
+    "total_matches": 238,
+    "total_goals": 585,
+    "avg_real": 1.229,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -17,13 +17,13 @@
   "standings": [
     {
       "team": "Montevideo City Torque",
-      "pj": 12,
-      "gf": 21,
+      "pj": 13,
+      "gf": 22,
       "ga": 9,
-      "w": 8,
+      "w": 9,
       "d": 2,
       "l": 2,
-      "pts": 26
+      "pts": 29
     },
     {
       "team": "Botafogo",
@@ -406,6 +406,16 @@
       "pts": 8
     },
     {
+      "team": "Alianza Atlético",
+      "pj": 7,
+      "gf": 6,
+      "ga": 7,
+      "w": 2,
+      "d": 2,
+      "l": 3,
+      "pts": 8
+    },
+    {
       "team": "Bolívar",
       "pj": 8,
       "gf": 12,
@@ -553,16 +563,6 @@
       "w": 1,
       "d": 2,
       "l": 2,
-      "pts": 5
-    },
-    {
-      "team": "Alianza Atlético",
-      "pj": 6,
-      "gf": 4,
-      "ga": 7,
-      "w": 1,
-      "d": 2,
-      "l": 3,
       "pts": 5
     },
     {
@@ -906,16 +906,6 @@
       "pts": 0
     },
     {
-      "team": "Defensor Sporting",
-      "pj": 1,
-      "gf": 0,
-      "ga": 1,
-      "w": 0,
-      "d": 0,
-      "l": 1,
-      "pts": 0
-    },
-    {
       "team": "Racing Montevideo",
       "pj": 1,
       "gf": 0,
@@ -1006,13 +996,13 @@
       "pts": 0
     },
     {
-      "team": "Deportivo Garcilaso",
-      "pj": 1,
+      "team": "Defensor Sporting",
+      "pj": 2,
       "gf": 0,
       "ga": 2,
       "w": 0,
       "d": 0,
-      "l": 1,
+      "l": 2,
       "pts": 0
     },
     {
@@ -1040,6 +1030,16 @@
       "pj": 2,
       "gf": 2,
       "ga": 6,
+      "w": 0,
+      "d": 0,
+      "l": 2,
+      "pts": 0
+    },
+    {
+      "team": "Deportivo Garcilaso",
+      "pj": 2,
+      "gf": 0,
+      "ga": 4,
       "w": 0,
       "d": 0,
       "l": 2,
@@ -3052,6 +3052,24 @@
       "home": "Montevideo City Torque",
       "away": "21 Oct",
       "hg": 3,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Alianza Atlético",
+      "away": "Deportivo Garcilaso",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Montevideo City Torque",
+      "away": "Defensor Sporting",
+      "hg": 1,
       "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
