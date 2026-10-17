@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-15T01:11:20.616176+00:00",
+    "last_updated": "2026-10-17T14:06:30.765955+00:00",
     "avg_goals": 1.4,
-    "total_matches": 62,
-    "total_goals": 182,
-    "avg_real": 1.468
+    "total_matches": 63,
+    "total_goals": 184,
+    "avg_real": 1.46
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "pts": 13
     },
     {
+      "team": "Chelsea",
+      "pj": 7,
+      "gf": 17,
+      "ga": 13,
+      "w": 4,
+      "d": 1,
+      "l": 2,
+      "pts": 13
+    },
+    {
       "team": "Brentford",
       "pj": 6,
       "gf": 12,
@@ -53,22 +63,12 @@
     },
     {
       "team": "Everton",
-      "pj": 6,
+      "pj": 7,
       "gf": 8,
-      "ga": 5,
+      "ga": 7,
       "w": 2,
       "d": 4,
-      "l": 0,
-      "pts": 10
-    },
-    {
-      "team": "Chelsea",
-      "pj": 6,
-      "gf": 15,
-      "ga": 13,
-      "w": 3,
-      "d": 1,
-      "l": 2,
+      "l": 1,
       "pts": 10
     },
     {
@@ -728,37 +728,17 @@
       "hg": 4,
       "ag": 1,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-17",
+      "home": "Everton",
+      "away": "Chelsea",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 7
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-17",
-      "time": "06:30 AM",
-      "home": "Everton",
-      "away": "Chelsea",
-      "matchday": 7
-    },
-    {
-      "date": "2026-10-17",
-      "time": "09:00 AM",
-      "home": "Fulham",
-      "away": "Hull City",
-      "matchday": 7
-    },
-    {
-      "date": "2026-10-17",
-      "time": "09:00 AM",
-      "home": "Manchester City",
-      "away": "Ipswich Town",
-      "matchday": 7
-    },
-    {
-      "date": "2026-10-17",
-      "time": "09:00 AM",
-      "home": "Brentford",
-      "away": "Liverpool",
-      "matchday": 7
-    },
     {
       "date": "2026-10-17",
       "time": "11:30 AM",

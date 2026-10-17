@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-13T03:19:38.477053+00:00",
+    "last_updated": "2026-10-17T14:06:29.461881+00:00",
     "avg_goals": 1.35,
-    "total_matches": 299,
-    "total_goals": 800,
-    "avg_real": 1.338
+    "total_matches": 300,
+    "total_goals": 802,
+    "avg_real": 1.337
   },
   "standings": [
     {
@@ -142,6 +142,16 @@
       "l": 12
     },
     {
+      "team": "Mirassol",
+      "gf": 36,
+      "ga": 44,
+      "pj": 31,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 13
+    },
+    {
       "team": "Vasco da Gama",
       "gf": 36,
       "ga": 42,
@@ -150,16 +160,6 @@
       "w": 9,
       "d": 8,
       "l": 12
-    },
-    {
-      "team": "Mirassol",
-      "gf": 34,
-      "ga": 44,
-      "pj": 30,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
-      "l": 13
     },
     {
       "team": "Corinthians",
@@ -174,12 +174,12 @@
     {
       "team": "Internacional",
       "gf": 33,
-      "ga": 38,
-      "pj": 30,
+      "ga": 40,
+      "pj": 31,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Grêmio",

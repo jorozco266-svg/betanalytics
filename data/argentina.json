@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-17T00:59:18.523525+00:00",
+    "last_updated": "2026-10-17T14:06:29.050686+00:00",
     "avg_goals": 1.03,
-    "total_matches": 422,
-    "total_goals": 904,
-    "avg_real": 1.071
+    "total_matches": 423,
+    "total_goals": 907,
+    "avg_real": 1.072
   },
   "standings": [
+    {
+      "team": "Boca Juniors",
+      "gf": 43,
+      "ga": 23,
+      "pj": 29,
+      "pts": 54,
+      "w": 14,
+      "d": 12,
+      "l": 3
+    },
     {
       "team": "Independiente Rivadavia",
       "gf": 44,
@@ -20,16 +30,6 @@
       "w": 15,
       "d": 7,
       "l": 6
-    },
-    {
-      "team": "Boca Juniors",
-      "gf": 41,
-      "ga": 22,
-      "pj": 28,
-      "pts": 51,
-      "w": 13,
-      "d": 12,
-      "l": 3
     },
     {
       "team": "Argentinos Juniors",
@@ -193,13 +193,13 @@
     },
     {
       "team": "Talleres",
-      "gf": 28,
-      "ga": 31,
-      "pj": 28,
+      "gf": 29,
+      "ga": 33,
+      "pj": 29,
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Unión",

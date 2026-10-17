@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-17T00:59:22.929351+00:00",
+    "last_updated": "2026-10-17T14:06:32.069093+00:00",
     "avg_goals": 1.3,
     "total_matches": 69,
     "total_goals": 197,
@@ -912,13 +912,6 @@
       "time": "01:45 PM",
       "home": "Roma",
       "away": "Genoa",
-      "matchday": 7
-    },
-    {
-      "date": "2026-10-17",
-      "time": "08:00 AM",
-      "home": "Venezia",
-      "away": "Napoli",
       "matchday": 7
     },
     {
