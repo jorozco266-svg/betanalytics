@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-16T15:18:02.054585+00:00",
+    "last_updated": "2026-10-17T00:59:18.523525+00:00",
     "avg_goals": 1.03,
-    "total_matches": 421,
-    "total_goals": 903,
-    "avg_real": 1.072
+    "total_matches": 422,
+    "total_goals": 904,
+    "avg_real": 1.071
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 6
     },
     {
+      "team": "Instituto",
+      "gf": 37,
+      "ga": 27,
+      "pj": 29,
+      "pts": 50,
+      "w": 15,
+      "d": 5,
+      "l": 9
+    },
+    {
       "team": "Vélez Sarsfield",
       "gf": 35,
       "ga": 25,
@@ -79,16 +89,6 @@
       "pts": 48,
       "w": 14,
       "d": 6,
-      "l": 9
-    },
-    {
-      "team": "Instituto",
-      "gf": 36,
-      "ga": 27,
-      "pj": 28,
-      "pts": 47,
-      "w": 14,
-      "d": 5,
       "l": 9
     },
     {
@@ -124,12 +124,12 @@
     {
       "team": "Defensa y Justicia",
       "gf": 36,
-      "ga": 32,
-      "pj": 28,
+      "ga": 33,
+      "pj": 29,
       "pts": 43,
       "w": 11,
       "d": 10,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Independiente",

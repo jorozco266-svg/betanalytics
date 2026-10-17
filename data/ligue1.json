@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-15T01:11:23.892928+00:00",
+    "last_updated": "2026-10-17T00:59:24.240190+00:00",
     "avg_goals": 1.35,
-    "total_matches": 64,
-    "total_goals": 185,
-    "avg_real": 1.445
+    "total_matches": 65,
+    "total_goals": 188,
+    "avg_real": 1.446
   },
   "standings": [
     {
@@ -70,6 +70,16 @@
       "d": 2,
       "l": 1,
       "pts": 11
+    },
+    {
+      "team": "Toulouse",
+      "pj": 7,
+      "gf": 12,
+      "ga": 11,
+      "w": 2,
+      "d": 3,
+      "l": 2,
+      "pts": 9
     },
     {
       "team": "Brest",
@@ -143,22 +153,12 @@
     },
     {
       "team": "Le Mans",
-      "pj": 6,
+      "pj": 7,
       "gf": 10,
-      "ga": 12,
+      "ga": 15,
       "w": 1,
       "d": 3,
-      "l": 2,
-      "pts": 6
-    },
-    {
-      "team": "Toulouse",
-      "pj": 6,
-      "gf": 9,
-      "ga": 11,
-      "w": 1,
-      "d": 3,
-      "l": 2,
+      "l": 3,
       "pts": 6
     },
     {
@@ -874,16 +874,17 @@
       "hg": 0,
       "ag": 2,
       "matchday": 6
+    },
+    {
+      "date": "2026-10-16",
+      "home": "Le Mans",
+      "away": "Toulouse",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 7
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-16",
-      "time": "01:45 PM",
-      "home": "Le Mans",
-      "away": "Toulouse",
-      "matchday": 7
-    },
     {
       "date": "2026-10-17",
       "time": "01:45 PM",
