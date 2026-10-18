@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-17T14:06:40.346660+00:00",
+    "last_updated": "2026-10-18T14:22:10.148933+00:00",
     "avg_goals": 1.72,
-    "total_matches": 45,
-    "total_goals": 152,
-    "avg_real": 1.689
+    "total_matches": 46,
+    "total_goals": 155,
+    "avg_real": 1.685
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "l": 3
     },
     {
+      "team": "Union Berlin",
+      "gf": 10,
+      "ga": 12,
+      "pj": 7,
+      "pts": 9,
+      "w": 3,
+      "d": 0,
+      "l": 4
+    },
+    {
       "team": "VfB Stuttgart",
       "gf": 8,
       "ga": 12,
@@ -100,16 +110,6 @@
       "w": 2,
       "d": 2,
       "l": 2
-    },
-    {
-      "team": "Union Berlin",
-      "gf": 8,
-      "ga": 11,
-      "pj": 6,
-      "pts": 6,
-      "w": 2,
-      "d": 0,
-      "l": 4
     },
     {
       "team": "TSG Hoffenheim",
@@ -133,13 +133,13 @@
     },
     {
       "team": "1. FC Nürnberg",
-      "gf": 9,
-      "ga": 21,
-      "pj": 6,
+      "gf": 10,
+      "ga": 23,
+      "pj": 7,
       "pts": 2,
       "w": 0,
       "d": 2,
-      "l": 4
+      "l": 5
     },
     {
       "team": "Mainz 05",

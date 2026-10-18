@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-18T00:34:35.453701+00:00",
+    "last_updated": "2026-10-18T14:22:00.255684+00:00",
     "avg_goals": 1.35,
-    "total_matches": 303,
-    "total_goals": 806,
-    "avg_real": 1.33
+    "total_matches": 304,
+    "total_goals": 807,
+    "avg_real": 1.327
   },
   "standings": [
     {
@@ -82,6 +82,16 @@
       "l": 10
     },
     {
+      "team": "São Paulo",
+      "gf": 36,
+      "ga": 35,
+      "pj": 31,
+      "pts": 42,
+      "w": 12,
+      "d": 6,
+      "l": 13
+    },
+    {
       "team": "Santos",
       "gf": 46,
       "ga": 45,
@@ -100,16 +110,6 @@
       "w": 11,
       "d": 7,
       "l": 12
-    },
-    {
-      "team": "São Paulo",
-      "gf": 35,
-      "ga": 35,
-      "pj": 30,
-      "pts": 39,
-      "w": 11,
-      "d": 6,
-      "l": 13
     },
     {
       "team": "Botafogo",
@@ -154,12 +154,12 @@
     {
       "team": "Vasco da Gama",
       "gf": 36,
-      "ga": 42,
-      "pj": 29,
+      "ga": 43,
+      "pj": 30,
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Corinthians",

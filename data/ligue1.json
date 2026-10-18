@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-18T00:34:39.916348+00:00",
+    "last_updated": "2026-10-18T14:22:04.896347+00:00",
     "avg_goals": 1.35,
     "total_matches": 68,
     "total_goals": 198,
@@ -914,13 +914,6 @@
       "time": "01:45 PM",
       "home": "Lyon",
       "away": "Nice",
-      "matchday": 7
-    },
-    {
-      "date": "2026-10-18",
-      "time": "08:00 AM",
-      "home": "Angers",
-      "away": "Marseille",
       "matchday": 7
     },
     {

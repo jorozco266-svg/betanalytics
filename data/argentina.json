@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-18T00:34:35.037028+00:00",
+    "last_updated": "2026-10-18T14:21:59.882925+00:00",
     "avg_goals": 1.03,
-    "total_matches": 426,
-    "total_goals": 913,
-    "avg_real": 1.072
+    "total_matches": 428,
+    "total_goals": 919,
+    "avg_real": 1.074
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 5
     },
     {
+      "team": "Rosario Central",
+      "gf": 40,
+      "ga": 27,
+      "pj": 29,
+      "pts": 53,
+      "w": 15,
+      "d": 8,
+      "l": 6
+    },
+    {
       "team": "Independiente Rivadavia",
       "gf": 46,
       "ga": 36,
@@ -42,14 +52,14 @@
       "l": 6
     },
     {
-      "team": "Rosario Central",
-      "gf": 37,
+      "team": "Vélez Sarsfield",
+      "gf": 36,
       "ga": 25,
-      "pj": 28,
-      "pts": 50,
-      "w": 14,
-      "d": 8,
-      "l": 6
+      "pj": 29,
+      "pts": 52,
+      "w": 13,
+      "d": 13,
+      "l": 3
     },
     {
       "team": "Instituto",
@@ -60,16 +70,6 @@
       "w": 15,
       "d": 5,
       "l": 9
-    },
-    {
-      "team": "Vélez Sarsfield",
-      "gf": 35,
-      "ga": 25,
-      "pj": 28,
-      "pts": 49,
-      "w": 12,
-      "d": 13,
-      "l": 3
     },
     {
       "team": "Belgrano",
@@ -174,12 +174,12 @@
     {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 29,
-      "ga": 34,
-      "pj": 28,
+      "ga": 35,
+      "pj": 29,
       "pts": 39,
       "w": 11,
       "d": 6,
-      "l": 11
+      "l": 12
     },
     {
       "team": "San Lorenzo",
@@ -253,13 +253,13 @@
     },
     {
       "team": "Atlético Tucumán",
-      "gf": 25,
-      "ga": 30,
-      "pj": 28,
+      "gf": 27,
+      "ga": 33,
+      "pj": 29,
       "pts": 28,
       "w": 6,
       "d": 10,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Platense",
