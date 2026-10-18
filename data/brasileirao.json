@@ -4,13 +4,23 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-17T14:06:29.461881+00:00",
+    "last_updated": "2026-10-18T00:34:35.453701+00:00",
     "avg_goals": 1.35,
-    "total_matches": 300,
-    "total_goals": 802,
-    "avg_real": 1.337
+    "total_matches": 303,
+    "total_goals": 806,
+    "avg_real": 1.33
   },
   "standings": [
+    {
+      "team": "Palmeiras",
+      "gf": 54,
+      "ga": 22,
+      "pj": 31,
+      "pts": 66,
+      "w": 19,
+      "d": 9,
+      "l": 3
+    },
     {
       "team": "Flamengo",
       "gf": 58,
@@ -22,24 +32,14 @@
       "l": 4
     },
     {
-      "team": "Palmeiras",
-      "gf": 52,
-      "ga": 22,
-      "pj": 30,
-      "pts": 63,
-      "w": 18,
-      "d": 9,
-      "l": 3
-    },
-    {
       "team": "Athletico Paranaense",
       "gf": 49,
-      "ga": 35,
-      "pj": 30,
+      "ga": 37,
+      "pj": 31,
       "pts": 53,
       "w": 15,
       "d": 8,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Fluminense",
@@ -50,6 +50,16 @@
       "w": 14,
       "d": 9,
       "l": 7
+    },
+    {
+      "team": "Atlético Mineiro",
+      "gf": 42,
+      "ga": 35,
+      "pj": 31,
+      "pts": 50,
+      "w": 14,
+      "d": 8,
+      "l": 9
     },
     {
       "team": "Bahia",
@@ -70,16 +80,6 @@
       "w": 14,
       "d": 6,
       "l": 10
-    },
-    {
-      "team": "Atlético Mineiro",
-      "gf": 41,
-      "ga": 35,
-      "pj": 30,
-      "pts": 47,
-      "w": 13,
-      "d": 8,
-      "l": 9
     },
     {
       "team": "Santos",
@@ -112,14 +112,24 @@
       "l": 13
     },
     {
-      "team": "Coritiba",
-      "gf": 38,
+      "team": "Botafogo",
+      "gf": 44,
       "ga": 48,
-      "pj": 30,
+      "pj": 31,
       "pts": 39,
       "w": 10,
       "d": 9,
-      "l": 11
+      "l": 12
+    },
+    {
+      "team": "Coritiba",
+      "gf": 38,
+      "ga": 49,
+      "pj": 31,
+      "pts": 39,
+      "w": 10,
+      "d": 9,
+      "l": 12
     },
     {
       "team": "Vitória",
@@ -130,16 +140,6 @@
       "w": 10,
       "d": 6,
       "l": 14
-    },
-    {
-      "team": "Botafogo",
-      "gf": 43,
-      "ga": 48,
-      "pj": 30,
-      "pts": 36,
-      "w": 9,
-      "d": 9,
-      "l": 12
     },
     {
       "team": "Mirassol",
@@ -204,12 +204,12 @@
     {
       "team": "Chapecoense",
       "gf": 30,
-      "ga": 61,
-      "pj": 29,
+      "ga": 62,
+      "pj": 30,
       "pts": 18,
       "w": 3,
       "d": 9,
-      "l": 17
+      "l": 18
     }
   ],
   "results": [

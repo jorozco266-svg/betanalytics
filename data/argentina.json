@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-17T14:06:29.050686+00:00",
+    "last_updated": "2026-10-18T00:34:35.037028+00:00",
     "avg_goals": 1.03,
-    "total_matches": 423,
-    "total_goals": 907,
+    "total_matches": 426,
+    "total_goals": 913,
     "avg_real": 1.072
   },
   "standings": [
@@ -22,24 +22,24 @@
       "l": 3
     },
     {
-      "team": "Independiente Rivadavia",
-      "gf": 44,
-      "ga": 34,
-      "pj": 28,
-      "pts": 52,
-      "w": 15,
-      "d": 7,
-      "l": 6
-    },
-    {
       "team": "Argentinos Juniors",
-      "gf": 33,
+      "gf": 34,
       "ga": 24,
-      "pj": 28,
-      "pts": 51,
-      "w": 14,
+      "pj": 29,
+      "pts": 54,
+      "w": 15,
       "d": 9,
       "l": 5
+    },
+    {
+      "team": "Independiente Rivadavia",
+      "gf": 46,
+      "ga": 36,
+      "pj": 29,
+      "pts": 53,
+      "w": 15,
+      "d": 8,
+      "l": 6
     },
     {
       "team": "Rosario Central",
@@ -92,6 +92,16 @@
       "l": 9
     },
     {
+      "team": "Lanús",
+      "gf": 34,
+      "ga": 24,
+      "pj": 29,
+      "pts": 47,
+      "w": 13,
+      "d": 8,
+      "l": 8
+    },
+    {
       "team": "River Plate",
       "gf": 37,
       "ga": 25,
@@ -110,16 +120,6 @@
       "w": 13,
       "d": 6,
       "l": 9
-    },
-    {
-      "team": "Lanús",
-      "gf": 33,
-      "ga": 24,
-      "pj": 28,
-      "pts": 44,
-      "w": 12,
-      "d": 8,
-      "l": 8
     },
     {
       "team": "Defensa y Justicia",
@@ -213,12 +213,12 @@
     },
     {
       "team": "Tigre",
-      "gf": 29,
-      "ga": 28,
-      "pj": 28,
-      "pts": 32,
+      "gf": 31,
+      "ga": 30,
+      "pj": 29,
+      "pts": 33,
       "w": 7,
-      "d": 11,
+      "d": 12,
       "l": 10
     },
     {
@@ -244,12 +244,12 @@
     {
       "team": "Banfield",
       "gf": 31,
-      "ga": 37,
-      "pj": 28,
+      "ga": 38,
+      "pj": 29,
       "pts": 31,
       "w": 8,
       "d": 7,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Atlético Tucumán",
@@ -264,12 +264,12 @@
     {
       "team": "Platense",
       "gf": 22,
-      "ga": 33,
-      "pj": 28,
+      "ga": 34,
+      "pj": 29,
       "pts": 27,
       "w": 5,
       "d": 12,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Central Córdoba (SdE)",
