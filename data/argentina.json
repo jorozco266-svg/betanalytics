@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-19T00:43:44.515651+00:00",
+    "last_updated": "2026-10-19T17:22:21.283855+00:00",
     "avg_goals": 1.03,
-    "total_matches": 431,
-    "total_goals": 927,
-    "avg_real": 1.075
+    "total_matches": 432,
+    "total_goals": 930,
+    "avg_real": 1.076
   },
   "standings": [
     {
@@ -72,14 +72,24 @@
       "l": 9
     },
     {
+      "team": "River Plate",
+      "gf": 40,
+      "ga": 25,
+      "pj": 29,
+      "pts": 49,
+      "w": 15,
+      "d": 4,
+      "l": 10
+    },
+    {
       "team": "Belgrano",
       "gf": 31,
-      "ga": 20,
-      "pj": 28,
+      "ga": 23,
+      "pj": 29,
       "pts": 48,
       "w": 13,
       "d": 9,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -100,16 +110,6 @@
       "w": 13,
       "d": 8,
       "l": 8
-    },
-    {
-      "team": "River Plate",
-      "gf": 37,
-      "ga": 25,
-      "pj": 28,
-      "pts": 46,
-      "w": 14,
-      "d": 4,
-      "l": 10
     },
     {
       "team": "Estudiantes (LP)",
