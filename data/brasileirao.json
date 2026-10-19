@@ -4,13 +4,23 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-18T14:22:00.255684+00:00",
+    "last_updated": "2026-10-19T00:43:45.168840+00:00",
     "avg_goals": 1.35,
-    "total_matches": 304,
-    "total_goals": 807,
-    "avg_real": 1.327
+    "total_matches": 308,
+    "total_goals": 821,
+    "avg_real": 1.333
   },
   "standings": [
+    {
+      "team": "Flamengo",
+      "gf": 61,
+      "ga": 25,
+      "pj": 31,
+      "pts": 67,
+      "w": 20,
+      "d": 7,
+      "l": 4
+    },
     {
       "team": "Palmeiras",
       "gf": 54,
@@ -20,16 +30,6 @@
       "w": 19,
       "d": 9,
       "l": 3
-    },
-    {
-      "team": "Flamengo",
-      "gf": 58,
-      "ga": 25,
-      "pj": 30,
-      "pts": 64,
-      "w": 19,
-      "d": 7,
-      "l": 4
     },
     {
       "team": "Athletico Paranaense",
@@ -42,14 +42,24 @@
       "l": 8
     },
     {
+      "team": "Cruzeiro",
+      "gf": 50,
+      "ga": 46,
+      "pj": 31,
+      "pts": 51,
+      "w": 15,
+      "d": 6,
+      "l": 10
+    },
+    {
       "team": "Fluminense",
-      "gf": 48,
-      "ga": 37,
-      "pj": 30,
+      "gf": 49,
+      "ga": 39,
+      "pj": 31,
       "pts": 51,
       "w": 14,
       "d": 9,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Atlético Mineiro",
@@ -64,21 +74,21 @@
     {
       "team": "Bahia",
       "gf": 44,
-      "ga": 36,
-      "pj": 30,
+      "ga": 39,
+      "pj": 31,
       "pts": 49,
       "w": 13,
       "d": 10,
-      "l": 7
+      "l": 8
     },
     {
-      "team": "Cruzeiro",
-      "gf": 46,
-      "ga": 44,
-      "pj": 30,
-      "pts": 48,
-      "w": 14,
-      "d": 6,
+      "team": "Santos",
+      "gf": 48,
+      "ga": 46,
+      "pj": 31,
+      "pts": 45,
+      "w": 12,
+      "d": 9,
       "l": 10
     },
     {
@@ -92,23 +102,13 @@
       "l": 13
     },
     {
-      "team": "Santos",
-      "gf": 46,
-      "ga": 45,
-      "pj": 30,
-      "pts": 42,
-      "w": 11,
-      "d": 9,
-      "l": 10
-    },
-    {
       "team": "Red Bull Bragantino",
-      "gf": 38,
-      "ga": 35,
-      "pj": 30,
-      "pts": 40,
+      "gf": 39,
+      "ga": 36,
+      "pj": 31,
+      "pts": 41,
       "w": 11,
-      "d": 7,
+      "d": 8,
       "l": 12
     },
     {
@@ -183,22 +183,22 @@
     },
     {
       "team": "Grêmio",
-      "gf": 32,
-      "ga": 40,
-      "pj": 30,
+      "gf": 34,
+      "ga": 44,
+      "pj": 31,
       "pts": 31,
       "w": 7,
       "d": 10,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Remo",
-      "gf": 33,
-      "ga": 48,
-      "pj": 30,
-      "pts": 25,
+      "gf": 34,
+      "ga": 49,
+      "pj": 31,
+      "pts": 26,
       "w": 5,
-      "d": 10,
+      "d": 11,
       "l": 15
     },
     {
