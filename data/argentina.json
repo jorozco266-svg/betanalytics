@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-20T01:29:38.802768+00:00",
+    "last_updated": "2026-10-20T15:35:03.929511+00:00",
     "avg_goals": 1.03,
-    "total_matches": 434,
-    "total_goals": 935,
+    "total_matches": 435,
+    "total_goals": 937,
     "avg_real": 1.077
   },
   "standings": [
@@ -192,6 +192,16 @@
       "l": 12
     },
     {
+      "team": "Unión",
+      "gf": 42,
+      "ga": 42,
+      "pj": 29,
+      "pts": 35,
+      "w": 9,
+      "d": 8,
+      "l": 12
+    },
+    {
       "team": "Talleres",
       "gf": 29,
       "ga": 33,
@@ -210,16 +220,6 @@
       "w": 8,
       "d": 11,
       "l": 10
-    },
-    {
-      "team": "Unión",
-      "gf": 41,
-      "ga": 41,
-      "pj": 28,
-      "pts": 34,
-      "w": 9,
-      "d": 7,
-      "l": 12
     },
     {
       "team": "Tigre",
@@ -283,12 +283,12 @@
     },
     {
       "team": "Deportivo Riestra",
-      "gf": 14,
-      "ga": 24,
-      "pj": 28,
-      "pts": 22,
+      "gf": 15,
+      "ga": 25,
+      "pj": 29,
+      "pts": 23,
       "w": 3,
-      "d": 13,
+      "d": 14,
       "l": 12
     },
     {
