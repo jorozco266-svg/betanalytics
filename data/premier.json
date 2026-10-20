@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-19T00:43:46.154095+00:00",
+    "last_updated": "2026-10-20T01:29:41.247236+00:00",
     "avg_goals": 1.4,
-    "total_matches": 71,
-    "total_goals": 204,
-    "avg_real": 1.437
+    "total_matches": 72,
+    "total_goals": 208,
+    "avg_real": 1.444
   },
   "standings": [
     {
@@ -162,13 +162,23 @@
       "pts": 6
     },
     {
+      "team": "Tottenham",
+      "pj": 7,
+      "gf": 6,
+      "ga": 10,
+      "w": 1,
+      "d": 3,
+      "l": 3,
+      "pts": 6
+    },
+    {
       "team": "Coventry City",
-      "pj": 6,
-      "gf": 5,
-      "ga": 11,
+      "pj": 7,
+      "gf": 6,
+      "ga": 14,
       "w": 2,
       "d": 0,
-      "l": 4,
+      "l": 5,
       "pts": 6
     },
     {
@@ -219,16 +229,6 @@
       "w": 1,
       "d": 0,
       "l": 0,
-      "pts": 3
-    },
-    {
-      "team": "Tottenham",
-      "pj": 6,
-      "gf": 3,
-      "ga": 9,
-      "w": 0,
-      "d": 3,
-      "l": 3,
       "pts": 3
     }
   ],
@@ -800,16 +800,17 @@
       "hg": 0,
       "ag": 1,
       "matchday": 7
+    },
+    {
+      "date": "2026-10-19",
+      "home": "Tottenham",
+      "away": "Coventry City",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 7
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-19",
-      "time": "02:00 PM",
-      "home": "Tottenham",
-      "away": "Coventry City",
-      "matchday": 7
-    },
     {
       "date": "2026-10-23",
       "time": "02:00 PM",

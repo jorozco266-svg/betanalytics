@@ -4,13 +4,23 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-19T00:43:54.490289+00:00",
+    "last_updated": "2026-10-20T01:29:52.081771+00:00",
     "avg_goals": 1.72,
-    "total_matches": 47,
-    "total_goals": 160,
-    "avg_real": 1.702
+    "total_matches": 48,
+    "total_goals": 165,
+    "avg_real": 1.719
   },
   "standings": [
+    {
+      "team": "Bayern Munich",
+      "gf": 24,
+      "ga": 6,
+      "pj": 7,
+      "pts": 21,
+      "w": 7,
+      "d": 0,
+      "l": 0
+    },
     {
       "team": "VfL Wolfsburg",
       "gf": 23,
@@ -20,16 +30,6 @@
       "w": 6,
       "d": 0,
       "l": 1
-    },
-    {
-      "team": "Bayern Munich",
-      "gf": 19,
-      "ga": 6,
-      "pj": 6,
-      "pts": 18,
-      "w": 6,
-      "d": 0,
-      "l": 0
     },
     {
       "team": "Eintracht Frankfurt",
@@ -104,12 +104,12 @@
     {
       "team": "VfB Stuttgart",
       "gf": 8,
-      "ga": 12,
-      "pj": 6,
+      "ga": 17,
+      "pj": 7,
       "pts": 8,
       "w": 2,
       "d": 2,
-      "l": 2
+      "l": 3
     },
     {
       "team": "TSG Hoffenheim",

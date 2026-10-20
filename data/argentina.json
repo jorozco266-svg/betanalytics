@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-19T17:22:21.283855+00:00",
+    "last_updated": "2026-10-20T01:29:38.802768+00:00",
     "avg_goals": 1.03,
-    "total_matches": 432,
-    "total_goals": 930,
-    "avg_real": 1.076
+    "total_matches": 434,
+    "total_goals": 935,
+    "avg_real": 1.077
   },
   "standings": [
     {
@@ -153,22 +153,22 @@
     },
     {
       "team": "Barracas Central",
-      "gf": 25,
-      "ga": 24,
-      "pj": 28,
-      "pts": 39,
+      "gf": 26,
+      "ga": 25,
+      "pj": 29,
+      "pts": 40,
       "w": 10,
-      "d": 9,
+      "d": 10,
       "l": 9
     },
     {
       "team": "Sarmiento (J)",
-      "gf": 34,
-      "ga": 38,
-      "pj": 28,
-      "pts": 39,
+      "gf": 35,
+      "ga": 39,
+      "pj": 29,
+      "pts": 40,
       "w": 12,
-      "d": 3,
+      "d": 4,
       "l": 13
     },
     {
@@ -202,6 +202,16 @@
       "l": 12
     },
     {
+      "team": "Newell's Old Boys",
+      "gf": 28,
+      "ga": 37,
+      "pj": 29,
+      "pts": 35,
+      "w": 8,
+      "d": 11,
+      "l": 10
+    },
+    {
       "team": "Unión",
       "gf": 41,
       "ga": 41,
@@ -230,16 +240,6 @@
       "w": 8,
       "d": 9,
       "l": 12
-    },
-    {
-      "team": "Newell's Old Boys",
-      "gf": 26,
-      "ga": 36,
-      "pj": 28,
-      "pts": 32,
-      "w": 7,
-      "d": 11,
-      "l": 10
     },
     {
       "team": "Banfield",
@@ -273,13 +273,13 @@
     },
     {
       "team": "Central Córdoba (SdE)",
-      "gf": 21,
-      "ga": 37,
-      "pj": 28,
+      "gf": 22,
+      "ga": 39,
+      "pj": 29,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Deportivo Riestra",

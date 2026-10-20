@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-19T00:43:45.168840+00:00",
+    "last_updated": "2026-10-20T01:29:39.311090+00:00",
     "avg_goals": 1.35,
-    "total_matches": 308,
-    "total_goals": 821,
-    "avg_real": 1.333
+    "total_matches": 309,
+    "total_goals": 823,
+    "avg_real": 1.332
   },
   "standings": [
     {
@@ -133,12 +133,12 @@
     },
     {
       "team": "Vitória",
-      "gf": 33,
-      "ga": 44,
-      "pj": 30,
-      "pts": 36,
+      "gf": 34,
+      "ga": 45,
+      "pj": 31,
+      "pts": 37,
       "w": 10,
-      "d": 6,
+      "d": 7,
       "l": 14
     },
     {
@@ -163,12 +163,12 @@
     },
     {
       "team": "Corinthians",
-      "gf": 31,
-      "ga": 38,
-      "pj": 30,
-      "pts": 32,
+      "gf": 32,
+      "ga": 39,
+      "pj": 31,
+      "pts": 33,
       "w": 8,
-      "d": 8,
+      "d": 9,
       "l": 14
     },
     {
