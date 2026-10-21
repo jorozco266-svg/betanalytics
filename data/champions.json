@@ -4,22 +4,22 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-15T01:11:25.069827+00:00",
+    "last_updated": "2026-10-21T01:13:20.296922+00:00",
     "avg_goals": 1.45,
-    "total_matches": 225,
-    "total_goals": 809,
-    "avg_real": 1.798
+    "total_matches": 234,
+    "total_goals": 849,
+    "avg_real": 1.814
   },
   "standings": [
     {
       "team": "Paris Saint-Germain FC",
-      "pj": 19,
-      "gf": 59,
-      "ga": 29,
-      "w": 13,
+      "pj": 20,
+      "gf": 63,
+      "ga": 31,
+      "w": 14,
       "d": 4,
       "l": 2,
-      "pts": 43
+      "pts": 46
     },
     {
       "team": "Arsenal FC",
@@ -52,34 +52,34 @@
       "pts": 33
     },
     {
+      "team": "Liverpool FC",
+      "pj": 15,
+      "gf": 36,
+      "ga": 20,
+      "w": 10,
+      "d": 0,
+      "l": 5,
+      "pts": 30
+    },
+    {
       "team": "FC Barcelona",
-      "pj": 14,
-      "gf": 41,
-      "ga": 22,
+      "pj": 15,
+      "gf": 43,
+      "ga": 26,
       "w": 9,
       "d": 2,
-      "l": 3,
+      "l": 4,
       "pts": 29
     },
     {
-      "team": "Liverpool FC",
-      "pj": 14,
-      "gf": 32,
-      "ga": 17,
-      "w": 9,
-      "d": 0,
-      "l": 5,
-      "pts": 27
-    },
-    {
       "team": "Club Atlético de Madrid",
-      "pj": 18,
-      "gf": 38,
-      "ga": 30,
+      "pj": 19,
+      "gf": 39,
+      "ga": 31,
       "w": 8,
-      "d": 3,
+      "d": 4,
       "l": 7,
-      "pts": 27
+      "pts": 28
     },
     {
       "team": "Sporting Clube de Portugal",
@@ -90,6 +90,16 @@
       "d": 2,
       "l": 4,
       "pts": 26
+    },
+    {
+      "team": "Manchester City FC",
+      "pj": 13,
+      "gf": 25,
+      "ga": 19,
+      "w": 7,
+      "d": 1,
+      "l": 5,
+      "pts": 22
     },
     {
       "team": "Newcastle United FC",
@@ -103,12 +113,12 @@
     },
     {
       "team": "FK Bodø/Glimt",
-      "pj": 14,
-      "gf": 23,
-      "ga": 27,
+      "pj": 15,
+      "gf": 26,
+      "ga": 31,
       "w": 6,
       "d": 3,
-      "l": 5,
+      "l": 6,
       "pts": 21
     },
     {
@@ -122,24 +132,14 @@
       "pts": 20
     },
     {
-      "team": "Manchester City FC",
-      "pj": 12,
-      "gf": 20,
-      "ga": 18,
-      "w": 6,
-      "d": 1,
-      "l": 5,
-      "pts": 19
-    },
-    {
       "team": "Borussia Dortmund",
-      "pj": 12,
-      "gf": 25,
-      "ga": 24,
-      "w": 5,
+      "pj": 13,
+      "gf": 27,
+      "ga": 25,
+      "w": 6,
       "d": 2,
       "l": 5,
-      "pts": 17
+      "pts": 20
     },
     {
       "team": "Bayer 04 Leverkusen",
@@ -212,6 +212,16 @@
       "pts": 14
     },
     {
+      "team": "PSV",
+      "pj": 11,
+      "gf": 18,
+      "ga": 18,
+      "w": 3,
+      "d": 3,
+      "l": 5,
+      "pts": 12
+    },
+    {
       "team": "PAE Olympiakos SFP",
       "pj": 10,
       "gf": 10,
@@ -232,6 +242,16 @@
       "pts": 11
     },
     {
+      "team": "SSC Napoli",
+      "pj": 11,
+      "gf": 14,
+      "ga": 22,
+      "w": 3,
+      "d": 2,
+      "l": 6,
+      "pts": 11
+    },
+    {
       "team": "Qarabağ Ağdam FK",
       "pj": 10,
       "gf": 16,
@@ -240,16 +260,6 @@
       "d": 1,
       "l": 6,
       "pts": 10
-    },
-    {
-      "team": "PSV",
-      "pj": 10,
-      "gf": 17,
-      "ga": 18,
-      "w": 2,
-      "d": 3,
-      "l": 5,
-      "pts": 9
     },
     {
       "team": "Olympique de Marseille",
@@ -312,30 +322,20 @@
       "pts": 8
     },
     {
-      "team": "SSC Napoli",
-      "pj": 10,
-      "gf": 10,
-      "ga": 19,
+      "team": "VfB Stuttgart",
+      "pj": 3,
+      "gf": 7,
+      "ga": 2,
       "w": 2,
-      "d": 2,
-      "l": 6,
-      "pts": 8
+      "d": 1,
+      "l": 0,
+      "pts": 7
     },
     {
       "team": "Aston Villa FC",
       "pj": 2,
       "gf": 9,
       "ga": 2,
-      "w": 2,
-      "d": 0,
-      "l": 0,
-      "pts": 6
-    },
-    {
-      "team": "VfB Stuttgart",
-      "pj": 2,
-      "gf": 6,
-      "ga": 1,
       "w": 2,
       "d": 0,
       "l": 0,
@@ -362,6 +362,16 @@
       "pts": 6
     },
     {
+      "team": "AS Roma",
+      "pj": 3,
+      "gf": 8,
+      "ga": 5,
+      "w": 1,
+      "d": 1,
+      "l": 1,
+      "pts": 4
+    },
+    {
       "team": "FK Shakhtar Donetsk",
       "pj": 2,
       "gf": 4,
@@ -383,12 +393,22 @@
     },
     {
       "team": "Villarreal CF",
-      "pj": 10,
-      "gf": 10,
-      "ga": 22,
+      "pj": 11,
+      "gf": 13,
+      "ga": 26,
       "w": 1,
       "d": 1,
-      "l": 8,
+      "l": 9,
+      "pts": 4
+    },
+    {
+      "team": "SK Slavia Praha",
+      "pj": 11,
+      "gf": 9,
+      "ga": 26,
+      "w": 0,
+      "d": 4,
+      "l": 7,
       "pts": 4
     },
     {
@@ -422,26 +442,6 @@
       "pts": 3
     },
     {
-      "team": "PAE AEK",
-      "pj": 2,
-      "gf": 2,
-      "ga": 3,
-      "w": 1,
-      "d": 0,
-      "l": 1,
-      "pts": 3
-    },
-    {
-      "team": "Sabah FK",
-      "pj": 2,
-      "gf": 2,
-      "ga": 4,
-      "w": 1,
-      "d": 0,
-      "l": 1,
-      "pts": 3
-    },
-    {
       "team": "RB Leipzig",
       "pj": 2,
       "gf": 2,
@@ -462,40 +462,40 @@
       "pts": 3
     },
     {
-      "team": "SK Slavia Praha",
-      "pj": 10,
-      "gf": 7,
-      "ga": 24,
-      "w": 0,
-      "d": 3,
-      "l": 7,
+      "team": "Sabah FK",
+      "pj": 3,
+      "gf": 3,
+      "ga": 6,
+      "w": 1,
+      "d": 0,
+      "l": 2,
       "pts": 3
     },
     {
-      "team": "AS Roma",
-      "pj": 2,
-      "gf": 4,
-      "ga": 5,
+      "team": "PAE AEK",
+      "pj": 3,
+      "gf": 3,
+      "ga": 8,
+      "w": 1,
+      "d": 0,
+      "l": 2,
+      "pts": 3
+    },
+    {
+      "team": "Fenerbahçe SK",
+      "pj": 3,
+      "gf": 3,
+      "ga": 9,
       "w": 0,
-      "d": 1,
+      "d": 2,
       "l": 1,
-      "pts": 1
+      "pts": 2
     },
     {
       "team": "Viking FK",
       "pj": 2,
       "gf": 4,
       "ga": 6,
-      "w": 0,
-      "d": 1,
-      "l": 1,
-      "pts": 1
-    },
-    {
-      "team": "Fenerbahçe SK",
-      "pj": 2,
-      "gf": 1,
-      "ga": 7,
       "w": 0,
       "d": 1,
       "l": 1,
@@ -512,16 +512,6 @@
       "pts": 1
     },
     {
-      "team": "FC Porto",
-      "pj": 2,
-      "gf": 2,
-      "ga": 5,
-      "w": 0,
-      "d": 0,
-      "l": 2,
-      "pts": 0
-    },
-    {
       "team": "LASK Linz",
       "pj": 2,
       "gf": 3,
@@ -529,6 +519,16 @@
       "w": 0,
       "d": 0,
       "l": 2,
+      "pts": 0
+    },
+    {
+      "team": "FC Porto",
+      "pj": 3,
+      "gf": 2,
+      "ga": 6,
+      "w": 0,
+      "d": 0,
+      "l": 3,
       "pts": 0
     },
     {
@@ -543,12 +543,12 @@
     },
     {
       "team": "ŠK Slovan Bratislava",
-      "pj": 2,
+      "pj": 3,
       "gf": 1,
-      "ga": 9,
+      "ga": 13,
       "w": 0,
       "d": 0,
-      "l": 2,
+      "l": 3,
       "pts": 0
     }
   ],
@@ -2352,72 +2352,81 @@
       "hg": 0,
       "ag": 3,
       "matchday": 2
+    },
+    {
+      "date": "2026-10-20",
+      "home": "Sabah FK",
+      "away": "Borussia Dortmund",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "Fenerbahçe SK",
+      "away": "SK Slavia Praha",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "Manchester City FC",
+      "away": "PAE AEK",
+      "hg": 5,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "VfB Stuttgart",
+      "away": "Club Atlético de Madrid",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "Liverpool FC",
+      "away": "Villarreal CF",
+      "hg": 4,
+      "ag": 3,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "AS Roma",
+      "away": "ŠK Slovan Bratislava",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "FC Porto",
+      "away": "PSV",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "SSC Napoli",
+      "away": "FK Bodø/Glimt",
+      "hg": 4,
+      "ag": 3,
+      "matchday": 3
+    },
+    {
+      "date": "2026-10-20",
+      "home": "Paris Saint-Germain FC",
+      "away": "FC Barcelona",
+      "hg": 4,
+      "ag": 2,
+      "matchday": 3
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "Manchester City FC",
-      "away": "PAE AEK",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "VfB Stuttgart",
-      "away": "Club Atlético de Madrid",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "Liverpool FC",
-      "away": "Villarreal CF",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "AS Roma",
-      "away": "ŠK Slovan Bratislava",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "FC Porto",
-      "away": "PSV",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "SSC Napoli",
-      "away": "FK Bodø/Glimt",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "02:00 PM",
-      "home": "Paris Saint-Germain FC",
-      "away": "FC Barcelona",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "11:45 AM",
-      "home": "Sabah FK",
-      "away": "Borussia Dortmund",
-      "matchday": 3
-    },
-    {
-      "date": "2026-10-20",
-      "time": "11:45 AM",
-      "home": "Fenerbahçe SK",
-      "away": "SK Slavia Praha",
-      "matchday": 3
-    },
     {
       "date": "2026-10-21",
       "time": "02:00 PM",
