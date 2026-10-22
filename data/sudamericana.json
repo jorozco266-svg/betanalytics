@@ -4,11 +4,11 @@
     "league_key": "sudamericana",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-22T01:09:42.978658+00:00",
+    "last_updated": "2026-10-22T15:49:16.100270+00:00",
     "avg_goals": 1.2,
-    "total_matches": 240,
-    "total_goals": 595,
-    "avg_real": 1.24,
+    "total_matches": 245,
+    "total_goals": 607,
+    "avg_real": 1.239,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -26,6 +26,16 @@
       "pts": 29
     },
     {
+      "team": "Atlético Mineiro",
+      "pj": 13,
+      "gf": 18,
+      "ga": 15,
+      "w": 8,
+      "d": 1,
+      "l": 4,
+      "pts": 25
+    },
+    {
       "team": "Botafogo",
       "pj": 10,
       "gf": 26,
@@ -36,14 +46,14 @@
       "pts": 22
     },
     {
-      "team": "Atlético Mineiro",
-      "pj": 11,
-      "gf": 17,
-      "ga": 12,
-      "w": 7,
-      "d": 1,
-      "l": 3,
-      "pts": 22
+      "team": "Cienciano",
+      "pj": 12,
+      "gf": 22,
+      "ga": 14,
+      "w": 5,
+      "d": 5,
+      "l": 2,
+      "pts": 20
     },
     {
       "team": "River Plate",
@@ -64,16 +74,6 @@
       "d": 2,
       "l": 4,
       "pts": 17
-    },
-    {
-      "team": "Cienciano",
-      "pj": 10,
-      "gf": 19,
-      "ga": 13,
-      "w": 4,
-      "d": 4,
-      "l": 2,
-      "pts": 16
     },
     {
       "team": "Boca Juniors",
@@ -183,6 +183,16 @@
       "w": 4,
       "d": 0,
       "l": 0,
+      "pts": 12
+    },
+    {
+      "team": "Juventud",
+      "pj": 8,
+      "gf": 17,
+      "ga": 10,
+      "w": 3,
+      "d": 3,
+      "l": 2,
       "pts": 12
     },
     {
@@ -313,16 +323,6 @@
       "w": 3,
       "d": 0,
       "l": 1,
-      "pts": 9
-    },
-    {
-      "team": "Juventud",
-      "pj": 7,
-      "gf": 13,
-      "ga": 10,
-      "w": 2,
-      "d": 3,
-      "l": 2,
       "pts": 9
     },
     {
@@ -590,6 +590,16 @@
       "pj": 5,
       "gf": 4,
       "ga": 7,
+      "w": 1,
+      "d": 1,
+      "l": 3,
+      "pts": 4
+    },
+    {
+      "team": "Puerto Cabello",
+      "pj": 5,
+      "gf": 4,
+      "ga": 8,
       "w": 1,
       "d": 1,
       "l": 3,
@@ -3090,6 +3100,51 @@
       "hg": 3,
       "ag": 2,
       "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Atlético Mineiro",
+      "away": "Puerto Cabello",
+      "hg": 1,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Cienciano",
+      "away": "Puerto Cabello",
+      "hg": 2,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Juventud",
+      "away": "Puerto Cabello",
+      "hg": 4,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Puerto Cabello",
+      "away": "Atlético Mineiro",
+      "hg": 3,
+      "ag": 0,
+      "matchday": "group",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Puerto Cabello",
+      "away": "Cienciano",
+      "hg": 1,
+      "ag": 1,
+      "matchday": "group",
       "_source": "wikipedia"
     },
     {

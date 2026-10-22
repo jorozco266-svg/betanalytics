@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-16T15:18:11.918159+00:00",
+    "last_updated": "2026-10-22T15:49:13.221989+00:00",
     "avg_goals": 1.25,
-    "total_matches": 103,
-    "total_goals": 241,
-    "avg_real": 1.17,
+    "total_matches": 104,
+    "total_goals": 244,
+    "avg_real": 1.173,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -77,12 +77,12 @@
     },
     {
       "team": "Palmeiras",
-      "pj": 6,
-      "gf": 11,
-      "ga": 6,
+      "pj": 7,
+      "gf": 12,
+      "ga": 8,
       "w": 3,
       "d": 2,
-      "l": 1,
+      "l": 2,
       "pts": 11
     },
     {
@@ -277,6 +277,16 @@
     },
     {
       "team": "21 Oct",
+      "pj": 1,
+      "gf": 2,
+      "ga": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "pts": 3
+    },
+    {
+      "team": "1–0",
       "pj": 1,
       "gf": 2,
       "ga": 1,
@@ -1371,6 +1381,15 @@
       "away": "22 Oct",
       "hg": 0,
       "ag": 0,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Palmeiras",
+      "away": "1–0",
+      "hg": 1,
+      "ag": 2,
       "matchday": "knockout",
       "_source": "wikipedia"
     }
