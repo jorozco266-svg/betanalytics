@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-22T01:09:34.911800+00:00",
+    "last_updated": "2026-10-23T01:09:36.825289+00:00",
     "avg_goals": 1.4,
     "total_matches": 72,
     "total_goals": 208,
@@ -942,6 +942,13 @@
       "time": "11:30 AM",
       "home": "Liverpool",
       "away": "Arsenal",
+      "matchday": 9
+    },
+    {
+      "date": "2026-11-02",
+      "time": "03:00 PM",
+      "home": "Newcastle",
+      "away": "Everton",
       "matchday": 9
     }
   ],
