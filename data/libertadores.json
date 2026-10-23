@@ -4,11 +4,11 @@
     "league_key": "libertadores",
     "season": "2026",
     "source": "conmebol_multi",
-    "last_updated": "2026-10-22T15:49:13.221989+00:00",
+    "last_updated": "2026-10-23T15:40:19.403255+00:00",
     "avg_goals": 1.25,
-    "total_matches": 104,
+    "total_matches": 105,
     "total_goals": 244,
-    "avg_real": 1.173,
+    "avg_real": 1.162,
     "sources_used": [
       "wikipedia",
       "thesportsdb"
@@ -17,13 +17,13 @@
   "standings": [
     {
       "team": "Flamengo",
-      "pj": 9,
+      "pj": 10,
       "gf": 17,
       "ga": 7,
       "w": 6,
-      "d": 2,
+      "d": 3,
       "l": 1,
-      "pts": 20
+      "pts": 21
     },
     {
       "team": "LDU Quito",
@@ -326,6 +326,16 @@
       "pts": 3
     },
     {
+      "team": "0–0",
+      "pj": 3,
+      "gf": 2,
+      "ga": 2,
+      "w": 0,
+      "d": 3,
+      "l": 0,
+      "pts": 3
+    },
+    {
       "team": "Deportivo La Guaira",
       "pj": 5,
       "gf": 5,
@@ -344,16 +354,6 @@
       "d": 0,
       "l": 4,
       "pts": 3
-    },
-    {
-      "team": "0–0",
-      "pj": 2,
-      "gf": 2,
-      "ga": 2,
-      "w": 0,
-      "d": 2,
-      "l": 0,
-      "pts": 2
     },
     {
       "team": "20 Aug",
@@ -1390,6 +1390,15 @@
       "away": "1–0",
       "hg": 1,
       "ag": 2,
+      "matchday": "knockout",
+      "_source": "wikipedia"
+    },
+    {
+      "date": "",
+      "home": "Flamengo",
+      "away": "0–0",
+      "hg": 0,
+      "ag": 0,
       "matchday": "knockout",
       "_source": "wikipedia"
     }
