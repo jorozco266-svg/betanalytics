@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-20T15:35:03.929511+00:00",
+    "last_updated": "2026-10-24T01:19:50.103091+00:00",
     "avg_goals": 1.03,
-    "total_matches": 435,
-    "total_goals": 937,
-    "avg_real": 1.077
+    "total_matches": 437,
+    "total_goals": 942,
+    "avg_real": 1.078
   },
   "standings": [
     {
@@ -62,6 +62,16 @@
       "l": 3
     },
     {
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 40,
+      "ga": 37,
+      "pj": 30,
+      "pts": 51,
+      "w": 15,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Instituto",
       "gf": 37,
       "ga": 27,
@@ -90,16 +100,6 @@
       "w": 13,
       "d": 9,
       "l": 7
-    },
-    {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 38,
-      "ga": 37,
-      "pj": 29,
-      "pts": 48,
-      "w": 14,
-      "d": 6,
-      "l": 9
     },
     {
       "team": "Lanús",
@@ -164,12 +164,12 @@
     {
       "team": "Sarmiento (J)",
       "gf": 35,
-      "ga": 39,
-      "pj": 29,
+      "ga": 41,
+      "pj": 30,
       "pts": 40,
       "w": 12,
       "d": 4,
-      "l": 13
+      "l": 14
     },
     {
       "team": "San Lorenzo",
@@ -183,13 +183,13 @@
     },
     {
       "team": "Gimnasia y Esgrima (M)",
-      "gf": 29,
-      "ga": 35,
-      "pj": 29,
+      "gf": 30,
+      "ga": 37,
+      "pj": 30,
       "pts": 39,
       "w": 11,
       "d": 6,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Unión",
@@ -252,6 +252,16 @@
       "l": 14
     },
     {
+      "team": "Platense",
+      "gf": 24,
+      "ga": 35,
+      "pj": 30,
+      "pts": 30,
+      "w": 6,
+      "d": 12,
+      "l": 12
+    },
+    {
       "team": "Atlético Tucumán",
       "gf": 27,
       "ga": 33,
@@ -260,16 +270,6 @@
       "w": 6,
       "d": 10,
       "l": 13
-    },
-    {
-      "team": "Platense",
-      "gf": 22,
-      "ga": 34,
-      "pj": 29,
-      "pts": 27,
-      "w": 5,
-      "d": 12,
-      "l": 12
     },
     {
       "team": "Central Córdoba (SdE)",

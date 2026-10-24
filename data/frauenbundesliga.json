@@ -4,20 +4,20 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-20T01:29:52.081771+00:00",
+    "last_updated": "2026-10-24T01:19:59.440158+00:00",
     "avg_goals": 1.72,
-    "total_matches": 48,
-    "total_goals": 165,
-    "avg_real": 1.719
+    "total_matches": 49,
+    "total_goals": 171,
+    "avg_real": 1.745
   },
   "standings": [
     {
       "team": "Bayern Munich",
-      "gf": 24,
-      "ga": 6,
-      "pj": 7,
-      "pts": 21,
-      "w": 7,
+      "gf": 29,
+      "ga": 7,
+      "pj": 8,
+      "pts": 24,
+      "w": 8,
       "d": 0,
       "l": 0
     },
@@ -62,16 +62,6 @@
       "l": 3
     },
     {
-      "team": "RB Leipzig",
-      "gf": 13,
-      "ga": 9,
-      "pj": 7,
-      "pts": 10,
-      "w": 3,
-      "d": 1,
-      "l": 3
-    },
-    {
       "team": "Werder Bremen",
       "gf": 10,
       "ga": 8,
@@ -80,6 +70,16 @@
       "w": 3,
       "d": 1,
       "l": 2
+    },
+    {
+      "team": "RB Leipzig",
+      "gf": 14,
+      "ga": 14,
+      "pj": 8,
+      "pts": 10,
+      "w": 3,
+      "d": 1,
+      "l": 4
     },
     {
       "team": "SC Freiburg",

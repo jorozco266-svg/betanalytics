@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-23T01:09:38.211764+00:00",
+    "last_updated": "2026-10-24T01:19:52.957979+00:00",
     "avg_goals": 1.3,
-    "total_matches": 78,
-    "total_goals": 226,
-    "avg_real": 1.449
+    "total_matches": 79,
+    "total_goals": 231,
+    "avg_real": 1.462
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "pts": 13
     },
     {
+      "team": "Torino",
+      "pj": 8,
+      "gf": 13,
+      "ga": 11,
+      "w": 4,
+      "d": 1,
+      "l": 3,
+      "pts": 13
+    },
+    {
       "team": "Cagliari",
       "pj": 7,
       "gf": 6,
@@ -96,16 +106,6 @@
       "pj": 7,
       "gf": 10,
       "ga": 7,
-      "w": 3,
-      "d": 1,
-      "l": 3,
-      "pts": 10
-    },
-    {
-      "team": "Torino",
-      "pj": 7,
-      "gf": 10,
-      "ga": 9,
       "w": 3,
       "d": 1,
       "l": 3,
@@ -143,12 +143,12 @@
     },
     {
       "team": "Monza",
-      "pj": 7,
-      "gf": 13,
-      "ga": 15,
+      "pj": 8,
+      "gf": 15,
+      "ga": 18,
       "w": 2,
       "d": 1,
-      "l": 4,
+      "l": 5,
       "pts": 7
     },
     {
@@ -976,16 +976,17 @@
       "hg": 0,
       "ag": 3,
       "matchday": 7
+    },
+    {
+      "date": "2026-10-23",
+      "home": "Torino",
+      "away": "Monza",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 8
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-23",
-      "time": "01:45 PM",
-      "home": "Torino",
-      "away": "Monza",
-      "matchday": 8
-    },
     {
       "date": "2026-10-24",
       "time": "01:45 PM",
