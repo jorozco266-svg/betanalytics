@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-24T01:19:59.440158+00:00",
+    "last_updated": "2026-10-24T14:21:13.784896+00:00",
     "avg_goals": 1.72,
-    "total_matches": 49,
-    "total_goals": 171,
-    "avg_real": 1.745
+    "total_matches": 51,
+    "total_goals": 177,
+    "avg_real": 1.735
   },
   "standings": [
     {
@@ -23,21 +23,21 @@
     },
     {
       "team": "VfL Wolfsburg",
-      "gf": 23,
+      "gf": 26,
       "ga": 8,
-      "pj": 7,
-      "pts": 18,
-      "w": 6,
+      "pj": 8,
+      "pts": 21,
+      "w": 7,
       "d": 0,
       "l": 1
     },
     {
       "team": "Eintracht Frankfurt",
-      "gf": 12,
+      "gf": 15,
       "ga": 7,
-      "pj": 7,
-      "pts": 14,
-      "w": 4,
+      "pj": 8,
+      "pts": 17,
+      "w": 5,
       "d": 2,
       "l": 1
     },
@@ -54,12 +54,12 @@
     {
       "team": "1. FC Köln",
       "gf": 13,
-      "ga": 9,
-      "pj": 7,
+      "ga": 12,
+      "pj": 8,
       "pts": 12,
       "w": 4,
       "d": 0,
-      "l": 3
+      "l": 4
     },
     {
       "team": "Werder Bremen",
@@ -104,12 +104,12 @@
     {
       "team": "VfB Stuttgart",
       "gf": 8,
-      "ga": 17,
-      "pj": 7,
+      "ga": 20,
+      "pj": 8,
       "pts": 8,
       "w": 2,
       "d": 2,
-      "l": 3
+      "l": 4
     },
     {
       "team": "TSG Hoffenheim",

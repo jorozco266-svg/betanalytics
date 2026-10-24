@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-24T01:19:50.103091+00:00",
+    "last_updated": "2026-10-24T14:21:02.898040+00:00",
     "avg_goals": 1.03,
-    "total_matches": 437,
-    "total_goals": 942,
-    "avg_real": 1.078
+    "total_matches": 438,
+    "total_goals": 943,
+    "avg_real": 1.076
   },
   "standings": [
     {
@@ -224,12 +224,12 @@
     {
       "team": "Tigre",
       "gf": 31,
-      "ga": 30,
-      "pj": 29,
+      "ga": 31,
+      "pj": 30,
       "pts": 33,
       "w": 7,
       "d": 12,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Racing",
@@ -240,6 +240,16 @@
       "w": 8,
       "d": 9,
       "l": 12
+    },
+    {
+      "team": "Atlético Tucumán",
+      "gf": 28,
+      "ga": 33,
+      "pj": 30,
+      "pts": 31,
+      "w": 7,
+      "d": 10,
+      "l": 13
     },
     {
       "team": "Banfield",
@@ -260,16 +270,6 @@
       "w": 6,
       "d": 12,
       "l": 12
-    },
-    {
-      "team": "Atlético Tucumán",
-      "gf": 27,
-      "ga": 33,
-      "pj": 29,
-      "pts": 28,
-      "w": 6,
-      "d": 10,
-      "l": 13
     },
     {
       "team": "Central Córdoba (SdE)",
