@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-25T00:45:18.845182+00:00",
+    "last_updated": "2026-10-25T14:53:45.474177+00:00",
     "avg_goals": 1.03,
-    "total_matches": 441,
-    "total_goals": 948,
+    "total_matches": 442,
+    "total_goals": 950,
     "avg_real": 1.075
   },
   "standings": [
+    {
+      "team": "Rosario Central",
+      "gf": 42,
+      "ga": 27,
+      "pj": 30,
+      "pts": 56,
+      "w": 16,
+      "d": 8,
+      "l": 6
+    },
     {
       "team": "Boca Juniors",
       "gf": 43,
@@ -30,16 +40,6 @@
       "w": 15,
       "d": 9,
       "l": 5
-    },
-    {
-      "team": "Rosario Central",
-      "gf": 40,
-      "ga": 27,
-      "pj": 29,
-      "pts": 53,
-      "w": 15,
-      "d": 8,
-      "l": 6
     },
     {
       "team": "Independiente Rivadavia",
@@ -144,12 +144,12 @@
     {
       "team": "Huracán",
       "gf": 29,
-      "ga": 25,
-      "pj": 29,
+      "ga": 27,
+      "pj": 30,
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Barracas Central",

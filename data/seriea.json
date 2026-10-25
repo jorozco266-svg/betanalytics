@@ -4,32 +4,42 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-25T00:45:21.857301+00:00",
+    "last_updated": "2026-10-25T14:53:48.310143+00:00",
     "avg_goals": 1.3,
-    "total_matches": 79,
-    "total_goals": 231,
-    "avg_real": 1.462
+    "total_matches": 84,
+    "total_goals": 247,
+    "avg_real": 1.47
   },
   "standings": [
     {
       "team": "Inter Milan",
-      "pj": 7,
-      "gf": 21,
-      "ga": 9,
-      "w": 6,
+      "pj": 8,
+      "gf": 23,
+      "ga": 10,
+      "w": 7,
       "d": 1,
       "l": 0,
-      "pts": 19
+      "pts": 22
     },
     {
       "team": "Lazio",
-      "pj": 7,
-      "gf": 14,
-      "ga": 4,
-      "w": 6,
+      "pj": 8,
+      "gf": 16,
+      "ga": 5,
+      "w": 7,
       "d": 1,
       "l": 0,
-      "pts": 19
+      "pts": 22
+    },
+    {
+      "team": "Roma",
+      "pj": 8,
+      "gf": 19,
+      "ga": 6,
+      "w": 5,
+      "d": 3,
+      "l": 0,
+      "pts": 18
     },
     {
       "team": "AC Milan",
@@ -42,24 +52,14 @@
       "pts": 18
     },
     {
-      "team": "Roma",
-      "pj": 7,
-      "gf": 16,
-      "ga": 3,
+      "team": "Como",
+      "pj": 8,
+      "gf": 14,
+      "ga": 7,
       "w": 5,
       "d": 2,
-      "l": 0,
-      "pts": 17
-    },
-    {
-      "team": "Como",
-      "pj": 7,
-      "gf": 12,
-      "ga": 7,
-      "w": 4,
-      "d": 2,
       "l": 1,
-      "pts": 14
+      "pts": 17
     },
     {
       "team": "Frosinone",
@@ -83,13 +83,23 @@
     },
     {
       "team": "Cagliari",
-      "pj": 7,
+      "pj": 8,
       "gf": 6,
-      "ga": 7,
+      "ga": 9,
       "w": 4,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 13
+    },
+    {
+      "team": "Napoli",
+      "pj": 8,
+      "gf": 13,
+      "ga": 10,
+      "w": 3,
+      "d": 2,
+      "l": 3,
+      "pts": 11
     },
     {
       "team": "Juventus",
@@ -100,16 +110,6 @@
       "d": 2,
       "l": 2,
       "pts": 11
-    },
-    {
-      "team": "Napoli",
-      "pj": 7,
-      "gf": 10,
-      "ga": 7,
-      "w": 3,
-      "d": 1,
-      "l": 3,
-      "pts": 10
     },
     {
       "team": "Atalanta",
@@ -132,13 +132,23 @@
       "pts": 9
     },
     {
-      "team": "Sassuolo",
-      "pj": 7,
-      "gf": 12,
-      "ga": 14,
+      "team": "Bologna",
+      "pj": 8,
+      "gf": 8,
+      "ga": 10,
       "w": 2,
       "d": 2,
-      "l": 3,
+      "l": 4,
+      "pts": 8
+    },
+    {
+      "team": "Sassuolo",
+      "pj": 8,
+      "gf": 12,
+      "ga": 16,
+      "w": 2,
+      "d": 2,
+      "l": 4,
       "pts": 8
     },
     {
@@ -150,16 +160,6 @@
       "d": 1,
       "l": 5,
       "pts": 7
-    },
-    {
-      "team": "Bologna",
-      "pj": 7,
-      "gf": 6,
-      "ga": 10,
-      "w": 1,
-      "d": 2,
-      "l": 4,
-      "pts": 5
     },
     {
       "team": "Udinese",
@@ -183,22 +183,22 @@
     },
     {
       "team": "Fiorentina",
-      "pj": 7,
-      "gf": 8,
-      "ga": 17,
+      "pj": 8,
+      "gf": 9,
+      "ga": 19,
       "w": 1,
       "d": 1,
-      "l": 5,
+      "l": 6,
       "pts": 4
     },
     {
       "team": "Parma Calcio 1913",
-      "pj": 8,
-      "gf": 4,
-      "ga": 14,
+      "pj": 9,
+      "gf": 5,
+      "ga": 16,
       "w": 1,
       "d": 1,
-      "l": 6,
+      "l": 7,
       "pts": 4
     },
     {
@@ -984,6 +984,46 @@
       "hg": 3,
       "ag": 2,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Cagliari",
+      "away": "Bologna",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Como",
+      "away": "Sassuolo",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Napoli",
+      "away": "Roma",
+      "hg": 3,
+      "ag": 3,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Lazio",
+      "away": "Parma Calcio 1913",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Inter Milan",
+      "away": "Fiorentina",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 8
     }
   ],
   "fixtures": [
@@ -992,27 +1032,6 @@
       "time": "02:45 PM",
       "home": "Udinese",
       "away": "AC Milan",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "06:30 AM",
-      "home": "Inter Milan",
-      "away": "Fiorentina",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "09:00 AM",
-      "home": "Atalanta",
-      "away": "Frosinone",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "09:00 AM",
-      "home": "Genoa",
-      "away": "Venezia",
       "matchday": 8
     },
     {

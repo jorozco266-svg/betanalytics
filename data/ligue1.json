@@ -4,21 +4,21 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-25T00:45:23.257318+00:00",
+    "last_updated": "2026-10-25T14:53:49.407767+00:00",
     "avg_goals": 1.35,
-    "total_matches": 74,
-    "total_goals": 223,
+    "total_matches": 75,
+    "total_goals": 226,
     "avg_real": 1.507
   },
   "standings": [
     {
       "team": "Paris FC",
-      "pj": 8,
-      "gf": 12,
-      "ga": 7,
+      "pj": 9,
+      "gf": 13,
+      "ga": 9,
       "w": 4,
       "d": 3,
-      "l": 1,
+      "l": 2,
       "pts": 15
     },
     {
@@ -62,6 +62,16 @@
       "pts": 14
     },
     {
+      "team": "Lens",
+      "pj": 8,
+      "gf": 16,
+      "ga": 12,
+      "w": 4,
+      "d": 1,
+      "l": 3,
+      "pts": 13
+    },
+    {
       "team": "Rennes",
       "pj": 7,
       "gf": 15,
@@ -90,16 +100,6 @@
       "d": 2,
       "l": 3,
       "pts": 11
-    },
-    {
-      "team": "Lens",
-      "pj": 7,
-      "gf": 14,
-      "ga": 11,
-      "w": 3,
-      "d": 1,
-      "l": 3,
-      "pts": 10
     },
     {
       "team": "Marseille",
@@ -954,16 +954,17 @@
       "hg": 1,
       "ag": 2,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Lens",
+      "away": "Paris FC",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 8
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-25",
-      "time": "09:00 AM",
-      "home": "Monaco",
-      "away": "Lille",
-      "matchday": 8
-    },
     {
       "date": "2026-10-25",
       "time": "11:15 AM",

@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-25T00:45:19.464470+00:00",
+    "last_updated": "2026-10-25T14:53:45.846017+00:00",
     "avg_goals": 1.35,
-    "total_matches": 316,
-    "total_goals": 841,
-    "avg_real": 1.331
+    "total_matches": 317,
+    "total_goals": 843,
+    "avg_real": 1.33
   },
   "standings": [
     {
@@ -73,22 +73,22 @@
     },
     {
       "team": "Bahia",
-      "gf": 44,
-      "ga": 39,
-      "pj": 31,
-      "pts": 49,
+      "gf": 45,
+      "ga": 40,
+      "pj": 32,
+      "pts": 50,
       "w": 13,
-      "d": 10,
+      "d": 11,
       "l": 8
     },
     {
       "team": "Santos",
-      "gf": 48,
-      "ga": 46,
-      "pj": 31,
-      "pts": 45,
+      "gf": 49,
+      "ga": 47,
+      "pj": 32,
+      "pts": 46,
       "w": 12,
-      "d": 9,
+      "d": 10,
       "l": 10
     },
     {
