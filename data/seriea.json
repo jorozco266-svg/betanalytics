@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-24T01:19:52.957979+00:00",
+    "last_updated": "2026-10-25T00:45:21.857301+00:00",
     "avg_goals": 1.3,
     "total_matches": 79,
     "total_goals": 231,
@@ -987,34 +987,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-24",
-      "time": "01:45 PM",
-      "home": "Lazio",
-      "away": "Parma Calcio 1913",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "08:00 AM",
-      "home": "Cagliari",
-      "away": "Bologna",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "08:00 AM",
-      "home": "Como",
-      "away": "Sassuolo",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "11:00 AM",
-      "home": "Napoli",
-      "away": "Roma",
-      "matchday": 8
-    },
     {
       "date": "2026-10-25",
       "time": "02:45 PM",

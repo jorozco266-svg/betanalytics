@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-24T01:19:54.186765+00:00",
+    "last_updated": "2026-10-25T00:45:23.257318+00:00",
     "avg_goals": 1.35,
     "total_matches": 74,
     "total_goals": 223,
@@ -957,13 +957,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-24",
-      "time": "01:45 PM",
-      "home": "Lens",
-      "away": "Paris FC",
-      "matchday": 8
-    },
     {
       "date": "2026-10-25",
       "time": "09:00 AM",

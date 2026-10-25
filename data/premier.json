@@ -4,32 +4,32 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-24T01:19:51.753804+00:00",
+    "last_updated": "2026-10-25T00:45:20.754229+00:00",
     "avg_goals": 1.4,
-    "total_matches": 73,
-    "total_goals": 210,
-    "avg_real": 1.438
+    "total_matches": 77,
+    "total_goals": 218,
+    "avg_real": 1.416
   },
   "standings": [
     {
       "team": "Manchester City",
-      "pj": 7,
-      "gf": 19,
-      "ga": 7,
+      "pj": 8,
+      "gf": 20,
+      "ga": 9,
       "w": 7,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "pts": 21
     },
     {
       "team": "Arsenal",
-      "pj": 7,
-      "gf": 11,
+      "pj": 8,
+      "gf": 13,
       "ga": 5,
-      "w": 6,
+      "w": 7,
       "d": 0,
       "l": 1,
-      "pts": 18
+      "pts": 21
     },
     {
       "team": "Brighton",
@@ -43,12 +43,12 @@
     },
     {
       "team": "Chelsea",
-      "pj": 7,
+      "pj": 8,
       "gf": 17,
-      "ga": 13,
+      "ga": 15,
       "w": 4,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 13
     },
     {
@@ -60,6 +60,16 @@
       "d": 3,
       "l": 1,
       "pts": 12
+    },
+    {
+      "team": "Aston Villa",
+      "pj": 9,
+      "gf": 9,
+      "ga": 16,
+      "w": 3,
+      "d": 2,
+      "l": 4,
+      "pts": 11
     },
     {
       "team": "Brentford",
@@ -83,12 +93,12 @@
     },
     {
       "team": "Everton",
-      "pj": 7,
+      "pj": 8,
       "gf": 8,
-      "ga": 7,
+      "ga": 9,
       "w": 2,
       "d": 4,
-      "l": 1,
+      "l": 2,
       "pts": 10
     },
     {
@@ -112,6 +122,26 @@
       "pts": 9
     },
     {
+      "team": "Tottenham",
+      "pj": 8,
+      "gf": 8,
+      "ga": 10,
+      "w": 2,
+      "d": 3,
+      "l": 3,
+      "pts": 9
+    },
+    {
+      "team": "Fulham",
+      "pj": 8,
+      "gf": 8,
+      "ga": 10,
+      "w": 2,
+      "d": 2,
+      "l": 4,
+      "pts": 8
+    },
+    {
       "team": "Newcastle",
       "pj": 7,
       "gf": 10,
@@ -119,16 +149,6 @@
       "w": 2,
       "d": 2,
       "l": 3,
-      "pts": 8
-    },
-    {
-      "team": "Aston Villa",
-      "pj": 8,
-      "gf": 7,
-      "ga": 15,
-      "w": 2,
-      "d": 2,
-      "l": 4,
       "pts": 8
     },
     {
@@ -162,16 +182,6 @@
       "pts": 6
     },
     {
-      "team": "Tottenham",
-      "pj": 7,
-      "gf": 6,
-      "ga": 10,
-      "w": 1,
-      "d": 3,
-      "l": 3,
-      "pts": 6
-    },
-    {
       "team": "Nottingham Forest",
       "pj": 9,
       "gf": 6,
@@ -183,23 +193,13 @@
     },
     {
       "team": "Coventry City",
-      "pj": 7,
+      "pj": 8,
       "gf": 6,
-      "ga": 14,
+      "ga": 15,
       "w": 2,
       "d": 0,
-      "l": 5,
+      "l": 6,
       "pts": 6
-    },
-    {
-      "team": "Fulham",
-      "pj": 7,
-      "gf": 7,
-      "ga": 10,
-      "w": 1,
-      "d": 2,
-      "l": 4,
-      "pts": 5
     },
     {
       "team": "Sunderland",
@@ -816,37 +816,41 @@
       "hg": 1,
       "ag": 1,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Aston Villa",
+      "away": "Manchester City",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Arsenal",
+      "away": "Everton",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Coventry City",
+      "away": "Fulham",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Chelsea",
+      "away": "Tottenham",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 8
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-24",
-      "time": "06:30 AM",
-      "home": "Aston Villa",
-      "away": "Manchester City",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "09:00 AM",
-      "home": "Arsenal",
-      "away": "Everton",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "09:00 AM",
-      "home": "Coventry City",
-      "away": "Fulham",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-24",
-      "time": "11:30 AM",
-      "home": "Chelsea",
-      "away": "Tottenham",
-      "matchday": 8
-    },
     {
       "date": "2026-10-25",
       "time": "09:00 AM",

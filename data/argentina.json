@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-24T14:21:02.898040+00:00",
+    "last_updated": "2026-10-25T00:45:18.845182+00:00",
     "avg_goals": 1.03,
-    "total_matches": 438,
-    "total_goals": 943,
-    "avg_real": 1.076
+    "total_matches": 441,
+    "total_goals": 948,
+    "avg_real": 1.075
   },
   "standings": [
     {
@@ -92,6 +92,16 @@
       "l": 10
     },
     {
+      "team": "Lanús",
+      "gf": 35,
+      "ga": 25,
+      "pj": 30,
+      "pts": 48,
+      "w": 13,
+      "d": 9,
+      "l": 8
+    },
+    {
       "team": "Belgrano",
       "gf": 31,
       "ga": 23,
@@ -102,13 +112,13 @@
       "l": 7
     },
     {
-      "team": "Lanús",
-      "gf": 34,
-      "ga": 24,
-      "pj": 29,
-      "pts": 47,
-      "w": 13,
-      "d": 8,
+      "team": "Defensa y Justicia",
+      "gf": 38,
+      "ga": 34,
+      "pj": 30,
+      "pts": 46,
+      "w": 12,
+      "d": 10,
       "l": 8
     },
     {
@@ -120,16 +130,6 @@
       "w": 13,
       "d": 6,
       "l": 10
-    },
-    {
-      "team": "Defensa y Justicia",
-      "gf": 36,
-      "ga": 33,
-      "pj": 29,
-      "pts": 43,
-      "w": 11,
-      "d": 10,
-      "l": 8
     },
     {
       "team": "Independiente",
@@ -162,6 +162,16 @@
       "l": 9
     },
     {
+      "team": "San Lorenzo",
+      "gf": 21,
+      "ga": 26,
+      "pj": 30,
+      "pts": 40,
+      "w": 10,
+      "d": 10,
+      "l": 10
+    },
+    {
       "team": "Sarmiento (J)",
       "gf": 35,
       "ga": 41,
@@ -172,16 +182,6 @@
       "l": 14
     },
     {
-      "team": "San Lorenzo",
-      "gf": 21,
-      "ga": 26,
-      "pj": 29,
-      "pts": 39,
-      "w": 10,
-      "d": 9,
-      "l": 10
-    },
-    {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 30,
       "ga": 37,
@@ -190,6 +190,16 @@
       "w": 11,
       "d": 6,
       "l": 13
+    },
+    {
+      "team": "Newell's Old Boys",
+      "gf": 28,
+      "ga": 37,
+      "pj": 30,
+      "pts": 36,
+      "w": 8,
+      "d": 12,
+      "l": 10
     },
     {
       "team": "Unión",
@@ -203,23 +213,13 @@
     },
     {
       "team": "Talleres",
-      "gf": 29,
-      "ga": 33,
-      "pj": 29,
+      "gf": 30,
+      "ga": 35,
+      "pj": 30,
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 12
-    },
-    {
-      "team": "Newell's Old Boys",
-      "gf": 28,
-      "ga": 37,
-      "pj": 29,
-      "pts": 35,
-      "w": 8,
-      "d": 11,
-      "l": 10
+      "l": 13
     },
     {
       "team": "Tigre",
@@ -242,6 +242,16 @@
       "l": 12
     },
     {
+      "team": "Banfield",
+      "gf": 32,
+      "ga": 39,
+      "pj": 30,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 14
+    },
+    {
       "team": "Atlético Tucumán",
       "gf": 28,
       "ga": 33,
@@ -250,16 +260,6 @@
       "w": 7,
       "d": 10,
       "l": 13
-    },
-    {
-      "team": "Banfield",
-      "gf": 31,
-      "ga": 38,
-      "pj": 29,
-      "pts": 31,
-      "w": 8,
-      "d": 7,
-      "l": 14
     },
     {
       "team": "Platense",
