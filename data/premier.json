@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-25T14:53:47.149105+00:00",
+    "last_updated": "2026-10-26T00:57:20.677062+00:00",
     "avg_goals": 1.4,
-    "total_matches": 77,
-    "total_goals": 218,
-    "avg_real": 1.416
+    "total_matches": 82,
+    "total_goals": 227,
+    "avg_real": 1.384
   },
   "standings": [
     {
@@ -33,13 +33,23 @@
     },
     {
       "team": "Brighton",
-      "pj": 7,
+      "pj": 8,
       "gf": 23,
-      "ga": 5,
+      "ga": 7,
       "w": 5,
       "d": 1,
-      "l": 1,
+      "l": 2,
       "pts": 16
+    },
+    {
+      "team": "Liverpool",
+      "pj": 8,
+      "gf": 11,
+      "ga": 8,
+      "w": 4,
+      "d": 3,
+      "l": 1,
+      "pts": 15
     },
     {
       "team": "Chelsea",
@@ -52,14 +62,34 @@
       "pts": 13
     },
     {
-      "team": "Liverpool",
-      "pj": 7,
-      "gf": 9,
-      "ga": 8,
-      "w": 3,
-      "d": 3,
+      "team": "Brentford",
+      "pj": 8,
+      "gf": 14,
+      "ga": 9,
+      "w": 2,
+      "d": 5,
       "l": 1,
-      "pts": 12
+      "pts": 11
+    },
+    {
+      "team": "Leeds United",
+      "pj": 8,
+      "gf": 9,
+      "ga": 6,
+      "w": 2,
+      "d": 5,
+      "l": 1,
+      "pts": 11
+    },
+    {
+      "team": "Newcastle",
+      "pj": 8,
+      "gf": 12,
+      "ga": 14,
+      "w": 3,
+      "d": 2,
+      "l": 3,
+      "pts": 11
     },
     {
       "team": "Aston Villa",
@@ -72,23 +102,13 @@
       "pts": 11
     },
     {
-      "team": "Brentford",
-      "pj": 7,
-      "gf": 13,
+      "team": "Hull City",
+      "pj": 8,
+      "gf": 9,
       "ga": 8,
       "w": 2,
       "d": 4,
-      "l": 1,
-      "pts": 10
-    },
-    {
-      "team": "Leeds United",
-      "pj": 7,
-      "gf": 9,
-      "ga": 6,
-      "w": 2,
-      "d": 4,
-      "l": 1,
+      "l": 2,
       "pts": 10
     },
     {
@@ -112,13 +132,13 @@
       "pts": 10
     },
     {
-      "team": "Hull City",
-      "pj": 7,
-      "gf": 8,
-      "ga": 7,
+      "team": "Bournemouth",
+      "pj": 8,
+      "gf": 12,
+      "ga": 13,
       "w": 2,
       "d": 3,
-      "l": 2,
+      "l": 3,
       "pts": 9
     },
     {
@@ -142,44 +162,24 @@
       "pts": 8
     },
     {
-      "team": "Newcastle",
-      "pj": 7,
-      "gf": 10,
-      "ga": 14,
-      "w": 2,
-      "d": 2,
-      "l": 3,
-      "pts": 8
-    },
-    {
       "team": "Manchester United",
-      "pj": 7,
+      "pj": 8,
       "gf": 10,
-      "ga": 10,
+      "ga": 13,
       "w": 1,
       "d": 4,
-      "l": 2,
+      "l": 3,
       "pts": 7
     },
     {
       "team": "Crystal Palace",
-      "pj": 7,
+      "pj": 8,
       "gf": 9,
-      "ga": 17,
+      "ga": 19,
       "w": 2,
       "d": 1,
-      "l": 4,
+      "l": 5,
       "pts": 7
-    },
-    {
-      "team": "Bournemouth",
-      "pj": 7,
-      "gf": 9,
-      "ga": 13,
-      "w": 1,
-      "d": 3,
-      "l": 3,
-      "pts": 6
     },
     {
       "team": "Nottingham Forest",
@@ -203,13 +203,13 @@
     },
     {
       "team": "Sunderland",
-      "pj": 7,
+      "pj": 8,
       "gf": 6,
       "ga": 14,
       "w": 1,
-      "d": 1,
+      "d": 2,
       "l": 5,
-      "pts": 4
+      "pts": 5
     },
     {
       "team": "Brighton & Hove Albion FC",
@@ -848,16 +848,49 @@
       "hg": 0,
       "ag": 2,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Liverpool",
+      "away": "Brighton",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Crystal Palace",
+      "away": "Newcastle",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Manchester United",
+      "away": "Bournemouth",
+      "hg": 0,
+      "ag": 3,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Hull City",
+      "away": "Brentford",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Sunderland",
+      "away": "Leeds United",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 8
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-25",
-      "time": "11:30 AM",
-      "home": "Sunderland",
-      "away": "Leeds United",
-      "matchday": 8
-    },
     {
       "date": "2026-10-31",
       "time": "03:00 PM",

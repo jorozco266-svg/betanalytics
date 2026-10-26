@@ -4,13 +4,33 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-25T14:53:49.407767+00:00",
+    "last_updated": "2026-10-26T00:57:22.758147+00:00",
     "avg_goals": 1.35,
-    "total_matches": 75,
-    "total_goals": 226,
-    "avg_real": 1.507
+    "total_matches": 81,
+    "total_goals": 240,
+    "avg_real": 1.481
   },
   "standings": [
+    {
+      "team": "Rennes",
+      "pj": 8,
+      "gf": 18,
+      "ga": 14,
+      "w": 5,
+      "d": 1,
+      "l": 2,
+      "pts": 16
+    },
+    {
+      "team": "Lille",
+      "pj": 8,
+      "gf": 11,
+      "ga": 6,
+      "w": 4,
+      "d": 3,
+      "l": 1,
+      "pts": 15
+    },
     {
       "team": "Paris FC",
       "pj": 9,
@@ -19,6 +39,16 @@
       "w": 4,
       "d": 3,
       "l": 2,
+      "pts": 15
+    },
+    {
+      "team": "Monaco",
+      "pj": 8,
+      "gf": 11,
+      "ga": 7,
+      "w": 4,
+      "d": 3,
+      "l": 1,
       "pts": 15
     },
     {
@@ -42,26 +72,6 @@
       "pts": 14
     },
     {
-      "team": "Lille",
-      "pj": 7,
-      "gf": 10,
-      "ga": 5,
-      "w": 4,
-      "d": 2,
-      "l": 1,
-      "pts": 14
-    },
-    {
-      "team": "Monaco",
-      "pj": 7,
-      "gf": 10,
-      "ga": 6,
-      "w": 4,
-      "d": 2,
-      "l": 1,
-      "pts": 14
-    },
-    {
       "team": "Lens",
       "pj": 8,
       "gf": 16,
@@ -72,24 +82,24 @@
       "pts": 13
     },
     {
-      "team": "Rennes",
-      "pj": 7,
-      "gf": 15,
-      "ga": 14,
+      "team": "Marseille",
+      "pj": 8,
+      "gf": 18,
+      "ga": 13,
       "w": 4,
-      "d": 1,
-      "l": 2,
-      "pts": 13
+      "d": 0,
+      "l": 4,
+      "pts": 12
     },
     {
       "team": "Lorient",
-      "pj": 7,
+      "pj": 8,
       "gf": 7,
       "ga": 6,
       "w": 3,
-      "d": 2,
+      "d": 3,
       "l": 2,
-      "pts": 11
+      "pts": 12
     },
     {
       "team": "Nice",
@@ -102,14 +112,24 @@
       "pts": 11
     },
     {
-      "team": "Marseille",
-      "pj": 7,
-      "gf": 14,
-      "ga": 10,
+      "team": "Toulouse",
+      "pj": 8,
+      "gf": 12,
+      "ga": 11,
+      "w": 2,
+      "d": 4,
+      "l": 2,
+      "pts": 10
+    },
+    {
+      "team": "Auxerre",
+      "pj": 8,
+      "gf": 12,
+      "ga": 18,
       "w": 3,
-      "d": 0,
+      "d": 1,
       "l": 4,
-      "pts": 9
+      "pts": 10
     },
     {
       "team": "Brest",
@@ -122,64 +142,44 @@
       "pts": 9
     },
     {
-      "team": "Toulouse",
-      "pj": 7,
-      "gf": 12,
-      "ga": 11,
-      "w": 2,
-      "d": 3,
-      "l": 2,
-      "pts": 9
-    },
-    {
-      "team": "Auxerre",
-      "pj": 7,
-      "gf": 11,
-      "ga": 17,
-      "w": 3,
-      "d": 0,
-      "l": 4,
-      "pts": 9
-    },
-    {
-      "team": "Strasbourg",
-      "pj": 7,
-      "gf": 12,
-      "ga": 15,
-      "w": 2,
-      "d": 1,
-      "l": 4,
-      "pts": 7
-    },
-    {
       "team": "Angers",
-      "pj": 7,
+      "pj": 8,
       "gf": 9,
       "ga": 15,
       "w": 2,
-      "d": 1,
+      "d": 2,
       "l": 4,
-      "pts": 7
+      "pts": 8
     },
     {
       "team": "Le Mans",
-      "pj": 7,
-      "gf": 10,
-      "ga": 15,
+      "pj": 8,
+      "gf": 11,
+      "ga": 16,
       "w": 1,
-      "d": 3,
+      "d": 4,
       "l": 3,
-      "pts": 6
+      "pts": 7
+    },
+    {
+      "team": "Strasbourg",
+      "pj": 8,
+      "gf": 12,
+      "ga": 18,
+      "w": 2,
+      "d": 1,
+      "l": 5,
+      "pts": 7
     },
     {
       "team": "Troyes",
-      "pj": 7,
+      "pj": 8,
       "gf": 5,
       "ga": 16,
       "w": 1,
-      "d": 1,
+      "d": 2,
       "l": 5,
-      "pts": 4
+      "pts": 5
     },
     {
       "team": "Olympique de Marseille",
@@ -253,12 +253,12 @@
     },
     {
       "team": "Le Havre",
-      "pj": 7,
-      "gf": 5,
-      "ga": 11,
+      "pj": 8,
+      "gf": 8,
+      "ga": 15,
       "w": 0,
       "d": 2,
-      "l": 5,
+      "l": 6,
       "pts": 2
     },
     {
@@ -962,44 +962,57 @@
       "hg": 2,
       "ag": 1,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Monaco",
+      "away": "Lille",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Marseille",
+      "away": "Le Havre",
+      "hg": 4,
+      "ag": 3,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Rennes",
+      "away": "Strasbourg",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Angers",
+      "away": "Lorient",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Toulouse",
+      "away": "Troyes",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 8
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Auxerre",
+      "away": "Le Mans",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 8
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-25",
-      "time": "11:15 AM",
-      "home": "Marseille",
-      "away": "Le Havre",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "11:15 AM",
-      "home": "Rennes",
-      "away": "Strasbourg",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "11:15 AM",
-      "home": "Angers",
-      "away": "Lorient",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "11:15 AM",
-      "home": "Toulouse",
-      "away": "Troyes",
-      "matchday": 8
-    },
-    {
-      "date": "2026-10-25",
-      "time": "11:15 AM",
-      "home": "Auxerre",
-      "away": "Le Mans",
-      "matchday": 8
-    },
     {
       "date": "2026-10-26",
       "time": "02:30 PM",

@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-25T14:53:54.937643+00:00",
+    "last_updated": "2026-10-26T00:57:28.310831+00:00",
     "avg_goals": 1.72,
-    "total_matches": 52,
-    "total_goals": 181,
-    "avg_real": 1.74
+    "total_matches": 55,
+    "total_goals": 198,
+    "avg_real": 1.8
   },
   "standings": [
     {
@@ -42,14 +42,24 @@
       "l": 1
     },
     {
-      "team": "Bayer Leverkusen",
-      "gf": 13,
-      "ga": 10,
+      "team": "Werder Bremen",
+      "gf": 14,
+      "ga": 11,
       "pj": 7,
       "pts": 13,
       "w": 4,
       "d": 1,
       "l": 2
+    },
+    {
+      "team": "Bayer Leverkusen",
+      "gf": 13,
+      "ga": 12,
+      "pj": 8,
+      "pts": 13,
+      "w": 4,
+      "d": 1,
+      "l": 3
     },
     {
       "team": "1. FC Köln",
@@ -62,16 +72,6 @@
       "l": 4
     },
     {
-      "team": "Werder Bremen",
-      "gf": 10,
-      "ga": 8,
-      "pj": 6,
-      "pts": 10,
-      "w": 3,
-      "d": 1,
-      "l": 2
-    },
-    {
       "team": "RB Leipzig",
       "gf": 14,
       "ga": 14,
@@ -82,28 +82,28 @@
       "l": 4
     },
     {
-      "team": "SC Freiburg",
-      "gf": 8,
-      "ga": 10,
-      "pj": 7,
+      "team": "Union Berlin",
+      "gf": 14,
+      "ga": 16,
+      "pj": 8,
       "pts": 10,
       "w": 3,
       "d": 1,
-      "l": 3
+      "l": 4
+    },
+    {
+      "team": "SC Freiburg",
+      "gf": 11,
+      "ga": 14,
+      "pj": 8,
+      "pts": 10,
+      "w": 3,
+      "d": 1,
+      "l": 4
     },
     {
       "team": "TSG Hoffenheim",
       "gf": 11,
-      "ga": 12,
-      "pj": 7,
-      "pts": 9,
-      "w": 3,
-      "d": 0,
-      "l": 4
-    },
-    {
-      "team": "Union Berlin",
-      "gf": 10,
       "ga": 12,
       "pj": 7,
       "pts": 9,
@@ -123,21 +123,21 @@
     },
     {
       "team": "Hamburger SV",
-      "gf": 10,
-      "ga": 11,
-      "pj": 7,
-      "pts": 5,
+      "gf": 14,
+      "ga": 15,
+      "pj": 8,
+      "pts": 6,
       "w": 1,
-      "d": 2,
+      "d": 3,
       "l": 4
     },
     {
       "team": "1. FC Nürnberg",
-      "gf": 10,
+      "gf": 12,
       "ga": 23,
-      "pj": 7,
-      "pts": 2,
-      "w": 0,
+      "pj": 8,
+      "pts": 5,
+      "w": 1,
       "d": 2,
       "l": 5
     },

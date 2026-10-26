@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-25T14:53:45.474177+00:00",
+    "last_updated": "2026-10-26T00:57:19.301391+00:00",
     "avg_goals": 1.03,
-    "total_matches": 442,
-    "total_goals": 950,
-    "avg_real": 1.075
+    "total_matches": 445,
+    "total_goals": 953,
+    "avg_real": 1.071
   },
   "standings": [
+    {
+      "team": "Boca Juniors",
+      "gf": 44,
+      "ga": 23,
+      "pj": 30,
+      "pts": 57,
+      "w": 15,
+      "d": 12,
+      "l": 3
+    },
     {
       "team": "Rosario Central",
       "gf": 42,
@@ -20,16 +30,6 @@
       "w": 16,
       "d": 8,
       "l": 6
-    },
-    {
-      "team": "Boca Juniors",
-      "gf": 43,
-      "ga": 23,
-      "pj": 29,
-      "pts": 54,
-      "w": 14,
-      "d": 12,
-      "l": 3
     },
     {
       "team": "Argentinos Juniors",
@@ -50,6 +50,16 @@
       "w": 15,
       "d": 8,
       "l": 6
+    },
+    {
+      "team": "River Plate",
+      "gf": 41,
+      "ga": 25,
+      "pj": 30,
+      "pts": 52,
+      "w": 16,
+      "d": 4,
+      "l": 10
     },
     {
       "team": "Vélez Sarsfield",
@@ -82,16 +92,6 @@
       "l": 9
     },
     {
-      "team": "River Plate",
-      "gf": 40,
-      "ga": 25,
-      "pj": 29,
-      "pts": 49,
-      "w": 15,
-      "d": 4,
-      "l": 10
-    },
-    {
       "team": "Lanús",
       "gf": 35,
       "ga": 25,
@@ -104,12 +104,12 @@
     {
       "team": "Belgrano",
       "gf": 31,
-      "ga": 23,
-      "pj": 29,
+      "ga": 24,
+      "pj": 30,
       "pts": 48,
       "w": 13,
       "d": 9,
-      "l": 7
+      "l": 8
     },
     {
       "team": "Defensa y Justicia",
@@ -134,12 +134,12 @@
     {
       "team": "Independiente",
       "gf": 36,
-      "ga": 33,
-      "pj": 29,
+      "ga": 34,
+      "pj": 30,
       "pts": 43,
       "w": 11,
       "d": 10,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Huracán",
@@ -234,12 +234,12 @@
     {
       "team": "Racing",
       "gf": 31,
-      "ga": 35,
-      "pj": 29,
+      "ga": 36,
+      "pj": 30,
       "pts": 33,
       "w": 8,
       "d": 9,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Banfield",
@@ -293,11 +293,11 @@
     },
     {
       "team": "Aldosivi",
-      "gf": 20,
+      "gf": 21,
       "ga": 41,
-      "pj": 29,
-      "pts": 16,
-      "w": 2,
+      "pj": 30,
+      "pts": 19,
+      "w": 3,
       "d": 10,
       "l": 17
     },
