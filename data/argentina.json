@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-26T00:57:19.301391+00:00",
+    "last_updated": "2026-10-26T17:10:15.893906+00:00",
     "avg_goals": 1.03,
-    "total_matches": 445,
-    "total_goals": 953,
-    "avg_real": 1.071
+    "total_matches": 447,
+    "total_goals": 961,
+    "avg_real": 1.075
   },
   "standings": [
     {
@@ -30,6 +30,16 @@
       "w": 16,
       "d": 8,
       "l": 6
+    },
+    {
+      "team": "Vélez Sarsfield",
+      "gf": 41,
+      "ga": 25,
+      "pj": 30,
+      "pts": 55,
+      "w": 14,
+      "d": 13,
+      "l": 3
     },
     {
       "team": "Argentinos Juniors",
@@ -60,16 +70,6 @@
       "w": 16,
       "d": 4,
       "l": 10
-    },
-    {
-      "team": "Vélez Sarsfield",
-      "gf": 36,
-      "ga": 25,
-      "pj": 29,
-      "pts": 52,
-      "w": 13,
-      "d": 13,
-      "l": 3
     },
     {
       "team": "Gimnasia y Esgrima (LP)",
@@ -142,6 +142,16 @@
       "l": 9
     },
     {
+      "team": "Barracas Central",
+      "gf": 28,
+      "ga": 26,
+      "pj": 30,
+      "pts": 43,
+      "w": 11,
+      "d": 10,
+      "l": 9
+    },
+    {
       "team": "Huracán",
       "gf": 29,
       "ga": 27,
@@ -149,16 +159,6 @@
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 9
-    },
-    {
-      "team": "Barracas Central",
-      "gf": 26,
-      "ga": 25,
-      "pj": 29,
-      "pts": 40,
-      "w": 10,
-      "d": 10,
       "l": 9
     },
     {
@@ -274,12 +274,12 @@
     {
       "team": "Central Córdoba (SdE)",
       "gf": 22,
-      "ga": 39,
-      "pj": 29,
+      "ga": 44,
+      "pj": 30,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 15
+      "l": 16
     },
     {
       "team": "Deportivo Riestra",
@@ -303,13 +303,13 @@
     },
     {
       "team": "Estudiantes (RC)",
-      "gf": 13,
-      "ga": 41,
-      "pj": 29,
+      "gf": 14,
+      "ga": 43,
+      "pj": 30,
       "pts": 14,
       "w": 3,
       "d": 5,
-      "l": 21
+      "l": 22
     }
   ],
   "results": [
