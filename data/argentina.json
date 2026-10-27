@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-27T01:47:16.182032+00:00",
+    "last_updated": "2026-10-27T16:16:28.690458+00:00",
     "avg_goals": 1.03,
-    "total_matches": 448,
-    "total_goals": 965,
-    "avg_real": 1.077
+    "total_matches": 449,
+    "total_goals": 966,
+    "avg_real": 1.076
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 5
     },
     {
+      "team": "Instituto",
+      "gf": 38,
+      "ga": 27,
+      "pj": 30,
+      "pts": 53,
+      "w": 16,
+      "d": 5,
+      "l": 9
+    },
+    {
       "team": "Independiente Rivadavia",
       "gf": 46,
       "ga": 36,
@@ -79,16 +89,6 @@
       "pts": 51,
       "w": 15,
       "d": 6,
-      "l": 9
-    },
-    {
-      "team": "Instituto",
-      "gf": 37,
-      "ga": 27,
-      "pj": 29,
-      "pts": 50,
-      "w": 15,
-      "d": 5,
       "l": 9
     },
     {
@@ -284,12 +284,12 @@
     {
       "team": "Deportivo Riestra",
       "gf": 15,
-      "ga": 25,
-      "pj": 29,
+      "ga": 26,
+      "pj": 30,
       "pts": 23,
       "w": 3,
       "d": 14,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Aldosivi",
