@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-26T17:10:15.893906+00:00",
+    "last_updated": "2026-10-27T01:47:16.182032+00:00",
     "avg_goals": 1.03,
-    "total_matches": 447,
-    "total_goals": 961,
-    "avg_real": 1.075
+    "total_matches": 448,
+    "total_goals": 965,
+    "avg_real": 1.077
   },
   "standings": [
     {
@@ -123,13 +123,13 @@
     },
     {
       "team": "Estudiantes (LP)",
-      "gf": 35,
-      "ga": 22,
-      "pj": 29,
+      "gf": 36,
+      "ga": 25,
+      "pj": 30,
       "pts": 45,
       "w": 13,
       "d": 6,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Independiente",
@@ -192,6 +192,16 @@
       "l": 13
     },
     {
+      "team": "Unión",
+      "gf": 45,
+      "ga": 43,
+      "pj": 30,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
+      "l": 12
+    },
+    {
       "team": "Newell's Old Boys",
       "gf": 28,
       "ga": 37,
@@ -200,16 +210,6 @@
       "w": 8,
       "d": 12,
       "l": 10
-    },
-    {
-      "team": "Unión",
-      "gf": 42,
-      "ga": 42,
-      "pj": 29,
-      "pts": 35,
-      "w": 9,
-      "d": 8,
-      "l": 12
     },
     {
       "team": "Talleres",

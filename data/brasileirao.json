@@ -4,13 +4,23 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-25T14:53:45.846017+00:00",
+    "last_updated": "2026-10-27T01:47:16.586939+00:00",
     "avg_goals": 1.35,
-    "total_matches": 317,
-    "total_goals": 843,
-    "avg_real": 1.33
+    "total_matches": 319,
+    "total_goals": 849,
+    "avg_real": 1.331
   },
   "standings": [
+    {
+      "team": "Flamengo",
+      "gf": 64,
+      "ga": 27,
+      "pj": 32,
+      "pts": 70,
+      "w": 21,
+      "d": 7,
+      "l": 4
+    },
     {
       "team": "Palmeiras",
       "gf": 56,
@@ -20,16 +30,6 @@
       "w": 20,
       "d": 9,
       "l": 3
-    },
-    {
-      "team": "Flamengo",
-      "gf": 61,
-      "ga": 25,
-      "pj": 31,
-      "pts": 67,
-      "w": 20,
-      "d": 7,
-      "l": 4
     },
     {
       "team": "Cruzeiro",
@@ -63,13 +63,13 @@
     },
     {
       "team": "Atlético Mineiro",
-      "gf": 42,
-      "ga": 35,
-      "pj": 31,
+      "gf": 44,
+      "ga": 38,
+      "pj": 32,
       "pts": 50,
       "w": 14,
       "d": 8,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Bahia",
@@ -124,12 +124,12 @@
     {
       "team": "Coritiba",
       "gf": 38,
-      "ga": 49,
-      "pj": 31,
+      "ga": 50,
+      "pj": 32,
       "pts": 39,
       "w": 10,
       "d": 9,
-      "l": 12
+      "l": 13
     },
     {
       "team": "Vasco da Gama",
@@ -172,6 +172,16 @@
       "l": 13
     },
     {
+      "team": "Grêmio",
+      "gf": 35,
+      "ga": 44,
+      "pj": 32,
+      "pts": 34,
+      "w": 8,
+      "d": 10,
+      "l": 14
+    },
+    {
       "team": "Corinthians",
       "gf": 34,
       "ga": 42,
@@ -180,16 +190,6 @@
       "w": 8,
       "d": 9,
       "l": 15
-    },
-    {
-      "team": "Grêmio",
-      "gf": 34,
-      "ga": 44,
-      "pj": 31,
-      "pts": 31,
-      "w": 7,
-      "d": 10,
-      "l": 14
     },
     {
       "team": "Remo",
