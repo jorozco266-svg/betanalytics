@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-27T01:47:19.848773+00:00",
+    "last_updated": "2026-10-28T01:59:59.049592+00:00",
     "avg_goals": 1.35,
     "total_matches": 82,
     "total_goals": 242,
@@ -1030,6 +1030,13 @@
     },
     {
       "date": "2026-10-30",
+      "time": "01:00 PM",
+      "home": "Nice",
+      "away": "Rennes",
+      "matchday": 9
+    },
+    {
+      "date": "2026-10-30",
       "time": "03:05 PM",
       "home": "Lille",
       "away": "Lens",
@@ -1038,29 +1045,8 @@
     {
       "date": "2026-10-31",
       "time": "02:45 PM",
-      "home": "Lyon",
-      "away": "Angers",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "02:45 PM",
-      "home": "Lorient",
-      "away": "Brest",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "02:45 PM",
       "home": "Troyes",
       "away": "Le Mans",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "11:15 AM",
-      "home": "Nice",
-      "away": "Rennes",
       "matchday": 9
     },
     {
@@ -1080,8 +1066,22 @@
     {
       "date": "2026-11-01",
       "time": "11:15 AM",
+      "home": "Lyon",
+      "away": "Angers",
+      "matchday": 9
+    },
+    {
+      "date": "2026-11-01",
+      "time": "11:15 AM",
       "home": "Paris FC",
       "away": "Monaco",
+      "matchday": 9
+    },
+    {
+      "date": "2026-11-02",
+      "time": "02:45 PM",
+      "home": "Lorient",
+      "away": "Brest",
       "matchday": 9
     },
     {
@@ -1089,6 +1089,20 @@
       "time": "02:45 PM",
       "home": "Toulouse",
       "away": "Strasbourg",
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-07",
+      "time": "02:45 PM",
+      "home": "Paris Saint-Germain",
+      "away": "Troyes",
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-07",
+      "time": "11:15 AM",
+      "home": "Auxerre",
+      "away": "Paris FC",
       "matchday": 10
     }
   ],

@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-27T16:16:28.690458+00:00",
+    "last_updated": "2026-10-28T01:59:54.314458+00:00",
     "avg_goals": 1.03,
-    "total_matches": 449,
-    "total_goals": 966,
-    "avg_real": 1.076
+    "total_matches": 450,
+    "total_goals": 967,
+    "avg_real": 1.074
   },
   "standings": [
     {
@@ -20,6 +20,16 @@
       "w": 15,
       "d": 12,
       "l": 3
+    },
+    {
+      "team": "Argentinos Juniors",
+      "gf": 35,
+      "ga": 24,
+      "pj": 30,
+      "pts": 57,
+      "w": 16,
+      "d": 9,
+      "l": 5
     },
     {
       "team": "Rosario Central",
@@ -42,16 +52,6 @@
       "l": 3
     },
     {
-      "team": "Argentinos Juniors",
-      "gf": 34,
-      "ga": 24,
-      "pj": 29,
-      "pts": 54,
-      "w": 15,
-      "d": 9,
-      "l": 5
-    },
-    {
       "team": "Instituto",
       "gf": 38,
       "ga": 27,
@@ -64,12 +64,12 @@
     {
       "team": "Independiente Rivadavia",
       "gf": 46,
-      "ga": 36,
-      "pj": 29,
+      "ga": 37,
+      "pj": 30,
       "pts": 53,
       "w": 15,
       "d": 8,
-      "l": 6
+      "l": 7
     },
     {
       "team": "River Plate",
