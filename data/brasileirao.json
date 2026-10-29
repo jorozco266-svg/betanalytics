@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-27T01:47:16.586939+00:00",
+    "last_updated": "2026-10-29T02:03:41.522174+00:00",
     "avg_goals": 1.35,
-    "total_matches": 319,
-    "total_goals": 849,
-    "avg_real": 1.331
+    "total_matches": 322,
+    "total_goals": 855,
+    "avg_real": 1.328
   },
   "standings": [
     {
@@ -25,10 +25,10 @@
       "team": "Palmeiras",
       "gf": 56,
       "ga": 22,
-      "pj": 32,
-      "pts": 69,
+      "pj": 33,
+      "pts": 70,
       "w": 20,
-      "d": 9,
+      "d": 10,
       "l": 3
     },
     {
@@ -53,11 +53,11 @@
     },
     {
       "team": "Fluminense",
-      "gf": 50,
-      "ga": 41,
-      "pj": 32,
-      "pts": 51,
-      "w": 14,
+      "gf": 52,
+      "ga": 42,
+      "pj": 33,
+      "pts": 54,
+      "w": 15,
       "d": 9,
       "l": 9
     },
@@ -85,11 +85,21 @@
       "team": "Santos",
       "gf": 49,
       "ga": 47,
-      "pj": 32,
-      "pts": 46,
+      "pj": 33,
+      "pts": 47,
       "w": 12,
-      "d": 10,
+      "d": 11,
       "l": 10
+    },
+    {
+      "team": "Red Bull Bragantino",
+      "gf": 42,
+      "ga": 38,
+      "pj": 33,
+      "pts": 44,
+      "w": 12,
+      "d": 8,
+      "l": 13
     },
     {
       "team": "São Paulo",
@@ -99,16 +109,6 @@
       "pts": 43,
       "w": 12,
       "d": 7,
-      "l": 13
-    },
-    {
-      "team": "Red Bull Bragantino",
-      "gf": 39,
-      "ga": 38,
-      "pj": 32,
-      "pts": 41,
-      "w": 11,
-      "d": 8,
       "l": 13
     },
     {
@@ -163,13 +163,13 @@
     },
     {
       "team": "Internacional",
-      "gf": 36,
-      "ga": 40,
-      "pj": 32,
+      "gf": 37,
+      "ga": 42,
+      "pj": 33,
       "pts": 35,
       "w": 8,
       "d": 11,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Grêmio",
@@ -204,12 +204,12 @@
     {
       "team": "Chapecoense",
       "gf": 32,
-      "ga": 63,
-      "pj": 31,
+      "ga": 66,
+      "pj": 32,
       "pts": 21,
       "w": 4,
       "d": 9,
-      "l": 18
+      "l": 19
     }
   ],
   "results": [
