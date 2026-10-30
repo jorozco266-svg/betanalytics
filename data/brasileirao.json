@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-30T02:22:12.538238+00:00",
+    "last_updated": "2026-10-30T16:57:39.102411+00:00",
     "avg_goals": 1.35,
-    "total_matches": 326,
-    "total_goals": 869,
-    "avg_real": 1.333
+    "total_matches": 327,
+    "total_goals": 871,
+    "avg_real": 1.332
   },
   "standings": [
     {
@@ -42,19 +42,19 @@
       "l": 10
     },
     {
-      "team": "Athletico Paranaense",
-      "gf": 50,
-      "ga": 38,
-      "pj": 32,
-      "pts": 54,
-      "w": 15,
-      "d": 9,
-      "l": 8
-    },
-    {
       "team": "Fluminense",
       "gf": 52,
       "ga": 42,
+      "pj": 33,
+      "pts": 54,
+      "w": 15,
+      "d": 9,
+      "l": 9
+    },
+    {
+      "team": "Athletico Paranaense",
+      "gf": 50,
+      "ga": 40,
       "pj": 33,
       "pts": 54,
       "w": 15,
@@ -152,6 +152,16 @@
       "l": 14
     },
     {
+      "team": "Grêmio",
+      "gf": 37,
+      "ga": 44,
+      "pj": 33,
+      "pts": 37,
+      "w": 9,
+      "d": 10,
+      "l": 14
+    },
+    {
       "team": "Mirassol",
       "gf": 37,
       "ga": 45,
@@ -169,16 +179,6 @@
       "pts": 35,
       "w": 8,
       "d": 11,
-      "l": 14
-    },
-    {
-      "team": "Grêmio",
-      "gf": 35,
-      "ga": 44,
-      "pj": 32,
-      "pts": 34,
-      "w": 8,
-      "d": 10,
       "l": 14
     },
     {
