@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-26T00:57:28.310831+00:00",
+    "last_updated": "2026-10-30T02:22:23.881572+00:00",
     "avg_goals": 1.72,
-    "total_matches": 55,
-    "total_goals": 198,
-    "avg_real": 1.8
+    "total_matches": 56,
+    "total_goals": 201,
+    "avg_real": 1.795
   },
   "standings": [
     {
@@ -43,11 +43,11 @@
     },
     {
       "team": "Werder Bremen",
-      "gf": 14,
+      "gf": 17,
       "ga": 11,
-      "pj": 7,
-      "pts": 13,
-      "w": 4,
+      "pj": 8,
+      "pts": 16,
+      "w": 5,
       "d": 1,
       "l": 2
     },
@@ -104,12 +104,12 @@
     {
       "team": "TSG Hoffenheim",
       "gf": 11,
-      "ga": 12,
-      "pj": 7,
+      "ga": 15,
+      "pj": 8,
       "pts": 9,
       "w": 3,
       "d": 0,
-      "l": 4
+      "l": 5
     },
     {
       "team": "VfB Stuttgart",

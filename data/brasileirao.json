@@ -4,20 +4,20 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-29T17:20:40.337166+00:00",
+    "last_updated": "2026-10-30T02:22:12.538238+00:00",
     "avg_goals": 1.35,
-    "total_matches": 324,
-    "total_goals": 863,
-    "avg_real": 1.332
+    "total_matches": 326,
+    "total_goals": 869,
+    "avg_real": 1.333
   },
   "standings": [
     {
       "team": "Flamengo",
-      "gf": 64,
-      "ga": 27,
-      "pj": 32,
-      "pts": 70,
-      "w": 21,
+      "gf": 68,
+      "ga": 28,
+      "pj": 33,
+      "pts": 73,
+      "w": 22,
       "d": 7,
       "l": 4
     },
@@ -33,11 +33,11 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 51,
+      "gf": 52,
       "ga": 46,
-      "pj": 32,
-      "pts": 54,
-      "w": 16,
+      "pj": 33,
+      "pts": 57,
+      "w": 17,
       "d": 6,
       "l": 10
     },
@@ -74,12 +74,12 @@
     {
       "team": "Atlético Mineiro",
       "gf": 44,
-      "ga": 38,
-      "pj": 32,
+      "ga": 39,
+      "pj": 33,
       "pts": 50,
       "w": 14,
       "d": 8,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Santos",
@@ -133,13 +133,13 @@
     },
     {
       "team": "Vasco da Gama",
-      "gf": 39,
-      "ga": 45,
-      "pj": 31,
+      "gf": 40,
+      "ga": 49,
+      "pj": 32,
       "pts": 38,
       "w": 10,
       "d": 8,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Vitória",
