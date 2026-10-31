@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-31T01:57:34.360191+00:00",
+    "last_updated": "2026-10-31T15:58:37.046590+00:00",
     "avg_goals": 1.03,
-    "total_matches": 452,
-    "total_goals": 972,
-    "avg_real": 1.075
+    "total_matches": 454,
+    "total_goals": 978,
+    "avg_real": 1.077
   },
   "standings": [
+    {
+      "team": "Rosario Central",
+      "gf": 44,
+      "ga": 28,
+      "pj": 31,
+      "pts": 59,
+      "w": 17,
+      "d": 8,
+      "l": 6
+    },
     {
       "team": "Boca Juniors",
       "gf": 44,
@@ -30,16 +40,6 @@
       "w": 16,
       "d": 9,
       "l": 5
-    },
-    {
-      "team": "Rosario Central",
-      "gf": 42,
-      "ga": 27,
-      "pj": 30,
-      "pts": 56,
-      "w": 16,
-      "d": 8,
-      "l": 6
     },
     {
       "team": "Vélez Sarsfield",
@@ -173,13 +173,13 @@
     },
     {
       "team": "Sarmiento (J)",
-      "gf": 35,
-      "ga": 41,
-      "pj": 30,
+      "gf": 36,
+      "ga": 43,
+      "pj": 31,
       "pts": 40,
       "w": 12,
       "d": 4,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Gimnasia y Esgrima (M)",
@@ -212,6 +212,16 @@
       "l": 11
     },
     {
+      "team": "Racing",
+      "gf": 33,
+      "ga": 37,
+      "pj": 31,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 13
+    },
+    {
       "team": "Newell's Old Boys",
       "gf": 28,
       "ga": 37,
@@ -229,16 +239,6 @@
       "pts": 35,
       "w": 9,
       "d": 8,
-      "l": 13
-    },
-    {
-      "team": "Racing",
-      "gf": 31,
-      "ga": 36,
-      "pj": 30,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
       "l": 13
     },
     {
@@ -293,13 +293,13 @@
     },
     {
       "team": "Aldosivi",
-      "gf": 21,
-      "ga": 41,
-      "pj": 30,
+      "gf": 22,
+      "ga": 43,
+      "pj": 31,
       "pts": 19,
       "w": 3,
       "d": 10,
-      "l": 17
+      "l": 18
     },
     {
       "team": "Estudiantes (RC)",

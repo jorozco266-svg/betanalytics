@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-29T02:03:42.785730+00:00",
+    "last_updated": "2026-10-31T15:58:38.754601+00:00",
     "avg_goals": 1.4,
-    "total_matches": 82,
-    "total_goals": 227,
-    "avg_real": 1.384
+    "total_matches": 83,
+    "total_goals": 229,
+    "avg_real": 1.38
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "pts": 16
     },
     {
+      "team": "Chelsea",
+      "pj": 9,
+      "gf": 19,
+      "ga": 15,
+      "w": 5,
+      "d": 1,
+      "l": 3,
+      "pts": 16
+    },
+    {
       "team": "Liverpool",
       "pj": 8,
       "gf": 11,
@@ -50,16 +60,6 @@
       "d": 3,
       "l": 1,
       "pts": 15
-    },
-    {
-      "team": "Chelsea",
-      "pj": 8,
-      "gf": 17,
-      "ga": 15,
-      "w": 4,
-      "d": 1,
-      "l": 3,
-      "pts": 13
     },
     {
       "team": "Brentford",
@@ -163,12 +163,12 @@
     },
     {
       "team": "Manchester United",
-      "pj": 8,
+      "pj": 9,
       "gf": 10,
-      "ga": 13,
+      "ga": 15,
       "w": 1,
       "d": 4,
-      "l": 3,
+      "l": 4,
       "pts": 7
     },
     {
@@ -888,6 +888,14 @@
       "hg": 0,
       "ag": 0,
       "matchday": 8
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 9
     }
   ],
   "fixtures": [
@@ -896,48 +904,6 @@
       "time": "03:00 PM",
       "home": "Aston Villa",
       "away": "Fulham",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "07:30 AM",
-      "home": "Chelsea",
-      "away": "Manchester United",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "10:00 AM",
-      "home": "Manchester City",
-      "away": "Brighton",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "10:00 AM",
-      "home": "Bournemouth",
-      "away": "Leeds United",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "10:00 AM",
-      "home": "Coventry City",
-      "away": "Sunderland",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "10:00 AM",
-      "home": "Hull City",
-      "away": "Ipswich Town",
-      "matchday": 9
-    },
-    {
-      "date": "2026-10-31",
-      "time": "10:00 AM",
-      "home": "Brentford",
-      "away": "Nottingham Forest",
       "matchday": 9
     },
     {
