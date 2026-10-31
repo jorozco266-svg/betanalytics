@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-28T01:59:54.314458+00:00",
+    "last_updated": "2026-10-31T01:57:34.360191+00:00",
     "avg_goals": 1.03,
-    "total_matches": 450,
-    "total_goals": 967,
-    "avg_real": 1.074
+    "total_matches": 452,
+    "total_goals": 972,
+    "avg_real": 1.075
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 3
     },
     {
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 42,
+      "ga": 38,
+      "pj": 31,
+      "pts": 54,
+      "w": 16,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Instituto",
       "gf": 38,
       "ga": 27,
@@ -80,16 +90,6 @@
       "w": 16,
       "d": 4,
       "l": 10
-    },
-    {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 40,
-      "ga": 37,
-      "pj": 30,
-      "pts": 51,
-      "w": 15,
-      "d": 6,
-      "l": 9
     },
     {
       "team": "Lanús",
@@ -154,12 +154,12 @@
     {
       "team": "Huracán",
       "gf": 29,
-      "ga": 27,
-      "pj": 30,
+      "ga": 29,
+      "pj": 31,
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 9
+      "l": 10
     },
     {
       "team": "San Lorenzo",
@@ -202,6 +202,16 @@
       "l": 12
     },
     {
+      "team": "Tigre",
+      "gf": 33,
+      "ga": 31,
+      "pj": 31,
+      "pts": 36,
+      "w": 8,
+      "d": 12,
+      "l": 11
+    },
+    {
       "team": "Newell's Old Boys",
       "gf": 28,
       "ga": 37,
@@ -220,16 +230,6 @@
       "w": 9,
       "d": 8,
       "l": 13
-    },
-    {
-      "team": "Tigre",
-      "gf": 31,
-      "ga": 31,
-      "pj": 30,
-      "pts": 33,
-      "w": 7,
-      "d": 12,
-      "l": 11
     },
     {
       "team": "Racing",
@@ -303,13 +303,13 @@
     },
     {
       "team": "Estudiantes (RC)",
-      "gf": 14,
-      "ga": 43,
-      "pj": 30,
+      "gf": 15,
+      "ga": 45,
+      "pj": 31,
       "pts": 14,
       "w": 3,
       "d": 5,
-      "l": 22
+      "l": 23
     }
   ],
   "results": [

@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-30T16:57:39.102411+00:00",
+    "last_updated": "2026-10-31T01:57:34.699660+00:00",
     "avg_goals": 1.35,
-    "total_matches": 327,
-    "total_goals": 871,
-    "avg_real": 1.332
+    "total_matches": 328,
+    "total_goals": 873,
+    "avg_real": 1.331
   },
   "standings": [
     {
@@ -164,12 +164,22 @@
     {
       "team": "Mirassol",
       "gf": 37,
-      "ga": 45,
-      "pj": 32,
+      "ga": 47,
+      "pj": 33,
       "pts": 37,
       "w": 9,
       "d": 10,
-      "l": 13
+      "l": 14
+    },
+    {
+      "team": "Corinthians",
+      "gf": 36,
+      "ga": 42,
+      "pj": 33,
+      "pts": 36,
+      "w": 9,
+      "d": 9,
+      "l": 15
     },
     {
       "team": "Internacional",
@@ -180,16 +190,6 @@
       "w": 8,
       "d": 11,
       "l": 14
-    },
-    {
-      "team": "Corinthians",
-      "gf": 34,
-      "ga": 42,
-      "pj": 32,
-      "pts": 33,
-      "w": 8,
-      "d": 9,
-      "l": 15
     },
     {
       "team": "Remo",
