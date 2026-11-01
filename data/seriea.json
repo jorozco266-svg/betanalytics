@@ -4,23 +4,13 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-31T15:58:40.081649+00:00",
+    "last_updated": "2026-11-01T01:48:01.046107+00:00",
     "avg_goals": 1.3,
-    "total_matches": 98,
-    "total_goals": 303,
-    "avg_real": 1.546
+    "total_matches": 101,
+    "total_goals": 317,
+    "avg_real": 1.569
   },
   "standings": [
-    {
-      "team": "Inter Milan",
-      "pj": 9,
-      "gf": 25,
-      "ga": 10,
-      "w": 8,
-      "d": 1,
-      "l": 0,
-      "pts": 25
-    },
     {
       "team": "Lazio",
       "pj": 9,
@@ -32,24 +22,34 @@
       "pts": 25
     },
     {
+      "team": "Inter Milan",
+      "pj": 10,
+      "gf": 26,
+      "ga": 13,
+      "w": 8,
+      "d": 1,
+      "l": 1,
+      "pts": 25
+    },
+    {
       "team": "Roma",
-      "pj": 9,
-      "gf": 23,
-      "ga": 8,
-      "w": 6,
+      "pj": 10,
+      "gf": 28,
+      "ga": 10,
+      "w": 7,
       "d": 3,
       "l": 0,
-      "pts": 21
+      "pts": 24
     },
     {
       "team": "AC Milan",
-      "pj": 10,
-      "gf": 20,
-      "ga": 12,
-      "w": 6,
+      "pj": 11,
+      "gf": 23,
+      "ga": 13,
+      "w": 7,
       "d": 3,
       "l": 1,
-      "pts": 21
+      "pts": 24
     },
     {
       "team": "Como",
@@ -82,6 +82,16 @@
       "pts": 14
     },
     {
+      "team": "Bologna",
+      "pj": 10,
+      "gf": 14,
+      "ga": 13,
+      "w": 4,
+      "d": 2,
+      "l": 4,
+      "pts": 14
+    },
+    {
       "team": "Juventus",
       "pj": 9,
       "gf": 11,
@@ -110,16 +120,6 @@
       "d": 1,
       "l": 4,
       "pts": 13
-    },
-    {
-      "team": "Bologna",
-      "pj": 9,
-      "gf": 12,
-      "ga": 12,
-      "w": 3,
-      "d": 2,
-      "l": 4,
-      "pts": 11
     },
     {
       "team": "Atalanta",
@@ -163,23 +163,13 @@
     },
     {
       "team": "Monza",
-      "pj": 9,
-      "gf": 16,
-      "ga": 22,
+      "pj": 10,
+      "gf": 17,
+      "ga": 24,
       "w": 2,
       "d": 1,
-      "l": 6,
+      "l": 7,
       "pts": 7
-    },
-    {
-      "team": "Udinese",
-      "pj": 9,
-      "gf": 9,
-      "ga": 18,
-      "w": 1,
-      "d": 2,
-      "l": 6,
-      "pts": 5
     },
     {
       "team": "Fiorentina",
@@ -196,6 +186,16 @@
       "pj": 10,
       "gf": 5,
       "ga": 16,
+      "w": 1,
+      "d": 2,
+      "l": 7,
+      "pts": 5
+    },
+    {
+      "team": "Udinese",
+      "pj": 10,
+      "gf": 11,
+      "ga": 23,
       "w": 1,
       "d": 2,
       "l": 7,
@@ -1136,23 +1136,33 @@
       "hg": 2,
       "ag": 2,
       "matchday": 9
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Bologna",
+      "away": "Monza",
+      "hg": 2,
+      "ag": 1,
+      "matchday": 10
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Udinese",
+      "away": "Roma",
+      "hg": 2,
+      "ag": 5,
+      "matchday": 10
+    },
+    {
+      "date": "2026-10-31",
+      "home": "AC Milan",
+      "away": "Inter Milan",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 10
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-31",
-      "time": "02:45 PM",
-      "home": "AC Milan",
-      "away": "Inter Milan",
-      "matchday": 10
-    },
-    {
-      "date": "2026-10-31",
-      "time": "12:00 PM",
-      "home": "Udinese",
-      "away": "Roma",
-      "matchday": 10
-    },
     {
       "date": "2026-11-01",
       "time": "02:45 PM",

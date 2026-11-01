@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-31T01:57:39.308087+00:00",
+    "last_updated": "2026-11-01T01:48:02.523716+00:00",
     "avg_goals": 1.35,
-    "total_matches": 85,
-    "total_goals": 256,
-    "avg_real": 1.506
+    "total_matches": 86,
+    "total_goals": 258,
+    "avg_real": 1.5
   },
   "standings": [
     {
@@ -152,14 +152,14 @@
       "pts": 8
     },
     {
-      "team": "Le Mans",
-      "pj": 8,
-      "gf": 11,
+      "team": "Troyes",
+      "pj": 9,
+      "gf": 7,
       "ga": 16,
-      "w": 1,
-      "d": 4,
-      "l": 3,
-      "pts": 7
+      "w": 2,
+      "d": 2,
+      "l": 5,
+      "pts": 8
     },
     {
       "team": "Strasbourg",
@@ -172,14 +172,14 @@
       "pts": 7
     },
     {
-      "team": "Troyes",
-      "pj": 8,
-      "gf": 5,
-      "ga": 16,
+      "team": "Le Mans",
+      "pj": 9,
+      "gf": 11,
+      "ga": 18,
       "w": 1,
-      "d": 2,
-      "l": 5,
-      "pts": 5
+      "d": 4,
+      "l": 4,
+      "pts": 7
     },
     {
       "team": "Olympique de Marseille",
@@ -1042,16 +1042,17 @@
       "hg": 1,
       "ag": 0,
       "matchday": 9
+    },
+    {
+      "date": "2026-10-31",
+      "home": "Troyes",
+      "away": "Le Mans",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 9
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-10-31",
-      "time": "02:45 PM",
-      "home": "Troyes",
-      "away": "Le Mans",
-      "matchday": 9
-    },
     {
       "date": "2026-11-01",
       "time": "02:45 PM",

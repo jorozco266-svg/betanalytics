@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-10-31T15:58:37.046590+00:00",
+    "last_updated": "2026-11-01T01:47:58.396937+00:00",
     "avg_goals": 1.03,
-    "total_matches": 454,
-    "total_goals": 978,
-    "avg_real": 1.077
+    "total_matches": 456,
+    "total_goals": 985,
+    "avg_real": 1.08
   },
   "standings": [
     {
@@ -43,12 +43,12 @@
     },
     {
       "team": "Vélez Sarsfield",
-      "gf": 41,
-      "ga": 25,
-      "pj": 30,
-      "pts": 55,
+      "gf": 43,
+      "ga": 27,
+      "pj": 31,
+      "pts": 56,
       "w": 14,
-      "d": 13,
+      "d": 14,
       "l": 3
     },
     {
@@ -163,12 +163,12 @@
     },
     {
       "team": "San Lorenzo",
-      "gf": 21,
-      "ga": 26,
-      "pj": 30,
-      "pts": 40,
+      "gf": 23,
+      "ga": 28,
+      "pj": 31,
+      "pts": 41,
       "w": 10,
-      "d": 10,
+      "d": 11,
       "l": 10
     },
     {
@@ -202,6 +202,16 @@
       "l": 12
     },
     {
+      "team": "Talleres",
+      "gf": 33,
+      "ga": 35,
+      "pj": 31,
+      "pts": 38,
+      "w": 10,
+      "d": 8,
+      "l": 13
+    },
+    {
       "team": "Tigre",
       "gf": 33,
       "ga": 31,
@@ -230,16 +240,6 @@
       "w": 8,
       "d": 12,
       "l": 10
-    },
-    {
-      "team": "Talleres",
-      "gf": 30,
-      "ga": 35,
-      "pj": 30,
-      "pts": 35,
-      "w": 9,
-      "d": 8,
-      "l": 13
     },
     {
       "team": "Banfield",
@@ -284,12 +284,12 @@
     {
       "team": "Deportivo Riestra",
       "gf": 15,
-      "ga": 26,
-      "pj": 30,
+      "ga": 29,
+      "pj": 31,
       "pts": 23,
       "w": 3,
       "d": 14,
-      "l": 13
+      "l": 14
     },
     {
       "team": "Aldosivi",
