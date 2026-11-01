@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-01T01:47:58.396937+00:00",
+    "last_updated": "2026-11-01T17:02:04.246445+00:00",
     "avg_goals": 1.03,
-    "total_matches": 456,
-    "total_goals": 985,
-    "avg_real": 1.08
+    "total_matches": 457,
+    "total_goals": 991,
+    "avg_real": 1.084
   },
   "standings": [
     {
@@ -52,9 +52,9 @@
       "l": 3
     },
     {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 42,
-      "ga": 38,
+      "team": "Instituto",
+      "gf": 41,
+      "ga": 30,
       "pj": 31,
       "pts": 54,
       "w": 16,
@@ -62,13 +62,13 @@
       "l": 9
     },
     {
-      "team": "Instituto",
-      "gf": 38,
-      "ga": 27,
-      "pj": 30,
-      "pts": 53,
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 42,
+      "ga": 38,
+      "pj": 31,
+      "pts": 54,
       "w": 16,
-      "d": 5,
+      "d": 6,
       "l": 9
     },
     {
@@ -123,12 +123,12 @@
     },
     {
       "team": "Estudiantes (LP)",
-      "gf": 36,
-      "ga": 25,
-      "pj": 30,
-      "pts": 45,
+      "gf": 39,
+      "ga": 28,
+      "pj": 31,
+      "pts": 46,
       "w": 13,
-      "d": 6,
+      "d": 7,
       "l": 11
     },
     {
