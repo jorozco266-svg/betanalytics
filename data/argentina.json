@@ -4,13 +4,23 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-01T17:02:04.246445+00:00",
+    "last_updated": "2026-11-02T02:02:09.069322+00:00",
     "avg_goals": 1.03,
-    "total_matches": 457,
-    "total_goals": 991,
-    "avg_real": 1.084
+    "total_matches": 461,
+    "total_goals": 1000,
+    "avg_real": 1.085
   },
   "standings": [
+    {
+      "team": "Boca Juniors",
+      "gf": 45,
+      "ga": 23,
+      "pj": 31,
+      "pts": 60,
+      "w": 16,
+      "d": 12,
+      "l": 3
+    },
     {
       "team": "Rosario Central",
       "gf": 44,
@@ -20,16 +30,6 @@
       "w": 17,
       "d": 8,
       "l": 6
-    },
-    {
-      "team": "Boca Juniors",
-      "gf": 44,
-      "ga": 23,
-      "pj": 30,
-      "pts": 57,
-      "w": 15,
-      "d": 12,
-      "l": 3
     },
     {
       "team": "Argentinos Juniors",
@@ -84,40 +84,30 @@
     {
       "team": "River Plate",
       "gf": 41,
-      "ga": 25,
-      "pj": 30,
+      "ga": 26,
+      "pj": 31,
       "pts": 52,
       "w": 16,
       "d": 4,
-      "l": 10
+      "l": 11
     },
     {
       "team": "Lanús",
-      "gf": 35,
-      "ga": 25,
-      "pj": 30,
-      "pts": 48,
+      "gf": 36,
+      "ga": 26,
+      "pj": 31,
+      "pts": 49,
       "w": 13,
-      "d": 9,
+      "d": 10,
       "l": 8
     },
     {
       "team": "Belgrano",
-      "gf": 31,
-      "ga": 24,
-      "pj": 30,
-      "pts": 48,
+      "gf": 33,
+      "ga": 26,
+      "pj": 31,
+      "pts": 49,
       "w": 13,
-      "d": 9,
-      "l": 8
-    },
-    {
-      "team": "Defensa y Justicia",
-      "gf": 38,
-      "ga": 34,
-      "pj": 30,
-      "pts": 46,
-      "w": 12,
       "d": 10,
       "l": 8
     },
@@ -132,19 +122,29 @@
       "l": 11
     },
     {
-      "team": "Independiente",
-      "gf": 36,
+      "team": "Defensa y Justicia",
+      "gf": 38,
       "ga": 34,
       "pj": 30,
-      "pts": 43,
-      "w": 11,
+      "pts": 46,
+      "w": 12,
       "d": 10,
-      "l": 9
+      "l": 8
     },
     {
       "team": "Barracas Central",
-      "gf": 28,
-      "ga": 26,
+      "gf": 30,
+      "ga": 28,
+      "pj": 31,
+      "pts": 44,
+      "w": 11,
+      "d": 11,
+      "l": 9
+    },
+    {
+      "team": "Independiente",
+      "gf": 36,
+      "ga": 34,
       "pj": 30,
       "pts": 43,
       "w": 11,
@@ -183,22 +183,22 @@
     },
     {
       "team": "Gimnasia y Esgrima (M)",
-      "gf": 30,
-      "ga": 37,
-      "pj": 30,
-      "pts": 39,
+      "gf": 31,
+      "ga": 38,
+      "pj": 31,
+      "pts": 40,
       "w": 11,
-      "d": 6,
+      "d": 7,
       "l": 13
     },
     {
       "team": "Unión",
-      "gf": 45,
-      "ga": 43,
-      "pj": 30,
-      "pts": 38,
+      "gf": 46,
+      "ga": 44,
+      "pj": 31,
+      "pts": 39,
       "w": 10,
-      "d": 8,
+      "d": 9,
       "l": 12
     },
     {
@@ -210,6 +210,16 @@
       "w": 10,
       "d": 8,
       "l": 13
+    },
+    {
+      "team": "Newell's Old Boys",
+      "gf": 29,
+      "ga": 38,
+      "pj": 31,
+      "pts": 37,
+      "w": 8,
+      "d": 13,
+      "l": 10
     },
     {
       "team": "Tigre",
@@ -230,16 +240,6 @@
       "w": 9,
       "d": 9,
       "l": 13
-    },
-    {
-      "team": "Newell's Old Boys",
-      "gf": 28,
-      "ga": 37,
-      "pj": 30,
-      "pts": 36,
-      "w": 8,
-      "d": 12,
-      "l": 10
     },
     {
       "team": "Banfield",
