@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-02T02:02:10.608855+00:00",
+    "last_updated": "2026-11-02T20:39:20.533862+00:00",
     "avg_goals": 1.4,
     "total_matches": 91,
     "total_goals": 247,
@@ -963,13 +963,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-02",
-      "time": "03:00 PM",
-      "home": "Newcastle",
-      "away": "Everton",
-      "matchday": 9
-    },
     {
       "date": "2026-11-06",
       "time": "03:00 PM",
