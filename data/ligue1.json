@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-02T20:39:23.344238+00:00",
+    "last_updated": "2026-11-03T03:49:18.022478+00:00",
     "avg_goals": 1.35,
-    "total_matches": 90,
-    "total_goals": 272,
-    "avg_real": 1.511
+    "total_matches": 91,
+    "total_goals": 274,
+    "avg_real": 1.505
   },
   "standings": [
     {
@@ -102,13 +102,23 @@
       "pts": 13
     },
     {
-      "team": "Lorient",
-      "pj": 8,
-      "gf": 7,
-      "ga": 6,
+      "team": "Brest",
+      "pj": 9,
+      "gf": 16,
+      "ga": 12,
       "w": 3,
       "d": 3,
-      "l": 2,
+      "l": 3,
+      "pts": 12
+    },
+    {
+      "team": "Lorient",
+      "pj": 9,
+      "gf": 7,
+      "ga": 8,
+      "w": 3,
+      "d": 3,
+      "l": 3,
       "pts": 12
     },
     {
@@ -140,16 +150,6 @@
       "d": 1,
       "l": 5,
       "pts": 10
-    },
-    {
-      "team": "Brest",
-      "pj": 8,
-      "gf": 14,
-      "ga": 12,
-      "w": 2,
-      "d": 3,
-      "l": 3,
-      "pts": 9
     },
     {
       "team": "Angers",
@@ -1081,6 +1081,14 @@
       "away": "Toulouse",
       "hg": 2,
       "ag": 0,
+      "matchday": 9
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Lorient",
+      "away": "Brest",
+      "hg": 0,
+      "ag": 2,
       "matchday": 9
     }
   ],

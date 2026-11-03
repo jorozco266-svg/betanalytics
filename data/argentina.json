@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-02T02:02:09.069322+00:00",
+    "last_updated": "2026-11-03T03:49:13.104600+00:00",
     "avg_goals": 1.03,
-    "total_matches": 461,
-    "total_goals": 1000,
-    "avg_real": 1.085
+    "total_matches": 465,
+    "total_goals": 1011,
+    "avg_real": 1.087
   },
   "standings": [
     {
@@ -22,6 +22,16 @@
       "l": 3
     },
     {
+      "team": "Argentinos Juniors",
+      "gf": 37,
+      "ga": 25,
+      "pj": 31,
+      "pts": 60,
+      "w": 17,
+      "d": 9,
+      "l": 5
+    },
+    {
       "team": "Rosario Central",
       "gf": 44,
       "ga": 28,
@@ -32,16 +42,6 @@
       "l": 6
     },
     {
-      "team": "Argentinos Juniors",
-      "gf": 35,
-      "ga": 24,
-      "pj": 30,
-      "pts": 57,
-      "w": 16,
-      "d": 9,
-      "l": 5
-    },
-    {
       "team": "Vélez Sarsfield",
       "gf": 43,
       "ga": 27,
@@ -50,6 +50,16 @@
       "w": 14,
       "d": 14,
       "l": 3
+    },
+    {
+      "team": "Independiente Rivadavia",
+      "gf": 49,
+      "ga": 38,
+      "pj": 31,
+      "pts": 56,
+      "w": 16,
+      "d": 8,
+      "l": 7
     },
     {
       "team": "Instituto",
@@ -70,16 +80,6 @@
       "w": 16,
       "d": 6,
       "l": 9
-    },
-    {
-      "team": "Independiente Rivadavia",
-      "gf": 46,
-      "ga": 37,
-      "pj": 30,
-      "pts": 53,
-      "w": 15,
-      "d": 8,
-      "l": 7
     },
     {
       "team": "River Plate",
@@ -112,6 +112,16 @@
       "l": 8
     },
     {
+      "team": "Defensa y Justicia",
+      "gf": 39,
+      "ga": 35,
+      "pj": 31,
+      "pts": 47,
+      "w": 12,
+      "d": 11,
+      "l": 8
+    },
+    {
       "team": "Estudiantes (LP)",
       "gf": 39,
       "ga": 28,
@@ -122,14 +132,14 @@
       "l": 11
     },
     {
-      "team": "Defensa y Justicia",
-      "gf": 38,
-      "ga": 34,
-      "pj": 30,
-      "pts": 46,
-      "w": 12,
-      "d": 10,
-      "l": 8
+      "team": "Independiente",
+      "gf": 37,
+      "ga": 35,
+      "pj": 31,
+      "pts": 44,
+      "w": 11,
+      "d": 11,
+      "l": 9
     },
     {
       "team": "Barracas Central",
@@ -139,16 +149,6 @@
       "pts": 44,
       "w": 11,
       "d": 11,
-      "l": 9
-    },
-    {
-      "team": "Independiente",
-      "gf": 36,
-      "ga": 34,
-      "pj": 30,
-      "pts": 43,
-      "w": 11,
-      "d": 10,
       "l": 9
     },
     {
@@ -242,44 +242,44 @@
       "l": 13
     },
     {
-      "team": "Banfield",
-      "gf": 32,
-      "ga": 39,
-      "pj": 30,
-      "pts": 32,
-      "w": 8,
-      "d": 8,
-      "l": 14
-    },
-    {
-      "team": "Atlético Tucumán",
-      "gf": 28,
-      "ga": 33,
-      "pj": 30,
-      "pts": 31,
-      "w": 7,
-      "d": 10,
-      "l": 13
-    },
-    {
       "team": "Platense",
-      "gf": 24,
+      "gf": 26,
       "ga": 35,
-      "pj": 30,
-      "pts": 30,
-      "w": 6,
+      "pj": 31,
+      "pts": 33,
+      "w": 7,
       "d": 12,
       "l": 12
     },
     {
+      "team": "Banfield",
+      "gf": 33,
+      "ga": 42,
+      "pj": 31,
+      "pts": 32,
+      "w": 8,
+      "d": 8,
+      "l": 15
+    },
+    {
+      "team": "Atlético Tucumán",
+      "gf": 29,
+      "ga": 35,
+      "pj": 31,
+      "pts": 31,
+      "w": 7,
+      "d": 10,
+      "l": 14
+    },
+    {
       "team": "Central Córdoba (SdE)",
       "gf": 22,
-      "ga": 44,
-      "pj": 30,
+      "ga": 46,
+      "pj": 31,
       "pts": 26,
       "w": 6,
       "d": 8,
-      "l": 16
+      "l": 17
     },
     {
       "team": "Deportivo Riestra",

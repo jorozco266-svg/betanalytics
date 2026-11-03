@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-02T20:39:20.533862+00:00",
+    "last_updated": "2026-11-03T03:49:15.226743+00:00",
     "avg_goals": 1.4,
-    "total_matches": 91,
-    "total_goals": 247,
-    "avg_real": 1.357
+    "total_matches": 92,
+    "total_goals": 248,
+    "avg_real": 1.348
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "pts": 14
     },
     {
+      "team": "Everton",
+      "pj": 9,
+      "gf": 9,
+      "ga": 9,
+      "w": 3,
+      "d": 4,
+      "l": 2,
+      "pts": 13
+    },
+    {
       "team": "Bournemouth",
       "pj": 9,
       "gf": 14,
@@ -123,12 +133,12 @@
     },
     {
       "team": "Newcastle",
-      "pj": 8,
+      "pj": 9,
       "gf": 12,
-      "ga": 14,
+      "ga": 15,
       "w": 3,
       "d": 2,
-      "l": 3,
+      "l": 4,
       "pts": 11
     },
     {
@@ -140,16 +150,6 @@
       "d": 2,
       "l": 4,
       "pts": 11
-    },
-    {
-      "team": "Everton",
-      "pj": 8,
-      "gf": 8,
-      "ga": 9,
-      "w": 2,
-      "d": 4,
-      "l": 2,
-      "pts": 10
     },
     {
       "team": "Fulham",
@@ -957,6 +957,14 @@
       "date": "2026-11-01",
       "home": "Liverpool",
       "away": "Arsenal",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 9
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Newcastle",
+      "away": "Everton",
       "hg": 0,
       "ag": 1,
       "matchday": 9

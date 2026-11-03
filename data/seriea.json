@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-02T20:39:22.213721+00:00",
+    "last_updated": "2026-11-03T03:49:16.865436+00:00",
     "avg_goals": 1.3,
-    "total_matches": 107,
-    "total_goals": 334,
-    "avg_real": 1.561
+    "total_matches": 108,
+    "total_goals": 337,
+    "avg_real": 1.56
   },
   "standings": [
     {
@@ -133,12 +133,12 @@
     },
     {
       "team": "Atalanta",
-      "pj": 9,
+      "pj": 10,
       "gf": 16,
-      "ga": 17,
+      "ga": 20,
       "w": 3,
       "d": 2,
-      "l": 4,
+      "l": 5,
       "pts": 11
     },
     {
@@ -162,6 +162,16 @@
       "pts": 8
     },
     {
+      "team": "Parma Calcio 1913",
+      "pj": 11,
+      "gf": 8,
+      "ga": 16,
+      "w": 2,
+      "d": 2,
+      "l": 7,
+      "pts": 8
+    },
+    {
       "team": "Sassuolo",
       "pj": 10,
       "gf": 16,
@@ -180,16 +190,6 @@
       "d": 1,
       "l": 7,
       "pts": 7
-    },
-    {
-      "team": "Parma Calcio 1913",
-      "pj": 10,
-      "gf": 5,
-      "ga": 16,
-      "w": 1,
-      "d": 2,
-      "l": 7,
-      "pts": 5
     },
     {
       "team": "Udinese",
@@ -1207,6 +1207,14 @@
       "away": "Fiorentina",
       "hg": 2,
       "ag": 4,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Atalanta",
+      "away": "Parma Calcio 1913",
+      "hg": 0,
+      "ag": 3,
       "matchday": 10
     }
   ],
