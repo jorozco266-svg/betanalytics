@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-10-25T00:45:24.692037+00:00",
+    "last_updated": "2026-11-03T18:16:32.267638+00:00",
     "avg_goals": 1.45,
     "total_matches": 243,
     "total_goals": 883,
@@ -2546,20 +2546,6 @@
       "time": "03:00 PM",
       "home": "LASK Linz",
       "away": "ŠK Slovan Bratislava",
-      "matchday": 4
-    },
-    {
-      "date": "2026-11-03",
-      "time": "12:45 PM",
-      "home": "FK Shakhtar Donetsk",
-      "away": "Sporting Clube de Portugal",
-      "matchday": 4
-    },
-    {
-      "date": "2026-11-03",
-      "time": "12:45 PM",
-      "home": "Galatasaray SK",
-      "away": "VfB Stuttgart",
       "matchday": 4
     },
     {
