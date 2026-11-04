@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-04T02:52:10.283036+00:00",
+    "last_updated": "2026-11-04T18:30:41.647665+00:00",
     "avg_goals": 1.45,
     "total_matches": 252,
     "total_goals": 909,
@@ -2618,20 +2618,6 @@
       "time": "03:00 PM",
       "home": "Viking FK",
       "away": "Sabah FK",
-      "matchday": 4
-    },
-    {
-      "date": "2026-11-04",
-      "time": "12:45 PM",
-      "home": "PAE AEK",
-      "away": "Real Madrid CF",
-      "matchday": 4
-    },
-    {
-      "date": "2026-11-04",
-      "time": "12:45 PM",
-      "home": "Fenerbahçe SK",
-      "away": "Liverpool FC",
       "matchday": 4
     }
   ]
