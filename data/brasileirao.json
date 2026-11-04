@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-03T03:49:13.720279+00:00",
+    "last_updated": "2026-11-04T02:52:04.435996+00:00",
     "avg_goals": 1.35,
-    "total_matches": 330,
-    "total_goals": 878,
-    "avg_real": 1.33
+    "total_matches": 332,
+    "total_goals": 882,
+    "avg_real": 1.328
   },
   "standings": [
     {
@@ -114,12 +114,22 @@
     {
       "team": "Coritiba",
       "gf": 40,
-      "ga": 50,
-      "pj": 33,
+      "ga": 51,
+      "pj": 34,
       "pts": 42,
       "w": 11,
       "d": 9,
-      "l": 13
+      "l": 14
+    },
+    {
+      "team": "Mirassol",
+      "gf": 39,
+      "ga": 48,
+      "pj": 34,
+      "pts": 40,
+      "w": 10,
+      "d": 10,
+      "l": 14
     },
     {
       "team": "Botafogo",
@@ -152,19 +162,19 @@
       "l": 15
     },
     {
-      "team": "Grêmio",
-      "gf": 37,
-      "ga": 44,
-      "pj": 33,
-      "pts": 37,
+      "team": "Internacional",
+      "gf": 38,
+      "ga": 42,
+      "pj": 34,
+      "pts": 38,
       "w": 9,
-      "d": 10,
+      "d": 11,
       "l": 14
     },
     {
-      "team": "Mirassol",
+      "team": "Grêmio",
       "gf": 37,
-      "ga": 47,
+      "ga": 44,
       "pj": 33,
       "pts": 37,
       "w": 9,
@@ -182,16 +192,6 @@
       "l": 15
     },
     {
-      "team": "Internacional",
-      "gf": 37,
-      "ga": 42,
-      "pj": 33,
-      "pts": 35,
-      "w": 8,
-      "d": 11,
-      "l": 14
-    },
-    {
       "team": "Remo",
       "gf": 36,
       "ga": 51,
@@ -203,13 +203,13 @@
     },
     {
       "team": "Chapecoense",
-      "gf": 32,
-      "ga": 66,
-      "pj": 32,
+      "gf": 33,
+      "ga": 68,
+      "pj": 33,
       "pts": 21,
       "w": 4,
       "d": 9,
-      "l": 19
+      "l": 20
     }
   ],
   "results": [
