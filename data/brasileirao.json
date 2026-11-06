@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-05T03:03:57.106997+00:00",
+    "last_updated": "2026-11-06T03:03:46.341851+00:00",
     "avg_goals": 1.35,
-    "total_matches": 336,
-    "total_goals": 891,
-    "avg_real": 1.326
+    "total_matches": 338,
+    "total_goals": 903,
+    "avg_real": 1.336
   },
   "standings": [
     {
@@ -23,21 +23,21 @@
     },
     {
       "team": "Palmeiras",
-      "gf": 56,
-      "ga": 22,
-      "pj": 33,
-      "pts": 70,
-      "w": 20,
+      "gf": 62,
+      "ga": 23,
+      "pj": 34,
+      "pts": 73,
+      "w": 21,
       "d": 10,
       "l": 3
     },
     {
       "team": "Cruzeiro",
-      "gf": 52,
-      "ga": 46,
-      "pj": 33,
-      "pts": 57,
-      "w": 17,
+      "gf": 55,
+      "ga": 48,
+      "pj": 34,
+      "pts": 60,
+      "w": 18,
       "d": 6,
       "l": 10
     },
@@ -63,13 +63,13 @@
     },
     {
       "team": "Bahia",
-      "gf": 48,
-      "ga": 42,
-      "pj": 33,
+      "gf": 50,
+      "ga": 45,
+      "pj": 34,
       "pts": 53,
       "w": 14,
       "d": 11,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Atlético Mineiro",
@@ -193,13 +193,13 @@
     },
     {
       "team": "Remo",
-      "gf": 36,
-      "ga": 51,
-      "pj": 33,
+      "gf": 37,
+      "ga": 57,
+      "pj": 34,
       "pts": 29,
       "w": 6,
       "d": 11,
-      "l": 16
+      "l": 17
     },
     {
       "team": "Chapecoense",

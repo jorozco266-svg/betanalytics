@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-03T03:49:13.104600+00:00",
+    "last_updated": "2026-11-06T03:03:45.955214+00:00",
     "avg_goals": 1.03,
-    "total_matches": 465,
-    "total_goals": 1011,
-    "avg_real": 1.087
+    "total_matches": 467,
+    "total_goals": 1016,
+    "avg_real": 1.088
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "l": 6
     },
     {
+      "team": "Gimnasia y Esgrima (LP)",
+      "gf": 44,
+      "ga": 39,
+      "pj": 32,
+      "pts": 57,
+      "w": 17,
+      "d": 6,
+      "l": 9
+    },
+    {
       "team": "Vélez Sarsfield",
       "gf": 43,
       "ga": 27,
@@ -62,6 +72,16 @@
       "l": 7
     },
     {
+      "team": "River Plate",
+      "gf": 43,
+      "ga": 26,
+      "pj": 32,
+      "pts": 55,
+      "w": 17,
+      "d": 4,
+      "l": 11
+    },
+    {
       "team": "Instituto",
       "gf": 41,
       "ga": 30,
@@ -70,26 +90,6 @@
       "w": 16,
       "d": 6,
       "l": 9
-    },
-    {
-      "team": "Gimnasia y Esgrima (LP)",
-      "gf": 42,
-      "ga": 38,
-      "pj": 31,
-      "pts": 54,
-      "w": 16,
-      "d": 6,
-      "l": 9
-    },
-    {
-      "team": "River Plate",
-      "gf": 41,
-      "ga": 26,
-      "pj": 31,
-      "pts": 52,
-      "w": 16,
-      "d": 4,
-      "l": 11
     },
     {
       "team": "Lanús",
@@ -103,13 +103,13 @@
     },
     {
       "team": "Belgrano",
-      "gf": 33,
-      "ga": 26,
-      "pj": 31,
+      "gf": 34,
+      "ga": 28,
+      "pj": 32,
       "pts": 49,
       "w": 13,
       "d": 10,
-      "l": 8
+      "l": 9
     },
     {
       "team": "Defensa y Justicia",
@@ -294,12 +294,12 @@
     {
       "team": "Aldosivi",
       "gf": 22,
-      "ga": 43,
-      "pj": 31,
+      "ga": 45,
+      "pj": 32,
       "pts": 19,
       "w": 3,
       "d": 10,
-      "l": 18
+      "l": 19
     },
     {
       "team": "Estudiantes (RC)",
