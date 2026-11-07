@@ -4,10 +4,10 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-06T03:03:46.341851+00:00",
+    "last_updated": "2026-11-07T02:30:26.776096+00:00",
     "avg_goals": 1.35,
-    "total_matches": 338,
-    "total_goals": 903,
+    "total_matches": 339,
+    "total_goals": 906,
     "avg_real": 1.336
   },
   "standings": [
@@ -43,11 +43,11 @@
     },
     {
       "team": "Fluminense",
-      "gf": 52,
+      "gf": 55,
       "ga": 42,
-      "pj": 33,
-      "pts": 54,
-      "w": 15,
+      "pj": 34,
+      "pts": 57,
+      "w": 16,
       "d": 9,
       "l": 9
     },
@@ -154,12 +154,12 @@
     {
       "team": "Vitória",
       "gf": 35,
-      "ga": 48,
-      "pj": 33,
+      "ga": 51,
+      "pj": 34,
       "pts": 38,
       "w": 10,
       "d": 8,
-      "l": 15
+      "l": 16
     },
     {
       "team": "Internacional",

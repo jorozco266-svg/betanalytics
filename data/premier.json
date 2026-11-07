@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-03T03:49:15.226743+00:00",
+    "last_updated": "2026-11-07T02:30:28.213014+00:00",
     "avg_goals": 1.4,
-    "total_matches": 92,
-    "total_goals": 248,
-    "avg_real": 1.348
+    "total_matches": 93,
+    "total_goals": 252,
+    "avg_real": 1.355
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "pts": 16
     },
     {
+      "team": "Everton",
+      "pj": 10,
+      "gf": 12,
+      "ga": 10,
+      "w": 4,
+      "d": 4,
+      "l": 2,
+      "pts": 16
+    },
+    {
       "team": "Liverpool",
       "pj": 9,
       "gf": 11,
@@ -70,16 +80,6 @@
       "d": 5,
       "l": 1,
       "pts": 14
-    },
-    {
-      "team": "Everton",
-      "pj": 9,
-      "gf": 9,
-      "ga": 9,
-      "w": 3,
-      "d": 4,
-      "l": 2,
-      "pts": 13
     },
     {
       "team": "Bournemouth",
@@ -163,12 +163,12 @@
     },
     {
       "team": "Coventry City",
-      "pj": 9,
-      "gf": 9,
-      "ga": 16,
+      "pj": 10,
+      "gf": 10,
+      "ga": 19,
       "w": 3,
       "d": 0,
-      "l": 6,
+      "l": 7,
       "pts": 9
     },
     {
@@ -968,16 +968,17 @@
       "hg": 0,
       "ag": 1,
       "matchday": 9
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Everton",
+      "away": "Coventry City",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 10
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-06",
-      "time": "03:00 PM",
-      "home": "Everton",
-      "away": "Coventry City",
-      "matchday": 10
-    },
     {
       "date": "2026-11-07",
       "time": "07:30 AM",

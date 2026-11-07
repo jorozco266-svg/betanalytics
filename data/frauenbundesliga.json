@@ -4,52 +4,52 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-10-30T02:22:23.881572+00:00",
+    "last_updated": "2026-11-07T02:30:36.276774+00:00",
     "avg_goals": 1.72,
-    "total_matches": 56,
-    "total_goals": 201,
-    "avg_real": 1.795
+    "total_matches": 58,
+    "total_goals": 209,
+    "avg_real": 1.802
   },
   "standings": [
     {
       "team": "Bayern Munich",
-      "gf": 29,
-      "ga": 7,
-      "pj": 8,
-      "pts": 24,
-      "w": 8,
+      "gf": 32,
+      "ga": 8,
+      "pj": 9,
+      "pts": 27,
+      "w": 9,
       "d": 0,
       "l": 0
     },
     {
       "team": "VfL Wolfsburg",
-      "gf": 26,
-      "ga": 8,
-      "pj": 8,
-      "pts": 21,
-      "w": 7,
+      "gf": 29,
+      "ga": 9,
+      "pj": 9,
+      "pts": 24,
+      "w": 8,
       "d": 0,
       "l": 1
     },
     {
       "team": "Eintracht Frankfurt",
-      "gf": 15,
-      "ga": 7,
-      "pj": 8,
+      "gf": 16,
+      "ga": 10,
+      "pj": 9,
       "pts": 17,
       "w": 5,
       "d": 2,
-      "l": 1
+      "l": 2
     },
     {
       "team": "Werder Bremen",
-      "gf": 17,
-      "ga": 11,
-      "pj": 8,
+      "gf": 18,
+      "ga": 14,
+      "pj": 9,
       "pts": 16,
       "w": 5,
       "d": 1,
-      "l": 2
+      "l": 3
     },
     {
       "team": "Bayer Leverkusen",
