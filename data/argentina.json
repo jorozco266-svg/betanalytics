@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-07T02:30:26.011131+00:00",
+    "last_updated": "2026-11-07T16:46:12.260817+00:00",
     "avg_goals": 1.03,
-    "total_matches": 471,
-    "total_goals": 1025,
-    "avg_real": 1.088
+    "total_matches": 473,
+    "total_goals": 1030,
+    "avg_real": 1.089
   },
   "standings": [
     {
@@ -182,16 +182,6 @@
       "l": 11
     },
     {
-      "team": "Sarmiento (J)",
-      "gf": 36,
-      "ga": 43,
-      "pj": 31,
-      "pts": 40,
-      "w": 12,
-      "d": 4,
-      "l": 15
-    },
-    {
       "team": "Gimnasia y Esgrima (M)",
       "gf": 31,
       "ga": 38,
@@ -200,6 +190,26 @@
       "w": 11,
       "d": 7,
       "l": 13
+    },
+    {
+      "team": "Sarmiento (J)",
+      "gf": 36,
+      "ga": 44,
+      "pj": 32,
+      "pts": 40,
+      "w": 12,
+      "d": 4,
+      "l": 16
+    },
+    {
+      "team": "Tigre",
+      "gf": 34,
+      "ga": 31,
+      "pj": 32,
+      "pts": 39,
+      "w": 9,
+      "d": 12,
+      "l": 11
     },
     {
       "team": "Talleres",
@@ -220,16 +230,6 @@
       "w": 8,
       "d": 13,
       "l": 10
-    },
-    {
-      "team": "Tigre",
-      "gf": 33,
-      "ga": 31,
-      "pj": 31,
-      "pts": 36,
-      "w": 8,
-      "d": 12,
-      "l": 11
     },
     {
       "team": "Racing",
@@ -253,22 +253,22 @@
     },
     {
       "team": "Banfield",
-      "gf": 33,
-      "ga": 42,
-      "pj": 31,
-      "pts": 32,
+      "gf": 35,
+      "ga": 44,
+      "pj": 32,
+      "pts": 33,
       "w": 8,
-      "d": 8,
+      "d": 9,
       "l": 15
     },
     {
       "team": "Atlético Tucumán",
-      "gf": 29,
-      "ga": 35,
-      "pj": 31,
-      "pts": 31,
+      "gf": 31,
+      "ga": 37,
+      "pj": 32,
+      "pts": 32,
       "w": 7,
-      "d": 10,
+      "d": 11,
       "l": 14
     },
     {

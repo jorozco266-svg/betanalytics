@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-07T02:30:29.605248+00:00",
+    "last_updated": "2026-11-07T16:46:15.603594+00:00",
     "avg_goals": 1.3,
-    "total_matches": 109,
-    "total_goals": 340,
-    "avg_real": 1.56
+    "total_matches": 111,
+    "total_goals": 343,
+    "avg_real": 1.545
   },
   "standings": [
     {
@@ -63,12 +63,12 @@
     },
     {
       "team": "Frosinone",
-      "pj": 10,
+      "pj": 11,
       "gf": 24,
-      "ga": 14,
+      "ga": 15,
       "w": 6,
       "d": 2,
-      "l": 2,
+      "l": 3,
       "pts": 20
     },
     {
@@ -80,6 +80,16 @@
       "d": 2,
       "l": 3,
       "pts": 17
+    },
+    {
+      "team": "Cagliari",
+      "pj": 11,
+      "gf": 10,
+      "ga": 15,
+      "w": 5,
+      "d": 1,
+      "l": 5,
+      "pts": 16
     },
     {
       "team": "Napoli",
@@ -103,29 +113,19 @@
     },
     {
       "team": "Torino",
-      "pj": 10,
-      "gf": 14,
-      "ga": 16,
+      "pj": 11,
+      "gf": 15,
+      "ga": 17,
       "w": 4,
-      "d": 1,
+      "d": 2,
       "l": 5,
-      "pts": 13
+      "pts": 14
     },
     {
       "team": "Genoa",
       "pj": 10,
       "gf": 10,
       "ga": 14,
-      "w": 4,
-      "d": 1,
-      "l": 5,
-      "pts": 13
-    },
-    {
-      "team": "Cagliari",
-      "pj": 10,
-      "gf": 9,
-      "ga": 15,
       "w": 4,
       "d": 1,
       "l": 5,
@@ -143,13 +143,13 @@
     },
     {
       "team": "Lecce",
-      "pj": 10,
-      "gf": 11,
-      "ga": 21,
+      "pj": 11,
+      "gf": 12,
+      "ga": 22,
       "w": 3,
-      "d": 0,
+      "d": 1,
       "l": 7,
-      "pts": 9
+      "pts": 10
     },
     {
       "team": "Fiorentina",
@@ -1224,6 +1224,22 @@
       "hg": 2,
       "ag": 1,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Torino",
+      "away": "Lecce",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Cagliari",
+      "away": "Frosinone",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 11
     }
   ],
   "fixtures": [
@@ -1232,20 +1248,6 @@
       "time": "02:45 PM",
       "home": "Roma",
       "away": "Sassuolo",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-07",
-      "time": "09:00 AM",
-      "home": "Torino",
-      "away": "Lecce",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-07",
-      "time": "09:00 AM",
-      "home": "Cagliari",
-      "away": "Frosinone",
       "matchday": 11
     },
     {

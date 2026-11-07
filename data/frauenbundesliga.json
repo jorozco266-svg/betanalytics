@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-07T02:30:36.276774+00:00",
+    "last_updated": "2026-11-07T16:46:23.620623+00:00",
     "avg_goals": 1.72,
-    "total_matches": 58,
-    "total_goals": 209,
-    "avg_real": 1.802
+    "total_matches": 60,
+    "total_goals": 215,
+    "avg_real": 1.792
   },
   "standings": [
     {
@@ -53,11 +53,11 @@
     },
     {
       "team": "Bayer Leverkusen",
-      "gf": 13,
+      "gf": 15,
       "ga": 12,
-      "pj": 8,
-      "pts": 13,
-      "w": 4,
+      "pj": 9,
+      "pts": 16,
+      "w": 5,
       "d": 1,
       "l": 3
     },
@@ -94,12 +94,12 @@
     {
       "team": "SC Freiburg",
       "gf": 11,
-      "ga": 14,
-      "pj": 8,
+      "ga": 18,
+      "pj": 9,
       "pts": 10,
       "w": 3,
       "d": 1,
-      "l": 4
+      "l": 5
     },
     {
       "team": "TSG Hoffenheim",
@@ -109,6 +109,16 @@
       "pts": 9,
       "w": 3,
       "d": 0,
+      "l": 5
+    },
+    {
+      "team": "1. FC Nürnberg",
+      "gf": 16,
+      "ga": 23,
+      "pj": 9,
+      "pts": 8,
+      "w": 2,
+      "d": 2,
       "l": 5
     },
     {
@@ -124,21 +134,11 @@
     {
       "team": "Hamburger SV",
       "gf": 14,
-      "ga": 15,
-      "pj": 8,
+      "ga": 17,
+      "pj": 9,
       "pts": 6,
       "w": 1,
       "d": 3,
-      "l": 4
-    },
-    {
-      "team": "1. FC Nürnberg",
-      "gf": 12,
-      "ga": 23,
-      "pj": 8,
-      "pts": 5,
-      "w": 1,
-      "d": 2,
       "l": 5
     },
     {

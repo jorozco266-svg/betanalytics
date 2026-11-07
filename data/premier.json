@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-07T02:30:28.213014+00:00",
+    "last_updated": "2026-11-07T16:46:14.263009+00:00",
     "avg_goals": 1.4,
-    "total_matches": 93,
-    "total_goals": 252,
-    "avg_real": 1.355
+    "total_matches": 94,
+    "total_goals": 253,
+    "avg_real": 1.346
   },
   "standings": [
     {
@@ -82,6 +82,16 @@
       "pts": 14
     },
     {
+      "team": "Leeds United",
+      "pj": 10,
+      "gf": 10,
+      "ga": 8,
+      "w": 3,
+      "d": 5,
+      "l": 2,
+      "pts": 14
+    },
+    {
       "team": "Bournemouth",
       "pj": 9,
       "gf": 14,
@@ -93,12 +103,12 @@
     },
     {
       "team": "Tottenham",
-      "pj": 9,
+      "pj": 10,
       "gf": 10,
-      "ga": 10,
+      "ga": 11,
       "w": 3,
       "d": 3,
-      "l": 3,
+      "l": 4,
       "pts": 12
     },
     {
@@ -116,16 +126,6 @@
       "pj": 9,
       "gf": 11,
       "ga": 10,
-      "w": 2,
-      "d": 5,
-      "l": 2,
-      "pts": 11
-    },
-    {
-      "team": "Leeds United",
-      "pj": 9,
-      "gf": 9,
-      "ga": 8,
       "w": 2,
       "d": 5,
       "l": 2,
@@ -976,30 +976,17 @@
       "hg": 3,
       "ag": 1,
       "matchday": 10
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Leeds United",
+      "away": "Tottenham",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 10
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-07",
-      "time": "07:30 AM",
-      "home": "Leeds United",
-      "away": "Tottenham",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-07",
-      "time": "10:00 AM",
-      "home": "Arsenal",
-      "away": "Hull City",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-07",
-      "time": "10:00 AM",
-      "home": "Fulham",
-      "away": "Newcastle",
-      "matchday": 10
-    },
     {
       "date": "2026-11-07",
       "time": "12:30 PM",
