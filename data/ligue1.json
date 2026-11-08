@@ -4,32 +4,32 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-07T02:30:30.947774+00:00",
+    "last_updated": "2026-11-08T02:00:09.231770+00:00",
     "avg_goals": 1.35,
-    "total_matches": 92,
-    "total_goals": 278,
-    "avg_real": 1.511
+    "total_matches": 94,
+    "total_goals": 280,
+    "avg_real": 1.489
   },
   "standings": [
     {
       "team": "Paris Saint-Germain",
-      "pj": 9,
-      "gf": 21,
+      "pj": 10,
+      "gf": 22,
       "ga": 10,
-      "w": 6,
+      "w": 7,
       "d": 2,
       "l": 1,
-      "pts": 20
+      "pts": 23
     },
     {
       "team": "Paris FC",
-      "pj": 10,
-      "gf": 16,
+      "pj": 11,
+      "gf": 17,
       "ga": 10,
-      "w": 5,
+      "w": 6,
       "d": 3,
       "l": 2,
-      "pts": 18
+      "pts": 21
     },
     {
       "team": "Lille",
@@ -143,12 +143,12 @@
     },
     {
       "team": "Auxerre",
-      "pj": 9,
+      "pj": 10,
       "gf": 13,
-      "ga": 23,
+      "ga": 24,
       "w": 3,
       "d": 1,
-      "l": 5,
+      "l": 6,
       "pts": 10
     },
     {
@@ -163,12 +163,12 @@
     },
     {
       "team": "Troyes",
-      "pj": 9,
+      "pj": 10,
       "gf": 7,
-      "ga": 16,
+      "ga": 17,
       "w": 2,
       "d": 2,
-      "l": 5,
+      "l": 6,
       "pts": 8
     },
     {
@@ -1098,23 +1098,25 @@
       "hg": 3,
       "ag": 1,
       "matchday": 10
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Auxerre",
+      "away": "Paris FC",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Paris Saint-Germain",
+      "away": "Troyes",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 10
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-07",
-      "time": "01:00 PM",
-      "home": "Auxerre",
-      "away": "Paris FC",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-07",
-      "time": "03:05 PM",
-      "home": "Paris Saint-Germain",
-      "away": "Troyes",
-      "matchday": 10
-    },
     {
       "date": "2026-11-08",
       "time": "02:45 PM",
