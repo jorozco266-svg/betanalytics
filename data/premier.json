@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-08T02:00:03.937180+00:00",
+    "last_updated": "2026-11-08T16:56:45.102865+00:00",
     "avg_goals": 1.4,
-    "total_matches": 97,
-    "total_goals": 260,
-    "avg_real": 1.34
+    "total_matches": 101,
+    "total_goals": 270,
+    "avg_real": 1.337
   },
   "standings": [
     {
@@ -22,6 +22,16 @@
       "pts": 27
     },
     {
+      "team": "Brighton",
+      "pj": 10,
+      "gf": 26,
+      "ga": 7,
+      "w": 7,
+      "d": 1,
+      "l": 2,
+      "pts": 22
+    },
+    {
       "team": "Manchester City",
       "pj": 10,
       "gf": 21,
@@ -32,23 +42,23 @@
       "pts": 21
     },
     {
-      "team": "Brighton",
-      "pj": 9,
-      "gf": 24,
-      "ga": 7,
-      "w": 6,
-      "d": 1,
+      "team": "Liverpool",
+      "pj": 10,
+      "gf": 14,
+      "ga": 10,
+      "w": 5,
+      "d": 3,
       "l": 2,
-      "pts": 19
+      "pts": 18
     },
     {
       "team": "Chelsea",
-      "pj": 9,
+      "pj": 10,
       "gf": 19,
-      "ga": 15,
+      "ga": 16,
       "w": 5,
       "d": 1,
-      "l": 3,
+      "l": 4,
       "pts": 16
     },
     {
@@ -62,23 +72,23 @@
       "pts": 16
     },
     {
-      "team": "Liverpool",
-      "pj": 9,
-      "gf": 11,
-      "ga": 9,
+      "team": "Bournemouth",
+      "pj": 10,
+      "gf": 16,
+      "ga": 14,
       "w": 4,
       "d": 3,
-      "l": 2,
+      "l": 3,
       "pts": 15
     },
     {
       "team": "Brentford",
-      "pj": 9,
+      "pj": 10,
       "gf": 16,
-      "ga": 9,
+      "ga": 11,
       "w": 3,
       "d": 5,
-      "l": 1,
+      "l": 2,
       "pts": 14
     },
     {
@@ -90,16 +100,6 @@
       "d": 5,
       "l": 2,
       "pts": 14
-    },
-    {
-      "team": "Bournemouth",
-      "pj": 9,
-      "gf": 14,
-      "ga": 13,
-      "w": 3,
-      "d": 3,
-      "l": 3,
-      "pts": 12
     },
     {
       "team": "Tottenham",
@@ -143,12 +143,12 @@
     },
     {
       "team": "Ipswich Town",
-      "pj": 9,
-      "gf": 14,
-      "ga": 18,
+      "pj": 10,
+      "gf": 15,
+      "ga": 20,
       "w": 3,
       "d": 2,
-      "l": 4,
+      "l": 5,
       "pts": 11
     },
     {
@@ -182,6 +182,16 @@
       "pts": 9
     },
     {
+      "team": "Sunderland",
+      "pj": 10,
+      "gf": 8,
+      "ga": 17,
+      "w": 2,
+      "d": 2,
+      "l": 6,
+      "pts": 8
+    },
+    {
       "team": "Manchester United",
       "pj": 9,
       "gf": 10,
@@ -193,23 +203,13 @@
     },
     {
       "team": "Crystal Palace",
-      "pj": 9,
-      "gf": 9,
-      "ga": 21,
+      "pj": 10,
+      "gf": 10,
+      "ga": 24,
       "w": 2,
       "d": 1,
-      "l": 6,
+      "l": 7,
       "pts": 7
-    },
-    {
-      "team": "Sunderland",
-      "pj": 9,
-      "gf": 7,
-      "ga": 17,
-      "w": 1,
-      "d": 2,
-      "l": 6,
-      "pts": 5
     },
     {
       "team": "Brighton & Hove Albion FC",
@@ -1007,6 +1007,38 @@
       "away": "Manchester City",
       "hg": 3,
       "ag": 1,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Crystal Palace",
+      "away": "Liverpool",
+      "hg": 1,
+      "ag": 3,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Ipswich Town",
+      "away": "Bournemouth",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Brighton",
+      "away": "Brentford",
+      "hg": 2,
+      "ag": 0,
       "matchday": 10
     }
   ],

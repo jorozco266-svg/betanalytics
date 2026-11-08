@@ -4,10 +4,10 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-08T02:00:09.231770+00:00",
+    "last_updated": "2026-11-08T16:56:48.230040+00:00",
     "avg_goals": 1.35,
-    "total_matches": 94,
-    "total_goals": 280,
+    "total_matches": 95,
+    "total_goals": 283,
     "avg_real": 1.489
   },
   "standings": [
@@ -33,13 +33,13 @@
     },
     {
       "team": "Lille",
-      "pj": 9,
-      "gf": 12,
-      "ga": 6,
-      "w": 5,
+      "pj": 10,
+      "gf": 14,
+      "ga": 7,
+      "w": 6,
       "d": 3,
       "l": 1,
-      "pts": 18
+      "pts": 21
     },
     {
       "team": "Lyon",
@@ -53,12 +53,12 @@
     },
     {
       "team": "Rennes",
-      "pj": 9,
-      "gf": 20,
-      "ga": 19,
+      "pj": 10,
+      "gf": 21,
+      "ga": 21,
       "w": 5,
       "d": 1,
-      "l": 3,
+      "l": 4,
       "pts": 16
     },
     {
@@ -1114,6 +1114,14 @@
       "hg": 1,
       "ag": 0,
       "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Rennes",
+      "away": "Lille",
+      "hg": 1,
+      "ag": 2,
+      "matchday": 10
     }
   ],
   "fixtures": [
@@ -1122,41 +1130,6 @@
       "time": "02:45 PM",
       "home": "Lens",
       "away": "Marseille",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "09:00 AM",
-      "home": "Rennes",
-      "away": "Lille",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "11:15 AM",
-      "home": "Le Mans",
-      "away": "Monaco",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "11:15 AM",
-      "home": "Brest",
-      "away": "Lyon",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "11:15 AM",
-      "home": "Le Havre",
-      "away": "Lorient",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "11:15 AM",
-      "home": "Angers",
-      "away": "Nice",
       "matchday": 10
     }
   ],

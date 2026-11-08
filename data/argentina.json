@@ -4,11 +4,11 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-08T02:00:00.263352+00:00",
+    "last_updated": "2026-11-08T16:56:43.047243+00:00",
     "avg_goals": 1.03,
-    "total_matches": 478,
-    "total_goals": 1039,
-    "avg_real": 1.087
+    "total_matches": 479,
+    "total_goals": 1043,
+    "avg_real": 1.089
   },
   "standings": [
     {
@@ -83,12 +83,12 @@
     },
     {
       "team": "Instituto",
-      "gf": 41,
-      "ga": 30,
-      "pj": 31,
-      "pts": 54,
+      "gf": 43,
+      "ga": 32,
+      "pj": 32,
+      "pts": 55,
       "w": 16,
-      "d": 6,
+      "d": 7,
       "l": 9
     },
     {
@@ -223,12 +223,12 @@
     },
     {
       "team": "Newell's Old Boys",
-      "gf": 29,
-      "ga": 38,
-      "pj": 31,
-      "pts": 37,
+      "gf": 31,
+      "ga": 40,
+      "pj": 32,
+      "pts": 38,
       "w": 8,
-      "d": 13,
+      "d": 14,
       "l": 10
     },
     {
