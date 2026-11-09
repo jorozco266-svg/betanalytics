@@ -4,10 +4,10 @@
     "league_key": "argentina",
     "season": "2026",
     "source": "wikipedia",
-    "last_updated": "2026-11-08T16:56:43.047243+00:00",
+    "last_updated": "2026-11-09T02:19:34.432349+00:00",
     "avg_goals": 1.03,
-    "total_matches": 479,
-    "total_goals": 1043,
+    "total_matches": 480,
+    "total_goals": 1045,
     "avg_real": 1.089
   },
   "standings": [
@@ -93,12 +93,12 @@
     },
     {
       "team": "Lanús",
-      "gf": 36,
-      "ga": 26,
-      "pj": 31,
-      "pts": 49,
+      "gf": 37,
+      "ga": 27,
+      "pj": 32,
+      "pts": 50,
       "w": 13,
-      "d": 10,
+      "d": 11,
       "l": 8
     },
     {
@@ -273,12 +273,12 @@
     },
     {
       "team": "Central Córdoba (SdE)",
-      "gf": 22,
-      "ga": 46,
-      "pj": 31,
-      "pts": 26,
+      "gf": 23,
+      "ga": 47,
+      "pj": 32,
+      "pts": 27,
       "w": 6,
-      "d": 8,
+      "d": 9,
       "l": 17
     },
     {

@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-08T16:56:48.230040+00:00",
+    "last_updated": "2026-11-09T02:19:38.996436+00:00",
     "avg_goals": 1.35,
-    "total_matches": 95,
-    "total_goals": 283,
-    "avg_real": 1.489
+    "total_matches": 100,
+    "total_goals": 294,
+    "avg_real": 1.47
   },
   "standings": [
     {
@@ -42,14 +42,44 @@
       "pts": 21
     },
     {
+      "team": "Marseille",
+      "pj": 10,
+      "gf": 22,
+      "ga": 14,
+      "w": 6,
+      "d": 0,
+      "l": 4,
+      "pts": 18
+    },
+    {
       "team": "Lyon",
-      "pj": 9,
+      "pj": 10,
       "gf": 15,
-      "ga": 7,
+      "ga": 9,
       "w": 5,
       "d": 2,
-      "l": 2,
+      "l": 3,
       "pts": 17
+    },
+    {
+      "team": "Nice",
+      "pj": 10,
+      "gf": 15,
+      "ga": 12,
+      "w": 5,
+      "d": 2,
+      "l": 3,
+      "pts": 17
+    },
+    {
+      "team": "Monaco",
+      "pj": 10,
+      "gf": 13,
+      "ga": 11,
+      "w": 4,
+      "d": 4,
+      "l": 2,
+      "pts": 16
     },
     {
       "team": "Rennes",
@@ -62,43 +92,33 @@
       "pts": 16
     },
     {
-      "team": "Marseille",
-      "pj": 9,
-      "gf": 20,
-      "ga": 13,
-      "w": 5,
-      "d": 0,
-      "l": 4,
-      "pts": 15
-    },
-    {
-      "team": "Monaco",
-      "pj": 9,
-      "gf": 12,
-      "ga": 10,
-      "w": 4,
-      "d": 3,
-      "l": 2,
-      "pts": 15
-    },
-    {
-      "team": "Nice",
-      "pj": 9,
-      "gf": 13,
+      "team": "Brest",
+      "pj": 10,
+      "gf": 18,
       "ga": 12,
       "w": 4,
-      "d": 2,
+      "d": 3,
       "l": 3,
-      "pts": 14
+      "pts": 15
+    },
+    {
+      "team": "Lorient",
+      "pj": 10,
+      "gf": 9,
+      "ga": 8,
+      "w": 4,
+      "d": 3,
+      "l": 3,
+      "pts": 15
     },
     {
       "team": "Lens",
-      "pj": 9,
-      "gf": 16,
-      "ga": 13,
+      "pj": 10,
+      "gf": 17,
+      "ga": 15,
       "w": 4,
       "d": 1,
-      "l": 4,
+      "l": 5,
       "pts": 13
     },
     {
@@ -110,26 +130,6 @@
       "d": 4,
       "l": 3,
       "pts": 13
-    },
-    {
-      "team": "Brest",
-      "pj": 9,
-      "gf": 16,
-      "ga": 12,
-      "w": 3,
-      "d": 3,
-      "l": 3,
-      "pts": 12
-    },
-    {
-      "team": "Lorient",
-      "pj": 9,
-      "gf": 7,
-      "ga": 8,
-      "w": 3,
-      "d": 3,
-      "l": 3,
-      "pts": 12
     },
     {
       "team": "Strasbourg",
@@ -152,13 +152,23 @@
       "pts": 10
     },
     {
+      "team": "Le Mans",
+      "pj": 10,
+      "gf": 12,
+      "ga": 19,
+      "w": 1,
+      "d": 5,
+      "l": 4,
+      "pts": 8
+    },
+    {
       "team": "Angers",
-      "pj": 9,
+      "pj": 10,
       "gf": 9,
-      "ga": 17,
+      "ga": 19,
       "w": 2,
       "d": 2,
-      "l": 5,
+      "l": 6,
       "pts": 8
     },
     {
@@ -170,16 +180,6 @@
       "d": 2,
       "l": 6,
       "pts": 8
-    },
-    {
-      "team": "Le Mans",
-      "pj": 9,
-      "gf": 11,
-      "ga": 18,
-      "w": 1,
-      "d": 4,
-      "l": 4,
-      "pts": 7
     },
     {
       "team": "Olympique de Marseille",
@@ -253,12 +253,12 @@
     },
     {
       "team": "Le Havre",
-      "pj": 9,
+      "pj": 10,
       "gf": 9,
-      "ga": 20,
+      "ga": 22,
       "w": 0,
       "d": 2,
-      "l": 7,
+      "l": 8,
       "pts": 2
     },
     {
@@ -1122,17 +1122,49 @@
       "hg": 1,
       "ag": 2,
       "matchday": 10
-    }
-  ],
-  "fixtures": [
+    },
     {
       "date": "2026-11-08",
-      "time": "02:45 PM",
+      "home": "Le Mans",
+      "away": "Monaco",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Brest",
+      "away": "Lyon",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Le Havre",
+      "away": "Lorient",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Angers",
+      "away": "Nice",
+      "hg": 0,
+      "ag": 2,
+      "matchday": 10
+    },
+    {
+      "date": "2026-11-08",
       "home": "Lens",
       "away": "Marseille",
+      "hg": 1,
+      "ag": 2,
       "matchday": 10
     }
   ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,

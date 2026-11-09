@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-08T16:56:45.102865+00:00",
+    "last_updated": "2026-11-09T02:19:36.290007+00:00",
     "avg_goals": 1.4,
-    "total_matches": 101,
-    "total_goals": 270,
-    "avg_real": 1.337
+    "total_matches": 102,
+    "total_goals": 278,
+    "avg_real": 1.363
   },
   "standings": [
     {
@@ -102,6 +102,16 @@
       "pts": 14
     },
     {
+      "team": "Aston Villa",
+      "pj": 11,
+      "gf": 14,
+      "ga": 21,
+      "w": 3,
+      "d": 4,
+      "l": 4,
+      "pts": 13
+    },
+    {
       "team": "Tottenham",
       "pj": 10,
       "gf": 10,
@@ -116,16 +126,6 @@
       "pj": 10,
       "gf": 13,
       "ga": 16,
-      "w": 3,
-      "d": 3,
-      "l": 4,
-      "pts": 12
-    },
-    {
-      "team": "Aston Villa",
-      "pj": 10,
-      "gf": 10,
-      "ga": 17,
       "w": 3,
       "d": 3,
       "l": 4,
@@ -182,6 +182,16 @@
       "pts": 9
     },
     {
+      "team": "Manchester United",
+      "pj": 10,
+      "gf": 14,
+      "ga": 19,
+      "w": 1,
+      "d": 5,
+      "l": 4,
+      "pts": 8
+    },
+    {
       "team": "Sunderland",
       "pj": 10,
       "gf": 8,
@@ -190,16 +200,6 @@
       "d": 2,
       "l": 6,
       "pts": 8
-    },
-    {
-      "team": "Manchester United",
-      "pj": 9,
-      "gf": 10,
-      "ga": 15,
-      "w": 1,
-      "d": 4,
-      "l": 4,
-      "pts": 7
     },
     {
       "team": "Crystal Palace",
@@ -1040,45 +1040,17 @@
       "hg": 2,
       "ag": 0,
       "matchday": 10
-    }
-  ],
-  "fixtures": [
-    {
-      "date": "2026-11-08",
-      "time": "09:00 AM",
-      "home": "Crystal Palace",
-      "away": "Liverpool",
-      "matchday": 10
     },
     {
       "date": "2026-11-08",
-      "time": "09:00 AM",
-      "home": "Sunderland",
-      "away": "Chelsea",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "09:00 AM",
-      "home": "Ipswich Town",
-      "away": "Bournemouth",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "09:00 AM",
-      "home": "Brighton",
-      "away": "Brentford",
-      "matchday": 10
-    },
-    {
-      "date": "2026-11-08",
-      "time": "11:30 AM",
       "home": "Manchester United",
       "away": "Aston Villa",
+      "hg": 4,
+      "ag": 4,
       "matchday": 10
     }
   ],
+  "fixtures": [],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
