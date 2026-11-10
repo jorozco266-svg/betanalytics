@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-09T02:19:38.996436+00:00",
+    "last_updated": "2026-11-10T04:28:19.521642+00:00",
     "avg_goals": 1.35,
     "total_matches": 100,
     "total_goals": 294,
@@ -1164,7 +1164,15 @@
       "matchday": 10
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-20",
+      "time": "02:45 PM",
+      "home": "Troyes",
+      "away": "Le Havre",
+      "matchday": 11
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 34,
