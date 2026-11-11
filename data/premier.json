@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-09T02:19:36.290007+00:00",
+    "last_updated": "2026-11-11T02:28:54.406458+00:00",
     "avg_goals": 1.4,
     "total_matches": 102,
     "total_goals": 278,
@@ -1050,7 +1050,57 @@
       "matchday": 10
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-21",
+      "time": "07:30 AM",
+      "home": "Manchester City",
+      "away": "Fulham",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "home": "Chelsea",
+      "away": "Leeds United",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "home": "Aston Villa",
+      "away": "Sunderland",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "home": "Bournemouth",
+      "away": "Nottingham Forest",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "home": "Tottenham",
+      "away": "Ipswich Town",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "10:00 AM",
+      "home": "Coventry City",
+      "away": "Crystal Palace",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "time": "12:30 PM",
+      "home": "Newcastle",
+      "away": "Arsenal",
+      "matchday": 11
+    }
+  ],
   "hist_season": {
     "season": "2025-26",
     "pj_per_team": 38,
