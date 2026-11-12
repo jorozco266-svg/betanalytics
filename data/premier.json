@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-11T02:28:54.406458+00:00",
+    "last_updated": "2026-11-12T03:33:33.922746+00:00",
     "avg_goals": 1.4,
     "total_matches": 102,
     "total_goals": 278,
@@ -1098,6 +1098,20 @@
       "time": "12:30 PM",
       "home": "Newcastle",
       "away": "Arsenal",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "time": "09:00 AM",
+      "home": "Hull City",
+      "away": "Brighton",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "time": "11:30 AM",
+      "home": "Liverpool",
+      "away": "Manchester United",
       "matchday": 11
     }
   ],
