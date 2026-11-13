@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-12T03:33:33.922746+00:00",
+    "last_updated": "2026-11-13T03:06:00.448427+00:00",
     "avg_goals": 1.4,
     "total_matches": 102,
     "total_goals": 278,
@@ -1112,6 +1112,13 @@
       "time": "11:30 AM",
       "home": "Liverpool",
       "away": "Manchester United",
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-23",
+      "time": "03:00 PM",
+      "home": "Brentford",
+      "away": "Everton",
       "matchday": 11
     }
   ],
