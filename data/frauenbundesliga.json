@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-09T21:20:36.450743+00:00",
+    "last_updated": "2026-11-14T02:53:09.894247+00:00",
     "avg_goals": 1.72,
-    "total_matches": 63,
-    "total_goals": 225,
-    "avg_real": 1.786
+    "total_matches": 64,
+    "total_goals": 232,
+    "avg_real": 1.812
   },
   "standings": [
     {
@@ -122,6 +122,16 @@
       "l": 5
     },
     {
+      "team": "Hamburger SV",
+      "gf": 20,
+      "ga": 18,
+      "pj": 10,
+      "pts": 9,
+      "w": 2,
+      "d": 3,
+      "l": 5
+    },
+    {
       "team": "1. FC Nürnberg",
       "gf": 16,
       "ga": 23,
@@ -132,24 +142,14 @@
       "l": 5
     },
     {
-      "team": "Hamburger SV",
-      "gf": 14,
-      "ga": 17,
-      "pj": 9,
-      "pts": 6,
-      "w": 1,
-      "d": 3,
-      "l": 5
-    },
-    {
       "team": "Mainz 05",
-      "gf": 5,
-      "ga": 30,
-      "pj": 9,
+      "gf": 6,
+      "ga": 36,
+      "pj": 10,
       "pts": 0,
       "w": 0,
       "d": 0,
-      "l": 9
+      "l": 10
     }
   ],
   "results": [],

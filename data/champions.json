@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-05T03:04:02.168858+00:00",
+    "last_updated": "2026-11-14T02:53:01.342889+00:00",
     "avg_goals": 1.45,
     "total_matches": 261,
     "total_goals": 953,
@@ -2642,5 +2642,69 @@
       "matchday": 4
     }
   ],
-  "fixtures": []
+  "fixtures": [
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "Real Madrid CF",
+      "away": "PSV",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "Manchester City FC",
+      "away": "SSC Napoli",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "Arsenal FC",
+      "away": "Borussia Dortmund",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "Feyenoord Rotterdam",
+      "away": "FC Porto",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "ŠK Slovan Bratislava",
+      "away": "Real Betis Balompié",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "RB Leipzig",
+      "away": "Racing Club de Lens",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "03:00 PM",
+      "home": "Como 1907",
+      "away": "PAE AEK",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "12:45 PM",
+      "home": "Galatasaray SK",
+      "away": "Aston Villa FC",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "time": "12:45 PM",
+      "home": "FK Bodø/Glimt",
+      "away": "LASK Linz",
+      "matchday": 5
+    }
+  ]
 }
