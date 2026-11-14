@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-14T02:53:09.894247+00:00",
+    "last_updated": "2026-11-14T16:54:00.524496+00:00",
     "avg_goals": 1.72,
-    "total_matches": 64,
-    "total_goals": 232,
-    "avg_real": 1.812
+    "total_matches": 65,
+    "total_goals": 233,
+    "avg_real": 1.792
   },
   "standings": [
     {
@@ -72,6 +72,16 @@
       "l": 4
     },
     {
+      "team": "TSG Hoffenheim",
+      "gf": 13,
+      "ga": 16,
+      "pj": 10,
+      "pts": 13,
+      "w": 4,
+      "d": 1,
+      "l": 5
+    },
+    {
       "team": "Union Berlin",
       "gf": 15,
       "ga": 17,
@@ -102,24 +112,14 @@
       "l": 5
     },
     {
-      "team": "TSG Hoffenheim",
-      "gf": 12,
-      "ga": 16,
-      "pj": 9,
-      "pts": 10,
-      "w": 3,
-      "d": 1,
-      "l": 5
-    },
-    {
       "team": "SC Freiburg",
       "gf": 11,
-      "ga": 18,
-      "pj": 9,
+      "ga": 19,
+      "pj": 10,
       "pts": 10,
       "w": 3,
       "d": 1,
-      "l": 5
+      "l": 6
     },
     {
       "team": "Hamburger SV",
