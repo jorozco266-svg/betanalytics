@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-07T02:30:26.776096+00:00",
+    "last_updated": "2026-11-15T02:20:56.952614+00:00",
     "avg_goals": 1.35,
-    "total_matches": 339,
-    "total_goals": 906,
-    "avg_real": 1.336
+    "total_matches": 341,
+    "total_goals": 908,
+    "avg_real": 1.331
   },
   "standings": [
     {
@@ -75,10 +75,10 @@
       "team": "Atlético Mineiro",
       "gf": 44,
       "ga": 40,
-      "pj": 34,
-      "pts": 50,
+      "pj": 35,
+      "pts": 51,
       "w": 14,
-      "d": 8,
+      "d": 9,
       "l": 12
     },
     {
@@ -112,6 +112,16 @@
       "l": 14
     },
     {
+      "team": "Vasco da Gama",
+      "gf": 45,
+      "ga": 50,
+      "pj": 34,
+      "pts": 44,
+      "w": 12,
+      "d": 8,
+      "l": 14
+    },
+    {
       "team": "Botafogo",
       "gf": 46,
       "ga": 53,
@@ -132,23 +142,13 @@
       "l": 14
     },
     {
-      "team": "Vasco da Gama",
-      "gf": 43,
-      "ga": 50,
-      "pj": 33,
-      "pts": 41,
-      "w": 11,
-      "d": 8,
-      "l": 14
-    },
-    {
       "team": "Mirassol",
       "gf": 39,
       "ga": 48,
-      "pj": 34,
-      "pts": 40,
+      "pj": 35,
+      "pts": 41,
       "w": 10,
-      "d": 10,
+      "d": 11,
       "l": 14
     },
     {
@@ -204,12 +204,12 @@
     {
       "team": "Chapecoense",
       "gf": 33,
-      "ga": 68,
-      "pj": 33,
+      "ga": 70,
+      "pj": 34,
       "pts": 21,
       "w": 4,
       "d": 9,
-      "l": 20
+      "l": 21
     }
   ],
   "results": [

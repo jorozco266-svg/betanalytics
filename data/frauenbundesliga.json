@@ -4,32 +4,42 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-14T16:54:00.524496+00:00",
+    "last_updated": "2026-11-15T02:21:06.067665+00:00",
     "avg_goals": 1.72,
-    "total_matches": 65,
-    "total_goals": 233,
-    "avg_real": 1.792
+    "total_matches": 67,
+    "total_goals": 240,
+    "avg_real": 1.791
   },
   "standings": [
     {
       "team": "Bayern Munich",
-      "gf": 32,
-      "ga": 8,
-      "pj": 9,
-      "pts": 27,
-      "w": 9,
+      "gf": 36,
+      "ga": 9,
+      "pj": 10,
+      "pts": 30,
+      "w": 10,
       "d": 0,
       "l": 0
     },
     {
       "team": "VfL Wolfsburg",
-      "gf": 29,
-      "ga": 9,
-      "pj": 9,
+      "gf": 30,
+      "ga": 13,
+      "pj": 10,
       "pts": 24,
       "w": 8,
       "d": 0,
-      "l": 1
+      "l": 2
+    },
+    {
+      "team": "Werder Bremen",
+      "gf": 20,
+      "ga": 14,
+      "pj": 10,
+      "pts": 19,
+      "w": 6,
+      "d": 1,
+      "l": 3
     },
     {
       "team": "Eintracht Frankfurt",
@@ -40,16 +50,6 @@
       "w": 5,
       "d": 2,
       "l": 2
-    },
-    {
-      "team": "Werder Bremen",
-      "gf": 18,
-      "ga": 14,
-      "pj": 9,
-      "pts": 16,
-      "w": 5,
-      "d": 1,
-      "l": 3
     },
     {
       "team": "Bayer Leverkusen",
@@ -84,12 +84,12 @@
     {
       "team": "Union Berlin",
       "gf": 15,
-      "ga": 17,
-      "pj": 9,
+      "ga": 19,
+      "pj": 10,
       "pts": 11,
       "w": 3,
       "d": 2,
-      "l": 4
+      "l": 5
     },
     {
       "team": "VfB Stuttgart",

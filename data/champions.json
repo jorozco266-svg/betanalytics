@@ -4,7 +4,7 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-14T02:53:01.342889+00:00",
+    "last_updated": "2026-11-15T02:21:01.835952+00:00",
     "avg_goals": 1.45,
     "total_matches": 261,
     "total_goals": 953,
@@ -2704,6 +2704,69 @@
       "time": "12:45 PM",
       "home": "FK Bodø/Glimt",
       "away": "LASK Linz",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "FC Internazionale Milano",
+      "away": "VfB Stuttgart",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "Club Atlético de Madrid",
+      "away": "Viking FK",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "Paris Saint-Germain FC",
+      "away": "AS Roma",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "Club Brugge KV",
+      "away": "Liverpool FC",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "Lille OSC",
+      "away": "FC Bayern München",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "Sporting Clube de Portugal",
+      "away": "Manchester United FC",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "03:00 PM",
+      "home": "FK Shakhtar Donetsk",
+      "away": "Fenerbahçe SK",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "12:45 PM",
+      "home": "Sabah FK",
+      "away": "FC Barcelona",
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-25",
+      "time": "12:45 PM",
+      "home": "SK Slavia Praha",
+      "away": "Villarreal CF",
       "matchday": 5
     }
   ]
