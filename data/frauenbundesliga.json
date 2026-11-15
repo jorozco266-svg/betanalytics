@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-15T02:21:06.067665+00:00",
+    "last_updated": "2026-11-15T17:37:00.533367+00:00",
     "avg_goals": 1.72,
-    "total_matches": 67,
-    "total_goals": 240,
-    "avg_real": 1.791
+    "total_matches": 69,
+    "total_goals": 247,
+    "avg_real": 1.79
   },
   "standings": [
     {
@@ -32,6 +32,16 @@
       "l": 2
     },
     {
+      "team": "Eintracht Frankfurt",
+      "gf": 21,
+      "ga": 11,
+      "pj": 10,
+      "pts": 20,
+      "w": 6,
+      "d": 2,
+      "l": 2
+    },
+    {
       "team": "Werder Bremen",
       "gf": 20,
       "ga": 14,
@@ -42,14 +52,14 @@
       "l": 3
     },
     {
-      "team": "Eintracht Frankfurt",
-      "gf": 16,
-      "ga": 10,
-      "pj": 9,
-      "pts": 17,
-      "w": 5,
-      "d": 2,
-      "l": 2
+      "team": "1. FC Köln",
+      "gf": 17,
+      "ga": 13,
+      "pj": 10,
+      "pts": 18,
+      "w": 6,
+      "d": 0,
+      "l": 4
     },
     {
       "team": "Bayer Leverkusen",
@@ -60,16 +70,6 @@
       "w": 5,
       "d": 1,
       "l": 3
-    },
-    {
-      "team": "1. FC Köln",
-      "gf": 16,
-      "ga": 13,
-      "pj": 9,
-      "pts": 15,
-      "w": 5,
-      "d": 0,
-      "l": 4
     },
     {
       "team": "TSG Hoffenheim",
@@ -103,13 +103,13 @@
     },
     {
       "team": "RB Leipzig",
-      "gf": 15,
-      "ga": 17,
-      "pj": 9,
+      "gf": 16,
+      "ga": 22,
+      "pj": 10,
       "pts": 10,
       "w": 3,
       "d": 1,
-      "l": 5
+      "l": 6
     },
     {
       "team": "SC Freiburg",
@@ -134,12 +134,12 @@
     {
       "team": "1. FC Nürnberg",
       "gf": 16,
-      "ga": 23,
-      "pj": 9,
+      "ga": 24,
+      "pj": 10,
       "pts": 8,
       "w": 2,
       "d": 2,
-      "l": 5
+      "l": 6
     },
     {
       "team": "Mainz 05",
