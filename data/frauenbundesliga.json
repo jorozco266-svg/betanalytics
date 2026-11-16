@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-15T17:37:00.533367+00:00",
+    "last_updated": "2026-11-16T20:51:14.779158+00:00",
     "avg_goals": 1.72,
-    "total_matches": 69,
-    "total_goals": 247,
-    "avg_real": 1.79
+    "total_matches": 70,
+    "total_goals": 252,
+    "avg_real": 1.8
   },
   "standings": [
     {
@@ -52,6 +52,16 @@
       "l": 3
     },
     {
+      "team": "Bayer Leverkusen",
+      "gf": 18,
+      "ga": 14,
+      "pj": 10,
+      "pts": 19,
+      "w": 6,
+      "d": 1,
+      "l": 3
+    },
+    {
       "team": "1. FC Köln",
       "gf": 17,
       "ga": 13,
@@ -60,16 +70,6 @@
       "w": 6,
       "d": 0,
       "l": 4
-    },
-    {
-      "team": "Bayer Leverkusen",
-      "gf": 15,
-      "ga": 12,
-      "pj": 9,
-      "pts": 16,
-      "w": 5,
-      "d": 1,
-      "l": 3
     },
     {
       "team": "TSG Hoffenheim",
@@ -93,13 +93,13 @@
     },
     {
       "team": "VfB Stuttgart",
-      "gf": 11,
-      "ga": 21,
-      "pj": 9,
+      "gf": 13,
+      "ga": 24,
+      "pj": 10,
       "pts": 11,
       "w": 3,
       "d": 2,
-      "l": 4
+      "l": 5
     },
     {
       "team": "RB Leipzig",
