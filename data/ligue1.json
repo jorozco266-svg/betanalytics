@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-12T03:33:37.666372+00:00",
+    "last_updated": "2026-11-17T04:56:23.296477+00:00",
     "avg_goals": 1.35,
     "total_matches": 100,
     "total_goals": 294,
@@ -1227,6 +1227,13 @@
       "home": "Lorient",
       "away": "Rennes",
       "matchday": 11
+    },
+    {
+      "date": "2026-11-27",
+      "time": "02:45 PM",
+      "home": "Brest",
+      "away": "Paris FC",
+      "matchday": 12
     }
   ],
   "hist_season": {

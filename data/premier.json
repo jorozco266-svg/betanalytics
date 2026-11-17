@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-13T03:06:00.448427+00:00",
+    "last_updated": "2026-11-17T04:56:20.016037+00:00",
     "avg_goals": 1.4,
     "total_matches": 102,
     "total_goals": 278,
@@ -1120,6 +1120,13 @@
       "home": "Brentford",
       "away": "Everton",
       "matchday": 11
+    },
+    {
+      "date": "2026-11-27",
+      "time": "03:00 PM",
+      "home": "Nottingham Forest",
+      "away": "Chelsea",
+      "matchday": 12
     }
   ],
   "hist_season": {
