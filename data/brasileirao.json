@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-19T03:56:50.769353+00:00",
+    "last_updated": "2026-11-20T03:50:44.702631+00:00",
     "avg_goals": 1.35,
-    "total_matches": 347,
-    "total_goals": 921,
-    "avg_real": 1.327
+    "total_matches": 350,
+    "total_goals": 928,
+    "avg_real": 1.326
   },
   "standings": [
     {
@@ -43,11 +43,11 @@
     },
     {
       "team": "Fluminense",
-      "gf": 55,
+      "gf": 56,
       "ga": 42,
-      "pj": 34,
-      "pts": 57,
-      "w": 16,
+      "pj": 35,
+      "pts": 60,
+      "w": 17,
       "d": 9,
       "l": 9
     },
@@ -93,33 +93,33 @@
     },
     {
       "team": "Red Bull Bragantino",
-      "gf": 44,
-      "ga": 39,
-      "pj": 34,
+      "gf": 45,
+      "ga": 41,
+      "pj": 35,
       "pts": 47,
       "w": 13,
-      "d": 8,
-      "l": 13
-    },
-    {
-      "team": "São Paulo",
-      "gf": 39,
-      "ga": 39,
-      "pj": 34,
-      "pts": 44,
-      "w": 12,
       "d": 8,
       "l": 14
     },
     {
       "team": "Vasco da Gama",
-      "gf": 45,
-      "ga": 50,
-      "pj": 34,
+      "gf": 47,
+      "ga": 51,
+      "pj": 35,
+      "pts": 47,
+      "w": 13,
+      "d": 8,
+      "l": 14
+    },
+    {
+      "team": "São Paulo",
+      "gf": 39,
+      "ga": 40,
+      "pj": 35,
       "pts": 44,
       "w": 12,
       "d": 8,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Botafogo",
@@ -142,6 +142,16 @@
       "l": 15
     },
     {
+      "team": "Vitória",
+      "gf": 37,
+      "ga": 52,
+      "pj": 35,
+      "pts": 41,
+      "w": 11,
+      "d": 8,
+      "l": 16
+    },
+    {
       "team": "Mirassol",
       "gf": 39,
       "ga": 48,
@@ -162,24 +172,14 @@
       "l": 15
     },
     {
-      "team": "Vitória",
-      "gf": 35,
-      "ga": 51,
-      "pj": 34,
-      "pts": 38,
-      "w": 10,
-      "d": 8,
-      "l": 16
-    },
-    {
       "team": "Internacional",
-      "gf": 38,
-      "ga": 42,
-      "pj": 34,
+      "gf": 39,
+      "ga": 44,
+      "pj": 35,
       "pts": 38,
       "w": 9,
       "d": 11,
-      "l": 14
+      "l": 15
     },
     {
       "team": "Grêmio",
