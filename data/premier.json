@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-21T03:43:21.354438+00:00",
+    "last_updated": "2026-11-21T17:54:38.360601+00:00",
     "avg_goals": 1.4,
-    "total_matches": 102,
-    "total_goals": 278,
-    "avg_real": 1.363
+    "total_matches": 108,
+    "total_goals": 294,
+    "avg_real": 1.361
   },
   "standings": [
     {
@@ -33,13 +33,23 @@
     },
     {
       "team": "Manchester City",
-      "pj": 10,
-      "gf": 21,
-      "ga": 13,
+      "pj": 11,
+      "gf": 22,
+      "ga": 14,
       "w": 7,
-      "d": 0,
+      "d": 1,
       "l": 3,
-      "pts": 21
+      "pts": 22
+    },
+    {
+      "team": "Bournemouth",
+      "pj": 11,
+      "gf": 18,
+      "ga": 14,
+      "w": 5,
+      "d": 3,
+      "l": 3,
+      "pts": 18
     },
     {
       "team": "Liverpool",
@@ -52,14 +62,14 @@
       "pts": 18
     },
     {
-      "team": "Chelsea",
-      "pj": 10,
-      "gf": 19,
-      "ga": 16,
-      "w": 5,
-      "d": 1,
-      "l": 4,
-      "pts": 16
+      "team": "Leeds United",
+      "pj": 11,
+      "gf": 14,
+      "ga": 9,
+      "w": 4,
+      "d": 5,
+      "l": 2,
+      "pts": 17
     },
     {
       "team": "Everton",
@@ -72,13 +82,23 @@
       "pts": 16
     },
     {
-      "team": "Bournemouth",
-      "pj": 10,
-      "gf": 16,
-      "ga": 14,
+      "team": "Chelsea",
+      "pj": 11,
+      "gf": 20,
+      "ga": 20,
+      "w": 5,
+      "d": 1,
+      "l": 5,
+      "pts": 16
+    },
+    {
+      "team": "Tottenham",
+      "pj": 11,
+      "gf": 12,
+      "ga": 11,
       "w": 4,
       "d": 3,
-      "l": 3,
+      "l": 4,
       "pts": 15
     },
     {
@@ -92,34 +112,14 @@
       "pts": 14
     },
     {
-      "team": "Leeds United",
-      "pj": 10,
-      "gf": 10,
-      "ga": 8,
-      "w": 3,
-      "d": 5,
-      "l": 2,
-      "pts": 14
-    },
-    {
       "team": "Aston Villa",
-      "pj": 11,
+      "pj": 12,
       "gf": 14,
       "ga": 21,
       "w": 3,
-      "d": 4,
+      "d": 5,
       "l": 4,
-      "pts": 13
-    },
-    {
-      "team": "Tottenham",
-      "pj": 10,
-      "gf": 10,
-      "ga": 11,
-      "w": 3,
-      "d": 3,
-      "l": 4,
-      "pts": 12
+      "pts": 14
     },
     {
       "team": "Newcastle",
@@ -129,6 +129,16 @@
       "w": 3,
       "d": 3,
       "l": 4,
+      "pts": 12
+    },
+    {
+      "team": "Coventry City",
+      "pj": 11,
+      "gf": 13,
+      "ga": 21,
+      "w": 4,
+      "d": 0,
+      "l": 7,
       "pts": 12
     },
     {
@@ -142,43 +152,43 @@
       "pts": 11
     },
     {
-      "team": "Ipswich Town",
-      "pj": 10,
-      "gf": 15,
-      "ga": 20,
-      "w": 3,
-      "d": 2,
-      "l": 5,
+      "team": "Fulham",
+      "pj": 11,
+      "gf": 11,
+      "ga": 13,
+      "w": 2,
+      "d": 5,
+      "l": 4,
       "pts": 11
     },
     {
-      "team": "Fulham",
-      "pj": 10,
-      "gf": 10,
-      "ga": 12,
-      "w": 2,
-      "d": 4,
-      "l": 4,
-      "pts": 10
+      "team": "Ipswich Town",
+      "pj": 11,
+      "gf": 15,
+      "ga": 22,
+      "w": 3,
+      "d": 2,
+      "l": 6,
+      "pts": 11
     },
     {
       "team": "Nottingham Forest",
-      "pj": 11,
+      "pj": 12,
       "gf": 9,
-      "ga": 14,
+      "ga": 16,
       "w": 2,
       "d": 3,
-      "l": 6,
+      "l": 7,
       "pts": 9
     },
     {
-      "team": "Coventry City",
-      "pj": 10,
-      "gf": 10,
-      "ga": 19,
-      "w": 3,
-      "d": 0,
-      "l": 7,
+      "team": "Sunderland",
+      "pj": 11,
+      "gf": 8,
+      "ga": 17,
+      "w": 2,
+      "d": 3,
+      "l": 6,
       "pts": 9
     },
     {
@@ -192,23 +202,13 @@
       "pts": 8
     },
     {
-      "team": "Sunderland",
-      "pj": 10,
-      "gf": 8,
-      "ga": 17,
-      "w": 2,
-      "d": 2,
-      "l": 6,
-      "pts": 8
-    },
-    {
       "team": "Crystal Palace",
-      "pj": 10,
-      "gf": 10,
-      "ga": 24,
+      "pj": 11,
+      "gf": 12,
+      "ga": 27,
       "w": 2,
       "d": 1,
-      "l": 7,
+      "l": 8,
       "pts": 7
     },
     {
@@ -1048,58 +1048,57 @@
       "hg": 4,
       "ag": 4,
       "matchday": 10
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Manchester City",
+      "away": "Fulham",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Chelsea",
+      "away": "Leeds United",
+      "hg": 1,
+      "ag": 4,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Aston Villa",
+      "away": "Sunderland",
+      "hg": 0,
+      "ag": 0,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Bournemouth",
+      "away": "Nottingham Forest",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Tottenham",
+      "away": "Ipswich Town",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Coventry City",
+      "away": "Crystal Palace",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-21",
-      "time": "07:30 AM",
-      "home": "Manchester City",
-      "away": "Fulham",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "10:00 AM",
-      "home": "Chelsea",
-      "away": "Leeds United",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "10:00 AM",
-      "home": "Aston Villa",
-      "away": "Sunderland",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "10:00 AM",
-      "home": "Bournemouth",
-      "away": "Nottingham Forest",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "10:00 AM",
-      "home": "Tottenham",
-      "away": "Ipswich Town",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "10:00 AM",
-      "home": "Coventry City",
-      "away": "Crystal Palace",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "12:30 PM",
-      "home": "Newcastle",
-      "away": "Arsenal",
-      "matchday": 11
-    },
     {
       "date": "2026-11-22",
       "time": "09:00 AM",

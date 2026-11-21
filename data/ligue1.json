@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-21T03:43:23.202597+00:00",
+    "last_updated": "2026-11-21T17:54:40.820442+00:00",
     "avg_goals": 1.35,
     "total_matches": 101,
     "total_goals": 298,
@@ -1199,13 +1199,6 @@
       "time": "02:45 PM",
       "home": "Strasbourg",
       "away": "Brest",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "11:15 AM",
-      "home": "Nice",
-      "away": "Paris Saint-Germain",
       "matchday": 11
     },
     {

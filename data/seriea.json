@@ -4,22 +4,22 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-20T03:50:47.005593+00:00",
+    "last_updated": "2026-11-21T17:54:39.584886+00:00",
     "avg_goals": 1.3,
-    "total_matches": 118,
-    "total_goals": 361,
-    "avg_real": 1.53
+    "total_matches": 120,
+    "total_goals": 366,
+    "avg_real": 1.525
   },
   "standings": [
     {
       "team": "Lazio",
-      "pj": 11,
-      "gf": 25,
+      "pj": 12,
+      "gf": 28,
       "ga": 9,
-      "w": 9,
+      "w": 10,
       "d": 2,
       "l": 0,
-      "pts": 29
+      "pts": 32
     },
     {
       "team": "Inter Milan",
@@ -53,13 +53,13 @@
     },
     {
       "team": "Como",
-      "pj": 11,
-      "gf": 18,
+      "pj": 12,
+      "gf": 20,
       "ga": 10,
-      "w": 7,
+      "w": 8,
       "d": 2,
       "l": 2,
-      "pts": 23
+      "pts": 26
     },
     {
       "team": "Frosinone",
@@ -93,12 +93,12 @@
     },
     {
       "team": "Cagliari",
-      "pj": 11,
+      "pj": 12,
       "gf": 10,
-      "ga": 15,
+      "ga": 17,
       "w": 5,
       "d": 1,
-      "l": 5,
+      "l": 6,
       "pts": 16
     },
     {
@@ -143,12 +143,12 @@
     },
     {
       "team": "Lecce",
-      "pj": 11,
+      "pj": 12,
       "gf": 12,
-      "ga": 22,
+      "ga": 25,
       "w": 3,
       "d": 1,
-      "l": 7,
+      "l": 8,
       "pts": 10
     },
     {
@@ -1296,6 +1296,22 @@
       "hg": 2,
       "ag": 2,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Como",
+      "away": "Cagliari",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 12
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Lazio",
+      "away": "Lecce",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 12
     }
   ],
   "fixtures": [
@@ -1304,27 +1320,6 @@
       "time": "02:45 PM",
       "home": "Napoli",
       "away": "Torino",
-      "matchday": 12
-    },
-    {
-      "date": "2026-11-21",
-      "time": "09:00 AM",
-      "home": "Como",
-      "away": "Cagliari",
-      "matchday": 12
-    },
-    {
-      "date": "2026-11-21",
-      "time": "09:00 AM",
-      "home": "Lazio",
-      "away": "Lecce",
-      "matchday": 12
-    },
-    {
-      "date": "2026-11-21",
-      "time": "12:00 PM",
-      "home": "Parma Calcio 1913",
-      "away": "Roma",
       "matchday": 12
     },
     {
