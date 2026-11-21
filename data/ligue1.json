@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-19T03:56:54.222163+00:00",
+    "last_updated": "2026-11-21T03:43:23.202597+00:00",
     "avg_goals": 1.35,
-    "total_matches": 100,
-    "total_goals": 294,
-    "avg_real": 1.47
+    "total_matches": 101,
+    "total_goals": 298,
+    "avg_real": 1.475
   },
   "standings": [
     {
@@ -132,6 +132,16 @@
       "pts": 13
     },
     {
+      "team": "Troyes",
+      "pj": 11,
+      "gf": 10,
+      "ga": 18,
+      "w": 3,
+      "d": 2,
+      "l": 6,
+      "pts": 11
+    },
+    {
       "team": "Strasbourg",
       "pj": 10,
       "gf": 18,
@@ -166,16 +176,6 @@
       "pj": 10,
       "gf": 9,
       "ga": 19,
-      "w": 2,
-      "d": 2,
-      "l": 6,
-      "pts": 8
-    },
-    {
-      "team": "Troyes",
-      "pj": 10,
-      "gf": 7,
-      "ga": 17,
       "w": 2,
       "d": 2,
       "l": 6,
@@ -253,12 +253,12 @@
     },
     {
       "team": "Le Havre",
-      "pj": 10,
-      "gf": 9,
-      "ga": 22,
+      "pj": 11,
+      "gf": 10,
+      "ga": 25,
       "w": 0,
       "d": 2,
-      "l": 8,
+      "l": 9,
       "pts": 2
     },
     {
@@ -1162,16 +1162,17 @@
       "hg": 1,
       "ag": 2,
       "matchday": 10
+    },
+    {
+      "date": "2026-11-20",
+      "home": "Troyes",
+      "away": "Le Havre",
+      "hg": 3,
+      "ag": 1,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-20",
-      "time": "02:45 PM",
-      "home": "Troyes",
-      "away": "Le Havre",
-      "matchday": 11
-    },
     {
       "date": "2026-11-21",
       "time": "02:45 PM",

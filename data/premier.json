@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-19T03:56:51.873871+00:00",
+    "last_updated": "2026-11-21T03:43:21.354438+00:00",
     "avg_goals": 1.4,
     "total_matches": 102,
     "total_goals": 278,
@@ -1190,6 +1190,13 @@
       "home": "Arsenal",
       "away": "Manchester City",
       "matchday": 12
+    },
+    {
+      "date": "2026-12-01",
+      "time": "03:00 PM",
+      "home": "Coventry City",
+      "away": "Ipswich Town",
+      "matchday": 13
     }
   ],
   "hist_season": {
