@@ -4,10 +4,10 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-22T02:47:05.893908+00:00",
+    "last_updated": "2026-11-22T18:20:14.283738+00:00",
     "avg_goals": 1.35,
-    "total_matches": 106,
-    "total_goals": 309,
+    "total_matches": 108,
+    "total_goals": 315,
     "avg_real": 1.458
   },
   "standings": [
@@ -23,13 +23,13 @@
     },
     {
       "team": "Paris FC",
-      "pj": 11,
-      "gf": 17,
+      "pj": 12,
+      "gf": 21,
       "ga": 10,
-      "w": 6,
+      "w": 7,
       "d": 3,
       "l": 2,
-      "pts": 21
+      "pts": 24
     },
     {
       "team": "Lille",
@@ -93,23 +93,23 @@
     },
     {
       "team": "Rennes",
-      "pj": 10,
-      "gf": 21,
-      "ga": 21,
+      "pj": 11,
+      "gf": 22,
+      "ga": 22,
       "w": 5,
-      "d": 1,
+      "d": 2,
       "l": 4,
-      "pts": 16
+      "pts": 17
     },
     {
       "team": "Lorient",
-      "pj": 10,
-      "gf": 9,
-      "ga": 8,
+      "pj": 11,
+      "gf": 10,
+      "ga": 9,
       "w": 4,
-      "d": 3,
+      "d": 4,
       "l": 3,
-      "pts": 15
+      "pts": 16
     },
     {
       "team": "Lens",
@@ -173,12 +173,12 @@
     },
     {
       "team": "Angers",
-      "pj": 10,
+      "pj": 11,
       "gf": 9,
-      "ga": 19,
+      "ga": 23,
       "w": 2,
       "d": 2,
-      "l": 6,
+      "l": 7,
       "pts": 8
     },
     {
@@ -1210,6 +1210,22 @@
       "hg": 0,
       "ag": 1,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Paris FC",
+      "away": "Angers",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Lorient",
+      "away": "Rennes",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 11
     }
   ],
   "fixtures": [
@@ -1218,20 +1234,6 @@
       "time": "02:45 PM",
       "home": "Marseille",
       "away": "Le Mans",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-22",
-      "time": "09:00 AM",
-      "home": "Paris FC",
-      "away": "Angers",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-22",
-      "time": "11:15 AM",
-      "home": "Lorient",
-      "away": "Rennes",
       "matchday": 11
     },
     {

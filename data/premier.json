@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-22T02:47:02.156218+00:00",
+    "last_updated": "2026-11-22T18:20:10.050249+00:00",
     "avg_goals": 1.4,
-    "total_matches": 109,
-    "total_goals": 298,
-    "avg_real": 1.367
+    "total_matches": 110,
+    "total_goals": 300,
+    "avg_real": 1.364
   },
   "standings": [
     {
@@ -23,12 +23,12 @@
     },
     {
       "team": "Brighton",
-      "pj": 10,
+      "pj": 11,
       "gf": 26,
-      "ga": 7,
+      "ga": 9,
       "w": 7,
       "d": 1,
-      "l": 2,
+      "l": 3,
       "pts": 22
     },
     {
@@ -112,6 +112,16 @@
       "pts": 14
     },
     {
+      "team": "Hull City",
+      "pj": 11,
+      "gf": 13,
+      "ga": 11,
+      "w": 3,
+      "d": 5,
+      "l": 3,
+      "pts": 14
+    },
+    {
       "team": "Aston Villa",
       "pj": 12,
       "gf": 14,
@@ -140,16 +150,6 @@
       "d": 0,
       "l": 7,
       "pts": 12
-    },
-    {
-      "team": "Hull City",
-      "pj": 10,
-      "gf": 11,
-      "ga": 11,
-      "w": 2,
-      "d": 5,
-      "l": 3,
-      "pts": 11
     },
     {
       "team": "Fulham",
@@ -1104,23 +1104,17 @@
       "hg": 2,
       "ag": 2,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Hull City",
+      "away": "Brighton",
+      "hg": 2,
+      "ag": 0,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-22",
-      "time": "09:00 AM",
-      "home": "Hull City",
-      "away": "Brighton",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-22",
-      "time": "11:30 AM",
-      "home": "Liverpool",
-      "away": "Manchester United",
-      "matchday": 11
-    },
     {
       "date": "2026-11-23",
       "time": "03:00 PM",

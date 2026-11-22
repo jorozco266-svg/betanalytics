@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-21T17:54:46.295140+00:00",
+    "last_updated": "2026-11-22T18:20:19.556520+00:00",
     "avg_goals": 1.72,
-    "total_matches": 73,
-    "total_goals": 261,
-    "avg_real": 1.788
+    "total_matches": 75,
+    "total_goals": 266,
+    "avg_real": 1.773
   },
   "standings": [
     {
@@ -23,11 +23,11 @@
     },
     {
       "team": "VfL Wolfsburg",
-      "gf": 30,
-      "ga": 13,
-      "pj": 10,
-      "pts": 24,
-      "w": 8,
+      "gf": 32,
+      "ga": 14,
+      "pj": 11,
+      "pts": 27,
+      "w": 9,
       "d": 0,
       "l": 2
     },
@@ -82,6 +82,16 @@
       "l": 5
     },
     {
+      "team": "SC Freiburg",
+      "gf": 13,
+      "ga": 19,
+      "pj": 11,
+      "pts": 13,
+      "w": 4,
+      "d": 1,
+      "l": 6
+    },
+    {
       "team": "Union Berlin",
       "gf": 15,
       "ga": 22,
@@ -94,32 +104,22 @@
     {
       "team": "VfB Stuttgart",
       "gf": 13,
-      "ga": 24,
-      "pj": 10,
+      "ga": 26,
+      "pj": 11,
       "pts": 11,
       "w": 3,
       "d": 2,
-      "l": 5
+      "l": 6
     },
     {
       "team": "RB Leipzig",
-      "gf": 16,
-      "ga": 22,
-      "pj": 10,
+      "gf": 17,
+      "ga": 24,
+      "pj": 11,
       "pts": 10,
       "w": 3,
       "d": 1,
-      "l": 6
-    },
-    {
-      "team": "SC Freiburg",
-      "gf": 11,
-      "ga": 19,
-      "pj": 10,
-      "pts": 10,
-      "w": 3,
-      "d": 1,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Hamburger SV",
