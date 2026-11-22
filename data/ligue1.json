@@ -4,22 +4,22 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-21T17:54:40.820442+00:00",
+    "last_updated": "2026-11-22T02:47:05.893908+00:00",
     "avg_goals": 1.35,
-    "total_matches": 101,
-    "total_goals": 298,
-    "avg_real": 1.475
+    "total_matches": 106,
+    "total_goals": 309,
+    "avg_real": 1.458
   },
   "standings": [
     {
       "team": "Paris Saint-Germain",
-      "pj": 10,
-      "gf": 22,
-      "ga": 10,
-      "w": 7,
+      "pj": 11,
+      "gf": 25,
+      "ga": 12,
+      "w": 8,
       "d": 2,
       "l": 1,
-      "pts": 23
+      "pts": 26
     },
     {
       "team": "Paris FC",
@@ -33,13 +33,23 @@
     },
     {
       "team": "Lille",
-      "pj": 10,
+      "pj": 11,
       "gf": 14,
-      "ga": 7,
+      "ga": 8,
       "w": 6,
       "d": 3,
-      "l": 1,
+      "l": 2,
       "pts": 21
+    },
+    {
+      "team": "Lyon",
+      "pj": 11,
+      "gf": 16,
+      "ga": 9,
+      "w": 6,
+      "d": 2,
+      "l": 3,
+      "pts": 20
     },
     {
       "team": "Marseille",
@@ -52,34 +62,34 @@
       "pts": 18
     },
     {
-      "team": "Lyon",
-      "pj": 10,
-      "gf": 15,
-      "ga": 9,
+      "team": "Brest",
+      "pj": 11,
+      "gf": 19,
+      "ga": 12,
       "w": 5,
-      "d": 2,
+      "d": 3,
       "l": 3,
-      "pts": 17
+      "pts": 18
     },
     {
       "team": "Nice",
-      "pj": 10,
-      "gf": 15,
-      "ga": 12,
+      "pj": 11,
+      "gf": 17,
+      "ga": 15,
       "w": 5,
       "d": 2,
-      "l": 3,
+      "l": 4,
       "pts": 17
     },
     {
       "team": "Monaco",
-      "pj": 10,
-      "gf": 13,
-      "ga": 11,
+      "pj": 11,
+      "gf": 14,
+      "ga": 12,
       "w": 4,
-      "d": 4,
+      "d": 5,
       "l": 2,
-      "pts": 16
+      "pts": 17
     },
     {
       "team": "Rennes",
@@ -90,16 +100,6 @@
       "d": 1,
       "l": 4,
       "pts": 16
-    },
-    {
-      "team": "Brest",
-      "pj": 10,
-      "gf": 18,
-      "ga": 12,
-      "w": 4,
-      "d": 3,
-      "l": 3,
-      "pts": 15
     },
     {
       "team": "Lorient",
@@ -113,23 +113,23 @@
     },
     {
       "team": "Lens",
-      "pj": 10,
-      "gf": 17,
-      "ga": 15,
+      "pj": 11,
+      "gf": 18,
+      "ga": 16,
       "w": 4,
-      "d": 1,
+      "d": 2,
       "l": 5,
-      "pts": 13
+      "pts": 14
     },
     {
       "team": "Toulouse",
-      "pj": 10,
-      "gf": 15,
-      "ga": 14,
+      "pj": 11,
+      "gf": 16,
+      "ga": 15,
       "w": 3,
-      "d": 4,
+      "d": 5,
       "l": 3,
-      "pts": 13
+      "pts": 14
     },
     {
       "team": "Troyes",
@@ -142,23 +142,23 @@
       "pts": 11
     },
     {
-      "team": "Strasbourg",
-      "pj": 10,
-      "gf": 18,
-      "ga": 22,
+      "team": "Auxerre",
+      "pj": 11,
+      "gf": 14,
+      "ga": 25,
       "w": 3,
-      "d": 1,
+      "d": 2,
       "l": 6,
-      "pts": 10
+      "pts": 11
     },
     {
-      "team": "Auxerre",
-      "pj": 10,
-      "gf": 13,
-      "ga": 24,
+      "team": "Strasbourg",
+      "pj": 11,
+      "gf": 18,
+      "ga": 23,
       "w": 3,
       "d": 1,
-      "l": 6,
+      "l": 7,
       "pts": 10
     },
     {
@@ -1170,37 +1170,49 @@
       "hg": 3,
       "ag": 1,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Nice",
+      "away": "Paris Saint-Germain",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Monaco",
+      "away": "Auxerre",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Lens",
+      "away": "Toulouse",
+      "hg": 1,
+      "ag": 1,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Lille",
+      "away": "Lyon",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Strasbourg",
+      "away": "Brest",
+      "hg": 0,
+      "ag": 1,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-21",
-      "time": "02:45 PM",
-      "home": "Monaco",
-      "away": "Auxerre",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "02:45 PM",
-      "home": "Lens",
-      "away": "Toulouse",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "02:45 PM",
-      "home": "Lille",
-      "away": "Lyon",
-      "matchday": 11
-    },
-    {
-      "date": "2026-11-21",
-      "time": "02:45 PM",
-      "home": "Strasbourg",
-      "away": "Brest",
-      "matchday": 11
-    },
     {
       "date": "2026-11-22",
       "time": "02:45 PM",

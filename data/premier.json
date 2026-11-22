@@ -4,22 +4,22 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-21T17:54:38.360601+00:00",
+    "last_updated": "2026-11-22T02:47:02.156218+00:00",
     "avg_goals": 1.4,
-    "total_matches": 108,
-    "total_goals": 294,
-    "avg_real": 1.361
+    "total_matches": 109,
+    "total_goals": 298,
+    "avg_real": 1.367
   },
   "standings": [
     {
       "team": "Arsenal",
-      "pj": 10,
-      "gf": 15,
-      "ga": 5,
+      "pj": 11,
+      "gf": 17,
+      "ga": 7,
       "w": 9,
-      "d": 0,
+      "d": 1,
       "l": 1,
-      "pts": 27
+      "pts": 28
     },
     {
       "team": "Brighton",
@@ -123,13 +123,13 @@
     },
     {
       "team": "Newcastle",
-      "pj": 10,
-      "gf": 13,
-      "ga": 16,
+      "pj": 11,
+      "gf": 15,
+      "ga": 18,
       "w": 3,
-      "d": 3,
+      "d": 4,
       "l": 4,
-      "pts": 12
+      "pts": 13
     },
     {
       "team": "Coventry City",
@@ -1096,6 +1096,14 @@
       "hg": 3,
       "ag": 2,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Newcastle",
+      "away": "Arsenal",
+      "hg": 2,
+      "ag": 2,
+      "matchday": 11
     }
   ],
   "fixtures": [
@@ -1195,6 +1203,62 @@
       "time": "03:00 PM",
       "home": "Coventry City",
       "away": "Ipswich Town",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "02:30 PM",
+      "home": "Liverpool",
+      "away": "Sunderland",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "02:30 PM",
+      "home": "Hull City",
+      "away": "Nottingham Forest",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "02:30 PM",
+      "home": "Chelsea",
+      "away": "Crystal Palace",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "02:30 PM",
+      "home": "Manchester City",
+      "away": "Leeds United",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "03:15 PM",
+      "home": "Aston Villa",
+      "away": "Everton",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "03:15 PM",
+      "home": "Brentford",
+      "away": "Arsenal",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "03:15 PM",
+      "home": "Newcastle",
+      "away": "Manchester United",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-02",
+      "time": "03:15 PM",
+      "home": "Bournemouth",
+      "away": "Brighton",
       "matchday": 13
     }
   ],

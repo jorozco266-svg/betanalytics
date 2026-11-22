@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-21T17:54:39.584886+00:00",
+    "last_updated": "2026-11-22T02:47:04.655527+00:00",
     "avg_goals": 1.3,
-    "total_matches": 120,
-    "total_goals": 366,
-    "avg_real": 1.525
+    "total_matches": 122,
+    "total_goals": 373,
+    "avg_real": 1.529
   },
   "standings": [
     {
@@ -22,6 +22,16 @@
       "pts": 32
     },
     {
+      "team": "Roma",
+      "pj": 12,
+      "gf": 36,
+      "ga": 11,
+      "w": 9,
+      "d": 3,
+      "l": 0,
+      "pts": 30
+    },
+    {
       "team": "Inter Milan",
       "pj": 11,
       "gf": 28,
@@ -30,16 +40,6 @@
       "d": 1,
       "l": 1,
       "pts": 28
-    },
-    {
-      "team": "Roma",
-      "pj": 11,
-      "gf": 31,
-      "ga": 10,
-      "w": 8,
-      "d": 3,
-      "l": 0,
-      "pts": 27
     },
     {
       "team": "AC Milan",
@@ -72,6 +72,16 @@
       "pts": 20
     },
     {
+      "team": "Napoli",
+      "pj": 12,
+      "gf": 19,
+      "ga": 14,
+      "w": 5,
+      "d": 3,
+      "l": 4,
+      "pts": 18
+    },
+    {
       "team": "Juventus",
       "pj": 11,
       "gf": 15,
@@ -102,26 +112,6 @@
       "pts": 16
     },
     {
-      "team": "Napoli",
-      "pj": 11,
-      "gf": 18,
-      "ga": 14,
-      "w": 4,
-      "d": 3,
-      "l": 4,
-      "pts": 15
-    },
-    {
-      "team": "Torino",
-      "pj": 11,
-      "gf": 15,
-      "ga": 17,
-      "w": 4,
-      "d": 2,
-      "l": 5,
-      "pts": 14
-    },
-    {
       "team": "Atalanta",
       "pj": 11,
       "gf": 17,
@@ -129,6 +119,16 @@
       "w": 4,
       "d": 2,
       "l": 5,
+      "pts": 14
+    },
+    {
+      "team": "Torino",
+      "pj": 12,
+      "gf": 15,
+      "ga": 18,
+      "w": 4,
+      "d": 2,
+      "l": 6,
       "pts": 14
     },
     {
@@ -162,16 +162,6 @@
       "pts": 9
     },
     {
-      "team": "Parma Calcio 1913",
-      "pj": 12,
-      "gf": 9,
-      "ga": 18,
-      "w": 2,
-      "d": 2,
-      "l": 8,
-      "pts": 8
-    },
-    {
       "team": "Sassuolo",
       "pj": 11,
       "gf": 16,
@@ -179,6 +169,16 @@
       "w": 2,
       "d": 2,
       "l": 7,
+      "pts": 8
+    },
+    {
+      "team": "Parma Calcio 1913",
+      "pj": 13,
+      "gf": 10,
+      "ga": 23,
+      "w": 2,
+      "d": 2,
+      "l": 9,
       "pts": 8
     },
     {
@@ -1312,16 +1312,25 @@
       "hg": 3,
       "ag": 0,
       "matchday": 12
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Parma Calcio 1913",
+      "away": "Roma",
+      "hg": 1,
+      "ag": 5,
+      "matchday": 12
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Napoli",
+      "away": "Torino",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 12
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-21",
-      "time": "02:45 PM",
-      "home": "Napoli",
-      "away": "Torino",
-      "matchday": 12
-    },
     {
       "date": "2026-11-22",
       "time": "02:45 PM",

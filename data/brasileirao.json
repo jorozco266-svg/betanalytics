@@ -4,40 +4,40 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-20T03:50:44.702631+00:00",
+    "last_updated": "2026-11-22T02:47:00.427646+00:00",
     "avg_goals": 1.35,
-    "total_matches": 350,
-    "total_goals": 928,
-    "avg_real": 1.326
+    "total_matches": 353,
+    "total_goals": 934,
+    "avg_real": 1.323
   },
   "standings": [
     {
       "team": "Flamengo",
-      "gf": 73,
-      "ga": 30,
-      "pj": 35,
-      "pts": 79,
+      "gf": 74,
+      "ga": 31,
+      "pj": 36,
+      "pts": 80,
       "w": 24,
-      "d": 7,
+      "d": 8,
       "l": 4
     },
     {
       "team": "Palmeiras",
-      "gf": 63,
-      "ga": 25,
-      "pj": 35,
-      "pts": 73,
+      "gf": 64,
+      "ga": 26,
+      "pj": 36,
+      "pts": 74,
       "w": 21,
-      "d": 10,
+      "d": 11,
       "l": 4
     },
     {
       "team": "Cruzeiro",
-      "gf": 57,
-      "ga": 49,
-      "pj": 35,
-      "pts": 63,
-      "w": 19,
+      "gf": 59,
+      "ga": 50,
+      "pj": 36,
+      "pts": 66,
+      "w": 20,
       "d": 6,
       "l": 10
     },
@@ -64,12 +64,12 @@
     {
       "team": "Bahia",
       "gf": 50,
-      "ga": 45,
-      "pj": 35,
+      "ga": 46,
+      "pj": 36,
       "pts": 54,
       "w": 14,
       "d": 12,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Atlético Mineiro",
@@ -112,6 +112,16 @@
       "l": 14
     },
     {
+      "team": "Coritiba",
+      "gf": 41,
+      "ga": 52,
+      "pj": 36,
+      "pts": 45,
+      "w": 12,
+      "d": 9,
+      "l": 15
+    },
+    {
       "team": "São Paulo",
       "gf": 39,
       "ga": 40,
@@ -125,16 +135,6 @@
       "team": "Botafogo",
       "gf": 46,
       "ga": 57,
-      "pj": 35,
-      "pts": 42,
-      "w": 11,
-      "d": 9,
-      "l": 15
-    },
-    {
-      "team": "Coritiba",
-      "gf": 40,
-      "ga": 52,
       "pj": 35,
       "pts": 42,
       "w": 11,
@@ -203,13 +203,13 @@
     },
     {
       "team": "Chapecoense",
-      "gf": 33,
-      "ga": 72,
-      "pj": 35,
+      "gf": 34,
+      "ga": 74,
+      "pj": 36,
       "pts": 21,
       "w": 4,
       "d": 9,
-      "l": 22
+      "l": 23
     }
   ],
   "results": [
