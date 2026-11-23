@@ -4,11 +4,11 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-22T18:20:14.283738+00:00",
+    "last_updated": "2026-11-23T03:27:40.294329+00:00",
     "avg_goals": 1.35,
-    "total_matches": 108,
-    "total_goals": 315,
-    "avg_real": 1.458
+    "total_matches": 109,
+    "total_goals": 320,
+    "avg_real": 1.468
   },
   "standings": [
     {
@@ -53,12 +53,12 @@
     },
     {
       "team": "Marseille",
-      "pj": 10,
-      "gf": 22,
-      "ga": 14,
+      "pj": 11,
+      "gf": 24,
+      "ga": 17,
       "w": 6,
       "d": 0,
-      "l": 4,
+      "l": 5,
       "pts": 18
     },
     {
@@ -132,6 +132,16 @@
       "pts": 14
     },
     {
+      "team": "Le Mans",
+      "pj": 11,
+      "gf": 15,
+      "ga": 21,
+      "w": 2,
+      "d": 5,
+      "l": 4,
+      "pts": 11
+    },
+    {
       "team": "Troyes",
       "pj": 11,
       "gf": 10,
@@ -160,16 +170,6 @@
       "d": 1,
       "l": 7,
       "pts": 10
-    },
-    {
-      "team": "Le Mans",
-      "pj": 10,
-      "gf": 12,
-      "ga": 19,
-      "w": 1,
-      "d": 5,
-      "l": 4,
-      "pts": 8
     },
     {
       "team": "Angers",
@@ -1226,16 +1226,17 @@
       "hg": 1,
       "ag": 1,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Marseille",
+      "away": "Le Mans",
+      "hg": 2,
+      "ag": 3,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-22",
-      "time": "02:45 PM",
-      "home": "Marseille",
-      "away": "Le Mans",
-      "matchday": 11
-    },
     {
       "date": "2026-11-27",
       "time": "02:45 PM",

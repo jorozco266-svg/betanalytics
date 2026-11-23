@@ -4,11 +4,11 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-22T18:20:12.729172+00:00",
+    "last_updated": "2026-11-23T03:27:38.867516+00:00",
     "avg_goals": 1.3,
-    "total_matches": 125,
-    "total_goals": 381,
-    "avg_real": 1.524
+    "total_matches": 127,
+    "total_goals": 395,
+    "avg_real": 1.555
   },
   "standings": [
     {
@@ -32,24 +32,24 @@
       "pts": 30
     },
     {
-      "team": "Inter Milan",
-      "pj": 11,
-      "gf": 28,
-      "ga": 13,
-      "w": 9,
-      "d": 1,
-      "l": 1,
-      "pts": 28
-    },
-    {
       "team": "AC Milan",
-      "pj": 12,
-      "gf": 25,
-      "ga": 14,
-      "w": 8,
+      "pj": 13,
+      "gf": 30,
+      "ga": 15,
+      "w": 9,
       "d": 3,
       "l": 1,
-      "pts": 27
+      "pts": 30
+    },
+    {
+      "team": "Inter Milan",
+      "pj": 12,
+      "gf": 32,
+      "ga": 17,
+      "w": 9,
+      "d": 2,
+      "l": 1,
+      "pts": 29
     },
     {
       "team": "Como",
@@ -73,12 +73,12 @@
     },
     {
       "team": "Frosinone",
-      "pj": 11,
-      "gf": 24,
-      "ga": 15,
+      "pj": 12,
+      "gf": 25,
+      "ga": 20,
       "w": 6,
       "d": 2,
-      "l": 3,
+      "l": 4,
       "pts": 20
     },
     {
@@ -123,13 +123,13 @@
     },
     {
       "team": "Atalanta",
-      "pj": 11,
-      "gf": 17,
-      "ga": 20,
+      "pj": 12,
+      "gf": 21,
+      "ga": 24,
       "w": 4,
-      "d": 2,
+      "d": 3,
       "l": 5,
-      "pts": 14
+      "pts": 15
     },
     {
       "team": "Torino",
@@ -1352,16 +1352,25 @@
       "hg": 0,
       "ag": 2,
       "matchday": 12
+    },
+    {
+      "date": "2026-11-22",
+      "home": "AC Milan",
+      "away": "Frosinone",
+      "hg": 5,
+      "ag": 1,
+      "matchday": 12
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Atalanta",
+      "away": "Inter Milan",
+      "hg": 4,
+      "ag": 4,
+      "matchday": 12
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-22",
-      "time": "02:45 PM",
-      "home": "Atalanta",
-      "away": "Inter Milan",
-      "matchday": 12
-    },
     {
       "date": "2026-11-23",
       "time": "02:45 PM",

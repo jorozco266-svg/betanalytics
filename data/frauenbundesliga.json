@@ -4,11 +4,11 @@
     "league_key": "frauenbundesliga",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-22T18:20:19.556520+00:00",
+    "last_updated": "2026-11-23T03:27:45.067793+00:00",
     "avg_goals": 1.72,
-    "total_matches": 75,
-    "total_goals": 266,
-    "avg_real": 1.773
+    "total_matches": 76,
+    "total_goals": 267,
+    "avg_real": 1.757
   },
   "standings": [
     {
@@ -134,20 +134,20 @@
     {
       "team": "1. FC Nürnberg",
       "gf": 16,
-      "ga": 24,
-      "pj": 10,
+      "ga": 25,
+      "pj": 11,
       "pts": 8,
       "w": 2,
       "d": 2,
-      "l": 6
+      "l": 7
     },
     {
       "team": "Mainz 05",
-      "gf": 6,
+      "gf": 7,
       "ga": 36,
-      "pj": 10,
-      "pts": 0,
-      "w": 0,
+      "pj": 11,
+      "pts": 3,
+      "w": 1,
       "d": 0,
       "l": 10
     }

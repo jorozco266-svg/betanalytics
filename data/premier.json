@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-22T18:20:10.050249+00:00",
+    "last_updated": "2026-11-23T03:27:37.081460+00:00",
     "avg_goals": 1.4,
-    "total_matches": 110,
-    "total_goals": 300,
-    "avg_real": 1.364
+    "total_matches": 111,
+    "total_goals": 304,
+    "avg_real": 1.369
   },
   "standings": [
     {
@@ -42,6 +42,16 @@
       "pts": 22
     },
     {
+      "team": "Liverpool",
+      "pj": 11,
+      "gf": 18,
+      "ga": 10,
+      "w": 6,
+      "d": 3,
+      "l": 2,
+      "pts": 21
+    },
+    {
       "team": "Bournemouth",
       "pj": 11,
       "gf": 18,
@@ -49,16 +59,6 @@
       "w": 5,
       "d": 3,
       "l": 3,
-      "pts": 18
-    },
-    {
-      "team": "Liverpool",
-      "pj": 10,
-      "gf": 14,
-      "ga": 10,
-      "w": 5,
-      "d": 3,
-      "l": 2,
       "pts": 18
     },
     {
@@ -193,12 +193,12 @@
     },
     {
       "team": "Manchester United",
-      "pj": 10,
+      "pj": 11,
       "gf": 14,
-      "ga": 19,
+      "ga": 23,
       "w": 1,
       "d": 5,
-      "l": 4,
+      "l": 5,
       "pts": 8
     },
     {
@@ -1112,6 +1112,14 @@
       "hg": 2,
       "ag": 0,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Liverpool",
+      "away": "Manchester United",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 11
     }
   ],
   "fixtures": [
@@ -1253,6 +1261,13 @@
       "time": "03:15 PM",
       "home": "Bournemouth",
       "away": "Brighton",
+      "matchday": 13
+    },
+    {
+      "date": "2026-12-03",
+      "time": "03:00 PM",
+      "home": "Tottenham",
+      "away": "Fulham",
       "matchday": 13
     }
   ],
