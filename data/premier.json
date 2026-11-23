@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-23T03:27:37.081460+00:00",
+    "last_updated": "2026-11-23T22:29:06.421660+00:00",
     "avg_goals": 1.4,
-    "total_matches": 111,
-    "total_goals": 304,
-    "avg_real": 1.369
+    "total_matches": 112,
+    "total_goals": 308,
+    "avg_real": 1.375
   },
   "standings": [
     {
@@ -62,6 +62,16 @@
       "pts": 18
     },
     {
+      "team": "Brentford",
+      "pj": 11,
+      "gf": 20,
+      "ga": 11,
+      "w": 4,
+      "d": 5,
+      "l": 2,
+      "pts": 17
+    },
+    {
       "team": "Leeds United",
       "pj": 11,
       "gf": 14,
@@ -70,16 +80,6 @@
       "d": 5,
       "l": 2,
       "pts": 17
-    },
-    {
-      "team": "Everton",
-      "pj": 10,
-      "gf": 12,
-      "ga": 10,
-      "w": 4,
-      "d": 4,
-      "l": 2,
-      "pts": 16
     },
     {
       "team": "Chelsea",
@@ -92,6 +92,16 @@
       "pts": 16
     },
     {
+      "team": "Everton",
+      "pj": 11,
+      "gf": 12,
+      "ga": 14,
+      "w": 4,
+      "d": 4,
+      "l": 3,
+      "pts": 16
+    },
+    {
       "team": "Tottenham",
       "pj": 11,
       "gf": 12,
@@ -100,16 +110,6 @@
       "d": 3,
       "l": 4,
       "pts": 15
-    },
-    {
-      "team": "Brentford",
-      "pj": 10,
-      "gf": 16,
-      "ga": 11,
-      "w": 3,
-      "d": 5,
-      "l": 2,
-      "pts": 14
     },
     {
       "team": "Hull City",
@@ -1120,16 +1120,17 @@
       "hg": 4,
       "ag": 0,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-23",
+      "home": "Brentford",
+      "away": "Everton",
+      "hg": 4,
+      "ag": 0,
+      "matchday": 11
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-23",
-      "time": "03:00 PM",
-      "home": "Brentford",
-      "away": "Everton",
-      "matchday": 11
-    },
     {
       "date": "2026-11-27",
       "time": "03:00 PM",
