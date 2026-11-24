@@ -4,11 +4,11 @@
     "league_key": "champions",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-15T02:21:01.835952+00:00",
+    "last_updated": "2026-11-24T21:01:25.989856+00:00",
     "avg_goals": 1.45,
-    "total_matches": 261,
-    "total_goals": 953,
-    "avg_real": 1.826
+    "total_matches": 263,
+    "total_goals": 955,
+    "avg_real": 1.816
   },
   "standings": [
     {
@@ -102,6 +102,26 @@
       "pts": 25
     },
     {
+      "team": "Galatasaray SK",
+      "pj": 17,
+      "gf": 26,
+      "ga": 29,
+      "w": 8,
+      "d": 1,
+      "l": 8,
+      "pts": 25
+    },
+    {
+      "team": "FK Bodø/Glimt",
+      "pj": 17,
+      "gf": 27,
+      "ga": 31,
+      "w": 7,
+      "d": 4,
+      "l": 6,
+      "pts": 25
+    },
+    {
       "team": "Borussia Dortmund",
       "pj": 14,
       "gf": 29,
@@ -110,26 +130,6 @@
       "d": 2,
       "l": 5,
       "pts": 23
-    },
-    {
-      "team": "Galatasaray SK",
-      "pj": 16,
-      "gf": 25,
-      "ga": 29,
-      "w": 7,
-      "d": 1,
-      "l": 8,
-      "pts": 22
-    },
-    {
-      "team": "FK Bodø/Glimt",
-      "pj": 16,
-      "gf": 26,
-      "ga": 31,
-      "w": 6,
-      "d": 4,
-      "l": 6,
-      "pts": 22
     },
     {
       "team": "Newcastle United FC",
@@ -273,12 +273,12 @@
     },
     {
       "team": "Aston Villa FC",
-      "pj": 4,
+      "pj": 5,
       "gf": 12,
-      "ga": 6,
+      "ga": 7,
       "w": 3,
       "d": 0,
-      "l": 1,
+      "l": 2,
       "pts": 9
     },
     {
@@ -363,12 +363,12 @@
     },
     {
       "team": "LASK Linz",
-      "pj": 4,
+      "pj": 5,
       "gf": 10,
-      "ga": 9,
+      "ga": 10,
       "w": 2,
       "d": 0,
-      "l": 2,
+      "l": 3,
       "pts": 6
     },
     {
@@ -2640,72 +2640,25 @@
       "hg": 4,
       "ag": 1,
       "matchday": 4
+    },
+    {
+      "date": "2026-11-24",
+      "home": "Galatasaray SK",
+      "away": "Aston Villa FC",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 5
+    },
+    {
+      "date": "2026-11-24",
+      "home": "FK Bodø/Glimt",
+      "away": "LASK Linz",
+      "hg": 1,
+      "ag": 0,
+      "matchday": 5
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "Real Madrid CF",
-      "away": "PSV",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "Manchester City FC",
-      "away": "SSC Napoli",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "Arsenal FC",
-      "away": "Borussia Dortmund",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "Feyenoord Rotterdam",
-      "away": "FC Porto",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "ŠK Slovan Bratislava",
-      "away": "Real Betis Balompié",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "RB Leipzig",
-      "away": "Racing Club de Lens",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "03:00 PM",
-      "home": "Como 1907",
-      "away": "PAE AEK",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "12:45 PM",
-      "home": "Galatasaray SK",
-      "away": "Aston Villa FC",
-      "matchday": 5
-    },
-    {
-      "date": "2026-11-24",
-      "time": "12:45 PM",
-      "home": "FK Bodø/Glimt",
-      "away": "LASK Linz",
-      "matchday": 5
-    },
     {
       "date": "2026-11-25",
       "time": "03:00 PM",
