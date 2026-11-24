@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-23T22:29:07.935155+00:00",
+    "last_updated": "2026-11-24T06:42:16.488403+00:00",
     "avg_goals": 1.3,
     "total_matches": 128,
     "total_goals": 398,
@@ -1448,6 +1448,13 @@
       "home": "Lecce",
       "away": "Atalanta",
       "matchday": 13
+    },
+    {
+      "date": "2026-12-04",
+      "time": "02:45 PM",
+      "home": "Bologna",
+      "away": "Roma",
+      "matchday": 14
     }
   ],
   "hist_season": {

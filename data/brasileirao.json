@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-23T03:27:35.545949+00:00",
+    "last_updated": "2026-11-24T06:42:14.213587+00:00",
     "avg_goals": 1.35,
-    "total_matches": 356,
-    "total_goals": 942,
-    "avg_real": 1.323
+    "total_matches": 359,
+    "total_goals": 953,
+    "avg_real": 1.327
   },
   "standings": [
     {
@@ -94,12 +94,12 @@
     {
       "team": "Santos",
       "gf": 51,
-      "ga": 49,
-      "pj": 35,
+      "ga": 51,
+      "pj": 36,
       "pts": 50,
       "w": 13,
       "d": 11,
-      "l": 11
+      "l": 12
     },
     {
       "team": "Vasco da Gama",
@@ -109,6 +109,16 @@
       "pts": 47,
       "w": 13,
       "d": 8,
+      "l": 15
+    },
+    {
+      "team": "São Paulo",
+      "gf": 40,
+      "ga": 41,
+      "pj": 36,
+      "pts": 45,
+      "w": 12,
+      "d": 9,
       "l": 15
     },
     {
@@ -122,34 +132,34 @@
       "l": 15
     },
     {
-      "team": "São Paulo",
-      "gf": 39,
-      "ga": 40,
-      "pj": 35,
+      "team": "Vitória",
+      "gf": 42,
+      "ga": 54,
+      "pj": 36,
       "pts": 44,
       "w": 12,
       "d": 8,
-      "l": 15
+      "l": 16
     },
     {
       "team": "Botafogo",
-      "gf": 46,
-      "ga": 57,
-      "pj": 35,
-      "pts": 42,
+      "gf": 47,
+      "ga": 58,
+      "pj": 36,
+      "pts": 43,
       "w": 11,
-      "d": 9,
+      "d": 10,
       "l": 15
     },
     {
-      "team": "Vitória",
-      "gf": 37,
-      "ga": 52,
-      "pj": 35,
+      "team": "Grêmio",
+      "gf": 40,
+      "ga": 47,
+      "pj": 36,
       "pts": 41,
-      "w": 11,
-      "d": 8,
-      "l": 16
+      "w": 10,
+      "d": 11,
+      "l": 15
     },
     {
       "team": "Mirassol",
@@ -173,23 +183,13 @@
     },
     {
       "team": "Internacional",
-      "gf": 39,
-      "ga": 44,
-      "pj": 35,
+      "gf": 41,
+      "ga": 49,
+      "pj": 36,
       "pts": 38,
       "w": 9,
       "d": 11,
-      "l": 15
-    },
-    {
-      "team": "Grêmio",
-      "gf": 38,
-      "ga": 47,
-      "pj": 35,
-      "pts": 38,
-      "w": 9,
-      "d": 11,
-      "l": 15
+      "l": 16
     },
     {
       "team": "Remo",

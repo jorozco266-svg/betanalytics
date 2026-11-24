@@ -4,7 +4,7 @@
     "league_key": "ligue1",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-23T03:27:40.294329+00:00",
+    "last_updated": "2026-11-24T06:42:17.628138+00:00",
     "avg_goals": 1.35,
     "total_matches": 109,
     "total_goals": 320,
@@ -1299,6 +1299,13 @@
       "home": "Toulouse",
       "away": "Rennes",
       "matchday": 12
+    },
+    {
+      "date": "2026-12-04",
+      "time": "02:45 PM",
+      "home": "Toulouse",
+      "away": "Paris Saint-Germain",
+      "matchday": 13
     }
   ],
   "hist_season": {
