@@ -4,7 +4,7 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-23T22:29:06.421660+00:00",
+    "last_updated": "2026-11-25T05:12:03.922522+00:00",
     "avg_goals": 1.4,
     "total_matches": 112,
     "total_goals": 308,
@@ -1270,6 +1270,55 @@
       "home": "Tottenham",
       "away": "Fulham",
       "matchday": 13
+    },
+    {
+      "date": "2026-12-05",
+      "time": "03:00 PM",
+      "home": "Brentford",
+      "away": "Manchester City",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "07:30 AM",
+      "home": "Chelsea",
+      "away": "Liverpool",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "10:00 AM",
+      "home": "Manchester United",
+      "away": "Coventry City",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "10:00 AM",
+      "home": "Leeds United",
+      "away": "Ipswich Town",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "10:00 AM",
+      "home": "Bournemouth",
+      "away": "Hull City",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "10:00 AM",
+      "home": "Aston Villa",
+      "away": "Crystal Palace",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "12:30 PM",
+      "home": "Nottingham Forest",
+      "away": "Brighton",
+      "matchday": 14
     }
   ],
   "hist_season": {

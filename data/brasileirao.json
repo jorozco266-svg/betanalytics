@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-24T06:42:14.213587+00:00",
+    "last_updated": "2026-11-25T05:12:01.956804+00:00",
     "avg_goals": 1.35,
-    "total_matches": 359,
-    "total_goals": 953,
-    "avg_real": 1.327
+    "total_matches": 360,
+    "total_goals": 956,
+    "avg_real": 1.328
   },
   "standings": [
     {
@@ -24,12 +24,12 @@
     {
       "team": "Palmeiras",
       "gf": 64,
-      "ga": 26,
-      "pj": 36,
+      "ga": 29,
+      "pj": 37,
       "pts": 74,
       "w": 21,
       "d": 11,
-      "l": 4
+      "l": 5
     },
     {
       "team": "Cruzeiro",
@@ -203,11 +203,11 @@
     },
     {
       "team": "Chapecoense",
-      "gf": 34,
+      "gf": 37,
       "ga": 74,
-      "pj": 36,
-      "pts": 21,
-      "w": 4,
+      "pj": 37,
+      "pts": 24,
+      "w": 5,
       "d": 9,
       "l": 23
     }

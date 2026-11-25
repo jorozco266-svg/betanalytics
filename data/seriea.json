@@ -4,7 +4,7 @@
     "league_key": "seriea",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-24T06:42:16.488403+00:00",
+    "last_updated": "2026-11-25T05:12:05.323700+00:00",
     "avg_goals": 1.3,
     "total_matches": 128,
     "total_goals": 398,
@@ -1454,6 +1454,27 @@
       "time": "02:45 PM",
       "home": "Bologna",
       "away": "Roma",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "02:45 PM",
+      "home": "Napoli",
+      "away": "Lecce",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "09:00 AM",
+      "home": "Monza",
+      "away": "Como",
+      "matchday": 14
+    },
+    {
+      "date": "2026-12-05",
+      "time": "12:00 PM",
+      "home": "Frosinone",
+      "away": "Inter Milan",
       "matchday": 14
     }
   ],
