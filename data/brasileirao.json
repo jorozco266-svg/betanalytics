@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-25T05:12:01.956804+00:00",
+    "last_updated": "2026-11-26T04:40:06.587362+00:00",
     "avg_goals": 1.35,
-    "total_matches": 360,
-    "total_goals": 956,
-    "avg_real": 1.328
+    "total_matches": 361,
+    "total_goals": 958,
+    "avg_real": 1.327
   },
   "standings": [
     {
@@ -73,12 +73,12 @@
     },
     {
       "team": "Atlético Mineiro",
-      "gf": 44,
-      "ga": 40,
-      "pj": 35,
-      "pts": 51,
+      "gf": 45,
+      "ga": 41,
+      "pj": 36,
+      "pts": 52,
       "w": 14,
-      "d": 9,
+      "d": 10,
       "l": 12
     },
     {
@@ -152,6 +152,16 @@
       "l": 15
     },
     {
+      "team": "Corinthians",
+      "gf": 41,
+      "ga": 43,
+      "pj": 36,
+      "pts": 41,
+      "w": 10,
+      "d": 11,
+      "l": 15
+    },
+    {
       "team": "Grêmio",
       "gf": 40,
       "ga": 47,
@@ -169,16 +179,6 @@
       "pts": 41,
       "w": 10,
       "d": 11,
-      "l": 15
-    },
-    {
-      "team": "Corinthians",
-      "gf": 40,
-      "ga": 42,
-      "pj": 35,
-      "pts": 40,
-      "w": 10,
-      "d": 10,
       "l": 15
     },
     {
