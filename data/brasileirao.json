@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-26T04:40:06.587362+00:00",
+    "last_updated": "2026-11-27T04:44:01.732525+00:00",
     "avg_goals": 1.35,
-    "total_matches": 361,
-    "total_goals": 958,
-    "avg_real": 1.327
+    "total_matches": 362,
+    "total_goals": 962,
+    "avg_real": 1.329
   },
   "standings": [
     {
@@ -102,6 +102,16 @@
       "l": 12
     },
     {
+      "team": "São Paulo",
+      "gf": 43,
+      "ga": 42,
+      "pj": 37,
+      "pts": 48,
+      "w": 13,
+      "d": 9,
+      "l": 15
+    },
+    {
       "team": "Vasco da Gama",
       "gf": 47,
       "ga": 52,
@@ -109,16 +119,6 @@
       "pts": 47,
       "w": 13,
       "d": 8,
-      "l": 15
-    },
-    {
-      "team": "São Paulo",
-      "gf": 40,
-      "ga": 41,
-      "pj": 36,
-      "pts": 45,
-      "w": 12,
-      "d": 9,
       "l": 15
     },
     {
@@ -193,13 +193,13 @@
     },
     {
       "team": "Remo",
-      "gf": 41,
-      "ga": 61,
-      "pj": 36,
+      "gf": 42,
+      "ga": 64,
+      "pj": 37,
       "pts": 32,
       "w": 7,
       "d": 11,
-      "l": 18
+      "l": 19
     },
     {
       "team": "Chapecoense",
