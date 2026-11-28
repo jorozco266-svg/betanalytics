@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-26T04:40:07.559783+00:00",
+    "last_updated": "2026-11-28T04:28:32.365711+00:00",
     "avg_goals": 1.4,
-    "total_matches": 112,
-    "total_goals": 308,
-    "avg_real": 1.375
+    "total_matches": 113,
+    "total_goals": 313,
+    "avg_real": 1.385
   },
   "standings": [
     {
@@ -83,12 +83,12 @@
     },
     {
       "team": "Chelsea",
-      "pj": 11,
-      "gf": 20,
-      "ga": 20,
+      "pj": 12,
+      "gf": 22,
+      "ga": 23,
       "w": 5,
       "d": 1,
-      "l": 5,
+      "l": 6,
       "pts": 16
     },
     {
@@ -142,6 +142,16 @@
       "pts": 13
     },
     {
+      "team": "Nottingham Forest",
+      "pj": 13,
+      "gf": 12,
+      "ga": 18,
+      "w": 3,
+      "d": 3,
+      "l": 7,
+      "pts": 12
+    },
+    {
       "team": "Coventry City",
       "pj": 11,
       "gf": 13,
@@ -170,16 +180,6 @@
       "d": 2,
       "l": 6,
       "pts": 11
-    },
-    {
-      "team": "Nottingham Forest",
-      "pj": 12,
-      "gf": 9,
-      "ga": 16,
-      "w": 2,
-      "d": 3,
-      "l": 7,
-      "pts": 9
     },
     {
       "team": "Sunderland",
@@ -1128,16 +1128,17 @@
       "hg": 4,
       "ag": 0,
       "matchday": 11
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Nottingham Forest",
+      "away": "Chelsea",
+      "hg": 3,
+      "ag": 2,
+      "matchday": 12
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-27",
-      "time": "03:00 PM",
-      "home": "Nottingham Forest",
-      "away": "Chelsea",
-      "matchday": 12
-    },
     {
       "date": "2026-11-28",
       "time": "10:00 AM",

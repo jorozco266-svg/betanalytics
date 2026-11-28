@@ -4,11 +4,11 @@
     "league_key": "brasileirao",
     "season": "2026-2027",
     "source": "wikipedia",
-    "last_updated": "2026-11-27T04:44:01.732525+00:00",
+    "last_updated": "2026-11-28T04:28:31.177247+00:00",
     "avg_goals": 1.35,
-    "total_matches": 362,
-    "total_goals": 962,
-    "avg_real": 1.329
+    "total_matches": 363,
+    "total_goals": 963,
+    "avg_real": 1.326
   },
   "standings": [
     {
@@ -33,23 +33,23 @@
     },
     {
       "team": "Cruzeiro",
-      "gf": 59,
+      "gf": 60,
       "ga": 50,
-      "pj": 36,
-      "pts": 66,
-      "w": 20,
+      "pj": 37,
+      "pts": 69,
+      "w": 21,
       "d": 6,
       "l": 10
     },
     {
       "team": "Fluminense",
       "gf": 57,
-      "ga": 42,
-      "pj": 36,
+      "ga": 43,
+      "pj": 37,
       "pts": 63,
       "w": 18,
       "d": 9,
-      "l": 9
+      "l": 10
     },
     {
       "team": "Athletico Paranaense",
