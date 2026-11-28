@@ -4,11 +4,11 @@
     "league_key": "premier",
     "season": "current",
     "source": "footballdata",
-    "last_updated": "2026-11-28T04:28:32.365711+00:00",
+    "last_updated": "2026-11-28T18:42:59.858535+00:00",
     "avg_goals": 1.4,
-    "total_matches": 113,
-    "total_goals": 313,
-    "avg_real": 1.385
+    "total_matches": 115,
+    "total_goals": 320,
+    "avg_real": 1.391
   },
   "standings": [
     {
@@ -52,6 +52,26 @@
       "pts": 21
     },
     {
+      "team": "Brentford",
+      "pj": 12,
+      "gf": 24,
+      "ga": 11,
+      "w": 5,
+      "d": 5,
+      "l": 2,
+      "pts": 20
+    },
+    {
+      "team": "Leeds United",
+      "pj": 12,
+      "gf": 17,
+      "ga": 9,
+      "w": 5,
+      "d": 5,
+      "l": 2,
+      "pts": 20
+    },
+    {
       "team": "Bournemouth",
       "pj": 11,
       "gf": 18,
@@ -60,26 +80,6 @@
       "d": 3,
       "l": 3,
       "pts": 18
-    },
-    {
-      "team": "Brentford",
-      "pj": 11,
-      "gf": 20,
-      "ga": 11,
-      "w": 4,
-      "d": 5,
-      "l": 2,
-      "pts": 17
-    },
-    {
-      "team": "Leeds United",
-      "pj": 11,
-      "gf": 14,
-      "ga": 9,
-      "w": 4,
-      "d": 5,
-      "l": 2,
-      "pts": 17
     },
     {
       "team": "Chelsea",
@@ -153,12 +153,12 @@
     },
     {
       "team": "Coventry City",
-      "pj": 11,
+      "pj": 12,
       "gf": 13,
-      "ga": 21,
+      "ga": 24,
       "w": 4,
       "d": 0,
-      "l": 7,
+      "l": 8,
       "pts": 12
     },
     {
@@ -193,12 +193,12 @@
     },
     {
       "team": "Manchester United",
-      "pj": 11,
+      "pj": 12,
       "gf": 14,
-      "ga": 23,
+      "ga": 27,
       "w": 1,
       "d": 5,
-      "l": 5,
+      "l": 6,
       "pts": 8
     },
     {
@@ -1136,30 +1136,25 @@
       "hg": 3,
       "ag": 2,
       "matchday": 12
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Leeds United",
+      "away": "Coventry City",
+      "hg": 3,
+      "ag": 0,
+      "matchday": 12
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Manchester United",
+      "away": "Brentford",
+      "hg": 0,
+      "ag": 4,
+      "matchday": 12
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-28",
-      "time": "10:00 AM",
-      "home": "Leeds United",
-      "away": "Coventry City",
-      "matchday": 12
-    },
-    {
-      "date": "2026-11-28",
-      "time": "10:00 AM",
-      "home": "Manchester United",
-      "away": "Brentford",
-      "matchday": 12
-    },
-    {
-      "date": "2026-11-28",
-      "time": "12:30 PM",
-      "home": "Ipswich Town",
-      "away": "Aston Villa",
-      "matchday": 12
-    },
     {
       "date": "2026-11-29",
       "time": "07:00 AM",
